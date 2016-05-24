@@ -11,6 +11,7 @@ var gulp = require('gulp'),
 var webpackConfig = require('./webpack/webpack.config.js'),
     exampleConfig = require('./webpack/example.config.js');
 var WebpackDevServer = require("webpack-dev-server");
+var projectName = require("./package.json").name;
 var devPort = 3005;
 gulp.task('babel', function () {
     return gulp.src('src/**/*.js')
@@ -21,8 +22,7 @@ gulp.task('open', function () {
     gulp.src(__filename)
         .pipe(open({uri: 'http://127.0.0.1:' + devPort + '/examples/index.html'}));
 });
-gulp.task('devTask', function (done) {
-    console.log('fuck')
+gulp.task('demoBuild', function (done) {
     var wbpk = Object.create(exampleConfig);
     wbpk.devtool = 'eval';
     wbpk.entry = [
@@ -88,7 +88,7 @@ gulp.task('exampleWebpack', function (done) {
 });
 gulp.task('min-webpack', function (done) {
     var wbpk = Object.create(webpackConfig);
-    wbpk.output.filename = 'phoenix-ui.min.js';
+    wbpk.output.filename = projectName+'.min.js';
     wbpk.plugins = [
         new webpack.optimize.UglifyJsPlugin()
     ];
@@ -107,6 +107,6 @@ gulp.task('karma', function (done) {
     }, done).start();
 });
 gulp.task('default', ['babel', 'webpack', 'exampleWebpack']);
-gulp.task('dev', ['devTask', 'open']);
+gulp.task('demo', ['demoBuild', 'open']);
 gulp.task('min', ['min-webpack']);
 gulp.task('test',['karma']);

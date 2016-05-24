@@ -1,3 +1,4 @@
+var projectName = require("./package.json").name;
 module.exports = {
     //扫描的文件路径
     paths: ['src/'],
@@ -12,11 +13,11 @@ module.exports = {
     project: {
 
         //项目名称
-        name: 'phoenix-ui',
+        name: projectName,
 
         //项目描述，可以配置html，会生成到document主页
         description:
-        '<h3>欢迎使用基于react开发的app组件库phoenix-ui，左侧的导航栏为相关组件的名称和链接</h3>' +
+        '<h3>欢迎使用基于react开发的app组件库'+projectName+'，左侧的导航栏为相关组件的名称和链接</h3>' +
         '<p>&nbsp;</p>'+
         '<h4>该组件库为app组件库，什么？你说pc版？不要急我们也有。出门左转github搜索"eagle-ui"</h4>'+
         '<p>&nbsp;</p>'+
@@ -33,11 +34,11 @@ module.exports = {
         '</ol>'+
         '<strong>说明:</strong>左侧导航栏中对应的链接名字即为组件名字'+
         '<p>&nbsp;</p>'+
-        '<h4>您可以采用如下形式在项目中应用unicorn-ui</h4>'+
-        '<pre>import {CheckboxGroup}(根据您的需要引入组件) from \'phoenix-ui\'使用相关组件</pre>'+
+        '<h4>您可以采用如下形式在项目中应用'+projectName+'</h4>'+
+        '<pre>import {CheckboxGroup}(根据您的需要引入组件) from \''+projectName+'\'使用相关组件</pre>'+
         '或者' +
         '<pre>'+
-        '<div>&#60;script src="path to phoenix-ui.js" &#62;&#60;/script&#62;的形式使用phoenix-ui'+'</div></pre>',
+        '<div>&#60;script src="path to '+projectName+'.js" &#62;&#60;/script&#62;的形式使用'+projectName+'</div></pre>',
 
         //版本信息
         version: '0.1.0',

@@ -4,6 +4,7 @@
 var webpack = require('webpack'),
     path = require('path'),
     extend = require('extend');
+var projectName = require("../package.json").name;
 module.exports = {
     entry: [path.join(process.cwd(),'src/index.js')],
     devtoll:'source-map',
@@ -17,7 +18,7 @@ module.exports = {
     output: {
         libraryTarget: 'umd',
         path: path.join(process.cwd(),'dist'),
-        filename: 'phoenix-ui.js'
+        filename: projectName+'.js'
     },
     externals:[{
         'react': {

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "gulp || node_modules/.bin/gulp",
-    "dev": "gulp dev || node_modules/.bin/gulp dev",
+    "demo": "gulp demo || node_modules/.bin/gulp demo",
     "test": "karma start",
     "doc": "smartDoc ||node_modules/.bin/smartDoc",
     "docBuild": "node_modules/.bin/gulp  && smartDoc ||node_modules/.bin/smartDoc && node docTheme/addFile.js"
