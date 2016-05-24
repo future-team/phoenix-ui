@@ -4,9 +4,11 @@
   "description": "future team ui for appwith react",
   "main": "index.js",
   "scripts": {
-    "build":"gulp || node_modules/.bin/gulp",
+    "build": "gulp || node_modules/.bin/gulp",
     "dev": "gulp dev || node_modules/.bin/gulp dev",
-    "test": "karma start"
+    "test": "karma start",
+    "doc": "smartDoc ||node_modules/.bin/smartDoc",
+    "docBuild": "node_modules/.bin/gulp  && smartDoc ||node_modules/.bin/smartDoc && node docTheme/addFile.js"
   },
   "repository": {
     "type": "git",

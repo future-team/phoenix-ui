@@ -1,0 +1,401 @@
+{
+    "project": {
+        "name": "phoenix-ui",
+        "description": "<h3>欢迎使用基于react开发的app组件库phoenix-ui，左侧的导航栏为相关组件的名称和链接</h3><p>&nbsp;</p><h4>该组件库为app组件库，什么？你说pc版？不要急我们也有。出门左转github搜索\"eagle-ui\"</h4><p>&nbsp;</p><h4>知道你很懒，来吧传送门猛戳<a href=\"http://uedfamily.com/documents/eagle-ui/doc/\">eagle-ui</a></h4><p>&nbsp;</p><h4>您可以点击顶部导航栏的<strong><a href=\"/documents/eagle-ui/examples/\">示例</a></strong>，查看eagle-ui组件的UI效果及功能演示</h4><p>&nbsp;</p><h4>您可以通过如下方式查看组件的API</h4><ol><li><h4>在输入框中输入组件名字进行查询</h4></li><li><h4>点击左侧API导航栏</h4></li></ol><strong>说明:</strong>左侧导航栏中对应的链接名字即为组件名字<p>&nbsp;</p><h4>您可以采用如下形式在项目中应用unicorn-ui</h4><pre>import {CheckboxGroup}(根据您的需要引入组件) from 'phoenix-ui'使用相关组件</pre>或者<pre><div>&#60;script src=\"path to phoenix-ui.js\" &#62;&#60;/script&#62;的形式使用phoenix-ui</div></pre>",
+        "version": "0.1.0",
+        "url": "",
+        "navs": [
+            {
+                "name": "主页",
+                "url": ""
+            },
+            {
+                "name": "例子",
+                "url": "../examples/"
+            }
+        ]
+    },
+    "files": {
+        "src/utils/ClassNameMixin.js": {
+            "name": "src/utils/ClassNameMixin.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/utils/MethodMixin.js": {
+            "name": "src/utils/MethodMixin.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/utils/PropertyMixin.js": {
+            "name": "src/utils/PropertyMixin.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/utils/constants.js": {
+            "name": "src/utils/constants.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/utils/extend.js": {
+            "name": "src/utils/extend.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Input.js": {
+            "name": "src/Input.js",
+            "modules": {
+                "form(表单)": 1
+            },
+            "classes": {
+                "Input": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/index.js": {
+            "name": "src/index.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "form(表单)": {
+            "name": "form(表单)",
+            "submodules": {},
+            "classes": {
+                "Input": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/Input.js",
+            "line": 7,
+            "description": "- input组件，与基本的input类型相对应，改变了默认的风格，<br/>\n- 使用方式还是与基本的input相同，例如'Input type=\"radio\" name='nba' label=\"76ers\" value=\"76ers\"/'<br/>\n- 支持自定义className，内联style，以及自定义属性<br/>\n- 针对radio和checkbox，有disabled,checked等属性，对应于不同的状态。具体如下<br/>\n主要属性和接口：\n <ul>\n   <li>type:input的具体类型，对应基本input的type。默认为text<br>\n       如：<code>\n            Input type=\"radio\"\n          </code>\n   </li>\n   <li>label:标签内容，针对radio和checkbox类型。默认为空<br>\n       如：<code>\n            Input type=\"radio\" label=\"76ers\"\n          </code>\n   </li>\n   <li>checked:选中状态，同样针对radio和checkbox类型。默认为false<br>\n       如：<code>\n            Input type=\"radio\" label=\"76ers\" checked\n          </code>\n   </li>\n   <li>disabled:不可操作状态，再次针对radio和checkbox类型。默认为false<br>\n       如：<code>\n            Input type=\"radio\" label=\"76ers\" disabled\n          </code>\n   </li>\n </ul>"
+        }
+    },
+    "classes": {
+        "Input": {
+            "name": "Input",
+            "shortname": "Input",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "form(表单)",
+            "file": "src/Input.js",
+            "line": 7,
+            "description": "- input组件，与基本的input类型相对应，改变了默认的风格，<br/>\n- 使用方式还是与基本的input相同，例如'Input type=\"radio\" name='nba' label=\"76ers\" value=\"76ers\"/'<br/>\n- 支持自定义className，内联style，以及自定义属性<br/>\n- 针对radio和checkbox，有disabled,checked等属性，对应于不同的状态。具体如下<br/>\n主要属性和接口：\n <ul>\n   <li>type:input的具体类型，对应基本input的type。默认为text<br>\n       如：<code>\n            Input type=\"radio\"\n          </code>\n   </li>\n   <li>label:标签内容，针对radio和checkbox类型。默认为空<br>\n       如：<code>\n            Input type=\"radio\" label=\"76ers\"\n          </code>\n   </li>\n   <li>checked:选中状态，同样针对radio和checkbox类型。默认为false<br>\n       如：<code>\n            Input type=\"radio\" label=\"76ers\" checked\n          </code>\n   </li>\n   <li>disabled:不可操作状态，再次针对radio和checkbox类型。默认为false<br>\n       如：<code>\n            Input type=\"radio\" label=\"76ers\" disabled\n          </code>\n   </li>\n </ul>",
+            "extends": "Component",
+            "is_constructor": 1,
+            "since": "0.1.0",
+            "example": [
+                "\t/**\n\t * Created by panqianjin on 16/5/24.\n\t */\n\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport Input from '../../src/Input.js';\n\t\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Input type='text' value='aaa' />\n\t            </div>\n\t        );\n\t    }\n\t}",
+                "\t/**\n\t * Created by panqianjin on 16/5/24.\n\t */\n\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport Input from '../../src/Input.js';\n\t\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Input type='text' value='aaa' />\n\t            </div>\n\t        );\n\t    }\n\t}"
+            ],
+            "exampleTitles": [
+                "展示",
+                "源码"
+            ],
+            "show": true
+        }
+    },
+    "classitems": [
+        {
+            "file": "src/utils/ClassNameMixin.js",
+            "line": 1,
+            "description": "Created by mac on 15/9/7.",
+            "class": "Input"
+        },
+        {
+            "file": "src/utils/ClassNameMixin.js",
+            "line": 9,
+            "description": "给className添加前缀后返回className",
+            "itemtype": "method",
+            "name": "getClassName",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "从该字符串中去查找",
+                    "type": "String"
+                },
+                {
+                    "name": "pre",
+                    "description": "是否添加Component中定义的class前缀，默认添加",
+                    "type": "Boolean"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "Input"
+        },
+        {
+            "file": "src/utils/ClassNameMixin.js",
+            "line": 27,
+            "description": "验证props中的样式是否符合规则",
+            "itemtype": "method",
+            "name": "getClassNames",
+            "params": [
+                {
+                    "name": "props",
+                    "description": "从该对象中去查找",
+                    "type": "Object"
+                },
+                {
+                    "name": "pre",
+                    "description": "是否添加Component中定义的class前缀，默认添加",
+                    "type": "Boolean"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "Input"
+        },
+        {
+            "file": "src/utils/ClassNameMixin.js",
+            "line": 43,
+            "description": "给多个className添加前缀后返回",
+            "itemtype": "method",
+            "name": "getClassNamesForArguments",
+            "params": [
+                {
+                    "name": "arguments",
+                    "description": "多个class参数",
+                    "type": "Arguments String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "Input"
+        },
+        {
+            "file": "src/utils/ClassNameMixin.js",
+            "line": 65,
+            "description": "设置css类名前缀",
+            "itemtype": "method",
+            "name": "setPrefix",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "class名字",
+                    "type": "String"
+                },
+                {
+                    "name": "pre",
+                    "description": "是否添加前缀",
+                    "type": "Boolean"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "Input"
+        },
+        {
+            "file": "src/utils/ClassNameMixin.js",
+            "line": 84,
+            "description": "检查元素是否存在样式名",
+            "itemtype": "method",
+            "name": "hasClass",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "元素",
+                    "type": "Object"
+                },
+                {
+                    "name": "cls",
+                    "description": "需要检查的样式名",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Input"
+        },
+        {
+            "file": "src/utils/ClassNameMixin.js",
+            "line": 95,
+            "description": "给元素增加一个样式名",
+            "itemtype": "method",
+            "name": "addClass",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "元素",
+                    "type": "Object"
+                },
+                {
+                    "name": "cls",
+                    "description": "样式名",
+                    "type": "String"
+                }
+            ],
+            "class": "Input"
+        },
+        {
+            "file": "src/utils/ClassNameMixin.js",
+            "line": 104,
+            "description": "给元素删除一个样式名",
+            "itemtype": "method",
+            "name": "removeClass",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "元素",
+                    "type": "Object"
+                },
+                {
+                    "name": "cls",
+                    "description": "样式名",
+                    "type": "String"
+                }
+            ],
+            "class": "Input"
+        },
+        {
+            "file": "src/utils/MethodMixin.js",
+            "line": 1,
+            "description": "Created by mac on 16/1/3.",
+            "class": "Input"
+        },
+        {
+            "file": "src/utils/PropertyMixin.js",
+            "line": 1,
+            "description": "Created by mac on 16/1/3.",
+            "class": "Input"
+        },
+        {
+            "file": "src/utils/constants.js",
+            "line": 1,
+            "description": "Created by mac on 15/9/7.",
+            "class": "Input"
+        },
+        {
+            "file": "src/utils/constants.js",
+            "line": 12,
+            "description": "状态",
+            "class": "Input"
+        },
+        {
+            "file": "src/utils/constants.js",
+            "line": 63,
+            "description": "颜色",
+            "class": "Input"
+        },
+        {
+            "file": "src/utils/constants.js",
+            "line": 77,
+            "description": "form列表相关",
+            "class": "Input"
+        },
+        {
+            "file": "src/utils/extend.js",
+            "line": 5,
+            "description": "A recursive merge between two objects.",
+            "params": [
+                {
+                    "name": "base",
+                    "description": "- the object whose properties are to be overwritten. It\n                  should be either the root level or some nested level."
+                },
+                {
+                    "name": "override",
+                    "description": "- an object containing properties to be overwritten. It\n                  should have the same structure as the object object."
+                }
+            ],
+            "class": "Input"
+        },
+        {
+            "file": "src/Input.js",
+            "line": 1,
+            "description": "Created by panqianjin on 16/5/24.",
+            "class": "Input"
+        },
+        {
+            "file": "src/index.js",
+            "line": 1,
+            "description": "Created by panqianjin on 16/5/19.",
+            "class": "",
+            "module": "form(表单)"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "replacing incorrect tag: extend with extends",
+            "line": " src/Input.js:7"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/Input.js:7"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/Input.js:7"
+        },
+        {
+            "message": "unknown tag: show",
+            "line": " src/Input.js:7"
+        },
+        {
+            "message": "Missing item type\nCreated by mac on 15/9/7.",
+            "line": " src/utils/ClassNameMixin.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by mac on 16/1/3.",
+            "line": " src/utils/MethodMixin.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by mac on 16/1/3.",
+            "line": " src/utils/PropertyMixin.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by mac on 15/9/7.",
+            "line": " src/utils/constants.js:1"
+        },
+        {
+            "message": "Missing item type\n状态",
+            "line": " src/utils/constants.js:12"
+        },
+        {
+            "message": "Missing item type\n颜色",
+            "line": " src/utils/constants.js:63"
+        },
+        {
+            "message": "Missing item type\nform列表相关",
+            "line": " src/utils/constants.js:77"
+        },
+        {
+            "message": "Missing item type\nA recursive merge between two objects.",
+            "line": " src/utils/extend.js:5"
+        },
+        {
+            "message": "Missing item type\nCreated by panqianjin on 16/5/24.",
+            "line": " src/Input.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by panqianjin on 16/5/19.",
+            "line": " src/index.js:1"
+        }
+    ]
+}
