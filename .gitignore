@@ -40,3 +40,4 @@ thumbs.db
 .CVS
 .idea
 node_modules/
+examples/lib/
