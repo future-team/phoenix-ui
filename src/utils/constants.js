@@ -6,7 +6,7 @@
 function setNamespace(className) {
     return `${className}`;
 }
-const CLASS_NAME_NAMESPACE = 'uc';
+const CLASS_NAME_NAMESPACE = 'ph';
 
 export const classConstants = {
     /**
@@ -83,5 +83,9 @@ export const classConstants = {
     jump: setNamespace('link'),
     //最后一个item是否浮动
     right: setNamespace('lastItem'),
-    classNameNamespace: CLASS_NAME_NAMESPACE
+    classNameNamespace: CLASS_NAME_NAMESPACE,
+   /**
+    * tab
+    * */
+    vertical: setNamespace('vertical')
 };
