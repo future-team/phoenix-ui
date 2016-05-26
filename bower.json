@@ -1,0 +1,20 @@
+{
+  "name": "phoenix-ui",
+  "version": "0.0.0",
+  "homepage": "https://github.com/future-team/phoenix-ui",
+  "authors": [
+    "ainiderenxm <277407493@qq.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "examples/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "phoenix-styles": "*"
+  }
+}

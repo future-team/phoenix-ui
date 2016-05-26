@@ -61,11 +61,10 @@
     "webpack-bower-resolver": "0.0.1",
     "react-dom": "^0.14.3",
     "url-loader": "^0.5.7",
-    "webpack-dev-server": "^1.14.0"
+    "webpack-dev-server": "^1.14.0",
+    "colors": "^1.1.2",
+    "smartdoc": "^0.1.1"
   },
   "dependencies": {
-    "colors": "^1.1.2",
-    "smartdoc": "^0.1.1",
-    "ui-svg-icons": "^0.1.1"
   }
 }
