@@ -15,10 +15,10 @@ export default obj=>{
 
     let properties={
         /*以下属性都是数组里固定值*/
-        ucSize:function(val){
+        phSize:function(val){
             return getVal(['lg','sm','default','xs','md'],val);
         },
-        ucStyle:function(val){
+        phStyle:function(val){
             return getVal(['light','positive','calm','balanced','energized','assertive','lightbrown','lightgray'],val);
         },
         status:val=>{
@@ -34,7 +34,7 @@ export default obj=>{
         round:true,
         clearfix:true,
         clear:true,
-        ucHref:true,
+        phHref:true,
         show:true,
         hide:true,
         block:true,
@@ -100,12 +100,6 @@ export default obj=>{
                 type:'property',
                 value:val
             };
-        },
-        icon:val=>{
-            return {
-                type:'property',
-                value:val
-            }
         }
     };
 

@@ -6,8 +6,7 @@
 function setNamespace(className) {
     return `${className}`;
 }
-const CLASS_NAME_NAMESPACE = 'ph';
-
+const CLASS_NAME_NAMESPACE = '';
 export const classConstants = {
     /**
      * 状态
