@@ -68,7 +68,5 @@
     "webpack-dev-server": "^1.14.0",
     "colors": "^1.1.2",
     "smartdoc": "^0.1.1"
-  },
-  "dependencies": {
   }
 }
