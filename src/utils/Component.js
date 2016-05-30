@@ -112,6 +112,11 @@ export default class BaseComponent extends Component{
             }
         }
     }
+    filterClass(key){
+        let value =typeof(key)=='string'?this.props.classMapping[key]:key;
+
+        return value ? value : key;
+    }
     updateProperty(props,propList,styleList,otherProps){
         let propKey=props.key,
             propValue=props.value,
@@ -119,17 +124,17 @@ export default class BaseComponent extends Component{
 
         const type = 'property';
         if(propConfig ){
-
+            this.filterClass();
             switch (typeof(propConfig)){
                 case 'boolean':
                     if(propValue){
-                        propList.push(propKey);
+                        propList.push(this.filterClass(propKey) );
                     }
                     break;
                 case 'function':
                     let param = propConfig.call(this,propValue);
                     if(typeof(param) == 'string' ){
-                        propList.push(param);
+                        propList.push(this.filterClass(param) );
                     }else if(param.type && param.type == type){
                         this[propKey] = param.value;
                     }else{
@@ -140,7 +145,7 @@ export default class BaseComponent extends Component{
                     }
                     break;
                 default :
-                    propList.push(propConfig);
+                    propList.push(this.filterClass(propConfig) );
                     break;
             }
 
@@ -170,13 +175,13 @@ export default class BaseComponent extends Component{
         }else{
             return this.getClassName(p,false);
         }*/
-        return this.getClassName(p,false)+' '+this.getClassName(p);
+        return this.getClassName(p,false);//+' '+this.getClassName(p);
     }
 
     getStyles(style={}){
-
         let obj = {},
             styles = this._styles;
+
         /*propertyMixn里设置的和style相关的属性，比如*/
         for(let i=0,len=styles.length;i<len;i++){
             obj = extend({},obj,styles[i]);

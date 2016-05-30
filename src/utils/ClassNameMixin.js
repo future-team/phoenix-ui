@@ -70,7 +70,8 @@ export default obj=>{
      * @return {String}
      * */
     obj.prototype.setPrefix= function(name,pre=true){
-        var classArray=[consts.classNameNamespace];
+        var classArray=consts.classNameNamespace?[consts.classNameNamespace] :[];
+
         if(pre && this.props.classPrefix){
             classArray.push(this.props.classPrefix);
         }
@@ -78,7 +79,7 @@ export default obj=>{
             classArray.push(name);
         }
 
-        return classArray.join('-');
+        return classArray.join(classArray.length>1?'-':'');
     };
 
     /**

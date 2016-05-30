@@ -5,19 +5,7 @@ var webpack = require('webpack'),
     glob = require('glob'),
     path = require('path'),
     extend = require('extend');
-var getEntry = function () {
-    var basedir = path.join(process.cwd(), 'examples/src');
-    var files = glob.sync(path.join(basedir, '*.js'));
 
-    var webpackConfigEntry = {};
-
-    files.forEach(function (file) {
-        var relativePath = path.relative(basedir, file);
-
-        webpackConfigEntry[relativePath] = file;
-    });
-    return webpackConfigEntry;
-};
 module.exports = extend({},{
     entry: [path.join(process.cwd(), 'examples/src/index.js')],
     output: {

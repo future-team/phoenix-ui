@@ -2,7 +2,7 @@ import React,{PropTypes} from 'react';
 import Component from './utils/Component';
 import classnames from 'classnames';
 
-export default class Input extends Component{
+export default class Switch extends Component{
 
     static propTypes = {
         /**
@@ -34,41 +34,20 @@ export default class Input extends Component{
         super(props, context);
     }
 
-    otherView(type){
+    render(){
+
         return (
-            <label className="multi-group">
-                <div className={`ui-${type}`}>
-                    <input {...this.props} />
-                    <i></i>
-                </div>
-                <span>{this.props.label ||''}</span>
-            </label>
-        );
-    }
-
-    renderInput(type){
-        let html = <div></div>;
-
-        if(type =='checkbox' || type=='radio'){
-            html=this.otherView(type);
-        }else{
-            html = (<input {...this.props} className={
+            <label className={
                 classnames(
-                    'form-input',
+                    'label-switch',
                     this.getProperty(),
                     this.props.className
                 )
-                }/>);
-        }
-
-        return html;
-    }
-
-
-    render(){
-        let {componentTag:Component,type} = this.props;
-
-        return this.renderInput(type ? type:'text');
+                }>
+            <input  type="checkbox" {...this.props} />
+                <div className="checkbox"></div>
+            </label>
+        );
     }
 
 }

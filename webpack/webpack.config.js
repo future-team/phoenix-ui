@@ -1,10 +1,8 @@
-/**
- * Created by panqianjin on 16/5/19.
- */
 var webpack = require('webpack'),
     path = require('path'),
-    extend = require('extend');
-var projectName = require("../package.json").name;
+    extend = require('extend'),
+    projectName = require("../package.json").name;
+
 module.exports = {
     entry: [path.join(process.cwd(),'src/index.js')],
     devtoll:'source-map',

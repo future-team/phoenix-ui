@@ -1,27 +1,28 @@
-/**
- * Created by panqianjin on 16/5/19.
- */
+
 var gulp = require('gulp'),
     webpack = require('webpack'),
     less = require('gulp-less'),
     babel = require('gulp-babel'),
     gutil = require('gulp-util'),
     open = require('gulp-open'),
-    Server = require('karma').Server;
-var webpackConfig = require('./webpack/webpack.config.js'),
-    exampleConfig = require('./webpack/example.config.js');
-var WebpackDevServer = require("webpack-dev-server");
-var projectName = require("./package.json").name;
-var devPort = 3005;
+    Server = require('karma').Server,
+     webpackConfig = require('./webpack/webpack.config.js'),
+    exampleConfig = require('./webpack/example.config.js'),
+     WebpackDevServer = require("webpack-dev-server"),
+     projectName = require("./package.json").name,
+     devPort = 3005;
+
 gulp.task('babel', function () {
     return gulp.src('src/**/*.js')
         .pipe(babel())
         .pipe(gulp.dest('lib'))
 });
+
 gulp.task('open', function () {
     gulp.src(__filename)
         .pipe(open({uri: 'http://127.0.0.1:' + devPort + '/examples/index.html'}));
 });
+
 gulp.task('demoBuild', function (done) {
     var wbpk = Object.create(exampleConfig);
     wbpk.devtool = 'eval';
@@ -58,7 +59,9 @@ gulp.task('demoBuild', function (done) {
             loader: 'file-loader'
         }
     ];
+
     var compiler = webpack(wbpk);
+
     new WebpackDevServer(compiler, {
         publicPath: '/examples/dist/',
         hot: true,
@@ -72,6 +75,7 @@ gulp.task('demoBuild', function (done) {
             gutil.log("[webpack-dev-server]", "http://127.0.0.1:" + devPort + "/webpack-dev-server/index.html");
         });
 });
+
 gulp.task('webpack', function (done) {
     webpack(webpackConfig).run(function (err, stats) {
         if (err) throw new gutil.PluginError("webpack", err);
@@ -79,6 +83,7 @@ gulp.task('webpack', function (done) {
         done();
     });
 });
+
 gulp.task('exampleWebpack', function (done) {
     webpack(exampleConfig).run(function (err, stats) {
         if (err) throw new gutil.PluginError("exampleWebpack", err);
@@ -86,6 +91,7 @@ gulp.task('exampleWebpack', function (done) {
         done();
     });
 });
+
 gulp.task('min-webpack', function (done) {
     var wbpk = Object.create(webpackConfig);
     wbpk.output.filename = projectName+'.min.js';
@@ -100,12 +106,14 @@ gulp.task('min-webpack', function (done) {
         done();
     });
 });
+
 gulp.task('karma', function (done) {
     new Server({
         configFile: __dirname + '/karma.conf.js',
         singleRun: true
     }, done).start();
 });
+
 gulp.task('default', ['babel', 'webpack', 'exampleWebpack']);
 gulp.task('demo', ['demoBuild', 'open']);
 gulp.task('min', ['min-webpack']);
