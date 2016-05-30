@@ -66,5 +66,6 @@
     "smartdoc": "^0.1.1"
   },
   "dependencies": {
+    "ph-swipe": "^0.1.4"
   }
 }
