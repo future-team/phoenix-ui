@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src/index.js - phoenix-ui</title>
+    <title>src/Col.js - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -52,14 +52,48 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
-                    <a href="../modules/form(表单).html">form(表单)</a>
+                    <a href="../modules/grid.html">grid</a>
                 </dt>
                 <dd>
                     <ul>
                    
                        <li>
                             
-                           <a href="../classes/Input.html">Input</a>
+                           <a href="../classes/Col.html">Col</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Row.html">Row</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/Tab(选项卡).html">Tab(选项卡)</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Tab.html">Tab</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Tabset.html">Tabset</a>
                            <ul>
                                 
                            </ul>
@@ -100,19 +134,64 @@
             <div id="docs-main">
                 <div class="content">
                     <div class="page-header">
-    <h1>src/index.js <small>File</small></h1>
+    <h1>src/Col.js <small>File</small></h1>
 </div>
 
 <div class="file">
     <pre class="prettyprint linenums" id='src_code'>
+import React,{ PropTypes, Component } from &#x27;react&#x27;;
+import classnames from &#x27;classnames&#x27;;
+
 /**
- * Created by panqianjin on 16/5/19.
- */
-export Input from &#x27;./Input.js&#x27;;
-window[&#x27;phoenix&#x27;] = {};
-[&#x27;Input&#x27;].forEach(function(name){
-    phoenix[name] = exports[name];
-});
+ * 列
+ * @class Col
+ * @module grid
+ * @extends Component
+ * @constructor
+ * @since 0.1.0
+ * */
+export default class Col extends Component{
+
+    static propTypes = {
+        /**
+         * 占100份的多少份，目前支持5-100之间5的倍数、33（1\3）和66(2\3)
+         * @property width
+         * @type Integer
+         * */
+        width:PropTypes.string,
+        /**
+         * 偏移多少，，目前支持5-100之间5的倍数、33（1\3）和66(2\3)
+         * @property offset，默认不偏移
+         * @type Integer
+         * */
+        offset:PropTypes.string,
+        /**
+         * 竖直方向的排列是靠上、居中还是靠下
+         * @property offset，默认不偏移
+         * @type Integer
+         * */
+        align:React.PropTypes.oneOf([&#x27;top&#x27;, &#x27;bottom&#x27;,&#x27;center&#x27;])
+    };
+    static defaultProps = {
+        classPrefix:&#x27;col&#x27;
+    };
+    render(){
+        let  { width,offset,align,classPrefix, ...others } = this.props;
+        return (
+            &lt;div {...others} className={
+                classnames(
+                    &#x27;col&#x27;,
+                    this.props.width?&#x60;${classPrefix}-${width}&#x60;:&#x27;&#x27;,
+                    this.props.offset?&#x60;${classPrefix}-offset-${offset}&#x60;:&#x27;&#x27;,
+                    this.props.align?&#x60;${classPrefix}-${align}&#x60;:&#x27;&#x27;,
+                    this.props.className
+                )
+                }&gt;
+                {this.props.children}
+            &lt;/div&gt;
+        );
+    }
+}
     </pre>
 </div>
 

@@ -52,14 +52,48 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
-                    <a href="../modules/form(表单).html">form(表单)</a>
+                    <a href="../modules/grid.html">grid</a>
                 </dt>
                 <dd>
                     <ul>
                    
                        <li>
                             
-                           <a href="../classes/Input.html">Input</a>
+                           <a href="../classes/Col.html">Col</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Row.html">Row</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/Tab(选项卡).html">Tab(选项卡)</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Tab.html">Tab</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Tabset.html">Tabset</a>
                            <ul>
                                 
                            </ul>
@@ -105,59 +139,77 @@
 
 <div class="file">
     <pre class="prettyprint linenums" id='src_code'>
-/**
- * Created by panqianjin on 16/5/24.
- */
-import React,{ PropTypes, Component } from &#x27;react&#x27;;
-import ClassNameMixin from &#x27;./utils/ClassNameMixin&#x27;;
+import React,{PropTypes} from &#x27;react&#x27;;
+import Component from &#x27;./utils/Component&#x27;;
 import classnames from &#x27;classnames&#x27;;
-/**
- *  - input组件，与基本的input类型相对应，改变了默认的风格，&lt;br/&gt;
- *  - 使用方式还是与基本的input相同，例如&#x27;Input type=&quot;radio&quot; name=&#x27;nba&#x27; label=&quot;76ers&quot; value=&quot;76ers&quot;/&#x27;&lt;br/&gt;
- *  - 支持自定义className，内联style，以及自定义属性&lt;br/&gt;
- *  - 针对radio和checkbox，有disabled,checked等属性，对应于不同的状态。具体如下&lt;br/&gt;
- *  主要属性和接口：
- * &lt;ul&gt;
- *     &lt;li&gt;type:input的具体类型，对应基本input的type。默认为text&lt;br&gt;
- *         如：&lt;code&gt;
- *              Input type=&quot;radio&quot;
- *            &lt;/code&gt;
- *     &lt;/li&gt;
- *     &lt;li&gt;label:标签内容，针对radio和checkbox类型。默认为空&lt;br&gt;
- *         如：&lt;code&gt;
- *              Input type=&quot;radio&quot; label=&quot;76ers&quot;
- *            &lt;/code&gt;
- *     &lt;/li&gt;
- *     &lt;li&gt;checked:选中状态，同样针对radio和checkbox类型。默认为false&lt;br&gt;
- *         如：&lt;code&gt;
- *              Input type=&quot;radio&quot; label=&quot;76ers&quot; checked
- *            &lt;/code&gt;
- *     &lt;/li&gt;
- *     &lt;li&gt;disabled:不可操作状态，再次针对radio和checkbox类型。默认为false&lt;br&gt;
- *         如：&lt;code&gt;
- *              Input type=&quot;radio&quot; label=&quot;76ers&quot; disabled
- *            &lt;/code&gt;
- *     &lt;/li&gt;
- * &lt;/ul&gt;
- * @class Input
- * @module form(表单)
- * @extend Component
- * @constructor
- * @since 0.1.0
- * @demo input.js {展示}
- * @demo input.js {源码}
- * @show true
- * */
-@ClassNameMixin
-export default class Input extends Component {
-    render() {
+
+export default class Input extends Component{
+
+    static propTypes = {
+        /**
+         * 样式前缀
+         * @property classPrefix
+         * @type String
+         * @default btn
+         * */
+        classPrefix:PropTypes.string,
+        /**
+         * 标签tagName
+         * @property componentTag
+         * @type String
+         * @default a
+         * */
+        componentTag:PropTypes.string
+    };
+
+    static defaultProps = {
+        egSize:&#x27;&#x27;,
+        classPrefix:&#x27;&#x27;,
+        componentTag:&#x27;div&#x27;,
+        classMapping : {
+
+        }
+    };
+
+    constructor(props, context) {
+        super(props, context);
+    }
+
+    otherView(type){
         return (
-            &lt;div className={classnames(
-                   &#x27;test&#x27;
-                )} &gt;
-                &lt;input {...this.props} /&gt;
-            &lt;/div&gt;
+            &lt;label className=&quot;multi-group&quot;&gt;
+                &lt;div className={&#x60;ui-${type}&#x60;}&gt;
+                    &lt;input {...this.props} /&gt;
+                    &lt;i&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;span&gt;{this.props.label ||&#x27;&#x27;}&lt;/span&gt;
+            &lt;/label&gt;
         );
+    }
+
+    renderInput(type){
+        let html = &lt;div&gt;&lt;/div&gt;;
+
+        if(type ==&#x27;checkbox&#x27; || type==&#x27;radio&#x27;){
+            html=this.otherView(type);
+        }else{
+            html = (&lt;input {...this.props} className={
+                classnames(
+                    &#x27;form-input&#x27;,
+                    this.getProperty(),
+                    this.props.className
+                )
+                }/&gt;);
+        }
+
+        return html;
+    }
+
+
+    render(){
+        let {componentTag:Component,type} = this.props;
+
+        return this.renderInput(type ? type:&#x27;text&#x27;);
     }
 
 }

@@ -52,14 +52,48 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
-                    <a href="../modules/form(表单).html">form(表单)</a>
+                    <a href="../modules/grid.html">grid</a>
                 </dt>
                 <dd>
                     <ul>
                    
                        <li>
                             
-                           <a href="../classes/Input.html">Input</a>
+                           <a href="../classes/Col.html">Col</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Row.html">Row</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/Tab(选项卡).html">Tab(选项卡)</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Tab.html">Tab</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Tabset.html">Tabset</a>
                            <ul>
                                 
                            </ul>
@@ -177,7 +211,8 @@ export default obj=&gt;{
      * @return {String}
      * */
     obj.prototype.setPrefix= function(name,pre=true){
-        var classArray=[consts.classNameNamespace];
+        var classArray=consts.classNameNamespace?[consts.classNameNamespace] :[];
+
         if(pre &amp;&amp; this.props.classPrefix){
             classArray.push(this.props.classPrefix);
         }
@@ -185,7 +220,7 @@ export default obj=&gt;{
             classArray.push(name);
         }
 
-        return classArray.join(&#x27;-&#x27;);
+        return classArray.join(classArray.length&gt;1?&#x27;-&#x27;:&#x27;&#x27;);
     };
 
     /**

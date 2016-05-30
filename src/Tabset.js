@@ -1,18 +1,82 @@
-/**
- * Created by panqianjin on 16/5/26.
- */
 import React,{PropTypes, Component} from 'react';
 import ClassNameMixin from './utils/ClassNameMixin';
 import classnames from 'classnames';
 import Tab from './Tab.js';
+/**
+ * tabset选项卡组件
+ * - 可以指定当前actie选项。
+ * - 支持选项卡横排，竖排两种情况。
+ * - 此外支持自定义类名,事件等操作
+ * 具体属性和接口如下：
+ * <ul>
+ *     <li>activeIndex; 当前选中标签卡，默认0</li>
+ *     <li>vertiacl; 是否竖排，如需要直接添加改属性即可，默认不竖排</li>
+ *     <li>width; 选项卡头部的宽度，取值0-100之间 即class＝‘col－20’，取值即可，注只有在竖排的情况下生效，
+ *          也就是没有vertical属性，设置width也没用的，默认20
+ *          例如横排情况:
+ *     </li>
+ *     <li>
+ *          <code>
+ *             Tabset activeIndex ={0} width={30}
+ *               Tab heading='tab1' className='测试'>hahadhdad1
+ *               /Tab
+ *            /Tabset
+ *          </code>
+ *         上面的width是不起作用的
+ *        竖排情况:
+ *          <code>
+ *              Tabset activeIndex ={0} vertical width={30}
+ *          </code>
+ *         此时表明默认选中第一个选项卡，并且竖排标签部分width为30%
+ *
+ *          </li>
+ *
+ * </ul>
+ * @class Tabset
+ * @module Tab(选项卡)
+ * @extends Component
+ * @constructor
+ * @since 0.1.0
+ * @demo Tab.js{展示}
+ * @demo Tab.js{源码}
+ * @show true
+ * */
 @ClassNameMixin
 export default
 class Tabset extends Component {
 
+    static propTypes={
+        /**
+         * 指定默认选中的选项卡，默认为0
+         * @property activeIndex
+         * @default 0
+         * */
+        activeIndex:PropTypes.number,
+        /**
+         * 是否竖排
+         * @property vertical
+         * @default false || null
+         * */
+        vertical: PropTypes.bool,
+        /**
+         * 设置选项卡头部的宽度，只有竖排的情况下才起作用
+         * @property width
+         * @default '20'
+         * */
+        width: PropTypes.number,
+        /**
+         * 点击事件的回调函数
+         * @property clickCallback
+         * @default null
+         * */
+        clickCallback: PropTypes.func
+    }
     static defaultProps = {
         activeIndex: 0,
         vertical: false,
-        width: 20
+        width: 20,
+        clickCallback: null,
+        activeCallback: null
     };
 
     constructor(props, context) {
@@ -30,7 +94,7 @@ class Tabset extends Component {
         return index == this.state.activeIndex ? 'active' : '';
     }
 
-    clickCallBack(index) {
+    changeActive(index) {
         if (index != this.state.activeIndex) {
             this.setState({
                 activeIndex: index
@@ -39,23 +103,26 @@ class Tabset extends Component {
     }
 
     getClass(flag) {
+        let vertical = this.props.vertical;
         if(flag){
             let cols = 'col-'+this.props.width;
-            return !this.props.vertical ? 'row': 'col-20';
+            return !vertical ? 'row': cols;
         }else{
-            return this.props.vertical ? 'col': '';
+            return vertical ? 'col': '';
         }
 
     }
 
     render() {
         let panels = [];
+        let {className,clickCallback,...other} = this.props;
         let headings = React.Children.map(this.props.children, (options, index)=> {
-            let { clickCallBack,...other} = options.props;
+            let { vertical,...other} = options.props;
             let opt = React.cloneElement(options, {
+                key:index,
                 index: index,
                 activeIndex: this.state.activeIndex,
-                clickCallBack: this.clickCallBack.bind(this),
+                changeActive: this.changeActive.bind(this),
                 vertical: this.props.vertical
             });
 
@@ -63,7 +130,7 @@ class Tabset extends Component {
                    'tab-panel',
                    this.isActive(index),
                    options.props.className
-                )}>
+                )} key={index}>
                 {options.props.children}
             </div>;
             panels.push(panel);
@@ -73,8 +140,8 @@ class Tabset extends Component {
             <div className={classnames(
                'ui-tabs',
                this.isVertial(),
-               this.props.className
-            )}>
+               className
+            )} onClick={clickCallback} {...other}>
                 <ul className={this.getClass(true)}>
                     {headings}
                 </ul>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>form(表单) - phoenix-ui</title>
+    <title>Tab(选项卡) - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -52,14 +52,48 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
-                    <a href="../modules/form(表单).html">form(表单)</a>
+                    <a href="../modules/grid.html">grid</a>
                 </dt>
                 <dd>
                     <ul>
                    
                        <li>
                             
-                           <a href="../classes/Input.html">Input</a>
+                           <a href="../classes/Col.html">Col</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Row.html">Row</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/Tab(选项卡).html">Tab(选项卡)</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Tab.html">Tab</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Tabset.html">Tabset</a>
                            <ul>
                                 
                            </ul>
@@ -100,7 +134,7 @@
             <div id="docs-main">
                 <div class="content">
                     <div class="page-header">
-    <h1>form(表单) <small>Module</small></h1>
+    <h1>Tab(选项卡) <small>Module</small></h1>
 </div>
 
 <div class="clearfix well well-small sign-left1">
@@ -110,7 +144,7 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/src_Input.js.html#l7"><code>src&#x2F;Input.js:7</code></a>
+            Defined in: <a href="../files/src_Tabset.js.html#l5"><code>src&#x2F;Tabset.js:5</code></a>
         </div>
     
 
@@ -120,32 +154,23 @@
 
 
 <div class="moduledesc well well-small sign-left3">
-    <div class="stdoc-code"><ul>
-<li>input组件，与基本的input类型相对应，改变了默认的风格，<br/></li>
-<li>使用方式还是与基本的input相同，例如&#39;Input type="radio" name=&#39;nba&#39; label="76ers" value="76ers"/&#39;<br/></li>
-<li>支持自定义className，内联style，以及自定义属性<br/></li>
-<li>针对radio和checkbox，有disabled,checked等属性，对应于不同的状态。具体如下<br/>
-主要属性和接口：<ul>
- <li>type:input的具体类型，对应基本input的type。默认为text<br>
-     如：<code>
-          Input type="radio"
-        </code>
- </li>
- <li>label:标签内容，针对radio和checkbox类型。默认为空<br>
-     如：<code>
-          Input type="radio" label="76ers"
-        </code>
- </li>
- <li>checked:选中状态，同样针对radio和checkbox类型。默认为false<br>
-     如：<code>
-          Input type="radio" label="76ers" checked
-        </code>
- </li>
- <li>disabled:不可操作状态，再次针对radio和checkbox类型。默认为false<br>
-     如：<code>
-          Input type="radio" label="76ers" disabled
-        </code>
- </li>
+    <div class="stdoc-code"><p>tab选项卡组件</p>
+<ul>
+<li>标签内容为heading属性，children部分为对应要显示的内容<br/></li>
+<li>此外支持自定义类名,事件等操作<br/>
+具体属性和接口如下：<ul>
+  <li>heading; 标签卡的显示内容，默认‘tab’ 。
+      虽然有默认值但是这应该是必填的。</li>
+    <li>
+      例如:
+       <code>
+         Tabset activeIndex ={0} width={30}
+            Tab heading=&#39;tab1&#39; className=&#39;测试&#39;&gt;hahadhdad1
+            /Tab
+         /Tabset
+       </code>
+    </li>
+    <li>clickCallback: 点击事件的回调函数，默认为null</li>
 </ul></li>
 </ul>
 </div>
@@ -161,8 +186,14 @@
             <ul class="module-classes">
             
                 <li class="module-class">
-                    <a href="../classes/Input.html">
-                        Input
+                    <a href="../classes/Tab.html">
+                        Tab
+                    </a>
+                </li>
+            
+                <li class="module-class">
+                    <a href="../classes/Tabset.html">
+                        Tabset
                     </a>
                 </li>
             

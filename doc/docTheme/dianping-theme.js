@@ -14,7 +14,8 @@ var operateIframe = function () {
     var getArray = href.split('/');
     var mapKey = getArray[getArray.length-1].replace(/\.html.*/,'');
     var mapPool={
-        //form模块map方式
+        'Tab':'tab',
+        'Tabset':'tab',
         'Input':'input',
         'RadioGroup':'input',
         'CheckboxGroup':'input',

@@ -51,59 +51,177 @@
             "fors": {},
             "namespaces": {}
         },
-        "src/Input.js": {
-            "name": "src/Input.js",
+        "src/Button.js": {
+            "name": "src/Button.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Col.js": {
+            "name": "src/Col.js",
             "modules": {
-                "form(表单)": 1
+                "grid": 1
             },
             "classes": {
-                "Input": 1
+                "Col": 1
             },
             "fors": {},
             "namespaces": {}
         },
-        "src/index.js": {
-            "name": "src/index.js",
+        "src/Input.js": {
+            "name": "src/Input.js",
             "modules": {},
             "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Row.js": {
+            "name": "src/Row.js",
+            "modules": {},
+            "classes": {
+                "Row": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Switch.js": {
+            "name": "src/Switch.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Tab.js": {
+            "name": "src/Tab.js",
+            "modules": {
+                "Tab(选项卡)": 1
+            },
+            "classes": {
+                "Tab": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Tabset.js": {
+            "name": "src/Tabset.js",
+            "modules": {},
+            "classes": {
+                "Tabset": 1
+            },
             "fors": {},
             "namespaces": {}
         }
     },
     "modules": {
-        "form(表单)": {
-            "name": "form(表单)",
+        "grid": {
+            "name": "grid",
             "submodules": {},
             "classes": {
-                "Input": 1
+                "Col": 1,
+                "Row": 1
             },
             "fors": {},
             "namespaces": {},
             "tag": "module",
-            "file": "src/Input.js",
-            "line": 7,
-            "description": "- input组件，与基本的input类型相对应，改变了默认的风格，<br/>\n- 使用方式还是与基本的input相同，例如'Input type=\"radio\" name='nba' label=\"76ers\" value=\"76ers\"/'<br/>\n- 支持自定义className，内联style，以及自定义属性<br/>\n- 针对radio和checkbox，有disabled,checked等属性，对应于不同的状态。具体如下<br/>\n主要属性和接口：\n <ul>\n   <li>type:input的具体类型，对应基本input的type。默认为text<br>\n       如：<code>\n            Input type=\"radio\"\n          </code>\n   </li>\n   <li>label:标签内容，针对radio和checkbox类型。默认为空<br>\n       如：<code>\n            Input type=\"radio\" label=\"76ers\"\n          </code>\n   </li>\n   <li>checked:选中状态，同样针对radio和checkbox类型。默认为false<br>\n       如：<code>\n            Input type=\"radio\" label=\"76ers\" checked\n          </code>\n   </li>\n   <li>disabled:不可操作状态，再次针对radio和checkbox类型。默认为false<br>\n       如：<code>\n            Input type=\"radio\" label=\"76ers\" disabled\n          </code>\n   </li>\n </ul>"
+            "file": "src/Row.js",
+            "line": 4,
+            "description": "列"
+        },
+        "Tab(选项卡)": {
+            "name": "Tab(选项卡)",
+            "submodules": {},
+            "classes": {
+                "Tab": 1,
+                "Tabset": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/Tabset.js",
+            "line": 5,
+            "description": "tab选项卡组件\n- 标签内容为heading属性，children部分为对应要显示的内容<br/>\n- 此外支持自定义类名,事件等操作<br/>\n具体属性和接口如下：\n<ul>\n    <li>heading; 标签卡的显示内容，默认‘tab’ 。\n        虽然有默认值但是这应该是必填的。</li>\n      <li>\n        例如:\n         <code>\n           Tabset activeIndex ={0} width={30}\n              Tab heading='tab1' className='测试'>hahadhdad1\n              /Tab\n           /Tabset\n         </code>\n      </li>\n      <li>clickCallback: 点击事件的回调函数，默认为null</li>\n</ul>"
         }
     },
     "classes": {
-        "Input": {
-            "name": "Input",
-            "shortname": "Input",
+        "Col": {
+            "name": "Col",
+            "shortname": "Col",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "form(表单)",
-            "file": "src/Input.js",
-            "line": 7,
-            "description": "- input组件，与基本的input类型相对应，改变了默认的风格，<br/>\n- 使用方式还是与基本的input相同，例如'Input type=\"radio\" name='nba' label=\"76ers\" value=\"76ers\"/'<br/>\n- 支持自定义className，内联style，以及自定义属性<br/>\n- 针对radio和checkbox，有disabled,checked等属性，对应于不同的状态。具体如下<br/>\n主要属性和接口：\n <ul>\n   <li>type:input的具体类型，对应基本input的type。默认为text<br>\n       如：<code>\n            Input type=\"radio\"\n          </code>\n   </li>\n   <li>label:标签内容，针对radio和checkbox类型。默认为空<br>\n       如：<code>\n            Input type=\"radio\" label=\"76ers\"\n          </code>\n   </li>\n   <li>checked:选中状态，同样针对radio和checkbox类型。默认为false<br>\n       如：<code>\n            Input type=\"radio\" label=\"76ers\" checked\n          </code>\n   </li>\n   <li>disabled:不可操作状态，再次针对radio和checkbox类型。默认为false<br>\n       如：<code>\n            Input type=\"radio\" label=\"76ers\" disabled\n          </code>\n   </li>\n </ul>",
+            "module": "grid",
+            "file": "src/Col.js",
+            "line": 4,
+            "description": "列",
+            "extends": "Component",
+            "is_constructor": 1,
+            "since": "0.1.0"
+        },
+        "Row": {
+            "name": "Row",
+            "shortname": "Row",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "grid",
+            "namespace": "",
+            "file": "src/Row.js",
+            "line": 4,
+            "description": "行",
+            "extends": "Component",
+            "is_constructor": 1,
+            "since": "0.1.0"
+        },
+        "Tab": {
+            "name": "Tab",
+            "shortname": "Tab",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Tab(选项卡)",
+            "namespace": "",
+            "file": "src/Tab.js",
+            "line": 5,
+            "description": "tab选项卡组件\n- 标签内容为heading属性，children部分为对应要显示的内容<br/>\n- 此外支持自定义类名,事件等操作<br/>\n具体属性和接口如下：\n<ul>\n    <li>heading; 标签卡的显示内容，默认‘tab’ 。\n        虽然有默认值但是这应该是必填的。</li>\n      <li>\n        例如:\n         <code>\n           Tabset activeIndex ={0} width={30}\n              Tab heading='tab1' className='测试'>hahadhdad1\n              /Tab\n           /Tabset\n         </code>\n      </li>\n      <li>clickCallback: 点击事件的回调函数，默认为null</li>\n</ul>",
             "extends": "Component",
             "is_constructor": 1,
             "since": "0.1.0",
             "example": [
-                "\t/**\n\t * Created by panqianjin on 16/5/24.\n\t */\n\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport Input from '../../src/Input.js';\n\t\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Input type='text' value='aaa' />\n\t            </div>\n\t        );\n\t    }\n\t}",
-                "\t/**\n\t * Created by panqianjin on 16/5/24.\n\t */\n\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport Input from '../../src/Input.js';\n\t\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Input type='text' value='aaa' />\n\t            </div>\n\t        );\n\t    }\n\t}"
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Tabset,Tab} from '../../src/index';\n\tlet Demo1 = class demo1 extends Component{\n\t    constructor(props,context){\n\t        super(props,context);\n\t        this.state={\n\t            tab2:'初始tab2内容'\n\t        }\n\t    }\n\t    test(){\n\t        this.setState({\n\t            tab2:'测试panel内容改变'\n\t        })\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={1} className = '测试name' clickCallback={()=>{alert('测试tabset 回调')}} >\n\t                    <Tab heading='tab1' className='测试' clickCallback={()=>{alert('测试clickCallback属性')}}>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' clickCallback={::this.test}>\n\t                        {this.state.tab2}\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\tlet Demo2 = class demo2 extends Component{\n\t    test(){\n\t        alert('测试自定义tab点击事件');\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={0} vertical width={30}>\n\t                    <Tab heading='tab1'>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' onClick={::this.test}>\n\t                        hahadhdad2\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t           <div>\n\t              <h1>默认横向</h1>\n\t               <Demo1 />\n\t               <h1>竖向</h1>\n\t               <Demo2 />\n\t           </div>\n\t        );\n\t    }\n\t}",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Tabset,Tab} from '../../src/index';\n\tlet Demo1 = class demo1 extends Component{\n\t    constructor(props,context){\n\t        super(props,context);\n\t        this.state={\n\t            tab2:'初始tab2内容'\n\t        }\n\t    }\n\t    test(){\n\t        this.setState({\n\t            tab2:'测试panel内容改变'\n\t        })\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={1} className = '测试name' clickCallback={()=>{alert('测试tabset 回调')}} >\n\t                    <Tab heading='tab1' className='测试' clickCallback={()=>{alert('测试clickCallback属性')}}>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' clickCallback={::this.test}>\n\t                        {this.state.tab2}\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\tlet Demo2 = class demo2 extends Component{\n\t    test(){\n\t        alert('测试自定义tab点击事件');\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={0} vertical width={30}>\n\t                    <Tab heading='tab1'>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' onClick={::this.test}>\n\t                        hahadhdad2\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t           <div>\n\t              <h1>默认横向</h1>\n\t               <Demo1 />\n\t               <h1>竖向</h1>\n\t               <Demo2 />\n\t           </div>\n\t        );\n\t    }\n\t}"
+            ],
+            "exampleTitles": [
+                "展示",
+                "js"
+            ],
+            "show": true
+        },
+        "Tabset": {
+            "name": "Tabset",
+            "shortname": "Tabset",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Tab(选项卡)",
+            "namespace": "",
+            "file": "src/Tabset.js",
+            "line": 5,
+            "description": "tabset选项卡组件\n- 可以指定当前actie选项。\n- 支持选项卡横排，竖排两种情况。\n- 此外支持自定义类名,事件等操作\n具体属性和接口如下：\n<ul>\n    <li>activeIndex; 当前选中标签卡，默认0</li>\n    <li>vertiacl; 是否竖排，如需要直接添加改属性即可，默认不竖排</li>\n    <li>width; 选项卡头部的宽度，取值0-100之间 即class＝‘col－20’，取值即可，注只有在竖排的情况下生效，\n         也就是没有vertical属性，设置width也没用的，默认20\n         例如横排情况:\n    </li>\n    <li>\n         <code>\n            Tabset activeIndex ={0} width={30}\n              Tab heading='tab1' className='测试'>hahadhdad1\n              /Tab\n           /Tabset\n         </code>\n        上面的width是不起作用的\n       竖排情况:\n         <code>\n             Tabset activeIndex ={0} vertical width={30}\n         </code>\n        此时表明默认选中第一个选项卡，并且竖排标签部分width为30%\n\n         </li>\n\n</ul>",
+            "extends": "Component",
+            "is_constructor": 1,
+            "since": "0.1.0",
+            "example": [
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Tabset,Tab} from '../../src/index';\n\tlet Demo1 = class demo1 extends Component{\n\t    constructor(props,context){\n\t        super(props,context);\n\t        this.state={\n\t            tab2:'初始tab2内容'\n\t        }\n\t    }\n\t    test(){\n\t        this.setState({\n\t            tab2:'测试panel内容改变'\n\t        })\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={1} className = '测试name' clickCallback={()=>{alert('测试tabset 回调')}} >\n\t                    <Tab heading='tab1' className='测试' clickCallback={()=>{alert('测试clickCallback属性')}}>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' clickCallback={::this.test}>\n\t                        {this.state.tab2}\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\tlet Demo2 = class demo2 extends Component{\n\t    test(){\n\t        alert('测试自定义tab点击事件');\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={0} vertical width={30}>\n\t                    <Tab heading='tab1'>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' onClick={::this.test}>\n\t                        hahadhdad2\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t           <div>\n\t              <h1>默认横向</h1>\n\t               <Demo1 />\n\t               <h1>竖向</h1>\n\t               <Demo2 />\n\t           </div>\n\t        );\n\t    }\n\t}",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Tabset,Tab} from '../../src/index';\n\tlet Demo1 = class demo1 extends Component{\n\t    constructor(props,context){\n\t        super(props,context);\n\t        this.state={\n\t            tab2:'初始tab2内容'\n\t        }\n\t    }\n\t    test(){\n\t        this.setState({\n\t            tab2:'测试panel内容改变'\n\t        })\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={1} className = '测试name' clickCallback={()=>{alert('测试tabset 回调')}} >\n\t                    <Tab heading='tab1' className='测试' clickCallback={()=>{alert('测试clickCallback属性')}}>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' clickCallback={::this.test}>\n\t                        {this.state.tab2}\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\tlet Demo2 = class demo2 extends Component{\n\t    test(){\n\t        alert('测试自定义tab点击事件');\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={0} vertical width={30}>\n\t                    <Tab heading='tab1'>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' onClick={::this.test}>\n\t                        hahadhdad2\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t           <div>\n\t              <h1>默认横向</h1>\n\t               <Demo1 />\n\t               <h1>竖向</h1>\n\t               <Demo2 />\n\t           </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
                 "展示",
@@ -117,7 +235,7 @@
             "file": "src/utils/ClassNameMixin.js",
             "line": 1,
             "description": "Created by mac on 15/9/7.",
-            "class": "Input"
+            "class": "Col"
         },
         {
             "file": "src/utils/ClassNameMixin.js",
@@ -141,7 +259,7 @@
                 "description": "",
                 "type": "String"
             },
-            "class": "Input"
+            "class": "Col"
         },
         {
             "file": "src/utils/ClassNameMixin.js",
@@ -165,7 +283,7 @@
                 "description": "",
                 "type": "String"
             },
-            "class": "Input"
+            "class": "Col"
         },
         {
             "file": "src/utils/ClassNameMixin.js",
@@ -184,7 +302,7 @@
                 "description": "",
                 "type": "String"
             },
-            "class": "Input"
+            "class": "Col"
         },
         {
             "file": "src/utils/ClassNameMixin.js",
@@ -208,11 +326,11 @@
                 "description": "",
                 "type": "String"
             },
-            "class": "Input"
+            "class": "Col"
         },
         {
             "file": "src/utils/ClassNameMixin.js",
-            "line": 84,
+            "line": 85,
             "description": "检查元素是否存在样式名",
             "itemtype": "method",
             "name": "hasClass",
@@ -232,11 +350,11 @@
                 "description": "",
                 "type": "Boolean"
             },
-            "class": "Input"
+            "class": "Col"
         },
         {
             "file": "src/utils/ClassNameMixin.js",
-            "line": 95,
+            "line": 96,
             "description": "给元素增加一个样式名",
             "itemtype": "method",
             "name": "addClass",
@@ -252,11 +370,11 @@
                     "type": "String"
                 }
             ],
-            "class": "Input"
+            "class": "Col"
         },
         {
             "file": "src/utils/ClassNameMixin.js",
-            "line": 104,
+            "line": 105,
             "description": "给元素删除一个样式名",
             "itemtype": "method",
             "name": "removeClass",
@@ -272,43 +390,49 @@
                     "type": "String"
                 }
             ],
-            "class": "Input"
+            "class": "Col"
         },
         {
             "file": "src/utils/MethodMixin.js",
             "line": 1,
             "description": "Created by mac on 16/1/3.",
-            "class": "Input"
+            "class": "Col"
         },
         {
             "file": "src/utils/PropertyMixin.js",
             "line": 1,
             "description": "Created by mac on 16/1/3.",
-            "class": "Input"
+            "class": "Col"
         },
         {
             "file": "src/utils/constants.js",
             "line": 1,
             "description": "Created by mac on 15/9/7.",
-            "class": "Input"
+            "class": "Col"
         },
         {
             "file": "src/utils/constants.js",
-            "line": 12,
+            "line": 11,
             "description": "状态",
-            "class": "Input"
+            "class": "Col"
         },
         {
             "file": "src/utils/constants.js",
-            "line": 63,
+            "line": 62,
             "description": "颜色",
-            "class": "Input"
+            "class": "Col"
         },
         {
             "file": "src/utils/constants.js",
-            "line": 77,
+            "line": 76,
             "description": "form列表相关",
-            "class": "Input"
+            "class": "Col"
+        },
+        {
+            "file": "src/utils/constants.js",
+            "line": 86,
+            "description": "tab",
+            "class": "Col"
         },
         {
             "file": "src/utils/extend.js",
@@ -324,38 +448,227 @@
                     "description": "- an object containing properties to be overwritten. It\n                  should have the same structure as the object object."
                 }
             ],
-            "class": "Input"
+            "class": "Col"
+        },
+        {
+            "file": "src/Button.js",
+            "line": 8,
+            "description": "按钮尺寸,分别为xs、sm、lg",
+            "itemtype": "property",
+            "name": "egSize",
+            "type": "String",
+            "default": "sm",
+            "class": "Col"
+        },
+        {
+            "file": "src/Button.js",
+            "line": 15,
+            "description": "颜色[error、warning、danger、link、gray、white、success、'']",
+            "itemtype": "property",
+            "name": "egStyle",
+            "type": "Boolean",
+            "default": "''",
+            "class": "Col"
+        },
+        {
+            "file": "src/Button.js",
+            "line": 22,
+            "description": "样式前缀",
+            "itemtype": "property",
+            "name": "classPrefix",
+            "type": "String",
+            "default": "btn",
+            "class": "Col"
+        },
+        {
+            "file": "src/Button.js",
+            "line": 29,
+            "description": "标签tagName",
+            "itemtype": "property",
+            "name": "componentTag",
+            "type": "String",
+            "default": "a",
+            "class": "Col"
+        },
+        {
+            "file": "src/Button.js",
+            "line": 36,
+            "description": "块级显示",
+            "itemtype": "property",
+            "name": "block",
+            "type": "Boolean",
+            "default": "false",
+            "class": "Col"
+        },
+        {
+            "file": "src/Col.js",
+            "line": 15,
+            "description": "占100份的多少份，目前支持5-100之间5的倍数、33（1\\3）和66(2\\3)",
+            "itemtype": "property",
+            "name": "width",
+            "type": "Integer",
+            "class": "Col",
+            "module": "grid"
+        },
+        {
+            "file": "src/Col.js",
+            "line": 21,
+            "description": "偏移多少，，目前支持5-100之间5的倍数、33（1\\3）和66(2\\3)",
+            "itemtype": "property",
+            "name": "offset，默认不偏移",
+            "type": "Integer",
+            "class": "Col",
+            "module": "grid"
+        },
+        {
+            "file": "src/Col.js",
+            "line": 27,
+            "description": "竖直方向的排列是靠上、居中还是靠下",
+            "itemtype": "property",
+            "name": "offset，默认不偏移",
+            "type": "Integer",
+            "class": "Col",
+            "module": "grid"
         },
         {
             "file": "src/Input.js",
-            "line": 1,
-            "description": "Created by panqianjin on 16/5/24.",
-            "class": "Input"
+            "line": 8,
+            "description": "样式前缀",
+            "itemtype": "property",
+            "name": "classPrefix",
+            "type": "String",
+            "default": "btn",
+            "class": "Row",
+            "module": "grid"
         },
         {
-            "file": "src/index.js",
-            "line": 1,
-            "description": "Created by panqianjin on 16/5/19.",
-            "class": "",
-            "module": "form(表单)"
+            "file": "src/Input.js",
+            "line": 15,
+            "description": "标签tagName",
+            "itemtype": "property",
+            "name": "componentTag",
+            "type": "String",
+            "default": "a",
+            "class": "Row",
+            "module": "grid"
+        },
+        {
+            "file": "src/Row.js",
+            "line": 15,
+            "description": "竖直方向的排列是靠上、居中、靠下、拉伸至父容器最大高度还是基于text的baseline对齐",
+            "itemtype": "property",
+            "name": "offset，默认不偏移",
+            "type": "Integer",
+            "class": "Row",
+            "module": "grid"
+        },
+        {
+            "file": "src/Switch.js",
+            "line": 8,
+            "description": "样式前缀",
+            "itemtype": "property",
+            "name": "classPrefix",
+            "type": "String",
+            "default": "btn",
+            "class": "Tab",
+            "module": "grid"
+        },
+        {
+            "file": "src/Switch.js",
+            "line": 15,
+            "description": "标签tagName",
+            "itemtype": "property",
+            "name": "componentTag",
+            "type": "String",
+            "default": "a",
+            "class": "Tab",
+            "module": "grid"
+        },
+        {
+            "file": "src/Tab.js",
+            "line": 36,
+            "description": "选项卡的标题文字，默认为‘tab’\n但是这个应该是必填的，一个tab显示出来也没意思啦",
+            "itemtype": "property",
+            "name": "heading",
+            "default": "'tab'",
+            "class": "Tab",
+            "module": "Tab(选项卡)"
+        },
+        {
+            "file": "src/Tab.js",
+            "line": 43,
+            "description": "点击事件的回调函数",
+            "itemtype": "property",
+            "name": "clickCallback",
+            "default": "null",
+            "class": "Tab",
+            "module": "Tab(选项卡)"
+        },
+        {
+            "file": "src/Tabset.js",
+            "line": 49,
+            "description": "指定默认选中的选项卡，默认为0",
+            "itemtype": "property",
+            "name": "activeIndex",
+            "default": "0",
+            "class": "Tabset",
+            "module": "Tab(选项卡)"
+        },
+        {
+            "file": "src/Tabset.js",
+            "line": 55,
+            "description": "是否竖排",
+            "itemtype": "property",
+            "name": "vertical",
+            "default": "false || null",
+            "class": "Tabset",
+            "module": "Tab(选项卡)"
+        },
+        {
+            "file": "src/Tabset.js",
+            "line": 61,
+            "description": "设置选项卡头部的宽度，只有竖排的情况下才起作用",
+            "itemtype": "property",
+            "name": "width",
+            "default": "'20'",
+            "class": "Tabset",
+            "module": "Tab(选项卡)"
+        },
+        {
+            "file": "src/Tabset.js",
+            "line": 67,
+            "description": "点击事件的回调函数",
+            "itemtype": "property",
+            "name": "clickCallback",
+            "default": "null",
+            "class": "Tabset",
+            "module": "Tab(选项卡)"
         }
     ],
     "warnings": [
         {
-            "message": "replacing incorrect tag: extend with extends",
-            "line": " src/Input.js:7"
+            "message": "unknown tag: demo",
+            "line": " src/Tab.js:5"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/Input.js:7"
-        },
-        {
-            "message": "unknown tag: demo",
-            "line": " src/Input.js:7"
+            "line": " src/Tab.js:5"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/Input.js:7"
+            "line": " src/Tab.js:5"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/Tabset.js:5"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/Tabset.js:5"
+        },
+        {
+            "message": "unknown tag: show",
+            "line": " src/Tabset.js:5"
         },
         {
             "message": "Missing item type\nCreated by mac on 15/9/7.",
@@ -375,27 +688,23 @@
         },
         {
             "message": "Missing item type\n状态",
-            "line": " src/utils/constants.js:12"
+            "line": " src/utils/constants.js:11"
         },
         {
             "message": "Missing item type\n颜色",
-            "line": " src/utils/constants.js:63"
+            "line": " src/utils/constants.js:62"
         },
         {
             "message": "Missing item type\nform列表相关",
-            "line": " src/utils/constants.js:77"
+            "line": " src/utils/constants.js:76"
+        },
+        {
+            "message": "Missing item type\ntab",
+            "line": " src/utils/constants.js:86"
         },
         {
             "message": "Missing item type\nA recursive merge between two objects.",
             "line": " src/utils/extend.js:5"
-        },
-        {
-            "message": "Missing item type\nCreated by panqianjin on 16/5/24.",
-            "line": " src/Input.js:1"
-        },
-        {
-            "message": "Missing item type\nCreated by panqianjin on 16/5/19.",
-            "line": " src/index.js:1"
         }
     ]
 }

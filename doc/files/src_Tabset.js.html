@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src/utils/constants.js - phoenix-ui</title>
+    <title>src/Tabset.js - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -134,101 +134,167 @@
             <div id="docs-main">
                 <div class="content">
                     <div class="page-header">
-    <h1>src/utils/constants.js <small>File</small></h1>
+    <h1>src/Tabset.js <small>File</small></h1>
 </div>
 
 <div class="file">
     <pre class="prettyprint linenums" id='src_code'>
+import React,{PropTypes, Component} from &#x27;react&#x27;;
+import ClassNameMixin from &#x27;./utils/ClassNameMixin&#x27;;
+import classnames from &#x27;classnames&#x27;;
+import Tab from &#x27;./Tab.js&#x27;;
 /**
- * Created by mac on 15/9/7.
- */
-//classname前缀
+ * tabset选项卡组件
+ * - 可以指定当前actie选项。
+ * - 支持选项卡横排，竖排两种情况。
+ * - 此外支持自定义类名,事件等操作
+ * 具体属性和接口如下：
+ * &lt;ul&gt;
+ *     &lt;li&gt;activeIndex; 当前选中标签卡，默认0&lt;/li&gt;
+ *     &lt;li&gt;vertiacl; 是否竖排，如需要直接添加改属性即可，默认不竖排&lt;/li&gt;
+ *     &lt;li&gt;width; 选项卡头部的宽度，取值0-100之间 即class＝‘col－20’，取值即可，注只有在竖排的情况下生效，
+ *          也就是没有vertical属性，设置width也没用的，默认20
+ *          例如横排情况:
+ *     &lt;/li&gt;
+ *     &lt;li&gt;
+ *          &lt;code&gt;
+ *             Tabset activeIndex ={0} width={30}
+ *               Tab heading=&#x27;tab1&#x27; className=&#x27;测试&#x27;&gt;hahadhdad1
+ *               /Tab
+ *            /Tabset
+ *          &lt;/code&gt;
+ *         上面的width是不起作用的
+ *        竖排情况:
+ *          &lt;code&gt;
+ *              Tabset activeIndex ={0} vertical width={30}
+ *          &lt;/code&gt;
+ *         此时表明默认选中第一个选项卡，并且竖排标签部分width为30%
+ *
+ *          &lt;/li&gt;
+ *
+ * &lt;/ul&gt;
+ * @class Tabset
+ * @module Tab(选项卡)
+ * @extends Component
+ * @constructor
+ * @since 0.1.0
+ * @demo Tab.js{展示}
+ * @demo Tab.js{源码}
+ * @show true
+ * */
+@ClassNameMixin
+export default
+class Tabset extends Component {
 
-function setNamespace(className) {
-    return &#x60;${className}&#x60;;
+    static propTypes={
+        /**
+         * 指定默认选中的选项卡，默认为0
+         * @property activeIndex
+         * @default 0
+         * */
+        activeIndex:PropTypes.number,
+        /**
+         * 是否竖排
+         * @property vertical
+         * @default false || null
+         * */
+        vertical: PropTypes.bool,
+        /**
+         * 设置选项卡头部的宽度，只有竖排的情况下才起作用
+         * @property width
+         * @default &#x27;20&#x27;
+         * */
+        width: PropTypes.number,
+        /**
+         * 点击事件的回调函数
+         * @property clickCallback
+         * @default null
+         * */
+        clickCallback: PropTypes.func
+    }
+    static defaultProps = {
+        activeIndex: 0,
+        vertical: false,
+        width: 20,
+        clickCallback: null,
+        activeCallback: null
+    };
+
+    constructor(props, context) {
+        super(props, context);
+        this.state = {
+            activeIndex: this.props.activeIndex
+        }
+    }
+
+    isVertial() {
+        return !!this.props.vertical ? &#x27;vertical row&#x27; : &#x27;&#x27;;
+    }
+
+    isActive(index) {
+        return index == this.state.activeIndex ? &#x27;active&#x27; : &#x27;&#x27;;
+    }
+
+    changeActive(index) {
+        if (index != this.state.activeIndex) {
+            this.setState({
+                activeIndex: index
+            })
+        }
+    }
+
+    getClass(flag) {
+        let vertical = this.props.vertical;
+        if(flag){
+            let cols = &#x27;col-&#x27;+this.props.width;
+            return !vertical ? &#x27;row&#x27;: cols;
+        }else{
+            return vertical ? &#x27;col&#x27;: &#x27;&#x27;;
+        }
+
+    }
+
+    render() {
+        let panels = [];
+        let {className,clickCallback,...other} = this.props;
+        let headings = React.Children.map(this.props.children, (options, index)=&gt; {
+            let { vertical,...other} = options.props;
+            let opt = React.cloneElement(options, {
+                key:index,
+                index: index,
+                activeIndex: this.state.activeIndex,
+                changeActive: this.changeActive.bind(this),
+                vertical: this.props.vertical
+            });
+
+            let panel = &lt;div className={classnames(
+                   &#x27;tab-panel&#x27;,
+                   this.isActive(index),
+                   options.props.className
+                )} key={index}&gt;
+                {options.props.children}
+            &lt;/div&gt;;
+            panels.push(panel);
+            return opt;
+        }, this);
+        return (
+            &lt;div className={classnames(
+               &#x27;ui-tabs&#x27;,
+               this.isVertial(),
+               className
+            )} onClick={clickCallback} {...other}&gt;
+                &lt;ul className={this.getClass(true)}&gt;
+                    {headings}
+                &lt;/ul&gt;
+                &lt;div className={classnames(
+                    this.getClass(false),
+                    &#x27;tab-bd&quot;&#x27;
+                )}&gt;
+                    {panels}
+                &lt;/div&gt;
+            &lt;/div&gt;)
+    }
 }
-const CLASS_NAME_NAMESPACE = &#x27;&#x27;;
-export const classConstants = {
-    /**
-     * 状态
-     * */
-    //标签新增命名空间
-        //标签启用
-    positive:setNamespace(&#x27;positive&#x27;),
-        //标签灰色
-    negative:setNamespace(&#x27;negative&#x27;),
-        //标签灰白
-    modest:setNamespace(&#x27;modest&#x27;),
-        //提示框暖色(黄色)
-    warm:setNamespace(&#x27;warm&#x27;),
-    //标签灰色
-    //标签无背景色
-    neutral: setNamespace(&#x27;neutral&#x27;),
-
-
-    //theme
-    // 白色
-    light: setNamespace(&#x27;light&#x27;),
-    // 橘红色
-    assertive: setNamespace(&#x27;assertive&#x27;),
-    //绿色
-    balanced: setNamespace(&#x27;balanced&#x27;),
-    //按钮是否需要添加边框
-    outline: setNamespace(&#x27;outline&#x27;),
-    //按钮是否处于待唤醒状态
-    awaiting: setNamespace(&#x27;awaiting&#x27;),
-    //禁用
-    disabled: setNamespace(&#x27;disabled&#x27;),
-    //启用
-    enable: setNamespace(&#x27;enable&#x27;),
-    block: setNamespace(&#x27;block&#x27;),
-    //垂直
-    tacked: setNamespace(&#x27;tacked&#x27;),
-    //宽度自适应
-    justify: setNamespace(&#x27;justify&#x27;),
-    //选中
-    active : setNamespace(&#x27;active&#x27;),
-    //行内样式
-    inline : setNamespace(&#x27;inline&#x27;),
-    //大小
-    size: setNamespace(&#x27;size&#x27;),
-    //圆形样式
-    radius: setNamespace(&#x27;radius&#x27;),
-    //隨圆
-    round: setNamespace(&#x27;round&#x27;),
-    //向上箭头
-    &#x27;arrow-up&#x27;: setNamespace(&#x27;arrow-up&#x27;),
-    //向下箭头
-    &#x27;arrow-down&#x27;: setNamespace(&#x27;arrow-down&#x27;),
-    /**
-     * 颜色
-     * */
-    //成功样式
-    success: setNamespace(&#x27;success&#x27;),
-    //错误红色
-    error: setNamespace(&#x27;error&#x27;),
-    //警告warning
-    warning: setNamespace(&#x27;warning&#x27;),
-    //危险danger
-    danger: setNamespace(&#x27;danger&#x27;),
-    //展示
-    show: setNamespace(&#x27;show&#x27;),
-    white: setNamespace(&#x27;white&#x27;),
-    /**
-     * form列表相关
-     * */
-    //必填
-    require: setNamespace(&#x27;require&#x27;),
-    //跳转链接
-    jump: setNamespace(&#x27;link&#x27;),
-    //最后一个item是否浮动
-    right: setNamespace(&#x27;lastItem&#x27;),
-    classNameNamespace: CLASS_NAME_NAMESPACE,
-   /**
-    * tab
-    * */
-    vertical: setNamespace(&#x27;vertical&#x27;)
-};
     </pre>
 </div>
 

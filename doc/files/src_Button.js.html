@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src/utils/constants.js - phoenix-ui</title>
+    <title>src/Button.js - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -134,101 +134,91 @@
             <div id="docs-main">
                 <div class="content">
                     <div class="page-header">
-    <h1>src/utils/constants.js <small>File</small></h1>
+    <h1>src/Button.js <small>File</small></h1>
 </div>
 
 <div class="file">
     <pre class="prettyprint linenums" id='src_code'>
-/**
- * Created by mac on 15/9/7.
- */
-//classname前缀
+import React,{PropTypes} from &#x27;react&#x27;;
+import Component from &#x27;./utils/Component&#x27;;
+import classnames from &#x27;classnames&#x27;;
 
-function setNamespace(className) {
-    return &#x60;${className}&#x60;;
+export default class Button extends Component{
+
+    static propTypes = {
+        /**
+         * 按钮尺寸,分别为xs、sm、lg
+         * @property egSize
+         * @type String
+         * @default sm
+         * */
+        phSize:PropTypes.string,
+        /**
+         * 颜色[error、warning、danger、link、gray、white、success、&#x27;&#x27;]
+         * @property egStyle
+         * @type Boolean
+         * @default &#x27;&#x27;
+         * */
+        phStyle:PropTypes.string,
+        /**
+         * 样式前缀
+         * @property classPrefix
+         * @type String
+         * @default btn
+         * */
+        classPrefix:PropTypes.string,
+        /**
+         * 标签tagName
+         * @property componentTag
+         * @type String
+         * @default a
+         * */
+        componentTag:PropTypes.string,
+        /**
+         * 块级显示
+         * @property block
+         * @type Boolean
+         * @default false
+         * */
+        block:PropTypes.bool
+    };
+
+    static defaultProps = {
+        egSize:&#x27;&#x27;,
+        classPrefix:&#x27;&#x27;,
+        componentTag:&#x27;button&#x27;,
+        classMapping : {
+            &#x27;block&#x27;:&#x27;btn-block&#x27;,
+            &#x27;primary&#x27;:&#x27;btn-primary&#x27;,
+            &#x27;info&#x27;:&#x27;btn-info&#x27;,
+            &#x27;success&#x27;:&#x27;btn-success&#x27;,
+            &#x27;error&#x27;:&#x27;btn-error&#x27;,
+            &#x27;warning&#x27;:&#x27;btn-warning&#x27;,
+            &#x27;danger&#x27;:&#x27;btn-danger&#x27;,
+            &#x27;link&#x27;:&#x27;btn-link&#x27;
+        }
+    };
+
+    constructor(props, context) {
+        super(props, context);
+        this.setProperty(&#x27;hollow&#x27;,&#x27;hollow&#x27;);
+    }
+
+    render(){
+        let {componentTag:Component} = this.props;
+
+        return (
+            &lt;Component {...this.otherProps} className={
+                classnames(
+                    &#x27;btn&#x27;,
+                    this.getProperty(),
+                    this.props.className
+                )
+                } style={this.getStyles(this.props.style) }&gt;{this.props.children}&lt;/Component&gt;
+        );
+    }
+
 }
-const CLASS_NAME_NAMESPACE = &#x27;&#x27;;
-export const classConstants = {
-    /**
-     * 状态
-     * */
-    //标签新增命名空间
-        //标签启用
-    positive:setNamespace(&#x27;positive&#x27;),
-        //标签灰色
-    negative:setNamespace(&#x27;negative&#x27;),
-        //标签灰白
-    modest:setNamespace(&#x27;modest&#x27;),
-        //提示框暖色(黄色)
-    warm:setNamespace(&#x27;warm&#x27;),
-    //标签灰色
-    //标签无背景色
-    neutral: setNamespace(&#x27;neutral&#x27;),
-
-
-    //theme
-    // 白色
-    light: setNamespace(&#x27;light&#x27;),
-    // 橘红色
-    assertive: setNamespace(&#x27;assertive&#x27;),
-    //绿色
-    balanced: setNamespace(&#x27;balanced&#x27;),
-    //按钮是否需要添加边框
-    outline: setNamespace(&#x27;outline&#x27;),
-    //按钮是否处于待唤醒状态
-    awaiting: setNamespace(&#x27;awaiting&#x27;),
-    //禁用
-    disabled: setNamespace(&#x27;disabled&#x27;),
-    //启用
-    enable: setNamespace(&#x27;enable&#x27;),
-    block: setNamespace(&#x27;block&#x27;),
-    //垂直
-    tacked: setNamespace(&#x27;tacked&#x27;),
-    //宽度自适应
-    justify: setNamespace(&#x27;justify&#x27;),
-    //选中
-    active : setNamespace(&#x27;active&#x27;),
-    //行内样式
-    inline : setNamespace(&#x27;inline&#x27;),
-    //大小
-    size: setNamespace(&#x27;size&#x27;),
-    //圆形样式
-    radius: setNamespace(&#x27;radius&#x27;),
-    //隨圆
-    round: setNamespace(&#x27;round&#x27;),
-    //向上箭头
-    &#x27;arrow-up&#x27;: setNamespace(&#x27;arrow-up&#x27;),
-    //向下箭头
-    &#x27;arrow-down&#x27;: setNamespace(&#x27;arrow-down&#x27;),
-    /**
-     * 颜色
-     * */
-    //成功样式
-    success: setNamespace(&#x27;success&#x27;),
-    //错误红色
-    error: setNamespace(&#x27;error&#x27;),
-    //警告warning
-    warning: setNamespace(&#x27;warning&#x27;),
-    //危险danger
-    danger: setNamespace(&#x27;danger&#x27;),
-    //展示
-    show: setNamespace(&#x27;show&#x27;),
-    white: setNamespace(&#x27;white&#x27;),
-    /**
-     * form列表相关
-     * */
-    //必填
-    require: setNamespace(&#x27;require&#x27;),
-    //跳转链接
-    jump: setNamespace(&#x27;link&#x27;),
-    //最后一个item是否浮动
-    right: setNamespace(&#x27;lastItem&#x27;),
-    classNameNamespace: CLASS_NAME_NAMESPACE,
-   /**
-    * tab
-    * */
-    vertical: setNamespace(&#x27;vertical&#x27;)
-};
     </pre>
 </div>
 

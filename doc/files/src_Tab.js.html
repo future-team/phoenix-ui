@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src/utils/constants.js - phoenix-ui</title>
+    <title>src/Tab.js - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -134,101 +134,95 @@
             <div id="docs-main">
                 <div class="content">
                     <div class="page-header">
-    <h1>src/utils/constants.js <small>File</small></h1>
+    <h1>src/Tab.js <small>File</small></h1>
 </div>
 
 <div class="file">
     <pre class="prettyprint linenums" id='src_code'>
+import React, {PropTypes,Component} from &#x27;react&#x27;;
+import ClassNameMixin from &#x27;./utils/ClassNameMixin&#x27;;
+import classnames from &#x27;classnames&#x27;;
+import ReactDom from &#x27;react/lib/ReactDOM&#x27;;
 /**
- * Created by mac on 15/9/7.
- */
-//classname前缀
-
-function setNamespace(className) {
-    return &#x60;${className}&#x60;;
+ * tab选项卡组件
+ * - 标签内容为heading属性，children部分为对应要显示的内容&lt;br/&gt;
+ * - 此外支持自定义类名,事件等操作&lt;br/&gt;
+ * 具体属性和接口如下：
+ * &lt;ul&gt;
+ *     &lt;li&gt;heading; 标签卡的显示内容，默认‘tab’ 。
+ *         虽然有默认值但是这应该是必填的。&lt;/li&gt;
+ *       &lt;li&gt;
+ *         例如:
+ *          &lt;code&gt;
+ *            Tabset activeIndex ={0} width={30}
+ *               Tab heading=&#x27;tab1&#x27; className=&#x27;测试&#x27;&gt;hahadhdad1
+ *               /Tab
+ *            /Tabset
+ *          &lt;/code&gt;
+ *       &lt;/li&gt;
+ *       &lt;li&gt;clickCallback: 点击事件的回调函数，默认为null&lt;/li&gt;
+ * &lt;/ul&gt;
+ * @class Tab
+ * @module Tab(选项卡)
+ * @extends Component
+ * @constructor
+ * @since 0.1.0
+ * @demo Tab.js{展示}
+ * @demo Tab.js{js}
+ * @show true
+ * */
+@ClassNameMixin
+export default class Tab extends Component {
+    static ProTypes = {
+        /**
+         * 选项卡的标题文字，默认为‘tab’
+         * 但是这个应该是必填的，一个tab显示出来也没意思啦
+         * @property heading
+         * @default &#x27;tab&#x27;
+         * */
+        heading: PropTypes.string,
+        /**
+         * 点击事件的回调函数
+         * @property clickCallback
+         * @default null
+         * */
+        clickCallback: PropTypes.func
+    }
+    constructor(props,context){
+        super(props,context);
+    }
+    static defaultProps = {
+        heading: &#x27;tab&#x27;,
+        activeIndex:0,
+        vertical:false,
+        clickCallback: null
+    };
+    handleClick(){
+        this.props.changeActive(this.props.index);
+        this.props.clickCallback &amp;&amp; this.props.clickCallback();
+    }
+    isActive(){
+        return this.props.index == this.props.activeIndex ? &#x27;active&#x27;:&#x27;&#x27;;
+    }
+    isVertical(){
+        return !!this.props.vertical ? &#x27;&#x27;:&#x27;col&#x27;;
+    }
+    render(){
+        let {className,onClick,...other} = this.props;
+        return(
+            &lt;li className={
+                classnames(
+                   this.isVertical(),
+                   &#x27;tab-nav&#x27;,
+                   this.isActive(),
+                   className
+                )
+            } onClick={::this.handleClick} {...other}&gt;
+                {this.props.heading}
+            &lt;/li&gt;
+        )
+    }
 }
-const CLASS_NAME_NAMESPACE = &#x27;&#x27;;
-export const classConstants = {
-    /**
-     * 状态
-     * */
-    //标签新增命名空间
-        //标签启用
-    positive:setNamespace(&#x27;positive&#x27;),
-        //标签灰色
-    negative:setNamespace(&#x27;negative&#x27;),
-        //标签灰白
-    modest:setNamespace(&#x27;modest&#x27;),
-        //提示框暖色(黄色)
-    warm:setNamespace(&#x27;warm&#x27;),
-    //标签灰色
-    //标签无背景色
-    neutral: setNamespace(&#x27;neutral&#x27;),
-
-
-    //theme
-    // 白色
-    light: setNamespace(&#x27;light&#x27;),
-    // 橘红色
-    assertive: setNamespace(&#x27;assertive&#x27;),
-    //绿色
-    balanced: setNamespace(&#x27;balanced&#x27;),
-    //按钮是否需要添加边框
-    outline: setNamespace(&#x27;outline&#x27;),
-    //按钮是否处于待唤醒状态
-    awaiting: setNamespace(&#x27;awaiting&#x27;),
-    //禁用
-    disabled: setNamespace(&#x27;disabled&#x27;),
-    //启用
-    enable: setNamespace(&#x27;enable&#x27;),
-    block: setNamespace(&#x27;block&#x27;),
-    //垂直
-    tacked: setNamespace(&#x27;tacked&#x27;),
-    //宽度自适应
-    justify: setNamespace(&#x27;justify&#x27;),
-    //选中
-    active : setNamespace(&#x27;active&#x27;),
-    //行内样式
-    inline : setNamespace(&#x27;inline&#x27;),
-    //大小
-    size: setNamespace(&#x27;size&#x27;),
-    //圆形样式
-    radius: setNamespace(&#x27;radius&#x27;),
-    //隨圆
-    round: setNamespace(&#x27;round&#x27;),
-    //向上箭头
-    &#x27;arrow-up&#x27;: setNamespace(&#x27;arrow-up&#x27;),
-    //向下箭头
-    &#x27;arrow-down&#x27;: setNamespace(&#x27;arrow-down&#x27;),
-    /**
-     * 颜色
-     * */
-    //成功样式
-    success: setNamespace(&#x27;success&#x27;),
-    //错误红色
-    error: setNamespace(&#x27;error&#x27;),
-    //警告warning
-    warning: setNamespace(&#x27;warning&#x27;),
-    //危险danger
-    danger: setNamespace(&#x27;danger&#x27;),
-    //展示
-    show: setNamespace(&#x27;show&#x27;),
-    white: setNamespace(&#x27;white&#x27;),
-    /**
-     * form列表相关
-     * */
-    //必填
-    require: setNamespace(&#x27;require&#x27;),
-    //跳转链接
-    jump: setNamespace(&#x27;link&#x27;),
-    //最后一个item是否浮动
-    right: setNamespace(&#x27;lastItem&#x27;),
-    classNameNamespace: CLASS_NAME_NAMESPACE,
-   /**
-    * tab
-    * */
-    vertical: setNamespace(&#x27;vertical&#x27;)
-};
     </pre>
 </div>
 
