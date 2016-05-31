@@ -16,6 +16,11 @@ var operateIframe = function () {
     var mapPool={
         //form模块map方式
         'Input':'input',
+        'Tab':'tab',
+        'Tabset':'tab',
+        'Badge':'badge',
+        'Label':'label',
+        'CheckboxGroup':'input',
         'Button':'button',
         'Switch':'input',
         'Textarea':'input',
@@ -27,6 +32,8 @@ var operateIframe = function () {
         'Grid':'grid',
         //label
         'Label':'label',
+        //panel门店列表
+        'Panel':'grid_panel_list',
         //star星星
         'Star':'star',
         //filter

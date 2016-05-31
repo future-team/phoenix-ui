@@ -5,7 +5,10 @@ export Row from './Row';
 export Col from './Col';
 export TableView from './TableView';
 export FormGroup from './FormGroup';
-
+export Tab from './Tab';
+export Tabset from './Tabset';
+export Label from './Label';
+export Badge from './Badge';
 window['Phoenix'] = {};
 
 [
@@ -14,7 +17,12 @@ window['Phoenix'] = {};
     'Switch',
     'Row',
     'TableView',
-    'FormGroup'
+    'FormGroup',
+    'Col',
+    'Tabset',
+    'Tab',
+    'Label',
+    'Badge'
 ].forEach(function(name){
     Phoenix[name] = exports[name];
 });
