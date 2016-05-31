@@ -1,6 +1,5 @@
 import React,{PropTypes} from 'react';
 import Component from './utils/Component';
-import ReactDom from 'react-dom';
 import classnames from 'classnames';
 /**
  * <h5>label模块，主要包括一下两个组件:</h5>

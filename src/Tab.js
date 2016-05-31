@@ -1,7 +1,6 @@
 import React, {PropTypes,Component} from 'react';
 import ClassNameMixin from './utils/ClassNameMixin';
 import classnames from 'classnames';
-import ReactDom from 'react/lib/ReactDOM';
 /**
  * tab选项卡组件
  * - 标签内容为heading属性，children部分为对应要显示的内容<br/>

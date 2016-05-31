@@ -1,6 +1,5 @@
 import React,{PropTypes} from 'react';
 import Component from './utils/Component';
-import ReactDom from 'react-dom';
 import classnames from 'classnames';
 /**
  * Badge徽章标记，主要是用来提供不同颜色的标识<br/>

@@ -26198,10 +26198,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _reactLibReactDOM = __webpack_require__(4);
-
-	var _reactLibReactDOM2 = _interopRequireDefault(_reactLibReactDOM);
-
 	/**
 	 * tab选项卡组件
 	 * - 标签内容为heading属性，children部分为对应要显示的内容<br/>
@@ -26552,10 +26548,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
 
-	var _reactDom = __webpack_require__(159);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
 	var _classnames = __webpack_require__(213);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
@@ -26703,10 +26695,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _utilsComponent = __webpack_require__(212);
 
 	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
-
-	var _reactDom = __webpack_require__(159);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
 
 	var _classnames = __webpack_require__(213);
 
