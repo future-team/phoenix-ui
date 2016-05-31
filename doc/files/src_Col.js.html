@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src/utils/MethodMixin.js - phoenix-ui</title>
+    <title>src/Col.js - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -126,38 +126,63 @@
             <div id="docs-main">
                 <div class="content">
                     <div class="page-header">
-    <h1>src/utils/MethodMixin.js <small>File</small></h1>
+    <h1>src/Col.js <small>File</small></h1>
 </div>
 
 <div class="file">
     <pre class="prettyprint linenums" id='src_code'>
+import React,{ PropTypes, Component } from &#x27;react&#x27;;
+import classnames from &#x27;classnames&#x27;;
+
 /**
- * Created by mac on 16/1/3.
- */
-export default obj=&gt;{
-    let methods={
-        initCallback:true,
-        loadedCallback:true,
-        closeCallback:true,
-        successCallback:true,
-        cancelCallback:true,
-        checkedCallback:true,
-        activeCallback:true,
-        getValueCallback:true,
+ * 列
+ * @class Col
+ * @module grid
+ * @extends Component
+ * @constructor
+ * @since 0.1.0
+ * */
+export default class Col extends Component{
 
-        updateCallback:true,
-        deleteCallback:true,
-        queryCallback:true,
-        addCallback:true,
-        insertCallback:true,
-        ajaxCallback:true,
-
-        defaultCallback:true
-
-        //method
+    static propTypes = {
+        /**
+         * 占100份的多少份，目前支持5-100之间5的倍数、33（1\3）和66(2\3)
+         * @property width
+         * @type Integer
+         * */
+        width:PropTypes.string,
+        /**
+         * 偏移多少，，目前支持5-100之间5的倍数、33（1\3）和66(2\3)
+         * @property offset，默认不偏移
+         * @type Integer
+         * */
+        offset:PropTypes.string,
+        /**
+         * 竖直方向的排列是靠上、居中还是靠下
+         * @property offset，默认不偏移
+         * @type Integer
+         * */
+        align:React.PropTypes.oneOf([&#x27;top&#x27;, &#x27;bottom&#x27;,&#x27;center&#x27;])
     };
-
-    obj.prototype.methods = methods;
+    static defaultProps = {
+        classPrefix:&#x27;col&#x27;
+    };
+    render(){
+        let  { width,offset,align,classPrefix, ...others } = this.props;
+        return (
+            &lt;div {...others} className={
+                classnames(
+                    &#x27;col&#x27;,
+                    this.props.width?&#x60;${classPrefix}-${width}&#x60;:&#x27;&#x27;,
+                    this.props.offset?&#x60;${classPrefix}-offset-${offset}&#x60;:&#x27;&#x27;,
+                    this.props.align?&#x60;${classPrefix}-${align}&#x60;:&#x27;&#x27;,
+                    this.props.className
+                )
+                }&gt;
+                {this.props.children}
+            &lt;/div&gt;
+        );
+    }
 }
     </pre>
 </div>

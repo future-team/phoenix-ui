@@ -51,19 +51,74 @@
             "fors": {},
             "namespaces": {}
         },
-        "src/Input.js": {
-            "name": "src/Input.js",
+        "src/Button.js": {
+            "name": "src/Button.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Col.js": {
+            "name": "src/Col.js",
             "modules": {
-                "form(表单)": 1
+                "grid": 1
             },
             "classes": {
-                "Input": 1
+                "Col": 1
             },
             "fors": {},
             "namespaces": {}
         },
-        "src/index.js": {
-            "name": "src/index.js",
+        "src/FormGroup.js": {
+            "name": "src/FormGroup.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Input.js": {
+            "name": "src/Input.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Row.js": {
+            "name": "src/Row.js",
+            "modules": {},
+            "classes": {
+                "Row": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Switch.js": {
+            "name": "src/Switch.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Tab.js": {
+            "name": "src/Tab.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/TableView.js": {
+            "name": "src/TableView.js",
+            "modules": {
+                "UI": 1
+            },
+            "classes": {
+                "TableView": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Tabset.js": {
+            "name": "src/Tabset.js",
             "modules": {},
             "classes": {},
             "fors": {},
@@ -71,39 +126,86 @@
         }
     },
     "modules": {
-        "form(表单)": {
-            "name": "form(表单)",
+        "grid": {
+            "name": "grid",
             "submodules": {},
             "classes": {
-                "Input": 1
+                "Col": 1,
+                "Row": 1
             },
             "fors": {},
             "namespaces": {},
             "tag": "module",
-            "file": "src/Input.js",
-            "line": 7,
-            "description": "- input组件，与基本的input类型相对应，改变了默认的风格，<br/>\n- 使用方式还是与基本的input相同，例如'Input type=\"radio\" name='nba' label=\"76ers\" value=\"76ers\"/'<br/>\n- 支持自定义className，内联style，以及自定义属性<br/>\n- 针对radio和checkbox，有disabled,checked等属性，对应于不同的状态。具体如下<br/>\n主要属性和接口：\n <ul>\n   <li>type:input的具体类型，对应基本input的type。默认为text<br>\n       如：<code>\n            Input type=\"radio\"\n          </code>\n   </li>\n   <li>label:标签内容，针对radio和checkbox类型。默认为空<br>\n       如：<code>\n            Input type=\"radio\" label=\"76ers\"\n          </code>\n   </li>\n   <li>checked:选中状态，同样针对radio和checkbox类型。默认为false<br>\n       如：<code>\n            Input type=\"radio\" label=\"76ers\" checked\n          </code>\n   </li>\n   <li>disabled:不可操作状态，再次针对radio和checkbox类型。默认为false<br>\n       如：<code>\n            Input type=\"radio\" label=\"76ers\" disabled\n          </code>\n   </li>\n </ul>"
+            "file": "src/Row.js",
+            "line": 4,
+            "description": "列"
+        },
+        "UI": {
+            "name": "UI",
+            "submodules": {},
+            "classes": {
+                "TableView": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/TableView.js",
+            "line": 5,
+            "description": "展现形式如表格一般,用来组织数据，显示链接的集合，或一系列的控件。<br />\n使用时需注意组件的子元素需要跳转功能需加上href标签并赋予正确的url，不论什么标签"
         }
     },
     "classes": {
-        "Input": {
-            "name": "Input",
-            "shortname": "Input",
+        "Col": {
+            "name": "Col",
+            "shortname": "Col",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "form(表单)",
-            "file": "src/Input.js",
-            "line": 7,
-            "description": "- input组件，与基本的input类型相对应，改变了默认的风格，<br/>\n- 使用方式还是与基本的input相同，例如'Input type=\"radio\" name='nba' label=\"76ers\" value=\"76ers\"/'<br/>\n- 支持自定义className，内联style，以及自定义属性<br/>\n- 针对radio和checkbox，有disabled,checked等属性，对应于不同的状态。具体如下<br/>\n主要属性和接口：\n <ul>\n   <li>type:input的具体类型，对应基本input的type。默认为text<br>\n       如：<code>\n            Input type=\"radio\"\n          </code>\n   </li>\n   <li>label:标签内容，针对radio和checkbox类型。默认为空<br>\n       如：<code>\n            Input type=\"radio\" label=\"76ers\"\n          </code>\n   </li>\n   <li>checked:选中状态，同样针对radio和checkbox类型。默认为false<br>\n       如：<code>\n            Input type=\"radio\" label=\"76ers\" checked\n          </code>\n   </li>\n   <li>disabled:不可操作状态，再次针对radio和checkbox类型。默认为false<br>\n       如：<code>\n            Input type=\"radio\" label=\"76ers\" disabled\n          </code>\n   </li>\n </ul>",
+            "module": "grid",
+            "file": "src/Col.js",
+            "line": 4,
+            "description": "列",
             "extends": "Component",
             "is_constructor": 1,
-            "since": "0.1.0",
+            "since": "0.1.0"
+        },
+        "Row": {
+            "name": "Row",
+            "shortname": "Row",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "grid",
+            "namespace": "",
+            "file": "src/Row.js",
+            "line": 4,
+            "description": "行",
+            "extends": "Component",
+            "is_constructor": 1,
+            "since": "0.1.0"
+        },
+        "TableView": {
+            "name": "TableView",
+            "shortname": "TableView",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "UI",
+            "namespace": "",
+            "file": "src/TableView.js",
+            "line": 5,
+            "description": "展现形式如表格一般,用来组织数据，显示链接的集合，或一系列的控件。<br />\n使用时需注意组件的子元素需要跳转功能需加上href标签并赋予正确的url，不论什么标签",
+            "extends": "Component",
+            "is_constructor": 1,
             "example": [
-                "\t/**\n\t * Created by panqianjin on 16/5/24.\n\t */\n\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport Input from '../../src/Input.js';\n\t\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Input type='text' value='aaa' />\n\t            </div>\n\t        );\n\t    }\n\t}",
-                "\t/**\n\t * Created by panqianjin on 16/5/24.\n\t */\n\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport Input from '../../src/Input.js';\n\t\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Input type='text' value='aaa' />\n\t            </div>\n\t        );\n\t    }\n\t}"
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {TableView} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:''\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div style={{padding:'20px'}}>\n\t                <TableView>\n\t                    <a href=\"http://www.baidu.com\">列表 1</a>\n\t                    <a>\n\t                        列表 2\n\t                        <span className=\"badge badge-primary\">2</span>\n\t                    </a>\n\t                    <a href=\"###\">\n\t                        <span className=\"badge\">5</span>\n\t                        Item 1\n\t                    </a>\n\t                    <a>\n\t                        Item 2\n\t                        <label className=\"label-switch\">\n\t                            <input id=\"js-room-selected\" type=\"checkbox\" />\n\t                                <div className=\"checkbox\"></div>\n\t                            </label>\n\t                    </a>\n\t                </TableView>\n\t            </div>\n\t        );\n\t    }\n\t}",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {TableView} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:''\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div style={{padding:'20px'}}>\n\t                <TableView>\n\t                    <a href=\"http://www.baidu.com\">列表 1</a>\n\t                    <a>\n\t                        列表 2\n\t                        <span className=\"badge badge-primary\">2</span>\n\t                    </a>\n\t                    <a href=\"###\">\n\t                        <span className=\"badge\">5</span>\n\t                        Item 1\n\t                    </a>\n\t                    <a>\n\t                        Item 2\n\t                        <label className=\"label-switch\">\n\t                            <input id=\"js-room-selected\" type=\"checkbox\" />\n\t                                <div className=\"checkbox\"></div>\n\t                            </label>\n\t                    </a>\n\t                </TableView>\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
                 "展示",
@@ -117,7 +219,7 @@
             "file": "src/utils/ClassNameMixin.js",
             "line": 1,
             "description": "Created by mac on 15/9/7.",
-            "class": "Input"
+            "class": "Col"
         },
         {
             "file": "src/utils/ClassNameMixin.js",
@@ -141,7 +243,7 @@
                 "description": "",
                 "type": "String"
             },
-            "class": "Input"
+            "class": "Col"
         },
         {
             "file": "src/utils/ClassNameMixin.js",
@@ -165,7 +267,7 @@
                 "description": "",
                 "type": "String"
             },
-            "class": "Input"
+            "class": "Col"
         },
         {
             "file": "src/utils/ClassNameMixin.js",
@@ -184,7 +286,7 @@
                 "description": "",
                 "type": "String"
             },
-            "class": "Input"
+            "class": "Col"
         },
         {
             "file": "src/utils/ClassNameMixin.js",
@@ -208,11 +310,11 @@
                 "description": "",
                 "type": "String"
             },
-            "class": "Input"
+            "class": "Col"
         },
         {
             "file": "src/utils/ClassNameMixin.js",
-            "line": 84,
+            "line": 85,
             "description": "检查元素是否存在样式名",
             "itemtype": "method",
             "name": "hasClass",
@@ -232,11 +334,11 @@
                 "description": "",
                 "type": "Boolean"
             },
-            "class": "Input"
+            "class": "Col"
         },
         {
             "file": "src/utils/ClassNameMixin.js",
-            "line": 95,
+            "line": 96,
             "description": "给元素增加一个样式名",
             "itemtype": "method",
             "name": "addClass",
@@ -252,11 +354,11 @@
                     "type": "String"
                 }
             ],
-            "class": "Input"
+            "class": "Col"
         },
         {
             "file": "src/utils/ClassNameMixin.js",
-            "line": 104,
+            "line": 105,
             "description": "给元素删除一个样式名",
             "itemtype": "method",
             "name": "removeClass",
@@ -272,43 +374,49 @@
                     "type": "String"
                 }
             ],
-            "class": "Input"
+            "class": "Col"
         },
         {
             "file": "src/utils/MethodMixin.js",
             "line": 1,
             "description": "Created by mac on 16/1/3.",
-            "class": "Input"
+            "class": "Col"
         },
         {
             "file": "src/utils/PropertyMixin.js",
             "line": 1,
             "description": "Created by mac on 16/1/3.",
-            "class": "Input"
+            "class": "Col"
         },
         {
             "file": "src/utils/constants.js",
             "line": 1,
             "description": "Created by mac on 15/9/7.",
-            "class": "Input"
+            "class": "Col"
         },
         {
             "file": "src/utils/constants.js",
-            "line": 12,
+            "line": 11,
             "description": "状态",
-            "class": "Input"
+            "class": "Col"
         },
         {
             "file": "src/utils/constants.js",
-            "line": 63,
+            "line": 62,
             "description": "颜色",
-            "class": "Input"
+            "class": "Col"
         },
         {
             "file": "src/utils/constants.js",
-            "line": 77,
+            "line": 76,
             "description": "form列表相关",
-            "class": "Input"
+            "class": "Col"
+        },
+        {
+            "file": "src/utils/constants.js",
+            "line": 86,
+            "description": "tab",
+            "class": "Col"
         },
         {
             "file": "src/utils/extend.js",
@@ -324,38 +432,213 @@
                     "description": "- an object containing properties to be overwritten. It\n                  should have the same structure as the object object."
                 }
             ],
-            "class": "Input"
+            "class": "Col"
+        },
+        {
+            "file": "src/Button.js",
+            "line": 8,
+            "description": "按钮尺寸,分别为xs、sm、lg",
+            "itemtype": "property",
+            "name": "egSize",
+            "type": "String",
+            "default": "sm",
+            "class": "Col"
+        },
+        {
+            "file": "src/Button.js",
+            "line": 15,
+            "description": "颜色[error、warning、danger、link、gray、white、success、'']",
+            "itemtype": "property",
+            "name": "egStyle",
+            "type": "Boolean",
+            "default": "''",
+            "class": "Col"
+        },
+        {
+            "file": "src/Button.js",
+            "line": 22,
+            "description": "样式前缀",
+            "itemtype": "property",
+            "name": "classPrefix",
+            "type": "String",
+            "default": "btn",
+            "class": "Col"
+        },
+        {
+            "file": "src/Button.js",
+            "line": 29,
+            "description": "标签tagName",
+            "itemtype": "property",
+            "name": "componentTag",
+            "type": "String",
+            "default": "a",
+            "class": "Col"
+        },
+        {
+            "file": "src/Button.js",
+            "line": 36,
+            "description": "块级显示",
+            "itemtype": "property",
+            "name": "block",
+            "type": "Boolean",
+            "default": "false",
+            "class": "Col"
+        },
+        {
+            "file": "src/Col.js",
+            "line": 15,
+            "description": "占100份的多少份，目前支持5-100之间5的倍数、33（1\\3）和66(2\\3)",
+            "itemtype": "property",
+            "name": "width",
+            "type": "Integer",
+            "class": "Col",
+            "module": "grid"
+        },
+        {
+            "file": "src/Col.js",
+            "line": 21,
+            "description": "偏移多少，，目前支持5-100之间5的倍数、33（1\\3）和66(2\\3)",
+            "itemtype": "property",
+            "name": "offset，默认不偏移",
+            "type": "Integer",
+            "class": "Col",
+            "module": "grid"
+        },
+        {
+            "file": "src/Col.js",
+            "line": 27,
+            "description": "竖直方向的排列是靠上、居中还是靠下",
+            "itemtype": "property",
+            "name": "offset，默认不偏移",
+            "type": "Integer",
+            "class": "Col",
+            "module": "grid"
+        },
+        {
+            "file": "src/FormGroup.js",
+            "line": 10,
+            "description": "样式前缀",
+            "itemtype": "property",
+            "name": "classPrefix",
+            "type": "String",
+            "default": "btn",
+            "class": "Row",
+            "module": "grid"
+        },
+        {
+            "file": "src/FormGroup.js",
+            "line": 17,
+            "description": "标签tagName",
+            "itemtype": "property",
+            "name": "componentTag",
+            "type": "String",
+            "default": "a",
+            "class": "Row",
+            "module": "grid"
         },
         {
             "file": "src/Input.js",
-            "line": 1,
-            "description": "Created by panqianjin on 16/5/24.",
-            "class": "Input"
+            "line": 8,
+            "description": "样式前缀",
+            "itemtype": "property",
+            "name": "classPrefix",
+            "type": "String",
+            "default": "btn",
+            "class": "Row",
+            "module": "grid"
         },
         {
-            "file": "src/index.js",
+            "file": "src/Input.js",
+            "line": 15,
+            "description": "标签tagName",
+            "itemtype": "property",
+            "name": "componentTag",
+            "type": "String",
+            "default": "a",
+            "class": "Row",
+            "module": "grid"
+        },
+        {
+            "file": "src/Row.js",
+            "line": 15,
+            "description": "竖直方向的排列是靠上、居中、靠下、拉伸至父容器最大高度还是基于text的baseline对齐",
+            "itemtype": "property",
+            "name": "offset，默认不偏移",
+            "type": "Integer",
+            "class": "Row",
+            "module": "grid"
+        },
+        {
+            "file": "src/Switch.js",
+            "line": 8,
+            "description": "样式前缀",
+            "itemtype": "property",
+            "name": "classPrefix",
+            "type": "String",
+            "default": "btn",
+            "class": "TableView",
+            "module": "grid"
+        },
+        {
+            "file": "src/Switch.js",
+            "line": 15,
+            "description": "标签tagName",
+            "itemtype": "property",
+            "name": "componentTag",
+            "type": "String",
+            "default": "a",
+            "class": "TableView",
+            "module": "grid"
+        },
+        {
+            "file": "src/Tab.js",
             "line": 1,
-            "description": "Created by panqianjin on 16/5/19.",
+            "description": "Created by panqianjin on 16/5/26.",
+            "class": "TableView",
+            "module": "grid"
+        },
+        {
+            "file": "src/TableView.js",
+            "line": 19,
+            "description": "样式前缀",
+            "itemtype": "property",
+            "name": "classPrefix",
+            "type": "String",
+            "default": "btn",
+            "class": "TableView",
+            "module": "UI"
+        },
+        {
+            "file": "src/TableView.js",
+            "line": 26,
+            "description": "标签tagName",
+            "itemtype": "property",
+            "name": "componentTag",
+            "type": "String",
+            "default": "a",
+            "class": "TableView",
+            "module": "UI"
+        },
+        {
+            "file": "src/Tabset.js",
+            "line": 1,
+            "description": "Created by panqianjin on 16/5/26.",
             "class": "",
-            "module": "form(表单)"
+            "module": "UI"
         }
     ],
     "warnings": [
         {
-            "message": "replacing incorrect tag: extend with extends",
-            "line": " src/Input.js:7"
+            "message": "unknown tag: demo",
+            "line": " src/TableView.js:5"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/Input.js:7"
-        },
-        {
-            "message": "unknown tag: demo",
-            "line": " src/Input.js:7"
+            "line": " src/TableView.js:5"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/Input.js:7"
+            "line": " src/TableView.js:5"
         },
         {
             "message": "Missing item type\nCreated by mac on 15/9/7.",
@@ -375,27 +658,31 @@
         },
         {
             "message": "Missing item type\n状态",
-            "line": " src/utils/constants.js:12"
+            "line": " src/utils/constants.js:11"
         },
         {
             "message": "Missing item type\n颜色",
-            "line": " src/utils/constants.js:63"
+            "line": " src/utils/constants.js:62"
         },
         {
             "message": "Missing item type\nform列表相关",
-            "line": " src/utils/constants.js:77"
+            "line": " src/utils/constants.js:76"
+        },
+        {
+            "message": "Missing item type\ntab",
+            "line": " src/utils/constants.js:86"
         },
         {
             "message": "Missing item type\nA recursive merge between two objects.",
             "line": " src/utils/extend.js:5"
         },
         {
-            "message": "Missing item type\nCreated by panqianjin on 16/5/24.",
-            "line": " src/Input.js:1"
+            "message": "Missing item type\nCreated by panqianjin on 16/5/26.",
+            "line": " src/Tab.js:1"
         },
         {
-            "message": "Missing item type\nCreated by panqianjin on 16/5/19.",
-            "line": " src/index.js:1"
+            "message": "Missing item type\nCreated by panqianjin on 16/5/26.",
+            "line": " src/Tabset.js:1"
         }
     ]
 }

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Input - phoenix-ui</title>
+    <title>Col - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -52,14 +52,40 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
-                    <a href="../modules/form(表单).html">form(表单)</a>
+                    <a href="../modules/grid.html">grid</a>
                 </dt>
                 <dd>
                     <ul>
                    
                        <li>
                             
-                           <a href="../classes/Input.html">Input</a>
+                           <a href="../classes/Col.html">Col</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Row.html">Row</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/UI.html">UI</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/TableView.html">TableView</a>
                            <ul>
                                 
                            </ul>
@@ -100,37 +126,10 @@
             <div id="docs-main">
                 <div class="content">
                     <div class="page-header">
-    <h1>Input <small>Class</small></h1>
+    <h1>Col <small>Class</small></h1>
 </div>
  <div class="well well-small sign-left3">
-      <div class="stdoc-code"><ul>
-<li>input组件，与基本的input类型相对应，改变了默认的风格，<br/></li>
-<li>使用方式还是与基本的input相同，例如&#39;Input type="radio" name=&#39;nba&#39; label="76ers" value="76ers"/&#39;<br/></li>
-<li>支持自定义className，内联style，以及自定义属性<br/></li>
-<li>针对radio和checkbox，有disabled,checked等属性，对应于不同的状态。具体如下<br/>
-主要属性和接口：<ul>
- <li>type:input的具体类型，对应基本input的type。默认为text<br>
-     如：<code>
-          Input type="radio"
-        </code>
- </li>
- <li>label:标签内容，针对radio和checkbox类型。默认为空<br>
-     如：<code>
-          Input type="radio" label="76ers"
-        </code>
- </li>
- <li>checked:选中状态，同样针对radio和checkbox类型。默认为false<br>
-     如：<code>
-          Input type="radio" label="76ers" checked
-        </code>
- </li>
- <li>disabled:不可操作状态，再次针对radio和checkbox类型。默认为false<br>
-     如：<code>
-          Input type="radio" label="76ers" disabled
-        </code>
- </li>
-</ul></li>
-</ul>
+      <div class="stdoc-code"><p>列</p>
 </div>
  </div>
 
@@ -198,6 +197,66 @@
         <div class="index-section properties col-sm-4">
             <h3>Properties</h3>
             
+            <ul class="index-list properties extends">
+                
+                    <li class="index-item property">
+                        <a href="#" data-tabid="#property" data-anchor="#property_block" data-tablink="block">block</a>
+
+                        
+                        
+                    </li>
+                
+                    <li class="index-item property">
+                        <a href="#" data-tabid="#property" data-anchor="#property_classPrefix" data-tablink="classPrefix">classPrefix</a>
+
+                        
+                        
+                    </li>
+                
+                    <li class="index-item property">
+                        <a href="#" data-tabid="#property" data-anchor="#property_componentTag" data-tablink="componentTag">componentTag</a>
+
+                        
+                        
+                    </li>
+                
+                    <li class="index-item property">
+                        <a href="#" data-tabid="#property" data-anchor="#property_egSize" data-tablink="egSize">egSize</a>
+
+                        
+                        
+                    </li>
+                
+                    <li class="index-item property">
+                        <a href="#" data-tabid="#property" data-anchor="#property_egStyle" data-tablink="egStyle">egStyle</a>
+
+                        
+                        
+                    </li>
+                
+                    <li class="index-item property">
+                        <a href="#" data-tabid="#property" data-anchor="#property_offset，默认不偏移" data-tablink="offset，默认不偏移">offset，默认不偏移</a>
+
+                        
+                        
+                    </li>
+                
+                    <li class="index-item property">
+                        <a href="#" data-tabid="#property" data-anchor="#property_offset，默认不偏移" data-tablink="offset，默认不偏移">offset，默认不偏移</a>
+
+                        
+                        
+                    </li>
+                
+                    <li class="index-item property">
+                        <a href="#" data-tabid="#property" data-anchor="#property_width" data-tablink="width">width</a>
+
+                        
+                        
+                    </li>
+                
+            </ul>
+            
         </div>
     
         <div class="index-section events col-sm-4">
@@ -213,6 +272,8 @@
         
             <li><a data-toggle="tab" href="#method">Methods</a></li>
         
+        
+            <li><a data-toggle="tab" href="#property">Properties</a></li>
         
         
     </ul>
@@ -230,13 +291,13 @@
 
             
                 <div class="foundat">
-                    Defined in: <a href="../files/src_Input.js.html#l7"><code>src&#x2F;Input.js:7</code></a>
+                    Defined in: <a href="../files/src_Col.js.html#l4"><code>src&#x2F;Col.js:4</code></a>
                 </div>
             
 
             
                 
-                    Module: <a href="../modules/form(表单).html">form(表单)</a>
+                    Module: <a href="../modules/grid.html">grid</a>
                 
             
 
@@ -249,10 +310,10 @@
             
                 <div class="constructor">
                     <h2>Constructor</h2>
-                    <div id="method_Input" class="method item">
-    <h3 class="name">Input</h3>
+                    <div id="method_Col" class="method item">
+    <h3 class="name">Col</h3>
     <code>
-    Input
+    Col
     
         <span class="paren">()</span>
     
@@ -283,7 +344,7 @@
             
         
         
-        <a href="../files/src_Input.js.html#l7"><code>src&#x2F;Input.js:7</code></a>
+        <a href="../files/src_Col.js.html#l4"><code>src&#x2F;Col.js:4</code></a>
         
         </p>
 
@@ -303,56 +364,6 @@
 
     
 
-    
-        <div class="example">
-            <h4>Example:</h4>
-            <ul class="nav nav-tabs example-list">
-                
-                <li role="presentation"  class="active"  _no='0'> <a>展示</a></li>
-                
-                <li role="presentation"   _no='1'> <a>源码</a></li>
-                
-            </ul>
-
-            <div class="example-content  showdemo ">
-                <div class="stdoc-code"><pre class="code prettyprint"><code>/**
- * Created by panqianjin on 16/5/24.
- */
-import React, { Component ,PropTypes} from &#39;react&#39;;
-import ReactDOM,{findDOMNode} from &#39;react-dom&#39;;
-import Input from &#39;../../src/Input.js&#39;;
-
-export default class input extends Component{
-    render(){
-        return(
-            &lt;div&gt;
-                &lt;Input type=&#39;text&#39; value=&#39;aaa&#39; /&gt;
-            &lt;/div&gt;
-        );
-    }
-}</code></pre>
-</div><div class="stdoc-code"><pre class="code prettyprint"><code>/**
- * Created by panqianjin on 16/5/24.
- */
-import React, { Component ,PropTypes} from &#39;react&#39;;
-import ReactDOM,{findDOMNode} from &#39;react-dom&#39;;
-import Input from &#39;../../src/Input.js&#39;;
-
-export default class input extends Component{
-    render(){
-        return(
-            &lt;div&gt;
-                &lt;Input type=&#39;text&#39; value=&#39;aaa&#39; /&gt;
-            &lt;/div&gt;
-        );
-    }
-}</code></pre>
-</div>
-            </div>
-
-             <button class="btn btn-info btn-viewDemo" type="button">view demo</button>
-            <button class="btn btn-info btn-editDemo" type="button">edit code</button>
-        </div>
     
 </div>
 
@@ -415,7 +426,7 @@ export default class input extends Component{
             
         
         
-        <a href="../files/src_utils_ClassNameMixin.js.html#l95"><code>src&#x2F;utils&#x2F;ClassNameMixin.js:95</code></a>
+        <a href="../files/src_utils_ClassNameMixin.js.html#l96"><code>src&#x2F;utils&#x2F;ClassNameMixin.js:96</code></a>
         
         </p>
 
@@ -908,7 +919,7 @@ export default class input extends Component{
             
         
         
-        <a href="../files/src_utils_ClassNameMixin.js.html#l84"><code>src&#x2F;utils&#x2F;ClassNameMixin.js:84</code></a>
+        <a href="../files/src_utils_ClassNameMixin.js.html#l85"><code>src&#x2F;utils&#x2F;ClassNameMixin.js:85</code></a>
         
         </p>
 
@@ -1036,7 +1047,7 @@ export default class input extends Component{
             
         
         
-        <a href="../files/src_utils_ClassNameMixin.js.html#l104"><code>src&#x2F;utils&#x2F;ClassNameMixin.js:104</code></a>
+        <a href="../files/src_utils_ClassNameMixin.js.html#l105"><code>src&#x2F;utils&#x2F;ClassNameMixin.js:105</code></a>
         
         </p>
 
@@ -1237,6 +1248,387 @@ export default class input extends Component{
             </div>
         
 
+        
+            <div id="property" class="tab-pane">
+                <h2 class="off-left">Properties</h2>
+
+                
+                    <div id="property_block" class="property item">
+    <h3 class="name"><code>block</code></h3>
+    <span class="type">Boolean</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_Button.js.html#l36"><code>src&#x2F;Button.js:36</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>块级显示</p>
+</div>
+    </div>
+
+    
+        <p><strong>Default:</strong></p>
+         <code> false</code>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_classPrefix" class="property item">
+    <h3 class="name"><code>classPrefix</code></h3>
+    <span class="type">String</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_Button.js.html#l22"><code>src&#x2F;Button.js:22</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>样式前缀</p>
+</div>
+    </div>
+
+    
+        <p><strong>Default:</strong></p>
+         <code> btn</code>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_componentTag" class="property item">
+    <h3 class="name"><code>componentTag</code></h3>
+    <span class="type">String</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_Button.js.html#l29"><code>src&#x2F;Button.js:29</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>标签tagName</p>
+</div>
+    </div>
+
+    
+        <p><strong>Default:</strong></p>
+         <code> a</code>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_egSize" class="property item">
+    <h3 class="name"><code>egSize</code></h3>
+    <span class="type">String</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_Button.js.html#l8"><code>src&#x2F;Button.js:8</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>按钮尺寸,分别为xs、sm、lg</p>
+</div>
+    </div>
+
+    
+        <p><strong>Default:</strong></p>
+         <code> sm</code>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_egStyle" class="property item">
+    <h3 class="name"><code>egStyle</code></h3>
+    <span class="type">Boolean</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_Button.js.html#l15"><code>src&#x2F;Button.js:15</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>颜色[error、warning、danger、link、gray、white、success、&#39;&#39;]</p>
+</div>
+    </div>
+
+    
+        <p><strong>Default:</strong></p>
+         <code> &#x27;&#x27;</code>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_offset，默认不偏移" class="property item">
+    <h3 class="name"><code>offset，默认不偏移</code></h3>
+    <span class="type">Integer</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_Col.js.html#l21"><code>src&#x2F;Col.js:21</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>偏移多少，，目前支持5-100之间5的倍数、33（1\3）和66(2\3)</p>
+</div>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_offset，默认不偏移" class="property item">
+    <h3 class="name"><code>offset，默认不偏移</code></h3>
+    <span class="type">Integer</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_Col.js.html#l27"><code>src&#x2F;Col.js:27</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>竖直方向的排列是靠上、居中还是靠下</p>
+</div>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_width" class="property item">
+    <h3 class="name"><code>width</code></h3>
+    <span class="type">Integer</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_Col.js.html#l15"><code>src&#x2F;Col.js:15</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>占100份的多少份，目前支持5-100之间5的倍数、33（1\3）和66(2\3)</p>
+</div>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
         
 
         

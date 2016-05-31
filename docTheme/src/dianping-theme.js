@@ -16,8 +16,6 @@ var operateIframe = function () {
     var mapPool={
         //form模块map方式
         'Input':'input',
-        'RadioGroup':'input',
-        'CheckboxGroup':'input',
         'Button':'button',
         'Switch':'input',
         'Textarea':'input',
@@ -27,15 +25,13 @@ var operateIframe = function () {
         'Row':'grid',
         'Col':'grid',
         'Grid':'grid',
-        //panel门店列表
-        'Panel':'grid_panel_list',
         //label
         'Label':'label',
-        'LabelGroup':'label',
         //star星星
         'Star':'star',
         //filter
-        'Filter':'filter'
+        'Filter':'filter',
+        'TableView':'tableview'
     };
     var iframeStyle = {
         display:'block',

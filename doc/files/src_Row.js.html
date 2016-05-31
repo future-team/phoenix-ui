@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src/index.js - phoenix-ui</title>
+    <title>src/Row.js - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -52,14 +52,40 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
-                    <a href="../modules/form(表单).html">form(表单)</a>
+                    <a href="../modules/grid.html">grid</a>
                 </dt>
                 <dd>
                     <ul>
                    
                        <li>
                             
-                           <a href="../classes/Input.html">Input</a>
+                           <a href="../classes/Col.html">Col</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Row.html">Row</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/UI.html">UI</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/TableView.html">TableView</a>
                            <ul>
                                 
                            </ul>
@@ -100,19 +126,48 @@
             <div id="docs-main">
                 <div class="content">
                     <div class="page-header">
-    <h1>src/index.js <small>File</small></h1>
+    <h1>src/Row.js <small>File</small></h1>
 </div>
 
 <div class="file">
     <pre class="prettyprint linenums" id='src_code'>
+import React, { PropTypes, Component } from &#x27;react&#x27;;
+import classnames from &#x27;classnames&#x27;;
+
 /**
- * Created by panqianjin on 16/5/19.
- */
-export Input from &#x27;./Input.js&#x27;;
-window[&#x27;phoenix&#x27;] = {};
-[&#x27;Input&#x27;].forEach(function(name){
-    phoenix[name] = exports[name];
-});
+ * 行
+ * @class Row
+ * @module grid
+ * @extends Component
+ * @constructor
+ * @since 0.1.0
+ * */
+export default class Row extends Component{
+
+    static propTypes={
+        /**
+         * 竖直方向的排列是靠上、居中、靠下、拉伸至父容器最大高度还是基于text的baseline对齐
+         * @property offset，默认不偏移
+         * @type Integer
+         * */
+        align:React.PropTypes.oneOf([&#x27;top&#x27;, &#x27;bottom&#x27;,&#x27;center&#x27;,&#x27;stretch&#x27;,&#x27;baseline&#x27;])
+    };
+    static defaultProps = {
+        classPrefix:&#x27;row&#x27;
+    };
+    render(){
+        let  { align, ...others } = this.props;
+        return (
+            &lt;div {...others} className={classnames(
+                &#x27;row&#x27;,
+                this.props.align?&#x60;${this.props.classPrefix}-${align}&#x60;:&#x27;&#x27;,
+                this.props.className
+            )} &gt;
+                {this.props.children}
+            &lt;/div&gt;
+        );
+    }
+}
     </pre>
 </div>
 

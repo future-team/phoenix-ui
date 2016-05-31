@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src/utils/MethodMixin.js - phoenix-ui</title>
+    <title>src/FormGroup.js - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -126,38 +126,83 @@
             <div id="docs-main">
                 <div class="content">
                     <div class="page-header">
-    <h1>src/utils/MethodMixin.js <small>File</small></h1>
+    <h1>src/FormGroup.js <small>File</small></h1>
 </div>
 
 <div class="file">
     <pre class="prettyprint linenums" id='src_code'>
-/**
- * Created by mac on 16/1/3.
- */
-export default obj=&gt;{
-    let methods={
-        initCallback:true,
-        loadedCallback:true,
-        closeCallback:true,
-        successCallback:true,
-        cancelCallback:true,
-        checkedCallback:true,
-        activeCallback:true,
-        getValueCallback:true,
+import React,{PropTypes} from &#x27;react&#x27;;
+import Component from &#x27;./utils/Component&#x27;;
+import classnames from &#x27;classnames&#x27;;
+import Row from &#x27;./Row&#x27;;
+import Col from &#x27;./Col&#x27;;
 
-        updateCallback:true,
-        deleteCallback:true,
-        queryCallback:true,
-        addCallback:true,
-        insertCallback:true,
-        ajaxCallback:true,
+export default class FormGroup extends Component{
 
-        defaultCallback:true
-
-        //method
+    static propTypes = {
+        /**
+         * 样式前缀
+         * @property classPrefix
+         * @type String
+         * @default btn
+         * */
+        classPrefix:PropTypes.string,
+        /**
+         * 标签tagName
+         * @property componentTag
+         * @type String
+         * @default a
+         * */
+        componentTag:PropTypes.string
     };
 
-    obj.prototype.methods = methods;
+    static defaultProps = {
+        egSize:&#x27;&#x27;,
+        classPrefix:&#x27;&#x27;,
+        componentTag:&#x27;form&#x27;,
+        classMapping : {
+
+        }
+    };
+
+    constructor(props, context) {
+        super(props, context);
+    }
+
+    renderItem(){
+        let items = React.Children.map(this.props.children, (options, index)=&gt; {
+
+            return  React.cloneElement(options, {
+                    className:classnames(
+                        {
+                            &#x27;input-row&#x27;:!options.props.single
+                        },
+                        this.props.className
+                    )
+
+                });
+        }, this);
+
+        return items;
+    }
+
+
+    render(){
+        let {componentTag:Component} = this.props;
+
+        return (
+            &lt;Component className={
+                classnames(
+                    &#x27;input-group&#x27;,
+                    this.getProperty(),
+                    this.props.className
+                )
+            }&gt;
+                {this.renderItem() }
+            &lt;/Component&gt;
+        );
+    }
+
 }
     </pre>
 </div>

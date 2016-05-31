@@ -52,14 +52,40 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
-                    <a href="../modules/form(表单).html">form(表单)</a>
+                    <a href="../modules/grid.html">grid</a>
                 </dt>
                 <dd>
                     <ul>
                    
                        <li>
                             
-                           <a href="../classes/Input.html">Input</a>
+                           <a href="../classes/Col.html">Col</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Row.html">Row</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/UI.html">UI</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/TableView.html">TableView</a>
                            <ul>
                                 
                            </ul>
@@ -113,8 +139,7 @@
 function setNamespace(className) {
     return &#x60;${className}&#x60;;
 }
-const CLASS_NAME_NAMESPACE = &#x27;uc&#x27;;
-
+const CLASS_NAME_NAMESPACE = &#x27;&#x27;;
 export const classConstants = {
     /**
      * 状态
@@ -190,7 +215,11 @@ export const classConstants = {
     jump: setNamespace(&#x27;link&#x27;),
     //最后一个item是否浮动
     right: setNamespace(&#x27;lastItem&#x27;),
-    classNameNamespace: CLASS_NAME_NAMESPACE
+    classNameNamespace: CLASS_NAME_NAMESPACE,
+   /**
+    * tab
+    * */
+    vertical: setNamespace(&#x27;vertical&#x27;)
 };
     </pre>
 </div>

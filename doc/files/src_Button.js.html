@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>form(表单) - phoenix-ui</title>
+    <title>src/Button.js - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -52,14 +52,40 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
-                    <a href="../modules/form(表单).html">form(表单)</a>
+                    <a href="../modules/grid.html">grid</a>
                 </dt>
                 <dd>
                     <ul>
                    
                        <li>
                             
-                           <a href="../classes/Input.html">Input</a>
+                           <a href="../classes/Col.html">Col</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Row.html">Row</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/UI.html">UI</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/TableView.html">TableView</a>
                            <ul>
                                 
                            </ul>
@@ -100,79 +126,92 @@
             <div id="docs-main">
                 <div class="content">
                     <div class="page-header">
-    <h1>form(表单) <small>Module</small></h1>
+    <h1>src/Button.js <small>File</small></h1>
 </div>
 
-<div class="clearfix well well-small sign-left1">
-    
+<div class="file">
+    <pre class="prettyprint linenums" id='src_code'>
+import React,{PropTypes} from &#x27;react&#x27;;
+import Component from &#x27;./utils/Component&#x27;;
+import classnames from &#x27;classnames&#x27;;
 
-    
+export default class Button extends Component{
 
-    
-        <div class="foundat">
-            Defined in: <a href="../files/src_Input.js.html#l7"><code>src&#x2F;Input.js:7</code></a>
-        </div>
-    
+    static propTypes = {
+        /**
+         * 按钮尺寸,分别为xs、sm、lg
+         * @property egSize
+         * @type String
+         * @default sm
+         * */
+        phSize:PropTypes.string,
+        /**
+         * 颜色[error、warning、danger、link、gray、white、success、&#x27;&#x27;]
+         * @property egStyle
+         * @type Boolean
+         * @default &#x27;&#x27;
+         * */
+        phStyle:PropTypes.string,
+        /**
+         * 样式前缀
+         * @property classPrefix
+         * @type String
+         * @default btn
+         * */
+        classPrefix:PropTypes.string,
+        /**
+         * 标签tagName
+         * @property componentTag
+         * @type String
+         * @default a
+         * */
+        componentTag:PropTypes.string,
+        /**
+         * 块级显示
+         * @property block
+         * @type Boolean
+         * @default false
+         * */
+        block:PropTypes.bool
+    };
 
-    
-</div>
+    static defaultProps = {
+        egSize:&#x27;&#x27;,
+        classPrefix:&#x27;&#x27;,
+        componentTag:&#x27;button&#x27;,
+        classMapping : {
+            &#x27;block&#x27;:&#x27;btn-block&#x27;,
+            &#x27;primary&#x27;:&#x27;btn-primary&#x27;,
+            &#x27;info&#x27;:&#x27;btn-info&#x27;,
+            &#x27;success&#x27;:&#x27;btn-success&#x27;,
+            &#x27;error&#x27;:&#x27;btn-error&#x27;,
+            &#x27;warning&#x27;:&#x27;btn-warning&#x27;,
+            &#x27;danger&#x27;:&#x27;btn-danger&#x27;,
+            &#x27;link&#x27;:&#x27;btn-link&#x27;
+        }
+    };
 
+    constructor(props, context) {
+        super(props, context);
+        this.setProperty(&#x27;hollow&#x27;,&#x27;hollow&#x27;);
+    }
 
+    render(){
+        let {componentTag:Component} = this.props;
 
-<div class="moduledesc well well-small sign-left3">
-    <div class="stdoc-code"><ul>
-<li>input组件，与基本的input类型相对应，改变了默认的风格，<br/></li>
-<li>使用方式还是与基本的input相同，例如&#39;Input type="radio" name=&#39;nba&#39; label="76ers" value="76ers"/&#39;<br/></li>
-<li>支持自定义className，内联style，以及自定义属性<br/></li>
-<li>针对radio和checkbox，有disabled,checked等属性，对应于不同的状态。具体如下<br/>
-主要属性和接口：<ul>
- <li>type:input的具体类型，对应基本input的type。默认为text<br>
-     如：<code>
-          Input type="radio"
-        </code>
- </li>
- <li>label:标签内容，针对radio和checkbox类型。默认为空<br>
-     如：<code>
-          Input type="radio" label="76ers"
-        </code>
- </li>
- <li>checked:选中状态，同样针对radio和checkbox类型。默认为false<br>
-     如：<code>
-          Input type="radio" label="76ers" checked
-        </code>
- </li>
- <li>disabled:不可操作状态，再次针对radio和checkbox类型。默认为false<br>
-     如：<code>
-          Input type="radio" label="76ers" disabled
-        </code>
- </li>
-</ul></li>
-</ul>
-</div>
-</div>
+        return (
+            &lt;Component {...this.otherProps} className={
+                classnames(
+                    &#x27;btn&#x27;,
+                    this.getProperty(),
+                    this.props.className
+                )
+                } style={this.getStyles(this.props.style) }&gt;{this.props.children}&lt;/Component&gt;
+        );
+    }
 
-
-
-<div class="yui3-g">
-    <div class="yui3-u-1-2">
-        
-            <p>This module provides the following classes:</p>
-
-            <ul class="module-classes">
-            
-                <li class="module-class">
-                    <a href="../classes/Input.html">
-                        Input
-                    </a>
-                </li>
-            
-            </ul>
-        
-    </div>
-
-    <div class="yui3-u-1-2">
-        
-    </div>
+}
+    </pre>
 </div>
 
                 </div>

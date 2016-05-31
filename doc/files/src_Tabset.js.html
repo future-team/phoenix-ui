@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src/utils/MethodMixin.js - phoenix-ui</title>
+    <title>src/Tabset.js - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -126,38 +126,99 @@
             <div id="docs-main">
                 <div class="content">
                     <div class="page-header">
-    <h1>src/utils/MethodMixin.js <small>File</small></h1>
+    <h1>src/Tabset.js <small>File</small></h1>
 </div>
 
 <div class="file">
     <pre class="prettyprint linenums" id='src_code'>
 /**
- * Created by mac on 16/1/3.
+ * Created by panqianjin on 16/5/26.
  */
-export default obj=&gt;{
-    let methods={
-        initCallback:true,
-        loadedCallback:true,
-        closeCallback:true,
-        successCallback:true,
-        cancelCallback:true,
-        checkedCallback:true,
-        activeCallback:true,
-        getValueCallback:true,
+import React,{PropTypes, Component} from &#x27;react&#x27;;
+import ClassNameMixin from &#x27;./utils/ClassNameMixin&#x27;;
+import classnames from &#x27;classnames&#x27;;
+import Tab from &#x27;./Tab.js&#x27;;
+@ClassNameMixin
+export default
+class Tabset extends Component {
 
-        updateCallback:true,
-        deleteCallback:true,
-        queryCallback:true,
-        addCallback:true,
-        insertCallback:true,
-        ajaxCallback:true,
-
-        defaultCallback:true
-
-        //method
+    static defaultProps = {
+        activeIndex: 0,
+        vertical: false,
+        width: 20
     };
 
-    obj.prototype.methods = methods;
+    constructor(props, context) {
+        super(props, context);
+        this.state = {
+            activeIndex: this.props.activeIndex
+        }
+    }
+
+    isVertial() {
+        return !!this.props.vertical ? &#x27;vertical row&#x27; : &#x27;&#x27;;
+    }
+
+    isActive(index) {
+        return index == this.state.activeIndex ? &#x27;active&#x27; : &#x27;&#x27;;
+    }
+
+    clickCallBack(index) {
+        if (index != this.state.activeIndex) {
+            this.setState({
+                activeIndex: index
+            })
+        }
+    }
+
+    getClass(flag) {
+        if(flag){
+            let cols = &#x27;col-&#x27;+this.props.width;
+            return !this.props.vertical ? &#x27;row&#x27;: &#x27;col-20&#x27;;
+        }else{
+            return this.props.vertical ? &#x27;col&#x27;: &#x27;&#x27;;
+        }
+
+    }
+
+    render() {
+        let panels = [];
+        let headings = React.Children.map(this.props.children, (options, index)=&gt; {
+            let { clickCallBack,...other} = options.props;
+            let opt = React.cloneElement(options, {
+                index: index,
+                activeIndex: this.state.activeIndex,
+                clickCallBack: this.clickCallBack.bind(this),
+                vertical: this.props.vertical
+            });
+
+            let panel = &lt;div className={classnames(
+                   &#x27;tab-panel&#x27;,
+                   this.isActive(index),
+                   options.props.className
+                )}&gt;
+                {options.props.children}
+            &lt;/div&gt;;
+            panels.push(panel);
+            return opt;
+        }, this);
+        return (
+            &lt;div className={classnames(
+               &#x27;ui-tabs&#x27;,
+               this.isVertial(),
+               this.props.className
+            )}&gt;
+                &lt;ul className={this.getClass(true)}&gt;
+                    {headings}
+                &lt;/ul&gt;
+                &lt;div className={classnames(
+                    this.getClass(false),
+                    &#x27;tab-bd&quot;&#x27;
+                )}&gt;
+                    {panels}
+                &lt;/div&gt;
+            &lt;/div&gt;)
+    }
 }
     </pre>
 </div>

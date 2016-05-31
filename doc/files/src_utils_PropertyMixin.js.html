@@ -52,14 +52,40 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
-                    <a href="../modules/form(表单).html">form(表单)</a>
+                    <a href="../modules/grid.html">grid</a>
                 </dt>
                 <dd>
                     <ul>
                    
                        <li>
                             
-                           <a href="../classes/Input.html">Input</a>
+                           <a href="../classes/Col.html">Col</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Row.html">Row</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/UI.html">UI</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/TableView.html">TableView</a>
                            <ul>
                                 
                            </ul>
@@ -122,11 +148,11 @@ export default obj=&gt;{
 
     let properties={
         /*以下属性都是数组里固定值*/
-        ucSize:function(val){
+        phSize:function(val){
             return getVal([&#x27;lg&#x27;,&#x27;sm&#x27;,&#x27;default&#x27;,&#x27;xs&#x27;,&#x27;md&#x27;],val);
         },
-        ucStyle:function(val){
-            return getVal([&#x27;light&#x27;,&#x27;positive&#x27;,&#x27;calm&#x27;,&#x27;balanced&#x27;,&#x27;energized&#x27;,&#x27;assertive&#x27;,&#x27;lightbrown&#x27;,&#x27;lightgray&#x27;],val);
+        phStyle:function(val){
+            return getVal([&#x27;primary&#x27;,&#x27;info&#x27;,&#x27;success&#x27;,&#x27;error&#x27;,&#x27;warning&#x27;,&#x27;danger&#x27;,&#x27;link&#x27;,&#x27;light&#x27;,&#x27;positive&#x27;,&#x27;calm&#x27;,&#x27;balanced&#x27;,&#x27;energized&#x27;,&#x27;assertive&#x27;,&#x27;lightbrown&#x27;,&#x27;lightgray&#x27;],val);
         },
         status:val=&gt;{
             getVal([&#x27;diabled&#x27;,&#x27;active&#x27;,&#x27;enable&#x27;],val)
@@ -141,7 +167,7 @@ export default obj=&gt;{
         round:true,
         clearfix:true,
         clear:true,
-        ucHref:true,
+        phHref:true,
         show:true,
         hide:true,
         block:true,
@@ -207,12 +233,6 @@ export default obj=&gt;{
                 type:&#x27;property&#x27;,
                 value:val
             };
-        },
-        icon:val=&gt;{
-            return {
-                type:&#x27;property&#x27;,
-                value:val
-            }
         }
     };
 
