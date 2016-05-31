@@ -1,8 +1,5 @@
 /**
- * Created by slashhuang on 16/5/31.
- */
-/**
- * Created by slashhuang on 15/12/15.
+ *
  * 星级评价
  */
 /**
