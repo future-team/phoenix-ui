@@ -12,7 +12,7 @@ import Switch from './switch.js';
 import Grid from './grid.js';
 import Label from './label.js';
 import Badge from './badge.js';
-//import PhSwipeDemo from './swipe.js';
+
 let Index = class index extends Component {
     render() {
         return (
@@ -24,7 +24,6 @@ let Index = class index extends Component {
                         <a href="#/input">文本框</a>
                         <a href="#/switch">开关</a>
                         <a href="#/grid">布局</a>
-                        <a href="#/swipe">swipe[滑动组件]</a>
                         <a href="#/tab">tab(选项卡)</a>
                         <a href="#/label">label(标签)</a>
                         <a href="#/badge">badge(徽章)</a>
