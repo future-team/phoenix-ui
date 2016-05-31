@@ -12,6 +12,7 @@ import Switch from './switch.js';
 import Grid from './grid.js';
 import Label from './label.js';
 import Badge from './badge.js';
+import StarDemo from './star.js';
 
 let Index = class index extends Component {
     render() {
@@ -27,6 +28,7 @@ let Index = class index extends Component {
                         <a href="#/tab">tab(选项卡)</a>
                         <a href="#/label">label(标签)</a>
                         <a href="#/badge">badge(徽章)</a>
+                        <a href="#/star">star(星星)</a>
                     </div>
                 </div>
             </div>
@@ -52,6 +54,7 @@ let AppRouter = class AppRouter extends Component {
                 <Route path="/tab" name="tab" component={Tab} />
                 <Route path="/label" name="label" component={Label} />
                 <Route path="/badge" name="badge" component={Badge} />
+                <Route path="/star" name="star" component={StarDemo} />
                 <Redirect from="/" to="/index" />
             </Router>
         );
