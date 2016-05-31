@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src/Input.js - phoenix-ui</title>
+    <title>UI - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -220,93 +220,53 @@
             <div id="docs-main">
                 <div class="content">
                     <div class="page-header">
-    <h1>src/Input.js <small>File</small></h1>
+    <h1>UI <small>Module</small></h1>
 </div>
 
-<div class="file">
-    <pre class="prettyprint linenums" id='src_code'>
-import React,{PropTypes} from &#x27;react&#x27;;
-import Component from &#x27;./utils/Component&#x27;;
-import classnames from &#x27;classnames&#x27;;
+<div class="clearfix well well-small sign-left1">
+    
 
-/**
- * 表单元素，input框，使用方式跟原生一致
- * @class Input
- * @module FORM
- * @extends Component
- * @constructor
- * @demo input.js {展示}
- * @demo input.js {源码}
- * @show true
- * */
-export default class Input extends Component{
+    
 
-    static propTypes = {
-        /**
-         * 样式前缀
-         * @property classPrefix
-         * @type String
-         * */
-        classPrefix:PropTypes.string,
-        /**
-         * 标签tagName
-         * @property componentTag
-         * @type String
-         * */
-        componentTag:PropTypes.string
-    };
+    
+        <div class="foundat">
+            Defined in: <a href="../files/src_TableView.js.html#l5"><code>src&#x2F;TableView.js:5</code></a>
+        </div>
+    
 
-    static defaultProps = {
-        egSize:&#x27;&#x27;,
-        classPrefix:&#x27;&#x27;,
-        componentTag:&#x27;div&#x27;,
-        classMapping : {
-
-        }
-    };
-
-    constructor(props, context) {
-        super(props, context);
-    }
-
-    otherView(type){
-        return (
-            &lt;label className=&quot;multi-group&quot;&gt;
-                &lt;div className={&#x60;ui-${type}&#x60;}&gt;
-                    &lt;input {...this.props} /&gt;
-                    &lt;i&gt;&lt;/i&gt;
-                &lt;/div&gt;
-                &lt;span&gt;{this.props.label ||&#x27;&#x27;}&lt;/span&gt;
-            &lt;/label&gt;
-        );
-    }
-
-    renderInput(type){
-        let html = &lt;div&gt;&lt;/div&gt;;
-
-        if(type ==&#x27;checkbox&#x27; || type==&#x27;radio&#x27;){
-            html=this.otherView(type);
-        }else{
-            html = (&lt;input {...this.props} className={
-                classnames(
-                    &#x27;form-input&#x27;,
-                    this.getProperty(),
-                    this.props.className
-                )
-                }/&gt;);
-        }
-
-        return html;
-    }
+    
+</div>
 
 
-    render(){
-        let {componentTag:Component,type} = this.props;
-        return this.renderInput(type ? type:&#x27;text&#x27;);
-    }
 
-}
-    </pre>
+<div class="moduledesc well well-small sign-left3">
+    <div class="stdoc-code"><p>展现形式如表格一般,用来组织数据，显示链接的集合，或一系列的控件。<br />
+使用时需注意组件的子元素需要跳转功能需加上href标签并赋予正确的url，不论什么标签</p>
+</div>
+</div>
+
+
+
+<div class="yui3-g">
+    <div class="yui3-u-1-2">
+        
+            <p>This module provides the following classes:</p>
+
+            <ul class="module-classes">
+            
+                <li class="module-class">
+                    <a href="../classes/TableView.html">
+                        TableView
+                    </a>
+                </li>
+            
+            </ul>
+        
+    </div>
+
+    <div class="yui3-u-1-2">
+        
+    </div>
 </div>
 
                 </div>

@@ -52,7 +52,49 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
-                    <a href="../modules/grid.html">grid</a>
+                    <a href="../modules/FORM.html">FORM</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/FormGroup.html">FormGroup</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Switch.html">Switch</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Button.html">Button</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Input.html">Input</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/GRID.html">GRID</a>
                 </dt>
                 <dd>
                     <ul>
@@ -128,6 +170,24 @@
                     </ul>
                 </dd>
              
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/UI.html">UI</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/TableView.html">TableView</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
         </dl>
 </div>
    
@@ -169,21 +229,29 @@ import React,{PropTypes} from &#x27;react&#x27;;
 import Component from &#x27;./utils/Component&#x27;;
 import classnames from &#x27;classnames&#x27;;
 
+/**
+ * 开关切换，仿真ios的开关控件
+ * @class Switch
+ * @module FORM
+ * @extends Component
+ * @constructor
+ * @demo switch.js {展示}
+ * @demo switch.js {源码}
+ * @show true
+ * */
 export default class Switch extends Component{
 
     static propTypes = {
         /**
          * 样式前缀
          * @property classPrefix
-         * @type String
-         * @default btn
+         * @type Stringx
          * */
         classPrefix:PropTypes.string,
         /**
          * 标签tagName
          * @property componentTag
          * @type String
-         * @default a
          * */
         componentTag:PropTypes.string
     };

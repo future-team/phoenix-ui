@@ -90,31 +90,38 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _tabJs2 = _interopRequireDefault(_tabJs);
 
-	var _buttonJs = __webpack_require__(228);
+	var _buttonJs = __webpack_require__(230);
 
 	var _buttonJs2 = _interopRequireDefault(_buttonJs);
 
-	var _inputJs = __webpack_require__(229);
+	var _inputJs = __webpack_require__(231);
 
 	var _inputJs2 = _interopRequireDefault(_inputJs);
 
-	var _switchJs = __webpack_require__(230);
+	var _switchJs = __webpack_require__(232);
 
 	var _switchJs2 = _interopRequireDefault(_switchJs);
 
-	var _gridJs = __webpack_require__(231);
+	var _gridJs = __webpack_require__(233);
 
 	var _gridJs2 = _interopRequireDefault(_gridJs);
 
-	var _labelJs = __webpack_require__(232);
+	var _tableViewJs = __webpack_require__(234);
+
+	var _tableViewJs2 = _interopRequireDefault(_tableViewJs);
+
+	var _formGroupJs = __webpack_require__(235);
+
+	var _formGroupJs2 = _interopRequireDefault(_formGroupJs);
+
+	var _labelJs = __webpack_require__(236);
 
 	var _labelJs2 = _interopRequireDefault(_labelJs);
 
-	var _badgeJs = __webpack_require__(233);
+	var _badgeJs = __webpack_require__(237);
 
 	var _badgeJs2 = _interopRequireDefault(_badgeJs);
 
-	//import PhSwipeDemo from './swipe.js';
 	var Index = (function (_Component) {
 	    _inherits(index, _Component);
 
@@ -161,6 +168,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    ),
 	                    _react2['default'].createElement(
 	                        'a',
+	                        { href: '#/tableview' },
+	                        'tableview'
+	                    ),
+	                    _react2['default'].createElement(
+	                        'a',
+	                        { href: '#/formgroup' },
+	                        'FormGroup'
+	                    ),
+	                    _react2['default'].createElement(
+	                        'a',
 	                        { href: '#/swipe' },
 	                        'swipe[滑动组件]'
 	                    ),
@@ -203,6 +220,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            _reactRouter.Router,
 	            { history: this.history },
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/index', name: 'index', component: Index }),
+	            _react2['default'].createElement(_reactRouter.Route, { path: '/tableview', name: 'TableView', component: _tableViewJs2['default'] }),
+	            _react2['default'].createElement(_reactRouter.Route, { path: '/formgroup', name: 'FormGroup', component: _formGroupJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/button', name: 'input', component: _buttonJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/input', name: 'input', component: _inputJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/switch', name: 'input', component: _switchJs2['default'] }),
@@ -24475,25 +24494,37 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.Col = _Col3['default'];
 
-	var _Tab2 = __webpack_require__(224);
+	var _TableView2 = __webpack_require__(224);
+
+	var _TableView3 = _interopRequireDefault(_TableView2);
+
+	exports.TableView = _TableView3['default'];
+
+	var _FormGroup2 = __webpack_require__(225);
+
+	var _FormGroup3 = _interopRequireDefault(_FormGroup2);
+
+	exports.FormGroup = _FormGroup3['default'];
+
+	var _Tab2 = __webpack_require__(226);
 
 	var _Tab3 = _interopRequireDefault(_Tab2);
 
 	exports.Tab = _Tab3['default'];
 
-	var _Tabset2 = __webpack_require__(225);
+	var _Tabset2 = __webpack_require__(227);
 
 	var _Tabset3 = _interopRequireDefault(_Tabset2);
 
 	exports.Tabset = _Tabset3['default'];
 
-	var _Label2 = __webpack_require__(226);
+	var _Label2 = __webpack_require__(228);
 
 	var _Label3 = _interopRequireDefault(_Label2);
 
 	exports.Label = _Label3['default'];
 
-	var _Badge2 = __webpack_require__(227);
+	var _Badge2 = __webpack_require__(229);
 
 	var _Badge3 = _interopRequireDefault(_Badge2);
 
@@ -24501,7 +24532,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	window['Phoenix'] = {};
 
-	['Button', 'Input', 'Switch', 'Row', 'Col', 'Tabset', 'Tab', 'Label', 'Badge'].forEach(function (name) {
+	['Button', 'Input', 'Switch', 'Row', 'TableView', 'FormGroup', 'Col', 'Tabset', 'Tab', 'Label', 'Badge'].forEach(function (name) {
 	    Phoenix[name] = exports[name];
 	});
 
@@ -24535,6 +24566,39 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
+	/**
+	 *  - 按钮组件提供所有properties中内置的颜色及字体大小样式供选择<br/>
+	 *  - 也可以自定义行内样式和className名字定义UI展示<br/>
+	 *  - 支持disabled, active, enable等属性定义<br/>
+	 *  - 可以通过phSize 设置大小，可选xs、sm、lg。<br/>
+	 *  - 通过phStyle选择按钮颜色，可选error、warning、danger、link、gray、white、success
+	 *  主要属性和接口：
+	 * <ul>
+	 *     <li>phSize:按钮颜色<br>
+	 *         如：<code>
+	 *            Button radius phSize="sm" egStyle="warning"
+	 *         </code>
+	 *     </li>
+	 *     <li>egStyle:按钮的大小。分别为md、sm、lg，默认sm<br>
+	 *         如：<code>
+	 *            Button radius phSize="md" phStyle="warning"
+	 *         </code>
+	 *     </li>
+	 *     <li>block:是否块级显示，默认false<br>
+	 *         如：<code>
+	 *            Button block
+	 *         </code>
+	 *     </li>
+	 * </ul>
+	 * @class Button
+	 * @module FORM
+	 * @extends Component
+	 * @constructor
+	 * @demo button.js {展示}
+	 * @demo button.js {源码}
+	 * @show true
+	 * */
+
 	var Button = (function (_Component) {
 	    _inherits(Button, _Component);
 
@@ -24543,14 +24607,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        value: {
 	            /**
 	             * 按钮尺寸,分别为xs、sm、lg
-	             * @property egSize
+	             * @property phSize
 	             * @type String
 	             * @default sm
 	             * */
 	            phSize: _react.PropTypes.string,
 	            /**
 	             * 颜色[error、warning、danger、link、gray、white、success、'']
-	             * @property egStyle
+	             * @property phStyle
 	             * @type Boolean
 	             * @default ''
 	             * */
@@ -24559,14 +24623,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * 样式前缀
 	             * @property classPrefix
 	             * @type String
-	             * @default btn
 	             * */
 	            classPrefix: _react.PropTypes.string,
 	            /**
 	             * 标签tagName
 	             * @property componentTag
 	             * @type String
-	             * @default a
 	             * */
 	            componentTag: _react.PropTypes.string,
 	            /**
@@ -25502,6 +25564,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
+	/**
+	 * 表单元素，input框，使用方式跟原生一致
+	 * @class Input
+	 * @module FORM
+	 * @extends Component
+	 * @constructor
+	 * @demo input.js {展示}
+	 * @demo input.js {源码}
+	 * @show true
+	 * */
+
 	var Input = (function (_Component) {
 	    _inherits(Input, _Component);
 
@@ -25512,14 +25585,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * 样式前缀
 	             * @property classPrefix
 	             * @type String
-	             * @default btn
 	             * */
 	            classPrefix: _react.PropTypes.string,
 	            /**
 	             * 标签tagName
 	             * @property componentTag
 	             * @type String
-	             * @default a
 	             * */
 	            componentTag: _react.PropTypes.string
 	        },
@@ -25615,6 +25686,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
+	/**
+	 * 开关切换，仿真ios的开关控件
+	 * @class Switch
+	 * @module FORM
+	 * @extends Component
+	 * @constructor
+	 * @demo switch.js {展示}
+	 * @demo switch.js {源码}
+	 * @show true
+	 * */
+
 	var Switch = (function (_Component) {
 	    _inherits(Switch, _Component);
 
@@ -25624,15 +25706,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	            /**
 	             * 样式前缀
 	             * @property classPrefix
-	             * @type String
-	             * @default btn
+	             * @type Stringx
 	             * */
 	            classPrefix: _react.PropTypes.string,
 	            /**
 	             * 标签tagName
 	             * @property componentTag
 	             * @type String
-	             * @default a
 	             * */
 	            componentTag: _react.PropTypes.string
 	        },
@@ -25701,7 +25781,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 行
 	 * @class Row
-	 * @module grid
+	 * @module GRID
 	 * @extends Component
 	 * @constructor
 	 * @since 0.1.0
@@ -25785,7 +25865,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 列
 	 * @class Col
-	 * @module grid
+	 * @module GRID
 	 * @extends Component
 	 * @constructor
 	 * @since 0.1.0
@@ -25855,6 +25935,239 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 224 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utilsComponent = __webpack_require__(212);
+
+	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
+
+	var _classnames = __webpack_require__(213);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	/**
+	 * 展现形式如表格一般,用来组织数据，显示链接的集合，或一系列的控件。<br />
+	 * 使用时需注意组件的子元素需要跳转功能需加上href标签并赋予正确的url，不论什么标签
+	 * @class TableView
+	 * @module UI
+	 * @extends Component
+	 * @constructor
+	 * @demo table-view.js {展示}
+	 * @demo table-view.js {源码}
+	 * @show true
+	 * */
+
+	var TableView = (function (_Component) {
+	    _inherits(TableView, _Component);
+
+	    _createClass(TableView, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * */
+	            classPrefix: _react.PropTypes.string,
+	            /**
+	             * 标签tagName
+	             * @property componentTag
+	             * @type String
+	             * */
+	            componentTag: _react.PropTypes.string
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            classPrefix: '',
+	            componentTag: 'ul',
+	            classMapping: {}
+	        },
+	        enumerable: true
+	    }]);
+
+	    function TableView(props, context) {
+	        _classCallCheck(this, TableView);
+
+	        _Component.call(this, props, context);
+	    }
+
+	    TableView.prototype.renderItem = function renderItem() {
+	        var items = _react2['default'].Children.map(this.props.children, function (options, index) {
+	            var _options$props = options.props;
+	            var href = _options$props.href;
+
+	            var other = _objectWithoutProperties(_options$props, ['href']);
+
+	            return _react2['default'].createElement(
+	                'li',
+	                { className: 'table-view-cell' },
+	                href && href != '' ? _react2['default'].createElement(
+	                    'a',
+	                    _extends({ href: href, className: 'navigate-right' }, other, { className: _classnames2['default']('navigate-right', options.props.className) }),
+	                    options.props.children
+	                ) : options.props.children
+	            );
+	        }, this);
+
+	        return items;
+	    };
+
+	    TableView.prototype.render = function render() {
+	        var Component = this.props.componentTag;
+
+	        return _react2['default'].createElement(
+	            Component,
+	            _extends({}, this.otherProps, { className: _classnames2['default']('table-view', this.getProperty(), this.props.className), style: this.getStyles(this.props.style) }),
+	            this.renderItem()
+	        );
+	    };
+
+	    return TableView;
+	})(_utilsComponent2['default']);
+
+	exports['default'] = TableView;
+	module.exports = exports['default'];
+
+/***/ },
+/* 225 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utilsComponent = __webpack_require__(212);
+
+	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
+
+	var _classnames = __webpack_require__(213);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _Row = __webpack_require__(222);
+
+	var _Row2 = _interopRequireDefault(_Row);
+
+	var _Col = __webpack_require__(223);
+
+	var _Col2 = _interopRequireDefault(_Col);
+
+	/**
+	 * 表单元素布局方式，整齐的排列一组表单元素
+	 * @class FormGroup
+	 * @module FORM
+	 * @extends Component
+	 * @constructor
+	 * @demo form-group.js {展示}
+	 * @demo form-group.js {源码}
+	 * @show true
+	 * */
+
+	var FormGroup = (function (_Component) {
+	    _inherits(FormGroup, _Component);
+
+	    _createClass(FormGroup, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * */
+	            classPrefix: _react.PropTypes.string,
+	            /**
+	             * 标签tagName
+	             * @property componentTag
+	             * @type String
+	             * */
+	            componentTag: _react.PropTypes.string
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            egSize: '',
+	            classPrefix: '',
+	            componentTag: 'form',
+	            classMapping: {}
+	        },
+	        enumerable: true
+	    }]);
+
+	    function FormGroup(props, context) {
+	        _classCallCheck(this, FormGroup);
+
+	        _Component.call(this, props, context);
+	    }
+
+	    FormGroup.prototype.renderItem = function renderItem() {
+	        var _this = this;
+
+	        var items = _react2['default'].Children.map(this.props.children, function (options, index) {
+
+	            return _react2['default'].cloneElement(options, {
+	                className: _classnames2['default']({
+	                    'input-row': !options.props.single
+	                }, _this.props.className)
+
+	            });
+	        }, this);
+
+	        return items;
+	    };
+
+	    FormGroup.prototype.render = function render() {
+	        var Component = this.props.componentTag;
+
+	        return _react2['default'].createElement(
+	            Component,
+	            { className: _classnames2['default']('input-group', this.getProperty(), this.props.className) },
+	            this.renderItem()
+	        );
+	    };
+
+	    return FormGroup;
+	})(_utilsComponent2['default']);
+
+	exports['default'] = FormGroup;
+	module.exports = exports['default'];
+
+/***/ },
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25994,7 +26307,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 225 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26025,7 +26338,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _TabJs = __webpack_require__(224);
+	var _TabJs = __webpack_require__(226);
 
 	var _TabJs2 = _interopRequireDefault(_TabJs);
 
@@ -26216,7 +26529,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 226 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26368,7 +26681,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 227 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26491,7 +26804,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 228 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26552,7 +26865,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 229 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26626,7 +26939,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 230 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26683,7 +26996,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 231 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27144,7 +27457,286 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 232 */
+/* 234 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(159);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _srcIndex = __webpack_require__(210);
+
+	var input = (function (_Component) {
+	    _inherits(input, _Component);
+
+	    function input(props, context) {
+	        _classCallCheck(this, input);
+
+	        _Component.call(this, props, context);
+
+	        this.state = {
+	            name: ''
+	        };
+	    }
+
+	    input.prototype.setValue = function setValue(key, e) {
+	        var o = {};
+	        o[key || e.target.name] = e.target.value;
+	        this.setState(o);
+	    };
+
+	    input.prototype.render = function render() {
+	        return _react2['default'].createElement(
+	            'div',
+	            { style: { padding: '20px' } },
+	            _react2['default'].createElement(
+	                _srcIndex.TableView,
+	                null,
+	                _react2['default'].createElement(
+	                    'a',
+	                    { href: 'http://www.baidu.com' },
+	                    '列表 1'
+	                ),
+	                _react2['default'].createElement(
+	                    'a',
+	                    null,
+	                    '列表 2',
+	                    _react2['default'].createElement(
+	                        'span',
+	                        { className: 'badge badge-primary' },
+	                        '2'
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    'a',
+	                    { href: '###' },
+	                    _react2['default'].createElement(
+	                        'span',
+	                        { className: 'badge' },
+	                        '5'
+	                    ),
+	                    'Item 1'
+	                ),
+	                _react2['default'].createElement(
+	                    'a',
+	                    null,
+	                    'Item 2',
+	                    _react2['default'].createElement(
+	                        'label',
+	                        { className: 'label-switch' },
+	                        _react2['default'].createElement('input', { id: 'js-room-selected', type: 'checkbox' }),
+	                        _react2['default'].createElement('div', { className: 'checkbox' })
+	                    )
+	                )
+	            )
+	        );
+	    };
+
+	    return input;
+	})(_react.Component);
+
+	exports['default'] = input;
+	module.exports = exports['default'];
+
+/***/ },
+/* 235 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(159);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _srcIndex = __webpack_require__(210);
+
+	var input = (function (_Component) {
+	    _inherits(input, _Component);
+
+	    function input(props, context) {
+	        _classCallCheck(this, input);
+
+	        _Component.call(this, props, context);
+
+	        this.state = {
+	            name: ''
+	        };
+	    }
+
+	    input.prototype.setValue = function setValue(key, e) {
+	        var o = {};
+	        o[key || e.target.name] = e.target.value;
+	        this.setState(o);
+	    };
+
+	    input.prototype.render = function render() {
+	        return _react2['default'].createElement(
+	            'div',
+	            { style: { padding: '20px' } },
+	            _react2['default'].createElement(
+	                _srcIndex.FormGroup,
+	                null,
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    { single: true },
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(_srcIndex.Input, { type: 'text', placeholder: '姓名' })
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    { single: true },
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(_srcIndex.Input, { type: 'text', placeholder: '用户名' })
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    { single: true },
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(_srcIndex.Input, { type: 'text', placeholder: '身份证' })
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'label',
+	                            { 'for': '' },
+	                            '地址'
+	                        ),
+	                        _react2['default'].createElement(_srcIndex.Input, { type: 'text', placeholder: '身份证' })
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'label',
+	                            { 'for': '' },
+	                            '兴趣爱好'
+	                        ),
+	                        _react2['default'].createElement(_srcIndex.Input, { type: 'checkbox', label: '篮球' }),
+	                        _react2['default'].createElement(_srcIndex.Input, { type: 'checkbox', label: '足球' }),
+	                        _react2['default'].createElement(_srcIndex.Input, { type: 'checkbox', label: '乒乓球' })
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'a',
+	                            { href: '###', className: 'navigate-right' },
+	                            _react2['default'].createElement(
+	                                'label',
+	                                null,
+	                                '性别'
+	                            ),
+	                            _react2['default'].createElement('input', { type: 'text', placeholder: '男/女', disabled: true })
+	                        )
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'label',
+	                            null,
+	                            '姓'
+	                        ),
+	                        _react2['default'].createElement(_srcIndex.Input, { type: 'text', placeholder: '姓' })
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'label',
+	                            null,
+	                            '名'
+	                        ),
+	                        _react2['default'].createElement(_srcIndex.Input, { type: 'text', placeholder: '名' })
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'label',
+	                            null,
+	                            _react2['default'].createElement(
+	                                'span',
+	                                { className: 'color-error' },
+	                                '*'
+	                            ),
+	                            '喜欢的运动'
+	                        ),
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'input', style: { textAlign: 'right' } },
+	                            _react2['default'].createElement(_srcIndex.Input, { type: 'checkbox', label: '篮球' }),
+	                            _react2['default'].createElement(_srcIndex.Input, { type: 'checkbox', label: '足球' })
+	                        )
+	                    )
+	                )
+	            )
+	        );
+	    };
+
+	    return input;
+	})(_react.Component);
+
+	exports['default'] = input;
+	module.exports = exports['default'];
+
+/***/ },
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27186,9 +27778,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	                '惠'
 	            ),
 	            _react2['default'].createElement(
-	                _srcIndex.Label,
-	                { phSize: 'lg', phStyle: 'success' },
-	                '惠'
+	                'div',
+	                null,
+	                _react2['default'].createElement(
+	                    _srcIndex.Label,
+	                    { phSize: 'lg', phStyle: 'success' },
+	                    '惠'
+	                )
 	            ),
 	            _react2['default'].createElement(
 	                _srcIndex.Label,
@@ -27205,7 +27801,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 233 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27247,9 +27843,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	                '惠1'
 	            ),
 	            _react2['default'].createElement(
-	                _srcIndex.Badge,
-	                { phStyle: 'success' },
-	                '惠2'
+	                'div',
+	                null,
+	                _react2['default'].createElement(
+	                    _srcIndex.Badge,
+	                    { phStyle: 'success' },
+	                    '惠2'
+	                )
 	            ),
 	            _react2['default'].createElement(
 	                _srcIndex.Badge,

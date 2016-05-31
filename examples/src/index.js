@@ -10,9 +10,12 @@ import Button from './button.js';
 import Input from './input.js';
 import Switch from './switch.js';
 import Grid from './grid.js';
+import TableView from './table-view.js';
+import FormGroup from './form-group.js';
 import Label from './label.js';
 import Badge from './badge.js';
 import StarDemo from './star.js';
+
 
 let Index = class index extends Component {
     render() {
@@ -25,6 +28,9 @@ let Index = class index extends Component {
                         <a href="#/input">文本框</a>
                         <a href="#/switch">开关</a>
                         <a href="#/grid">布局</a>
+
+                        <a href="#/tableview">tableview</a>
+                        <a href="#/formgroup">FormGroup</a>
                         <a href="#/tab">tab(选项卡)</a>
                         <a href="#/label">label(标签)</a>
                         <a href="#/badge">badge(徽章)</a>
@@ -47,6 +53,8 @@ let AppRouter = class AppRouter extends Component {
         return (
             <Router history={this.history}>
                 <Route path="/index" name="index" component={Index} />
+                <Route path="/tableview" name="TableView" component={TableView} />
+                <Route path="/formgroup" name="FormGroup" component={FormGroup} />
                 <Route path="/button" name="input" component={Button} />
                 <Route path="/input" name="input" component={Input} />
                 <Route path="/switch" name="input" component={Switch} />

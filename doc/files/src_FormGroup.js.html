@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src/Input.js - phoenix-ui</title>
+    <title>src/FormGroup.js - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -220,7 +220,7 @@
             <div id="docs-main">
                 <div class="content">
                     <div class="page-header">
-    <h1>src/Input.js <small>File</small></h1>
+    <h1>src/FormGroup.js <small>File</small></h1>
 </div>
 
 <div class="file">
@@ -228,18 +228,20 @@
 import React,{PropTypes} from &#x27;react&#x27;;
 import Component from &#x27;./utils/Component&#x27;;
 import classnames from &#x27;classnames&#x27;;
+import Row from &#x27;./Row&#x27;;
+import Col from &#x27;./Col&#x27;;
 
 /**
- * 表单元素，input框，使用方式跟原生一致
- * @class Input
+ * 表单元素布局方式，整齐的排列一组表单元素
+ * @class FormGroup
  * @module FORM
  * @extends Component
  * @constructor
- * @demo input.js {展示}
- * @demo input.js {源码}
+ * @demo form-group.js {展示}
+ * @demo form-group.js {源码}
  * @show true
  * */
-export default class Input extends Component{
+export default class FormGroup extends Component{
 
     static propTypes = {
         /**
@@ -259,7 +261,7 @@ export default class Input extends Component{
     static defaultProps = {
         egSize:&#x27;&#x27;,
         classPrefix:&#x27;&#x27;,
-        componentTag:&#x27;div&#x27;,
+        componentTag:&#x27;form&#x27;,
         classMapping : {
 
         }
@@ -269,40 +271,38 @@ export default class Input extends Component{
         super(props, context);
     }
 
-    otherView(type){
-        return (
-            &lt;label className=&quot;multi-group&quot;&gt;
-                &lt;div className={&#x60;ui-${type}&#x60;}&gt;
-                    &lt;input {...this.props} /&gt;
-                    &lt;i&gt;&lt;/i&gt;
-                &lt;/div&gt;
-                &lt;span&gt;{this.props.label ||&#x27;&#x27;}&lt;/span&gt;
-            &lt;/label&gt;
-        );
-    }
+    renderItem(){
+        let items = React.Children.map(this.props.children, (options, index)=&gt; {
 
-    renderInput(type){
-        let html = &lt;div&gt;&lt;/div&gt;;
+            return  React.cloneElement(options, {
+                    className:classnames(
+                        {
+                            &#x27;input-row&#x27;:!options.props.single
+                        },
+                        this.props.className
+                    )
 
-        if(type ==&#x27;checkbox&#x27; || type==&#x27;radio&#x27;){
-            html=this.otherView(type);
-        }else{
-            html = (&lt;input {...this.props} className={
-                classnames(
-                    &#x27;form-input&#x27;,
-                    this.getProperty(),
-                    this.props.className
-                )
-                }/&gt;);
-        }
+                });
+        }, this);
 
-        return html;
+        return items;
     }
 
 
     render(){
-        let {componentTag:Component,type} = this.props;
-        return this.renderInput(type ? type:&#x27;text&#x27;);
+        let {componentTag:Component} = this.props;
+
+        return (
+            &lt;Component className={
+                classnames(
+                    &#x27;input-group&#x27;,
+                    this.getProperty(),
+                    this.props.className
+                )
+            }&gt;
+                {this.renderItem() }
+            &lt;/Component&gt;
+        );
     }
 
 }

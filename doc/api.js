@@ -2,21 +2,47 @@ YUI.add("yuidoc-meta", function(Y) {
    Y.YUIDoc = { meta: {
     "classes": [
         "Badge",
+        "Button",
         "Col",
+        "FormGroup",
+        "Input",
         "Label",
         "Row",
+        "Switch",
         "Tab",
+        "TableView",
         "Tabset"
     ],
     "modules": [
+        "FORM",
+        "GRID",
         "Label(标签)",
         "Tab(选项卡)",
-        "grid"
+        "UI"
     ],
     "allModules": [
         {
-            "displayName": "grid",
-            "name": "grid",
+            "displayName": "FORM",
+            "name": "FORM",
+            "description": "开关切换，仿真ios的开关控件",
+            "classes": [
+                {
+                    "name": "FormGroup"
+                },
+                {
+                    "name": "Switch"
+                },
+                {
+                    "name": "Button"
+                },
+                {
+                    "name": "Input"
+                }
+            ]
+        },
+        {
+            "displayName": "GRID",
+            "name": "GRID",
             "description": "行",
             "classes": [
                 {
@@ -50,6 +76,16 @@ YUI.add("yuidoc-meta", function(Y) {
                 },
                 {
                     "name": "Tabset"
+                }
+            ]
+        },
+        {
+            "displayName": "UI",
+            "name": "UI",
+            "description": "展现形式如表格一般,用来组织数据，显示链接的集合，或一系列的控件。<br />\n使用时需注意组件的子元素需要跳转功能需加上href标签并赋予正确的url，不论什么标签",
+            "classes": [
+                {
+                    "name": "TableView"
                 }
             ]
         }

@@ -14,13 +14,14 @@ var operateIframe = function () {
     var getArray = href.split('/');
     var mapKey = getArray[getArray.length-1].replace(/\.html.*/,'');
     var mapPool={
+        //form模块map方式
+        'Input':'input',
         'Tab':'tab',
         'Tabset':'tab',
         'Badge':'badge',
-        'Label':'label',
         'CheckboxGroup':'input',
         'Button':'button',
-        'Switch':'input',
+        'Switch':'switch',
         'Textarea':'input',
         'Form':'form',
         'FormItem':'form',
@@ -28,12 +29,16 @@ var operateIframe = function () {
         'Row':'grid',
         'Col':'grid',
         'Grid':'grid',
+        //label
+        'Label':'label',
         //panel门店列表
         'Panel':'grid_panel_list',
         //star星星
         'Star':'star',
         //filter
-        'Filter':'filter'
+        'Filter':'filter',
+        'TableView':'tableview',
+        'FormGroup':'formgroup'
     };
     var iframeStyle = {
         display:'block',

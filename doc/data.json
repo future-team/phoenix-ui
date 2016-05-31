@@ -63,7 +63,9 @@
         "src/Button.js": {
             "name": "src/Button.js",
             "modules": {},
-            "classes": {},
+            "classes": {
+                "Button": 1
+            },
             "fors": {},
             "namespaces": {}
         },
@@ -76,10 +78,21 @@
             "fors": {},
             "namespaces": {}
         },
+        "src/FormGroup.js": {
+            "name": "src/FormGroup.js",
+            "modules": {},
+            "classes": {
+                "FormGroup": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src/Input.js": {
             "name": "src/Input.js",
             "modules": {},
-            "classes": {},
+            "classes": {
+                "Input": 1
+            },
             "fors": {},
             "namespaces": {}
         },
@@ -97,7 +110,7 @@
         "src/Row.js": {
             "name": "src/Row.js",
             "modules": {
-                "grid": 1
+                "GRID": 1
             },
             "classes": {
                 "Row": 1
@@ -107,8 +120,12 @@
         },
         "src/Switch.js": {
             "name": "src/Switch.js",
-            "modules": {},
-            "classes": {},
+            "modules": {
+                "FORM": 1
+            },
+            "classes": {
+                "Switch": 1
+            },
             "fors": {},
             "namespaces": {}
         },
@@ -117,6 +134,17 @@
             "modules": {},
             "classes": {
                 "Tab": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/TableView.js": {
+            "name": "src/TableView.js",
+            "modules": {
+                "UI": 1
+            },
+            "classes": {
+                "TableView": 1
             },
             "fors": {},
             "namespaces": {}
@@ -149,8 +177,24 @@
             "description": "<h5>label模块，主要包括一下两个组件:</h5>\n<strong><a href='../classes/Label.html'>label 标签</a></strong><br/>\n<strong><a href='../classes/Badge.html'>bridge 徽章</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
             "itemtype": "main"
         },
-        "grid": {
-            "name": "grid",
+        "FORM": {
+            "name": "FORM",
+            "submodules": {},
+            "classes": {
+                "FormGroup": 1,
+                "Switch": 1,
+                "Button": 1,
+                "Input": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/Switch.js",
+            "line": 5,
+            "description": "开关切换，仿真ios的开关控件"
+        },
+        "GRID": {
+            "name": "GRID",
             "submodules": {},
             "classes": {
                 "Row": 1,
@@ -177,6 +221,19 @@
             "line": 15,
             "description": "<h5>tab选项卡，主要包括一下两个组件:</h5>\n<strong><a href='../classes/Tabset.html'>tabset</a></strong><br/>\n<strong><a href='../classes/Tab.html'>tab</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
             "itemtype": "main"
+        },
+        "UI": {
+            "name": "UI",
+            "submodules": {},
+            "classes": {
+                "TableView": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/TableView.js",
+            "line": 5,
+            "description": "展现形式如表格一般,用来组织数据，显示链接的集合，或一系列的控件。<br />\n使用时需注意组件的子元素需要跳转功能需加上href标签并赋予正确的url，不论什么标签"
         }
     },
     "classes": {
@@ -196,8 +253,33 @@
             "is_constructor": 1,
             "since": "0.1.0",
             "example": [
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Badge} from '../../src/index';\n\t\n\texport default class Badges extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Badge >惠1</Badge>\n\t                <Badge  phStyle=\"success\">惠2</Badge>\n\t                <Badge  phStyle='info'>惠3</Badge>\n\t            </div>\n\t        );\n\t    }\n\t}",
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Badge} from '../../src/index';\n\t\n\texport default class Badges extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Badge >惠1</Badge>\n\t                <Badge  phStyle=\"success\">惠2</Badge>\n\t                <Badge  phStyle='info'>惠3</Badge>\n\t            </div>\n\t        );\n\t    }\n\t}"
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Badge} from '../../src/index';\n\t\n\texport default class Badges extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Badge >惠1</Badge>\n\t                <div><Badge  phStyle=\"success\">惠2</Badge></div>\n\t                <Badge  phStyle='info'>惠3</Badge>\n\t            </div>\n\t        );\n\t    }\n\t}",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Badge} from '../../src/index';\n\t\n\texport default class Badges extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Badge >惠1</Badge>\n\t                <div><Badge  phStyle=\"success\">惠2</Badge></div>\n\t                <Badge  phStyle='info'>惠3</Badge>\n\t            </div>\n\t        );\n\t    }\n\t}"
+            ],
+            "exampleTitles": [
+                "展示",
+                "源码"
+            ],
+            "show": true
+        },
+        "Button": {
+            "name": "Button",
+            "shortname": "Button",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "FORM",
+            "namespace": "",
+            "file": "src/Button.js",
+            "line": 5,
+            "description": "- 按钮组件提供所有properties中内置的颜色及字体大小样式供选择<br/>\n- 也可以自定义行内样式和className名字定义UI展示<br/>\n- 支持disabled, active, enable等属性定义<br/>\n- 可以通过phSize 设置大小，可选xs、sm、lg。<br/>\n- 通过phStyle选择按钮颜色，可选error、warning、danger、link、gray、white、success\n主要属性和接口：\n <ul>\n   <li>phSize:按钮颜色<br>\n       如：<code>\n          Button radius phSize=\"sm\" egStyle=\"warning\"\n       </code>\n   </li>\n   <li>egStyle:按钮的大小。分别为md、sm、lg，默认sm<br>\n       如：<code>\n          Button radius phSize=\"md\" phStyle=\"warning\"\n       </code>\n   </li>\n   <li>block:是否块级显示，默认false<br>\n       如：<code>\n          Button block\n       </code>\n   </li>\n </ul>",
+            "extends": "Component",
+            "is_constructor": 1,
+            "example": [
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Button} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Button hollow>我是一个按钮</Button>\n\t                <Button phSize=\"lg\" phStyle=\"primary\">大号按钮</Button>\n\t                <Button phSize=\"md\" hollow>中号按钮</Button>\n\t            </div>\n\t        );\n\t    }\n\t}",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Button} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Button hollow>我是一个按钮</Button>\n\t                <Button phSize=\"lg\" phStyle=\"primary\">大号按钮</Button>\n\t                <Button phSize=\"md\" hollow>中号按钮</Button>\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
                 "展示",
@@ -213,7 +295,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "grid",
+            "module": "GRID",
             "namespace": "",
             "file": "src/Col.js",
             "line": 4,
@@ -221,6 +303,56 @@
             "extends": "Component",
             "is_constructor": 1,
             "since": "0.1.0"
+        },
+        "FormGroup": {
+            "name": "FormGroup",
+            "shortname": "FormGroup",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "FORM",
+            "namespace": "",
+            "file": "src/FormGroup.js",
+            "line": 7,
+            "description": "表单元素布局方式，整齐的排列一组表单元素",
+            "extends": "Component",
+            "is_constructor": 1,
+            "example": [
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {FormGroup,Row,Col,Input} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:''\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div style={{padding:'20px'}}>\n\t                <FormGroup>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"姓名\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"用户名\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"身份证\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row>\n\t                        <Col>\n\t                            <label for=\"\">地址</label>\n\t                            <Input type=\"text\" placeholder=\"身份证\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row>\n\t                        <Col>\n\t                            <label for=\"\">兴趣爱好</label>\n\t                            <Input type=\"checkbox\" label=\"篮球\" />\n\t                            <Input type=\"checkbox\" label=\"足球\" />\n\t                            <Input type=\"checkbox\" label=\"乒乓球\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row>\n\t                        <Col>\n\t                            <a href=\"###\" className=\"navigate-right\">\n\t                                <label>性别</label>\n\t                                <input type=\"text\" placeholder=\"男/女\" disabled/>\n\t                            </a>\n\t                        </Col>\n\t                    </Row>\n\t                    <Row>\n\t                        <Col>\n\t                            <label>姓</label>\n\t                            <Input type=\"text\" placeholder=\"姓\" />\n\t                        </Col>\n\t                        <Col>\n\t                            <label>名</label>\n\t                            <Input type=\"text\" placeholder=\"名\" />\n\t                        </Col>\n\t                    </Row>\n\t\n\t                    <Row>\n\t                        <Col>\n\t                            <label><span className=\"color-error\">*</span>喜欢的运动</label>\n\t                            <div className=\"input\" style={{textAlign: 'right'}}>\n\t                                <Input type=\"checkbox\" label=\"篮球\" />\n\t                                <Input type=\"checkbox\" label=\"足球\" />\n\t                            </div>\n\t                        </Col>\n\t                    </Row>\n\t                </FormGroup>\n\t            </div>\n\t        );\n\t    }\n\t}",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {FormGroup,Row,Col,Input} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:''\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div style={{padding:'20px'}}>\n\t                <FormGroup>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"姓名\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"用户名\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"身份证\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row>\n\t                        <Col>\n\t                            <label for=\"\">地址</label>\n\t                            <Input type=\"text\" placeholder=\"身份证\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row>\n\t                        <Col>\n\t                            <label for=\"\">兴趣爱好</label>\n\t                            <Input type=\"checkbox\" label=\"篮球\" />\n\t                            <Input type=\"checkbox\" label=\"足球\" />\n\t                            <Input type=\"checkbox\" label=\"乒乓球\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row>\n\t                        <Col>\n\t                            <a href=\"###\" className=\"navigate-right\">\n\t                                <label>性别</label>\n\t                                <input type=\"text\" placeholder=\"男/女\" disabled/>\n\t                            </a>\n\t                        </Col>\n\t                    </Row>\n\t                    <Row>\n\t                        <Col>\n\t                            <label>姓</label>\n\t                            <Input type=\"text\" placeholder=\"姓\" />\n\t                        </Col>\n\t                        <Col>\n\t                            <label>名</label>\n\t                            <Input type=\"text\" placeholder=\"名\" />\n\t                        </Col>\n\t                    </Row>\n\t\n\t                    <Row>\n\t                        <Col>\n\t                            <label><span className=\"color-error\">*</span>喜欢的运动</label>\n\t                            <div className=\"input\" style={{textAlign: 'right'}}>\n\t                                <Input type=\"checkbox\" label=\"篮球\" />\n\t                                <Input type=\"checkbox\" label=\"足球\" />\n\t                            </div>\n\t                        </Col>\n\t                    </Row>\n\t                </FormGroup>\n\t            </div>\n\t        );\n\t    }\n\t}"
+            ],
+            "exampleTitles": [
+                "展示",
+                "源码"
+            ],
+            "show": true
+        },
+        "Input": {
+            "name": "Input",
+            "shortname": "Input",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "FORM",
+            "namespace": "",
+            "file": "src/Input.js",
+            "line": 5,
+            "description": "表单元素，input框，使用方式跟原生一致",
+            "extends": "Component",
+            "is_constructor": 1,
+            "example": [
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Input,Row,Col} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:''\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div style={{padding:'20px'}}>\n\t                <Input type=\"text\" value={this.state.name} onChange={::this.setValue.bind(this,'name')} />\n\t                <Row align=\"bottom\">\n\t                    <Col><Input type=\"radio\" label=\"男\" name=\"sex\"  /></Col>\n\t                    <Col><Input type=\"radio\" label=\"女\"  name=\"sex\" /></Col>\n\t                </Row>\n\t                <Input type=\"checkbox\" label=\"苹果\"  />\n\t            </div>\n\t        );\n\t    }\n\t}",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Input,Row,Col} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:''\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div style={{padding:'20px'}}>\n\t                <Input type=\"text\" value={this.state.name} onChange={::this.setValue.bind(this,'name')} />\n\t                <Row align=\"bottom\">\n\t                    <Col><Input type=\"radio\" label=\"男\" name=\"sex\"  /></Col>\n\t                    <Col><Input type=\"radio\" label=\"女\"  name=\"sex\" /></Col>\n\t                </Row>\n\t                <Input type=\"checkbox\" label=\"苹果\"  />\n\t            </div>\n\t        );\n\t    }\n\t}"
+            ],
+            "exampleTitles": [
+                "展示",
+                "源码"
+            ],
+            "show": true
         },
         "Label": {
             "name": "Label",
@@ -239,8 +371,8 @@
             "is_constructor": 1,
             "since": "0.1.0",
             "example": [
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Label} from '../../src/index';\n\t\n\texport default class Labels extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Label >惠</Label>\n\t                <Label phSize=\"lg\" phStyle=\"success\">惠</Label>\n\t                <Label phSize=\"md\" phStyle='info'>惠</Label>\n\t            </div>\n\t        );\n\t    }\n\t}",
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Label} from '../../src/index';\n\t\n\texport default class Labels extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Label >惠</Label>\n\t                <Label phSize=\"lg\" phStyle=\"success\">惠</Label>\n\t                <Label phSize=\"md\" phStyle='info'>惠</Label>\n\t            </div>\n\t        );\n\t    }\n\t}"
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Label} from '../../src/index';\n\t\n\texport default class Labels extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Label >惠</Label>\n\t                <div><Label phSize=\"lg\" phStyle=\"success\">惠</Label></div>\n\t                <Label phSize=\"md\" phStyle='info'>惠</Label>\n\t            </div>\n\t        );\n\t    }\n\t}",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Label} from '../../src/index';\n\t\n\texport default class Labels extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Label >惠</Label>\n\t                <div><Label phSize=\"lg\" phStyle=\"success\">惠</Label></div>\n\t                <Label phSize=\"md\" phStyle='info'>惠</Label>\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
                 "展示",
@@ -256,7 +388,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "grid",
+            "module": "GRID",
             "namespace": "",
             "file": "src/Row.js",
             "line": 4,
@@ -264,6 +396,31 @@
             "extends": "Component",
             "is_constructor": 1,
             "since": "0.1.0"
+        },
+        "Switch": {
+            "name": "Switch",
+            "shortname": "Switch",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "FORM",
+            "namespace": "",
+            "file": "src/Switch.js",
+            "line": 5,
+            "description": "开关切换，仿真ios的开关控件",
+            "extends": "Component",
+            "is_constructor": 1,
+            "example": [
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Switch} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:''\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div style={{padding:'20px'}}>\n\t                <Switch />\n\t            </div>\n\t        );\n\t    }\n\t}",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Switch} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:''\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div style={{padding:'20px'}}>\n\t                <Switch />\n\t            </div>\n\t        );\n\t    }\n\t}"
+            ],
+            "exampleTitles": [
+                "展示",
+                "源码"
+            ],
+            "show": true
         },
         "Tab": {
             "name": "Tab",
@@ -284,6 +441,31 @@
             "example": [
                 "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Tabset,Tab} from '../../src/index';\n\tlet Demo1 = class demo1 extends Component{\n\t    constructor(props,context){\n\t        super(props,context);\n\t        this.state={\n\t            tab2:'初始tab2内容'\n\t        }\n\t    }\n\t    test(){\n\t        this.setState({\n\t            tab2:'测试panel内容改变'\n\t        })\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={1} className = '测试name' clickCallback={()=>{alert('测试tabset 回调')}} style={{color:'green'}}>\n\t                    <Tab heading='tab1' className='测试' clickCallback={()=>{alert('测试clickCallback属性')}}>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' clickCallback={::this.test}>\n\t                        {this.state.tab2}\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\tlet Demo2 = class demo2 extends Component{\n\t    test(){\n\t        alert('测试自定义tab点击事件');\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={0} vertical width={30}>\n\t                    <Tab heading='tab1'>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' onClick={::this.test}>\n\t                        hahadhdad2\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t           <div>\n\t              <h1>默认横向</h1>\n\t               <Demo1 />\n\t               <h1>竖向</h1>\n\t               <Demo2 />\n\t           </div>\n\t        );\n\t    }\n\t}",
                 "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Tabset,Tab} from '../../src/index';\n\tlet Demo1 = class demo1 extends Component{\n\t    constructor(props,context){\n\t        super(props,context);\n\t        this.state={\n\t            tab2:'初始tab2内容'\n\t        }\n\t    }\n\t    test(){\n\t        this.setState({\n\t            tab2:'测试panel内容改变'\n\t        })\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={1} className = '测试name' clickCallback={()=>{alert('测试tabset 回调')}} style={{color:'green'}}>\n\t                    <Tab heading='tab1' className='测试' clickCallback={()=>{alert('测试clickCallback属性')}}>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' clickCallback={::this.test}>\n\t                        {this.state.tab2}\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\tlet Demo2 = class demo2 extends Component{\n\t    test(){\n\t        alert('测试自定义tab点击事件');\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={0} vertical width={30}>\n\t                    <Tab heading='tab1'>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' onClick={::this.test}>\n\t                        hahadhdad2\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t           <div>\n\t              <h1>默认横向</h1>\n\t               <Demo1 />\n\t               <h1>竖向</h1>\n\t               <Demo2 />\n\t           </div>\n\t        );\n\t    }\n\t}"
+            ],
+            "exampleTitles": [
+                "展示",
+                "源码"
+            ],
+            "show": true
+        },
+        "TableView": {
+            "name": "TableView",
+            "shortname": "TableView",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "UI",
+            "namespace": "",
+            "file": "src/TableView.js",
+            "line": 5,
+            "description": "展现形式如表格一般,用来组织数据，显示链接的集合，或一系列的控件。<br />\n使用时需注意组件的子元素需要跳转功能需加上href标签并赋予正确的url，不论什么标签",
+            "extends": "Component",
+            "is_constructor": 1,
+            "example": [
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {TableView} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:''\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div style={{padding:'20px'}}>\n\t                <TableView>\n\t                    <a href=\"http://www.baidu.com\">列表 1</a>\n\t                    <a>\n\t                        列表 2\n\t                        <span className=\"badge badge-primary\">2</span>\n\t                    </a>\n\t                    <a href=\"###\">\n\t                        <span className=\"badge\">5</span>\n\t                        Item 1\n\t                    </a>\n\t                    <a>\n\t                        Item 2\n\t                        <label className=\"label-switch\">\n\t                            <input id=\"js-room-selected\" type=\"checkbox\" />\n\t                                <div className=\"checkbox\"></div>\n\t                            </label>\n\t                    </a>\n\t                </TableView>\n\t            </div>\n\t        );\n\t    }\n\t}",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {TableView} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:''\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div style={{padding:'20px'}}>\n\t                <TableView>\n\t                    <a href=\"http://www.baidu.com\">列表 1</a>\n\t                    <a>\n\t                        列表 2\n\t                        <span className=\"badge badge-primary\">2</span>\n\t                    </a>\n\t                    <a href=\"###\">\n\t                        <span className=\"badge\">5</span>\n\t                        Item 1\n\t                    </a>\n\t                    <a>\n\t                        Item 2\n\t                        <label className=\"label-switch\">\n\t                            <input id=\"js-room-selected\" type=\"checkbox\" />\n\t                                <div className=\"checkbox\"></div>\n\t                            </label>\n\t                    </a>\n\t                </TableView>\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
                 "展示",
@@ -573,58 +755,56 @@
         },
         {
             "file": "src/Button.js",
-            "line": 8,
+            "line": 40,
             "description": "按钮尺寸,分别为xs、sm、lg",
             "itemtype": "property",
-            "name": "egSize",
+            "name": "phSize",
             "type": "String",
             "default": "sm",
-            "class": "Col",
-            "module": "Label(标签)"
+            "class": "Button",
+            "module": "FORM"
         },
         {
             "file": "src/Button.js",
-            "line": 15,
+            "line": 47,
             "description": "颜色[error、warning、danger、link、gray、white、success、'']",
             "itemtype": "property",
-            "name": "egStyle",
+            "name": "phStyle",
             "type": "Boolean",
             "default": "''",
-            "class": "Col",
-            "module": "Label(标签)"
+            "class": "Button",
+            "module": "FORM"
         },
         {
             "file": "src/Button.js",
-            "line": 22,
+            "line": 54,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
             "type": "String",
-            "default": "btn",
-            "class": "Col",
-            "module": "Label(标签)"
+            "class": "Button",
+            "module": "FORM"
         },
         {
             "file": "src/Button.js",
-            "line": 29,
+            "line": 60,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
             "type": "String",
-            "default": "a",
-            "class": "Col",
-            "module": "Label(标签)"
+            "class": "Button",
+            "module": "FORM"
         },
         {
             "file": "src/Button.js",
-            "line": 36,
+            "line": 66,
             "description": "块级显示",
             "itemtype": "property",
             "name": "block",
             "type": "Boolean",
             "default": "false",
-            "class": "Col",
-            "module": "Label(标签)"
+            "class": "Button",
+            "module": "FORM"
         },
         {
             "file": "src/Col.js",
@@ -634,7 +814,7 @@
             "name": "width",
             "type": "Integer",
             "class": "Col",
-            "module": "grid"
+            "module": "GRID"
         },
         {
             "file": "src/Col.js",
@@ -644,7 +824,7 @@
             "name": "offset，默认不偏移",
             "type": "Integer",
             "class": "Col",
-            "module": "grid"
+            "module": "GRID"
         },
         {
             "file": "src/Col.js",
@@ -654,29 +834,47 @@
             "name": "offset，默认不偏移",
             "type": "Integer",
             "class": "Col",
-            "module": "grid"
+            "module": "GRID"
         },
         {
-            "file": "src/Input.js",
-            "line": 8,
+            "file": "src/FormGroup.js",
+            "line": 20,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
             "type": "String",
-            "default": "btn",
-            "class": "Label",
-            "module": "grid"
+            "class": "FormGroup",
+            "module": "FORM"
         },
         {
-            "file": "src/Input.js",
-            "line": 15,
+            "file": "src/FormGroup.js",
+            "line": 26,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
             "type": "String",
-            "default": "a",
-            "class": "Label",
-            "module": "grid"
+            "class": "FormGroup",
+            "module": "FORM"
+        },
+        {
+            "file": "src/Input.js",
+            "line": 18,
+            "description": "样式前缀",
+            "itemtype": "property",
+            "name": "classPrefix",
+            "type": "String",
+            "class": "Input",
+            "module": "FORM"
+        },
+        {
+            "file": "src/Input.js",
+            "line": 24,
+            "description": "标签tagName",
+            "itemtype": "property",
+            "name": "componentTag",
+            "type": "String",
+            "class": "Input",
+            "module": "FORM"
         },
         {
             "file": "src/Label.js",
@@ -730,29 +928,27 @@
             "name": "offset，默认不偏移",
             "type": "Integer",
             "class": "Row",
-            "module": "grid"
+            "module": "GRID"
         },
         {
             "file": "src/Switch.js",
-            "line": 8,
+            "line": 18,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
-            "type": "String",
-            "default": "btn",
-            "class": "Tab",
-            "module": "grid"
+            "type": "Stringx",
+            "class": "Switch",
+            "module": "FORM"
         },
         {
             "file": "src/Switch.js",
-            "line": 15,
+            "line": 24,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
             "type": "String",
-            "default": "a",
-            "class": "Tab",
-            "module": "grid"
+            "class": "Switch",
+            "module": "FORM"
         },
         {
             "file": "src/Tab.js",
@@ -773,6 +969,26 @@
             "default": "null",
             "class": "Tab",
             "module": "Tab(选项卡)"
+        },
+        {
+            "file": "src/TableView.js",
+            "line": 19,
+            "description": "样式前缀",
+            "itemtype": "property",
+            "name": "classPrefix",
+            "type": "String",
+            "class": "TableView",
+            "module": "UI"
+        },
+        {
+            "file": "src/TableView.js",
+            "line": 25,
+            "description": "标签tagName",
+            "itemtype": "property",
+            "name": "componentTag",
+            "type": "String",
+            "class": "TableView",
+            "module": "UI"
         },
         {
             "file": "src/Tabset.js",
@@ -830,6 +1046,42 @@
         },
         {
             "message": "unknown tag: demo",
+            "line": " src/Button.js:5"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/Button.js:5"
+        },
+        {
+            "message": "unknown tag: show",
+            "line": " src/Button.js:5"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/FormGroup.js:7"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/FormGroup.js:7"
+        },
+        {
+            "message": "unknown tag: show",
+            "line": " src/FormGroup.js:7"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/Input.js:5"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/Input.js:5"
+        },
+        {
+            "message": "unknown tag: show",
+            "line": " src/Input.js:5"
+        },
+        {
+            "message": "unknown tag: demo",
             "line": " src/Label.js:15"
         },
         {
@@ -842,6 +1094,18 @@
         },
         {
             "message": "unknown tag: demo",
+            "line": " src/Switch.js:5"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/Switch.js:5"
+        },
+        {
+            "message": "unknown tag: show",
+            "line": " src/Switch.js:5"
+        },
+        {
+            "message": "unknown tag: demo",
             "line": " src/Tab.js:5"
         },
         {
@@ -851,6 +1115,18 @@
         {
             "message": "unknown tag: show",
             "line": " src/Tab.js:5"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/TableView.js:5"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/TableView.js:5"
+        },
+        {
+            "message": "unknown tag: show",
+            "line": " src/TableView.js:5"
         },
         {
             "message": "unknown tag: demo",

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Tabset - phoenix-ui</title>
+    <title>Button - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -220,41 +220,33 @@
             <div id="docs-main">
                 <div class="content">
                     <div class="page-header">
-    <h1>Tabset <small>Class</small></h1>
+    <h1>Button <small>Class</small></h1>
 </div>
  <div class="well well-small sign-left3">
-      <div class="stdoc-code"><p>tabset选项卡组件</p>
-<ul>
-<li>可以指定当前actie选项。</li>
-<li>支持选项卡横排，竖排两种情况。</li>
-<li><p>此外支持自定义类名,事件等操作
-具体属性和接口如下：
-<ul></p>
-  <li>activeIndex; 当前选中标签卡，默认0</li>
-  <li>vertiacl; 是否竖排，如需要直接添加改属性即可，默认不竖排</li>
-  <li>width; 选项卡头部的宽度，取值0-100之间 即class＝‘col－20’，取值即可，注只有在竖排的情况下生效，
-       也就是没有vertical属性，设置width也没用的，默认20
-       例如横排情况:
-  </li>
-  <li>
-       <code>
-          Tabset activeIndex ={0} width={30}
-            Tab heading=&#39;tab1&#39; className=&#39;测试&#39;&gt;hahadhdad1
-            /Tab
-         /Tabset
-       </code>
-      上面的width是不起作用的
-     竖排情况:
-       <code>
-           Tabset activeIndex ={0} vertical width={30}
-       </code>
-      此时表明默认选中第一个选项卡，并且竖排标签部分width为30%
-
-       </li>
-
-</li>
+      <div class="stdoc-code"><ul>
+<li>按钮组件提供所有properties中内置的颜色及字体大小样式供选择<br/></li>
+<li>也可以自定义行内样式和className名字定义UI展示<br/></li>
+<li>支持disabled, active, enable等属性定义<br/></li>
+<li>可以通过phSize 设置大小，可选xs、sm、lg。<br/></li>
+<li>通过phStyle选择按钮颜色，可选error、warning、danger、link、gray、white、success
+主要属性和接口：<ul>
+ <li>phSize:按钮颜色<br>
+     如：<code>
+        Button radius phSize="sm" egStyle="warning"
+     </code>
+ </li>
+ <li>egStyle:按钮的大小。分别为md、sm、lg，默认sm<br>
+     如：<code>
+        Button radius phSize="md" phStyle="warning"
+     </code>
+ </li>
+ <li>block:是否块级显示，默认false<br>
+     如：<code>
+        Button block
+     </code>
+ </li>
+</ul></li>
 </ul>
-<p></ul></p>
 </div>
  </div>
 
@@ -272,28 +264,35 @@
             <ul class="index-list properties extends">
                 
                     <li class="index-item property">
-                        <a href="#" data-tabid="#property" data-anchor="#property_activeIndex" data-tablink="activeIndex">activeIndex</a>
+                        <a href="#" data-tabid="#property" data-anchor="#property_block" data-tablink="block">block</a>
 
                         
                         
                     </li>
                 
                     <li class="index-item property">
-                        <a href="#" data-tabid="#property" data-anchor="#property_clickCallback" data-tablink="clickCallback">clickCallback</a>
+                        <a href="#" data-tabid="#property" data-anchor="#property_classPrefix" data-tablink="classPrefix">classPrefix</a>
 
                         
                         
                     </li>
                 
                     <li class="index-item property">
-                        <a href="#" data-tabid="#property" data-anchor="#property_vertical" data-tablink="vertical">vertical</a>
+                        <a href="#" data-tabid="#property" data-anchor="#property_componentTag" data-tablink="componentTag">componentTag</a>
 
                         
                         
                     </li>
                 
                     <li class="index-item property">
-                        <a href="#" data-tabid="#property" data-anchor="#property_width" data-tablink="width">width</a>
+                        <a href="#" data-tabid="#property" data-anchor="#property_phSize" data-tablink="phSize">phSize</a>
+
+                        
+                        
+                    </li>
+                
+                    <li class="index-item property">
+                        <a href="#" data-tabid="#property" data-anchor="#property_phStyle" data-tablink="phStyle">phStyle</a>
 
                         
                         
@@ -333,18 +332,16 @@
 
             
                 <div class="foundat">
-                    Defined in: <a href="../files/src_Tabset.js.html#l15"><code>src&#x2F;Tabset.js:15</code></a>
+                    Defined in: <a href="../files/src_Button.js.html#l5"><code>src&#x2F;Button.js:5</code></a>
                 </div>
             
 
             
                 
-                    Module: <a href="../modules/Tab(选项卡).html">Tab(选项卡)</a>
+                    Module: <a href="../modules/FORM.html">FORM</a>
                 
             
 
-            
-                <p>Available since 0.1.0</p>
             
         </div>
 
@@ -352,10 +349,10 @@
             
                 <div class="constructor">
                     <h2>Constructor</h2>
-                    <div id="method_Tabset" class="method item">
-    <h3 class="name">Tabset</h3>
+                    <div id="method_Button" class="method item">
+    <h3 class="name">Button</h3>
     <code>
-    Tabset
+    Button
     
         <span class="paren">()</span>
     
@@ -386,15 +383,13 @@
             
         
         
-        <a href="../files/src_Tabset.js.html#l15"><code>src&#x2F;Tabset.js:15</code></a>
+        <a href="../files/src_Button.js.html#l5"><code>src&#x2F;Button.js:5</code></a>
         
         </p>
 
 
         
 
-        
-            <p>Available since 0.1.0</p>
         
     </div>
 
@@ -420,135 +415,31 @@
             <div class="example-content  showdemo ">
                 <div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component ,PropTypes} from &#39;react&#39;;
 import ReactDOM,{findDOMNode} from &#39;react-dom&#39;;
-import {Tabset,Tab} from &#39;../../src/index&#39;;
-let Demo1 = class demo1 extends Component{
-    constructor(props,context){
-        super(props,context);
-        this.state={
-            tab2:&#39;初始tab2内容&#39;
-        }
-    }
-    test(){
-        this.setState({
-            tab2:&#39;测试panel内容改变&#39;
-        })
-    };
-    render(){
-        return(
-            &lt;div&gt;
-                &lt;Tabset activeIndex ={1} className = &#39;测试name&#39; clickCallback={()=&gt;{alert(&#39;测试tabset 回调&#39;)}} style={{color:&#39;green&#39;}}&gt;
-                    &lt;Tab heading=&#39;tab1&#39; className=&#39;测试&#39; clickCallback={()=&gt;{alert(&#39;测试clickCallback属性&#39;)}}&gt;
-                        hahadhdad1
-                    &lt;/Tab&gt;
-                    &lt;Tab heading=&#39;tab2&#39; clickCallback={::this.test}&gt;
-                        {this.state.tab2}
-                    &lt;/Tab&gt;
-                    &lt;Tab heading=&#39;tab3&#39;&gt;
-                        hahadhdad3
-                    &lt;/Tab&gt;
-                &lt;/Tabset&gt;
-            &lt;/div&gt;
-        )
-    }
-}
-let Demo2 = class demo2 extends Component{
-    test(){
-        alert(&#39;测试自定义tab点击事件&#39;);
-    };
-    render(){
-        return(
-            &lt;div&gt;
-                &lt;Tabset activeIndex ={0} vertical width={30}&gt;
-                    &lt;Tab heading=&#39;tab1&#39;&gt;
-                        hahadhdad1
-                    &lt;/Tab&gt;
-                    &lt;Tab heading=&#39;tab2&#39; onClick={::this.test}&gt;
-                        hahadhdad2
-                    &lt;/Tab&gt;
-                    &lt;Tab heading=&#39;tab3&#39;&gt;
-                        hahadhdad3
-                    &lt;/Tab&gt;
-                &lt;/Tabset&gt;
-            &lt;/div&gt;
-        )
-    }
-}
+import {Button} from &#39;../../src/index&#39;;
+
 export default class input extends Component{
     render(){
         return(
-           &lt;div&gt;
-              &lt;h1&gt;默认横向&lt;/h1&gt;
-               &lt;Demo1 /&gt;
-               &lt;h1&gt;竖向&lt;/h1&gt;
-               &lt;Demo2 /&gt;
-           &lt;/div&gt;
+            &lt;div&gt;
+                &lt;Button hollow&gt;我是一个按钮&lt;/Button&gt;
+                &lt;Button phSize="lg" phStyle="primary"&gt;大号按钮&lt;/Button&gt;
+                &lt;Button phSize="md" hollow&gt;中号按钮&lt;/Button&gt;
+            &lt;/div&gt;
         );
     }
 }</code></pre>
 </div><div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component ,PropTypes} from &#39;react&#39;;
 import ReactDOM,{findDOMNode} from &#39;react-dom&#39;;
-import {Tabset,Tab} from &#39;../../src/index&#39;;
-let Demo1 = class demo1 extends Component{
-    constructor(props,context){
-        super(props,context);
-        this.state={
-            tab2:&#39;初始tab2内容&#39;
-        }
-    }
-    test(){
-        this.setState({
-            tab2:&#39;测试panel内容改变&#39;
-        })
-    };
-    render(){
-        return(
-            &lt;div&gt;
-                &lt;Tabset activeIndex ={1} className = &#39;测试name&#39; clickCallback={()=&gt;{alert(&#39;测试tabset 回调&#39;)}} style={{color:&#39;green&#39;}}&gt;
-                    &lt;Tab heading=&#39;tab1&#39; className=&#39;测试&#39; clickCallback={()=&gt;{alert(&#39;测试clickCallback属性&#39;)}}&gt;
-                        hahadhdad1
-                    &lt;/Tab&gt;
-                    &lt;Tab heading=&#39;tab2&#39; clickCallback={::this.test}&gt;
-                        {this.state.tab2}
-                    &lt;/Tab&gt;
-                    &lt;Tab heading=&#39;tab3&#39;&gt;
-                        hahadhdad3
-                    &lt;/Tab&gt;
-                &lt;/Tabset&gt;
-            &lt;/div&gt;
-        )
-    }
-}
-let Demo2 = class demo2 extends Component{
-    test(){
-        alert(&#39;测试自定义tab点击事件&#39;);
-    };
-    render(){
-        return(
-            &lt;div&gt;
-                &lt;Tabset activeIndex ={0} vertical width={30}&gt;
-                    &lt;Tab heading=&#39;tab1&#39;&gt;
-                        hahadhdad1
-                    &lt;/Tab&gt;
-                    &lt;Tab heading=&#39;tab2&#39; onClick={::this.test}&gt;
-                        hahadhdad2
-                    &lt;/Tab&gt;
-                    &lt;Tab heading=&#39;tab3&#39;&gt;
-                        hahadhdad3
-                    &lt;/Tab&gt;
-                &lt;/Tabset&gt;
-            &lt;/div&gt;
-        )
-    }
-}
+import {Button} from &#39;../../src/index&#39;;
+
 export default class input extends Component{
     render(){
         return(
-           &lt;div&gt;
-              &lt;h1&gt;默认横向&lt;/h1&gt;
-               &lt;Demo1 /&gt;
-               &lt;h1&gt;竖向&lt;/h1&gt;
-               &lt;Demo2 /&gt;
-           &lt;/div&gt;
+            &lt;div&gt;
+                &lt;Button hollow&gt;我是一个按钮&lt;/Button&gt;
+                &lt;Button phSize="lg" phStyle="primary"&gt;大号按钮&lt;/Button&gt;
+                &lt;Button phSize="md" hollow&gt;中号按钮&lt;/Button&gt;
+            &lt;/div&gt;
         );
     }
 }</code></pre>
@@ -572,9 +463,9 @@ export default class input extends Component{
                 <h2 class="off-left">Properties</h2>
 
                 
-                    <div id="property_activeIndex" class="property item">
-    <h3 class="name"><code>activeIndex</code></h3>
-    <span class="type">Unknown</span>
+                    <div id="property_block" class="property item">
+    <h3 class="name"><code>block</code></h3>
+    <span class="type">Boolean</span>
 
     
 
@@ -595,7 +486,7 @@ export default class input extends Component{
             
         
         
-        <a href="../files/src_Tabset.js.html#l59"><code>src&#x2F;Tabset.js:59</code></a>
+        <a href="../files/src_Button.js.html#l66"><code>src&#x2F;Button.js:66</code></a>
         
         </p>
 
@@ -605,13 +496,13 @@ export default class input extends Component{
     </div>
 
     <div class="description">
-        <div class="stdoc-code"><p>指定默认选中的选项卡，默认为0</p>
+        <div class="stdoc-code"><p>块级显示</p>
 </div>
     </div>
 
     
         <p><strong>Default:</strong></p>
-         <code> 0</code>
+         <code> false</code>
     
 
     
@@ -620,9 +511,9 @@ export default class input extends Component{
 </div>
 
                 
-                    <div id="property_clickCallback" class="property item">
-    <h3 class="name"><code>clickCallback</code></h3>
-    <span class="type">Unknown</span>
+                    <div id="property_classPrefix" class="property item">
+    <h3 class="name"><code>classPrefix</code></h3>
+    <span class="type">String</span>
 
     
 
@@ -643,7 +534,7 @@ export default class input extends Component{
             
         
         
-        <a href="../files/src_Tabset.js.html#l77"><code>src&#x2F;Tabset.js:77</code></a>
+        <a href="../files/src_Button.js.html#l54"><code>src&#x2F;Button.js:54</code></a>
         
         </p>
 
@@ -653,13 +544,10 @@ export default class input extends Component{
     </div>
 
     <div class="description">
-        <div class="stdoc-code"><p>点击事件的回调函数</p>
+        <div class="stdoc-code"><p>样式前缀</p>
 </div>
     </div>
 
-    
-        <p><strong>Default:</strong></p>
-         <code> null</code>
     
 
     
@@ -668,9 +556,9 @@ export default class input extends Component{
 </div>
 
                 
-                    <div id="property_vertical" class="property item">
-    <h3 class="name"><code>vertical</code></h3>
-    <span class="type">Unknown</span>
+                    <div id="property_componentTag" class="property item">
+    <h3 class="name"><code>componentTag</code></h3>
+    <span class="type">String</span>
 
     
 
@@ -691,7 +579,7 @@ export default class input extends Component{
             
         
         
-        <a href="../files/src_Tabset.js.html#l65"><code>src&#x2F;Tabset.js:65</code></a>
+        <a href="../files/src_Button.js.html#l60"><code>src&#x2F;Button.js:60</code></a>
         
         </p>
 
@@ -701,13 +589,10 @@ export default class input extends Component{
     </div>
 
     <div class="description">
-        <div class="stdoc-code"><p>是否竖排</p>
+        <div class="stdoc-code"><p>标签tagName</p>
 </div>
     </div>
 
-    
-        <p><strong>Default:</strong></p>
-         <code> false || null</code>
     
 
     
@@ -716,9 +601,9 @@ export default class input extends Component{
 </div>
 
                 
-                    <div id="property_width" class="property item">
-    <h3 class="name"><code>width</code></h3>
-    <span class="type">Unknown</span>
+                    <div id="property_phSize" class="property item">
+    <h3 class="name"><code>phSize</code></h3>
+    <span class="type">String</span>
 
     
 
@@ -739,7 +624,7 @@ export default class input extends Component{
             
         
         
-        <a href="../files/src_Tabset.js.html#l71"><code>src&#x2F;Tabset.js:71</code></a>
+        <a href="../files/src_Button.js.html#l40"><code>src&#x2F;Button.js:40</code></a>
         
         </p>
 
@@ -749,13 +634,61 @@ export default class input extends Component{
     </div>
 
     <div class="description">
-        <div class="stdoc-code"><p>设置选项卡头部的宽度，只有竖排的情况下才起作用</p>
+        <div class="stdoc-code"><p>按钮尺寸,分别为xs、sm、lg</p>
 </div>
     </div>
 
     
         <p><strong>Default:</strong></p>
-         <code> &#x27;20&#x27;</code>
+         <code> sm</code>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_phStyle" class="property item">
+    <h3 class="name"><code>phStyle</code></h3>
+    <span class="type">Boolean</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_Button.js.html#l47"><code>src&#x2F;Button.js:47</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>颜色[error、warning、danger、link、gray、white、success、&#39;&#39;]</p>
+</div>
+    </div>
+
+    
+        <p><strong>Default:</strong></p>
+         <code> &#x27;&#x27;</code>
     
 
     
