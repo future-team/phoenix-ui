@@ -59,7 +59,7 @@
                    
                        <li>
                             
-                           <a href="../classes/Col.html">Col</a>
+                           <a href="../classes/Row.html">Row</a>
                            <ul>
                                 
                            </ul>
@@ -67,7 +67,33 @@
                     
                        <li>
                             
-                           <a href="../classes/Row.html">Row</a>
+                           <a href="../classes/Col.html">Col</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/Label(标签).html">Label(标签)</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Badge.html">Badge</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Label.html">Label</a>
                            <ul>
                                 
                            </ul>
@@ -143,6 +169,16 @@ import React,{PropTypes, Component} from &#x27;react&#x27;;
 import ClassNameMixin from &#x27;./utils/ClassNameMixin&#x27;;
 import classnames from &#x27;classnames&#x27;;
 import Tab from &#x27;./Tab.js&#x27;;
+/**
+ * &lt;h5&gt;tab选项卡，主要包括一下两个组件:&lt;/h5&gt;
+ * &lt;strong&gt;&lt;a href=&#x27;../classes/Tabset.html&#x27;&gt;tabset&lt;/a&gt;&lt;/strong&gt;&lt;br/&gt;
+ * &lt;strong&gt;&lt;a href=&#x27;../classes/Tab.html&#x27;&gt;tab&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
+ * &lt;h6&gt;点击以上链接或者左侧导航栏的组件名称链接进行查看&lt;/h6&gt;
+ * @module Tab(选项卡)
+ * @main Tab(选项卡)
+ * @static
+ *
+ */
 /**
  * tabset选项卡组件
  * - 可以指定当前actie选项。
@@ -257,6 +293,7 @@ class Tabset extends Component {
     render() {
         let panels = [];
         let {className,clickCallback,...other} = this.props;
+        debugger
         let headings = React.Children.map(this.props.children, (options, index)=&gt; {
             let { vertical,...other} = options.props;
             let opt = React.cloneElement(options, {

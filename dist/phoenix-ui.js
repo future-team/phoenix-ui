@@ -109,9 +109,21 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.Tabset = _Tabset3['default'];
 
+	var _Label2 = __webpack_require__(163);
+
+	var _Label3 = _interopRequireDefault(_Label2);
+
+	exports.Label = _Label3['default'];
+
+	var _Badge2 = __webpack_require__(165);
+
+	var _Badge3 = _interopRequireDefault(_Badge2);
+
+	exports.Badge = _Badge3['default'];
+
 	window['Phoenix'] = {};
 
-	['Button', 'Input', 'Switch', 'Row', 'Col', 'Tabset', 'Tab'].forEach(function (name) {
+	['Button', 'Input', 'Switch', 'Row', 'Col', 'Tabset', 'Tab', 'Label', 'Badge'].forEach(function (name) {
 	    Phoenix[name] = exports[name];
 	});
 
@@ -1530,7 +1542,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @constructor
 	 * @since 0.1.0
 	 * @demo Tab.js{展示}
-	 * @demo Tab.js{js}
+	 * @demo Tab.js{源码}
 	 * @show true
 	 * */
 
@@ -20252,6 +20264,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _TabJs2 = _interopRequireDefault(_TabJs);
 
 	/**
+	 * <h5>tab选项卡，主要包括一下两个组件:</h5>
+	 * <strong><a href='../classes/Tabset.html'>tabset</a></strong><br/>
+	 * <strong><a href='../classes/Tab.html'>tab</a></strong><br>
+	 * <h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>
+	 * @module Tab(选项卡)
+	 * @main Tab(选项卡)
+	 * @static
+	 *
+	 */
+	/**
 	 * tabset选项卡组件
 	 * - 可以指定当前actie选项。
 	 * - 支持选项卡横排，竖排两种情况。
@@ -20380,6 +20402,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        var other = _objectWithoutProperties(_props, ['className', 'clickCallback']);
 
+	        debugger;
 	        var headings = _react2['default'].Children.map(this.props.children, function (options, index) {
 	            var _options$props = options.props;
 	            var vertical = _options$props.vertical;
@@ -20424,6 +20447,290 @@ return /******/ (function(modules) { // webpackBootstrap
 	})(_react.Component);
 
 	exports['default'] = Tabset;
+	module.exports = exports['default'];
+
+/***/ },
+/* 163 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utilsComponent = __webpack_require__(4);
+
+	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
+
+	var _reactDom = __webpack_require__(164);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _classnames = __webpack_require__(5);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	/**
+	 * <h5>label模块，主要包括一下两个组件:</h5>
+	 * <strong><a href='../classes/Label.html'>label 标签</a></strong><br/>
+	 * <strong><a href='../classes/Badge.html'>bridge 徽章</a></strong><br>
+	 * <h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>
+	 * @module Label(标签)
+	 * @main Label(标签)
+	 * @static
+	 *
+	 */
+	/**
+	 * Label标记，主要是用来提供不同颜色的标识<br/>
+	 * 可以通过phStyle来改变颜色,phSize改变大小<br/>
+	 * 因为发生回调的概率不大所以没有提供回调函数<br/>
+	 * 但支持自定义类名，事件等操作<br/>
+	 * 具体属性和接口如下：
+	 * <ul>
+	 *     <li>phStyle:label徽章颜色,可取值[primary、warning、danger、info、error、success]等，默认primary</li>
+	 *     <li>
+	 *         <code>
+	 *             Label phSize="lg" phStyle="success"
+	 *             惠
+	 *            /Label
+	 *         </code>
+	 *     </li>
+	 *     <li>phSize:badge徽章颜色,可取值[lg、md、'']，默认即为‘’</li>
+	 *     <li>
+	 *         <code>
+	 *            Label phSize="lg" phStyle="success"
+	 *             惠
+	 *            /Label
+	 *         </code>
+	 *     </li>
+	 * </ul>
+	 * @class Label
+	 * @module Label(标签)
+	 * @extends Component
+	 * @constructor
+	 * @since 0.1.0
+	 * @demo Label.js{展示}
+	 * @demo Label.js{源码}
+	 * @show true
+	 * */
+
+	var Label = (function (_Component) {
+	    _inherits(Label, _Component);
+
+	    _createClass(Label, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * @default btn
+	             * */
+	            classPrefix: _react.PropTypes.string,
+	            /**
+	             * label标签大小 [lg、md、'']默认为‘’即为sm不用指定
+	             * @property phSize
+	             * @type string
+	             * @default ''
+	             * */
+	            phSize: _react.PropTypes.string,
+	            /**
+	             * label标签颜色[primary、warning、danger、info、error、success]
+	             * @property phStyle
+	             * @type string
+	             * @default 'primary'
+	             **/
+	            phStyle: _react.PropTypes.string,
+	            /**
+	             * 标签tagName
+	             * @property componentTag
+	             * @type String
+	             * @default a
+	             * */
+	            componentTag: _react.PropTypes.string
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            phSize: '',
+	            classPrefix: 'label',
+	            phStyle: 'primary',
+	            classMapping: {
+	                'primary': 'label-primary',
+	                'info': 'label-info',
+	                'success': 'label-success',
+	                'error': 'label-error',
+	                'warning': 'label-warning',
+	                'danger': 'label-danger',
+	                'lg': 'label-lg',
+	                'md': 'label-md'
+	            }
+	        },
+	        enumerable: true
+	    }]);
+
+	    function Label(props, context) {
+	        _classCallCheck(this, Label);
+
+	        _Component.call(this, props, context);
+	    }
+
+	    Label.prototype.render = function render() {
+	        return _react2['default'].createElement(
+	            'span',
+	            { className: _classnames2['default']('label', this.getProperty()), style: this.getStyles(this.props.style) },
+	            this.props.children
+	        );
+	    };
+
+	    return Label;
+	})(_utilsComponent2['default']);
+
+	exports['default'] = Label;
+	module.exports = exports['default'];
+
+/***/ },
+/* 164 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = __webpack_require__(17);
+
+
+/***/ },
+/* 165 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utilsComponent = __webpack_require__(4);
+
+	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
+
+	var _reactDom = __webpack_require__(164);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _classnames = __webpack_require__(5);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	/**
+	 * Badge徽章标记，主要是用来提供不同颜色的标识<br/>
+	 * 可以通过phStyle来改变颜色<br/>
+	 * 因为发生回调的概率不大所以没有提供回调函数<br/>
+	 * 但支持自定义类名，事件等操作<br/>
+	 * 具体属性和接口如下：
+	 * <ul>
+	 *     <li>phStyle:badge徽章颜色,可取值[primary、warning、danger、info、error、success]等，默认primary</li>
+	 *     <li>
+	 *         <code>
+	 *            Badge  phStyle="success"
+	 *            惠2
+	 *            /Badge
+	 *         </code>
+	 *     </li>
+	 * </ul>
+	 * @class Badge
+	 * @module Label(标签)
+	 * @extends Component
+	 * @constructor
+	 * @since 0.1.0
+	 * @demo Badge.js{展示}
+	 * @demo Badge.js{源码}
+	 * @show true
+	 * */
+
+	var Badge = (function (_Component) {
+	    _inherits(Badge, _Component);
+
+	    _createClass(Badge, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * @default btn
+	             * */
+	            classPrefix: _react.PropTypes.string,
+	            /**
+	             * badge徽章颜色[primary、warning、danger、info、error、success]
+	             * @property phStyle
+	             * @type string
+	             * @default ''
+	             **/
+	            phStyle: _react.PropTypes.string,
+	            /**
+	             * 标签tagName
+	             * @property componentTag
+	             * @type String
+	             * @default a
+	             * */
+	            componentTag: _react.PropTypes.string
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            classPrefix: 'badge',
+	            classMapping: {
+	                'primary': 'badge-primary',
+	                'info': 'badge-info',
+	                'success': 'badge-success',
+	                'error': 'badge-error',
+	                'warning': 'badge-warning',
+	                'danger': 'badge-danger'
+	            }
+	        },
+	        enumerable: true
+	    }]);
+
+	    function Badge(props, context) {
+	        _classCallCheck(this, Badge);
+
+	        _Component.call(this, props, context);
+	    }
+
+	    Badge.prototype.render = function render() {
+	        return _react2['default'].createElement(
+	            'span',
+	            { className: _classnames2['default']('badge', this.getProperty()), style: this.getStyles(this.props.style) },
+	            this.props.children
+	        );
+	    };
+
+	    return Badge;
+	})(_utilsComponent2['default']);
+
+	exports['default'] = Badge;
 	module.exports = exports['default'];
 
 /***/ }

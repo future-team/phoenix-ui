@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src/utils/MethodMixin.js - phoenix-ui</title>
+    <title>src/Label.js - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -160,38 +160,117 @@
             <div id="docs-main">
                 <div class="content">
                     <div class="page-header">
-    <h1>src/utils/MethodMixin.js <small>File</small></h1>
+    <h1>src/Label.js <small>File</small></h1>
 </div>
 
 <div class="file">
     <pre class="prettyprint linenums" id='src_code'>
+import React,{PropTypes} from &#x27;react&#x27;;
+import Component from &#x27;./utils/Component&#x27;;
+import ReactDom from &#x27;react-dom&#x27;;
+import classnames from &#x27;classnames&#x27;;
 /**
- * Created by mac on 16/1/3.
+ * &lt;h5&gt;label模块，主要包括一下两个组件:&lt;/h5&gt;
+ * &lt;strong&gt;&lt;a href=&#x27;../classes/Label.html&#x27;&gt;label 标签&lt;/a&gt;&lt;/strong&gt;&lt;br/&gt;
+ * &lt;strong&gt;&lt;a href=&#x27;../classes/Badge.html&#x27;&gt;bridge 徽章&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
+ * &lt;h6&gt;点击以上链接或者左侧导航栏的组件名称链接进行查看&lt;/h6&gt;
+ * @module Label(标签)
+ * @main Label(标签)
+ * @static
+ *
  */
-export default obj=&gt;{
-    let methods={
-        initCallback:true,
-        loadedCallback:true,
-        closeCallback:true,
-        successCallback:true,
-        cancelCallback:true,
-        checkedCallback:true,
-        activeCallback:true,
-        getValueCallback:true,
-
-        updateCallback:true,
-        deleteCallback:true,
-        queryCallback:true,
-        addCallback:true,
-        insertCallback:true,
-        ajaxCallback:true,
-
-        defaultCallback:true
-
-        //method
-    };
-
-    obj.prototype.methods = methods;
+/**
+ * Label标记，主要是用来提供不同颜色的标识&lt;br/&gt;
+ * 可以通过phStyle来改变颜色,phSize改变大小&lt;br/&gt;
+ * 因为发生回调的概率不大所以没有提供回调函数&lt;br/&gt;
+ * 但支持自定义类名，事件等操作&lt;br/&gt;
+ * 具体属性和接口如下：
+ * &lt;ul&gt;
+ *     &lt;li&gt;phStyle:label徽章颜色,可取值[primary、warning、danger、info、error、success]等，默认primary&lt;/li&gt;
+ *     &lt;li&gt;
+ *         &lt;code&gt;
+ *             Label phSize=&quot;lg&quot; phStyle=&quot;success&quot;
+ *             惠
+ *            /Label
+ *         &lt;/code&gt;
+ *     &lt;/li&gt;
+ *     &lt;li&gt;phSize:badge徽章颜色,可取值[lg、md、&#x27;&#x27;]，默认即为‘’&lt;/li&gt;
+ *     &lt;li&gt;
+ *         &lt;code&gt;
+ *            Label phSize=&quot;lg&quot; phStyle=&quot;success&quot;
+ *             惠
+ *            /Label
+ *         &lt;/code&gt;
+ *     &lt;/li&gt;
+ * &lt;/ul&gt;
+ * @class Label
+ * @module Label(标签)
+ * @extends Component
+ * @constructor
+ * @since 0.1.0
+ * @demo Label.js{展示}
+ * @demo Label.js{源码}
+ * @show true
+ * */
+export default class Label extends Component{
+    static propTypes = {
+        /**
+         * 样式前缀
+         * @property classPrefix
+         * @type String
+         * @default btn
+         * */
+        classPrefix: PropTypes.string,
+        /**
+         * label标签大小 [lg、md、&#x27;&#x27;]默认为‘’即为sm不用指定
+         * @property phSize
+         * @type string
+         * @default &#x27;&#x27;
+         * */
+        phSize: PropTypes.string,
+        /**
+         * label标签颜色[primary、warning、danger、info、error、success]
+         * @property phStyle
+         * @type string
+         * @default &#x27;primary&#x27;
+         **/
+        phStyle:PropTypes.string,
+        /**
+         * 标签tagName
+         * @property componentTag
+         * @type String
+         * @default a
+         * */
+        componentTag:PropTypes.string
+    }
+    static defaultProps ={
+        phSize: &#x27;&#x27;,
+        classPrefix:&#x27;label&#x27;,
+        phStyle: &#x27;primary&#x27;,
+        classMapping : {
+            &#x27;primary&#x27;:&#x27;label-primary&#x27;,
+            &#x27;info&#x27;:&#x27;label-info&#x27;,
+            &#x27;success&#x27;:&#x27;label-success&#x27;,
+            &#x27;error&#x27;:&#x27;label-error&#x27;,
+            &#x27;warning&#x27;:&#x27;label-warning&#x27;,
+            &#x27;danger&#x27;:&#x27;label-danger&#x27;,
+            &#x27;lg&#x27;:&#x27;label-lg&#x27;,
+            &#x27;md&#x27;:&#x27;label-md&#x27;
+        }
+    }
+    constructor(props,context){
+        super(props,context);
+    }
+    render(){
+        return(
+           &lt;span className={classnames(
+               &#x27;label&#x27;,
+               this.getProperty()
+           )} style={this.getStyles(this.props.style)}&gt;
+               {this.props.children}
+           &lt;/span&gt;
+        )
+    }
 }
     </pre>
 </div>

@@ -16,8 +16,8 @@ var operateIframe = function () {
     var mapPool={
         'Tab':'tab',
         'Tabset':'tab',
-        'Input':'input',
-        'RadioGroup':'input',
+        'Badge':'badge',
+        'Label':'label',
         'CheckboxGroup':'input',
         'Button':'button',
         'Switch':'input',
@@ -30,9 +30,6 @@ var operateIframe = function () {
         'Grid':'grid',
         //panel门店列表
         'Panel':'grid_panel_list',
-        //label
-        'Label':'label',
-        'LabelGroup':'label',
         //star星星
         'Star':'star',
         //filter

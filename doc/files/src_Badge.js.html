@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src/utils/MethodMixin.js - phoenix-ui</title>
+    <title>src/Badge.js - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -160,38 +160,88 @@
             <div id="docs-main">
                 <div class="content">
                     <div class="page-header">
-    <h1>src/utils/MethodMixin.js <small>File</small></h1>
+    <h1>src/Badge.js <small>File</small></h1>
 </div>
 
 <div class="file">
     <pre class="prettyprint linenums" id='src_code'>
+import React,{PropTypes} from &#x27;react&#x27;;
+import Component from &#x27;./utils/Component&#x27;;
+import ReactDom from &#x27;react-dom&#x27;;
+import classnames from &#x27;classnames&#x27;;
 /**
- * Created by mac on 16/1/3.
- */
-export default obj=&gt;{
-    let methods={
-        initCallback:true,
-        loadedCallback:true,
-        closeCallback:true,
-        successCallback:true,
-        cancelCallback:true,
-        checkedCallback:true,
-        activeCallback:true,
-        getValueCallback:true,
-
-        updateCallback:true,
-        deleteCallback:true,
-        queryCallback:true,
-        addCallback:true,
-        insertCallback:true,
-        ajaxCallback:true,
-
-        defaultCallback:true
-
-        //method
-    };
-
-    obj.prototype.methods = methods;
+ * Badge徽章标记，主要是用来提供不同颜色的标识&lt;br/&gt;
+ * 可以通过phStyle来改变颜色&lt;br/&gt;
+ * 因为发生回调的概率不大所以没有提供回调函数&lt;br/&gt;
+ * 但支持自定义类名，事件等操作&lt;br/&gt;
+ * 具体属性和接口如下：
+ * &lt;ul&gt;
+ *     &lt;li&gt;phStyle:badge徽章颜色,可取值[primary、warning、danger、info、error、success]等，默认primary&lt;/li&gt;
+ *     &lt;li&gt;
+ *         &lt;code&gt;
+ *            Badge  phStyle=&quot;success&quot;
+ *            惠2
+ *            /Badge
+ *         &lt;/code&gt;
+ *     &lt;/li&gt;
+ * &lt;/ul&gt;
+ * @class Badge
+ * @module Label(标签)
+ * @extends Component
+ * @constructor
+ * @since 0.1.0
+ * @demo Badge.js{展示}
+ * @demo Badge.js{源码}
+ * @show true
+ * */
+export default class Badge extends Component{
+    static propTypes = {
+        /**
+         * 样式前缀
+         * @property classPrefix
+         * @type String
+         * @default btn
+         * */
+        classPrefix: PropTypes.string,
+        /**
+         * badge徽章颜色[primary、warning、danger、info、error、success]
+         * @property phStyle
+         * @type string
+         * @default &#x27;&#x27;
+         **/
+        phStyle:PropTypes.string,
+        /**
+         * 标签tagName
+         * @property componentTag
+         * @type String
+         * @default a
+         * */
+        componentTag:PropTypes.string
+    }
+    static defaultProps ={
+        classPrefix:&#x27;badge&#x27;,
+        classMapping : {
+            &#x27;primary&#x27;:&#x27;badge-primary&#x27;,
+            &#x27;info&#x27;:&#x27;badge-info&#x27;,
+            &#x27;success&#x27;:&#x27;badge-success&#x27;,
+            &#x27;error&#x27;:&#x27;badge-error&#x27;,
+            &#x27;warning&#x27;:&#x27;badge-warning&#x27;,
+            &#x27;danger&#x27;:&#x27;badge-danger&#x27;
+        }
+    }
+    constructor(props,context){
+        super(props,context);
+    }
+    render(){
+        return(
+            &lt;span className={classnames(
+               &#x27;badge&#x27;,
+               this.getProperty()
+           )} style={this.getStyles(this.props.style)}&gt;
+               {this.props.children}
+           &lt;/span&gt;
+        )
+    }
 }
     </pre>
 </div>

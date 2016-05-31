@@ -67,7 +67,6 @@ export default class Input extends Component{
 
     render(){
         let {componentTag:Component,type} = this.props;
-
         return this.renderInput(type ? type:'text');
     }
 

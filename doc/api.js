@@ -1,12 +1,15 @@
 YUI.add("yuidoc-meta", function(Y) {
    Y.YUIDoc = { meta: {
     "classes": [
+        "Badge",
         "Col",
+        "Label",
         "Row",
         "Tab",
         "Tabset"
     ],
     "modules": [
+        "Label(标签)",
         "Tab(选项卡)",
         "grid"
     ],
@@ -14,20 +17,33 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "grid",
             "name": "grid",
-            "description": "列",
+            "description": "行",
             "classes": [
                 {
-                    "name": "Col"
+                    "name": "Row"
                 },
                 {
-                    "name": "Row"
+                    "name": "Col"
+                }
+            ]
+        },
+        {
+            "displayName": "Label(标签)",
+            "name": "Label(标签)",
+            "description": "<h5>label模块，主要包括一下两个组件:</h5>\n<strong><a href='../classes/Label.html'>label 标签</a></strong><br/>\n<strong><a href='../classes/Badge.html'>bridge 徽章</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
+            "classes": [
+                {
+                    "name": "Badge"
+                },
+                {
+                    "name": "Label"
                 }
             ]
         },
         {
             "displayName": "Tab(选项卡)",
             "name": "Tab(选项卡)",
-            "description": "tab选项卡组件\n- 标签内容为heading属性，children部分为对应要显示的内容<br/>\n- 此外支持自定义类名,事件等操作<br/>\n具体属性和接口如下：\n<ul>\n    <li>heading; 标签卡的显示内容，默认‘tab’ 。\n        虽然有默认值但是这应该是必填的。</li>\n      <li>\n        例如:\n         <code>\n           Tabset activeIndex ={0} width={30}\n              Tab heading='tab1' className='测试'>hahadhdad1\n              /Tab\n           /Tabset\n         </code>\n      </li>\n      <li>clickCallback: 点击事件的回调函数，默认为null</li>\n</ul>",
+            "description": "<h5>tab选项卡，主要包括一下两个组件:</h5>\n<strong><a href='../classes/Tabset.html'>tabset</a></strong><br/>\n<strong><a href='../classes/Tab.html'>tab</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
             "classes": [
                 {
                     "name": "Tab"

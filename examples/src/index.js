@@ -10,6 +10,8 @@ import Button from './button.js';
 import Input from './input.js';
 import Switch from './switch.js';
 import Grid from './grid.js';
+import Label from './label.js';
+import Badge from './badge.js';
 //import PhSwipeDemo from './swipe.js';
 let Index = class index extends Component {
     render() {
@@ -24,6 +26,8 @@ let Index = class index extends Component {
                         <a href="#/grid">布局</a>
                         <a href="#/swipe">swipe[滑动组件]</a>
                         <a href="#/tab">tab(选项卡)</a>
+                        <a href="#/label">label(标签)</a>
+                        <a href="#/badge">badge(徽章)</a>
                     </div>
                 </div>
             </div>
@@ -47,6 +51,8 @@ let AppRouter = class AppRouter extends Component {
                 <Route path="/switch" name="input" component={Switch} />
                 <Route path="/grid" name="input" component={Grid} />
                 <Route path="/tab" name="tab" component={Tab} />
+                <Route path="/label" name="label" component={Label} />
+                <Route path="/badge" name="badge" component={Badge} />
                 <Redirect from="/" to="/index" />
             </Router>
         );

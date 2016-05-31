@@ -27,7 +27,7 @@ import ReactDom from 'react/lib/ReactDOM';
  * @constructor
  * @since 0.1.0
  * @demo Tab.js{展示}
- * @demo Tab.js{js}
+ * @demo Tab.js{源码}
  * @show true
  * */
 @ClassNameMixin

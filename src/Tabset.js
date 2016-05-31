@@ -3,6 +3,16 @@ import ClassNameMixin from './utils/ClassNameMixin';
 import classnames from 'classnames';
 import Tab from './Tab.js';
 /**
+ * <h5>tab选项卡，主要包括一下两个组件:</h5>
+ * <strong><a href='../classes/Tabset.html'>tabset</a></strong><br/>
+ * <strong><a href='../classes/Tab.html'>tab</a></strong><br>
+ * <h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>
+ * @module Tab(选项卡)
+ * @main Tab(选项卡)
+ * @static
+ *
+ */
+/**
  * tabset选项卡组件
  * - 可以指定当前actie选项。
  * - 支持选项卡横排，竖排两种情况。
@@ -116,6 +126,7 @@ class Tabset extends Component {
     render() {
         let panels = [];
         let {className,clickCallback,...other} = this.props;
+        debugger
         let headings = React.Children.map(this.props.children, (options, index)=> {
             let { vertical,...other} = options.props;
             let opt = React.cloneElement(options, {

@@ -16,7 +16,7 @@ let Demo1 = class demo1 extends Component{
     render(){
         return(
             <div>
-                <Tabset activeIndex ={1} className = '测试name' clickCallback={()=>{alert('测试tabset 回调')}} >
+                <Tabset activeIndex ={1} className = '测试name' clickCallback={()=>{alert('测试tabset 回调')}} style={{color:'green'}}>
                     <Tab heading='tab1' className='测试' clickCallback={()=>{alert('测试clickCallback属性')}}>
                         hahadhdad1
                     </Tab>
