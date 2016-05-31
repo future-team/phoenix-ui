@@ -14,6 +14,9 @@ import TableView from './table-view.js';
 import FormGroup from './form-group.js';
 import Label from './label.js';
 import Badge from './badge.js';
+import StarDemo from './star.js';
+
+
 let Index = class index extends Component {
     render() {
         return (
@@ -25,12 +28,13 @@ let Index = class index extends Component {
                         <a href="#/input">文本框</a>
                         <a href="#/switch">开关</a>
                         <a href="#/grid">布局</a>
+
                         <a href="#/tableview">tableview</a>
                         <a href="#/formgroup">FormGroup</a>
-                        <a href="#/swipe">swipe[滑动组件]</a>
                         <a href="#/tab">tab(选项卡)</a>
                         <a href="#/label">label(标签)</a>
                         <a href="#/badge">badge(徽章)</a>
+                        <a href="#/star">star(星星)</a>
                     </div>
                 </div>
             </div>
@@ -58,6 +62,7 @@ let AppRouter = class AppRouter extends Component {
                 <Route path="/tab" name="tab" component={Tab} />
                 <Route path="/label" name="label" component={Label} />
                 <Route path="/badge" name="badge" component={Badge} />
+                <Route path="/star" name="star" component={StarDemo} />
                 <Redirect from="/" to="/index" />
             </Router>
         );

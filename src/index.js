@@ -9,6 +9,7 @@ export Tab from './Tab';
 export Tabset from './Tabset';
 export Label from './Label';
 export Badge from './Badge';
+export Star from './Star';
 window['Phoenix'] = {};
 
 [
@@ -22,7 +23,8 @@ window['Phoenix'] = {};
     'Tabset',
     'Tab',
     'Label',
-    'Badge'
+    'Badge',
+    'Star'
 ].forEach(function(name){
     Phoenix[name] = exports[name];
 });
