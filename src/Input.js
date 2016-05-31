@@ -2,6 +2,16 @@ import React,{PropTypes} from 'react';
 import Component from './utils/Component';
 import classnames from 'classnames';
 
+/**
+ * 表单元素，input框，使用方式跟原生一致
+ * @class Input
+ * @module FORM
+ * @extends Component
+ * @constructor
+ * @demo input.js {展示}
+ * @demo input.js {源码}
+ * @show true
+ * */
 export default class Input extends Component{
 
     static propTypes = {
@@ -9,14 +19,12 @@ export default class Input extends Component{
          * 样式前缀
          * @property classPrefix
          * @type String
-         * @default btn
          * */
         classPrefix:PropTypes.string,
         /**
          * 标签tagName
          * @property componentTag
          * @type String
-         * @default a
          * */
         componentTag:PropTypes.string
     };

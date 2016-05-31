@@ -49,11 +49,6 @@ let AppRouter = class AppRouter extends Component {
         return (
             <Router history={this.history}>
                 <Route path="/index" name="index" component={Index} />
-                <Route path="/Tab" name="Tab" component={Tab} />
-                <Route path="/button" name="Button" component={Button} />
-                <Route path="/input" name="Input" component={Input} />
-                <Route path="/switch" name="Switch" component={Switch} />
-                <Route path="/grid" name="Grid" component={Grid} />
                 <Route path="/tableview" name="TableView" component={TableView} />
                 <Route path="/formgroup" name="FormGroup" component={FormGroup} />
                 <Route path="/button" name="input" component={Button} />

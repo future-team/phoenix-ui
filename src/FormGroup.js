@@ -4,6 +4,16 @@ import classnames from 'classnames';
 import Row from './Row';
 import Col from './Col';
 
+/**
+ * 表单元素布局方式，整齐的排列一组表单元素
+ * @class FormGroup
+ * @module FORM
+ * @extends Component
+ * @constructor
+ * @demo form-group.js {展示}
+ * @demo form-group.js {源码}
+ * @show true
+ * */
 export default class FormGroup extends Component{
 
     static propTypes = {
@@ -11,14 +21,12 @@ export default class FormGroup extends Component{
          * 样式前缀
          * @property classPrefix
          * @type String
-         * @default btn
          * */
         classPrefix:PropTypes.string,
         /**
          * 标签tagName
          * @property componentTag
          * @type String
-         * @default a
          * */
         componentTag:PropTypes.string
     };

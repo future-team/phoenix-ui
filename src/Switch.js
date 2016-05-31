@@ -18,15 +18,13 @@ export default class Switch extends Component{
         /**
          * 样式前缀
          * @property classPrefix
-         * @type String
-         * @default btn
+         * @type Stringx
          * */
         classPrefix:PropTypes.string,
         /**
          * 标签tagName
          * @property componentTag
          * @type String
-         * @default a
          * */
         componentTag:PropTypes.string
     };

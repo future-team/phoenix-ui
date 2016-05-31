@@ -20,14 +20,12 @@ export default class TableView extends Component{
          * 样式前缀
          * @property classPrefix
          * @type String
-         * @default btn
          * */
         classPrefix:PropTypes.string,
         /**
          * 标签tagName
          * @property componentTag
          * @type String
-         * @default a
          * */
         componentTag:PropTypes.string
     };
