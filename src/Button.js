@@ -27,7 +27,7 @@ import classnames from 'classnames';
  *     </li>
  * </ul>
  * @class Button
- * @module FORM
+ * @module Form
  * @extends Component
  * @constructor
  * @demo button.js {展示}

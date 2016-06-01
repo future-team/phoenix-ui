@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src/TableView.js - phoenix-ui</title>
+    <title>src/Grid.js - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -266,88 +266,56 @@
             <div id="docs-main">
                 <div class="content">
                     <div class="page-header">
-    <h1>src/TableView.js <small>File</small></h1>
+    <h1>src/Grid.js <small>File</small></h1>
 </div>
 
 <div class="file">
     <pre class="prettyprint linenums" id='src_code'>
-import React,{PropTypes} from &#x27;react&#x27;;
-import Component from &#x27;./utils/Component&#x27;;
+import React,{ PropTypes, Component } from &#x27;react&#x27;;
 import classnames from &#x27;classnames&#x27;;
 
 /**
- * 展现形式如表格一般,用来组织数据，显示链接的集合，或一系列的控件。&lt;br /&gt;
- * 使用时需注意组件的子元素需要跳转功能需加上href标签并赋予正确的url，不论什么标签
- * @class TableView
- * @module UI
+ * &lt;h5&gt;主要栅格化布局组件&lt;/h5&gt;
+ * &lt;pre&gt;&lt;code&gt;
+ *     &amp;#60;Grid&amp;#62;//定义栅格
+ *         &amp;#60;Col sm={6}&amp;#62;//定义一列，总长度为12份
+ *             &amp;#60;Row&amp;#62; &amp;#60;/Row&amp;#62;//定义一行
+ *         &amp;#60;/Col&amp;#62;
+ *     &amp;#60;/Grid&amp;#62;
+ * &lt;/code&gt;&lt;/pre&gt;
+ *
+ * &lt;strong&gt;&lt;a href=&#x27;../classes/Grid.html&#x27;&gt;Grid定义外框&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
+ * &lt;strong&gt;&lt;a href=&#x27;../classes/Row.html&#x27;&gt;Row定义行排列&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
+ * &lt;strong&gt;&lt;a href=&#x27;../classes/Col.html&#x27;&gt;Col定义竖排列&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
+ * &lt;h6&gt;点击以上链接进行相关查看&lt;/h6&gt;
+ * @module grid(布局)
+ * @main grid(布局)
+ * @static
+ *
+ */
+
+/**
+ * 定义栅格容器,配合Col和Row使用
+ * @class Grid
+ * @module Grid(布局)
  * @extends Component
  * @constructor
- * @demo table-view.js {展示}
- * @demo table-view.js {源码}
  * @show true
  * */
-export default class TableView extends Component{
+export default class Grid extends Component{
 
     static propTypes = {
-        /**
-         * 样式前缀
-         * @property classPrefix
-         * @type String
-         * */
-        classPrefix:PropTypes.string,
-        /**
-         * 标签tagName
-         * @property componentTag
-         * @type String
-         * */
-        componentTag:PropTypes.string
     };
-
-    static defaultProps = {
-        classPrefix:&#x27;&#x27;,
-        componentTag:&#x27;ul&#x27;,
-        classMapping : {
-
-        }
-    };
-
-    constructor(props, context) {
-        super(props, context);
-    }
-
-    renderItem(){
-        let items = React.Children.map(this.props.children, (options, index)=&gt; {
-            let {href, ...other} = options.props;
-
-            return (
-                &lt;li className=&quot;table-view-cell&quot;&gt;
-                    {href &amp;&amp; href!=&#x27;&#x27;?&lt;a href={href} className=&quot;navigate-right&quot; {...other} className={
-                        classnames(
-                            &#x27;navigate-right&#x27;,
-                            options.props.className
-                        )
-                }&gt;{options.props.children}&lt;/a&gt;:options.props.children}
-                &lt;/li&gt;
-            );
-        }, this);
-
-        return items;
-    }
 
     render(){
-        let {componentTag:Component} = this.props;
 
         return (
-            &lt;Component {...this.otherProps} className={
-                classnames(
-                    &#x27;table-view&#x27;,
-                    this.getProperty(),
-                    this.props.className
-                )
-                } style={this.getStyles(this.props.style) }&gt;{this.renderItem() }&lt;/Component&gt;
+            &lt;div {...this.props}
+                className={classnames(&#x27;grid&#x27;,this.props.fluid?&#x27;grid-&#x27;+&#x27;fluid&#x27;:&#x27;&#x27;,this.props.className)}&gt;
+                {this.props.children}
+            &lt;/div&gt;
         );
     }
-
 }
     </pre>
 </div>

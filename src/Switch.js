@@ -5,7 +5,7 @@ import classnames from 'classnames';
 /**
  * 开关切换，仿真ios的开关控件
  * @class Switch
- * @module FORM
+ * @module Form
  * @extends Component
  * @constructor
  * @demo switch.js {展示}

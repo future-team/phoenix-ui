@@ -87,9 +87,23 @@
             "fors": {},
             "namespaces": {}
         },
+        "src/Grid.js": {
+            "name": "src/Grid.js",
+            "modules": {
+                "grid(布局)": 1,
+                "Grid(布局)": 1
+            },
+            "classes": {
+                "Grid": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src/Input.js": {
             "name": "src/Input.js",
-            "modules": {},
+            "modules": {
+                "FORM": 1
+            },
             "classes": {
                 "Input": 1
             },
@@ -110,7 +124,7 @@
         "src/Row.js": {
             "name": "src/Row.js",
             "modules": {
-                "GRID": 1
+                "Grid": 1
             },
             "classes": {
                 "Row": 1
@@ -118,10 +132,19 @@
             "fors": {},
             "namespaces": {}
         },
+        "src/Star.js": {
+            "name": "src/Star.js",
+            "modules": {},
+            "classes": {
+                "Star": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src/Switch.js": {
             "name": "src/Switch.js",
             "modules": {
-                "FORM": 1
+                "Form": 1
             },
             "classes": {
                 "Switch": 1
@@ -173,18 +196,17 @@
             "namespaces": {},
             "tag": "main",
             "file": "src/Label.js",
-            "line": 15,
+            "line": 14,
             "description": "<h5>label模块，主要包括一下两个组件:</h5>\n<strong><a href='../classes/Label.html'>label 标签</a></strong><br/>\n<strong><a href='../classes/Badge.html'>bridge 徽章</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
             "itemtype": "main"
         },
-        "FORM": {
-            "name": "FORM",
+        "Form": {
+            "name": "Form",
             "submodules": {},
             "classes": {
                 "FormGroup": 1,
                 "Switch": 1,
-                "Button": 1,
-                "Input": 1
+                "Button": 1
             },
             "fors": {},
             "namespaces": {},
@@ -193,8 +215,8 @@
             "line": 5,
             "description": "开关切换，仿真ios的开关控件"
         },
-        "GRID": {
-            "name": "GRID",
+        "Grid": {
+            "name": "Grid",
             "submodules": {},
             "classes": {
                 "Row": 1,
@@ -206,6 +228,60 @@
             "file": "src/Row.js",
             "line": 4,
             "description": "行"
+        },
+        "grid(布局)": {
+            "name": "grid(布局)",
+            "submodules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "main",
+            "file": "src/Grid.js",
+            "line": 4,
+            "description": "<h5>主要栅格化布局组件</h5>\n<pre><code>\n    &#60;Grid&#62;//定义栅格\n        &#60;Col sm={6}&#62;//定义一列，总长度为12份\n            &#60;Row&#62; &#60;/Row&#62;//定义一行\n        &#60;/Col&#62;\n    &#60;/Grid&#62;\n</code></pre>\n\n<strong><a href='../classes/Grid.html'>Grid定义外框</a></strong><br>\n<strong><a href='../classes/Row.html'>Row定义行排列</a></strong><br>\n<strong><a href='../classes/Col.html'>Col定义竖排列</a></strong><br>\n<h6>点击以上链接进行相关查看</h6>",
+            "itemtype": "main"
+        },
+        "Grid(布局)": {
+            "name": "Grid(布局)",
+            "submodules": {},
+            "classes": {
+                "Grid": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/Grid.js",
+            "line": 24,
+            "description": "定义栅格容器,配合Col和Row使用"
+        },
+        "FORM": {
+            "name": "FORM",
+            "submodules": {},
+            "classes": {
+                "Input": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/Input.js",
+            "line": 5,
+            "description": "表单元素，input框，使用方式跟原生一致"
+        },
+        "UI": {
+            "name": "UI",
+            "submodules": {
+                "undefined": 1
+            },
+            "classes": {
+                "TableView": 1,
+                "Star": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/TableView.js",
+            "line": 5,
+            "description": "展现形式如表格一般,用来组织数据，显示链接的集合，或一系列的控件。<br />\n使用时需注意组件的子元素需要跳转功能需加上href标签并赋予正确的url，不论什么标签"
         },
         "Tab(选项卡)": {
             "name": "Tab(选项卡)",
@@ -221,19 +297,6 @@
             "line": 15,
             "description": "<h5>tab选项卡，主要包括一下两个组件:</h5>\n<strong><a href='../classes/Tabset.html'>tabset</a></strong><br/>\n<strong><a href='../classes/Tab.html'>tab</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
             "itemtype": "main"
-        },
-        "UI": {
-            "name": "UI",
-            "submodules": {},
-            "classes": {
-                "TableView": 1
-            },
-            "fors": {},
-            "namespaces": {},
-            "tag": "module",
-            "file": "src/TableView.js",
-            "line": 5,
-            "description": "展现形式如表格一般,用来组织数据，显示链接的集合，或一系列的控件。<br />\n使用时需注意组件的子元素需要跳转功能需加上href标签并赋予正确的url，不论什么标签"
         }
     },
     "classes": {
@@ -247,14 +310,14 @@
             "extension_for": [],
             "module": "Label(标签)",
             "file": "src/Badge.js",
-            "line": 5,
+            "line": 4,
             "description": "Badge徽章标记，主要是用来提供不同颜色的标识<br/>\n可以通过phStyle来改变颜色<br/>\n因为发生回调的概率不大所以没有提供回调函数<br/>\n但支持自定义类名，事件等操作<br/>\n具体属性和接口如下：\n<ul>\n    <li>phStyle:badge徽章颜色,可取值[primary、warning、danger、info、error、success]等，默认primary</li>\n    <li>\n        <code>\n           Badge  phStyle=\"success\"\n           惠2\n           /Badge\n        </code>\n    </li>\n</ul>",
             "extends": "Component",
             "is_constructor": 1,
             "since": "0.1.0",
             "example": [
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Badge} from '../../src/index';\n\t\n\texport default class Badges extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Badge >惠1</Badge>\n\t                <div><Badge  phStyle=\"success\">惠2</Badge></div>\n\t                <Badge  phStyle='info'>惠3</Badge>\n\t            </div>\n\t        );\n\t    }\n\t}",
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Badge} from '../../src/index';\n\t\n\texport default class Badges extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Badge >惠1</Badge>\n\t                <div><Badge  phStyle=\"success\">惠2</Badge></div>\n\t                <Badge  phStyle='info'>惠3</Badge>\n\t            </div>\n\t        );\n\t    }\n\t}"
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport {Badge} from '../../src/index';\n\t\n\texport default class Badges extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Badge >惠1</Badge>\n\t                <div><Badge  phStyle=\"success\">惠2</Badge></div>\n\t                <Badge  phStyle='info'>惠3</Badge>\n\t            </div>\n\t        );\n\t    }\n\t}",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport {Badge} from '../../src/index';\n\t\n\texport default class Badges extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Badge >惠1</Badge>\n\t                <div><Badge  phStyle=\"success\">惠2</Badge></div>\n\t                <Badge  phStyle='info'>惠3</Badge>\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
                 "展示",
@@ -270,7 +333,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "FORM",
+            "module": "Form",
             "namespace": "",
             "file": "src/Button.js",
             "line": 5,
@@ -295,7 +358,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "GRID",
+            "module": "Grid",
             "namespace": "",
             "file": "src/Col.js",
             "line": 4,
@@ -312,7 +375,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "FORM",
+            "module": "Form",
             "namespace": "",
             "file": "src/FormGroup.js",
             "line": 7,
@@ -327,6 +390,23 @@
                 "展示",
                 "源码"
             ],
+            "show": true
+        },
+        "Grid": {
+            "name": "Grid",
+            "shortname": "Grid",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Grid(布局)",
+            "namespace": "",
+            "file": "src/Grid.js",
+            "line": 24,
+            "description": "定义栅格容器,配合Col和Row使用",
+            "extends": "Component",
+            "is_constructor": 1,
             "show": true
         },
         "Input": {
@@ -365,14 +445,14 @@
             "module": "Label(标签)",
             "namespace": "",
             "file": "src/Label.js",
-            "line": 15,
+            "line": 14,
             "description": "Label标记，主要是用来提供不同颜色的标识<br/>\n可以通过phStyle来改变颜色,phSize改变大小<br/>\n因为发生回调的概率不大所以没有提供回调函数<br/>\n但支持自定义类名，事件等操作<br/>\n具体属性和接口如下：\n<ul>\n    <li>phStyle:label徽章颜色,可取值[primary、warning、danger、info、error、success]等，默认primary</li>\n    <li>\n        <code>\n            Label phSize=\"lg\" phStyle=\"success\"\n            惠\n           /Label\n        </code>\n    </li>\n    <li>phSize:badge徽章颜色,可取值[lg、md、'']，默认即为‘’</li>\n    <li>\n        <code>\n           Label phSize=\"lg\" phStyle=\"success\"\n            惠\n           /Label\n        </code>\n    </li>\n</ul>",
             "extends": "Component",
             "is_constructor": 1,
             "since": "0.1.0",
             "example": [
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Label} from '../../src/index';\n\t\n\texport default class Labels extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Label >惠</Label>\n\t                <div><Label phSize=\"lg\" phStyle=\"success\">惠</Label></div>\n\t                <Label phSize=\"md\" phStyle='info'>惠</Label>\n\t            </div>\n\t        );\n\t    }\n\t}",
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Label} from '../../src/index';\n\t\n\texport default class Labels extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Label >惠</Label>\n\t                <div><Label phSize=\"lg\" phStyle=\"success\">惠</Label></div>\n\t                <Label phSize=\"md\" phStyle='info'>惠</Label>\n\t            </div>\n\t        );\n\t    }\n\t}"
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport {Label} from '../../src/index';\n\t\n\texport default class Labels extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Label >惠</Label>\n\t                <div><Label phSize=\"lg\" phStyle=\"success\">惠</Label></div>\n\t                <Label phSize=\"md\" phStyle='info'>惠</Label>\n\t            </div>\n\t        );\n\t    }\n\t}",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport {Label} from '../../src/index';\n\t\n\texport default class Labels extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Label >惠</Label>\n\t                <div><Label phSize=\"lg\" phStyle=\"success\">惠</Label></div>\n\t                <Label phSize=\"md\" phStyle='info'>惠</Label>\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
                 "展示",
@@ -388,7 +468,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "GRID",
+            "module": "Grid",
             "namespace": "",
             "file": "src/Row.js",
             "line": 4,
@@ -396,6 +476,31 @@
             "extends": "Component",
             "is_constructor": 1,
             "since": "0.1.0"
+        },
+        "Star": {
+            "name": "Star",
+            "shortname": "Star",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "UI",
+            "namespace": "",
+            "file": "src/Star.js",
+            "line": 5,
+            "description": "星级评价(Star)组件<br />\n提供的UI展示属性接口包括<br/>\n<ul>\n    <li>rate：星级评价的分数(满分为50)<code>默认为0</code></li>\n    <li>size：星星的大小(可选md、lg、默认3种size)<code></code></li>\n</ul><br>\n使用方式:\n<pre><code>&#60;Star rate={50} size={10}/&#62;</code>\n</pre>",
+            "extends": "Component",
+            "is_constructor": 1,
+            "example": [
+                "\t/**\n\t * Created by slashhuang on 16/5/31.\n\t */\n\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Star} from '../../src/index';\n\t\n\texport default class StarDemo extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Star />\n\t                <br/>\n\t                <Star Rate={5}/>\n\t                <br/>\n\t                <Star Rate={10} />\n\t                <br/>\n\t                <Star Rate={15}/>\n\t                <br/>\n\t                <Star Rate={20} size='md'/>\n\t                <br/>\n\t                <Star Rate={25} size='md'/>\n\t                <br/>\n\t                <Star Rate={30} size='md'/>\n\t                <br/>\n\t                <Star Rate={35} size='lg'/>\n\t                <br/>\n\t                <Star Rate={40} size='lg'/>\n\t                <br/>\n\t                <Star Rate={45} size='lg'/>\n\t                <br/>\n\t                <Star Rate={50} size='lg'/>\n\t            </div>\n\t        );\n\t    }\n\t}",
+                "\t/**\n\t * Created by slashhuang on 16/5/31.\n\t */\n\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Star} from '../../src/index';\n\t\n\texport default class StarDemo extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Star />\n\t                <br/>\n\t                <Star Rate={5}/>\n\t                <br/>\n\t                <Star Rate={10} />\n\t                <br/>\n\t                <Star Rate={15}/>\n\t                <br/>\n\t                <Star Rate={20} size='md'/>\n\t                <br/>\n\t                <Star Rate={25} size='md'/>\n\t                <br/>\n\t                <Star Rate={30} size='md'/>\n\t                <br/>\n\t                <Star Rate={35} size='lg'/>\n\t                <br/>\n\t                <Star Rate={40} size='lg'/>\n\t                <br/>\n\t                <Star Rate={45} size='lg'/>\n\t                <br/>\n\t                <Star Rate={50} size='lg'/>\n\t            </div>\n\t        );\n\t    }\n\t}"
+            ],
+            "exampleTitles": [
+                "UI展示",
+                "源码"
+            ],
+            "show": true
         },
         "Switch": {
             "name": "Switch",
@@ -405,7 +510,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "FORM",
+            "module": "Form",
             "namespace": "",
             "file": "src/Switch.js",
             "line": 5,
@@ -433,14 +538,14 @@
             "module": "Tab(选项卡)",
             "namespace": "",
             "file": "src/Tab.js",
-            "line": 5,
+            "line": 4,
             "description": "tab选项卡组件\n- 标签内容为heading属性，children部分为对应要显示的内容<br/>\n- 此外支持自定义类名,事件等操作<br/>\n具体属性和接口如下：\n<ul>\n    <li>heading; 标签卡的显示内容，默认‘tab’ 。\n        虽然有默认值但是这应该是必填的。</li>\n      <li>\n        例如:\n         <code>\n           Tabset activeIndex ={0} width={30}\n              Tab heading='tab1' className='测试'>hahadhdad1\n              /Tab\n           /Tabset\n         </code>\n      </li>\n      <li>clickCallback: 点击事件的回调函数，默认为null</li>\n</ul>",
             "extends": "Component",
             "is_constructor": 1,
             "since": "0.1.0",
             "example": [
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Tabset,Tab} from '../../src/index';\n\tlet Demo1 = class demo1 extends Component{\n\t    constructor(props,context){\n\t        super(props,context);\n\t        this.state={\n\t            tab2:'初始tab2内容'\n\t        }\n\t    }\n\t    test(){\n\t        this.setState({\n\t            tab2:'测试panel内容改变'\n\t        })\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={1} className = '测试name' clickCallback={()=>{alert('测试tabset 回调')}} style={{color:'green'}}>\n\t                    <Tab heading='tab1' className='测试' clickCallback={()=>{alert('测试clickCallback属性')}}>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' clickCallback={::this.test}>\n\t                        {this.state.tab2}\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\tlet Demo2 = class demo2 extends Component{\n\t    test(){\n\t        alert('测试自定义tab点击事件');\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={0} vertical width={30}>\n\t                    <Tab heading='tab1'>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' onClick={::this.test}>\n\t                        hahadhdad2\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t           <div>\n\t              <h1>默认横向</h1>\n\t               <Demo1 />\n\t               <h1>竖向</h1>\n\t               <Demo2 />\n\t           </div>\n\t        );\n\t    }\n\t}",
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Tabset,Tab} from '../../src/index';\n\tlet Demo1 = class demo1 extends Component{\n\t    constructor(props,context){\n\t        super(props,context);\n\t        this.state={\n\t            tab2:'初始tab2内容'\n\t        }\n\t    }\n\t    test(){\n\t        this.setState({\n\t            tab2:'测试panel内容改变'\n\t        })\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={1} className = '测试name' clickCallback={()=>{alert('测试tabset 回调')}} style={{color:'green'}}>\n\t                    <Tab heading='tab1' className='测试' clickCallback={()=>{alert('测试clickCallback属性')}}>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' clickCallback={::this.test}>\n\t                        {this.state.tab2}\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\tlet Demo2 = class demo2 extends Component{\n\t    test(){\n\t        alert('测试自定义tab点击事件');\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={0} vertical width={30}>\n\t                    <Tab heading='tab1'>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' onClick={::this.test}>\n\t                        hahadhdad2\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t           <div>\n\t              <h1>默认横向</h1>\n\t               <Demo1 />\n\t               <h1>竖向</h1>\n\t               <Demo2 />\n\t           </div>\n\t        );\n\t    }\n\t}"
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport {Tabset,Tab} from '../../src/index';\n\tlet Demo1 = class demo1 extends Component{\n\t    constructor(props,context){\n\t        super(props,context);\n\t        this.state={\n\t            tab2:'初始tab2内容'\n\t        }\n\t    }\n\t    test(){\n\t        this.setState({\n\t            tab2:'测试panel内容改变'\n\t        })\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={1} className = '测试name' clickCallback={()=>{console.log('测试tabset 回调')}} style={{color:'green'}}>\n\t                    <Tab heading='tab1' className='测试' clickCallback={()=>{alert('测试clickCallback属性')}}>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' clickCallback={::this.test}>\n\t                        {this.state.tab2}\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\tlet Demo2 = class demo2 extends Component{\n\t    test(){\n\t        alert('测试自定义tab点击事件');\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={0} vertical width={30}>\n\t                    <Tab heading='tab1'>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' onClick={::this.test}>\n\t                        hahadhdad2\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t           <div>\n\t              <h1>默认横向</h1>\n\t               <Demo1 />\n\t               <h1>竖向</h1>\n\t               <Demo2 />\n\t           </div>\n\t        );\n\t    }\n\t}",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport {Tabset,Tab} from '../../src/index';\n\tlet Demo1 = class demo1 extends Component{\n\t    constructor(props,context){\n\t        super(props,context);\n\t        this.state={\n\t            tab2:'初始tab2内容'\n\t        }\n\t    }\n\t    test(){\n\t        this.setState({\n\t            tab2:'测试panel内容改变'\n\t        })\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={1} className = '测试name' clickCallback={()=>{console.log('测试tabset 回调')}} style={{color:'green'}}>\n\t                    <Tab heading='tab1' className='测试' clickCallback={()=>{alert('测试clickCallback属性')}}>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' clickCallback={::this.test}>\n\t                        {this.state.tab2}\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\tlet Demo2 = class demo2 extends Component{\n\t    test(){\n\t        alert('测试自定义tab点击事件');\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={0} vertical width={30}>\n\t                    <Tab heading='tab1'>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' onClick={::this.test}>\n\t                        hahadhdad2\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t           <div>\n\t              <h1>默认横向</h1>\n\t               <Demo1 />\n\t               <h1>竖向</h1>\n\t               <Demo2 />\n\t           </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
                 "展示",
@@ -490,8 +595,8 @@
             "is_constructor": 1,
             "since": "0.1.0",
             "example": [
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Tabset,Tab} from '../../src/index';\n\tlet Demo1 = class demo1 extends Component{\n\t    constructor(props,context){\n\t        super(props,context);\n\t        this.state={\n\t            tab2:'初始tab2内容'\n\t        }\n\t    }\n\t    test(){\n\t        this.setState({\n\t            tab2:'测试panel内容改变'\n\t        })\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={1} className = '测试name' clickCallback={()=>{alert('测试tabset 回调')}} style={{color:'green'}}>\n\t                    <Tab heading='tab1' className='测试' clickCallback={()=>{alert('测试clickCallback属性')}}>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' clickCallback={::this.test}>\n\t                        {this.state.tab2}\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\tlet Demo2 = class demo2 extends Component{\n\t    test(){\n\t        alert('测试自定义tab点击事件');\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={0} vertical width={30}>\n\t                    <Tab heading='tab1'>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' onClick={::this.test}>\n\t                        hahadhdad2\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t           <div>\n\t              <h1>默认横向</h1>\n\t               <Demo1 />\n\t               <h1>竖向</h1>\n\t               <Demo2 />\n\t           </div>\n\t        );\n\t    }\n\t}",
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Tabset,Tab} from '../../src/index';\n\tlet Demo1 = class demo1 extends Component{\n\t    constructor(props,context){\n\t        super(props,context);\n\t        this.state={\n\t            tab2:'初始tab2内容'\n\t        }\n\t    }\n\t    test(){\n\t        this.setState({\n\t            tab2:'测试panel内容改变'\n\t        })\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={1} className = '测试name' clickCallback={()=>{alert('测试tabset 回调')}} style={{color:'green'}}>\n\t                    <Tab heading='tab1' className='测试' clickCallback={()=>{alert('测试clickCallback属性')}}>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' clickCallback={::this.test}>\n\t                        {this.state.tab2}\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\tlet Demo2 = class demo2 extends Component{\n\t    test(){\n\t        alert('测试自定义tab点击事件');\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={0} vertical width={30}>\n\t                    <Tab heading='tab1'>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' onClick={::this.test}>\n\t                        hahadhdad2\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t           <div>\n\t              <h1>默认横向</h1>\n\t               <Demo1 />\n\t               <h1>竖向</h1>\n\t               <Demo2 />\n\t           </div>\n\t        );\n\t    }\n\t}"
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport {Tabset,Tab} from '../../src/index';\n\tlet Demo1 = class demo1 extends Component{\n\t    constructor(props,context){\n\t        super(props,context);\n\t        this.state={\n\t            tab2:'初始tab2内容'\n\t        }\n\t    }\n\t    test(){\n\t        this.setState({\n\t            tab2:'测试panel内容改变'\n\t        })\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={1} className = '测试name' clickCallback={()=>{console.log('测试tabset 回调')}} style={{color:'green'}}>\n\t                    <Tab heading='tab1' className='测试' clickCallback={()=>{alert('测试clickCallback属性')}}>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' clickCallback={::this.test}>\n\t                        {this.state.tab2}\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\tlet Demo2 = class demo2 extends Component{\n\t    test(){\n\t        alert('测试自定义tab点击事件');\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={0} vertical width={30}>\n\t                    <Tab heading='tab1'>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' onClick={::this.test}>\n\t                        hahadhdad2\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t           <div>\n\t              <h1>默认横向</h1>\n\t               <Demo1 />\n\t               <h1>竖向</h1>\n\t               <Demo2 />\n\t           </div>\n\t        );\n\t    }\n\t}",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport {Tabset,Tab} from '../../src/index';\n\tlet Demo1 = class demo1 extends Component{\n\t    constructor(props,context){\n\t        super(props,context);\n\t        this.state={\n\t            tab2:'初始tab2内容'\n\t        }\n\t    }\n\t    test(){\n\t        this.setState({\n\t            tab2:'测试panel内容改变'\n\t        })\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={1} className = '测试name' clickCallback={()=>{console.log('测试tabset 回调')}} style={{color:'green'}}>\n\t                    <Tab heading='tab1' className='测试' clickCallback={()=>{alert('测试clickCallback属性')}}>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' clickCallback={::this.test}>\n\t                        {this.state.tab2}\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\tlet Demo2 = class demo2 extends Component{\n\t    test(){\n\t        alert('测试自定义tab点击事件');\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={0} vertical width={30}>\n\t                    <Tab heading='tab1'>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' onClick={::this.test}>\n\t                        hahadhdad2\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t           <div>\n\t              <h1>默认横向</h1>\n\t               <Demo1 />\n\t               <h1>竖向</h1>\n\t               <Demo2 />\n\t           </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
                 "展示",
@@ -722,7 +827,7 @@
         },
         {
             "file": "src/Badge.js",
-            "line": 32,
+            "line": 31,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -733,7 +838,7 @@
         },
         {
             "file": "src/Badge.js",
-            "line": 39,
+            "line": 38,
             "description": "badge徽章颜色[primary、warning、danger、info、error、success]",
             "itemtype": "property",
             "name": "phStyle",
@@ -744,7 +849,7 @@
         },
         {
             "file": "src/Badge.js",
-            "line": 46,
+            "line": 45,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
@@ -762,7 +867,7 @@
             "type": "String",
             "default": "sm",
             "class": "Button",
-            "module": "FORM"
+            "module": "Form"
         },
         {
             "file": "src/Button.js",
@@ -773,7 +878,7 @@
             "type": "Boolean",
             "default": "''",
             "class": "Button",
-            "module": "FORM"
+            "module": "Form"
         },
         {
             "file": "src/Button.js",
@@ -783,7 +888,7 @@
             "name": "classPrefix",
             "type": "String",
             "class": "Button",
-            "module": "FORM"
+            "module": "Form"
         },
         {
             "file": "src/Button.js",
@@ -793,7 +898,7 @@
             "name": "componentTag",
             "type": "String",
             "class": "Button",
-            "module": "FORM"
+            "module": "Form"
         },
         {
             "file": "src/Button.js",
@@ -804,7 +909,7 @@
             "type": "Boolean",
             "default": "false",
             "class": "Button",
-            "module": "FORM"
+            "module": "Form"
         },
         {
             "file": "src/Col.js",
@@ -814,7 +919,7 @@
             "name": "width",
             "type": "Integer",
             "class": "Col",
-            "module": "GRID"
+            "module": "Grid"
         },
         {
             "file": "src/Col.js",
@@ -824,7 +929,7 @@
             "name": "offset，默认不偏移",
             "type": "Integer",
             "class": "Col",
-            "module": "GRID"
+            "module": "Grid"
         },
         {
             "file": "src/Col.js",
@@ -834,7 +939,7 @@
             "name": "offset，默认不偏移",
             "type": "Integer",
             "class": "Col",
-            "module": "GRID"
+            "module": "Grid"
         },
         {
             "file": "src/FormGroup.js",
@@ -844,7 +949,7 @@
             "name": "classPrefix",
             "type": "String",
             "class": "FormGroup",
-            "module": "FORM"
+            "module": "Form"
         },
         {
             "file": "src/FormGroup.js",
@@ -854,7 +959,7 @@
             "name": "componentTag",
             "type": "String",
             "class": "FormGroup",
-            "module": "FORM"
+            "module": "Form"
         },
         {
             "file": "src/Input.js",
@@ -878,7 +983,7 @@
         },
         {
             "file": "src/Label.js",
-            "line": 50,
+            "line": 49,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -889,7 +994,7 @@
         },
         {
             "file": "src/Label.js",
-            "line": 57,
+            "line": 56,
             "description": "label标签大小 [lg、md、'']默认为‘’即为sm不用指定",
             "itemtype": "property",
             "name": "phSize",
@@ -900,7 +1005,7 @@
         },
         {
             "file": "src/Label.js",
-            "line": 64,
+            "line": 63,
             "description": "label标签颜色[primary、warning、danger、info、error、success]",
             "itemtype": "property",
             "name": "phStyle",
@@ -911,7 +1016,7 @@
         },
         {
             "file": "src/Label.js",
-            "line": 71,
+            "line": 70,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
@@ -928,7 +1033,36 @@
             "name": "offset，默认不偏移",
             "type": "Integer",
             "class": "Row",
-            "module": "GRID"
+            "module": "Grid"
+        },
+        {
+            "file": "src/Star.js",
+            "line": 1,
+            "description": "星级评价",
+            "class": "Star",
+            "module": "Grid"
+        },
+        {
+            "file": "src/Star.js",
+            "line": 29,
+            "description": "星级评价分数",
+            "itemtype": "property",
+            "name": "Rate",
+            "type": "number",
+            "default": "默认为0，最高50",
+            "class": "Star",
+            "module": "UI"
+        },
+        {
+            "file": "src/Star.js",
+            "line": 36,
+            "description": "星星大小",
+            "itemtype": "property",
+            "name": "size",
+            "type": "String",
+            "default": "",
+            "class": "Star",
+            "module": "UI"
         },
         {
             "file": "src/Switch.js",
@@ -938,7 +1072,7 @@
             "name": "classPrefix",
             "type": "Stringx",
             "class": "Switch",
-            "module": "FORM"
+            "module": "Form"
         },
         {
             "file": "src/Switch.js",
@@ -948,11 +1082,11 @@
             "name": "componentTag",
             "type": "String",
             "class": "Switch",
-            "module": "FORM"
+            "module": "Form"
         },
         {
             "file": "src/Tab.js",
-            "line": 36,
+            "line": 35,
             "description": "选项卡的标题文字，默认为‘tab’\n但是这个应该是必填的，一个tab显示出来也没意思啦",
             "itemtype": "property",
             "name": "heading",
@@ -962,7 +1096,7 @@
         },
         {
             "file": "src/Tab.js",
-            "line": 43,
+            "line": 42,
             "description": "点击事件的回调函数",
             "itemtype": "property",
             "name": "clickCallback",
@@ -1034,15 +1168,15 @@
     "warnings": [
         {
             "message": "unknown tag: demo",
-            "line": " src/Badge.js:5"
+            "line": " src/Badge.js:4"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/Badge.js:5"
+            "line": " src/Badge.js:4"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/Badge.js:5"
+            "line": " src/Badge.js:4"
         },
         {
             "message": "unknown tag: demo",
@@ -1069,6 +1203,10 @@
             "line": " src/FormGroup.js:7"
         },
         {
+            "message": "unknown tag: show",
+            "line": " src/Grid.js:24"
+        },
+        {
             "message": "unknown tag: demo",
             "line": " src/Input.js:5"
         },
@@ -1082,15 +1220,27 @@
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/Label.js:15"
+            "line": " src/Label.js:14"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/Label.js:15"
+            "line": " src/Label.js:14"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/Label.js:15"
+            "line": " src/Label.js:14"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/Star.js:5"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/Star.js:5"
+        },
+        {
+            "message": "unknown tag: show",
+            "line": " src/Star.js:5"
         },
         {
             "message": "unknown tag: demo",
@@ -1106,15 +1256,15 @@
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/Tab.js:5"
+            "line": " src/Tab.js:4"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/Tab.js:5"
+            "line": " src/Tab.js:4"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/Tab.js:5"
+            "line": " src/Tab.js:4"
         },
         {
             "message": "unknown tag: demo",
@@ -1175,6 +1325,10 @@
         {
             "message": "Missing item type\nA recursive merge between two objects.",
             "line": " src/utils/extend.js:5"
+        },
+        {
+            "message": "Missing item type\n星级评价",
+            "line": " src/Star.js:1"
         }
     ]
 }

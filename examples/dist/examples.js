@@ -90,45 +90,49 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _tabJs2 = _interopRequireDefault(_tabJs);
 
-	var _buttonJs = __webpack_require__(231);
+	var _buttonJs = __webpack_require__(232);
 
 	var _buttonJs2 = _interopRequireDefault(_buttonJs);
 
-	var _inputJs = __webpack_require__(232);
+	var _inputJs = __webpack_require__(233);
 
 	var _inputJs2 = _interopRequireDefault(_inputJs);
 
-	var _switchJs = __webpack_require__(233);
+	var _switchJs = __webpack_require__(234);
 
 	var _switchJs2 = _interopRequireDefault(_switchJs);
 
-	var _gridJs = __webpack_require__(234);
+	var _gridJs = __webpack_require__(235);
 
 	var _gridJs2 = _interopRequireDefault(_gridJs);
 
-	var _tableViewJs = __webpack_require__(235);
+	var _tableViewJs = __webpack_require__(236);
 
 	var _tableViewJs2 = _interopRequireDefault(_tableViewJs);
 
-	var _formGroupJs = __webpack_require__(236);
+	var _formGroupJs = __webpack_require__(237);
 
 	var _formGroupJs2 = _interopRequireDefault(_formGroupJs);
 
-	var _labelJs = __webpack_require__(237);
+	var _labelJs = __webpack_require__(238);
 
 	var _labelJs2 = _interopRequireDefault(_labelJs);
 
-	var _badgeJs = __webpack_require__(238);
+	var _badgeJs = __webpack_require__(239);
 
 	var _badgeJs2 = _interopRequireDefault(_badgeJs);
 
-	var _starJs = __webpack_require__(239);
+	var _starJs = __webpack_require__(240);
 
 	var _starJs2 = _interopRequireDefault(_starJs);
 
-	var _detailDemoJs = __webpack_require__(240);
+	var _detailDemoJs = __webpack_require__(241);
 
 	var _detailDemoJs2 = _interopRequireDefault(_detailDemoJs);
+
+	var _listDemoJs = __webpack_require__(242);
+
+	var _listDemoJs2 = _interopRequireDefault(_listDemoJs);
 
 	var Index = (function (_Component) {
 	    _inherits(index, _Component);
@@ -208,6 +212,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        'a',
 	                        { href: '#/detail' },
 	                        '详情页示例'
+	                    ),
+	                    _react2['default'].createElement(
+	                        'a',
+	                        { href: '#/list-demo' },
+	                        '列表页例子'
 	                    )
 	                )
 	            )
@@ -244,6 +253,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/badge', name: 'badge', component: _badgeJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/star', name: 'star', component: _starJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/detail', name: 'detail', component: _detailDemoJs2['default'] }),
+	            _react2['default'].createElement(_reactRouter.Route, { path: '/list-demo', name: 'list-demo', component: _listDemoJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Redirect, { from: '/', to: '/index' })
 	        );
 	    };
@@ -24547,9 +24557,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.Star = _Star3['default'];
 
+	var _Grid2 = __webpack_require__(231);
+
+	var _Grid3 = _interopRequireDefault(_Grid2);
+
+	exports.Grid = _Grid3['default'];
+
 	window['Phoenix'] = {};
 
-	['Button', 'Input', 'Switch', 'Row', 'TableView', 'FormGroup', 'Col', 'Tabset', 'Tab', 'Label', 'Badge', 'Star'].forEach(function (name) {
+	['Button', 'Input', 'Switch', 'Row', 'TableView', 'FormGroup', 'Col', 'Tabset', 'Tab', 'Label', 'Badge', 'Star', 'Grid'].forEach(function (name) {
 	    Phoenix[name] = exports[name];
 	});
 
@@ -24608,7 +24624,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *     </li>
 	 * </ul>
 	 * @class Button
-	 * @module FORM
+	 * @module Form
 	 * @extends Component
 	 * @constructor
 	 * @demo button.js {展示}
@@ -25706,7 +25722,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 开关切换，仿真ios的开关控件
 	 * @class Switch
-	 * @module FORM
+	 * @module Form
 	 * @extends Component
 	 * @constructor
 	 * @demo switch.js {展示}
@@ -25798,7 +25814,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 行
 	 * @class Row
-	 * @module GRID
+	 * @module Grid
 	 * @extends Component
 	 * @constructor
 	 * @since 0.1.0
@@ -25882,7 +25898,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 列
 	 * @class Col
-	 * @module GRID
+	 * @module Grid
 	 * @extends Component
 	 * @constructor
 	 * @since 0.1.0
@@ -26106,7 +26122,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 表单元素布局方式，整齐的排列一组表单元素
 	 * @class FormGroup
-	 * @module FORM
+	 * @module Form
 	 * @extends Component
 	 * @constructor
 	 * @demo form-group.js {展示}
@@ -26827,7 +26843,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * <pre><code>&#60;Star rate={50} size={10}/&#62;</code>
 	 * </pre>
 	 * @class Star
-	 * @module ui
+	 * @module UI
 	 * @extends Component
 	 * @constructor
 	 * @demo star.js {UI展示}
@@ -26925,6 +26941,92 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.__esModule = true;
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(213);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	/**
+	 * <h5>主要栅格化布局组件</h5>
+	 * <pre><code>
+	 *     &#60;Grid&#62;//定义栅格
+	 *         &#60;Col sm={6}&#62;//定义一列，总长度为12份
+	 *             &#60;Row&#62; &#60;/Row&#62;//定义一行
+	 *         &#60;/Col&#62;
+	 *     &#60;/Grid&#62;
+	 * </code></pre>
+	 *
+	 * <strong><a href='../classes/Grid.html'>Grid定义外框</a></strong><br>
+	 * <strong><a href='../classes/Row.html'>Row定义行排列</a></strong><br>
+	 * <strong><a href='../classes/Col.html'>Col定义竖排列</a></strong><br>
+	 * <h6>点击以上链接进行相关查看</h6>
+	 * @module grid(布局)
+	 * @main grid(布局)
+	 * @static
+	 *
+	 */
+
+	/**
+	 * 定义栅格容器,配合Col和Row使用
+	 * @class Grid
+	 * @module Grid(布局)
+	 * @extends Component
+	 * @constructor
+	 * @show true
+	 * */
+
+	var Grid = (function (_Component) {
+	    _inherits(Grid, _Component);
+
+	    function Grid() {
+	        _classCallCheck(this, Grid);
+
+	        _Component.apply(this, arguments);
+	    }
+
+	    Grid.prototype.render = function render() {
+
+	        return _react2['default'].createElement(
+	            'div',
+	            _extends({}, this.props, {
+	                className: _classnames2['default']('grid', this.props.fluid ? 'grid-' + 'fluid' : '', this.props.className) }),
+	            this.props.children
+	        );
+	    };
+
+	    _createClass(Grid, null, [{
+	        key: 'propTypes',
+	        value: {},
+	        enumerable: true
+	    }]);
+
+	    return Grid;
+	})(_react.Component);
+
+	exports['default'] = Grid;
+	module.exports = exports['default'];
+
+/***/ },
+/* 232 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
@@ -26979,7 +27081,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 232 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27053,7 +27155,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 233 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27110,7 +27212,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 234 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27571,7 +27673,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 235 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27667,7 +27769,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 236 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27850,7 +27952,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27911,7 +28013,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 238 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27972,7 +28074,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 239 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -28042,7 +28144,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 240 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28094,12 +28196,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    null,
 	                    _react2['default'].createElement(
 	                        _srcIndex.Row,
-	                        { style: { padding: '10px' } },
+	                        { style: { padding: '4%' } },
 	                        '容新馆。2号店'
 	                    ),
 	                    _react2['default'].createElement(
 	                        _srcIndex.Row,
-	                        { style: { padding: '10px' } },
+	                        { style: { padding: '4%' } },
 	                        _react2['default'].createElement(_srcIndex.Star, { Rate: 20 }),
 	                        _react2['default'].createElement(
 	                            _srcIndex.Col,
@@ -28171,14 +28273,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    _srcIndex.Row,
 	                    null,
 	                    _react2['default'].createElement(
-	                        'a',
-	                        { href: '###', className: 'navigate-right' },
+	                        _srcIndex.Col,
+	                        null,
 	                        _react2['default'].createElement(
-	                            'label',
-	                            null,
-	                            '电话'
-	                        ),
-	                        _react2['default'].createElement(_srcIndex.Input, { type: 'text', placeholder: '255136641', disabled: true })
+	                            'a',
+	                            { href: '###', className: 'navigate-right' },
+	                            _react2['default'].createElement(
+	                                'label',
+	                                null,
+	                                '电话'
+	                            ),
+	                            _react2['default'].createElement(_srcIndex.Input, { type: 'text', placeholder: '255136641', disabled: true })
+	                        )
 	                    )
 	                )
 	            ),
@@ -28346,6 +28452,220 @@ return /******/ (function(modules) { // webpackBootstrap
 	})(_react.Component);
 
 	exports['default'] = Detail;
+	module.exports = exports['default'];
+
+/***/ },
+/* 242 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(159);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _srcIndex = __webpack_require__(210);
+
+	var Demo = (function (_Component) {
+	    _inherits(Demo, _Component);
+
+	    function Demo(props, context) {
+	        _classCallCheck(this, Demo);
+
+	        _Component.call(this, props, context);
+
+	        this.state = {
+	            name: ''
+	        };
+	    }
+
+	    Demo.prototype.setValue = function setValue(key, e) {
+	        var o = {};
+	        o[key || e.target.name] = e.target.value;
+	        this.setState(o);
+	    };
+
+	    Demo.prototype.render = function render() {
+	        return _react2['default'].createElement(
+	            'div',
+	            { style: {
+	                    padding: '5px 15px'
+	                } },
+	            _react2['default'].createElement(
+	                'div',
+	                { style: {
+	                        borderBottom: '1px solid #ccc'
+	                    } },
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        '三人行骨头王火锅'
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            _srcIndex.Label,
+	                            { phSize: '', style: {
+	                                    marginRight: '5px'
+	                                } },
+	                            '惠'
+	                        ),
+	                        _react2['default'].createElement(
+	                            _srcIndex.Label,
+	                            { phSize: '', phStyle: 'info' },
+	                            '团'
+	                        )
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(_srcIndex.Star, { Rate: 20, size: '' })
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        { style: {
+	                                fontSize: '12px',
+	                                color: '#999'
+	                            } },
+	                        _react2['default'].createElement(
+	                            'span',
+	                            null,
+	                            '休闲娱乐|黄浦路  南京东路819号百联世贸7楼'
+	                        ),
+	                        _react2['default'].createElement(
+	                            'span',
+	                            null,
+	                            '5.4km'
+	                        )
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            _srcIndex.Button,
+	                            { phSize: '' },
+	                            '非本战区 公海'
+	                        )
+	                    )
+	                )
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { style: {
+	                        borderBottom: '1px solid #ccc'
+	                    } },
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        '三人行骨头王火锅'
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            _srcIndex.Label,
+	                            { phSize: '', style: {
+	                                    marginRight: '5px'
+	                                } },
+	                            '惠'
+	                        ),
+	                        _react2['default'].createElement(
+	                            _srcIndex.Label,
+	                            { phSize: '', phStyle: 'info' },
+	                            '团'
+	                        )
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(_srcIndex.Star, { Rate: 20, size: '' })
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        { style: {
+	                                fontSize: '12px',
+	                                color: '#999'
+	                            } },
+	                        _react2['default'].createElement(
+	                            'span',
+	                            null,
+	                            '休闲娱乐|黄浦路  南京东路819号百联世贸7楼'
+	                        ),
+	                        _react2['default'].createElement(
+	                            'span',
+	                            null,
+	                            '5.4km'
+	                        )
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            _srcIndex.Button,
+	                            { phSize: '' },
+	                            '非本战区 公海'
+	                        )
+	                    )
+	                )
+	            )
+	        );
+	    };
+
+	    return Demo;
+	})(_react.Component);
+
+	exports['default'] = Demo;
 	module.exports = exports['default'];
 
 /***/ }

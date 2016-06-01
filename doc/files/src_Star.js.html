@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src/TableView.js - phoenix-ui</title>
+    <title>src/Star.js - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -266,88 +266,71 @@
             <div id="docs-main">
                 <div class="content">
                     <div class="page-header">
-    <h1>src/TableView.js <small>File</small></h1>
+    <h1>src/Star.js <small>File</small></h1>
 </div>
 
 <div class="file">
     <pre class="prettyprint linenums" id='src_code'>
-import React,{PropTypes} from &#x27;react&#x27;;
-import Component from &#x27;./utils/Component&#x27;;
-import classnames from &#x27;classnames&#x27;;
-
 /**
- * 展现形式如表格一般,用来组织数据，显示链接的集合，或一系列的控件。&lt;br /&gt;
- * 使用时需注意组件的子元素需要跳转功能需加上href标签并赋予正确的url，不论什么标签
- * @class TableView
+ *
+ * 星级评价
+ */
+/**
+ * 星级评价(Star)组件&lt;br /&gt;
+ * 提供的UI展示属性接口包括&lt;br/&gt;
+ * &lt;ul&gt;
+ *     &lt;li&gt;rate：星级评价的分数(满分为50)&lt;code&gt;默认为0&lt;/code&gt;&lt;/li&gt;
+ *     &lt;li&gt;size：星星的大小(可选md、lg、默认3种size)&lt;code&gt;&lt;/code&gt;&lt;/li&gt;
+ * &lt;/ul&gt;&lt;br&gt;
+ * 使用方式:
+ * &lt;pre&gt;&lt;code&gt;&amp;#60;Star rate={50} size={10}/&amp;#62;&lt;/code&gt;
+ * &lt;/pre&gt;
+ * @class Star
  * @module UI
  * @extends Component
  * @constructor
- * @demo table-view.js {展示}
- * @demo table-view.js {源码}
+ * @demo star.js {UI展示}
+ * @demo star.js {源码}
  * @show true
  * */
-export default class TableView extends Component{
-
+import React, { Component ,PropTypes} from &#x27;react&#x27;;
+import classNames from &#x27;classnames&#x27;;
+import classNameMixin from &#x27;./utils/ClassNameMixin.js&#x27;;
+@classNameMixin
+export default class Star extends Component{
     static propTypes = {
         /**
-         * 样式前缀
-         * @property classPrefix
-         * @type String
+         * 星级评价分数
+         * @property Rate
+         * @type number
+         * @default 默认为0，最高50
          * */
-        classPrefix:PropTypes.string,
+        Rate:PropTypes.number,
         /**
-         * 标签tagName
-         * @property componentTag
+         * 星星大小
+         * @property size
          * @type String
+         * @default
          * */
-        componentTag:PropTypes.string
+        size:PropTypes.string
     };
-
     static defaultProps = {
-        classPrefix:&#x27;&#x27;,
-        componentTag:&#x27;ul&#x27;,
-        classMapping : {
-
-        }
+        Rate:0,
+        size:undefined
     };
-
-    constructor(props, context) {
-        super(props, context);
+    constructor(){
+        super();
     }
-
-    renderItem(){
-        let items = React.Children.map(this.props.children, (options, index)=&gt; {
-            let {href, ...other} = options.props;
-
-            return (
-                &lt;li className=&quot;table-view-cell&quot;&gt;
-                    {href &amp;&amp; href!=&#x27;&#x27;?&lt;a href={href} className=&quot;navigate-right&quot; {...other} className={
-                        classnames(
-                            &#x27;navigate-right&#x27;,
-                            options.props.className
-                        )
-                }&gt;{options.props.children}&lt;/a&gt;:options.props.children}
-                &lt;/li&gt;
-            );
-        }, this);
-
-        return items;
-    }
-
     render(){
-        let {componentTag:Component} = this.props;
-
+        let {Rate,size} = this.props;
+        let rateCls =Rate&amp;&amp;&#x27;star-&#x27;+ Math.round((Rate*2)/10)*5;
+        let sizeCls = size&amp;&amp;&#x27;star-&#x27;+size;
         return (
-            &lt;Component {...this.otherProps} className={
-                classnames(
-                    &#x27;table-view&#x27;,
-                    this.getProperty(),
-                    this.props.className
-                )
-                } style={this.getStyles(this.props.style) }&gt;{this.renderItem() }&lt;/Component&gt;
-        );
+            &lt;div className={&#x60;star ${rateCls} ${sizeCls}&#x60;}&gt;
+                &lt;div className=&quot;star-grey&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        )
     }
-
 }
     </pre>
 </div>

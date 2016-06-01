@@ -13,7 +13,7 @@
  * <pre><code>&#60;Star rate={50} size={10}/&#62;</code>
  * </pre>
  * @class Star
- * @module ui
+ * @module UI
  * @extends Component
  * @constructor
  * @demo star.js {UI展示}

@@ -16,6 +16,8 @@ import Label from './label.js';
 import Badge from './badge.js';
 import StarDemo from './star.js';
 import Detail from './detailDemo.js';
+import ListDemo from './list-demo.js';
+
 let Index = class index extends Component {
     render() {
         return (
@@ -34,6 +36,7 @@ let Index = class index extends Component {
                         <a href="#/badge">badge(徽章)</a>
                         <a href="#/star">star(星星)</a>
                         <a href="#/detail">详情页示例</a>
+                        <a href="#/list-demo">列表页例子</a>
                     </div>
                 </div>
             </div>
@@ -63,6 +66,7 @@ let AppRouter = class AppRouter extends Component {
                 <Route path="/badge" name="badge" component={Badge} />
                 <Route path="/star" name="star" component={StarDemo} />
                 <Route path="/detail" name="detail" component={Detail} />
+                <Route path="/list-demo" name="list-demo" component={ListDemo} />
                 <Redirect from="/" to="/index" />
             </Router>
         );

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src/TableView.js - phoenix-ui</title>
+    <title>Grid - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -266,90 +266,136 @@
             <div id="docs-main">
                 <div class="content">
                     <div class="page-header">
-    <h1>src/TableView.js <small>File</small></h1>
+    <h1>Grid <small>Class</small></h1>
+</div>
+ <div class="well well-small sign-left3">
+      <div class="stdoc-code"><p>定义栅格容器,配合Col和Row使用</p>
+</div>
+ </div>
+
+<div class="well well-small sign-left2 container-fluid" id="classesItems">
+    <div class="row">
+    
+        <div class="index-section methods col-sm-4">
+            <h3>Methods</h3>
+            
+        </div>
+    
+        <div class="index-section properties col-sm-4">
+            <h3>Properties</h3>
+            
+        </div>
+    
+        <div class="index-section events col-sm-4">
+            <h3>Events</h3>
+            
+        </div>
+    </div>
 </div>
 
-<div class="file">
-    <pre class="prettyprint linenums" id='src_code'>
-import React,{PropTypes} from &#x27;react&#x27;;
-import Component from &#x27;./utils/Component&#x27;;
-import classnames from &#x27;classnames&#x27;;
+<div>
+    <ul id="itemTab" class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#class">Detail</a></li>
+        
+        
+        
+    </ul>
 
-/**
- * 展现形式如表格一般,用来组织数据，显示链接的集合，或一系列的控件。&lt;br /&gt;
- * 使用时需注意组件的子元素需要跳转功能需加上href标签并赋予正确的url，不论什么标签
- * @class TableView
- * @module UI
- * @extends Component
- * @constructor
- * @demo table-view.js {展示}
- * @demo table-view.js {源码}
- * @show true
- * */
-export default class TableView extends Component{
+    <div class="tab-content">
+        <div id="class" class="tab-pane active">
+            <div class="well well-small classDetail sign-left1">
+            
 
-    static propTypes = {
-        /**
-         * 样式前缀
-         * @property classPrefix
-         * @type String
-         * */
-        classPrefix:PropTypes.string,
-        /**
-         * 标签tagName
-         * @property componentTag
-         * @type String
-         * */
-        componentTag:PropTypes.string
-    };
+            
+                <div class="extends">
+                    Extends Component
+                </div>
+            
 
-    static defaultProps = {
-        classPrefix:&#x27;&#x27;,
-        componentTag:&#x27;ul&#x27;,
-        classMapping : {
+            
+                <div class="foundat">
+                    Defined in: <a href="../files/src_Grid.js.html#l24"><code>src&#x2F;Grid.js:24</code></a>
+                </div>
+            
 
-        }
-    };
+            
+                
+                    Module: <a href="../modules/Grid(布局).html">Grid(布局)</a>
+                
+            
 
-    constructor(props, context) {
-        super(props, context);
-    }
+            
+        </div>
 
-    renderItem(){
-        let items = React.Children.map(this.props.children, (options, index)=&gt; {
-            let {href, ...other} = options.props;
+        
+            
+                <div class="constructor">
+                    <h2>Constructor</h2>
+                    <div id="method_Grid" class="method item">
+    <h3 class="name">Grid</h3>
+    <code>
+    Grid
+    
+        <span class="paren">()</span>
+    
+    </code>
 
-            return (
-                &lt;li className=&quot;table-view-cell&quot;&gt;
-                    {href &amp;&amp; href!=&#x27;&#x27;?&lt;a href={href} className=&quot;navigate-right&quot; {...other} className={
-                        classnames(
-                            &#x27;navigate-right&#x27;,
-                            options.props.className
-                        )
-                }&gt;{options.props.children}&lt;/a&gt;:options.props.children}
-                &lt;/li&gt;
-            );
-        }, this);
+    
 
-        return items;
-    }
+    
 
-    render(){
-        let {componentTag:Component} = this.props;
+    
 
-        return (
-            &lt;Component {...this.otherProps} className={
-                classnames(
-                    &#x27;table-view&#x27;,
-                    this.getProperty(),
-                    this.props.className
-                )
-                } style={this.getStyles(this.props.style) }&gt;{this.renderItem() }&lt;/Component&gt;
-        );
-    }
+    
 
-}
-    </pre>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_Grid.js.html#l24"><code>src&#x2F;Grid.js:24</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description well well-small sign-left3">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                </div>
+            
+        </div>
+
+        
+
+        
+
+        
+    </div>
 </div>
 
                 </div>

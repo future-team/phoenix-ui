@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src/TableView.js - phoenix-ui</title>
+    <title>Grid(布局) - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -266,90 +266,52 @@
             <div id="docs-main">
                 <div class="content">
                     <div class="page-header">
-    <h1>src/TableView.js <small>File</small></h1>
+    <h1>Grid(布局) <small>Module</small></h1>
 </div>
 
-<div class="file">
-    <pre class="prettyprint linenums" id='src_code'>
-import React,{PropTypes} from &#x27;react&#x27;;
-import Component from &#x27;./utils/Component&#x27;;
-import classnames from &#x27;classnames&#x27;;
+<div class="clearfix well well-small sign-left1">
+    
 
-/**
- * 展现形式如表格一般,用来组织数据，显示链接的集合，或一系列的控件。&lt;br /&gt;
- * 使用时需注意组件的子元素需要跳转功能需加上href标签并赋予正确的url，不论什么标签
- * @class TableView
- * @module UI
- * @extends Component
- * @constructor
- * @demo table-view.js {展示}
- * @demo table-view.js {源码}
- * @show true
- * */
-export default class TableView extends Component{
+    
 
-    static propTypes = {
-        /**
-         * 样式前缀
-         * @property classPrefix
-         * @type String
-         * */
-        classPrefix:PropTypes.string,
-        /**
-         * 标签tagName
-         * @property componentTag
-         * @type String
-         * */
-        componentTag:PropTypes.string
-    };
+    
+        <div class="foundat">
+            Defined in: <a href="../files/src_Grid.js.html#l24"><code>src&#x2F;Grid.js:24</code></a>
+        </div>
+    
 
-    static defaultProps = {
-        classPrefix:&#x27;&#x27;,
-        componentTag:&#x27;ul&#x27;,
-        classMapping : {
+    
+</div>
 
-        }
-    };
 
-    constructor(props, context) {
-        super(props, context);
-    }
 
-    renderItem(){
-        let items = React.Children.map(this.props.children, (options, index)=&gt; {
-            let {href, ...other} = options.props;
+<div class="moduledesc well well-small sign-left3">
+    <div class="stdoc-code"><p>定义栅格容器,配合Col和Row使用</p>
+</div>
+</div>
 
-            return (
-                &lt;li className=&quot;table-view-cell&quot;&gt;
-                    {href &amp;&amp; href!=&#x27;&#x27;?&lt;a href={href} className=&quot;navigate-right&quot; {...other} className={
-                        classnames(
-                            &#x27;navigate-right&#x27;,
-                            options.props.className
-                        )
-                }&gt;{options.props.children}&lt;/a&gt;:options.props.children}
-                &lt;/li&gt;
-            );
-        }, this);
 
-        return items;
-    }
 
-    render(){
-        let {componentTag:Component} = this.props;
+<div class="yui3-g">
+    <div class="yui3-u-1-2">
+        
+            <p>This module provides the following classes:</p>
 
-        return (
-            &lt;Component {...this.otherProps} className={
-                classnames(
-                    &#x27;table-view&#x27;,
-                    this.getProperty(),
-                    this.props.className
-                )
-                } style={this.getStyles(this.props.style) }&gt;{this.renderItem() }&lt;/Component&gt;
-        );
-    }
+            <ul class="module-classes">
+            
+                <li class="module-class">
+                    <a href="../classes/Grid.html">
+                        Grid
+                    </a>
+                </li>
+            
+            </ul>
+        
+    </div>
 
-}
-    </pre>
+    <div class="yui3-u-1-2">
+        
+    </div>
 </div>
 
                 </div>
@@ -361,6 +323,12 @@ export default class TableView extends Component{
 </a>
 <script src="../assets/vendor/jquery/jquery-1.8.2.min.js"></script>
 <script src="../assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/doc.js"></script>
+</body>
+</html>
+s"></script>
 <script src="../assets/vendor/prettify/prettify-min.js"></script>
 <script src="../assets/js/config.js"></script>
 <script src="../assets/js/doc.js"></script>
