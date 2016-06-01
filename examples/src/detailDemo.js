@@ -14,7 +14,7 @@ export default class Detail extends Component {
 
     render() {
         return (
-            <Grid fluid>
+            <Grid>
                 <Row className='top'>
                     <Col className='col-40' style={{padding:'10px'}}>
 
@@ -103,7 +103,7 @@ export default class Detail extends Component {
                     <Row style={{height:'80px'}}>
                         <Col>
                             <Row>
-                                <Col className='col-10' style={{marginTop: '2.5%'}}>
+                                <Col className='col-10' style={{margin: '2.5% 0 0 5%'}}>
                                     <Label>惠</Label>
                                 </Col>
                                 <Col className='input'>上海欢乐谷门票</Col>
@@ -120,7 +120,7 @@ export default class Detail extends Component {
                         </Col>
                     </Row>
                 </FormGroup>
-                <Row style={{padding:'10px',border:'2px solid #ddd',position:'fixed',bottom:'0',background:'#fff',width:'100%'}}>
+                <Row style={{padding:'10px',borderTop:'1px solid #ddd',position:'fixed',bottom:'0',background:'#fff',width:'100%'}}>
                     <Col style={{textAlign:'center'}}><Button>上传POP</Button></Col>
                     <Col style={{textAlign:'center'}}><Button>POI报错</Button></Col>
                     <Col style={{textAlign:'center'}}><Button>上报WIFI</Button></Col>

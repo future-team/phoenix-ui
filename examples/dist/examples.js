@@ -26091,9 +26091,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.__esModule = true;
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
@@ -26184,11 +26188,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    FormGroup.prototype.render = function render() {
-	        var Component = this.props.componentTag;
+	        var _props = this.props;
+	        var Component = _props.componentTag;
+	        var className = _props.className;
+
+	        var other = _objectWithoutProperties(_props, ['componentTag', 'className']);
 
 	        return _react2['default'].createElement(
 	            Component,
-	            { className: _classnames2['default']('input-group', this.getProperty(), this.props.className) },
+	            _extends({ className: _classnames2['default']('row-no-padding', 'input-group', this.getProperty(), this.props.className) }, other),
 	            this.renderItem()
 	        );
 	    };
@@ -26510,7 +26518,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        var other = _objectWithoutProperties(_props, ['className', 'clickCallback']);
 
-	        debugger;
 	        var headings = _react2['default'].Children.map(this.props.children, function (options, index) {
 	            var _options$props = options.props;
 	            var vertical = _options$props.vertical;
@@ -28181,7 +28188,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    Detail.prototype.render = function render() {
 	        return _react2['default'].createElement(
-	            'div',
+	            _srcIndex.Grid,
 	            null,
 	            _react2['default'].createElement(
 	                _srcIndex.Row,
@@ -28196,13 +28203,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    null,
 	                    _react2['default'].createElement(
 	                        _srcIndex.Row,
-	                        { style: { padding: '4%' } },
-	                        '容新馆。2号店'
+	                        null,
+	                        _react2['default'].createElement(
+	                            _srcIndex.Col,
+	                            null,
+	                            '容新馆。2号店'
+	                        )
 	                    ),
 	                    _react2['default'].createElement(
 	                        _srcIndex.Row,
-	                        { style: { padding: '4%' } },
-	                        _react2['default'].createElement(_srcIndex.Star, { Rate: 20 }),
+	                        null,
+	                        _react2['default'].createElement(
+	                            _srcIndex.Col,
+	                            null,
+	                            _react2['default'].createElement(_srcIndex.Star, { Rate: 20 })
+	                        ),
 	                        _react2['default'].createElement(
 	                            _srcIndex.Col,
 	                            { style: { fontSize: '12px', marginLeft: '12px', color: '#999' } },
@@ -28211,7 +28226,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    ),
 	                    _react2['default'].createElement(
 	                        _srcIndex.Row,
-	                        { style: { padding: '0 10px' } },
+	                        null,
 	                        _react2['default'].createElement(
 	                            _srcIndex.Col,
 	                            { className: 'col-30' },
@@ -28267,6 +28282,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        _srcIndex.Col,
 	                        { className: 'input' },
 	                        '5人已关注'
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'a',
+	                            { href: '###', className: 'navigate-right' },
+	                            _react2['default'].createElement(
+	                                'label',
+	                                null,
+	                                '性别'
+	                            ),
+	                            _react2['default'].createElement('input', { type: 'text', placeholder: '男/女', disabled: true })
+	                        )
 	                    )
 	                ),
 	                _react2['default'].createElement(
@@ -28337,7 +28370,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            ),
 	            _react2['default'].createElement(
 	                _srcIndex.FormGroup,
-	                null,
+	                { style: { marginBottom: '60px' } },
 	                _react2['default'].createElement(
 	                    _srcIndex.Row,
 	                    null,
@@ -28364,10 +28397,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        null,
 	                        _react2['default'].createElement(
 	                            _srcIndex.Row,
-	                            { style: { paddingLeft: '4%' } },
+	                            null,
 	                            _react2['default'].createElement(
 	                                _srcIndex.Col,
-	                                { className: 'col-10', style: { marginTop: '2.5%' } },
+	                                { className: 'col-10', style: { margin: '2.5% 0 0 5%' } },
 	                                _react2['default'].createElement(
 	                                    _srcIndex.Label,
 	                                    null,
@@ -28408,7 +28441,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            ),
 	            _react2['default'].createElement(
 	                _srcIndex.Row,
-	                { style: { padding: '10px', border: '2px solid #ddd', position: 'fixed', bottom: '0' } },
+	                { style: { padding: '10px', borderTop: '1px solid #ddd', position: 'fixed', bottom: '0', background: '#fff', width: '100%' } },
 	                _react2['default'].createElement(
 	                    _srcIndex.Col,
 	                    { style: { textAlign: 'center' } },
