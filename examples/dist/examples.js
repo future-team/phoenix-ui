@@ -90,37 +90,45 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _tabJs2 = _interopRequireDefault(_tabJs);
 
-	var _buttonJs = __webpack_require__(230);
+	var _buttonJs = __webpack_require__(231);
 
 	var _buttonJs2 = _interopRequireDefault(_buttonJs);
 
-	var _inputJs = __webpack_require__(231);
+	var _inputJs = __webpack_require__(232);
 
 	var _inputJs2 = _interopRequireDefault(_inputJs);
 
-	var _switchJs = __webpack_require__(232);
+	var _switchJs = __webpack_require__(233);
 
 	var _switchJs2 = _interopRequireDefault(_switchJs);
 
-	var _gridJs = __webpack_require__(233);
+	var _gridJs = __webpack_require__(234);
 
 	var _gridJs2 = _interopRequireDefault(_gridJs);
 
-	var _tableViewJs = __webpack_require__(234);
+	var _tableViewJs = __webpack_require__(235);
 
 	var _tableViewJs2 = _interopRequireDefault(_tableViewJs);
 
-	var _formGroupJs = __webpack_require__(235);
+	var _formGroupJs = __webpack_require__(236);
 
 	var _formGroupJs2 = _interopRequireDefault(_formGroupJs);
 
-	var _labelJs = __webpack_require__(236);
+	var _labelJs = __webpack_require__(237);
 
 	var _labelJs2 = _interopRequireDefault(_labelJs);
 
-	var _badgeJs = __webpack_require__(237);
+	var _badgeJs = __webpack_require__(238);
 
 	var _badgeJs2 = _interopRequireDefault(_badgeJs);
+
+	var _starJs = __webpack_require__(239);
+
+	var _starJs2 = _interopRequireDefault(_starJs);
+
+	var _detailDemoJs = __webpack_require__(240);
+
+	var _detailDemoJs2 = _interopRequireDefault(_detailDemoJs);
 
 	var Index = (function (_Component) {
 	    _inherits(index, _Component);
@@ -178,11 +186,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    ),
 	                    _react2['default'].createElement(
 	                        'a',
-	                        { href: '#/swipe' },
-	                        'swipe[滑动组件]'
-	                    ),
-	                    _react2['default'].createElement(
-	                        'a',
 	                        { href: '#/tab' },
 	                        'tab(选项卡)'
 	                    ),
@@ -195,6 +198,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        'a',
 	                        { href: '#/badge' },
 	                        'badge(徽章)'
+	                    ),
+	                    _react2['default'].createElement(
+	                        'a',
+	                        { href: '#/star' },
+	                        'star(星星)'
+	                    ),
+	                    _react2['default'].createElement(
+	                        'a',
+	                        { href: '#/detail' },
+	                        '详情页示例'
 	                    )
 	                )
 	            )
@@ -229,6 +242,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/tab', name: 'tab', component: _tabJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/label', name: 'label', component: _labelJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/badge', name: 'badge', component: _badgeJs2['default'] }),
+	            _react2['default'].createElement(_reactRouter.Route, { path: '/star', name: 'star', component: _starJs2['default'] }),
+	            _react2['default'].createElement(_reactRouter.Route, { path: '/detail', name: 'detail', component: _detailDemoJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Redirect, { from: '/', to: '/index' })
 	        );
 	    };
@@ -24322,10 +24337,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(159);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
 	var _srcIndex = __webpack_require__(210);
 
 	var Demo1 = (function (_Component) {
@@ -24353,7 +24364,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            _react2['default'].createElement(
 	                _srcIndex.Tabset,
 	                { activeIndex: 1, className: '测试name', clickCallback: function () {
-	                        alert('测试tabset 回调');
+	                        console.log('测试tabset 回调');
 	                    }, style: { color: 'green' } },
 	                _react2['default'].createElement(
 	                    _srcIndex.Tab,
@@ -24530,9 +24541,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.Badge = _Badge3['default'];
 
+	var _Star2 = __webpack_require__(230);
+
+	var _Star3 = _interopRequireDefault(_Star2);
+
+	exports.Star = _Star3['default'];
+
 	window['Phoenix'] = {};
 
-	['Button', 'Input', 'Switch', 'Row', 'TableView', 'FormGroup', 'Col', 'Tabset', 'Tab', 'Label', 'Badge'].forEach(function (name) {
+	['Button', 'Input', 'Switch', 'Row', 'TableView', 'FormGroup', 'Col', 'Tabset', 'Tab', 'Label', 'Badge', 'Star'].forEach(function (name) {
 	    Phoenix[name] = exports[name];
 	});
 
@@ -26795,6 +26812,115 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/**
+	 *
+	 * 星级评价
+	 */
+	/**
+	 * 星级评价(Star)组件<br />
+	 * 提供的UI展示属性接口包括<br/>
+	 * <ul>
+	 *     <li>rate：星级评价的分数(满分为50)<code>默认为0</code></li>
+	 *     <li>size：星星的大小(可选md、lg、默认3种size)<code></code></li>
+	 * </ul><br>
+	 * 使用方式:
+	 * <pre><code>&#60;Star rate={50} size={10}/&#62;</code>
+	 * </pre>
+	 * @class Star
+	 * @module ui
+	 * @extends Component
+	 * @constructor
+	 * @demo star.js {UI展示}
+	 * @demo star.js {源码}
+	 * @show true
+	 * */
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(213);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _utilsClassNameMixinJs = __webpack_require__(214);
+
+	var _utilsClassNameMixinJs2 = _interopRequireDefault(_utilsClassNameMixinJs);
+
+	var Star = (function (_Component) {
+	    _inherits(Star, _Component);
+
+	    _createClass(Star, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 星级评价分数
+	             * @property Rate
+	             * @type number
+	             * @default 默认为0，最高50
+	             * */
+	            Rate: _react.PropTypes.number,
+	            /**
+	             * 星星大小
+	             * @property size
+	             * @type String
+	             * @default
+	             * */
+	            size: _react.PropTypes.string
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            Rate: 0,
+	            size: undefined
+	        },
+	        enumerable: true
+	    }]);
+
+	    function Star() {
+	        _classCallCheck(this, _Star);
+
+	        _Component.call(this);
+	    }
+
+	    Star.prototype.render = function render() {
+	        var _props = this.props;
+	        var Rate = _props.Rate;
+	        var size = _props.size;
+
+	        var rateCls = Rate && 'star-' + Math.round(Rate * 2 / 10) * 5;
+	        var sizeCls = size && 'star-' + size;
+	        return _react2['default'].createElement(
+	            'div',
+	            { className: 'star ' + rateCls + ' ' + sizeCls },
+	            _react2['default'].createElement('div', { className: 'star-grey' })
+	        );
+	    };
+
+	    var _Star = Star;
+	    Star = _utilsClassNameMixinJs2['default'](Star) || Star;
+	    return Star;
+	})(_react.Component);
+
+	exports['default'] = Star;
+	module.exports = exports['default'];
+
+/***/ },
+/* 231 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	exports.__esModule = true;
@@ -26853,7 +26979,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 231 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26927,7 +27053,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 232 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26984,7 +27110,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 233 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27445,7 +27571,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 234 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27541,7 +27667,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 235 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27724,7 +27850,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 236 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27740,10 +27866,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(159);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
 
 	var _srcIndex = __webpack_require__(210);
 
@@ -27789,7 +27911,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27805,10 +27927,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(159);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
 
 	var _srcIndex = __webpack_require__(210);
 
@@ -27851,6 +27969,383 @@ return /******/ (function(modules) { // webpackBootstrap
 	})(_react.Component);
 
 	exports['default'] = Badges;
+	module.exports = exports['default'];
+
+/***/ },
+/* 239 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Created by slashhuang on 16/5/31.
+	 */
+	'use strict';
+
+	exports.__esModule = true;
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(159);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _srcIndex = __webpack_require__(210);
+
+	var StarDemo = (function (_Component) {
+	    _inherits(StarDemo, _Component);
+
+	    function StarDemo() {
+	        _classCallCheck(this, StarDemo);
+
+	        _Component.apply(this, arguments);
+	    }
+
+	    StarDemo.prototype.render = function render() {
+	        return _react2['default'].createElement(
+	            'div',
+	            null,
+	            _react2['default'].createElement(_srcIndex.Star, null),
+	            _react2['default'].createElement('br', null),
+	            _react2['default'].createElement(_srcIndex.Star, { Rate: 5 }),
+	            _react2['default'].createElement('br', null),
+	            _react2['default'].createElement(_srcIndex.Star, { Rate: 10 }),
+	            _react2['default'].createElement('br', null),
+	            _react2['default'].createElement(_srcIndex.Star, { Rate: 15 }),
+	            _react2['default'].createElement('br', null),
+	            _react2['default'].createElement(_srcIndex.Star, { Rate: 20, size: 'md' }),
+	            _react2['default'].createElement('br', null),
+	            _react2['default'].createElement(_srcIndex.Star, { Rate: 25, size: 'md' }),
+	            _react2['default'].createElement('br', null),
+	            _react2['default'].createElement(_srcIndex.Star, { Rate: 30, size: 'md' }),
+	            _react2['default'].createElement('br', null),
+	            _react2['default'].createElement(_srcIndex.Star, { Rate: 35, size: 'lg' }),
+	            _react2['default'].createElement('br', null),
+	            _react2['default'].createElement(_srcIndex.Star, { Rate: 40, size: 'lg' }),
+	            _react2['default'].createElement('br', null),
+	            _react2['default'].createElement(_srcIndex.Star, { Rate: 45, size: 'lg' }),
+	            _react2['default'].createElement('br', null),
+	            _react2['default'].createElement(_srcIndex.Star, { Rate: 50, size: 'lg' })
+	        );
+	    };
+
+	    return StarDemo;
+	})(_react.Component);
+
+	exports['default'] = StarDemo;
+	module.exports = exports['default'];
+
+/***/ },
+/* 240 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(213);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _srcIndex = __webpack_require__(210);
+
+	var Detail = (function (_Component) {
+	    _inherits(Detail, _Component);
+
+	    function Detail(props, context) {
+	        _classCallCheck(this, Detail);
+
+	        _Component.call(this, props, context);
+	        this.state = {};
+	    }
+
+	    Detail.prototype.render = function render() {
+	        return _react2['default'].createElement(
+	            'div',
+	            null,
+	            _react2['default'].createElement(
+	                _srcIndex.Row,
+	                { className: 'top' },
+	                _react2['default'].createElement(
+	                    _srcIndex.Col,
+	                    { className: 'col-40', style: { padding: '10px' } },
+	                    _react2['default'].createElement('img', { src: './img/meinv.jpg', style: { width: '100%', height: 'auto' } })
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Col,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Row,
+	                        { style: { padding: '10px' } },
+	                        '容新馆。2号店'
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Row,
+	                        { style: { padding: '10px' } },
+	                        _react2['default'].createElement(_srcIndex.Star, { Rate: 20 }),
+	                        _react2['default'].createElement(
+	                            _srcIndex.Col,
+	                            { style: { fontSize: '12px', marginLeft: '12px', color: '#999' } },
+	                            '普通客户'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Row,
+	                        { style: { padding: '0 10px' } },
+	                        _react2['default'].createElement(
+	                            _srcIndex.Col,
+	                            { className: 'col-30' },
+	                            'shopid'
+	                        ),
+	                        _react2['default'].createElement(
+	                            _srcIndex.Col,
+	                            null,
+	                            '1452635845'
+	                        )
+	                    )
+	                )
+	            ),
+	            _react2['default'].createElement(
+	                _srcIndex.FormGroup,
+	                null,
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        { className: 'col-60' },
+	                        _react2['default'].createElement(
+	                            'label',
+	                            null,
+	                            '门店浏览量'
+	                        ),
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'input' },
+	                            '395826'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        { className: 'input' },
+	                        _react2['default'].createElement(
+	                            _srcIndex.Button,
+	                            { phStyle: 'primary', style: { marginTop: '5%' } },
+	                            '查看主站页面'
+	                        )
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        'label',
+	                        null,
+	                        '关注热度'
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        { className: 'input' },
+	                        '5人已关注'
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        'a',
+	                        { href: '###', className: 'navigate-right' },
+	                        _react2['default'].createElement(
+	                            'label',
+	                            null,
+	                            '电话'
+	                        ),
+	                        _react2['default'].createElement(_srcIndex.Input, { type: 'text', placeholder: '255136641', disabled: true })
+	                    )
+	                )
+	            ),
+	            _react2['default'].createElement(
+	                _srcIndex.FormGroup,
+	                null,
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    { single: true },
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(_srcIndex.Input, { type: 'text', value: '数据产品', disabled: true })
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'a',
+	                            { href: '###', className: 'navigate-right' },
+	                            _react2['default'].createElement(
+	                                'label',
+	                                null,
+	                                '售后报告'
+	                            )
+	                        )
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'a',
+	                            { href: '###', className: 'navigate-right' },
+	                            _react2['default'].createElement(
+	                                'label',
+	                                null,
+	                                '人气排行榜'
+	                            )
+	                        )
+	                    )
+	                )
+	            ),
+	            _react2['default'].createElement(
+	                _srcIndex.FormGroup,
+	                null,
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'a',
+	                            { href: '###', className: 'navigate-right' },
+	                            _react2['default'].createElement(
+	                                'label',
+	                                null,
+	                                '点评合作'
+	                            ),
+	                            _react2['default'].createElement(_srcIndex.Input, { type: 'text', value: '41份在线团单', disabled: true })
+	                        )
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    { style: { height: '80px' } },
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            _srcIndex.Row,
+	                            { style: { paddingLeft: '4%' } },
+	                            _react2['default'].createElement(
+	                                _srcIndex.Col,
+	                                { className: 'col-10', style: { marginTop: '2.5%' } },
+	                                _react2['default'].createElement(
+	                                    _srcIndex.Label,
+	                                    null,
+	                                    '惠'
+	                                )
+	                            ),
+	                            _react2['default'].createElement(
+	                                _srcIndex.Col,
+	                                { className: 'input' },
+	                                '上海欢乐谷门票'
+	                            )
+	                        ),
+	                        _react2['default'].createElement(
+	                            _srcIndex.Row,
+	                            null,
+	                            _react2['default'].createElement(
+	                                _srcIndex.Col,
+	                                null,
+	                                _react2['default'].createElement(
+	                                    'label',
+	                                    null,
+	                                    '$190'
+	                                ),
+	                                _react2['default'].createElement(
+	                                    'label',
+	                                    null,
+	                                    '$200'
+	                                )
+	                            ),
+	                            _react2['default'].createElement(
+	                                _srcIndex.Col,
+	                                null,
+	                                _react2['default'].createElement(_srcIndex.Input, { type: 'text', placeholder: '已售13234份', disabled: true })
+	                            )
+	                        )
+	                    )
+	                )
+	            ),
+	            _react2['default'].createElement(
+	                _srcIndex.Row,
+	                { style: { padding: '10px', border: '2px solid #ddd', position: 'fixed', bottom: '0' } },
+	                _react2['default'].createElement(
+	                    _srcIndex.Col,
+	                    { style: { textAlign: 'center' } },
+	                    _react2['default'].createElement(
+	                        _srcIndex.Button,
+	                        null,
+	                        '上传POP'
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Col,
+	                    { style: { textAlign: 'center' } },
+	                    _react2['default'].createElement(
+	                        _srcIndex.Button,
+	                        null,
+	                        'POI报错'
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Col,
+	                    { style: { textAlign: 'center' } },
+	                    _react2['default'].createElement(
+	                        _srcIndex.Button,
+	                        null,
+	                        '上报WIFI'
+	                    )
+	                )
+	            )
+	        );
+	    };
+
+	    _createClass(Detail, null, [{
+	        key: 'defaultProps',
+	        value: {
+	            index: 1
+	        },
+	        enumerable: true
+	    }]);
+
+	    return Detail;
+	})(_react.Component);
+
+	exports['default'] = Detail;
 	module.exports = exports['default'];
 
 /***/ }

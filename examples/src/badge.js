@@ -1,5 +1,4 @@
 import React, { Component ,PropTypes} from 'react';
-import ReactDOM,{findDOMNode} from 'react-dom';
 import {Badge} from '../../src/index';
 
 export default class Badges extends Component{

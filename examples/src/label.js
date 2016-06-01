@@ -1,5 +1,4 @@
 import React, { Component ,PropTypes} from 'react';
-import ReactDOM,{findDOMNode} from 'react-dom';
 import {Label} from '../../src/index';
 
 export default class Labels extends Component{

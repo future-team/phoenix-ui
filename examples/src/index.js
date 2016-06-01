@@ -15,8 +15,7 @@ import FormGroup from './form-group.js';
 import Label from './label.js';
 import Badge from './badge.js';
 import StarDemo from './star.js';
-
-
+import Detail from './detailDemo.js';
 let Index = class index extends Component {
     render() {
         return (
@@ -28,13 +27,13 @@ let Index = class index extends Component {
                         <a href="#/input">文本框</a>
                         <a href="#/switch">开关</a>
                         <a href="#/grid">布局</a>
-
                         <a href="#/tableview">tableview</a>
                         <a href="#/formgroup">FormGroup</a>
                         <a href="#/tab">tab(选项卡)</a>
                         <a href="#/label">label(标签)</a>
                         <a href="#/badge">badge(徽章)</a>
                         <a href="#/star">star(星星)</a>
+                        <a href="#/detail">详情页示例</a>
                     </div>
                 </div>
             </div>
@@ -63,6 +62,7 @@ let AppRouter = class AppRouter extends Component {
                 <Route path="/label" name="label" component={Label} />
                 <Route path="/badge" name="badge" component={Badge} />
                 <Route path="/star" name="star" component={StarDemo} />
+                <Route path="/detail" name="detail" component={Detail} />
                 <Redirect from="/" to="/index" />
             </Router>
         );
