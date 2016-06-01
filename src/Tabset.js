@@ -126,7 +126,6 @@ class Tabset extends Component {
     render() {
         let panels = [];
         let {className,clickCallback,...other} = this.props;
-        debugger
         let headings = React.Children.map(this.props.children, (options, index)=> {
             let { vertical,...other} = options.props;
             let opt = React.cloneElement(options, {

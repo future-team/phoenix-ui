@@ -63,16 +63,16 @@ export default class FormGroup extends Component{
 
 
     render(){
-        let {componentTag:Component} = this.props;
-
+        let {componentTag:Component,className,...other} = this.props;
         return (
             <Component className={
                 classnames(
+                    'row-no-padding',
                     'input-group',
                     this.getProperty(),
                     this.props.className
                 )
-            }>
+            } {...other}>
                 {this.renderItem() }
             </Component>
         );

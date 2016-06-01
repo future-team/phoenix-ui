@@ -1,6 +1,6 @@
 import React,{PropTypes,Component} from 'react';
 import classnames from 'classnames';
-import {Star,Label,FormGroup,Input,Switch,Button,Row,Col,Badge} from '../../src/index';
+import {Star,Label,FormGroup,Input,Switch,Button,Row,Col,Badge,Grid} from '../../src/index';
 
 export default class Detail extends Component {
     constructor(props, context) {
@@ -14,19 +14,21 @@ export default class Detail extends Component {
 
     render() {
         return (
-            <div>
+            <Grid fluid>
                 <Row className='top'>
                     <Col className='col-40' style={{padding:'10px'}}>
 
                         <img src="./img/meinv.jpg" style={{width:'100%',height:'auto'}}/>
                     </Col>
                     <Col>
-                        <Row style={{padding:'4%'}}>容新馆。2号店</Row>
-                        <Row style={{padding:'4%'}}>
-                            <Star Rate={20}/>
+                        <Row>
+                            <Col>容新馆。2号店</Col>
+                        </Row>
+                        <Row>
+                            <Col><Star Rate={20}/></Col>
                             <Col style={{fontSize:'12px',marginLeft:'12px',color:'#999'}}>普通客户</Col>
                         </Row>
-                        <Row style={{padding:'0 10px'}}>
+                        <Row>
                             <Col className='col-30'>shopid</Col>
                             <Col>1452635845</Col>
                         </Row>
@@ -49,6 +51,14 @@ export default class Detail extends Component {
                         </label>
                         <Col className="input">
                             5人已关注
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <a href="###" className="navigate-right">
+                                <label>性别</label>
+                                <input type="text" placeholder="男/女" disabled/>
+                            </a>
                         </Col>
                     </Row>
                     <Row>
@@ -81,7 +91,7 @@ export default class Detail extends Component {
                         </Col>
                     </Row>
                 </FormGroup>
-                <FormGroup>
+                <FormGroup style={{marginBottom: '60px'}}>
                     <Row>
                         <Col>
                             <a href="###" className="navigate-right">
@@ -92,7 +102,7 @@ export default class Detail extends Component {
                     </Row>
                     <Row style={{height:'80px'}}>
                         <Col>
-                            <Row style={{paddingLeft: '4%'}}>
+                            <Row>
                                 <Col className='col-10' style={{marginTop: '2.5%'}}>
                                     <Label>惠</Label>
                                 </Col>
@@ -110,12 +120,12 @@ export default class Detail extends Component {
                         </Col>
                     </Row>
                 </FormGroup>
-                <Row style={{padding:'10px',border:'2px solid #ddd',position:'fixed',bottom:'0'}}>
+                <Row style={{padding:'10px',border:'2px solid #ddd',position:'fixed',bottom:'0',background:'#fff',width:'100%'}}>
                     <Col style={{textAlign:'center'}}><Button>上传POP</Button></Col>
                     <Col style={{textAlign:'center'}}><Button>POI报错</Button></Col>
                     <Col style={{textAlign:'center'}}><Button>上报WIFI</Button></Col>
                 </Row>
-            </div>
+            </Grid>
         )
 
     }
