@@ -28265,7 +28265,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        { className: 'input' },
 	                        _react2['default'].createElement(
 	                            _srcIndex.Button,
-	                            { phStyle: 'primary', style: { marginTop: '5%' } },
+	                            { phStyle: 'primary', style: { marginTop: '6px' } },
 	                            '查看主站页面'
 	                        )
 	                    )
@@ -28400,7 +28400,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                            null,
 	                            _react2['default'].createElement(
 	                                _srcIndex.Col,
-	                                { className: 'col-10', style: { margin: '2.5% 0 0 5%' } },
+	                                { className: 'col-10', style: { margin: '8px 0 0 15px' } },
 	                                _react2['default'].createElement(
 	                                    _srcIndex.Label,
 	                                    null,
