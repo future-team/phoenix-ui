@@ -49,15 +49,23 @@
    		</Row>
    ```
 ## 文档
-   一、本地直接查看：     
-       doc/index.html，直接打开简单粗暴         
-   二、文档地址：     
-   待添加
+
+* 本地直接查看：     
+   doc/index.html，直接打开简单粗暴     
+       
+* 文档地址：     
+   http://uedfamily.com/documents/phoenix-ui/doc/
+   
 ## 示例
-   一、查看下面的命令，gulp demo开发者模式可以直接查看或者通过anywhere找到对应examples/index.html      
-   二、懒人必备，示例网址      
-      http：／／     
-   三、文档页的最下方其实我们是有的。。   
+
+* 查看下面的命令:  
+    gulp demo开发者模式直接查看   
+    或通过anywhere找到对应examples/index.html    
+           
+* 懒人必备，示例网址        
+    http://uedfamily.com/documents/phoenix-ui/examples/#/index   
+        
+        
 ## Command
 
 

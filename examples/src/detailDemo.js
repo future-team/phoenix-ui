@@ -42,7 +42,7 @@ export default class Detail extends Component {
                             <div className='input'>395826</div>
                         </Col>
                         <Col className='input'>
-                            <Button phStyle="primary" style={{marginTop:'5%'}}>查看主站页面</Button>
+                            <Button phStyle="primary" style={{marginTop:'6px'}}>查看主站页面</Button>
                         </Col>
                     </Row>
                     <Row>
@@ -103,7 +103,7 @@ export default class Detail extends Component {
                     <Row style={{height:'80px'}}>
                         <Col>
                             <Row>
-                                <Col className='col-10' style={{margin: '2.5% 0 0 5%'}}>
+                                <Col className='col-10' style={{margin: '8px 0 0 15px'}}>
                                     <Label>惠</Label>
                                 </Col>
                                 <Col className='input'>上海欢乐谷门票</Col>
