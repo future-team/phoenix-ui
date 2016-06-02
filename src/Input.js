@@ -5,7 +5,7 @@ import classnames from 'classnames';
 /**
  * 表单元素，input框，使用方式跟原生一致
  * @class Input
- * @module FORM
+ * @module Form
  * @extends Component
  * @constructor
  * @demo input.js {展示}

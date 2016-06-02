@@ -90,8 +90,7 @@
         "src/Grid.js": {
             "name": "src/Grid.js",
             "modules": {
-                "grid(布局)": 1,
-                "Grid(布局)": 1
+                "Grid": 1
             },
             "classes": {
                 "Grid": 1
@@ -101,9 +100,7 @@
         },
         "src/Input.js": {
             "name": "src/Input.js",
-            "modules": {
-                "FORM": 1
-            },
+            "modules": {},
             "classes": {
                 "Input": 1
             },
@@ -123,9 +120,7 @@
         },
         "src/Row.js": {
             "name": "src/Row.js",
-            "modules": {
-                "Grid": 1
-            },
+            "modules": {},
             "classes": {
                 "Row": 1
             },
@@ -205,6 +200,7 @@
             "submodules": {},
             "classes": {
                 "FormGroup": 1,
+                "Input": 1,
                 "Switch": 1,
                 "Button": 1
             },
@@ -220,52 +216,16 @@
             "submodules": {},
             "classes": {
                 "Row": 1,
-                "Col": 1
-            },
-            "fors": {},
-            "namespaces": {},
-            "tag": "module",
-            "file": "src/Row.js",
-            "line": 4,
-            "description": "行"
-        },
-        "grid(布局)": {
-            "name": "grid(布局)",
-            "submodules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {},
-            "tag": "main",
-            "file": "src/Grid.js",
-            "line": 4,
-            "description": "<h5>主要栅格化布局组件</h5>\n<pre><code>\n    &#60;Grid&#62;//定义栅格\n        &#60;Col sm={6}&#62;//定义一列，总长度为12份\n            &#60;Row&#62; &#60;/Row&#62;//定义一行\n        &#60;/Col&#62;\n    &#60;/Grid&#62;\n</code></pre>\n\n<strong><a href='../classes/Grid.html'>Grid定义外框</a></strong><br>\n<strong><a href='../classes/Row.html'>Row定义行排列</a></strong><br>\n<strong><a href='../classes/Col.html'>Col定义竖排列</a></strong><br>\n<h6>点击以上链接进行相关查看</h6>",
-            "itemtype": "main"
-        },
-        "Grid(布局)": {
-            "name": "Grid(布局)",
-            "submodules": {},
-            "classes": {
+                "Col": 1,
                 "Grid": 1
             },
             "fors": {},
             "namespaces": {},
-            "tag": "module",
-            "file": "src/Grid.js",
-            "line": 24,
-            "description": "定义栅格容器,配合Col和Row使用"
-        },
-        "FORM": {
-            "name": "FORM",
-            "submodules": {},
-            "classes": {
-                "Input": 1
-            },
-            "fors": {},
-            "namespaces": {},
-            "tag": "module",
-            "file": "src/Input.js",
-            "line": 5,
-            "description": "表单元素，input框，使用方式跟原生一致"
+            "tag": "main",
+            "file": "src/Row.js",
+            "line": 4,
+            "description": "<h5>主要栅格化布局组件</h5>\n<pre><code>\n    &#60;Grid&#62;//定义栅格\n        &#60;Col sm={6}&#62;//定义一列，总长度为12份\n            &#60;Row&#62; &#60;/Row&#62;//定义一行\n        &#60;/Col&#62;\n    &#60;/Grid&#62;\n</code></pre>\n\n<strong><a href='../classes/Grid.html'>Grid定义外框</a></strong><br>\n<strong><a href='../classes/Row.html'>Row定义行排列</a></strong><br>\n<strong><a href='../classes/Col.html'>Col定义竖排列</a></strong><br>\n<h6>点击以上链接进行相关查看</h6>",
+            "itemtype": "main"
         },
         "UI": {
             "name": "UI",
@@ -400,7 +360,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "Grid(布局)",
+            "module": "Grid",
             "namespace": "",
             "file": "src/Grid.js",
             "line": 24,
@@ -417,7 +377,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "module": "FORM",
+            "module": "Form",
             "namespace": "",
             "file": "src/Input.js",
             "line": 5,
@@ -969,7 +929,7 @@
             "name": "classPrefix",
             "type": "String",
             "class": "Input",
-            "module": "FORM"
+            "module": "Form"
         },
         {
             "file": "src/Input.js",
@@ -979,7 +939,7 @@
             "name": "componentTag",
             "type": "String",
             "class": "Input",
-            "module": "FORM"
+            "module": "Form"
         },
         {
             "file": "src/Label.js",

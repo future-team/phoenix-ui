@@ -25600,7 +25600,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 表单元素，input框，使用方式跟原生一致
 	 * @class Input
-	 * @module FORM
+	 * @module Form
 	 * @extends Component
 	 * @constructor
 	 * @demo input.js {展示}
@@ -26980,8 +26980,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * <strong><a href='../classes/Row.html'>Row定义行排列</a></strong><br>
 	 * <strong><a href='../classes/Col.html'>Col定义竖排列</a></strong><br>
 	 * <h6>点击以上链接进行相关查看</h6>
-	 * @module grid(布局)
-	 * @main grid(布局)
+	 * @module Grid
+	 * @main Grid
 	 * @static
 	 *
 	 */
@@ -26989,7 +26989,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 定义栅格容器,配合Col和Row使用
 	 * @class Grid
-	 * @module Grid(布局)
+	 * @module Grid
 	 * @extends Component
 	 * @constructor
 	 * @show true

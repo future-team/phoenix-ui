@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>FORM - phoenix-ui</title>
+    <title>Grid - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -67,6 +67,14 @@
                     
                        <li>
                             
+                           <a href="../classes/Input.html">Input</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
                            <a href="../classes/Switch.html">Switch</a>
                            <ul>
                                 
@@ -76,24 +84,6 @@
                        <li>
                             
                            <a href="../classes/Button.html">Button</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                    </ul>
-                </dd>
-             
-                <dt>
-                    <span class="glyphicon glyphicon-minus"></span>
-                    <a href="../modules/FORM.html">FORM</a>
-                </dt>
-                <dd>
-                    <ul>
-                   
-                       <li>
-                            
-                           <a href="../classes/Input.html">Input</a>
                            <ul>
                                 
                            </ul>
@@ -125,26 +115,6 @@
                            </ul>
                        </li>
                     
-                    </ul>
-                </dd>
-             
-                <dt>
-                    <span class="glyphicon glyphicon-minus"></span>
-                    <a href="../modules/grid(布局).html">grid(布局)</a>
-                </dt>
-                <dd>
-                    <ul>
-                   
-                    </ul>
-                </dd>
-             
-                <dt>
-                    <span class="glyphicon glyphicon-minus"></span>
-                    <a href="../modules/Grid(布局).html">Grid(布局)</a>
-                </dt>
-                <dd>
-                    <ul>
-                   
                        <li>
                             
                            <a href="../classes/Grid.html">Grid</a>
@@ -266,7 +236,7 @@
             <div id="docs-main">
                 <div class="content">
                     <div class="page-header">
-    <h1>FORM <small>Module</small></h1>
+    <h1>Grid <small>Module</small></h1>
 </div>
 
 <div class="clearfix well well-small sign-left1">
@@ -276,7 +246,7 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/src_Input.js.html#l5"><code>src&#x2F;Input.js:5</code></a>
+            Defined in: <a href="../files/src_Row.js.html#l4"><code>src&#x2F;Row.js:4</code></a>
         </div>
     
 
@@ -286,8 +256,19 @@
 
 
 <div class="moduledesc well well-small sign-left3">
-    <div class="stdoc-code"><p>表单元素，input框，使用方式跟原生一致</p>
-</div>
+    <div class="stdoc-code"><p><h5>主要栅格化布局组件</h5></p>
+<pre class="code prettyprint"><code>
+    &#60;Grid&#62;//定义栅格
+        &#60;Col sm={6}&#62;//定义一列，总长度为12份
+            &#60;Row&#62; &#60;/Row&#62;//定义一行
+        &#60;/Col&#62;
+    &#60;/Grid&#62;
+</code></pre>
+
+<p><strong><a href='../classes/Grid.html'>Grid定义外框</a></strong><br>
+<strong><a href='../classes/Row.html'>Row定义行排列</a></strong><br>
+<strong><a href='../classes/Col.html'>Col定义竖排列</a></strong><br></p>
+<h6>点击以上链接进行相关查看</h6></div>
 </div>
 
 
@@ -300,8 +281,20 @@
             <ul class="module-classes">
             
                 <li class="module-class">
-                    <a href="../classes/Input.html">
-                        Input
+                    <a href="../classes/Col.html">
+                        Col
+                    </a>
+                </li>
+            
+                <li class="module-class">
+                    <a href="../classes/Grid.html">
+                        Grid
+                    </a>
+                </li>
+            
+                <li class="module-class">
+                    <a href="../classes/Row.html">
+                        Row
                     </a>
                 </li>
             
@@ -319,16 +312,6 @@
         </div>
     </div>
 <a id="gotoTop" class='well well-small' href='#'>
-    Top
-</a>
-<script src="../assets/vendor/jquery/jquery-1.8.2.min.js"></script>
-<script src="../assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="../assets/vendor/prettify/prettify-min.js"></script>
-<script src="../assets/js/config.js"></script>
-<script src="../assets/js/doc.js"></script>
-</body>
-</html>
-="gotoTop" class='well well-small' href='#'>
     Top
 </a>
 <script src="../assets/vendor/jquery/jquery-1.8.2.min.js"></script>

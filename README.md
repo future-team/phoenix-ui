@@ -30,14 +30,16 @@
    		import * as Phoenixui from 'phoenix-ui';
    		
    		//react
-   		<Row>
-   		  <Col>
-   		    <Star Rate={20}>
-   		  </Col>
-   		  <Col>
-   		    <Input type='text' value='星星'/>
-   		  </Col>
-   		</Row>
+   		<Grid>
+            <Row>
+              <Col>
+                <Star Rate={20}>
+              </Col>
+              <Col>
+                <Input type='text' value='星星'/>
+              </Col>
+            </Row>
+   		</Grid>
    ```
 ## 文档
    一、本地直接查看：     
