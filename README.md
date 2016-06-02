@@ -20,7 +20,7 @@
     也就是说该项目只谈功能不论样式，并且还会有基于jquery的组件库的出现（耐心等待请。。） 
     
 
-** 当然了上面那么多也就是告诉大家，你要单独引入对应的样式项目phoenix-styles。**   
+当然了上面那么多也就是告诉大家，**你要单独引入对应的样式项目phoenix-styles**。   
 方法有很多了，简单粗暴直接引，或者通过bower等。。        
 抛个传送门：https://github.com/future-team/phoenix-styles.
       
