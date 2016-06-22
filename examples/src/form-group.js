@@ -44,15 +44,15 @@ export default class input extends Component{
                             <Input type="text" placeholder="身份证" />
                         </Col>
                     </Row>
-                    <Row>
-                        <Col>
+                    <Row className='a'>
+                        <Col className='test'>
                             <label for="">兴趣爱好</label>
-                            <Input type="checkbox" label="篮球" />
+                            <Input type="checkbox" label="篮球" className='a1'/>
                             <Input type="checkbox" label="足球" />
                             <Input type="checkbox" label="乒乓球" />
                         </Col>
                     </Row>
-                    <Row>
+                    <Row className='test'>
                         <Col>
                             <a href="###" className="navigate-right">
                                 <label>性别</label>

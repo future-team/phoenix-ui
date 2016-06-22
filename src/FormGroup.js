@@ -52,7 +52,7 @@ export default class FormGroup extends Component{
                         {
                             'input-row':!options.props.single
                         },
-                        this.props.className
+                        options.props.className
                     )
 
                 });
