@@ -26172,14 +26172,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    FormGroup.prototype.renderItem = function renderItem() {
-	        var _this = this;
-
 	        var items = _react2['default'].Children.map(this.props.children, function (options, index) {
 
 	            return _react2['default'].cloneElement(options, {
 	                className: _classnames2['default']({
 	                    'input-row': !options.props.single
-	                }, _this.props.className)
+	                }, options.props.className)
 
 	            });
 	        }, this);
@@ -27868,23 +27866,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	                ),
 	                _react2['default'].createElement(
 	                    _srcIndex.Row,
-	                    null,
+	                    { className: 'a' },
 	                    _react2['default'].createElement(
 	                        _srcIndex.Col,
-	                        null,
+	                        { className: 'test' },
 	                        _react2['default'].createElement(
 	                            'label',
 	                            { 'for': '' },
 	                            '兴趣爱好'
 	                        ),
-	                        _react2['default'].createElement(_srcIndex.Input, { type: 'checkbox', label: '篮球' }),
+	                        _react2['default'].createElement(_srcIndex.Input, { type: 'checkbox', label: '篮球', className: 'a1' }),
 	                        _react2['default'].createElement(_srcIndex.Input, { type: 'checkbox', label: '足球' }),
 	                        _react2['default'].createElement(_srcIndex.Input, { type: 'checkbox', label: '乒乓球' })
 	                    )
 	                ),
 	                _react2['default'].createElement(
 	                    _srcIndex.Row,
-	                    null,
+	                    { className: 'test' },
 	                    _react2['default'].createElement(
 	                        _srcIndex.Col,
 	                        null,

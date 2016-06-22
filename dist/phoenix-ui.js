@@ -1760,14 +1760,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    FormGroup.prototype.renderItem = function renderItem() {
-	        var _this = this;
-
 	        var items = _react2['default'].Children.map(this.props.children, function (options, index) {
 
 	            return _react2['default'].cloneElement(options, {
 	                className: _classnames2['default']({
 	                    'input-row': !options.props.single
-	                }, _this.props.className)
+	                }, options.props.className)
 
 	            });
 	        }, this);
