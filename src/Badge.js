@@ -68,7 +68,8 @@ export default class Badge extends Component{
         return(
             <span className={classnames(
                'badge',
-               this.getProperty()
+               this.getProperty(),
+               this.props.className
            )} style={this.getStyles(this.props.style)}>
                {this.props.children}
            </span>

@@ -97,7 +97,8 @@ export default class Label extends Component{
         return(
            <span className={classnames(
                'label',
-               this.getProperty()
+               this.getProperty(),
+               this.props.className
            )} style={this.getStyles(this.props.style)}>
                {this.props.children}
            </span>
