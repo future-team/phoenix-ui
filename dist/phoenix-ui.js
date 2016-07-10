@@ -73,73 +73,79 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.Button = _Button3['default'];
 
-	var _Input2 = __webpack_require__(12);
+	var _ButtonGroup2 = __webpack_require__(12);
+
+	var _ButtonGroup3 = _interopRequireDefault(_ButtonGroup2);
+
+	exports.ButtonGroup = _ButtonGroup3['default'];
+
+	var _Input2 = __webpack_require__(13);
 
 	var _Input3 = _interopRequireDefault(_Input2);
 
 	exports.Input = _Input3['default'];
 
-	var _Switch2 = __webpack_require__(13);
+	var _Switch2 = __webpack_require__(14);
 
 	var _Switch3 = _interopRequireDefault(_Switch2);
 
 	exports.Switch = _Switch3['default'];
 
-	var _Row2 = __webpack_require__(14);
+	var _Row2 = __webpack_require__(15);
 
 	var _Row3 = _interopRequireDefault(_Row2);
 
 	exports.Row = _Row3['default'];
 
-	var _Col2 = __webpack_require__(15);
+	var _Col2 = __webpack_require__(16);
 
 	var _Col3 = _interopRequireDefault(_Col2);
 
 	exports.Col = _Col3['default'];
 
-	var _TableView2 = __webpack_require__(16);
+	var _TableView2 = __webpack_require__(17);
 
 	var _TableView3 = _interopRequireDefault(_TableView2);
 
 	exports.TableView = _TableView3['default'];
 
-	var _FormGroup2 = __webpack_require__(17);
+	var _FormGroup2 = __webpack_require__(18);
 
 	var _FormGroup3 = _interopRequireDefault(_FormGroup2);
 
 	exports.FormGroup = _FormGroup3['default'];
 
-	var _Tab2 = __webpack_require__(18);
+	var _Tab2 = __webpack_require__(19);
 
 	var _Tab3 = _interopRequireDefault(_Tab2);
 
 	exports.Tab = _Tab3['default'];
 
-	var _Tabset2 = __webpack_require__(19);
+	var _Tabset2 = __webpack_require__(20);
 
 	var _Tabset3 = _interopRequireDefault(_Tabset2);
 
 	exports.Tabset = _Tabset3['default'];
 
-	var _Label2 = __webpack_require__(20);
+	var _Label2 = __webpack_require__(21);
 
 	var _Label3 = _interopRequireDefault(_Label2);
 
 	exports.Label = _Label3['default'];
 
-	var _Badge2 = __webpack_require__(21);
+	var _Badge2 = __webpack_require__(22);
 
 	var _Badge3 = _interopRequireDefault(_Badge2);
 
 	exports.Badge = _Badge3['default'];
 
-	var _Star2 = __webpack_require__(22);
+	var _Star2 = __webpack_require__(23);
 
 	var _Star3 = _interopRequireDefault(_Star2);
 
 	exports.Star = _Star3['default'];
 
-	var _Grid2 = __webpack_require__(23);
+	var _Grid2 = __webpack_require__(24);
 
 	var _Grid3 = _interopRequireDefault(_Grid2);
 
@@ -147,7 +153,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	window['Phoenix'] = {};
 
-	['Button', 'Input', 'Switch', 'Row', 'TableView', 'FormGroup', 'Col', 'Tabset', 'Tab', 'Label', 'Badge', 'Star', 'Grid'].forEach(function (name) {
+	['Button', 'Input', 'Switch', 'Row', 'TableView', 'FormGroup', 'Col', 'Tabset', 'Tab', 'Label', 'Badge', 'Star', 'Grid', 'ButtonGroup'].forEach(function (name) {
 	    Phoenix[name] = exports[name];
 	});
 
@@ -898,6 +904,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    var properties = {
 	        /*以下属性都是数组里固定值*/
+	        //类型
+	        phType: function phType(val) {
+	            return getVal(['tacked', 'justify'], val);
+	        },
 	        phSize: function phSize(val) {
 	            return getVal(['lg', 'sm', 'default', 'xs', 'md'], val);
 	        },
@@ -1159,6 +1169,136 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/**
+	 * Created by mac on 15/9/8.
+	 */
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utilsComponent = __webpack_require__(4);
+
+	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
+
+	var _classnames = __webpack_require__(5);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	/**
+	 * 按钮组组件配合Button组件,提供了横、竖两种排列方式<br/>
+	 *  主要属性和接口：
+	 * <ul>
+	 *     <li>phType:是否自适应宽度或者垂直排列，可选'justify,tacked'默认'justify'
+	 *     </li>
+	 * </ul>
+	 * @class ButtonGroup
+	 * @module Form
+	 * @extends Component
+	 * @constructor
+	 * @since 0.1.4
+	 * @demo button.js {展示}
+	 * @demo button.js {源码}
+	 * @show true
+	 * */
+
+	var ButtonGroup = (function (_Component) {
+	    _inherits(ButtonGroup, _Component);
+
+	    _createClass(ButtonGroup, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 是否有自适应宽度，垂直排列等属性，取值为justify(水平排列)或者tacked(垂直排列)
+	             * @property phType
+	             * @type String
+	             * @default 'justify'
+	             * */
+	            phType: _react.PropTypes.string,
+	            /**
+	             * 某个按钮被按下后的回调
+	             * @property activeCallback
+	             * @type Function
+	             * */
+	            activeCallback: _react.PropTypes.func
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            classPrefix: 'btn-group',
+	            phType: 'justify',
+	            componentTag: 'div',
+	            classMapping: {
+	                'justify': 'btn-group-justify',
+	                'tacked': 'btn-group-tacked'
+	            }
+	        },
+	        enumerable: true
+	    }]);
+
+	    function ButtonGroup(props, context) {
+	        _classCallCheck(this, ButtonGroup);
+
+	        _Component.call(this, props, context);
+
+	        this.state = {
+	            active: this.props.active
+	        };
+	    }
+
+	    ButtonGroup.prototype.clickHandler = function clickHandler(e) {
+	        var target = e.target;
+	        this.props.activeCallback && this.props.activeCallback(target, target.innerHTML);
+	        this.setState({
+	            active: target.innerHTML
+	        });
+	    };
+
+	    ButtonGroup.prototype.render = function render() {
+	        var _this = this;
+
+	        var Component = this.props.componentTag;
+
+	        var options = _react2['default'].Children.map(this.props.children, function (option) {
+
+	            var opt = _react2['default'].cloneElement(option, {
+	                onClick: _this.clickHandler.bind(_this),
+	                active: _this.state.active == option.props.children
+	            });
+	            return opt;
+	        }, this);
+
+	        return _react2['default'].createElement(
+	            Component,
+	            _extends({}, this.props, { className: _classnames2['default']('btn-group', this.getProperty(), 'clearfix') }),
+	            options
+	        );
+	    };
+
+	    return ButtonGroup;
+	})(_utilsComponent2['default']);
+
+	exports['default'] = ButtonGroup;
+	module.exports = exports['default'];
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	exports.__esModule = true;
@@ -1278,7 +1418,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1372,7 +1512,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1456,7 +1596,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 15 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1555,7 +1695,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 16 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1672,7 +1812,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 17 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1703,11 +1843,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _Row = __webpack_require__(14);
+	var _Row = __webpack_require__(15);
 
 	var _Row2 = _interopRequireDefault(_Row);
 
-	var _Col = __webpack_require__(15);
+	var _Col = __webpack_require__(16);
 
 	var _Col2 = _interopRequireDefault(_Col);
 
@@ -1794,7 +1934,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 18 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1930,7 +2070,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 19 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1961,7 +2101,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _TabJs = __webpack_require__(18);
+	var _TabJs = __webpack_require__(19);
 
 	var _TabJs2 = _interopRequireDefault(_TabJs);
 
@@ -2151,7 +2291,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 20 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2287,7 +2427,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Label.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            'span',
-	            { className: _classnames2['default']('label', this.getProperty()), style: this.getStyles(this.props.style) },
+	            { className: _classnames2['default']('label', this.getProperty(), this.props.className), style: this.getStyles(this.props.style) },
 	            this.props.children
 	        );
 	    };
@@ -2299,7 +2439,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 21 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2406,7 +2546,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Badge.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            'span',
-	            { className: _classnames2['default']('badge', this.getProperty()), style: this.getStyles(this.props.style) },
+	            { className: _classnames2['default']('badge', this.getProperty(), this.props.className), style: this.getStyles(this.props.style) },
 	            this.props.children
 	        );
 	    };
@@ -2418,7 +2558,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 22 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2527,7 +2667,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 23 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
