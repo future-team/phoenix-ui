@@ -89,6 +89,14 @@
                            </ul>
                        </li>
                     
+                       <li>
+                            
+                           <a href="../classes/ButtonGroup.html">ButtonGroup</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
                     </ul>
                 </dd>
              
@@ -340,7 +348,8 @@ export default class Label extends Component{
         return(
            &lt;span className={classnames(
                &#x27;label&#x27;,
-               this.getProperty()
+               this.getProperty(),
+               this.props.className
            )} style={this.getStyles(this.props.style)}&gt;
                {this.props.children}
            &lt;/span&gt;

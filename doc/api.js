@@ -3,6 +3,7 @@ YUI.add("yuidoc-meta", function(Y) {
     "classes": [
         "Badge",
         "Button",
+        "ButtonGroup",
         "Col",
         "FormGroup",
         "Grid",
@@ -39,6 +40,9 @@ YUI.add("yuidoc-meta", function(Y) {
                 },
                 {
                     "name": "Button"
+                },
+                {
+                    "name": "ButtonGroup"
                 }
             ]
         },

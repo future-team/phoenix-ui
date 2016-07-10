@@ -89,6 +89,14 @@
                            </ul>
                        </li>
                     
+                       <li>
+                            
+                           <a href="../classes/ButtonGroup.html">ButtonGroup</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
                     </ul>
                 </dd>
              
@@ -432,14 +440,25 @@
                 <div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component ,PropTypes} from &#39;react&#39;;
 import ReactDOM,{findDOMNode} from &#39;react-dom&#39;;
 import {Button} from &#39;../../src/index&#39;;
-
+import {ButtonGroup} from &#39;../../src/index&#39;;
 export default class input extends Component{
     render(){
         return(
             &lt;div&gt;
-                &lt;Button hollow&gt;我是一个按钮&lt;/Button&gt;
-                &lt;Button phSize="lg" phStyle="primary"&gt;大号按钮&lt;/Button&gt;
-                &lt;Button phSize="md" hollow&gt;中号按钮&lt;/Button&gt;
+                &lt;div&gt;
+                    &lt;ButtonGroup activeCallback={function(target,html){console.log(target,html);}} phType="justify" &gt;
+                        &lt;Button radius phSize="md" phStyle="success"&gt;水平按钮组1&lt;/Button&gt;
+                        &lt;Button radius phSize="md" phStyle="success"&gt;水平按钮组2&lt;/Button&gt;
+                        &lt;Button radius phSize="md" phStyle="success"&gt;水平按钮组3&lt;/Button&gt;
+                    &lt;/ButtonGroup&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;ButtonGroup style={{width:&#39;100%&#39;}} phType="tacked"&gt;
+                        &lt;Button block radius phSize="lg" phStyle="primary"&gt;垂直按钮组1&lt;/Button&gt;
+                        &lt;Button block radius phSize="lg" phStyle="primary"&gt;垂直按钮组2&lt;/Button&gt;
+                        &lt;Button block radius phSize="lg" phStyle="primary"&gt;垂直按钮组3&lt;/Button&gt;
+                    &lt;/ButtonGroup&gt;
+                &lt;/div&gt;
             &lt;/div&gt;
         );
     }
@@ -447,14 +466,25 @@ export default class input extends Component{
 </div><div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component ,PropTypes} from &#39;react&#39;;
 import ReactDOM,{findDOMNode} from &#39;react-dom&#39;;
 import {Button} from &#39;../../src/index&#39;;
-
+import {ButtonGroup} from &#39;../../src/index&#39;;
 export default class input extends Component{
     render(){
         return(
             &lt;div&gt;
-                &lt;Button hollow&gt;我是一个按钮&lt;/Button&gt;
-                &lt;Button phSize="lg" phStyle="primary"&gt;大号按钮&lt;/Button&gt;
-                &lt;Button phSize="md" hollow&gt;中号按钮&lt;/Button&gt;
+                &lt;div&gt;
+                    &lt;ButtonGroup activeCallback={function(target,html){console.log(target,html);}} phType="justify" &gt;
+                        &lt;Button radius phSize="md" phStyle="success"&gt;水平按钮组1&lt;/Button&gt;
+                        &lt;Button radius phSize="md" phStyle="success"&gt;水平按钮组2&lt;/Button&gt;
+                        &lt;Button radius phSize="md" phStyle="success"&gt;水平按钮组3&lt;/Button&gt;
+                    &lt;/ButtonGroup&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;ButtonGroup style={{width:&#39;100%&#39;}} phType="tacked"&gt;
+                        &lt;Button block radius phSize="lg" phStyle="primary"&gt;垂直按钮组1&lt;/Button&gt;
+                        &lt;Button block radius phSize="lg" phStyle="primary"&gt;垂直按钮组2&lt;/Button&gt;
+                        &lt;Button block radius phSize="lg" phStyle="primary"&gt;垂直按钮组3&lt;/Button&gt;
+                    &lt;/ButtonGroup&gt;
+                &lt;/div&gt;
             &lt;/div&gt;
         );
     }

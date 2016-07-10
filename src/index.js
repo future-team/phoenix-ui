@@ -1,4 +1,6 @@
 export Button from './Button';
+export ButtonGroup from './ButtonGroup';
+
 export Input from './Input';
 export Switch from './Switch';
 export Row from './Row';
@@ -26,7 +28,8 @@ window['Phoenix'] = {};
     'Label',
     'Badge',
     'Star',
-    'Grid'
+    'Grid',
+    'ButtonGroup'
 ].forEach(function(name){
     Phoenix[name] = exports[name];
 });

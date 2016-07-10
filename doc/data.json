@@ -69,6 +69,15 @@
             "fors": {},
             "namespaces": {}
         },
+        "src/ButtonGroup.js": {
+            "name": "src/ButtonGroup.js",
+            "modules": {},
+            "classes": {
+                "ButtonGroup": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src/Col.js": {
             "name": "src/Col.js",
             "modules": {},
@@ -202,7 +211,8 @@
                 "FormGroup": 1,
                 "Input": 1,
                 "Switch": 1,
-                "Button": 1
+                "Button": 1,
+                "ButtonGroup": 1
             },
             "fors": {},
             "namespaces": {},
@@ -301,8 +311,34 @@
             "extends": "Component",
             "is_constructor": 1,
             "example": [
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Button} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Button hollow>我是一个按钮</Button>\n\t                <Button phSize=\"lg\" phStyle=\"primary\">大号按钮</Button>\n\t                <Button phSize=\"md\" hollow>中号按钮</Button>\n\t            </div>\n\t        );\n\t    }\n\t}",
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Button} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Button hollow>我是一个按钮</Button>\n\t                <Button phSize=\"lg\" phStyle=\"primary\">大号按钮</Button>\n\t                <Button phSize=\"md\" hollow>中号按钮</Button>\n\t            </div>\n\t        );\n\t    }\n\t}"
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Button} from '../../src/index';\n\timport {ButtonGroup} from '../../src/index';\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <div>\n\t                    <ButtonGroup activeCallback={function(target,html){console.log(target,html);}} phType=\"justify\" >\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组1</Button>\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组2</Button>\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组3</Button>\n\t                    </ButtonGroup>\n\t                </div>\n\t                <div>\n\t                    <ButtonGroup style={{width:'100%'}} phType=\"tacked\">\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组1</Button>\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组2</Button>\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组3</Button>\n\t                    </ButtonGroup>\n\t                </div>\n\t            </div>\n\t        );\n\t    }\n\t}\n\t",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Button} from '../../src/index';\n\timport {ButtonGroup} from '../../src/index';\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <div>\n\t                    <ButtonGroup activeCallback={function(target,html){console.log(target,html);}} phType=\"justify\" >\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组1</Button>\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组2</Button>\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组3</Button>\n\t                    </ButtonGroup>\n\t                </div>\n\t                <div>\n\t                    <ButtonGroup style={{width:'100%'}} phType=\"tacked\">\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组1</Button>\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组2</Button>\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组3</Button>\n\t                    </ButtonGroup>\n\t                </div>\n\t            </div>\n\t        );\n\t    }\n\t}\n\t"
+            ],
+            "exampleTitles": [
+                "展示",
+                "源码"
+            ],
+            "show": true
+        },
+        "ButtonGroup": {
+            "name": "ButtonGroup",
+            "shortname": "ButtonGroup",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Form",
+            "namespace": "",
+            "file": "src/ButtonGroup.js",
+            "line": 8,
+            "description": "按钮组组件配合Button组件,提供了横、竖两种排列方式<br/>\n 主要属性和接口：\n<ul>\n    <li>phType:是否自适应宽度或者垂直排列，可选'justify,tacked'默认'justify'\n    </li>\n</ul>",
+            "extends": "Component",
+            "is_constructor": 1,
+            "since": "0.1.4",
+            "example": [
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Button} from '../../src/index';\n\timport {ButtonGroup} from '../../src/index';\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <div>\n\t                    <ButtonGroup activeCallback={function(target,html){console.log(target,html);}} phType=\"justify\" >\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组1</Button>\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组2</Button>\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组3</Button>\n\t                    </ButtonGroup>\n\t                </div>\n\t                <div>\n\t                    <ButtonGroup style={{width:'100%'}} phType=\"tacked\">\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组1</Button>\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组2</Button>\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组3</Button>\n\t                    </ButtonGroup>\n\t                </div>\n\t            </div>\n\t        );\n\t    }\n\t}\n\t",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Button} from '../../src/index';\n\timport {ButtonGroup} from '../../src/index';\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <div>\n\t                    <ButtonGroup activeCallback={function(target,html){console.log(target,html);}} phType=\"justify\" >\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组1</Button>\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组2</Button>\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组3</Button>\n\t                    </ButtonGroup>\n\t                </div>\n\t                <div>\n\t                    <ButtonGroup style={{width:'100%'}} phType=\"tacked\">\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组1</Button>\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组2</Button>\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组3</Button>\n\t                    </ButtonGroup>\n\t                </div>\n\t            </div>\n\t        );\n\t    }\n\t}\n\t"
             ],
             "exampleTitles": [
                 "展示",
@@ -343,8 +379,8 @@
             "extends": "Component",
             "is_constructor": 1,
             "example": [
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {FormGroup,Row,Col,Input} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:''\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div style={{padding:'20px'}}>\n\t                <FormGroup>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"姓名\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"用户名\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"身份证\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row>\n\t                        <Col>\n\t                            <label for=\"\">地址</label>\n\t                            <Input type=\"text\" placeholder=\"身份证\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row>\n\t                        <Col>\n\t                            <label for=\"\">兴趣爱好</label>\n\t                            <Input type=\"checkbox\" label=\"篮球\" />\n\t                            <Input type=\"checkbox\" label=\"足球\" />\n\t                            <Input type=\"checkbox\" label=\"乒乓球\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row>\n\t                        <Col>\n\t                            <a href=\"###\" className=\"navigate-right\">\n\t                                <label>性别</label>\n\t                                <input type=\"text\" placeholder=\"男/女\" disabled/>\n\t                            </a>\n\t                        </Col>\n\t                    </Row>\n\t                    <Row>\n\t                        <Col>\n\t                            <label>姓</label>\n\t                            <Input type=\"text\" placeholder=\"姓\" />\n\t                        </Col>\n\t                        <Col>\n\t                            <label>名</label>\n\t                            <Input type=\"text\" placeholder=\"名\" />\n\t                        </Col>\n\t                    </Row>\n\t\n\t                    <Row>\n\t                        <Col>\n\t                            <label><span className=\"color-error\">*</span>喜欢的运动</label>\n\t                            <div className=\"input\" style={{textAlign: 'right'}}>\n\t                                <Input type=\"checkbox\" label=\"篮球\" />\n\t                                <Input type=\"checkbox\" label=\"足球\" />\n\t                            </div>\n\t                        </Col>\n\t                    </Row>\n\t                </FormGroup>\n\t            </div>\n\t        );\n\t    }\n\t}",
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {FormGroup,Row,Col,Input} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:''\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div style={{padding:'20px'}}>\n\t                <FormGroup>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"姓名\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"用户名\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"身份证\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row>\n\t                        <Col>\n\t                            <label for=\"\">地址</label>\n\t                            <Input type=\"text\" placeholder=\"身份证\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row>\n\t                        <Col>\n\t                            <label for=\"\">兴趣爱好</label>\n\t                            <Input type=\"checkbox\" label=\"篮球\" />\n\t                            <Input type=\"checkbox\" label=\"足球\" />\n\t                            <Input type=\"checkbox\" label=\"乒乓球\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row>\n\t                        <Col>\n\t                            <a href=\"###\" className=\"navigate-right\">\n\t                                <label>性别</label>\n\t                                <input type=\"text\" placeholder=\"男/女\" disabled/>\n\t                            </a>\n\t                        </Col>\n\t                    </Row>\n\t                    <Row>\n\t                        <Col>\n\t                            <label>姓</label>\n\t                            <Input type=\"text\" placeholder=\"姓\" />\n\t                        </Col>\n\t                        <Col>\n\t                            <label>名</label>\n\t                            <Input type=\"text\" placeholder=\"名\" />\n\t                        </Col>\n\t                    </Row>\n\t\n\t                    <Row>\n\t                        <Col>\n\t                            <label><span className=\"color-error\">*</span>喜欢的运动</label>\n\t                            <div className=\"input\" style={{textAlign: 'right'}}>\n\t                                <Input type=\"checkbox\" label=\"篮球\" />\n\t                                <Input type=\"checkbox\" label=\"足球\" />\n\t                            </div>\n\t                        </Col>\n\t                    </Row>\n\t                </FormGroup>\n\t            </div>\n\t        );\n\t    }\n\t}"
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {FormGroup,Row,Col,Input} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:''\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div style={{padding:'20px'}}>\n\t                <FormGroup>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"姓名\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"用户名\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"身份证\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row>\n\t                        <Col>\n\t                            <label for=\"\">地址</label>\n\t                            <Input type=\"text\" placeholder=\"身份证\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row className='a'>\n\t                        <Col className='test'>\n\t                            <label for=\"\">兴趣爱好</label>\n\t                            <Input type=\"checkbox\" label=\"篮球\" className='a1'/>\n\t                            <Input type=\"checkbox\" label=\"足球\" />\n\t                            <Input type=\"checkbox\" label=\"乒乓球\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row className='test'>\n\t                        <Col>\n\t                            <a href=\"###\" className=\"navigate-right\">\n\t                                <label>性别</label>\n\t                                <input type=\"text\" placeholder=\"男/女\" disabled/>\n\t                            </a>\n\t                        </Col>\n\t                    </Row>\n\t                    <Row>\n\t                        <Col>\n\t                            <label>姓</label>\n\t                            <Input type=\"text\" placeholder=\"姓\" />\n\t                        </Col>\n\t                        <Col>\n\t                            <label>名</label>\n\t                            <Input type=\"text\" placeholder=\"名\" />\n\t                        </Col>\n\t                    </Row>\n\t\n\t                    <Row>\n\t                        <Col>\n\t                            <label><span className=\"color-error\">*</span>喜欢的运动</label>\n\t                            <div className=\"input\" style={{textAlign: 'right'}}>\n\t                                <Input type=\"checkbox\" label=\"篮球\" />\n\t                                <Input type=\"checkbox\" label=\"足球\" />\n\t                            </div>\n\t                        </Col>\n\t                    </Row>\n\t                </FormGroup>\n\t            </div>\n\t        );\n\t    }\n\t}",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {FormGroup,Row,Col,Input} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:''\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div style={{padding:'20px'}}>\n\t                <FormGroup>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"姓名\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"用户名\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"身份证\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row>\n\t                        <Col>\n\t                            <label for=\"\">地址</label>\n\t                            <Input type=\"text\" placeholder=\"身份证\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row className='a'>\n\t                        <Col className='test'>\n\t                            <label for=\"\">兴趣爱好</label>\n\t                            <Input type=\"checkbox\" label=\"篮球\" className='a1'/>\n\t                            <Input type=\"checkbox\" label=\"足球\" />\n\t                            <Input type=\"checkbox\" label=\"乒乓球\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row className='test'>\n\t                        <Col>\n\t                            <a href=\"###\" className=\"navigate-right\">\n\t                                <label>性别</label>\n\t                                <input type=\"text\" placeholder=\"男/女\" disabled/>\n\t                            </a>\n\t                        </Col>\n\t                    </Row>\n\t                    <Row>\n\t                        <Col>\n\t                            <label>姓</label>\n\t                            <Input type=\"text\" placeholder=\"姓\" />\n\t                        </Col>\n\t                        <Col>\n\t                            <label>名</label>\n\t                            <Input type=\"text\" placeholder=\"名\" />\n\t                        </Col>\n\t                    </Row>\n\t\n\t                    <Row>\n\t                        <Col>\n\t                            <label><span className=\"color-error\">*</span>喜欢的运动</label>\n\t                            <div className=\"input\" style={{textAlign: 'right'}}>\n\t                                <Input type=\"checkbox\" label=\"篮球\" />\n\t                                <Input type=\"checkbox\" label=\"足球\" />\n\t                            </div>\n\t                        </Col>\n\t                    </Row>\n\t                </FormGroup>\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
                 "展示",
@@ -872,6 +908,34 @@
             "module": "Form"
         },
         {
+            "file": "src/ButtonGroup.js",
+            "line": 1,
+            "description": "Created by mac on 15/9/8.",
+            "class": "ButtonGroup",
+            "module": "Form"
+        },
+        {
+            "file": "src/ButtonGroup.js",
+            "line": 27,
+            "description": "是否有自适应宽度，垂直排列等属性，取值为justify(水平排列)或者tacked(垂直排列)",
+            "itemtype": "property",
+            "name": "phType",
+            "type": "String",
+            "default": "'justify'",
+            "class": "ButtonGroup",
+            "module": "Form"
+        },
+        {
+            "file": "src/ButtonGroup.js",
+            "line": 34,
+            "description": "某个按钮被按下后的回调",
+            "itemtype": "property",
+            "name": "activeCallback",
+            "type": "Function",
+            "class": "ButtonGroup",
+            "module": "Form"
+        },
+        {
             "file": "src/Col.js",
             "line": 15,
             "description": "占100份的多少份，目前支持5-100之间5的倍数、33（1\\3）和66(2\\3)",
@@ -1152,6 +1216,18 @@
         },
         {
             "message": "unknown tag: demo",
+            "line": " src/ButtonGroup.js:8"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/ButtonGroup.js:8"
+        },
+        {
+            "message": "unknown tag: show",
+            "line": " src/ButtonGroup.js:8"
+        },
+        {
+            "message": "unknown tag: demo",
             "line": " src/FormGroup.js:7"
         },
         {
@@ -1285,6 +1361,10 @@
         {
             "message": "Missing item type\nA recursive merge between two objects.",
             "line": " src/utils/extend.js:5"
+        },
+        {
+            "message": "Missing item type\nCreated by mac on 15/9/8.",
+            "line": " src/ButtonGroup.js:1"
         },
         {
             "message": "Missing item type\n星级评价",

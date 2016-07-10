@@ -15,6 +15,10 @@ export default obj=>{
 
     let properties={
         /*以下属性都是数组里固定值*/
+        //类型
+        phType:function(val){
+            return getVal(['tacked','justify'],val);
+        },
         phSize:function(val){
             return getVal(['lg','sm','default','xs','md'],val);
         },

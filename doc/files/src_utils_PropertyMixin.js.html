@@ -89,6 +89,14 @@
                            </ul>
                        </li>
                     
+                       <li>
+                            
+                           <a href="../classes/ButtonGroup.html">ButtonGroup</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
                     </ul>
                 </dd>
              
@@ -258,6 +266,10 @@ export default obj=&gt;{
 
     let properties={
         /*以下属性都是数组里固定值*/
+        //类型
+        phType:function(val){
+            return getVal([&#x27;tacked&#x27;,&#x27;justify&#x27;],val);
+        },
         phSize:function(val){
             return getVal([&#x27;lg&#x27;,&#x27;sm&#x27;,&#x27;default&#x27;,&#x27;xs&#x27;,&#x27;md&#x27;],val);
         },
