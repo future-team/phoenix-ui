@@ -1,3 +1,5 @@
+import catBrowser from './utils/CatBrowser.js';
+
 export Button from './Button';
 export ButtonGroup from './ButtonGroup';
 
@@ -13,6 +15,11 @@ export Label from './Label';
 export Badge from './Badge';
 export Star from './Star';
 export Grid from './Grid';
+//接入cat－browser
+catBrowser({
+    moduleName:'phoenix-ui',
+    isOnlyDp:false
+});
 window['Phoenix'] = {};
 
 [
