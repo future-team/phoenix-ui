@@ -4,22 +4,28 @@ let Demo1 = class demo1 extends Component{
     constructor(props,context){
         super(props,context);
         this.state={
-            tab2:'初始tab2内容'
+            tab2:'初始tab2内容',
+            index:0
         }
     }
-    test(){
-        this.setState({
-            tab2:'测试panel内容改变'
-        })
+    test(index){
+        console.log(index);
     };
+    test1(index){
+        index == 1 && this.setState({
+            tab2:'测试panel内容改变',
+            index:2
+        })
+        console.log('测试tabset 回调'+index)
+    }
     render(){
         return(
             <div>
-                <Tabset activeIndex ={1} className = '测试name' clickCallback={()=>{console.log('测试tabset 回调')}} style={{color:'green'}}>
-                    <Tab heading='tab1' className='测试' clickCallback={()=>{alert('测试clickCallback属性')}}>
+                <Tabset activeIndex ={this.state.index} className = '测试name' tabCallback={::this.test1} style={{color:'green'}}>
+                    <Tab heading='tab1' className='测试' clickCallback={(index)=>{alert(index)}}>
                         hahadhdad1
                     </Tab>
-                    <Tab heading='tab2' clickCallback={::this.test}>
+                    <Tab heading={this.state.index} clickCallback={::this.test}>
                         {this.state.tab2}
                     </Tab>
                     <Tab heading='tab3'>

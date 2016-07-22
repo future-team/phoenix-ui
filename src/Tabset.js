@@ -75,27 +75,35 @@ class Tabset extends Component {
          * */
         width: PropTypes.number,
         /**
-         * 点击事件的回调函数
-         * @property clickCallback
+         * 点击事件的回调函数,返回当前选中项
+         * @property tabCallback
          * @default null
          * */
-        clickCallback: PropTypes.func
+        tabCallback: PropTypes.func
     }
     static defaultProps = {
         activeIndex: 0,
         vertical: false,
         width: 20,
-        clickCallback: null,
-        activeCallback: null
+        tabCallback: null
     };
 
     constructor(props, context) {
         super(props, context);
         this.state = {
             activeIndex: this.props.activeIndex
-        }
+        };
+        /**
+         * 首次进入获取active
+         * */
+        this.props.tabCallback && this.props.tabCallback(this.props.activeIndex);
     }
-
+    /**
+     * props再次改变，再次判断active
+     * */
+    componentWillReceiveProps(nextProps){
+        this.state.activeIndex != nextProps.activeIndex && this.changeActive(nextProps.activeIndex);
+    }
     isVertial() {
         return !!this.props.vertical ? 'vertical row' : '';
     }
@@ -110,6 +118,7 @@ class Tabset extends Component {
                 activeIndex: index
             })
         }
+        this.tabHandler(index);
     }
 
     getClass(flag) {
@@ -122,10 +131,17 @@ class Tabset extends Component {
         }
 
     }
+    /**
+     * tab handler
+     * */
+    tabHandler(index){
+        let {tabCallback} =this.props;
+        tabCallback && tabCallback(index);
+    }
 
     render() {
         let panels = [];
-        let {className,clickCallback,...other} = this.props;
+        let {className,...other} = this.props;
         let headings = React.Children.map(this.props.children, (options, index)=> {
             let { vertical,...other} = options.props;
             let opt = React.cloneElement(options, {
@@ -151,7 +167,7 @@ class Tabset extends Component {
                'ui-tabs',
                this.isVertial(),
                className
-            )} onClick={clickCallback} {...other}>
+            )}  {...other}>
                 <ul className={this.getClass(true)}>
                     {headings}
                 </ul>

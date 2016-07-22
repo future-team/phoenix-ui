@@ -57,7 +57,7 @@ export default class Tab extends Component {
     };
     handleClick(){
         this.props.changeActive(this.props.index);
-        this.props.clickCallback && this.props.clickCallback();
+        this.props.clickCallback && this.props.clickCallback(this.props.index);
     }
     isActive(){
         return this.props.index == this.props.activeIndex ? 'active':'';

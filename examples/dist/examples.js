@@ -24357,14 +24357,21 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        _Component.call(this, props, context);
 	        this.state = {
-	            tab2: '初始tab2内容'
+	            tab2: '初始tab2内容',
+	            index: 0
 	        };
 	    }
 
-	    demo1.prototype.test = function test() {
-	        this.setState({
-	            tab2: '测试panel内容改变'
+	    demo1.prototype.test = function test(index) {
+	        console.log(index);
+	    };
+
+	    demo1.prototype.test1 = function test1(index) {
+	        index == 1 && this.setState({
+	            tab2: '测试panel内容改变',
+	            index: 2
 	        });
+	        console.log('测试tabset 回调' + index);
 	    };
 
 	    demo1.prototype.render = function render() {
@@ -24373,19 +24380,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	            null,
 	            _react2['default'].createElement(
 	                _srcIndex.Tabset,
-	                { activeIndex: 1, className: '测试name', clickCallback: function () {
-	                        console.log('测试tabset 回调');
-	                    }, style: { color: 'green' } },
+	                { activeIndex: this.state.index, className: '测试name', tabCallback: this.test1.bind(this), style: { color: 'green' } },
 	                _react2['default'].createElement(
 	                    _srcIndex.Tab,
-	                    { heading: 'tab1', className: '测试', clickCallback: function () {
-	                            alert('测试clickCallback属性');
+	                    { heading: 'tab1', className: '测试', clickCallback: function (index) {
+	                            alert(index);
 	                        } },
 	                    'hahadhdad1'
 	                ),
 	                _react2['default'].createElement(
 	                    _srcIndex.Tab,
-	                    { heading: 'tab2', clickCallback: this.test.bind(this) },
+	                    { heading: this.state.index, clickCallback: this.test.bind(this) },
 	                    this.state.tab2
 	                ),
 	                _react2['default'].createElement(
@@ -26965,7 +26970,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    Tab.prototype.handleClick = function handleClick() {
 	        this.props.changeActive(this.props.index);
-	        this.props.clickCallback && this.props.clickCallback();
+	        this.props.clickCallback && this.props.clickCallback(this.props.index);
 	    };
 
 	    Tab.prototype.isActive = function isActive() {
@@ -27120,11 +27125,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * */
 	            width: _react.PropTypes.number,
 	            /**
-	             * 点击事件的回调函数
-	             * @property clickCallback
+	             * 点击事件的回调函数,返回当前选中项
+	             * @property tabCallback
 	             * @default null
 	             * */
-	            clickCallback: _react.PropTypes.func
+	            tabCallback: _react.PropTypes.func
 	        },
 	        enumerable: true
 	    }, {
@@ -27133,8 +27138,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            activeIndex: 0,
 	            vertical: false,
 	            width: 20,
-	            clickCallback: null,
-	            activeCallback: null
+	            tabCallback: null
 	        },
 	        enumerable: true
 	    }]);
@@ -27146,7 +27150,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.state = {
 	            activeIndex: this.props.activeIndex
 	        };
+	        /**
+	         * 首次进入获取active
+	         * */
+	        this.props.tabCallback && this.props.tabCallback(this.props.activeIndex);
 	    }
+
+	    /**
+	     * props再次改变，再次判断active
+	     * */
+
+	    Tabset.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+	        this.state.activeIndex != nextProps.activeIndex && this.changeActive(nextProps.activeIndex);
+	    };
 
 	    Tabset.prototype.isVertial = function isVertial() {
 	        return !!this.props.vertical ? 'vertical row' : '';
@@ -27162,6 +27178,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                activeIndex: index
 	            });
 	        }
+	        this.tabHandler(index);
 	    };
 
 	    Tabset.prototype.getClass = function getClass(flag) {
@@ -27174,15 +27191,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    };
 
+	    /**
+	     * tab handler
+	     * */
+
+	    Tabset.prototype.tabHandler = function tabHandler(index) {
+	        var tabCallback = this.props.tabCallback;
+
+	        tabCallback && tabCallback(index);
+	    };
+
 	    Tabset.prototype.render = function render() {
 	        var _this = this;
 
 	        var panels = [];
 	        var _props = this.props;
 	        var className = _props.className;
-	        var clickCallback = _props.clickCallback;
 
-	        var other = _objectWithoutProperties(_props, ['className', 'clickCallback']);
+	        var other = _objectWithoutProperties(_props, ['className']);
 
 	        var headings = _react2['default'].Children.map(this.props.children, function (options, index) {
 	            var _options$props = options.props;
@@ -27208,7 +27234,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }, this);
 	        return _react2['default'].createElement(
 	            'div',
-	            _extends({ className: _classnames2['default']('ui-tabs', this.isVertial(), className), onClick: clickCallback }, other),
+	            _extends({ className: _classnames2['default']('ui-tabs', this.isVertial(), className) }, other),
 	            _react2['default'].createElement(
 	                'ul',
 	                { className: this.getClass(true) },
