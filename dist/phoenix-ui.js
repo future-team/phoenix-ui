@@ -89,67 +89,73 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.Input = _Input3['default'];
 
-	var _Switch2 = __webpack_require__(21);
+	var _Textarea2 = __webpack_require__(21);
+
+	var _Textarea3 = _interopRequireDefault(_Textarea2);
+
+	exports.Textarea = _Textarea3['default'];
+
+	var _Switch2 = __webpack_require__(22);
 
 	var _Switch3 = _interopRequireDefault(_Switch2);
 
 	exports.Switch = _Switch3['default'];
 
-	var _Row2 = __webpack_require__(22);
+	var _Row2 = __webpack_require__(23);
 
 	var _Row3 = _interopRequireDefault(_Row2);
 
 	exports.Row = _Row3['default'];
 
-	var _Col2 = __webpack_require__(23);
+	var _Col2 = __webpack_require__(24);
 
 	var _Col3 = _interopRequireDefault(_Col2);
 
 	exports.Col = _Col3['default'];
 
-	var _TableView2 = __webpack_require__(24);
+	var _TableView2 = __webpack_require__(25);
 
 	var _TableView3 = _interopRequireDefault(_TableView2);
 
 	exports.TableView = _TableView3['default'];
 
-	var _FormGroup2 = __webpack_require__(25);
+	var _FormGroup2 = __webpack_require__(26);
 
 	var _FormGroup3 = _interopRequireDefault(_FormGroup2);
 
 	exports.FormGroup = _FormGroup3['default'];
 
-	var _Tab2 = __webpack_require__(26);
+	var _Tab2 = __webpack_require__(27);
 
 	var _Tab3 = _interopRequireDefault(_Tab2);
 
 	exports.Tab = _Tab3['default'];
 
-	var _Tabset2 = __webpack_require__(27);
+	var _Tabset2 = __webpack_require__(28);
 
 	var _Tabset3 = _interopRequireDefault(_Tabset2);
 
 	exports.Tabset = _Tabset3['default'];
 
-	var _Label2 = __webpack_require__(28);
+	var _Label2 = __webpack_require__(29);
 
 	var _Label3 = _interopRequireDefault(_Label2);
 
 	exports.Label = _Label3['default'];
 
-	var _Badge2 = __webpack_require__(29);
+	var _Badge2 = __webpack_require__(30);
 
 	var _Badge3 = _interopRequireDefault(_Badge2);
 
 	exports.Badge = _Badge3['default'];
 
-	var _Star2 = __webpack_require__(30);
+	var _Star2 = __webpack_require__(31);
 
 	var _Star3 = _interopRequireDefault(_Star2);
 
 	exports.Star = _Star3['default'];
 
-	var _Grid2 = __webpack_require__(31);
+	var _Grid2 = __webpack_require__(32);
 
 	var _Grid3 = _interopRequireDefault(_Grid2);
 
@@ -162,7 +168,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	window['Phoenix'] = {};
 
-	['Button', 'Input', 'Switch', 'Row', 'TableView', 'FormGroup', 'Col', 'Tabset', 'Tab', 'Label', 'Badge', 'Star', 'Grid', 'ButtonGroup'].forEach(function (name) {
+	['Button', 'Input', 'Textarea', 'Switch', 'Row', 'TableView', 'FormGroup', 'Col', 'Tabset', 'Tab', 'Label', 'Badge', 'Star', 'Grid', 'ButtonGroup'].forEach(function (name) {
 	    Phoenix[name] = exports[name];
 	});
 
@@ -344,11 +350,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    /**
-	     * 获取当前环境hostname
+	     * 获取当前环境页面的url
 	     * */
 
 	    Browser.prototype.getHost = function getHost() {
-	        var url = location.hostname || '';
+	        var url = location.href || '';
 	        return url;
 	    };
 
@@ -423,18 +429,23 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * JavaScript Cookie v2.1.2
+	 * JavaScript Cookie v2.1.3
 	 * https://github.com/js-cookie/js-cookie
 	 *
 	 * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
 	 * Released under the MIT license
 	 */
 	;(function (factory) {
+		var registeredInModuleLoader = false;
 		if (true) {
 			!(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-		} else if (typeof exports === 'object') {
+			registeredInModuleLoader = true;
+		}
+		if (true) {
 			module.exports = factory();
-		} else {
+			registeredInModuleLoader = true;
+		}
+		if (!registeredInModuleLoader) {
 			var OldCookies = window.Cookies;
 			var api = window.Cookies = factory();
 			api.noConflict = function () {
@@ -495,9 +506,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 					return (document.cookie = [
 						key, '=', value,
-						attributes.expires && '; expires=' + attributes.expires.toUTCString(), // use expires attribute, max-age is not supported by IE
-						attributes.path    && '; path=' + attributes.path,
-						attributes.domain  && '; domain=' + attributes.domain,
+						attributes.expires ? '; expires=' + attributes.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
+						attributes.path ? '; path=' + attributes.path : '',
+						attributes.domain ? '; domain=' + attributes.domain : '',
 						attributes.secure ? '; secure' : ''
 					].join(''));
 				}
@@ -551,7 +562,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 			api.set = api;
 			api.get = function (key) {
-				return api(key);
+				return api.call(api, key);
 			};
 			api.getJSON = function () {
 				return api.apply({
@@ -1976,6 +1987,94 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _classnames2 = _interopRequireDefault(_classnames);
 
 	/**
+	 * 表单元素textarea
+	 * @class TextArea
+	 * @module Form
+	 * @extends Component
+	 * @constructor
+	 * @demo textarea.js {展示}
+	 * @demo TextArea.js {源码}
+	 * @show true
+	 * */
+
+	var TextArea = (function (_Component) {
+	    _inherits(TextArea, _Component);
+
+	    _createClass(TextArea, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * */
+	            classPrefix: _react.PropTypes.string,
+	            /**
+	             * 标签tagName
+	             * @property componentTag
+	             * @type String
+	             * */
+	            componentTag: _react.PropTypes.string
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            egSize: '',
+	            classPrefix: '',
+	            componentTag: 'div',
+	            classMapping: {}
+	        },
+	        enumerable: true
+	    }]);
+
+	    function TextArea(props, context) {
+	        _classCallCheck(this, TextArea);
+
+	        _Component.call(this, props, context);
+	    }
+
+	    TextArea.prototype.render = function render() {
+	        return _react2['default'].createElement('textarea', _extends({}, this.props, { className: ('form-textarea', this.getProperty(), this.props.className) }));
+	    };
+
+	    return TextArea;
+	})(_utilsComponent2['default']);
+
+	exports['default'] = TextArea;
+	module.exports = exports['default'];
+
+/***/ },
+/* 22 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(10);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utilsComponent = __webpack_require__(11);
+
+	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
+
+	var _classnames = __webpack_require__(12);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	/**
 	 * 开关切换，仿真ios的开关控件
 	 * @class Switch
 	 * @module Form
@@ -2040,7 +2139,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 22 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2124,7 +2223,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 23 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2223,7 +2322,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 24 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2340,7 +2439,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 25 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2371,11 +2470,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _Row = __webpack_require__(22);
+	var _Row = __webpack_require__(23);
 
 	var _Row2 = _interopRequireDefault(_Row);
 
-	var _Col = __webpack_require__(23);
+	var _Col = __webpack_require__(24);
 
 	var _Col2 = _interopRequireDefault(_Col);
 
@@ -2462,7 +2561,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 26 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2598,7 +2697,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 27 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2629,7 +2728,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _TabJs = __webpack_require__(26);
+	var _TabJs = __webpack_require__(27);
 
 	var _TabJs2 = _interopRequireDefault(_TabJs);
 
@@ -2840,7 +2939,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 28 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2988,7 +3087,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 29 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3107,7 +3206,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 30 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3216,7 +3315,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 31 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

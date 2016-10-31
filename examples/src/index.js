@@ -8,6 +8,7 @@ import History from 'history/lib/createHashHistory';
 import Tab from './tab.js';
 import Button from './button.js';
 import Input from './input.js';
+import Textarea from './textarea.js';
 import Switch from './switch.js';
 import Grid from './grid.js';
 import TableView from './table-view.js';
@@ -27,6 +28,7 @@ let Index = class index extends Component {
                         <a href="#/input">测试用例</a>
                         <a href="#/button">按钮</a>
                         <a href="#/input">文本框</a>
+                        <a href="#/textarea">多行文本框TextArea</a>
                         <a href="#/switch">开关</a>
                         <a href="#/grid">布局</a>
                         <a href="#/tableview">tableview</a>
@@ -59,6 +61,7 @@ let AppRouter = class AppRouter extends Component {
                 <Route path="/formgroup" name="FormGroup" component={FormGroup} />
                 <Route path="/button" name="input" component={Button} />
                 <Route path="/input" name="input" component={Input} />
+                <Route path="/textarea" name="textarea" component={Textarea} />
                 <Route path="/switch" name="input" component={Switch} />
                 <Route path="/grid" name="input" component={Grid} />
                 <Route path="/tab" name="tab" component={Tab} />

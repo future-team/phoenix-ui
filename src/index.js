@@ -4,6 +4,7 @@ export Button from './Button';
 export ButtonGroup from './ButtonGroup';
 
 export Input from './Input';
+export Textarea from './Textarea';
 export Switch from './Switch';
 export Row from './Row';
 export Col from './Col';
@@ -25,6 +26,7 @@ window['Phoenix'] = {};
 [
     'Button',
     'Input',
+    'Textarea',
     'Switch',
     'Row',
     'TableView',
