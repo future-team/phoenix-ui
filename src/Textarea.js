@@ -22,33 +22,57 @@ export default class TextArea extends Component{
          * */
         classPrefix:PropTypes.string,
         /**
-         * 标签tagName
-         * @property componentTag
-         * @type String
+         * 是否显示输入计数
+         * @property isCount
+         * @type Boolean
          * */
-        componentTag:PropTypes.string
+        isCount: PropTypes.bool,
+        maxLength: PropTypes.number
     };
 
     static defaultProps = {
+        isCount: false,
+        wordsNum: 0,
+        maxWords: 100,
         egSize:'',
         classPrefix:'',
-        componentTag:'div',
-        classMapping : {
-
-        }
+        classMapping : {}
     };
 
     constructor(props, context) {
         super(props, context);
+
+        this.state = {
+            inputLength: props.value.length
+        }
+    }
+
+    onChange(event){
+        this.setState({
+            inputLength: event.target.value.length
+        });
+        if(this.props.onChange){
+            this.props.onChange(event);
+        }
     }
 
     render(){
+        let {isCount, maxLength} = this.props;
+
         return (
-            <textarea {...this.props} className={
-                'form-textarea',
-                this.getProperty(),
-                this.props.className
-            }></textarea>
+            <div className='textarea-field'>
+                <textarea {...this.props} className={classnames(
+                    'form-textarea',
+                    this.getProperty(),
+                    this.props.className
+                )} onChange={(event)=>{this.onChange(event)}}></textarea>
+                <span className={classnames(
+                    'textarea-count',
+                    isCount? '':'hide'
+                )}>
+                    <b className='input-length'>{this.state.inputLength}</b>/<b>{maxLength}</b>
+                </span>
+            </div>
         );
     }
 

@@ -2010,19 +2010,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * */
 	            classPrefix: _react.PropTypes.string,
 	            /**
-	             * 标签tagName
-	             * @property componentTag
-	             * @type String
+	             * 是否显示输入计数
+	             * @property isCount
+	             * @type Boolean
 	             * */
-	            componentTag: _react.PropTypes.string
+	            isCount: _react.PropTypes.bool,
+	            maxWords: _react.PropTypes.number
 	        },
 	        enumerable: true
 	    }, {
 	        key: 'defaultProps',
 	        value: {
+	            isCount: false,
+	            wordsNum: 0,
+	            maxWords: 100,
 	            egSize: '',
 	            classPrefix: '',
-	            componentTag: 'div',
 	            classMapping: {}
 	        },
 	        enumerable: true
@@ -2032,10 +2035,51 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _classCallCheck(this, TextArea);
 
 	        _Component.call(this, props, context);
+
+	        this.state = {
+	            value: props.value,
+	            wordsNum: 0
+	        };
 	    }
 
+	    TextArea.prototype.onChange = function onChange(event) {
+	        console.log(event.nativeEvent.text);
+	        var text = event.nativeEvent.text;
+
+	        if (this.props.onChange) {
+	            this.props.onChange({ text: text });
+	        }
+	    };
+
 	    TextArea.prototype.render = function render() {
-	        return _react2['default'].createElement('textarea', _extends({}, this.props, { className: ('form-textarea', this.getProperty(), this.props.className) }));
+	        var _this = this;
+
+	        var _props = this.props;
+	        var isCount = _props.isCount;
+	        var maxWords = _props.maxWords;
+
+	        return _react2['default'].createElement(
+	            'div',
+	            { className: 'textarea-field' },
+	            _react2['default'].createElement('textarea', _extends({}, this.props, { className: ('form-textarea', this.getProperty(), this.props.className), onChange: function (event) {
+	                    _this.onChange(event);
+	                } })),
+	            _react2['default'].createElement(
+	                'span',
+	                { className: ('textarea-count', isCount ? '' : 'hide') },
+	                _react2['default'].createElement(
+	                    'b',
+	                    null,
+	                    this.state.wordsNum
+	                ),
+	                '/',
+	                _react2['default'].createElement(
+	                    'b',
+	                    null,
+	                    maxWords
+	                )
+	            )
+	        );
 	    };
 
 	    return TextArea;
