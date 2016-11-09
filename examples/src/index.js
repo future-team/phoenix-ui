@@ -16,6 +16,9 @@ import FormGroup from './form-group.js';
 import Label from './label.js';
 import Badge from './badge.js';
 import StarDemo from './star.js';
+import Swipe from './swipe.js';
+import Modal from './modal.js';
+import Toast from './toast.js';
 import Detail from './detailDemo.js';
 import ListDemo from './list-demo.js';
 
@@ -28,7 +31,7 @@ let Index = class index extends Component {
                         <a href="#/input">测试用例</a>
                         <a href="#/button">按钮</a>
                         <a href="#/input">文本框</a>
-                        <a href="#/textarea">多行文本框TextArea</a>
+                        <a href="#/textarea">多行文本框Textarea</a>
                         <a href="#/switch">开关</a>
                         <a href="#/grid">布局</a>
                         <a href="#/tableview">tableview</a>
@@ -37,6 +40,9 @@ let Index = class index extends Component {
                         <a href="#/label">label(标签)</a>
                         <a href="#/badge">badge(徽章)</a>
                         <a href="#/star">star(星星)</a>
+                        <a href="#/swipe">左滑动 Swipe</a>
+                        <a href="#/modal">弹框 Modal</a>
+                        <a href="#/toast">飘字 Toast</a>
                         <a href="#/detail">详情页示例</a>
                         <a href="#/list-demo">列表页例子</a>
                     </div>
@@ -68,6 +74,9 @@ let AppRouter = class AppRouter extends Component {
                 <Route path="/label" name="label" component={Label} />
                 <Route path="/badge" name="badge" component={Badge} />
                 <Route path="/star" name="star" component={StarDemo} />
+                <Route path="/swipe" name="swipe" component={Swipe} />
+                <Route path="/modal" name="modal" component={Modal} />
+                <Route path="/toast" name="toast" component={Toast} />
                 <Route path="/detail" name="detail" component={Detail} />
                 <Route path="/list-demo" name="list-demo" component={ListDemo} />
                 <Redirect from="/" to="/index" />

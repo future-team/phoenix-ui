@@ -12,7 +12,7 @@ import classnames from 'classnames';
  * @demo TextArea.js {源码}
  * @show true
  * */
-export default class TextArea extends Component{
+export default class Textarea extends Component{
 
     static propTypes = {
         /**
@@ -27,13 +27,16 @@ export default class TextArea extends Component{
          * @type Boolean
          * */
         isCount: PropTypes.bool,
+        /**
+         * 可输入的总长度
+         * @property maxLength
+         * @type Number
+         * */
         maxLength: PropTypes.number
     };
 
     static defaultProps = {
         isCount: false,
-        wordsNum: 0,
-        maxWords: 100,
         egSize:'',
         classPrefix:'',
         classMapping : {}
@@ -68,7 +71,7 @@ export default class TextArea extends Component{
                 )} onChange={(event)=>{this.onChange(event)}}></textarea>
                 <span className={classnames(
                     'textarea-count',
-                    isCount? '':'hide'
+                    isCount? 'show':'hide'
                 )}>
                     <b className='input-length'>{this.state.inputLength}</b>/<b>{maxLength}</b>
                 </span>

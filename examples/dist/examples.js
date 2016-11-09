@@ -90,51 +90,59 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _tabJs2 = _interopRequireDefault(_tabJs);
 
-	var _buttonJs = __webpack_require__(239);
+	var _buttonJs = __webpack_require__(242);
 
 	var _buttonJs2 = _interopRequireDefault(_buttonJs);
 
-	var _inputJs = __webpack_require__(240);
+	var _inputJs = __webpack_require__(243);
 
 	var _inputJs2 = _interopRequireDefault(_inputJs);
 
-	var _textareaJs = __webpack_require__(241);
+	var _textareaJs = __webpack_require__(244);
 
 	var _textareaJs2 = _interopRequireDefault(_textareaJs);
 
-	var _switchJs = __webpack_require__(242);
+	var _switchJs = __webpack_require__(245);
 
 	var _switchJs2 = _interopRequireDefault(_switchJs);
 
-	var _gridJs = __webpack_require__(243);
+	var _gridJs = __webpack_require__(246);
 
 	var _gridJs2 = _interopRequireDefault(_gridJs);
 
-	var _tableViewJs = __webpack_require__(244);
+	var _tableViewJs = __webpack_require__(247);
 
 	var _tableViewJs2 = _interopRequireDefault(_tableViewJs);
 
-	var _formGroupJs = __webpack_require__(245);
+	var _formGroupJs = __webpack_require__(248);
 
 	var _formGroupJs2 = _interopRequireDefault(_formGroupJs);
 
-	var _labelJs = __webpack_require__(246);
+	var _labelJs = __webpack_require__(249);
 
 	var _labelJs2 = _interopRequireDefault(_labelJs);
 
-	var _badgeJs = __webpack_require__(247);
+	var _badgeJs = __webpack_require__(250);
 
 	var _badgeJs2 = _interopRequireDefault(_badgeJs);
 
-	var _starJs = __webpack_require__(248);
+	var _starJs = __webpack_require__(251);
 
 	var _starJs2 = _interopRequireDefault(_starJs);
 
-	var _detailDemoJs = __webpack_require__(249);
+	var _swipeJs = __webpack_require__(252);
+
+	var _swipeJs2 = _interopRequireDefault(_swipeJs);
+
+	var _modalJs = __webpack_require__(253);
+
+	var _modalJs2 = _interopRequireDefault(_modalJs);
+
+	var _detailDemoJs = __webpack_require__(254);
 
 	var _detailDemoJs2 = _interopRequireDefault(_detailDemoJs);
 
-	var _listDemoJs = __webpack_require__(250);
+	var _listDemoJs = __webpack_require__(255);
 
 	var _listDemoJs2 = _interopRequireDefault(_listDemoJs);
 
@@ -175,7 +183,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    _react2['default'].createElement(
 	                        'a',
 	                        { href: '#/textarea' },
-	                        '多行文本框TextArea'
+	                        '多行文本框Textarea'
 	                    ),
 	                    _react2['default'].createElement(
 	                        'a',
@@ -216,6 +224,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        'a',
 	                        { href: '#/star' },
 	                        'star(星星)'
+	                    ),
+	                    _react2['default'].createElement(
+	                        'a',
+	                        { href: '#/swipe' },
+	                        '左滑动 Swipe'
+	                    ),
+	                    _react2['default'].createElement(
+	                        'a',
+	                        { href: '#/modal' },
+	                        '弹框 Modal'
 	                    ),
 	                    _react2['default'].createElement(
 	                        'a',
@@ -262,6 +280,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/label', name: 'label', component: _labelJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/badge', name: 'badge', component: _badgeJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/star', name: 'star', component: _starJs2['default'] }),
+	            _react2['default'].createElement(_reactRouter.Route, { path: '/swipe', name: 'swipe', component: _swipeJs2['default'] }),
+	            _react2['default'].createElement(_reactRouter.Route, { path: '/modal', name: 'modal', component: _modalJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/detail', name: 'detail', component: _detailDemoJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/list-demo', name: 'list-demo', component: _listDemoJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Redirect, { from: '/', to: '/index' })
@@ -24549,11 +24569,23 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.Star = _Star3['default'];
 
-	var _Grid2 = __webpack_require__(238);
+	var _Swipe2 = __webpack_require__(238);
+
+	var _Swipe3 = _interopRequireDefault(_Swipe2);
+
+	exports.Swipe = _Swipe3['default'];
+
+	var _Grid2 = __webpack_require__(240);
 
 	var _Grid3 = _interopRequireDefault(_Grid2);
 
 	exports.Grid = _Grid3['default'];
+
+	var _Modal2 = __webpack_require__(241);
+
+	var _Modal3 = _interopRequireDefault(_Modal2);
+
+	exports.Modal = _Modal3['default'];
 
 	//接入cat－browser
 	_utilsCatBrowserJs2['default']({
@@ -24562,7 +24594,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	window['Phoenix'] = {};
 
-	['Button', 'Input', 'Textarea', 'Switch', 'Row', 'TableView', 'FormGroup', 'Col', 'Tabset', 'Tab', 'Label', 'Badge', 'Star', 'Grid', 'ButtonGroup'].forEach(function (name) {
+	['Button', 'Input', 'Textarea', 'Switch', 'Row', 'TableView', 'FormGroup', 'Col', 'Tabset', 'Tab', 'Label', 'Badge', 'Star', 'Swipe', 'Grid', 'ButtonGroup', 'Modal'].forEach(function (name) {
 	    Phoenix[name] = exports[name];
 	});
 
@@ -25208,6 +25240,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                'error': 'btn-error',
 	                'warning': 'btn-warning',
 	                'danger': 'btn-danger',
+	                'gray': 'btn-gray',
 	                'link': 'btn-link'
 	            }
 	        },
@@ -26385,10 +26418,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @show true
 	 * */
 
-	var TextArea = (function (_Component) {
-	    _inherits(TextArea, _Component);
+	var Textarea = (function (_Component) {
+	    _inherits(Textarea, _Component);
 
-	    _createClass(TextArea, null, [{
+	    _createClass(Textarea, null, [{
 	        key: 'propTypes',
 	        value: {
 	            /**
@@ -26403,15 +26436,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * @type Boolean
 	             * */
 	            isCount: _react.PropTypes.bool,
-	            maxWords: _react.PropTypes.number
+	            /**
+	             * 可输入的总长度
+	             * @property maxLength
+	             * @type Number
+	             * */
+	            maxLength: _react.PropTypes.number
 	        },
 	        enumerable: true
 	    }, {
 	        key: 'defaultProps',
 	        value: {
 	            isCount: false,
-	            wordsNum: 0,
-	            maxWords: 100,
 	            egSize: '',
 	            classPrefix: '',
 	            classMapping: {}
@@ -26419,61 +26455,60 @@ return /******/ (function(modules) { // webpackBootstrap
 	        enumerable: true
 	    }]);
 
-	    function TextArea(props, context) {
-	        _classCallCheck(this, TextArea);
+	    function Textarea(props, context) {
+	        _classCallCheck(this, Textarea);
 
 	        _Component.call(this, props, context);
 
 	        this.state = {
-	            value: props.value,
-	            wordsNum: 0
+	            inputLength: props.value.length
 	        };
 	    }
 
-	    TextArea.prototype.onChange = function onChange(event) {
-	        console.log(event.nativeEvent.text);
-	        var text = event.nativeEvent.text;
-
+	    Textarea.prototype.onChange = function onChange(event) {
+	        this.setState({
+	            inputLength: event.target.value.length
+	        });
 	        if (this.props.onChange) {
-	            this.props.onChange({ text: text });
+	            this.props.onChange(event);
 	        }
 	    };
 
-	    TextArea.prototype.render = function render() {
+	    Textarea.prototype.render = function render() {
 	        var _this = this;
 
 	        var _props = this.props;
 	        var isCount = _props.isCount;
-	        var maxWords = _props.maxWords;
+	        var maxLength = _props.maxLength;
 
 	        return _react2['default'].createElement(
 	            'div',
 	            { className: 'textarea-field' },
-	            _react2['default'].createElement('textarea', _extends({}, this.props, { className: ('form-textarea', this.getProperty(), this.props.className), onChange: function (event) {
+	            _react2['default'].createElement('textarea', _extends({}, this.props, { className: _classnames2['default']('form-textarea', this.getProperty(), this.props.className), onChange: function (event) {
 	                    _this.onChange(event);
 	                } })),
 	            _react2['default'].createElement(
 	                'span',
-	                { className: ('textarea-count', isCount ? '' : 'hide') },
+	                { className: _classnames2['default']('textarea-count', isCount ? '' : 'hide') },
 	                _react2['default'].createElement(
 	                    'b',
-	                    null,
-	                    this.state.wordsNum
+	                    { className: 'input-length' },
+	                    this.state.inputLength
 	                ),
 	                '/',
 	                _react2['default'].createElement(
 	                    'b',
 	                    null,
-	                    maxWords
+	                    maxLength
 	                )
 	            )
 	        );
 	    };
 
-	    return TextArea;
+	    return Textarea;
 	})(_utilsComponent2['default']);
 
-	exports['default'] = TextArea;
+	exports['default'] = Textarea;
 	module.exports = exports['default'];
 
 /***/ },
@@ -27754,6 +27789,329 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.__esModule = true;
 
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utilsComponent = __webpack_require__(217);
+
+	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
+
+	var _classnames = __webpack_require__(218);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _Drag = __webpack_require__(239);
+
+	var _Drag2 = _interopRequireDefault(_Drag);
+
+	var _Button = __webpack_require__(216);
+
+	var _Button2 = _interopRequireDefault(_Button);
+
+	/**
+	 * 功能组件-左滑swipe
+	 * @class Swipe
+	 * @module Action?
+	 * @extends Component
+	 * @constructor
+	 * @demo swipe.js {展示}
+	 * @demo swipe.js {源码}
+	 * @show true
+	 * */
+
+	var Swipe = (function (_Component) {
+	    _inherits(Swipe, _Component);
+
+	    _createClass(Swipe, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * */
+	            classPrefix: _react.PropTypes.string,
+	            /**
+	             * 标签tagName
+	             * @property componentTag
+	             * @type String
+	             * */
+	            componentTag: _react.PropTypes.string
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            left: [],
+	            right: [],
+	            egSize: '',
+	            classPrefix: '',
+	            componentTag: 'div',
+	            classMapping: {}
+	        },
+	        enumerable: true
+	    }]);
+
+	    function Swipe(props, context) {
+	        _classCallCheck(this, Swipe);
+
+	        _Component.call(this, props, context);
+
+	        this.state = {
+	            translateX: -1,
+	            preTranslateX: -1,
+	            btnsWidth: 0,
+	            isBtnsShow: false,
+	            OPE_RANGE: 10
+
+	        };
+	    }
+
+	    Swipe.prototype.renderOperationButton = function renderOperationButton(buttons) {
+	        var buttonsDom = [];
+
+	        if (buttons.length != 0) buttonsDom.push(this.renderButtonByType(buttons));
+
+	        return buttonsDom;
+	    };
+
+	    Swipe.prototype.renderButtonByType = function renderButtonByType(btnInfo) {
+	        var _this = this;
+
+	        return _react2['default'].createElement(
+	            'div',
+	            { className: 'swipe-btns', key: 'buttons', ref: function (buttons) {
+	                    _this.buttons = buttons;
+	                } },
+	            btnInfo.map(function (item, index) {
+	                return _react2['default'].createElement(
+	                    _Button2['default'],
+	                    { key: index, phStyle: item.phStyle },
+	                    item.text
+	                );
+	            })
+	        );
+	    };
+
+	    Swipe.prototype.componentDidMount = function componentDidMount() {
+	        // 获取btns的宽度
+	        this.state.btnsWidth = this.buttons.offsetWidth;
+	    };
+
+	    Swipe.prototype.onDrag = function onDrag(event, position) {
+	        // position.start position.move
+	        var target = event.currentTarget;
+	        this.state.translateX = position.move.x - position.start.x + this.state.preTranslateX;
+
+	        if (position.move.x < position.start.x) {
+	            this.state.isBtnsShow = true;
+	        } else {
+	            this.state.isBtnsShow = false;
+	        }
+
+	        if (this.state.translateX >= 0) this.state.translateX = 0;
+	        if (this.state.translateX <= -this.state.btnsWidth) this.state.translateX = -this.state.btnsWidth;
+
+	        target.style.transform = 'translateX(' + this.state.translateX + 'px)';
+	    };
+
+	    Swipe.prototype.onDrop = function onDrop(event, position) {
+	        // position.end
+	        var target = event.currentTarget;
+
+	        if (Math.abs(this.state.translateX) < 10) {
+	            // 微弱操作保持不变
+	            this.state.isBtnsShow = !this.state.isBtnsShow;
+
+	            if (this.state.isBtnsShow) {
+	                this.state.translateX = 0;
+	            } else {
+	                this.state.translateX = -this.state.btnsWidth;
+	            }
+	        } else {
+	            if (this.state.isBtnsShow) {
+	                this.state.translateX = -this.state.btnsWidth;
+	            } else {
+	                this.state.translateX = 0;
+	            }
+	        }
+	        console.log(this.state.isBtnsShow);
+
+	        this.state.preTranslateX = this.state.translateX;
+	        target.style.transform = 'translateX(' + this.state.translateX + 'px)';
+	    };
+
+	    Swipe.prototype.render = function render() {
+	        var _props = this.props;
+	        var buttons = _props.buttons;
+	        var className = _props.className;
+
+	        return _react2['default'].createElement(
+	            'div',
+	            { className: _classnames2['default']('swipe-action', className) },
+	            _react2['default'].createElement(
+	                _Drag2['default'],
+	                { onDrag: this.onDrag.bind(this), onDrop: this.onDrop.bind(this) },
+	                this.props.children
+	            ),
+	            this.renderOperationButton(buttons)
+	        );
+	    };
+
+	    return Swipe;
+	})(_utilsComponent2['default']);
+
+	exports['default'] = Swipe;
+	module.exports = exports['default'];
+
+/***/ },
+/* 239 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utilsComponent = __webpack_require__(217);
+
+	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
+
+	var _classnames = __webpack_require__(218);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	/**
+	 * 拖动Drag
+	 * @class Drag
+	 * @module Basic
+	 * @extends Component
+	 * @constructor
+	 * @demo Swipe.js {源码}
+	 * @show false
+	 * */
+
+	var Drag = (function (_Component) {
+	    _inherits(Drag, _Component);
+
+	    _createClass(Drag, null, [{
+	        key: 'propTypes',
+	        value: {},
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            egSize: '',
+	            classPrefix: '',
+	            classMapping: {}
+	        },
+	        enumerable: true
+	    }]);
+
+	    function Drag(props, context) {
+	        _classCallCheck(this, Drag);
+
+	        _Component.call(this, props, context);
+
+	        this.state = {
+	            position: {}
+	        };
+	    }
+
+	    Drag.prototype.onStart = function onStart(event) {
+	        event.stopPropagation();
+
+	        this.state.position.start = { x: event.touches[0].pageX, y: event.touches[0].pageY };
+	        this.state.position.move = this.state.position.start;
+
+	        this.props.onDrag(event, this.state.position);
+
+	        return false;
+	    };
+
+	    Drag.prototype.onMove = function onMove(event) {
+	        event.stopPropagation();
+
+	        this.state.position.move = { x: event.touches[0].pageX, y: event.touches[0].pageY };
+	        this.props.onDrag(event, this.state.position);
+
+	        return false;
+	    };
+
+	    Drag.prototype.onEnd = function onEnd(event) {
+	        event.stopPropagation();
+
+	        this.state.position.end = { x: event.changedTouches[0].pageX, y: event.changedTouches[0].pageY };
+	        this.state.position.start = this.state.position.move;
+
+	        this.props.onDrop(event, this.state.position);
+
+	        return false;
+	    };
+
+	    Drag.prototype.onCancel = function onCancel(event) {
+	        // 触屏取消:忽然来电话等情况
+	    };
+
+	    Drag.prototype.render = function render() {
+	        var _this = this;
+
+	        return _react2['default'].createElement(
+	            'div',
+	            _extends({}, this.props, { className: _classnames2['default']('swipe-content', this.props.className),
+	                onTouchStart: function (event) {
+	                    _this.onStart(event);
+	                },
+	                onTouchMove: function (event) {
+	                    _this.onMove(event);
+	                },
+	                onTouchEnd: function (event) {
+	                    _this.onEnd(event);
+	                },
+	                onTouchCancel: function (event) {
+	                    _this.onCancel(event);
+	                }
+	            }),
+	            this.props.children
+	        );
+	    };
+
+	    return Drag;
+	})(_utilsComponent2['default']);
+
+	exports['default'] = Drag;
+	module.exports = exports['default'];
+
+/***/ },
+/* 240 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -27833,7 +28191,199 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 239 */
+/* 241 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utilsComponent = __webpack_require__(217);
+
+	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
+
+	var _classnames = __webpack_require__(218);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _Drag = __webpack_require__(239);
+
+	var _Drag2 = _interopRequireDefault(_Drag);
+
+	var _Button = __webpack_require__(216);
+
+	var _Button2 = _interopRequireDefault(_Button);
+
+	/**
+	 * 功能组件-弹框
+	 * @class Modal
+	 * @module Action?
+	 * @extends Component
+	 * @constructor
+	 * @demo modal.js {展示}
+	 * @demo modal.js {源码}
+	 * @show true
+	 * */
+
+	var Modal = (function (_Component) {
+	    _inherits(Modal, _Component);
+
+	    _createClass(Modal, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * */
+	            classPrefix: _react.PropTypes.string,
+	            /**
+	             * 标签tagName
+	             * @property componentTag
+	             * @type String
+	             * */
+	            componentTag: _react.PropTypes.string
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            left: [],
+	            right: [],
+	            egSize: '',
+	            classPrefix: '',
+	            componentTag: 'div',
+	            classMapping: {}
+	        },
+	        enumerable: true
+	    }]);
+
+	    function Modal(props, context) {
+	        _classCallCheck(this, Modal);
+
+	        _Component.call(this, props, context);
+
+	        this.state = {
+	            translateX: -1,
+	            preTranslateX: -1,
+	            btnsWidth: 0,
+	            isBtnsShow: false,
+	            OPE_RANGE: 10
+
+	        };
+	    }
+
+	    Modal.prototype.renderOperationButton = function renderOperationButton(buttons) {
+	        var buttonsDom = [];
+
+	        if (buttons.length != 0) buttonsDom.push(this.renderButtonByType(buttons));
+
+	        return buttonsDom;
+	    };
+
+	    Modal.prototype.renderButtonByType = function renderButtonByType(btnInfo) {
+	        var _this = this;
+
+	        return _react2['default'].createElement(
+	            'div',
+	            { className: 'swipe-btns', key: 'buttons', ref: function (buttons) {
+	                    _this.buttons = buttons;
+	                } },
+	            btnInfo.map(function (item, index) {
+	                return _react2['default'].createElement(
+	                    _Button2['default'],
+	                    { key: index, phStyle: item.phStyle },
+	                    item.text
+	                );
+	            })
+	        );
+	    };
+
+	    Modal.prototype.componentDidMount = function componentDidMount() {
+	        // 获取btns的宽度
+	        this.state.btnsWidth = this.buttons.offsetWidth;
+	    };
+
+	    Modal.prototype.onDrag = function onDrag(event, position) {
+	        // position.start position.move
+	        var target = event.currentTarget;
+	        this.state.translateX = position.move.x - position.start.x + this.state.preTranslateX;
+
+	        if (position.move.x < position.start.x) {
+	            this.state.isBtnsShow = true;
+	        } else {
+	            this.state.isBtnsShow = false;
+	        }
+
+	        if (this.state.translateX >= 0) this.state.translateX = 0;
+	        if (this.state.translateX <= -this.state.btnsWidth) this.state.translateX = -this.state.btnsWidth;
+
+	        target.style.transform = 'translateX(' + this.state.translateX + 'px)';
+	    };
+
+	    Modal.prototype.onDrop = function onDrop(event, position) {
+	        // position.end
+	        var target = event.currentTarget;
+
+	        if (Math.abs(this.state.translateX) < 10) {
+	            // 微弱操作保持不变
+	            this.state.isBtnsShow = !this.state.isBtnsShow;
+
+	            if (this.state.isBtnsShow) {
+	                this.state.translateX = 0;
+	            } else {
+	                this.state.translateX = -this.state.btnsWidth;
+	            }
+	        } else {
+	            if (this.state.isBtnsShow) {
+	                this.state.translateX = -this.state.btnsWidth;
+	            } else {
+	                this.state.translateX = 0;
+	            }
+	        }
+	        console.log(this.state.isBtnsShow);
+
+	        this.state.preTranslateX = this.state.translateX;
+	        target.style.transform = 'translateX(' + this.state.translateX + 'px)';
+	    };
+
+	    Modal.prototype.render = function render() {
+	        var _props = this.props;
+	        var buttons = _props.buttons;
+	        var className = _props.className;
+
+	        return _react2['default'].createElement(
+	            'div',
+	            { className: _classnames2['default']('swipe-action', className) },
+	            _react2['default'].createElement(
+	                _Drag2['default'],
+	                { onDrag: this.onDrag.bind(this), onDrop: this.onDrop.bind(this) },
+	                this.props.children
+	            ),
+	            this.renderOperationButton(buttons)
+	        );
+	    };
+
+	    return Modal;
+	})(_utilsComponent2['default']);
+
+	exports['default'] = Modal;
+	module.exports = exports['default'];
+
+/***/ },
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27927,7 +28477,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 240 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28001,7 +28551,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 241 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28033,7 +28583,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _Component.call(this, props, context);
 
 	        this.state = {
-	            name: ''
+	            name: 'wwwww',
+	            wordsNum: 0
 	        };
 	    }
 
@@ -28047,8 +28598,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return _react2['default'].createElement(
 	            'div',
 	            null,
-	            _react2['default'].createElement(_srcIndex.Textarea, { value: this.state.name, placeholder: '请输入',
-	                onChange: this.setValue.bind(this, 'name'), isCount: true })
+	            _react2['default'].createElement(_srcIndex.Textarea, { value: this.state.name, placeholder: '需要计数设置isCount为true，然后输入最大字数maxLength',
+	                onChange: this.setValue.bind(this, 'name'), isCount: true, maxLength: 10 })
 	        );
 	    };
 
@@ -28059,7 +28610,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 242 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28116,7 +28667,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 243 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28577,7 +29128,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 244 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28673,7 +29224,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 245 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28856,7 +29407,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 246 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28917,7 +29468,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 247 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28978,7 +29529,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 248 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -29048,7 +29599,174 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 249 */
+/* 252 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(159);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _srcIndex = __webpack_require__(208);
+
+	var swipe = (function (_Component) {
+	    _inherits(swipe, _Component);
+
+	    function swipe(props, context) {
+	        _classCallCheck(this, swipe);
+
+	        _Component.call(this, props, context);
+	    }
+
+	    swipe.prototype.onDelete = function onDelete() {
+	        console.log('delete!!');
+	    };
+
+	    swipe.prototype.onCancle = function onCancle() {
+	        console.log('cancle!!');
+	    };
+
+	    swipe.prototype.render = function render() {
+	        return _react2['default'].createElement(
+	            'ul',
+	            null,
+	            _react2['default'].createElement(
+	                'li',
+	                null,
+	                _react2['default'].createElement(
+	                    _srcIndex.Swipe,
+	                    {
+	                        buttons: [{ text: '删除', onHandle: this.onDelete, phStyle: 'error' }, { text: '取消', onHandle: this.onCancle, phStyle: 'gray' }]
+	                    },
+	                    _react2['default'].createElement(
+	                        'div',
+	                        { style: { backgroundColor: '#fff', padding: '15px', 'borderBottom': '1px solid #ccc' } },
+	                        _react2['default'].createElement(
+	                            'span',
+	                            null,
+	                            'lalallalla'
+	                        ),
+	                        _react2['default'].createElement(
+	                            'strong',
+	                            null,
+	                            'hahahha'
+	                        )
+	                    )
+	                )
+	            ),
+	            _react2['default'].createElement(
+	                'li',
+	                null,
+	                _react2['default'].createElement(
+	                    _srcIndex.Swipe,
+	                    {
+	                        buttons: [{ text: '删除', onHandle: this.onDelete, phStyle: 'error' }, { text: '取消', onHandle: this.onCancle, phStyle: 'gray' }]
+	                    },
+	                    _react2['default'].createElement(
+	                        'div',
+	                        { style: { backgroundColor: '#fff', padding: '15px', 'borderBottom': '1px solid #ccc' } },
+	                        _react2['default'].createElement(
+	                            'span',
+	                            null,
+	                            'lalallalla'
+	                        ),
+	                        _react2['default'].createElement(
+	                            'strong',
+	                            null,
+	                            'hahahha'
+	                        )
+	                    )
+	                )
+	            )
+	        );
+	    };
+
+	    return swipe;
+	})(_react.Component);
+
+	exports['default'] = swipe;
+	module.exports = exports['default'];
+
+/***/ },
+/* 253 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(159);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _srcIndex = __webpack_require__(208);
+
+	var modal = (function (_Component) {
+	    _inherits(modal, _Component);
+
+	    function modal(props, context) {
+	        _classCallCheck(this, modal);
+
+	        _Component.call(this, props, context);
+	    }
+
+	    modal.prototype.render = function render() {
+	        return _react2['default'].createElement(
+	            'div',
+	            null,
+	            _react2['default'].createElement(
+	                _srcIndex.ButtonGroup,
+	                { style: { width: '100%' }, phType: 'tacked' },
+	                _react2['default'].createElement(
+	                    _srcIndex.Button,
+	                    { block: true, radius: true, phSize: 'lg', phStyle: 'primary' },
+	                    'Alert'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Button,
+	                    { block: true, radius: true, phSize: 'lg', phStyle: 'primary' },
+	                    'Confirm'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Button,
+	                    { block: true, radius: true, phSize: 'lg', phStyle: 'primary' },
+	                    'Dialog'
+	                )
+	            )
+	        );
+	    };
+
+	    return modal;
+	})(_react.Component);
+
+	exports['default'] = modal;
+	module.exports = exports['default'];
+
+/***/ },
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29385,7 +30103,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 250 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
