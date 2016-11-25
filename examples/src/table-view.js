@@ -21,7 +21,7 @@ export default class input extends Component{
 
     render(){
         return(
-            <div style={{padding:'20px'}}>
+            <div>
                 <TableView>
                     <a href="http://www.baidu.com">列表 1</a>
                     <a>

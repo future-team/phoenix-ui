@@ -21,7 +21,7 @@ export default class input extends Component{
 
     render(){
         return(
-            <div style={{padding:'20px'}}>
+            <div>
                 <FormGroup>
                     <Row single>
                         <Col>

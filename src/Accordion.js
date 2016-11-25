@@ -2,17 +2,20 @@ import React,{PropTypes} from 'react';
 import Component from './utils/Component';
 import classnames from 'classnames';
 
+import AccordionHeader from './AccordionHeader';
+import AccordionBody from './AccordionBody';
+
 /**
- * 功能组件-弹框
- * @class Modal
- * @module Action?
+ * 手风琴
+ * @class Accordion
+ * @module Action
  * @extends Component
  * @constructor
- * @demo modal.js {展示}
- * @demo modal.js {源码}
+ * @demo accordion.js {展示}
+ * @demo accordion.js {源码}
  * @show true
  * */
-export default class Modal extends Component{
+class Accordion extends Component{
 
     static propTypes = {
         /**
@@ -43,24 +46,37 @@ export default class Modal extends Component{
         super(props, context);
     }
 
+    renderChildren(){
+        let newChildren = [];
+        let {visible, onChange} = this.props;
+
+        React.Children.forEach(this.props.children, function(child, index){
+            newChildren.push(React.cloneElement(child,{
+                key: index,
+                visible: visible,
+                onChange: onChange
+            }));
+        });
+
+        return newChildren;
+    }
+
     render(){
-        let {componentTag:Component, className, visible} = this.props;
+        let {componentTag:Component, className} = this.props;
 
         return (
             <Component {...this.props} className={classnames(
-                    'modal',
-                    this.getProperty(),
-                    className,
-                    visible? 'show':'hide'
+                'accordion',
+                this.getProperty(),
+                className
             )}>
-                <div className="modal-shadow"></div>
-                <div className="modal-main">
-                    <div className="modal-content">
-                        {this.props.children}
-                    </div>
-                </div>
+                {this.renderChildren()}
             </Component>
         );
     }
-
 }
+
+Accordion.Header = AccordionHeader;
+Accordion.Body = AccordionBody;
+
+export default Accordion;

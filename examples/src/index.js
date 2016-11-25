@@ -17,8 +17,10 @@ import Label from './label.js';
 import Badge from './badge.js';
 import StarDemo from './star.js';
 import Swipe from './swipe.js';
-import Modal from './modal.js';
+import Dialog from './dialog.js';
 import Toast from './toast.js';
+import Popup from './popup.js';
+import Accordion from './accordion.js';
 import Detail from './detailDemo.js';
 import ListDemo from './list-demo.js';
 
@@ -28,21 +30,22 @@ let Index = class index extends Component {
             <div>
                 <div id='menu' className='menu'>
                     <div className="menu-panel">
-                        <a href="#/input">测试用例</a>
-                        <a href="#/button">按钮</a>
-                        <a href="#/input">文本框</a>
-                        <a href="#/textarea">多行文本框Textarea</a>
-                        <a href="#/switch">开关</a>
-                        <a href="#/grid">布局</a>
-                        <a href="#/tableview">tableview</a>
-                        <a href="#/formgroup">FormGroup</a>
-                        <a href="#/tab">tab(选项卡)</a>
-                        <a href="#/label">label(标签)</a>
-                        <a href="#/badge">badge(徽章)</a>
-                        <a href="#/star">star(星星)</a>
+                        <a href="#/button">按钮组 ButtonGroup</a>
+                        <a href="#/input">文本框 Input</a>
+                        <a href="#/textarea">多行文本 Textarea</a>
+                        <a href="#/switch">开关 Switch</a>
+                        <a href="#/grid">布局 Flex/Grid</a>
+                        <a href="#/tableview">表格 TableView</a>
+                        <a href="#/formgroup">表单组 FormGroup</a>
+                        <a href="#/tab">选项卡 Tab</a>
+                        <a href="#/label">标签 Label</a>
+                        <a href="#/badge">徽章 Badge</a>
+                        <a href="#/star">星星 Star</a>
                         <a href="#/swipe">左滑动 Swipe</a>
-                        <a href="#/modal">弹框 Modal</a>
+                        <a href="#/dialog">弹框 Dialog</a>
                         <a href="#/toast">飘字 Toast</a>
+                        <a href="#/popup">弹层 Popup</a>
+                        <a href="#/accordion">手风琴 Accordion</a>
                         <a href="#/detail">详情页示例</a>
                         <a href="#/list-demo">列表页例子</a>
                     </div>
@@ -75,8 +78,10 @@ let AppRouter = class AppRouter extends Component {
                 <Route path="/badge" name="badge" component={Badge} />
                 <Route path="/star" name="star" component={StarDemo} />
                 <Route path="/swipe" name="swipe" component={Swipe} />
-                <Route path="/modal" name="modal" component={Modal} />
+                <Route path="/dialog" name="dialog" component={Dialog} />
                 <Route path="/toast" name="toast" component={Toast} />
+                <Route path="/popup" name="popup" component={Popup} />
+                <Route path="/accordion" name="accordion" component={Accordion} />
                 <Route path="/detail" name="detail" component={Detail} />
                 <Route path="/list-demo" name="list-demo" component={ListDemo} />
                 <Redirect from="/" to="/index" />

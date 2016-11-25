@@ -12,21 +12,21 @@ let Demo1 = class demo1 extends Component{
         console.log(index);
     };
     test1(index){
-        index == 1 && this.setState({
-            tab2:'测试panel内容改变',
-            index:2
-        })
+        // index == 1 && this.setState({
+        //     tab2:'测试panel内容改变',
+        //     index:2
+        // })
         console.log('测试tabset 回调'+index)
     }
     render(){
         return(
             <div>
                 <Tabset activeIndex ={this.state.index} className = '测试name' tabCallback={::this.test1} style={{color:'green'}}>
-                    <Tab heading='tab1' className='测试' clickCallback={(index)=>{alert(index)}}>
+                    <Tab heading='tab1' className='测试' clickCallback={(index)=>{console.log(index)}}>
                         hahadhdad1
                     </Tab>
                     <Tab heading={this.state.index} clickCallback={::this.test}>
-                        {this.state.tab2}
+                        hahadhdad2
                     </Tab>
                     <Tab heading='tab3'>
                         hahadhdad3

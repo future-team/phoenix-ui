@@ -9,8 +9,8 @@ export default class textarea extends Component{
         super(props,context);
 
         this.state = {
-            name:'wwwww',
-            wordsNum: 0,
+            name:'',
+            MAX_LENGTH: 100
         };
     }
 
@@ -23,8 +23,8 @@ export default class textarea extends Component{
     render(){
         return(
             <div>
-                <Textarea value={this.state.name} placeholder='需要计数设置isCount为true，然后输入最大字数maxLength'
-                onChange={this.setValue.bind(this,'name')} isCount={true} maxLength={10}></Textarea>
+                <Textarea value={this.state.name} placeholder='请输入...'
+                onChange={this.setValue.bind(this,'name')} isCount={true} maxLength={this.state.MAX_LENGTH}></Textarea>
             </div>
         );
     }

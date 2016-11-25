@@ -8,35 +8,25 @@ export default class modal extends Component{
         super(props,context); 
 
         this.state = {
-            visible: false,
-            duration: 1000 // 不传时间默认1500ms
+            duration: 2000
         }
     }
 
-    onShow(){
-        this.setState({
-          visible: true,
+    showToast(){
+        Toast.info('只显示信息的toast！！', this.state.duration, ()=>{
+            // 额外的执行内容
+            this.test();
         });
     }
 
-    onHide(){
-        this.setState({
-          visible: false,
-        });
+    test(){
+        console.log('aahhaha');
     }
 
     render(){
         return(
             <div>
-                <Button block radius phSize="lg" phStyle="error" onClick={::this.onShow}>Click Me To Show Toast</Button>
-
-                <Toast 
-                    visible={this.state.visible} 
-                    duration={this.state.duration} 
-                    onClose={::this.onHide}
-                >
-                    内容内容
-                </Toast>
+                <Button block phSize="lg" phStyle="info" onClick={::this.showToast}>Click Me To Show Toast</Button>
             </div>
         );
     }

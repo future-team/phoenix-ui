@@ -17,8 +17,10 @@ export Badge from './Badge';
 export Star from './Star';
 export Swipe from './Swipe'
 export Grid from './Grid';
-export Modal from './Modal';
+export Dialog from './Dialog';
 export Toast from './Toast';
+export Popup from './Popup';
+export Accordion from './Accordion';
 //接入cat－browser
 catBrowser({
     moduleName:'phoenix-ui',
@@ -43,8 +45,10 @@ window['Phoenix'] = {};
     'Swipe',
     'Grid',
     'ButtonGroup',
-    'Modal',
-    'Toast'
+    'Dialog',
+    'Toast',
+    'Popup',
+    'Accordion'
 ].forEach(function(name){
     Phoenix[name] = exports[name];
 });

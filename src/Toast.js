@@ -1,4 +1,5 @@
 import React,{PropTypes} from 'react';
+import ReactDOM from 'react-dom';
 import Component from './utils/Component';
 import classnames from 'classnames';
 
@@ -12,7 +13,7 @@ import classnames from 'classnames';
  * @demo toast.js {源码}
  * @show true
  * */
-export default class Modal extends Component{
+class Toast extends Component{
 
     static propTypes = {
         /**
@@ -26,15 +27,10 @@ export default class Modal extends Component{
          * @property componentTag
          * @type String
          * */
-        componentTag:PropTypes.string,
-        visible: PropTypes.bool
-    };
+        componentTag:PropTypes.string
+   };
 
     static defaultProps = {
-        visible: false,
-        duration: 1500,
-        egSize:'',
-        classPrefix:'',
         componentTag:'div',
         classMapping : {
         }
@@ -44,27 +40,12 @@ export default class Modal extends Component{
         super(props, context);
     }
 
-    componentWillReceiveProps(nextProps){
-        let _this = this,
-            timer = null;
-
-        if(nextProps.visible){
-            timer = setTimeout(function(){
-                _this.props.onClose();
-                clearTimeout(timer);
-            }, this.props.duration);
-        }
-    }
-
     render(){
-        let {componentTag:Component, className, visible} = this.props;
+        let {componentTag:Component} = this.props;
 
         return (
             <Component {...this.props} className={classnames(
-                    'toast',
-                    this.getProperty(),
-                    className,
-                    visible? 'show':'hide'
+                'toast'
             )}>
                 <div className="toast-shadow"></div>
                 <div className="toast-main">
@@ -76,4 +57,41 @@ export default class Modal extends Component{
         );
     }
 
+}
+
+let _layer = document.createElement('div'),
+    timer  = null;
+
+window.onhashchange = function(){ // 处理url变动时手动插入dom不消失
+    _unrenderLayer();
+}
+
+function renderLayer(content){
+    return <Toast>{content}</Toast>;
+}
+
+function _renderLayer(layerElement, duration, callback){
+    ReactDOM.render(layerElement, _layer);
+    document.body.appendChild(_layer);
+
+    timer = setTimeout(function(){
+        _unrenderLayer();
+        clearTimeout(timer);
+        callback();
+    }, duration);
+}
+
+function _unrenderLayer(){
+    ReactDOM.unmountComponentAtNode(_layer);
+}
+
+export default {
+    info(content, duration, callback){
+        let layerElement = renderLayer(content);
+        _renderLayer(layerElement, duration, callback);
+    },
+    remove(){
+        _unrenderLayer();
+        clearTimeout(timer);
+    }
 }

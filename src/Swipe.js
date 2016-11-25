@@ -8,7 +8,7 @@ import Button from './Button';
 /**
  * 功能组件-左滑swipe
  * @class Swipe
- * @module Action?
+ * @module Action
  * @extends Component
  * @constructor
  * @demo swipe.js {展示}
@@ -122,8 +122,8 @@ export default class Swipe extends Component{
 
         return (
             <Component className={classnames(
-                    'swipe-action',
-                    className
+                'swipe-action',
+                className
             )} style={this.getStyles(this.props.style)}>
                 <Drag onDrag={::this.onDrag} onDrop={::this.onDrop}>
                     {this.props.children}

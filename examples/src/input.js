@@ -21,7 +21,7 @@ export default class input extends Component{
 
     render(){
         return(
-            <div style={{padding:'20px'}}>
+            <div>
                 <Input type="text" value={this.state.name} onChange={::this.setValue.bind(this,'name')} />
                 <Row align="bottom">
                     <Col><Input type="radio" label="男" name="sex"  /></Col>

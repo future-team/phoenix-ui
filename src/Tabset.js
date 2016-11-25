@@ -125,7 +125,7 @@ class Tabset extends Component {
         let vertical = this.props.vertical;
         if(flag){
             let cols = 'col-'+this.props.width;
-            return !vertical ? 'row': cols;
+            return !vertical ? 'row': 'col '+cols;
         }else{
             return vertical ? 'col': '';
         }
