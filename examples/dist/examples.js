@@ -90,59 +90,71 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _tabJs2 = _interopRequireDefault(_tabJs);
 
-	var _buttonJs = __webpack_require__(242);
+	var _buttonJs = __webpack_require__(258);
 
 	var _buttonJs2 = _interopRequireDefault(_buttonJs);
 
-	var _inputJs = __webpack_require__(243);
+	var _inputJs = __webpack_require__(259);
 
 	var _inputJs2 = _interopRequireDefault(_inputJs);
 
-	var _textareaJs = __webpack_require__(244);
+	var _textareaJs = __webpack_require__(260);
 
 	var _textareaJs2 = _interopRequireDefault(_textareaJs);
 
-	var _switchJs = __webpack_require__(245);
+	var _switchJs = __webpack_require__(261);
 
 	var _switchJs2 = _interopRequireDefault(_switchJs);
 
-	var _gridJs = __webpack_require__(246);
+	var _gridJs = __webpack_require__(262);
 
 	var _gridJs2 = _interopRequireDefault(_gridJs);
 
-	var _tableViewJs = __webpack_require__(247);
+	var _tableViewJs = __webpack_require__(263);
 
 	var _tableViewJs2 = _interopRequireDefault(_tableViewJs);
 
-	var _formGroupJs = __webpack_require__(248);
+	var _formGroupJs = __webpack_require__(264);
 
 	var _formGroupJs2 = _interopRequireDefault(_formGroupJs);
 
-	var _labelJs = __webpack_require__(249);
+	var _labelJs = __webpack_require__(265);
 
 	var _labelJs2 = _interopRequireDefault(_labelJs);
 
-	var _badgeJs = __webpack_require__(250);
+	var _badgeJs = __webpack_require__(266);
 
 	var _badgeJs2 = _interopRequireDefault(_badgeJs);
 
-	var _starJs = __webpack_require__(251);
+	var _starJs = __webpack_require__(267);
 
 	var _starJs2 = _interopRequireDefault(_starJs);
 
-	var _swipeJs = __webpack_require__(252);
+	var _swipeJs = __webpack_require__(268);
 
 	var _swipeJs2 = _interopRequireDefault(_swipeJs);
 
-	var _modalJs = __webpack_require__(253);
+	var _dialogJs = __webpack_require__(269);
 
-	var _modalJs2 = _interopRequireDefault(_modalJs);
+	var _dialogJs2 = _interopRequireDefault(_dialogJs);
 
-	var _detailDemoJs = __webpack_require__(254);
+	var _toastJs = __webpack_require__(270);
+
+	var _toastJs2 = _interopRequireDefault(_toastJs);
+
+	var _popupJs = __webpack_require__(271);
+
+	var _popupJs2 = _interopRequireDefault(_popupJs);
+
+	var _accordionJs = __webpack_require__(272);
+
+	var _accordionJs2 = _interopRequireDefault(_accordionJs);
+
+	var _detailDemoJs = __webpack_require__(273);
 
 	var _detailDemoJs2 = _interopRequireDefault(_detailDemoJs);
 
-	var _listDemoJs = __webpack_require__(255);
+	var _listDemoJs = __webpack_require__(274);
 
 	var _listDemoJs2 = _interopRequireDefault(_listDemoJs);
 
@@ -167,63 +179,58 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    { className: 'menu-panel' },
 	                    _react2['default'].createElement(
 	                        'a',
-	                        { href: '#/input' },
-	                        '测试用例'
-	                    ),
-	                    _react2['default'].createElement(
-	                        'a',
 	                        { href: '#/button' },
-	                        '按钮'
+	                        '按钮组 ButtonGroup'
 	                    ),
 	                    _react2['default'].createElement(
 	                        'a',
 	                        { href: '#/input' },
-	                        '文本框'
+	                        '文本框 Input'
 	                    ),
 	                    _react2['default'].createElement(
 	                        'a',
 	                        { href: '#/textarea' },
-	                        '多行文本框Textarea'
+	                        '多行文本 Textarea'
 	                    ),
 	                    _react2['default'].createElement(
 	                        'a',
 	                        { href: '#/switch' },
-	                        '开关'
+	                        '开关 Switch'
 	                    ),
 	                    _react2['default'].createElement(
 	                        'a',
 	                        { href: '#/grid' },
-	                        '布局'
+	                        '布局 Flex/Grid'
 	                    ),
 	                    _react2['default'].createElement(
 	                        'a',
 	                        { href: '#/tableview' },
-	                        'tableview'
+	                        '表格 TableView'
 	                    ),
 	                    _react2['default'].createElement(
 	                        'a',
 	                        { href: '#/formgroup' },
-	                        'FormGroup'
+	                        '表单组 FormGroup'
 	                    ),
 	                    _react2['default'].createElement(
 	                        'a',
 	                        { href: '#/tab' },
-	                        'tab(选项卡)'
+	                        '选项卡 Tab'
 	                    ),
 	                    _react2['default'].createElement(
 	                        'a',
 	                        { href: '#/label' },
-	                        'label(标签)'
+	                        '标签 Label'
 	                    ),
 	                    _react2['default'].createElement(
 	                        'a',
 	                        { href: '#/badge' },
-	                        'badge(徽章)'
+	                        '徽章 Badge'
 	                    ),
 	                    _react2['default'].createElement(
 	                        'a',
 	                        { href: '#/star' },
-	                        'star(星星)'
+	                        '星星 Star'
 	                    ),
 	                    _react2['default'].createElement(
 	                        'a',
@@ -232,8 +239,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    ),
 	                    _react2['default'].createElement(
 	                        'a',
-	                        { href: '#/modal' },
-	                        '弹框 Modal'
+	                        { href: '#/dialog' },
+	                        '弹框 Dialog'
+	                    ),
+	                    _react2['default'].createElement(
+	                        'a',
+	                        { href: '#/toast' },
+	                        '飘字 Toast'
+	                    ),
+	                    _react2['default'].createElement(
+	                        'a',
+	                        { href: '#/popup' },
+	                        '弹层 Popup'
+	                    ),
+	                    _react2['default'].createElement(
+	                        'a',
+	                        { href: '#/accordion' },
+	                        '手风琴 Accordion'
 	                    ),
 	                    _react2['default'].createElement(
 	                        'a',
@@ -281,7 +303,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/badge', name: 'badge', component: _badgeJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/star', name: 'star', component: _starJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/swipe', name: 'swipe', component: _swipeJs2['default'] }),
-	            _react2['default'].createElement(_reactRouter.Route, { path: '/modal', name: 'modal', component: _modalJs2['default'] }),
+	            _react2['default'].createElement(_reactRouter.Route, { path: '/dialog', name: 'dialog', component: _dialogJs2['default'] }),
+	            _react2['default'].createElement(_reactRouter.Route, { path: '/toast', name: 'toast', component: _toastJs2['default'] }),
+	            _react2['default'].createElement(_reactRouter.Route, { path: '/popup', name: 'popup', component: _popupJs2['default'] }),
+	            _react2['default'].createElement(_reactRouter.Route, { path: '/accordion', name: 'accordion', component: _accordionJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/detail', name: 'detail', component: _detailDemoJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/list-demo', name: 'list-demo', component: _listDemoJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Redirect, { from: '/', to: '/index' })
@@ -24358,10 +24383,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    demo1.prototype.test1 = function test1(index) {
-	        index == 1 && this.setState({
-	            tab2: '测试panel内容改变',
-	            index: 2
-	        });
+	        // index == 1 && this.setState({
+	        //     tab2:'测试panel内容改变',
+	        //     index:2
+	        // })
 	        console.log('测试tabset 回调' + index);
 	    };
 
@@ -24375,14 +24400,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	                _react2['default'].createElement(
 	                    _srcIndex.Tab,
 	                    { heading: 'tab1', className: '测试', clickCallback: function (index) {
-	                            alert(index);
+	                            console.log(index);
 	                        } },
 	                    'hahadhdad1'
 	                ),
 	                _react2['default'].createElement(
 	                    _srcIndex.Tab,
 	                    { heading: this.state.index, clickCallback: this.test.bind(this) },
-	                    this.state.tab2
+	                    'hahadhdad2'
 	                ),
 	                _react2['default'].createElement(
 	                    _srcIndex.Tab,
@@ -24581,11 +24606,29 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.Grid = _Grid3['default'];
 
-	var _Modal2 = __webpack_require__(241);
+	var _Dialog2 = __webpack_require__(241);
 
-	var _Modal3 = _interopRequireDefault(_Modal2);
+	var _Dialog3 = _interopRequireDefault(_Dialog2);
 
-	exports.Modal = _Modal3['default'];
+	exports.Dialog = _Dialog3['default'];
+
+	var _Toast2 = __webpack_require__(253);
+
+	var _Toast3 = _interopRequireDefault(_Toast2);
+
+	exports.Toast = _Toast3['default'];
+
+	var _Popup2 = __webpack_require__(254);
+
+	var _Popup3 = _interopRequireDefault(_Popup2);
+
+	exports.Popup = _Popup3['default'];
+
+	var _Accordion2 = __webpack_require__(255);
+
+	var _Accordion3 = _interopRequireDefault(_Accordion2);
+
+	exports.Accordion = _Accordion3['default'];
 
 	//接入cat－browser
 	_utilsCatBrowserJs2['default']({
@@ -24594,7 +24637,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	window['Phoenix'] = {};
 
-	['Button', 'Input', 'Textarea', 'Switch', 'Row', 'TableView', 'FormGroup', 'Col', 'Tabset', 'Tab', 'Label', 'Badge', 'Star', 'Swipe', 'Grid', 'ButtonGroup', 'Modal'].forEach(function (name) {
+	['Button', 'Input', 'Textarea', 'Switch', 'Row', 'TableView', 'FormGroup', 'Col', 'Tabset', 'Tab', 'Label', 'Badge', 'Star', 'Swipe', 'Grid', 'ButtonGroup', 'Dialog', 'Toast', 'Popup', 'Accordion'].forEach(function (name) {
 	    Phoenix[name] = exports[name];
 	});
 
@@ -25240,7 +25283,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                'error': 'btn-error',
 	                'warning': 'btn-warning',
 	                'danger': 'btn-danger',
-	                'gray': 'btn-gray',
 	                'link': 'btn-link'
 	            }
 	        },
@@ -26489,7 +26531,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                } })),
 	            _react2['default'].createElement(
 	                'span',
-	                { className: _classnames2['default']('textarea-count', isCount ? '' : 'hide') },
+	                { className: _classnames2['default']('textarea-count', isCount ? 'show' : 'hide') },
 	                _react2['default'].createElement(
 	                    'b',
 	                    { className: 'input-length' },
@@ -27334,7 +27376,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var vertical = this.props.vertical;
 	        if (flag) {
 	            var cols = 'col-' + this.props.width;
-	            return !vertical ? 'row' : cols;
+	            return !vertical ? 'row' : 'col ' + cols;
 	        } else {
 	            return vertical ? 'col' : '';
 	        }
@@ -27820,7 +27862,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 功能组件-左滑swipe
 	 * @class Swipe
-	 * @module Action?
+	 * @module Action
 	 * @extends Component
 	 * @constructor
 	 * @demo swipe.js {展示}
@@ -27851,8 +27893,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, {
 	        key: 'defaultProps',
 	        value: {
-	            left: [],
-	            right: [],
+	            buttons: [],
 	            egSize: '',
 	            classPrefix: '',
 	            componentTag: 'div',
@@ -27904,7 +27945,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    Swipe.prototype.componentDidMount = function componentDidMount() {
 	        // 获取btns的宽度
-	        this.state.btnsWidth = this.buttons.offsetWidth;
+	        if (this.buttons) this.state.btnsWidth = this.buttons.offsetWidth;
 	    };
 
 	    Swipe.prototype.onDrag = function onDrag(event, position) {
@@ -27944,7 +27985,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                this.state.translateX = 0;
 	            }
 	        }
-	        console.log(this.state.isBtnsShow);
+	        // console.log(this.state.isBtnsShow);
 
 	        this.state.preTranslateX = this.state.translateX;
 	        target.style.transform = 'translateX(' + this.state.translateX + 'px)';
@@ -27952,12 +27993,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    Swipe.prototype.render = function render() {
 	        var _props = this.props;
+	        var Component = _props.componentTag;
 	        var buttons = _props.buttons;
 	        var className = _props.className;
 
 	        return _react2['default'].createElement(
-	            'div',
-	            { className: _classnames2['default']('swipe-action', className) },
+	            Component,
+	            { className: _classnames2['default']('swipe-action', className), style: this.getStyles(this.props.style) },
 	            _react2['default'].createElement(
 	                _Drag2['default'],
 	                { onDrag: this.onDrag.bind(this), onDrop: this.onDrop.bind(this) },
@@ -28198,6 +28240,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.__esModule = true;
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -28218,29 +28262,1222 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _Drag = __webpack_require__(239);
+	var _Animate = __webpack_require__(242);
 
-	var _Drag2 = _interopRequireDefault(_Drag);
+	var _Animate2 = _interopRequireDefault(_Animate);
 
-	var _Button = __webpack_require__(216);
+	var _DialogTitle = __webpack_require__(250);
 
-	var _Button2 = _interopRequireDefault(_Button);
+	var _DialogTitle2 = _interopRequireDefault(_DialogTitle);
+
+	var _DialogBody = __webpack_require__(251);
+
+	var _DialogBody2 = _interopRequireDefault(_DialogBody);
+
+	var _DialogFooter = __webpack_require__(252);
+
+	var _DialogFooter2 = _interopRequireDefault(_DialogFooter);
 
 	/**
-	 * 功能组件-弹框
-	 * @class Modal
-	 * @module Action?
+	 * 功能组件 - 弹框
+	 * @class Dialog
+	 * @module Action
 	 * @extends Component
 	 * @constructor
-	 * @demo modal.js {展示}
-	 * @demo modal.js {源码}
+	 * @demo dialog.js {展示}
+	 * @demo dialog.js {源码}
 	 * @show true
 	 * */
 
-	var Modal = (function (_Component) {
-	    _inherits(Modal, _Component);
+	var Dialog = (function (_Component) {
+	    _inherits(Dialog, _Component);
 
-	    _createClass(Modal, null, [{
+	    _createClass(Dialog, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * */
+	            classPrefix: _react.PropTypes.string,
+	            /**
+	             * 标签tagName
+	             * @property componentTag
+	             * @type String
+	             * */
+	            componentTag: _react.PropTypes.string,
+	            visible: _react.PropTypes.bool
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            visible: false,
+	            egSize: '',
+	            classPrefix: '',
+	            componentTag: 'div',
+	            classMapping: {}
+	        },
+	        enumerable: true
+	    }]);
+
+	    function Dialog(props, context) {
+	        _classCallCheck(this, Dialog);
+
+	        _Component.call(this, props, context);
+	    }
+
+	    Dialog.prototype.renderShadow = function renderShadow() {
+	        var _props = this.props;
+	        var visible = _props.visible;
+	        var onClose = _props.onClose;
+
+	        if (visible) {
+	            return _react2['default'].createElement('div', { className: 'dialog-shadow animated', onClick: onClose });
+	        } else {
+	            return '';
+	        }
+	    };
+
+	    Dialog.prototype.renderContent = function renderContent() {
+	        if (this.props.visible) {
+	            return _react2['default'].createElement(
+	                'div',
+	                { className: 'dialog-main animated' },
+	                _react2['default'].createElement(
+	                    'div',
+	                    { className: 'dialog-content' },
+	                    this.renderDialog()
+	                )
+	            );
+	        } else {
+	            return '';
+	        }
+	    };
+
+	    Dialog.prototype.renderDialog = function renderDialog() {
+	        var newChildren = [];
+	        var _props2 = this.props;
+	        var visible = _props2.visible;
+	        var children = _props2.children;
+
+	        _react2['default'].Children.forEach(children, function (child, index) {
+	            console.log(child.type.name);
+
+	            newChildren.push(_react2['default'].cloneElement(child, {
+	                key: index,
+	                visible: visible
+	            }));
+	        });
+
+	        return newChildren;
+	    };
+
+	    Dialog.prototype.render = function render() {
+	        var _props3 = this.props;
+	        var Component = _props3.componentTag;
+	        var className = _props3.className;
+
+	        return _react2['default'].createElement(
+	            Component,
+	            _extends({}, this.props, { className: _classnames2['default']('dialog', this.getProperty(), className) }),
+	            _react2['default'].createElement(
+	                _Animate2['default'],
+	                null,
+	                this.renderShadow()
+	            ),
+	            _react2['default'].createElement(
+	                _Animate2['default'],
+	                null,
+	                this.renderContent()
+	            )
+	        );
+	    };
+
+	    return Dialog;
+	})(_utilsComponent2['default']);
+
+	Dialog.Title = _DialogTitle2['default'];
+	Dialog.Body = _DialogBody2['default'];
+	Dialog.Footer = _DialogFooter2['default'];
+
+	exports['default'] = Dialog;
+	module.exports = exports['default'];
+
+/***/ },
+/* 242 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(218);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _reactAddonsCssTransitionGroup = __webpack_require__(243);
+
+	var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
+
+	/**
+	 * 动画外层
+	 * @class Animate
+	 * @module Action
+	 * @extends Component
+	 * @constructor
+	 * @show false
+	 * */
+
+	var Animate = (function (_Component) {
+	    _inherits(Animate, _Component);
+
+	    _createClass(Animate, null, [{
+	        key: 'propTypes',
+	        value: {
+	            transitionName: _react.PropTypes.string
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            transitionName: 'fade',
+	            transitionEnterTimeout: 100,
+	            transitionLeaveTimeout: 300
+	        },
+	        enumerable: true
+	    }]);
+
+	    function Animate(props, context) {
+	        _classCallCheck(this, Animate);
+
+	        _Component.call(this, props, context);
+	    }
+
+	    Animate.prototype.render = function render() {
+	        var _props = this.props;
+	        var transitionName = _props.transitionName;
+	        var transitionEnterTimeout = _props.transitionEnterTimeout;
+	        var transitionLeaveTimeout = _props.transitionLeaveTimeout;
+	        var className = _props.className;
+	        var children = _props.children;
+
+	        return _react2['default'].createElement(
+	            _reactAddonsCssTransitionGroup2['default'],
+	            _extends({}, this.props, {
+	                transitionName: transitionName,
+	                transitionEnterTimeout: transitionEnterTimeout,
+	                transitionLeaveTimeout: transitionLeaveTimeout
+	            }),
+	            children
+	        );
+	    };
+
+	    return Animate;
+	})(_react.Component);
+
+	exports['default'] = Animate;
+	module.exports = exports['default'];
+
+/***/ },
+/* 243 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(244);
+
+/***/ },
+/* 244 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @typechecks
+	 * @providesModule ReactCSSTransitionGroup
+	 */
+
+	'use strict';
+
+	var React = __webpack_require__(3);
+
+	var assign = __webpack_require__(40);
+
+	var ReactTransitionGroup = __webpack_require__(245);
+	var ReactCSSTransitionGroupChild = __webpack_require__(247);
+
+	function createTransitionTimeoutPropValidator(transitionType) {
+	  var timeoutPropName = 'transition' + transitionType + 'Timeout';
+	  var enabledPropName = 'transition' + transitionType;
+
+	  return function (props) {
+	    // If the transition is enabled
+	    if (props[enabledPropName]) {
+	      // If no timeout duration is provided
+	      if (props[timeoutPropName] == null) {
+	        return new Error(timeoutPropName + ' wasn\'t supplied to ReactCSSTransitionGroup: ' + 'this can cause unreliable animations and won\'t be supported in ' + 'a future version of React. See ' + 'https://fb.me/react-animation-transition-group-timeout for more ' + 'information.');
+
+	        // If the duration isn't a number
+	      } else if (typeof props[timeoutPropName] !== 'number') {
+	          return new Error(timeoutPropName + ' must be a number (in milliseconds)');
+	        }
+	    }
+	  };
+	}
+
+	var ReactCSSTransitionGroup = React.createClass({
+	  displayName: 'ReactCSSTransitionGroup',
+
+	  propTypes: {
+	    transitionName: ReactCSSTransitionGroupChild.propTypes.name,
+
+	    transitionAppear: React.PropTypes.bool,
+	    transitionEnter: React.PropTypes.bool,
+	    transitionLeave: React.PropTypes.bool,
+	    transitionAppearTimeout: createTransitionTimeoutPropValidator('Appear'),
+	    transitionEnterTimeout: createTransitionTimeoutPropValidator('Enter'),
+	    transitionLeaveTimeout: createTransitionTimeoutPropValidator('Leave')
+	  },
+
+	  getDefaultProps: function () {
+	    return {
+	      transitionAppear: false,
+	      transitionEnter: true,
+	      transitionLeave: true
+	    };
+	  },
+
+	  _wrapChild: function (child) {
+	    // We need to provide this childFactory so that
+	    // ReactCSSTransitionGroupChild can receive updates to name, enter, and
+	    // leave while it is leaving.
+	    return React.createElement(ReactCSSTransitionGroupChild, {
+	      name: this.props.transitionName,
+	      appear: this.props.transitionAppear,
+	      enter: this.props.transitionEnter,
+	      leave: this.props.transitionLeave,
+	      appearTimeout: this.props.transitionAppearTimeout,
+	      enterTimeout: this.props.transitionEnterTimeout,
+	      leaveTimeout: this.props.transitionLeaveTimeout
+	    }, child);
+	  },
+
+	  render: function () {
+	    return React.createElement(ReactTransitionGroup, assign({}, this.props, { childFactory: this._wrapChild }));
+	  }
+	});
+
+	module.exports = ReactCSSTransitionGroup;
+
+/***/ },
+/* 245 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule ReactTransitionGroup
+	 */
+
+	'use strict';
+
+	var React = __webpack_require__(3);
+	var ReactTransitionChildMapping = __webpack_require__(246);
+
+	var assign = __webpack_require__(40);
+	var emptyFunction = __webpack_require__(16);
+
+	var ReactTransitionGroup = React.createClass({
+	  displayName: 'ReactTransitionGroup',
+
+	  propTypes: {
+	    component: React.PropTypes.any,
+	    childFactory: React.PropTypes.func
+	  },
+
+	  getDefaultProps: function () {
+	    return {
+	      component: 'span',
+	      childFactory: emptyFunction.thatReturnsArgument
+	    };
+	  },
+
+	  getInitialState: function () {
+	    return {
+	      children: ReactTransitionChildMapping.getChildMapping(this.props.children)
+	    };
+	  },
+
+	  componentWillMount: function () {
+	    this.currentlyTransitioningKeys = {};
+	    this.keysToEnter = [];
+	    this.keysToLeave = [];
+	  },
+
+	  componentDidMount: function () {
+	    var initialChildMapping = this.state.children;
+	    for (var key in initialChildMapping) {
+	      if (initialChildMapping[key]) {
+	        this.performAppear(key);
+	      }
+	    }
+	  },
+
+	  componentWillReceiveProps: function (nextProps) {
+	    var nextChildMapping = ReactTransitionChildMapping.getChildMapping(nextProps.children);
+	    var prevChildMapping = this.state.children;
+
+	    this.setState({
+	      children: ReactTransitionChildMapping.mergeChildMappings(prevChildMapping, nextChildMapping)
+	    });
+
+	    var key;
+
+	    for (key in nextChildMapping) {
+	      var hasPrev = prevChildMapping && prevChildMapping.hasOwnProperty(key);
+	      if (nextChildMapping[key] && !hasPrev && !this.currentlyTransitioningKeys[key]) {
+	        this.keysToEnter.push(key);
+	      }
+	    }
+
+	    for (key in prevChildMapping) {
+	      var hasNext = nextChildMapping && nextChildMapping.hasOwnProperty(key);
+	      if (prevChildMapping[key] && !hasNext && !this.currentlyTransitioningKeys[key]) {
+	        this.keysToLeave.push(key);
+	      }
+	    }
+
+	    // If we want to someday check for reordering, we could do it here.
+	  },
+
+	  componentDidUpdate: function () {
+	    var keysToEnter = this.keysToEnter;
+	    this.keysToEnter = [];
+	    keysToEnter.forEach(this.performEnter);
+
+	    var keysToLeave = this.keysToLeave;
+	    this.keysToLeave = [];
+	    keysToLeave.forEach(this.performLeave);
+	  },
+
+	  performAppear: function (key) {
+	    this.currentlyTransitioningKeys[key] = true;
+
+	    var component = this.refs[key];
+
+	    if (component.componentWillAppear) {
+	      component.componentWillAppear(this._handleDoneAppearing.bind(this, key));
+	    } else {
+	      this._handleDoneAppearing(key);
+	    }
+	  },
+
+	  _handleDoneAppearing: function (key) {
+	    var component = this.refs[key];
+	    if (component.componentDidAppear) {
+	      component.componentDidAppear();
+	    }
+
+	    delete this.currentlyTransitioningKeys[key];
+
+	    var currentChildMapping = ReactTransitionChildMapping.getChildMapping(this.props.children);
+
+	    if (!currentChildMapping || !currentChildMapping.hasOwnProperty(key)) {
+	      // This was removed before it had fully appeared. Remove it.
+	      this.performLeave(key);
+	    }
+	  },
+
+	  performEnter: function (key) {
+	    this.currentlyTransitioningKeys[key] = true;
+
+	    var component = this.refs[key];
+
+	    if (component.componentWillEnter) {
+	      component.componentWillEnter(this._handleDoneEntering.bind(this, key));
+	    } else {
+	      this._handleDoneEntering(key);
+	    }
+	  },
+
+	  _handleDoneEntering: function (key) {
+	    var component = this.refs[key];
+	    if (component.componentDidEnter) {
+	      component.componentDidEnter();
+	    }
+
+	    delete this.currentlyTransitioningKeys[key];
+
+	    var currentChildMapping = ReactTransitionChildMapping.getChildMapping(this.props.children);
+
+	    if (!currentChildMapping || !currentChildMapping.hasOwnProperty(key)) {
+	      // This was removed before it had fully entered. Remove it.
+	      this.performLeave(key);
+	    }
+	  },
+
+	  performLeave: function (key) {
+	    this.currentlyTransitioningKeys[key] = true;
+
+	    var component = this.refs[key];
+	    if (component.componentWillLeave) {
+	      component.componentWillLeave(this._handleDoneLeaving.bind(this, key));
+	    } else {
+	      // Note that this is somewhat dangerous b/c it calls setState()
+	      // again, effectively mutating the component before all the work
+	      // is done.
+	      this._handleDoneLeaving(key);
+	    }
+	  },
+
+	  _handleDoneLeaving: function (key) {
+	    var component = this.refs[key];
+
+	    if (component.componentDidLeave) {
+	      component.componentDidLeave();
+	    }
+
+	    delete this.currentlyTransitioningKeys[key];
+
+	    var currentChildMapping = ReactTransitionChildMapping.getChildMapping(this.props.children);
+
+	    if (currentChildMapping && currentChildMapping.hasOwnProperty(key)) {
+	      // This entered again before it fully left. Add it again.
+	      this.performEnter(key);
+	    } else {
+	      this.setState(function (state) {
+	        var newChildren = assign({}, state.children);
+	        delete newChildren[key];
+	        return { children: newChildren };
+	      });
+	    }
+	  },
+
+	  render: function () {
+	    // TODO: we could get rid of the need for the wrapper node
+	    // by cloning a single child
+	    var childrenToRender = [];
+	    for (var key in this.state.children) {
+	      var child = this.state.children[key];
+	      if (child) {
+	        // You may need to apply reactive updates to a child as it is leaving.
+	        // The normal React way to do it won't work since the child will have
+	        // already been removed. In case you need this behavior you can provide
+	        // a childFactory function to wrap every child, even the ones that are
+	        // leaving.
+	        childrenToRender.push(React.cloneElement(this.props.childFactory(child), { ref: key, key: key }));
+	      }
+	    }
+	    return React.createElement(this.props.component, this.props, childrenToRender);
+	  }
+	});
+
+	module.exports = ReactTransitionGroup;
+
+/***/ },
+/* 246 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @typechecks static-only
+	 * @providesModule ReactTransitionChildMapping
+	 */
+
+	'use strict';
+
+	var flattenChildren = __webpack_require__(117);
+
+	var ReactTransitionChildMapping = {
+	  /**
+	   * Given `this.props.children`, return an object mapping key to child. Just
+	   * simple syntactic sugar around flattenChildren().
+	   *
+	   * @param {*} children `this.props.children`
+	   * @return {object} Mapping of key to child
+	   */
+	  getChildMapping: function (children) {
+	    if (!children) {
+	      return children;
+	    }
+	    return flattenChildren(children);
+	  },
+
+	  /**
+	   * When you're adding or removing children some may be added or removed in the
+	   * same render pass. We want to show *both* since we want to simultaneously
+	   * animate elements in and out. This function takes a previous set of keys
+	   * and a new set of keys and merges them with its best guess of the correct
+	   * ordering. In the future we may expose some of the utilities in
+	   * ReactMultiChild to make this easy, but for now React itself does not
+	   * directly have this concept of the union of prevChildren and nextChildren
+	   * so we implement it here.
+	   *
+	   * @param {object} prev prev children as returned from
+	   * `ReactTransitionChildMapping.getChildMapping()`.
+	   * @param {object} next next children as returned from
+	   * `ReactTransitionChildMapping.getChildMapping()`.
+	   * @return {object} a key set that contains all keys in `prev` and all keys
+	   * in `next` in a reasonable order.
+	   */
+	  mergeChildMappings: function (prev, next) {
+	    prev = prev || {};
+	    next = next || {};
+
+	    function getValueForKey(key) {
+	      if (next.hasOwnProperty(key)) {
+	        return next[key];
+	      } else {
+	        return prev[key];
+	      }
+	    }
+
+	    // For each key of `next`, the list of keys to insert before that key in
+	    // the combined list
+	    var nextKeysPending = {};
+
+	    var pendingKeys = [];
+	    for (var prevKey in prev) {
+	      if (next.hasOwnProperty(prevKey)) {
+	        if (pendingKeys.length) {
+	          nextKeysPending[prevKey] = pendingKeys;
+	          pendingKeys = [];
+	        }
+	      } else {
+	        pendingKeys.push(prevKey);
+	      }
+	    }
+
+	    var i;
+	    var childMapping = {};
+	    for (var nextKey in next) {
+	      if (nextKeysPending.hasOwnProperty(nextKey)) {
+	        for (i = 0; i < nextKeysPending[nextKey].length; i++) {
+	          var pendingNextKey = nextKeysPending[nextKey][i];
+	          childMapping[nextKeysPending[nextKey][i]] = getValueForKey(pendingNextKey);
+	        }
+	      }
+	      childMapping[nextKey] = getValueForKey(nextKey);
+	    }
+
+	    // Finally, add the keys which didn't appear before any key in `next`
+	    for (i = 0; i < pendingKeys.length; i++) {
+	      childMapping[pendingKeys[i]] = getValueForKey(pendingKeys[i]);
+	    }
+
+	    return childMapping;
+	  }
+	};
+
+	module.exports = ReactTransitionChildMapping;
+
+/***/ },
+/* 247 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @typechecks
+	 * @providesModule ReactCSSTransitionGroupChild
+	 */
+
+	'use strict';
+
+	var React = __webpack_require__(3);
+	var ReactDOM = __webpack_require__(4);
+
+	var CSSCore = __webpack_require__(248);
+	var ReactTransitionEvents = __webpack_require__(249);
+
+	var onlyChild = __webpack_require__(157);
+
+	// We don't remove the element from the DOM until we receive an animationend or
+	// transitionend event. If the user screws up and forgets to add an animation
+	// their node will be stuck in the DOM forever, so we detect if an animation
+	// does not start and if it doesn't, we just call the end listener immediately.
+	var TICK = 17;
+
+	var ReactCSSTransitionGroupChild = React.createClass({
+	  displayName: 'ReactCSSTransitionGroupChild',
+
+	  propTypes: {
+	    name: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.shape({
+	      enter: React.PropTypes.string,
+	      leave: React.PropTypes.string,
+	      active: React.PropTypes.string
+	    }), React.PropTypes.shape({
+	      enter: React.PropTypes.string,
+	      enterActive: React.PropTypes.string,
+	      leave: React.PropTypes.string,
+	      leaveActive: React.PropTypes.string,
+	      appear: React.PropTypes.string,
+	      appearActive: React.PropTypes.string
+	    })]).isRequired,
+
+	    // Once we require timeouts to be specified, we can remove the
+	    // boolean flags (appear etc.) and just accept a number
+	    // or a bool for the timeout flags (appearTimeout etc.)
+	    appear: React.PropTypes.bool,
+	    enter: React.PropTypes.bool,
+	    leave: React.PropTypes.bool,
+	    appearTimeout: React.PropTypes.number,
+	    enterTimeout: React.PropTypes.number,
+	    leaveTimeout: React.PropTypes.number
+	  },
+
+	  transition: function (animationType, finishCallback, userSpecifiedDelay) {
+	    var node = ReactDOM.findDOMNode(this);
+
+	    if (!node) {
+	      if (finishCallback) {
+	        finishCallback();
+	      }
+	      return;
+	    }
+
+	    var className = this.props.name[animationType] || this.props.name + '-' + animationType;
+	    var activeClassName = this.props.name[animationType + 'Active'] || className + '-active';
+	    var timeout = null;
+
+	    var endListener = function (e) {
+	      if (e && e.target !== node) {
+	        return;
+	      }
+
+	      clearTimeout(timeout);
+
+	      CSSCore.removeClass(node, className);
+	      CSSCore.removeClass(node, activeClassName);
+
+	      ReactTransitionEvents.removeEndEventListener(node, endListener);
+
+	      // Usually this optional callback is used for informing an owner of
+	      // a leave animation and telling it to remove the child.
+	      if (finishCallback) {
+	        finishCallback();
+	      }
+	    };
+
+	    CSSCore.addClass(node, className);
+
+	    // Need to do this to actually trigger a transition.
+	    this.queueClass(activeClassName);
+
+	    // If the user specified a timeout delay.
+	    if (userSpecifiedDelay) {
+	      // Clean-up the animation after the specified delay
+	      timeout = setTimeout(endListener, userSpecifiedDelay);
+	      this.transitionTimeouts.push(timeout);
+	    } else {
+	      // DEPRECATED: this listener will be removed in a future version of react
+	      ReactTransitionEvents.addEndEventListener(node, endListener);
+	    }
+	  },
+
+	  queueClass: function (className) {
+	    this.classNameQueue.push(className);
+
+	    if (!this.timeout) {
+	      this.timeout = setTimeout(this.flushClassNameQueue, TICK);
+	    }
+	  },
+
+	  flushClassNameQueue: function () {
+	    if (this.isMounted()) {
+	      this.classNameQueue.forEach(CSSCore.addClass.bind(CSSCore, ReactDOM.findDOMNode(this)));
+	    }
+	    this.classNameQueue.length = 0;
+	    this.timeout = null;
+	  },
+
+	  componentWillMount: function () {
+	    this.classNameQueue = [];
+	    this.transitionTimeouts = [];
+	  },
+
+	  componentWillUnmount: function () {
+	    if (this.timeout) {
+	      clearTimeout(this.timeout);
+	    }
+	    this.transitionTimeouts.forEach(function (timeout) {
+	      clearTimeout(timeout);
+	    });
+	  },
+
+	  componentWillAppear: function (done) {
+	    if (this.props.appear) {
+	      this.transition('appear', done, this.props.appearTimeout);
+	    } else {
+	      done();
+	    }
+	  },
+
+	  componentWillEnter: function (done) {
+	    if (this.props.enter) {
+	      this.transition('enter', done, this.props.enterTimeout);
+	    } else {
+	      done();
+	    }
+	  },
+
+	  componentWillLeave: function (done) {
+	    if (this.props.leave) {
+	      this.transition('leave', done, this.props.leaveTimeout);
+	    } else {
+	      done();
+	    }
+	  },
+
+	  render: function () {
+	    return onlyChild(this.props.children);
+	  }
+	});
+
+	module.exports = ReactCSSTransitionGroupChild;
+
+/***/ },
+/* 248 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule CSSCore
+	 * @typechecks
+	 */
+
+	'use strict';
+
+	var invariant = __webpack_require__(14);
+
+	/**
+	 * The CSSCore module specifies the API (and implements most of the methods)
+	 * that should be used when dealing with the display of elements (via their
+	 * CSS classes and visibility on screen. It is an API focused on mutating the
+	 * display and not reading it as no logical state should be encoded in the
+	 * display of elements.
+	 */
+
+	var CSSCore = {
+
+	  /**
+	   * Adds the class passed in to the element if it doesn't already have it.
+	   *
+	   * @param {DOMElement} element the element to set the class on
+	   * @param {string} className the CSS className
+	   * @return {DOMElement} the element passed in
+	   */
+	  addClass: function (element, className) {
+	    !!/\s/.test(className) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'CSSCore.addClass takes only a single class name. "%s" contains ' + 'multiple classes.', className) : invariant(false) : undefined;
+
+	    if (className) {
+	      if (element.classList) {
+	        element.classList.add(className);
+	      } else if (!CSSCore.hasClass(element, className)) {
+	        element.className = element.className + ' ' + className;
+	      }
+	    }
+	    return element;
+	  },
+
+	  /**
+	   * Removes the class passed in from the element
+	   *
+	   * @param {DOMElement} element the element to set the class on
+	   * @param {string} className the CSS className
+	   * @return {DOMElement} the element passed in
+	   */
+	  removeClass: function (element, className) {
+	    !!/\s/.test(className) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'CSSCore.removeClass takes only a single class name. "%s" contains ' + 'multiple classes.', className) : invariant(false) : undefined;
+
+	    if (className) {
+	      if (element.classList) {
+	        element.classList.remove(className);
+	      } else if (CSSCore.hasClass(element, className)) {
+	        element.className = element.className.replace(new RegExp('(^|\\s)' + className + '(?:\\s|$)', 'g'), '$1').replace(/\s+/g, ' ') // multiple spaces to one
+	        .replace(/^\s*|\s*$/g, ''); // trim the ends
+	      }
+	    }
+	    return element;
+	  },
+
+	  /**
+	   * Helper to add or remove a class from an element based on a condition.
+	   *
+	   * @param {DOMElement} element the element to set the class on
+	   * @param {string} className the CSS className
+	   * @param {*} bool condition to whether to add or remove the class
+	   * @return {DOMElement} the element passed in
+	   */
+	  conditionClass: function (element, className, bool) {
+	    return (bool ? CSSCore.addClass : CSSCore.removeClass)(element, className);
+	  },
+
+	  /**
+	   * Tests whether the element has the class specified.
+	   *
+	   * @param {DOMNode|DOMWindow} element the element to set the class on
+	   * @param {string} className the CSS className
+	   * @return {boolean} true if the element has the class, false if not
+	   */
+	  hasClass: function (element, className) {
+	    !!/\s/.test(className) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'CSS.hasClass takes only a single class name.') : invariant(false) : undefined;
+	    if (element.classList) {
+	      return !!className && element.classList.contains(className);
+	    }
+	    return (' ' + element.className + ' ').indexOf(' ' + className + ' ') > -1;
+	  }
+
+	};
+
+	module.exports = CSSCore;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
+
+/***/ },
+/* 249 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule ReactTransitionEvents
+	 */
+
+	'use strict';
+
+	var ExecutionEnvironment = __webpack_require__(10);
+
+	/**
+	 * EVENT_NAME_MAP is used to determine which event fired when a
+	 * transition/animation ends, based on the style property used to
+	 * define that event.
+	 */
+	var EVENT_NAME_MAP = {
+	  transitionend: {
+	    'transition': 'transitionend',
+	    'WebkitTransition': 'webkitTransitionEnd',
+	    'MozTransition': 'mozTransitionEnd',
+	    'OTransition': 'oTransitionEnd',
+	    'msTransition': 'MSTransitionEnd'
+	  },
+
+	  animationend: {
+	    'animation': 'animationend',
+	    'WebkitAnimation': 'webkitAnimationEnd',
+	    'MozAnimation': 'mozAnimationEnd',
+	    'OAnimation': 'oAnimationEnd',
+	    'msAnimation': 'MSAnimationEnd'
+	  }
+	};
+
+	var endEvents = [];
+
+	function detectEvents() {
+	  var testEl = document.createElement('div');
+	  var style = testEl.style;
+
+	  // On some platforms, in particular some releases of Android 4.x,
+	  // the un-prefixed "animation" and "transition" properties are defined on the
+	  // style object but the events that fire will still be prefixed, so we need
+	  // to check if the un-prefixed events are useable, and if not remove them
+	  // from the map
+	  if (!('AnimationEvent' in window)) {
+	    delete EVENT_NAME_MAP.animationend.animation;
+	  }
+
+	  if (!('TransitionEvent' in window)) {
+	    delete EVENT_NAME_MAP.transitionend.transition;
+	  }
+
+	  for (var baseEventName in EVENT_NAME_MAP) {
+	    var baseEvents = EVENT_NAME_MAP[baseEventName];
+	    for (var styleName in baseEvents) {
+	      if (styleName in style) {
+	        endEvents.push(baseEvents[styleName]);
+	        break;
+	      }
+	    }
+	  }
+	}
+
+	if (ExecutionEnvironment.canUseDOM) {
+	  detectEvents();
+	}
+
+	// We use the raw {add|remove}EventListener() call because EventListener
+	// does not know how to remove event listeners and we really should
+	// clean up. Also, these events are not triggered in older browsers
+	// so we should be A-OK here.
+
+	function addEventListener(node, eventName, eventListener) {
+	  node.addEventListener(eventName, eventListener, false);
+	}
+
+	function removeEventListener(node, eventName, eventListener) {
+	  node.removeEventListener(eventName, eventListener, false);
+	}
+
+	var ReactTransitionEvents = {
+	  addEndEventListener: function (node, eventListener) {
+	    if (endEvents.length === 0) {
+	      // If CSS transitions are not supported, trigger an "end animation"
+	      // event immediately.
+	      window.setTimeout(eventListener, 0);
+	      return;
+	    }
+	    endEvents.forEach(function (endEvent) {
+	      addEventListener(node, endEvent, eventListener);
+	    });
+	  },
+
+	  removeEndEventListener: function (node, eventListener) {
+	    if (endEvents.length === 0) {
+	      return;
+	    }
+	    endEvents.forEach(function (endEvent) {
+	      removeEventListener(node, endEvent, eventListener);
+	    });
+	  }
+	};
+
+	module.exports = ReactTransitionEvents;
+
+/***/ },
+/* 250 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(218);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var DialogTitle = (function (_Component) {
+	    _inherits(DialogTitle, _Component);
+
+	    function DialogTitle(props, context) {
+	        _classCallCheck(this, DialogTitle);
+
+	        _Component.call(this, props, context);
+	    }
+
+	    DialogTitle.prototype.render = function render() {
+	        return _react2['default'].createElement(
+	            'h2',
+	            _extends({}, this.props, { className: _classnames2['default']('dialog-title', this.props.className) }),
+	            this.props.children
+	        );
+	    };
+
+	    return DialogTitle;
+	})(_react.Component);
+
+	exports['default'] = DialogTitle;
+	module.exports = exports['default'];
+
+/***/ },
+/* 251 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(218);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var DialogBody = (function (_Component) {
+	    _inherits(DialogBody, _Component);
+
+	    function DialogBody(props, context) {
+	        _classCallCheck(this, DialogBody);
+
+	        _Component.call(this, props, context);
+	    }
+
+	    DialogBody.prototype.render = function render() {
+	        return _react2['default'].createElement(
+	            'div',
+	            _extends({}, this.props, { className: _classnames2['default']('dialog-body', this.props.className) }),
+	            this.props.children
+	        );
+	    };
+
+	    return DialogBody;
+	})(_react.Component);
+
+	exports['default'] = DialogBody;
+	module.exports = exports['default'];
+
+/***/ },
+/* 252 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(218);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var DialogFooter = (function (_Component) {
+	    _inherits(DialogFooter, _Component);
+
+	    function DialogFooter(props, context) {
+	        _classCallCheck(this, DialogFooter);
+
+	        _Component.call(this, props, context);
+	    }
+
+	    DialogFooter.prototype.render = function render() {
+	        return _react2['default'].createElement(
+	            'div',
+	            _extends({}, this.props, { className: _classnames2['default']('dialog-footer', this.props.className) }),
+	            this.props.children
+	        );
+	    };
+
+	    return DialogFooter;
+	})(_react.Component);
+
+	exports['default'] = DialogFooter;
+	module.exports = exports['default'];
+
+/***/ },
+/* 253 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(159);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _utilsComponent = __webpack_require__(217);
+
+	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
+
+	var _classnames = __webpack_require__(218);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	/**
+	 * 功能组件-飘字
+	 * @class Toast
+	 * @module Action
+	 * @extends Component
+	 * @constructor
+	 * @demo toast.js {展示}
+	 * @demo toast.js {源码}
+	 * @show true
+	 * */
+
+	var Toast = (function (_Component) {
+	    _inherits(Toast, _Component);
+
+	    _createClass(Toast, null, [{
 	        key: 'propTypes',
 	        value: {
 	            /**
@@ -28260,8 +29497,312 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, {
 	        key: 'defaultProps',
 	        value: {
-	            left: [],
-	            right: [],
+	            componentTag: 'div',
+	            classMapping: {}
+	        },
+	        enumerable: true
+	    }]);
+
+	    function Toast(props, context) {
+	        _classCallCheck(this, Toast);
+
+	        _Component.call(this, props, context);
+	    }
+
+	    Toast.prototype.render = function render() {
+	        var Component = this.props.componentTag;
+
+	        return _react2['default'].createElement(
+	            Component,
+	            _extends({}, this.props, { className: _classnames2['default']('toast') }),
+	            _react2['default'].createElement('div', { className: 'toast-shadow' }),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'toast-main' },
+	                _react2['default'].createElement(
+	                    'div',
+	                    { className: _classnames2['default']("toast-content") },
+	                    this.props.children
+	                )
+	            )
+	        );
+	    };
+
+	    return Toast;
+	})(_utilsComponent2['default']);
+
+	var _layer = document.createElement('div'),
+	    timer = null;
+
+	window.onhashchange = function () {
+	    // 处理url变动时手动插入dom不消失
+	    _unrenderLayer();
+	};
+
+	function renderLayer(content) {
+	    return _react2['default'].createElement(
+	        Toast,
+	        null,
+	        content
+	    );
+	}
+
+	function _renderLayer(layerElement, duration, callback) {
+	    _reactDom2['default'].render(layerElement, _layer);
+	    document.body.appendChild(_layer);
+
+	    timer = setTimeout(function () {
+	        _unrenderLayer();
+	        clearTimeout(timer);
+	        callback();
+	    }, duration);
+	}
+
+	function _unrenderLayer() {
+	    _reactDom2['default'].unmountComponentAtNode(_layer);
+	}
+
+	exports['default'] = {
+	    info: function info(content, duration, callback) {
+	        var layerElement = renderLayer(content);
+	        _renderLayer(layerElement, duration, callback);
+	    },
+	    remove: function remove() {
+	        _unrenderLayer();
+	        clearTimeout(timer);
+	    }
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 254 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utilsComponent = __webpack_require__(217);
+
+	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
+
+	var _classnames = __webpack_require__(218);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _Animate = __webpack_require__(242);
+
+	var _Animate2 = _interopRequireDefault(_Animate);
+
+	/**
+	 * 功能组件-弹框
+	 * @class Popup
+	 * @module Action
+	 * @extends Component
+	 * @constructor
+	 * @demo popup.js {展示}
+	 * @demo popup.js {源码}
+	 * @show true
+	 * */
+
+	var Popup = (function (_Component) {
+	    _inherits(Popup, _Component);
+
+	    _createClass(Popup, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 标签tagName
+	             * @property componentTag
+	             * @type String
+	             * */
+	            componentTag: _react.PropTypes.string,
+	            visible: _react.PropTypes.bool
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            visible: false,
+	            align: 'top',
+	            componentTag: 'div',
+	            classMapping: {
+	                'top': 'popup-top',
+	                'bottom': 'popup-bottom'
+	            }
+	        },
+	        enumerable: true
+	    }]);
+
+	    function Popup(props, context) {
+	        _classCallCheck(this, Popup);
+
+	        _Component.call(this, props, context);
+	    }
+
+	    Popup.prototype.renderShadow = function renderShadow() {
+	        var _props = this.props;
+	        var visible = _props.visible;
+	        var onClose = _props.onClose;
+
+	        if (visible) {
+	            return _react2['default'].createElement('div', { className: 'popup-shadow animated', onClick: onClose });
+	        } else {
+	            return '';
+	        }
+	    };
+
+	    // renderChildren(){
+	    //     let newChildren = [];
+	    //     let {visible, align, onClose, classMapping} = this.props;
+	    //
+	    //     React.Children.forEach(this.props.children, function(child, index){
+	    //         console.log(child.type.name);
+	    //
+	    //         newChildren.push(React.cloneElement(child,{
+	    //             key: index,
+	    //             align: align,
+	    //             visible: visible,
+	    //             onClose: onClose,
+	    //             classMapping: classMapping
+	    //         }));
+	    //     });
+	    //
+	    //     return newChildren;
+	    // }
+
+	    Popup.prototype.renderPopup = function renderPopup() {
+	        var _props2 = this.props;
+	        var visible = _props2.visible;
+	        var children = _props2.children;
+	        var className = _props2.className;
+
+	        if (visible) {
+	            return _react2['default'].createElement(
+	                'div',
+	                _extends({}, this.props, { className: _classnames2['default']('popup-main', 'animated', className) }),
+	                children
+	            );
+	        } else {
+	            return '';
+	        }
+	    };
+
+	    Popup.prototype.render = function render() {
+	        var _props3 = this.props;
+	        var Component = _props3.componentTag;
+	        var className = _props3.className;
+
+	        return _react2['default'].createElement(
+	            Component,
+	            _extends({}, this.props, { className: _classnames2['default']('popup', this.getProperty(), className) }),
+	            _react2['default'].createElement(
+	                _Animate2['default'],
+	                null,
+	                this.renderShadow()
+	            ),
+	            _react2['default'].createElement(
+	                _Animate2['default'],
+	                { className: 'popup-content', transitionName: 'slide-' + this.props.align },
+	                this.renderPopup()
+	            )
+	        );
+	    };
+
+	    return Popup;
+	})(_utilsComponent2['default']);
+
+	exports['default'] = Popup;
+	module.exports = exports['default'];
+
+/***/ },
+/* 255 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utilsComponent = __webpack_require__(217);
+
+	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
+
+	var _classnames = __webpack_require__(218);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _AccordionHeader = __webpack_require__(256);
+
+	var _AccordionHeader2 = _interopRequireDefault(_AccordionHeader);
+
+	var _AccordionBody = __webpack_require__(257);
+
+	var _AccordionBody2 = _interopRequireDefault(_AccordionBody);
+
+	/**
+	 * 手风琴
+	 * @class Accordion
+	 * @module Action
+	 * @extends Component
+	 * @constructor
+	 * @demo accordion.js {展示}
+	 * @demo accordion.js {源码}
+	 * @show true
+	 * */
+
+	var Accordion = (function (_Component) {
+	    _inherits(Accordion, _Component);
+
+	    _createClass(Accordion, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * */
+	            classPrefix: _react.PropTypes.string,
+	            /**
+	             * 标签tagName
+	             * @property componentTag
+	             * @type String
+	             * */
+	            componentTag: _react.PropTypes.string,
+	            visible: _react.PropTypes.bool
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            visible: false,
 	            egSize: '',
 	            classPrefix: '',
 	            componentTag: 'div',
@@ -28270,120 +29811,173 @@ return /******/ (function(modules) { // webpackBootstrap
 	        enumerable: true
 	    }]);
 
-	    function Modal(props, context) {
-	        _classCallCheck(this, Modal);
+	    function Accordion(props, context) {
+	        _classCallCheck(this, Accordion);
 
 	        _Component.call(this, props, context);
-
-	        this.state = {
-	            translateX: -1,
-	            preTranslateX: -1,
-	            btnsWidth: 0,
-	            isBtnsShow: false,
-	            OPE_RANGE: 10
-
-	        };
 	    }
 
-	    Modal.prototype.renderOperationButton = function renderOperationButton(buttons) {
-	        var buttonsDom = [];
+	    Accordion.prototype.renderChildren = function renderChildren() {
+	        var newChildren = [];
+	        var _props = this.props;
+	        var visible = _props.visible;
+	        var onChange = _props.onChange;
 
-	        if (buttons.length != 0) buttonsDom.push(this.renderButtonByType(buttons));
+	        _react2['default'].Children.forEach(this.props.children, function (child, index) {
+	            newChildren.push(_react2['default'].cloneElement(child, {
+	                key: index,
+	                visible: visible,
+	                onChange: onChange
+	            }));
+	        });
 
-	        return buttonsDom;
+	        return newChildren;
 	    };
 
-	    Modal.prototype.renderButtonByType = function renderButtonByType(btnInfo) {
-	        var _this = this;
+	    Accordion.prototype.render = function render() {
+	        var _props2 = this.props;
+	        var Component = _props2.componentTag;
+	        var className = _props2.className;
 
 	        return _react2['default'].createElement(
-	            'div',
-	            { className: 'swipe-btns', key: 'buttons', ref: function (buttons) {
-	                    _this.buttons = buttons;
-	                } },
-	            btnInfo.map(function (item, index) {
-	                return _react2['default'].createElement(
-	                    _Button2['default'],
-	                    { key: index, phStyle: item.phStyle },
-	                    item.text
-	                );
-	            })
+	            Component,
+	            _extends({}, this.props, { className: _classnames2['default']('accordion', this.getProperty(), className) }),
+	            this.renderChildren()
 	        );
 	    };
 
-	    Modal.prototype.componentDidMount = function componentDidMount() {
-	        // 获取btns的宽度
-	        this.state.btnsWidth = this.buttons.offsetWidth;
-	    };
+	    return Accordion;
+	})(_utilsComponent2['default']);
 
-	    Modal.prototype.onDrag = function onDrag(event, position) {
-	        // position.start position.move
-	        var target = event.currentTarget;
-	        this.state.translateX = position.move.x - position.start.x + this.state.preTranslateX;
+	Accordion.Header = _AccordionHeader2['default'];
+	Accordion.Body = _AccordionBody2['default'];
 
-	        if (position.move.x < position.start.x) {
-	            this.state.isBtnsShow = true;
-	        } else {
-	            this.state.isBtnsShow = false;
-	        }
+	exports['default'] = Accordion;
+	module.exports = exports['default'];
 
-	        if (this.state.translateX >= 0) this.state.translateX = 0;
-	        if (this.state.translateX <= -this.state.btnsWidth) this.state.translateX = -this.state.btnsWidth;
+/***/ },
+/* 256 */
+/***/ function(module, exports, __webpack_require__) {
 
-	        target.style.transform = 'translateX(' + this.state.translateX + 'px)';
-	    };
+	'use strict';
 
-	    Modal.prototype.onDrop = function onDrop(event, position) {
-	        // position.end
-	        var target = event.currentTarget;
+	exports.__esModule = true;
 
-	        if (Math.abs(this.state.translateX) < 10) {
-	            // 微弱操作保持不变
-	            this.state.isBtnsShow = !this.state.isBtnsShow;
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-	            if (this.state.isBtnsShow) {
-	                this.state.translateX = 0;
-	            } else {
-	                this.state.translateX = -this.state.btnsWidth;
-	            }
-	        } else {
-	            if (this.state.isBtnsShow) {
-	                this.state.translateX = -this.state.btnsWidth;
-	            } else {
-	                this.state.translateX = 0;
-	            }
-	        }
-	        console.log(this.state.isBtnsShow);
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	        this.state.preTranslateX = this.state.translateX;
-	        target.style.transform = 'translateX(' + this.state.translateX + 'px)';
-	    };
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	    Modal.prototype.render = function render() {
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(218);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var AccordionHeader = (function (_Component) {
+	    _inherits(AccordionHeader, _Component);
+
+	    function AccordionHeader(props, context) {
+	        _classCallCheck(this, AccordionHeader);
+
+	        _Component.call(this, props, context);
+	    }
+
+	    AccordionHeader.prototype.render = function render() {
 	        var _props = this.props;
-	        var buttons = _props.buttons;
+	        var className = _props.className;
+	        var onChange = _props.onChange;
+
+	        return _react2['default'].createElement(
+	            'div',
+	            _extends({ className: _classnames2['default']('accordion-header', className),
+	                onClick: onChange
+	            }, this.props),
+	            this.props.children
+	        );
+	    };
+
+	    return AccordionHeader;
+	})(_react.Component);
+
+	exports['default'] = AccordionHeader;
+	module.exports = exports['default'];
+
+/***/ },
+/* 257 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(218);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var AccordionBody = (function (_Component) {
+	    _inherits(AccordionBody, _Component);
+
+	    function AccordionBody(props, context) {
+	        _classCallCheck(this, AccordionBody);
+
+	        _Component.call(this, props, context);
+
+	        this.height = 0;
+	    }
+
+	    AccordionBody.prototype.componentDidMount = function componentDidMount() {
+	        this.height = this.accordionBody.offsetHeight;
+	    };
+
+	    AccordionBody.prototype.render = function render() {
+	        var _this = this;
+
+	        var _props = this.props;
+	        var visible = _props.visible;
+	        var children = _props.children;
 	        var className = _props.className;
 
 	        return _react2['default'].createElement(
 	            'div',
-	            { className: _classnames2['default']('swipe-action', className) },
+	            _extends({}, this.props, { className: _classnames2['default']('accordion-body', 'animated', className), style: {
+	                    height: visible ? this.height + 'px' : '0'
+	                } }),
 	            _react2['default'].createElement(
-	                _Drag2['default'],
-	                { onDrag: this.onDrag.bind(this), onDrop: this.onDrop.bind(this) },
-	                this.props.children
-	            ),
-	            this.renderOperationButton(buttons)
+	                'div',
+	                { ref: function (accordionBody) {
+	                        _this.accordionBody = accordionBody;
+	                    } },
+	                children
+	            )
 	        );
 	    };
 
-	    return Modal;
-	})(_utilsComponent2['default']);
+	    return AccordionBody;
+	})(_react.Component);
 
-	exports['default'] = Modal;
+	exports['default'] = AccordionBody;
 	module.exports = exports['default'];
 
 /***/ },
-/* 242 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28477,7 +30071,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 243 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28524,7 +30118,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            'div',
-	            { style: { padding: '20px' } },
+	            null,
 	            _react2['default'].createElement(_srcIndex.Input, { type: 'text', value: this.state.name, onChange: (_context = this.setValue).bind.call(_context, this, 'name') }),
 	            _react2['default'].createElement(
 	                _srcIndex.Row,
@@ -28551,7 +30145,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 244 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28583,8 +30177,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _Component.call(this, props, context);
 
 	        this.state = {
-	            name: 'wwwww',
-	            wordsNum: 0
+	            name: '',
+	            MAX_LENGTH: 100
 	        };
 	    }
 
@@ -28598,8 +30192,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return _react2['default'].createElement(
 	            'div',
 	            null,
-	            _react2['default'].createElement(_srcIndex.Textarea, { value: this.state.name, placeholder: '需要计数设置isCount为true，然后输入最大字数maxLength',
-	                onChange: this.setValue.bind(this, 'name'), isCount: true, maxLength: 10 })
+	            _react2['default'].createElement(_srcIndex.Textarea, { value: this.state.name, placeholder: '请输入...',
+	                onChange: this.setValue.bind(this, 'name'), isCount: true, maxLength: this.state.MAX_LENGTH })
 	        );
 	    };
 
@@ -28610,7 +30204,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 245 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28667,7 +30261,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 246 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29128,7 +30722,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 247 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29173,7 +30767,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    input.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            'div',
-	            { style: { padding: '20px' } },
+	            null,
 	            _react2['default'].createElement(
 	                _srcIndex.TableView,
 	                null,
@@ -29224,7 +30818,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 248 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29269,7 +30863,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    input.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            'div',
-	            { style: { padding: '20px' } },
+	            null,
 	            _react2['default'].createElement(
 	                _srcIndex.FormGroup,
 	                null,
@@ -29407,7 +31001,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 249 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29468,7 +31062,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 250 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29529,7 +31123,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 251 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -29599,7 +31193,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 252 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29649,45 +31243,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	                _react2['default'].createElement(
 	                    _srcIndex.Swipe,
 	                    {
-	                        buttons: [{ text: '删除', onHandle: this.onDelete, phStyle: 'error' }, { text: '取消', onHandle: this.onCancle, phStyle: 'gray' }]
+	                        buttons: [{ text: '删除', onHandle: this.onDelete, phStyle: 'error' }, { text: '取消', onHandle: this.onCancle, phStyle: 'info' }]
 	                    },
 	                    _react2['default'].createElement(
 	                        'div',
-	                        { style: { backgroundColor: '#fff', padding: '15px', 'borderBottom': '1px solid #ccc' } },
-	                        _react2['default'].createElement(
-	                            'span',
-	                            null,
-	                            'lalallalla'
-	                        ),
-	                        _react2['default'].createElement(
-	                            'strong',
-	                            null,
-	                            'hahahha'
-	                        )
-	                    )
-	                )
-	            ),
-	            _react2['default'].createElement(
-	                'li',
-	                null,
-	                _react2['default'].createElement(
-	                    _srcIndex.Swipe,
-	                    {
-	                        buttons: [{ text: '删除', onHandle: this.onDelete, phStyle: 'error' }, { text: '取消', onHandle: this.onCancle, phStyle: 'gray' }]
-	                    },
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { style: { backgroundColor: '#fff', padding: '15px', 'borderBottom': '1px solid #ccc' } },
-	                        _react2['default'].createElement(
-	                            'span',
-	                            null,
-	                            'lalallalla'
-	                        ),
-	                        _react2['default'].createElement(
-	                            'strong',
-	                            null,
-	                            'hahahha'
-	                        )
+	                        { style: { backgroundColor: '#fff', padding: '1rem' } },
+	                        '向左滑'
 	                    )
 	                )
 	            )
@@ -29701,7 +31262,107 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 253 */
+/* 269 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(159);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _srcIndex = __webpack_require__(208);
+
+	var dialog = (function (_Component) {
+	    _inherits(dialog, _Component);
+
+	    function dialog(props, context) {
+	        _classCallCheck(this, dialog);
+
+	        _Component.call(this, props, context);
+
+	        this.state = {
+	            visible: false
+	        };
+	    }
+
+	    dialog.prototype.onShow = function onShow() {
+	        this.setState({
+	            visible: true
+	        });
+	    };
+
+	    dialog.prototype.onClose = function onClose() {
+	        this.setState({
+	            visible: false
+	        });
+	    };
+
+	    dialog.prototype.onConfirm = function onConfirm() {
+	        this.onClose();
+	    };
+
+	    dialog.prototype.render = function render() {
+	        return _react2['default'].createElement(
+	            'div',
+	            null,
+	            _react2['default'].createElement(
+	                _srcIndex.Button,
+	                { block: true, radius: true, phSize: 'lg', phStyle: 'error', onClick: this.onShow.bind(this) },
+	                'Click To Show Dialog'
+	            ),
+	            _react2['default'].createElement(
+	                _srcIndex.Dialog,
+	                { visible: this.state.visible },
+	                _react2['default'].createElement(
+	                    _srcIndex.Dialog.Title,
+	                    null,
+	                    '标题标题'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Dialog.Body,
+	                    null,
+	                    _react2['default'].createElement('input', { type: 'text' }),
+	                    '内容内容内容内容内容内容内容内容内容内容内容内容'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Dialog.Footer,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Button,
+	                        { hollow: true, radius: true, phSize: 'lg', phStyle: 'gray', onClick: this.onClose.bind(this) },
+	                        '取消'
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Button,
+	                        { radius: true, phSize: 'lg', phStyle: 'primary', onClick: this.onConfirm.bind(this) },
+	                        '确定'
+	                    )
+	                )
+	            )
+	        );
+	    };
+
+	    return dialog;
+	})(_react.Component);
+
+	exports['default'] = dialog;
+	module.exports = exports['default'];
+
+/***/ },
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29731,30 +31392,33 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _classCallCheck(this, modal);
 
 	        _Component.call(this, props, context);
+
+	        this.state = {
+	            duration: 2000
+	        };
 	    }
+
+	    modal.prototype.showToast = function showToast() {
+	        var _this = this;
+
+	        _srcIndex.Toast.info('只显示信息的toast！！', this.state.duration, function () {
+	            // 额外的执行内容
+	            _this.test();
+	        });
+	    };
+
+	    modal.prototype.test = function test() {
+	        console.log('aahhaha');
+	    };
 
 	    modal.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            'div',
 	            null,
 	            _react2['default'].createElement(
-	                _srcIndex.ButtonGroup,
-	                { style: { width: '100%' }, phType: 'tacked' },
-	                _react2['default'].createElement(
-	                    _srcIndex.Button,
-	                    { block: true, radius: true, phSize: 'lg', phStyle: 'primary' },
-	                    'Alert'
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Button,
-	                    { block: true, radius: true, phSize: 'lg', phStyle: 'primary' },
-	                    'Confirm'
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Button,
-	                    { block: true, radius: true, phSize: 'lg', phStyle: 'primary' },
-	                    'Dialog'
-	                )
+	                _srcIndex.Button,
+	                { block: true, phSize: 'lg', phStyle: 'info', onClick: this.showToast.bind(this) },
+	                'Click Me To Show Toast'
 	            )
 	        );
 	    };
@@ -29766,7 +31430,283 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 254 */
+/* 271 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(159);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _srcIndex = __webpack_require__(208);
+
+	var popup = (function (_Component) {
+	    _inherits(popup, _Component);
+
+	    function popup(props, context) {
+	        _classCallCheck(this, popup);
+
+	        _Component.call(this, props, context);
+
+	        this.state = {
+	            topVisible: false,
+	            bottomVisible: false
+	        };
+	    }
+
+	    popup.prototype.onShowTopPopup = function onShowTopPopup() {
+	        this.setState({
+	            topVisible: true
+	        });
+	    };
+
+	    popup.prototype.onCloseTopPopup = function onCloseTopPopup() {
+	        this.setState({
+	            topVisible: false
+	        });
+	    };
+
+	    popup.prototype.onShowBottomPopup = function onShowBottomPopup() {
+	        this.setState({
+	            bottomVisible: true
+	        });
+	    };
+
+	    popup.prototype.onCloseBottomPopup = function onCloseBottomPopup() {
+	        this.setState({
+	            bottomVisible: false
+	        });
+	    };
+
+	    popup.prototype.render = function render() {
+	        return _react2['default'].createElement(
+	            'div',
+	            null,
+	            _react2['default'].createElement(
+	                _srcIndex.Button,
+	                { block: true, radius: true, phSize: 'lg', phStyle: 'primary', onClick: this.onShowTopPopup.bind(this) },
+	                'Top Popup'
+	            ),
+	            _react2['default'].createElement(
+	                _srcIndex.Popup,
+	                { align: 'top', visible: this.state.topVisible, onClose: this.onCloseTopPopup.bind(this) },
+	                _react2['default'].createElement(
+	                    'ul',
+	                    { className: 'popup-list' },
+	                    _react2['default'].createElement(
+	                        'li',
+	                        { className: 'popup-item', onClick: this.onCloseTopPopup.bind(this) },
+	                        '未上线单店'
+	                    ),
+	                    _react2['default'].createElement(
+	                        'li',
+	                        { className: 'popup-item', onClick: this.onCloseTopPopup.bind(this) },
+	                        '未上线连锁店'
+	                    ),
+	                    _react2['default'].createElement(
+	                        'li',
+	                        { className: 'popup-item', onClick: this.onCloseTopPopup.bind(this) },
+	                        '在线单店'
+	                    ),
+	                    _react2['default'].createElement(
+	                        'li',
+	                        { className: 'popup-item', onClick: this.onCloseTopPopup.bind(this) },
+	                        '在线连锁店'
+	                    )
+	                )
+	            ),
+	            _react2['default'].createElement(
+	                _srcIndex.Button,
+	                { block: true, radius: true, phSize: 'lg', phStyle: 'primary', onClick: this.onShowBottomPopup.bind(this) },
+	                'Bottom Popup'
+	            ),
+	            _react2['default'].createElement(
+	                _srcIndex.Popup,
+	                { align: 'bottom', visible: this.state.bottomVisible, onClose: this.onCloseBottomPopup.bind(this) },
+	                _react2['default'].createElement(
+	                    'div',
+	                    { className: 'popup-action-sheet' },
+	                    _react2['default'].createElement(
+	                        'ul',
+	                        null,
+	                        _react2['default'].createElement(
+	                            'li',
+	                            { className: 'popup-item popup-tip' },
+	                            '确认 删除此作品？'
+	                        ),
+	                        _react2['default'].createElement(
+	                            'li',
+	                            { className: 'popup-item popup-delete', onClick: this.onCloseBottomPopup.bind(this) },
+	                            '删除作品'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        'div',
+	                        { className: 'popup-operate', onClick: this.onCloseBottomPopup.bind(this) },
+	                        '取消'
+	                    )
+	                )
+	            )
+	        );
+	    };
+
+	    return popup;
+	})(_react.Component);
+
+	exports['default'] = popup;
+	module.exports = exports['default'];
+
+/***/ },
+/* 272 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(159);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _classnames = __webpack_require__(218);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _srcIndex = __webpack_require__(208);
+
+	var drawer = (function (_Component) {
+	    _inherits(drawer, _Component);
+
+	    function drawer(props, context) {
+	        _classCallCheck(this, drawer);
+
+	        _Component.call(this, props, context);
+
+	        this.state = {
+	            visible: false,
+	            visible1: false
+	        };
+	    }
+
+	    drawer.prototype.onChange = function onChange() {
+	        // 第一种 直接传onChange
+	        this.setState({
+	            visible: !this.state.visible
+	        });
+	    };
+
+	    drawer.prototype.onChange1 = function onChange1() {
+	        // 第二种 给Header绑定事件
+	        this.setState({
+	            visible1: !this.state.visible1
+	        });
+	    };
+
+	    drawer.prototype.render = function render() {
+	        return _react2['default'].createElement(
+	            'div',
+	            null,
+	            _react2['default'].createElement(
+	                _srcIndex.Accordion,
+	                { visible: this.state.visible, onChange: this.onChange.bind(this) },
+	                _react2['default'].createElement(
+	                    _srcIndex.Accordion.Header,
+	                    null,
+	                    '标题一',
+	                    _react2['default'].createElement('span', { className: _classnames2['default']("iconfont icon-chevron-more", this.state.visible ? 'active' : ''), style: { float: 'right' } })
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Accordion.Body,
+	                    null,
+	                    _react2['default'].createElement(
+	                        'ul',
+	                        { className: 'accordion-list' },
+	                        _react2['default'].createElement(
+	                            'li',
+	                            { className: 'accordion-item' },
+	                            '内容一'
+	                        ),
+	                        _react2['default'].createElement(
+	                            'li',
+	                            { className: 'accordion-item' },
+	                            '内容二'
+	                        ),
+	                        _react2['default'].createElement(
+	                            'li',
+	                            { className: 'accordion-item' },
+	                            '内容三'
+	                        )
+	                    )
+	                )
+	            ),
+	            _react2['default'].createElement('br', null),
+	            _react2['default'].createElement(
+	                _srcIndex.Accordion,
+	                { visible: this.state.visible1 },
+	                _react2['default'].createElement(
+	                    _srcIndex.Accordion.Header,
+	                    { onClick: this.onChange1.bind(this) },
+	                    '标题二',
+	                    _react2['default'].createElement('span', { className: _classnames2['default']("iconfont icon-chevron-more", this.state.visible1 ? 'active' : ''), style: { float: 'right' } })
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Accordion.Body,
+	                    null,
+	                    _react2['default'].createElement(
+	                        'ul',
+	                        { className: 'accordion-list' },
+	                        _react2['default'].createElement(
+	                            'li',
+	                            { className: 'accordion-item' },
+	                            '内容一'
+	                        ),
+	                        _react2['default'].createElement(
+	                            'li',
+	                            { className: 'accordion-item' },
+	                            '内容二'
+	                        ),
+	                        _react2['default'].createElement(
+	                            'li',
+	                            { className: 'accordion-item' },
+	                            '内容三'
+	                        )
+	                    )
+	                )
+	            )
+	        );
+	    };
+
+	    return drawer;
+	})(_react.Component);
+
+	exports['default'] = drawer;
+	module.exports = exports['default'];
+
+/***/ },
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30103,7 +32043,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 255 */
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
