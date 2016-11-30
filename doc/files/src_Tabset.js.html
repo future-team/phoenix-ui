@@ -52,6 +52,82 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/Action.html">Action</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Dialog.html">Dialog</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Popup.html">Popup</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Swipe.html">Swipe</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Toast.html">Toast</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Accordion.html">Accordion</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Animate.html">Animate</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/Basic.html">Basic</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Drag.html">Drag</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
                     <a href="../modules/Form.html">Form</a>
                 </dt>
                 <dd>
@@ -76,6 +152,14 @@
                        <li>
                             
                            <a href="../classes/Switch.html">Switch</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/TextArea.html">TextArea</a>
                            <ul>
                                 
                            </ul>
@@ -178,6 +262,42 @@
                        <li>
                             
                            <a href="../classes/Tabset.html">Tabset</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/Tooltip.html">Tooltip</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Whisper.html">Whisper</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/Tooltips.html">Tooltips</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Popover.html">Popover</a>
                            <ul>
                                 
                            </ul>
@@ -326,27 +446,35 @@ class Tabset extends Component {
          * */
         width: PropTypes.number,
         /**
-         * 点击事件的回调函数
-         * @property clickCallback
+         * 点击事件的回调函数,返回当前选中项
+         * @property tabCallback
          * @default null
          * */
-        clickCallback: PropTypes.func
+        tabCallback: PropTypes.func
     }
     static defaultProps = {
         activeIndex: 0,
         vertical: false,
         width: 20,
-        clickCallback: null,
-        activeCallback: null
+        tabCallback: null
     };
 
     constructor(props, context) {
         super(props, context);
         this.state = {
             activeIndex: this.props.activeIndex
-        }
+        };
+        /**
+         * 首次进入获取active
+         * */
+        this.props.tabCallback &amp;&amp; this.props.tabCallback(this.props.activeIndex);
     }
-
+    /**
+     * props再次改变，再次判断active
+     * */
+    componentWillReceiveProps(nextProps){
+        this.state.activeIndex != nextProps.activeIndex &amp;&amp; this.changeActive(nextProps.activeIndex);
+    }
     isVertial() {
         return !!this.props.vertical ? &#x27;vertical row&#x27; : &#x27;&#x27;;
     }
@@ -361,22 +489,30 @@ class Tabset extends Component {
                 activeIndex: index
             })
         }
+        this.tabHandler(index);
     }
 
     getClass(flag) {
         let vertical = this.props.vertical;
         if(flag){
             let cols = &#x27;col-&#x27;+this.props.width;
-            return !vertical ? &#x27;row&#x27;: cols;
+            return !vertical ? &#x27;row&#x27;: &#x27;col &#x27;+cols;
         }else{
             return vertical ? &#x27;col&#x27;: &#x27;&#x27;;
         }
 
     }
+    /**
+     * tab handler
+     * */
+    tabHandler(index){
+        let {tabCallback} =this.props;
+        tabCallback &amp;&amp; tabCallback(index);
+    }
 
     render() {
         let panels = [];
-        let {className,clickCallback,...other} = this.props;
+        let {className,...other} = this.props;
         let headings = React.Children.map(this.props.children, (options, index)=&gt; {
             let { vertical,...other} = options.props;
             let opt = React.cloneElement(options, {
@@ -402,7 +538,7 @@ class Tabset extends Component {
                &#x27;ui-tabs&#x27;,
                this.isVertial(),
                className
-            )} onClick={clickCallback} {...other}&gt;
+            )}  {...other}&gt;
                 &lt;ul className={this.getClass(true)}&gt;
                     {headings}
                 &lt;/ul&gt;

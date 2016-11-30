@@ -37,6 +37,13 @@
             "fors": {},
             "namespaces": {}
         },
+        "src/utils/Tool.js": {
+            "name": "src/utils/Tool.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
         "src/utils/constants.js": {
             "name": "src/utils/constants.js",
             "modules": {},
@@ -48,6 +55,24 @@
             "name": "src/utils/extend.js",
             "modules": {},
             "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Accordion.js": {
+            "name": "src/Accordion.js",
+            "modules": {},
+            "classes": {
+                "Accordion": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Animate.js": {
+            "name": "src/Animate.js",
+            "modules": {},
+            "classes": {
+                "Animate": 1
+            },
             "fors": {},
             "namespaces": {}
         },
@@ -83,6 +108,26 @@
             "modules": {},
             "classes": {
                 "Col": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Dialog.js": {
+            "name": "src/Dialog.js",
+            "modules": {},
+            "classes": {
+                "Dialog": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Drag.js": {
+            "name": "src/Drag.js",
+            "modules": {
+                "Basic": 1
+            },
+            "classes": {
+                "Drag": 1
             },
             "fors": {},
             "namespaces": {}
@@ -127,6 +172,26 @@
             "fors": {},
             "namespaces": {}
         },
+        "src/Popover.js": {
+            "name": "src/Popover.js",
+            "modules": {
+                "Tooltips": 1
+            },
+            "classes": {
+                "Popover": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Popup.js": {
+            "name": "src/Popup.js",
+            "modules": {},
+            "classes": {
+                "Popup": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src/Row.js": {
             "name": "src/Row.js",
             "modules": {},
@@ -145,11 +210,18 @@
             "fors": {},
             "namespaces": {}
         },
+        "src/Swipe.js": {
+            "name": "src/Swipe.js",
+            "modules": {},
+            "classes": {
+                "Swipe": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src/Switch.js": {
             "name": "src/Switch.js",
-            "modules": {
-                "Form": 1
-            },
+            "modules": {},
             "classes": {
                 "Switch": 1
             },
@@ -186,9 +258,60 @@
             },
             "fors": {},
             "namespaces": {}
+        },
+        "src/Textarea.js": {
+            "name": "src/Textarea.js",
+            "modules": {
+                "Form": 1
+            },
+            "classes": {
+                "TextArea": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Toast.js": {
+            "name": "src/Toast.js",
+            "modules": {
+                "Action": 1
+            },
+            "classes": {
+                "Toast": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Whisper.js": {
+            "name": "src/Whisper.js",
+            "modules": {
+                "Tooltip": 1
+            },
+            "classes": {
+                "Whisper": 1
+            },
+            "fors": {},
+            "namespaces": {}
         }
     },
     "modules": {
+        "Action": {
+            "name": "Action",
+            "submodules": {},
+            "classes": {
+                "Dialog": 1,
+                "Popup": 1,
+                "Swipe": 1,
+                "Toast": 1,
+                "Accordion": 1,
+                "Animate": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/Toast.js",
+            "line": 6,
+            "description": "功能组件-飘字"
+        },
         "Label(标签)": {
             "name": "Label(标签)",
             "submodules": {},
@@ -211,15 +334,16 @@
                 "FormGroup": 1,
                 "Input": 1,
                 "Switch": 1,
+                "TextArea": 1,
                 "Button": 1,
                 "ButtonGroup": 1
             },
             "fors": {},
             "namespaces": {},
             "tag": "module",
-            "file": "src/Switch.js",
+            "file": "src/Textarea.js",
             "line": 5,
-            "description": "开关切换，仿真ios的开关控件"
+            "description": "表单元素textarea"
         },
         "Grid": {
             "name": "Grid",
@@ -236,6 +360,32 @@
             "line": 4,
             "description": "<h5>主要栅格化布局组件</h5>\n<pre><code>\n    &#60;Grid&#62;//定义栅格\n        &#60;Col sm={6}&#62;//定义一列，总长度为12份\n            &#60;Row&#62; &#60;/Row&#62;//定义一行\n        &#60;/Col&#62;\n    &#60;/Grid&#62;\n</code></pre>\n\n<strong><a href='../classes/Grid.html'>Grid定义外框</a></strong><br>\n<strong><a href='../classes/Row.html'>Row定义行排列</a></strong><br>\n<strong><a href='../classes/Col.html'>Col定义竖排列</a></strong><br>\n<h6>点击以上链接进行相关查看</h6>",
             "itemtype": "main"
+        },
+        "Basic": {
+            "name": "Basic",
+            "submodules": {},
+            "classes": {
+                "Drag": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/Drag.js",
+            "line": 5,
+            "description": "拖动Drag"
+        },
+        "Tooltips": {
+            "name": "Tooltips",
+            "submodules": {},
+            "classes": {
+                "Popover": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/Popover.js",
+            "line": 6,
+            "description": "功能组件-气泡"
         },
         "UI": {
             "name": "UI",
@@ -267,9 +417,63 @@
             "line": 15,
             "description": "<h5>tab选项卡，主要包括一下两个组件:</h5>\n<strong><a href='../classes/Tabset.html'>tabset</a></strong><br/>\n<strong><a href='../classes/Tab.html'>tab</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
             "itemtype": "main"
+        },
+        "Tooltip": {
+            "name": "Tooltip",
+            "submodules": {},
+            "classes": {
+                "Whisper": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/Whisper.js",
+            "line": 5,
+            "description": "辅助功能组件 - 倾听者"
         }
     },
     "classes": {
+        "Accordion": {
+            "name": "Accordion",
+            "shortname": "Accordion",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Action",
+            "file": "src/Accordion.js",
+            "line": 8,
+            "description": "手风琴",
+            "extends": "Component",
+            "is_constructor": 1,
+            "example": [
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport classnames from 'classnames';\n\timport {Row, Col, Accordion} from '../../src/index';\n\t\n\texport default class drawer extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            visible: false,\n\t            visible1: false\n\t        } \n\t    }\n\t\n\t    onChange(){ // 第一种 直接传onChange\n\t        this.setState({\n\t          visible: !this.state.visible,\n\t        });\n\t    }\n\t\n\t    onChange1(){ // 第二种 给Header绑定事件\n\t        this.setState({\n\t          visible1: !this.state.visible1,\n\t        });\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Accordion visible={this.state.visible} onChange={::this.onChange}>\n\t                    <Accordion.Header>\n\t                        标题一<span className={classnames(\"iconfont icon-chevron-more\", this.state.visible?'active':'')} style={{float:'right'}}></span>\n\t                    </Accordion.Header>\n\t                    <Accordion.Body>\n\t                        <ul className=\"accordion-list\">\n\t                            <li className=\"accordion-item\">内容一</li>\n\t                            <li className=\"accordion-item\">内容二</li>\n\t                            <li className=\"accordion-item\">内容三</li>\n\t                        </ul>\n\t                    </Accordion.Body>\n\t                </Accordion>\n\t                <br />\n\t                <Accordion visible={this.state.visible1}>\n\t                    <Accordion.Header onClick={::this.onChange1}>\n\t                        标题二<span className={classnames(\"iconfont icon-chevron-more\", this.state.visible1?'active':'')} style={{float:'right'}}></span>\n\t                    </Accordion.Header>\n\t                    <Accordion.Body>\n\t                        <ul className=\"accordion-list\">\n\t                            <li className=\"accordion-item\">内容一</li>\n\t                            <li className=\"accordion-item\">内容二</li>\n\t                            <li className=\"accordion-item\">内容三</li>\n\t                        </ul>\n\t                    </Accordion.Body>\n\t                </Accordion>\n\t            </div>\n\t        );\n\t    }\n\t}",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport classnames from 'classnames';\n\timport {Row, Col, Accordion} from '../../src/index';\n\t\n\texport default class drawer extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            visible: false,\n\t            visible1: false\n\t        } \n\t    }\n\t\n\t    onChange(){ // 第一种 直接传onChange\n\t        this.setState({\n\t          visible: !this.state.visible,\n\t        });\n\t    }\n\t\n\t    onChange1(){ // 第二种 给Header绑定事件\n\t        this.setState({\n\t          visible1: !this.state.visible1,\n\t        });\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Accordion visible={this.state.visible} onChange={::this.onChange}>\n\t                    <Accordion.Header>\n\t                        标题一<span className={classnames(\"iconfont icon-chevron-more\", this.state.visible?'active':'')} style={{float:'right'}}></span>\n\t                    </Accordion.Header>\n\t                    <Accordion.Body>\n\t                        <ul className=\"accordion-list\">\n\t                            <li className=\"accordion-item\">内容一</li>\n\t                            <li className=\"accordion-item\">内容二</li>\n\t                            <li className=\"accordion-item\">内容三</li>\n\t                        </ul>\n\t                    </Accordion.Body>\n\t                </Accordion>\n\t                <br />\n\t                <Accordion visible={this.state.visible1}>\n\t                    <Accordion.Header onClick={::this.onChange1}>\n\t                        标题二<span className={classnames(\"iconfont icon-chevron-more\", this.state.visible1?'active':'')} style={{float:'right'}}></span>\n\t                    </Accordion.Header>\n\t                    <Accordion.Body>\n\t                        <ul className=\"accordion-list\">\n\t                            <li className=\"accordion-item\">内容一</li>\n\t                            <li className=\"accordion-item\">内容二</li>\n\t                            <li className=\"accordion-item\">内容三</li>\n\t                        </ul>\n\t                    </Accordion.Body>\n\t                </Accordion>\n\t            </div>\n\t        );\n\t    }\n\t}"
+            ],
+            "exampleTitles": [
+                "展示",
+                "源码"
+            ],
+            "show": true
+        },
+        "Animate": {
+            "name": "Animate",
+            "shortname": "Animate",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Action",
+            "namespace": "",
+            "file": "src/Animate.js",
+            "line": 5,
+            "description": "动画外层",
+            "extends": "Component",
+            "is_constructor": 1,
+            "show": true
+        },
         "Badge": {
             "name": "Badge",
             "shortname": "Badge",
@@ -279,6 +483,7 @@
             "plugin_for": [],
             "extension_for": [],
             "module": "Label(标签)",
+            "namespace": "",
             "file": "src/Badge.js",
             "line": 4,
             "description": "Badge徽章标记，主要是用来提供不同颜色的标识<br/>\n可以通过phStyle来改变颜色<br/>\n因为发生回调的概率不大所以没有提供回调函数<br/>\n但支持自定义类名，事件等操作<br/>\n具体属性和接口如下：\n<ul>\n    <li>phStyle:badge徽章颜色,可取值[primary、warning、danger、info、error、success]等，默认primary</li>\n    <li>\n        <code>\n           Badge  phStyle=\"success\"\n           惠2\n           /Badge\n        </code>\n    </li>\n</ul>",
@@ -311,8 +516,8 @@
             "extends": "Component",
             "is_constructor": 1,
             "example": [
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Button} from '../../src/index';\n\timport {ButtonGroup} from '../../src/index';\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <div>\n\t                    <ButtonGroup activeCallback={function(target,html){console.log(target,html);}} phType=\"justify\" >\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组1</Button>\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组2</Button>\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组3</Button>\n\t                    </ButtonGroup>\n\t                </div>\n\t                <div>\n\t                    <ButtonGroup style={{width:'100%'}} phType=\"tacked\">\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组1</Button>\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组2</Button>\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组3</Button>\n\t                    </ButtonGroup>\n\t                </div>\n\t            </div>\n\t        );\n\t    }\n\t}\n\t",
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Button} from '../../src/index';\n\timport {ButtonGroup} from '../../src/index';\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <div>\n\t                    <ButtonGroup activeCallback={function(target,html){console.log(target,html);}} phType=\"justify\" >\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组1</Button>\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组2</Button>\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组3</Button>\n\t                    </ButtonGroup>\n\t                </div>\n\t                <div>\n\t                    <ButtonGroup style={{width:'100%'}} phType=\"tacked\">\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组1</Button>\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组2</Button>\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组3</Button>\n\t                    </ButtonGroup>\n\t                </div>\n\t            </div>\n\t        );\n\t    }\n\t}\n\t"
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Button} from '../../src/index';\n\timport {ButtonGroup} from '../../src/index';\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <div>\n\t                    <ButtonGroup activeCallback={function(target,html){console.log(target,html);}}  >\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组1</Button>\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组2</Button>\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组3</Button>\n\t                    </ButtonGroup>\n\t                </div>\n\t                <div>\n\t                    <ButtonGroup style={{width:'100%'}} phType=\"tacked\">\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组1</Button>\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组2</Button>\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组3</Button>\n\t                    </ButtonGroup>\n\t                </div>\n\t            </div>\n\t        );\n\t    }\n\t}\n\t",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Button} from '../../src/index';\n\timport {ButtonGroup} from '../../src/index';\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <div>\n\t                    <ButtonGroup activeCallback={function(target,html){console.log(target,html);}}  >\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组1</Button>\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组2</Button>\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组3</Button>\n\t                    </ButtonGroup>\n\t                </div>\n\t                <div>\n\t                    <ButtonGroup style={{width:'100%'}} phType=\"tacked\">\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组1</Button>\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组2</Button>\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组3</Button>\n\t                    </ButtonGroup>\n\t                </div>\n\t            </div>\n\t        );\n\t    }\n\t}\n\t"
             ],
             "exampleTitles": [
                 "展示",
@@ -337,8 +542,8 @@
             "is_constructor": 1,
             "since": "0.1.4",
             "example": [
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Button} from '../../src/index';\n\timport {ButtonGroup} from '../../src/index';\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <div>\n\t                    <ButtonGroup activeCallback={function(target,html){console.log(target,html);}} phType=\"justify\" >\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组1</Button>\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组2</Button>\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组3</Button>\n\t                    </ButtonGroup>\n\t                </div>\n\t                <div>\n\t                    <ButtonGroup style={{width:'100%'}} phType=\"tacked\">\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组1</Button>\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组2</Button>\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组3</Button>\n\t                    </ButtonGroup>\n\t                </div>\n\t            </div>\n\t        );\n\t    }\n\t}\n\t",
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Button} from '../../src/index';\n\timport {ButtonGroup} from '../../src/index';\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <div>\n\t                    <ButtonGroup activeCallback={function(target,html){console.log(target,html);}} phType=\"justify\" >\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组1</Button>\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组2</Button>\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组3</Button>\n\t                    </ButtonGroup>\n\t                </div>\n\t                <div>\n\t                    <ButtonGroup style={{width:'100%'}} phType=\"tacked\">\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组1</Button>\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组2</Button>\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组3</Button>\n\t                    </ButtonGroup>\n\t                </div>\n\t            </div>\n\t        );\n\t    }\n\t}\n\t"
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Button} from '../../src/index';\n\timport {ButtonGroup} from '../../src/index';\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <div>\n\t                    <ButtonGroup activeCallback={function(target,html){console.log(target,html);}}  >\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组1</Button>\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组2</Button>\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组3</Button>\n\t                    </ButtonGroup>\n\t                </div>\n\t                <div>\n\t                    <ButtonGroup style={{width:'100%'}} phType=\"tacked\">\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组1</Button>\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组2</Button>\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组3</Button>\n\t                    </ButtonGroup>\n\t                </div>\n\t            </div>\n\t        );\n\t    }\n\t}\n\t",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Button} from '../../src/index';\n\timport {ButtonGroup} from '../../src/index';\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <div>\n\t                    <ButtonGroup activeCallback={function(target,html){console.log(target,html);}}  >\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组1</Button>\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组2</Button>\n\t                        <Button radius phSize=\"md\" phStyle=\"success\">水平按钮组3</Button>\n\t                    </ButtonGroup>\n\t                </div>\n\t                <div>\n\t                    <ButtonGroup style={{width:'100%'}} phType=\"tacked\">\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组1</Button>\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组2</Button>\n\t                        <Button block radius phSize=\"lg\" phStyle=\"primary\">垂直按钮组3</Button>\n\t                    </ButtonGroup>\n\t                </div>\n\t            </div>\n\t        );\n\t    }\n\t}\n\t"
             ],
             "exampleTitles": [
                 "展示",
@@ -363,6 +568,54 @@
             "is_constructor": 1,
             "since": "0.1.0"
         },
+        "Dialog": {
+            "name": "Dialog",
+            "shortname": "Dialog",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Action",
+            "namespace": "",
+            "file": "src/Dialog.js",
+            "line": 10,
+            "description": "功能组件 - 弹框",
+            "extends": "Component",
+            "is_constructor": 1,
+            "example": [
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Button, Dialog} from '../../src/index';\n\t\n\texport default class dialog extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t\n\t        this.state = {\n\t            visible: false\n\t        }\n\t    }\n\t\n\t    onShow(){\n\t        this.setState({\n\t          visible: true,\n\t        });\n\t    }\n\t\n\t    onClose(){\n\t        this.setState({\n\t          visible: false,\n\t        });\n\t    }\n\t\n\t    onConfirm(){\n\t        this.onClose();\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Button block radius phSize=\"lg\" phStyle=\"error\" onClick={::this.onShow}>Click To Show Dialog</Button>\n\t\n\t                <Dialog visible={this.state.visible}>\n\t                    <Dialog.Title>标题标题</Dialog.Title>\n\t                    <Dialog.Body>\n\t                        <input type=\"text\" />\n\t                        内容内容内容内容内容内容内容内容内容内容内容内容\n\t                    </Dialog.Body>\n\t                    <Dialog.Footer>\n\t                        <Button hollow radius phSize=\"lg\" phStyle=\"gray\" onClick={::this.onClose}>取消</Button>\n\t                        <Button radius phSize=\"lg\" phStyle=\"primary\" onClick={::this.onConfirm}>确定</Button>\n\t                    </Dialog.Footer>\n\t                </Dialog>\n\t            </div>\n\t        );\n\t    }\n\t}",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Button, Dialog} from '../../src/index';\n\t\n\texport default class dialog extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t\n\t        this.state = {\n\t            visible: false\n\t        }\n\t    }\n\t\n\t    onShow(){\n\t        this.setState({\n\t          visible: true,\n\t        });\n\t    }\n\t\n\t    onClose(){\n\t        this.setState({\n\t          visible: false,\n\t        });\n\t    }\n\t\n\t    onConfirm(){\n\t        this.onClose();\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Button block radius phSize=\"lg\" phStyle=\"error\" onClick={::this.onShow}>Click To Show Dialog</Button>\n\t\n\t                <Dialog visible={this.state.visible}>\n\t                    <Dialog.Title>标题标题</Dialog.Title>\n\t                    <Dialog.Body>\n\t                        <input type=\"text\" />\n\t                        内容内容内容内容内容内容内容内容内容内容内容内容\n\t                    </Dialog.Body>\n\t                    <Dialog.Footer>\n\t                        <Button hollow radius phSize=\"lg\" phStyle=\"gray\" onClick={::this.onClose}>取消</Button>\n\t                        <Button radius phSize=\"lg\" phStyle=\"primary\" onClick={::this.onConfirm}>确定</Button>\n\t                    </Dialog.Footer>\n\t                </Dialog>\n\t            </div>\n\t        );\n\t    }\n\t}"
+            ],
+            "exampleTitles": [
+                "展示",
+                "源码"
+            ],
+            "show": true
+        },
+        "Drag": {
+            "name": "Drag",
+            "shortname": "Drag",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Basic",
+            "namespace": "",
+            "file": "src/Drag.js",
+            "line": 5,
+            "description": "拖动Drag",
+            "extends": "Component",
+            "is_constructor": 1,
+            "example": [
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Swipe} from '../../src/index';\n\t\n\texport default class swipe extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t    }\n\t\n\t    onDelete(){\n\t        console.log('delete!!');\n\t    }\n\t\n\t    onCancle(){\n\t        console.log('cancle!!');\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <ul>\n\t                <li>\n\t                    <Swipe \n\t                        buttons={[\n\t                            {text: '删除', onHandle: this.onDelete, phStyle: 'error'},\n\t                            {text: '取消', onHandle: this.onCancle, phStyle: 'info'}\n\t                        ]} \n\t                    >\n\t                        <div style={{backgroundColor:'#fff',padding: '1rem'}}>\n\t                            向左滑\n\t                        </div>\n\t                    </Swipe>\n\t                </li>\n\t            </ul>\n\t        );\n\t    }\n\t}"
+            ],
+            "exampleTitles": [
+                "源码"
+            ],
+            "show": true
+        },
         "FormGroup": {
             "name": "FormGroup",
             "shortname": "FormGroup",
@@ -379,8 +632,8 @@
             "extends": "Component",
             "is_constructor": 1,
             "example": [
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {FormGroup,Row,Col,Input} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:''\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div style={{padding:'20px'}}>\n\t                <FormGroup>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"姓名\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"用户名\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"身份证\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row>\n\t                        <Col>\n\t                            <label for=\"\">地址</label>\n\t                            <Input type=\"text\" placeholder=\"身份证\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row className='a'>\n\t                        <Col className='test'>\n\t                            <label for=\"\">兴趣爱好</label>\n\t                            <Input type=\"checkbox\" label=\"篮球\" className='a1'/>\n\t                            <Input type=\"checkbox\" label=\"足球\" />\n\t                            <Input type=\"checkbox\" label=\"乒乓球\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row className='test'>\n\t                        <Col>\n\t                            <a href=\"###\" className=\"navigate-right\">\n\t                                <label>性别</label>\n\t                                <input type=\"text\" placeholder=\"男/女\" disabled/>\n\t                            </a>\n\t                        </Col>\n\t                    </Row>\n\t                    <Row>\n\t                        <Col>\n\t                            <label>姓</label>\n\t                            <Input type=\"text\" placeholder=\"姓\" />\n\t                        </Col>\n\t                        <Col>\n\t                            <label>名</label>\n\t                            <Input type=\"text\" placeholder=\"名\" />\n\t                        </Col>\n\t                    </Row>\n\t\n\t                    <Row>\n\t                        <Col>\n\t                            <label><span className=\"color-error\">*</span>喜欢的运动</label>\n\t                            <div className=\"input\" style={{textAlign: 'right'}}>\n\t                                <Input type=\"checkbox\" label=\"篮球\" />\n\t                                <Input type=\"checkbox\" label=\"足球\" />\n\t                            </div>\n\t                        </Col>\n\t                    </Row>\n\t                </FormGroup>\n\t            </div>\n\t        );\n\t    }\n\t}",
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {FormGroup,Row,Col,Input} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:''\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div style={{padding:'20px'}}>\n\t                <FormGroup>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"姓名\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"用户名\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"身份证\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row>\n\t                        <Col>\n\t                            <label for=\"\">地址</label>\n\t                            <Input type=\"text\" placeholder=\"身份证\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row className='a'>\n\t                        <Col className='test'>\n\t                            <label for=\"\">兴趣爱好</label>\n\t                            <Input type=\"checkbox\" label=\"篮球\" className='a1'/>\n\t                            <Input type=\"checkbox\" label=\"足球\" />\n\t                            <Input type=\"checkbox\" label=\"乒乓球\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row className='test'>\n\t                        <Col>\n\t                            <a href=\"###\" className=\"navigate-right\">\n\t                                <label>性别</label>\n\t                                <input type=\"text\" placeholder=\"男/女\" disabled/>\n\t                            </a>\n\t                        </Col>\n\t                    </Row>\n\t                    <Row>\n\t                        <Col>\n\t                            <label>姓</label>\n\t                            <Input type=\"text\" placeholder=\"姓\" />\n\t                        </Col>\n\t                        <Col>\n\t                            <label>名</label>\n\t                            <Input type=\"text\" placeholder=\"名\" />\n\t                        </Col>\n\t                    </Row>\n\t\n\t                    <Row>\n\t                        <Col>\n\t                            <label><span className=\"color-error\">*</span>喜欢的运动</label>\n\t                            <div className=\"input\" style={{textAlign: 'right'}}>\n\t                                <Input type=\"checkbox\" label=\"篮球\" />\n\t                                <Input type=\"checkbox\" label=\"足球\" />\n\t                            </div>\n\t                        </Col>\n\t                    </Row>\n\t                </FormGroup>\n\t            </div>\n\t        );\n\t    }\n\t}"
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {FormGroup,Row,Col,Input} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:''\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <FormGroup>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"姓名\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"用户名\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"身份证\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row>\n\t                        <Col>\n\t                            <label for=\"\">地址</label>\n\t                            <Input type=\"text\" placeholder=\"身份证\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row className='a'>\n\t                        <Col className='test'>\n\t                            <label for=\"\">兴趣爱好</label>\n\t                            <Input type=\"checkbox\" label=\"篮球\" className='a1'/>\n\t                            <Input type=\"checkbox\" label=\"足球\" />\n\t                            <Input type=\"checkbox\" label=\"乒乓球\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row className='test'>\n\t                        <Col>\n\t                            <a href=\"###\" className=\"navigate-right\">\n\t                                <label>性别</label>\n\t                                <input type=\"text\" placeholder=\"男/女\" disabled/>\n\t                            </a>\n\t                        </Col>\n\t                    </Row>\n\t                    <Row>\n\t                        <Col>\n\t                            <label>姓</label>\n\t                            <Input type=\"text\" placeholder=\"姓\" />\n\t                        </Col>\n\t                        <Col>\n\t                            <label>名</label>\n\t                            <Input type=\"text\" placeholder=\"名\" />\n\t                        </Col>\n\t                    </Row>\n\t\n\t                    <Row>\n\t                        <Col>\n\t                            <label><span className=\"color-error\">*</span>喜欢的运动</label>\n\t                            <div className=\"input\" style={{textAlign: 'right'}}>\n\t                                <Input type=\"checkbox\" label=\"篮球\" />\n\t                                <Input type=\"checkbox\" label=\"足球\" />\n\t                            </div>\n\t                        </Col>\n\t                    </Row>\n\t                </FormGroup>\n\t            </div>\n\t        );\n\t    }\n\t}",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {FormGroup,Row,Col,Input} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:''\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <FormGroup>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"姓名\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"用户名\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row single>\n\t                        <Col>\n\t                            <Input type=\"text\" placeholder=\"身份证\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row>\n\t                        <Col>\n\t                            <label for=\"\">地址</label>\n\t                            <Input type=\"text\" placeholder=\"身份证\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row className='a'>\n\t                        <Col className='test'>\n\t                            <label for=\"\">兴趣爱好</label>\n\t                            <Input type=\"checkbox\" label=\"篮球\" className='a1'/>\n\t                            <Input type=\"checkbox\" label=\"足球\" />\n\t                            <Input type=\"checkbox\" label=\"乒乓球\" />\n\t                        </Col>\n\t                    </Row>\n\t                    <Row className='test'>\n\t                        <Col>\n\t                            <a href=\"###\" className=\"navigate-right\">\n\t                                <label>性别</label>\n\t                                <input type=\"text\" placeholder=\"男/女\" disabled/>\n\t                            </a>\n\t                        </Col>\n\t                    </Row>\n\t                    <Row>\n\t                        <Col>\n\t                            <label>姓</label>\n\t                            <Input type=\"text\" placeholder=\"姓\" />\n\t                        </Col>\n\t                        <Col>\n\t                            <label>名</label>\n\t                            <Input type=\"text\" placeholder=\"名\" />\n\t                        </Col>\n\t                    </Row>\n\t\n\t                    <Row>\n\t                        <Col>\n\t                            <label><span className=\"color-error\">*</span>喜欢的运动</label>\n\t                            <div className=\"input\" style={{textAlign: 'right'}}>\n\t                                <Input type=\"checkbox\" label=\"篮球\" />\n\t                                <Input type=\"checkbox\" label=\"足球\" />\n\t                            </div>\n\t                        </Col>\n\t                    </Row>\n\t                </FormGroup>\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
                 "展示",
@@ -421,8 +674,8 @@
             "extends": "Component",
             "is_constructor": 1,
             "example": [
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Input,Row,Col} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:''\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div style={{padding:'20px'}}>\n\t                <Input type=\"text\" value={this.state.name} onChange={::this.setValue.bind(this,'name')} />\n\t                <Row align=\"bottom\">\n\t                    <Col><Input type=\"radio\" label=\"男\" name=\"sex\"  /></Col>\n\t                    <Col><Input type=\"radio\" label=\"女\"  name=\"sex\" /></Col>\n\t                </Row>\n\t                <Input type=\"checkbox\" label=\"苹果\"  />\n\t            </div>\n\t        );\n\t    }\n\t}",
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Input,Row,Col} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:''\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div style={{padding:'20px'}}>\n\t                <Input type=\"text\" value={this.state.name} onChange={::this.setValue.bind(this,'name')} />\n\t                <Row align=\"bottom\">\n\t                    <Col><Input type=\"radio\" label=\"男\" name=\"sex\"  /></Col>\n\t                    <Col><Input type=\"radio\" label=\"女\"  name=\"sex\" /></Col>\n\t                </Row>\n\t                <Input type=\"checkbox\" label=\"苹果\"  />\n\t            </div>\n\t        );\n\t    }\n\t}"
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Input,Row,Col} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:''\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Input type=\"text\" value={this.state.name} onChange={::this.setValue.bind(this,'name')} />\n\t                <Row align=\"bottom\">\n\t                    <Col><Input type=\"radio\" label=\"男\" name=\"sex\"  /></Col>\n\t                    <Col><Input type=\"radio\" label=\"女\"  name=\"sex\" /></Col>\n\t                </Row>\n\t                <Input type=\"checkbox\" label=\"苹果\"  />\n\t            </div>\n\t        );\n\t    }\n\t}",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Input,Row,Col} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:''\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Input type=\"text\" value={this.state.name} onChange={::this.setValue.bind(this,'name')} />\n\t                <Row align=\"bottom\">\n\t                    <Col><Input type=\"radio\" label=\"男\" name=\"sex\"  /></Col>\n\t                    <Col><Input type=\"radio\" label=\"女\"  name=\"sex\" /></Col>\n\t                </Row>\n\t                <Input type=\"checkbox\" label=\"苹果\"  />\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
                 "展示",
@@ -449,6 +702,56 @@
             "example": [
                 "\timport React, { Component ,PropTypes} from 'react';\n\timport {Label} from '../../src/index';\n\t\n\texport default class Labels extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Label >惠</Label>\n\t                <div><Label phSize=\"lg\" phStyle=\"success\">惠</Label></div>\n\t                <Label phSize=\"md\" phStyle='info'>惠</Label>\n\t            </div>\n\t        );\n\t    }\n\t}",
                 "\timport React, { Component ,PropTypes} from 'react';\n\timport {Label} from '../../src/index';\n\t\n\texport default class Labels extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Label >惠</Label>\n\t                <div><Label phSize=\"lg\" phStyle=\"success\">惠</Label></div>\n\t                <Label phSize=\"md\" phStyle='info'>惠</Label>\n\t            </div>\n\t        );\n\t    }\n\t}"
+            ],
+            "exampleTitles": [
+                "展示",
+                "源码"
+            ],
+            "show": true
+        },
+        "Popover": {
+            "name": "Popover",
+            "shortname": "Popover",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Tooltips",
+            "namespace": "",
+            "file": "src/Popover.js",
+            "line": 6,
+            "description": "功能组件-气泡",
+            "extends": "Component",
+            "is_constructor": 1,
+            "example": [
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Whisper, Popover, Row, Col} from '../../src/index';\n\t\n\texport default class popover extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t    }\n\t\n\t    onToggle(){\n\t        console.log('气泡出现消失时额外的执行函数'); \n\t    }\n\t\n\t    render(){\n\t        const popover = ( // 可以通过style自定义位置\n\t            <Popover>\n\t                <ul className=\"popover-list\">\n\t                    <li className=\"popover-item\">未上线单店</li>\n\t                    <li className=\"popover-item\">未上线连锁店</li>\n\t                </ul>\n\t            </Popover>\n\t        );\n\t\n\t        return(\n\t            <div>\n\t                <div style={{backgroundColor:'#fff',padding:'12px'}}>\n\t                    Popover\n\t                    <Whisper \n\t                        onToggle={this.onToggle}\n\t                        placement='bottom right'\n\t                        target={popover}\n\t                        distance={15}\n\t                        style={{float:'right',textAlign:'right'}}>Click Me</Whisper>\n\t                </div>\n\t            </div>\n\t        );\n\t    }\n\t}",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Whisper, Popover, Row, Col} from '../../src/index';\n\t\n\texport default class popover extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t    }\n\t\n\t    onToggle(){\n\t        console.log('气泡出现消失时额外的执行函数'); \n\t    }\n\t\n\t    render(){\n\t        const popover = ( // 可以通过style自定义位置\n\t            <Popover>\n\t                <ul className=\"popover-list\">\n\t                    <li className=\"popover-item\">未上线单店</li>\n\t                    <li className=\"popover-item\">未上线连锁店</li>\n\t                </ul>\n\t            </Popover>\n\t        );\n\t\n\t        return(\n\t            <div>\n\t                <div style={{backgroundColor:'#fff',padding:'12px'}}>\n\t                    Popover\n\t                    <Whisper \n\t                        onToggle={this.onToggle}\n\t                        placement='bottom right'\n\t                        target={popover}\n\t                        distance={15}\n\t                        style={{float:'right',textAlign:'right'}}>Click Me</Whisper>\n\t                </div>\n\t            </div>\n\t        );\n\t    }\n\t}"
+            ],
+            "exampleTitles": [
+                "展示",
+                "源码"
+            ],
+            "show": true
+        },
+        "Popup": {
+            "name": "Popup",
+            "shortname": "Popup",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Action",
+            "namespace": "",
+            "file": "src/Popup.js",
+            "line": 6,
+            "description": "功能组件-弹框",
+            "extends": "Component",
+            "is_constructor": 1,
+            "example": [
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Button, Popup, Row, Col} from '../../src/index';\n\t\n\texport default class popup extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t\n\t        this.state = {\n\t            topVisible: false,\n\t            bottomVisible: false\n\t        }\n\t    }\n\t\n\t    onShowTopPopup(){\n\t        this.setState({\n\t          topVisible: true\n\t        });\n\t    }\n\t\n\t    onCloseTopPopup(){\n\t        this.setState({\n\t          topVisible: false\n\t        });\n\t    }\n\t\n\t    onShowBottomPopup(){\n\t        this.setState({\n\t          bottomVisible: true\n\t        });\n\t    }\n\t\n\t    onCloseBottomPopup(){\n\t        this.setState({\n\t          bottomVisible: false\n\t        });\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Button block radius phSize=\"lg\" phStyle=\"primary\" onClick={::this.onShowTopPopup}>Top Popup</Button>\n\t                <Popup align=\"top\" visible={this.state.topVisible} onClose={::this.onCloseTopPopup}>\n\t                    <ul className=\"popup-list\">\n\t                        <li className=\"popup-item\" onClick={::this.onCloseTopPopup}>未上线单店</li>\n\t                        <li className=\"popup-item\" onClick={::this.onCloseTopPopup}>未上线连锁店</li>\n\t                        <li className=\"popup-item\" onClick={::this.onCloseTopPopup}>在线单店</li>\n\t                        <li className=\"popup-item\" onClick={::this.onCloseTopPopup}>在线连锁店</li>\n\t                    </ul>\n\t                </Popup>\n\t\n\t                <Button block radius phSize=\"lg\" phStyle=\"primary\" onClick={::this.onShowBottomPopup}>Bottom Popup</Button>\n\t                <Popup align=\"bottom\" visible={this.state.bottomVisible} onClose={::this.onCloseBottomPopup}>\n\t                    <div className=\"popup-action-sheet\">\n\t                        <ul>\n\t                            <li className=\"popup-item popup-tip\">确认 删除此作品？</li>\n\t                            <li className=\"popup-item popup-delete\" onClick={::this.onCloseBottomPopup}>删除作品</li>\n\t                        </ul>\n\t                        <div className=\"popup-operate\" onClick={::this.onCloseBottomPopup}>取消</div>\n\t                    </div>\n\t                </Popup>\n\t            </div>\n\t        );\n\t    }\n\t}",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Button, Popup, Row, Col} from '../../src/index';\n\t\n\texport default class popup extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t\n\t        this.state = {\n\t            topVisible: false,\n\t            bottomVisible: false\n\t        }\n\t    }\n\t\n\t    onShowTopPopup(){\n\t        this.setState({\n\t          topVisible: true\n\t        });\n\t    }\n\t\n\t    onCloseTopPopup(){\n\t        this.setState({\n\t          topVisible: false\n\t        });\n\t    }\n\t\n\t    onShowBottomPopup(){\n\t        this.setState({\n\t          bottomVisible: true\n\t        });\n\t    }\n\t\n\t    onCloseBottomPopup(){\n\t        this.setState({\n\t          bottomVisible: false\n\t        });\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Button block radius phSize=\"lg\" phStyle=\"primary\" onClick={::this.onShowTopPopup}>Top Popup</Button>\n\t                <Popup align=\"top\" visible={this.state.topVisible} onClose={::this.onCloseTopPopup}>\n\t                    <ul className=\"popup-list\">\n\t                        <li className=\"popup-item\" onClick={::this.onCloseTopPopup}>未上线单店</li>\n\t                        <li className=\"popup-item\" onClick={::this.onCloseTopPopup}>未上线连锁店</li>\n\t                        <li className=\"popup-item\" onClick={::this.onCloseTopPopup}>在线单店</li>\n\t                        <li className=\"popup-item\" onClick={::this.onCloseTopPopup}>在线连锁店</li>\n\t                    </ul>\n\t                </Popup>\n\t\n\t                <Button block radius phSize=\"lg\" phStyle=\"primary\" onClick={::this.onShowBottomPopup}>Bottom Popup</Button>\n\t                <Popup align=\"bottom\" visible={this.state.bottomVisible} onClose={::this.onCloseBottomPopup}>\n\t                    <div className=\"popup-action-sheet\">\n\t                        <ul>\n\t                            <li className=\"popup-item popup-tip\">确认 删除此作品？</li>\n\t                            <li className=\"popup-item popup-delete\" onClick={::this.onCloseBottomPopup}>删除作品</li>\n\t                        </ul>\n\t                        <div className=\"popup-operate\" onClick={::this.onCloseBottomPopup}>取消</div>\n\t                    </div>\n\t                </Popup>\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
                 "展示",
@@ -498,6 +801,31 @@
             ],
             "show": true
         },
+        "Swipe": {
+            "name": "Swipe",
+            "shortname": "Swipe",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Action",
+            "namespace": "",
+            "file": "src/Swipe.js",
+            "line": 8,
+            "description": "功能组件-左滑swipe",
+            "extends": "Component",
+            "is_constructor": 1,
+            "example": [
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Swipe} from '../../src/index';\n\t\n\texport default class swipe extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t    }\n\t\n\t    onDelete(){\n\t        console.log('delete!!');\n\t    }\n\t\n\t    onCancle(){\n\t        console.log('cancle!!');\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <ul>\n\t                <li>\n\t                    <Swipe \n\t                        buttons={[\n\t                            {text: '删除', onHandle: this.onDelete, phStyle: 'error'},\n\t                            {text: '取消', onHandle: this.onCancle, phStyle: 'info'}\n\t                        ]} \n\t                    >\n\t                        <div style={{backgroundColor:'#fff',padding: '1rem'}}>\n\t                            向左滑\n\t                        </div>\n\t                    </Swipe>\n\t                </li>\n\t            </ul>\n\t        );\n\t    }\n\t}",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Swipe} from '../../src/index';\n\t\n\texport default class swipe extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t    }\n\t\n\t    onDelete(){\n\t        console.log('delete!!');\n\t    }\n\t\n\t    onCancle(){\n\t        console.log('cancle!!');\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <ul>\n\t                <li>\n\t                    <Swipe \n\t                        buttons={[\n\t                            {text: '删除', onHandle: this.onDelete, phStyle: 'error'},\n\t                            {text: '取消', onHandle: this.onCancle, phStyle: 'info'}\n\t                        ]} \n\t                    >\n\t                        <div style={{backgroundColor:'#fff',padding: '1rem'}}>\n\t                            向左滑\n\t                        </div>\n\t                    </Swipe>\n\t                </li>\n\t            </ul>\n\t        );\n\t    }\n\t}"
+            ],
+            "exampleTitles": [
+                "展示",
+                "源码"
+            ],
+            "show": true
+        },
         "Switch": {
             "name": "Switch",
             "shortname": "Switch",
@@ -540,8 +868,8 @@
             "is_constructor": 1,
             "since": "0.1.0",
             "example": [
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport {Tabset,Tab} from '../../src/index';\n\tlet Demo1 = class demo1 extends Component{\n\t    constructor(props,context){\n\t        super(props,context);\n\t        this.state={\n\t            tab2:'初始tab2内容'\n\t        }\n\t    }\n\t    test(){\n\t        this.setState({\n\t            tab2:'测试panel内容改变'\n\t        })\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={1} className = '测试name' clickCallback={()=>{console.log('测试tabset 回调')}} style={{color:'green'}}>\n\t                    <Tab heading='tab1' className='测试' clickCallback={()=>{alert('测试clickCallback属性')}}>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' clickCallback={::this.test}>\n\t                        {this.state.tab2}\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\tlet Demo2 = class demo2 extends Component{\n\t    test(){\n\t        alert('测试自定义tab点击事件');\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={0} vertical width={30}>\n\t                    <Tab heading='tab1'>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' onClick={::this.test}>\n\t                        hahadhdad2\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t           <div>\n\t              <h1>默认横向</h1>\n\t               <Demo1 />\n\t               <h1>竖向</h1>\n\t               <Demo2 />\n\t           </div>\n\t        );\n\t    }\n\t}",
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport {Tabset,Tab} from '../../src/index';\n\tlet Demo1 = class demo1 extends Component{\n\t    constructor(props,context){\n\t        super(props,context);\n\t        this.state={\n\t            tab2:'初始tab2内容'\n\t        }\n\t    }\n\t    test(){\n\t        this.setState({\n\t            tab2:'测试panel内容改变'\n\t        })\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={1} className = '测试name' clickCallback={()=>{console.log('测试tabset 回调')}} style={{color:'green'}}>\n\t                    <Tab heading='tab1' className='测试' clickCallback={()=>{alert('测试clickCallback属性')}}>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' clickCallback={::this.test}>\n\t                        {this.state.tab2}\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\tlet Demo2 = class demo2 extends Component{\n\t    test(){\n\t        alert('测试自定义tab点击事件');\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={0} vertical width={30}>\n\t                    <Tab heading='tab1'>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' onClick={::this.test}>\n\t                        hahadhdad2\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t           <div>\n\t              <h1>默认横向</h1>\n\t               <Demo1 />\n\t               <h1>竖向</h1>\n\t               <Demo2 />\n\t           </div>\n\t        );\n\t    }\n\t}"
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport {Tabset,Tab} from '../../src/index';\n\tlet Demo1 = class demo1 extends Component{\n\t    constructor(props,context){\n\t        super(props,context);\n\t        this.state={\n\t            tab2:'初始tab2内容',\n\t            index:0\n\t        }\n\t    }\n\t    test(index){\n\t        console.log(index);\n\t    };\n\t    test1(index){\n\t        // index == 1 && this.setState({\n\t        //     tab2:'测试panel内容改变',\n\t        //     index:2\n\t        // })\n\t        console.log('测试tabset 回调'+index)\n\t    }\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={this.state.index} className = '测试name' tabCallback={::this.test1} style={{color:'green'}}>\n\t                    <Tab heading='tab1' className='测试' clickCallback={(index)=>{console.log(index)}}>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading={this.state.index} clickCallback={::this.test}>\n\t                        hahadhdad2\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\tlet Demo2 = class demo2 extends Component{\n\t    test(){\n\t        alert('测试自定义tab点击事件');\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={0} vertical width={30}>\n\t                    <Tab heading='tab1'>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' onClick={::this.test}>\n\t                        hahadhdad2\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t           <div>\n\t              <h1>默认横向</h1>\n\t               <Demo1 />\n\t               <h1>竖向</h1>\n\t               <Demo2 />\n\t           </div>\n\t        );\n\t    }\n\t}",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport {Tabset,Tab} from '../../src/index';\n\tlet Demo1 = class demo1 extends Component{\n\t    constructor(props,context){\n\t        super(props,context);\n\t        this.state={\n\t            tab2:'初始tab2内容',\n\t            index:0\n\t        }\n\t    }\n\t    test(index){\n\t        console.log(index);\n\t    };\n\t    test1(index){\n\t        // index == 1 && this.setState({\n\t        //     tab2:'测试panel内容改变',\n\t        //     index:2\n\t        // })\n\t        console.log('测试tabset 回调'+index)\n\t    }\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={this.state.index} className = '测试name' tabCallback={::this.test1} style={{color:'green'}}>\n\t                    <Tab heading='tab1' className='测试' clickCallback={(index)=>{console.log(index)}}>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading={this.state.index} clickCallback={::this.test}>\n\t                        hahadhdad2\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\tlet Demo2 = class demo2 extends Component{\n\t    test(){\n\t        alert('测试自定义tab点击事件');\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={0} vertical width={30}>\n\t                    <Tab heading='tab1'>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' onClick={::this.test}>\n\t                        hahadhdad2\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t           <div>\n\t              <h1>默认横向</h1>\n\t               <Demo1 />\n\t               <h1>竖向</h1>\n\t               <Demo2 />\n\t           </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
                 "展示",
@@ -565,8 +893,8 @@
             "extends": "Component",
             "is_constructor": 1,
             "example": [
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {TableView} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:''\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div style={{padding:'20px'}}>\n\t                <TableView>\n\t                    <a href=\"http://www.baidu.com\">列表 1</a>\n\t                    <a>\n\t                        列表 2\n\t                        <span className=\"badge badge-primary\">2</span>\n\t                    </a>\n\t                    <a href=\"###\">\n\t                        <span className=\"badge\">5</span>\n\t                        Item 1\n\t                    </a>\n\t                    <a>\n\t                        Item 2\n\t                        <label className=\"label-switch\">\n\t                            <input id=\"js-room-selected\" type=\"checkbox\" />\n\t                                <div className=\"checkbox\"></div>\n\t                            </label>\n\t                    </a>\n\t                </TableView>\n\t            </div>\n\t        );\n\t    }\n\t}",
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {TableView} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:''\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div style={{padding:'20px'}}>\n\t                <TableView>\n\t                    <a href=\"http://www.baidu.com\">列表 1</a>\n\t                    <a>\n\t                        列表 2\n\t                        <span className=\"badge badge-primary\">2</span>\n\t                    </a>\n\t                    <a href=\"###\">\n\t                        <span className=\"badge\">5</span>\n\t                        Item 1\n\t                    </a>\n\t                    <a>\n\t                        Item 2\n\t                        <label className=\"label-switch\">\n\t                            <input id=\"js-room-selected\" type=\"checkbox\" />\n\t                                <div className=\"checkbox\"></div>\n\t                            </label>\n\t                    </a>\n\t                </TableView>\n\t            </div>\n\t        );\n\t    }\n\t}"
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {TableView} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:''\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <TableView>\n\t                    <a href=\"http://www.baidu.com\">列表 1</a>\n\t                    <a>\n\t                        列表 2\n\t                        <span className=\"badge badge-primary\">2</span>\n\t                    </a>\n\t                    <a href=\"###\">\n\t                        <span className=\"badge\">5</span>\n\t                        Item 1\n\t                    </a>\n\t                    <a>\n\t                        Item 2\n\t                        <label className=\"label-switch\">\n\t                            <input id=\"js-room-selected\" type=\"checkbox\" />\n\t                                <div className=\"checkbox\"></div>\n\t                            </label>\n\t                    </a>\n\t                </TableView>\n\t            </div>\n\t        );\n\t    }\n\t}",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {TableView} from '../../src/index';\n\t\n\texport default class input extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:''\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <TableView>\n\t                    <a href=\"http://www.baidu.com\">列表 1</a>\n\t                    <a>\n\t                        列表 2\n\t                        <span className=\"badge badge-primary\">2</span>\n\t                    </a>\n\t                    <a href=\"###\">\n\t                        <span className=\"badge\">5</span>\n\t                        Item 1\n\t                    </a>\n\t                    <a>\n\t                        Item 2\n\t                        <label className=\"label-switch\">\n\t                            <input id=\"js-room-selected\" type=\"checkbox\" />\n\t                                <div className=\"checkbox\"></div>\n\t                            </label>\n\t                    </a>\n\t                </TableView>\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
                 "展示",
@@ -591,8 +919,83 @@
             "is_constructor": 1,
             "since": "0.1.0",
             "example": [
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport {Tabset,Tab} from '../../src/index';\n\tlet Demo1 = class demo1 extends Component{\n\t    constructor(props,context){\n\t        super(props,context);\n\t        this.state={\n\t            tab2:'初始tab2内容'\n\t        }\n\t    }\n\t    test(){\n\t        this.setState({\n\t            tab2:'测试panel内容改变'\n\t        })\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={1} className = '测试name' clickCallback={()=>{console.log('测试tabset 回调')}} style={{color:'green'}}>\n\t                    <Tab heading='tab1' className='测试' clickCallback={()=>{alert('测试clickCallback属性')}}>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' clickCallback={::this.test}>\n\t                        {this.state.tab2}\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\tlet Demo2 = class demo2 extends Component{\n\t    test(){\n\t        alert('测试自定义tab点击事件');\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={0} vertical width={30}>\n\t                    <Tab heading='tab1'>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' onClick={::this.test}>\n\t                        hahadhdad2\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t           <div>\n\t              <h1>默认横向</h1>\n\t               <Demo1 />\n\t               <h1>竖向</h1>\n\t               <Demo2 />\n\t           </div>\n\t        );\n\t    }\n\t}",
-                "\timport React, { Component ,PropTypes} from 'react';\n\timport {Tabset,Tab} from '../../src/index';\n\tlet Demo1 = class demo1 extends Component{\n\t    constructor(props,context){\n\t        super(props,context);\n\t        this.state={\n\t            tab2:'初始tab2内容'\n\t        }\n\t    }\n\t    test(){\n\t        this.setState({\n\t            tab2:'测试panel内容改变'\n\t        })\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={1} className = '测试name' clickCallback={()=>{console.log('测试tabset 回调')}} style={{color:'green'}}>\n\t                    <Tab heading='tab1' className='测试' clickCallback={()=>{alert('测试clickCallback属性')}}>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' clickCallback={::this.test}>\n\t                        {this.state.tab2}\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\tlet Demo2 = class demo2 extends Component{\n\t    test(){\n\t        alert('测试自定义tab点击事件');\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={0} vertical width={30}>\n\t                    <Tab heading='tab1'>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' onClick={::this.test}>\n\t                        hahadhdad2\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t           <div>\n\t              <h1>默认横向</h1>\n\t               <Demo1 />\n\t               <h1>竖向</h1>\n\t               <Demo2 />\n\t           </div>\n\t        );\n\t    }\n\t}"
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport {Tabset,Tab} from '../../src/index';\n\tlet Demo1 = class demo1 extends Component{\n\t    constructor(props,context){\n\t        super(props,context);\n\t        this.state={\n\t            tab2:'初始tab2内容',\n\t            index:0\n\t        }\n\t    }\n\t    test(index){\n\t        console.log(index);\n\t    };\n\t    test1(index){\n\t        // index == 1 && this.setState({\n\t        //     tab2:'测试panel内容改变',\n\t        //     index:2\n\t        // })\n\t        console.log('测试tabset 回调'+index)\n\t    }\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={this.state.index} className = '测试name' tabCallback={::this.test1} style={{color:'green'}}>\n\t                    <Tab heading='tab1' className='测试' clickCallback={(index)=>{console.log(index)}}>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading={this.state.index} clickCallback={::this.test}>\n\t                        hahadhdad2\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\tlet Demo2 = class demo2 extends Component{\n\t    test(){\n\t        alert('测试自定义tab点击事件');\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={0} vertical width={30}>\n\t                    <Tab heading='tab1'>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' onClick={::this.test}>\n\t                        hahadhdad2\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t           <div>\n\t              <h1>默认横向</h1>\n\t               <Demo1 />\n\t               <h1>竖向</h1>\n\t               <Demo2 />\n\t           </div>\n\t        );\n\t    }\n\t}",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport {Tabset,Tab} from '../../src/index';\n\tlet Demo1 = class demo1 extends Component{\n\t    constructor(props,context){\n\t        super(props,context);\n\t        this.state={\n\t            tab2:'初始tab2内容',\n\t            index:0\n\t        }\n\t    }\n\t    test(index){\n\t        console.log(index);\n\t    };\n\t    test1(index){\n\t        // index == 1 && this.setState({\n\t        //     tab2:'测试panel内容改变',\n\t        //     index:2\n\t        // })\n\t        console.log('测试tabset 回调'+index)\n\t    }\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={this.state.index} className = '测试name' tabCallback={::this.test1} style={{color:'green'}}>\n\t                    <Tab heading='tab1' className='测试' clickCallback={(index)=>{console.log(index)}}>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading={this.state.index} clickCallback={::this.test}>\n\t                        hahadhdad2\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\tlet Demo2 = class demo2 extends Component{\n\t    test(){\n\t        alert('测试自定义tab点击事件');\n\t    };\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Tabset activeIndex ={0} vertical width={30}>\n\t                    <Tab heading='tab1'>\n\t                        hahadhdad1\n\t                    </Tab>\n\t                    <Tab heading='tab2' onClick={::this.test}>\n\t                        hahadhdad2\n\t                    </Tab>\n\t                    <Tab heading='tab3'>\n\t                        hahadhdad3\n\t                    </Tab>\n\t                </Tabset>\n\t            </div>\n\t        )\n\t    }\n\t}\n\texport default class input extends Component{\n\t    render(){\n\t        return(\n\t           <div>\n\t              <h1>默认横向</h1>\n\t               <Demo1 />\n\t               <h1>竖向</h1>\n\t               <Demo2 />\n\t           </div>\n\t        );\n\t    }\n\t}"
+            ],
+            "exampleTitles": [
+                "展示",
+                "源码"
+            ],
+            "show": true
+        },
+        "TextArea": {
+            "name": "TextArea",
+            "shortname": "TextArea",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Form",
+            "namespace": "",
+            "file": "src/Textarea.js",
+            "line": 5,
+            "description": "表单元素textarea",
+            "extends": "Component",
+            "is_constructor": 1,
+            "example": [
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Textarea} from '../../src/index';\n\t\n\texport default class textarea extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:'',\n\t            MAX_LENGTH: 100\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Textarea value={this.state.name} placeholder='请输入...'\n\t                onChange={this.setValue.bind(this,'name')} isCount={true} maxLength={this.state.MAX_LENGTH}></Textarea>\n\t            </div>\n\t        );\n\t    }\n\t}",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Textarea} from '../../src/index';\n\t\n\texport default class textarea extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:'',\n\t            MAX_LENGTH: 100\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Textarea value={this.state.name} placeholder='请输入...'\n\t                onChange={this.setValue.bind(this,'name')} isCount={true} maxLength={this.state.MAX_LENGTH}></Textarea>\n\t            </div>\n\t        );\n\t    }\n\t}"
+            ],
+            "exampleTitles": [
+                "展示",
+                "源码"
+            ],
+            "show": true
+        },
+        "Toast": {
+            "name": "Toast",
+            "shortname": "Toast",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Action",
+            "namespace": "",
+            "file": "src/Toast.js",
+            "line": 6,
+            "description": "功能组件-飘字",
+            "extends": "Component",
+            "is_constructor": 1,
+            "example": [
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Button, Toast} from '../../src/index';\n\t\n\texport default class modal extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t\n\t        this.state = {\n\t            duration: 2000\n\t        }\n\t    }\n\t\n\t    showToast(){\n\t        Toast.info('只显示信息的toast！！', this.state.duration, ()=>{\n\t            // 额外的执行内容\n\t            this.test();\n\t        });\n\t    }\n\t\n\t    test(){\n\t        console.log('aahhaha');\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Button block phSize=\"lg\" phStyle=\"info\" onClick={::this.showToast}>Click Me To Show Toast</Button>\n\t            </div>\n\t        );\n\t    }\n\t}",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Button, Toast} from '../../src/index';\n\t\n\texport default class modal extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t\n\t        this.state = {\n\t            duration: 2000\n\t        }\n\t    }\n\t\n\t    showToast(){\n\t        Toast.info('只显示信息的toast！！', this.state.duration, ()=>{\n\t            // 额外的执行内容\n\t            this.test();\n\t        });\n\t    }\n\t\n\t    test(){\n\t        console.log('aahhaha');\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Button block phSize=\"lg\" phStyle=\"info\" onClick={::this.showToast}>Click Me To Show Toast</Button>\n\t            </div>\n\t        );\n\t    }\n\t}"
+            ],
+            "exampleTitles": [
+                "展示",
+                "源码"
+            ],
+            "show": true
+        },
+        "Whisper": {
+            "name": "Whisper",
+            "shortname": "Whisper",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Tooltip",
+            "namespace": "",
+            "file": "src/Whisper.js",
+            "line": 5,
+            "description": "辅助功能组件 - 倾听者",
+            "extends": "Component",
+            "is_constructor": 1,
+            "example": [
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Whisper, Popover, Row, Col} from '../../src/index';\n\t\n\texport default class popover extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t    }\n\t\n\t    onToggle(){\n\t        console.log('气泡出现消失时额外的执行函数'); \n\t    }\n\t\n\t    render(){\n\t        const popover = ( // 可以通过style自定义位置\n\t            <Popover>\n\t                <ul className=\"popover-list\">\n\t                    <li className=\"popover-item\">未上线单店</li>\n\t                    <li className=\"popover-item\">未上线连锁店</li>\n\t                </ul>\n\t            </Popover>\n\t        );\n\t\n\t        return(\n\t            <div>\n\t                <div style={{backgroundColor:'#fff',padding:'12px'}}>\n\t                    Popover\n\t                    <Whisper \n\t                        onToggle={this.onToggle}\n\t                        placement='bottom right'\n\t                        target={popover}\n\t                        distance={15}\n\t                        style={{float:'right',textAlign:'right'}}>Click Me</Whisper>\n\t                </div>\n\t            </div>\n\t        );\n\t    }\n\t}",
+                "\timport React, { Component ,PropTypes} from 'react';\n\timport ReactDOM,{findDOMNode} from 'react-dom';\n\timport {Whisper, Popover, Row, Col} from '../../src/index';\n\t\n\texport default class popover extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t    }\n\t\n\t    onToggle(){\n\t        console.log('气泡出现消失时额外的执行函数'); \n\t    }\n\t\n\t    render(){\n\t        const popover = ( // 可以通过style自定义位置\n\t            <Popover>\n\t                <ul className=\"popover-list\">\n\t                    <li className=\"popover-item\">未上线单店</li>\n\t                    <li className=\"popover-item\">未上线连锁店</li>\n\t                </ul>\n\t            </Popover>\n\t        );\n\t\n\t        return(\n\t            <div>\n\t                <div style={{backgroundColor:'#fff',padding:'12px'}}>\n\t                    Popover\n\t                    <Whisper \n\t                        onToggle={this.onToggle}\n\t                        placement='bottom right'\n\t                        target={popover}\n\t                        distance={15}\n\t                        style={{float:'right',textAlign:'right'}}>Click Me</Whisper>\n\t                </div>\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
                 "展示",
@@ -606,7 +1009,7 @@
             "file": "src/utils/ClassNameMixin.js",
             "line": 1,
             "description": "Created by mac on 15/9/7.",
-            "class": "Badge"
+            "class": "Accordion"
         },
         {
             "file": "src/utils/ClassNameMixin.js",
@@ -630,7 +1033,7 @@
                 "description": "",
                 "type": "String"
             },
-            "class": "Badge"
+            "class": "Accordion"
         },
         {
             "file": "src/utils/ClassNameMixin.js",
@@ -654,7 +1057,7 @@
                 "description": "",
                 "type": "String"
             },
-            "class": "Badge"
+            "class": "Accordion"
         },
         {
             "file": "src/utils/ClassNameMixin.js",
@@ -673,7 +1076,7 @@
                 "description": "",
                 "type": "String"
             },
-            "class": "Badge"
+            "class": "Accordion"
         },
         {
             "file": "src/utils/ClassNameMixin.js",
@@ -697,7 +1100,7 @@
                 "description": "",
                 "type": "String"
             },
-            "class": "Badge"
+            "class": "Accordion"
         },
         {
             "file": "src/utils/ClassNameMixin.js",
@@ -721,7 +1124,7 @@
                 "description": "",
                 "type": "Boolean"
             },
-            "class": "Badge"
+            "class": "Accordion"
         },
         {
             "file": "src/utils/ClassNameMixin.js",
@@ -741,7 +1144,7 @@
                     "type": "String"
                 }
             ],
-            "class": "Badge"
+            "class": "Accordion"
         },
         {
             "file": "src/utils/ClassNameMixin.js",
@@ -761,49 +1164,55 @@
                     "type": "String"
                 }
             ],
-            "class": "Badge"
+            "class": "Accordion"
         },
         {
             "file": "src/utils/MethodMixin.js",
             "line": 1,
             "description": "Created by mac on 16/1/3.",
-            "class": "Badge"
+            "class": "Accordion"
         },
         {
             "file": "src/utils/PropertyMixin.js",
             "line": 1,
             "description": "Created by mac on 16/1/3.",
-            "class": "Badge"
+            "class": "Accordion"
+        },
+        {
+            "file": "src/utils/Tool.js",
+            "line": 1,
+            "description": "Created by mac on 16/11/28.",
+            "class": "Accordion"
         },
         {
             "file": "src/utils/constants.js",
             "line": 1,
             "description": "Created by mac on 15/9/7.",
-            "class": "Badge"
+            "class": "Accordion"
         },
         {
             "file": "src/utils/constants.js",
             "line": 11,
             "description": "状态",
-            "class": "Badge"
+            "class": "Accordion"
         },
         {
             "file": "src/utils/constants.js",
             "line": 62,
             "description": "颜色",
-            "class": "Badge"
+            "class": "Accordion"
         },
         {
             "file": "src/utils/constants.js",
             "line": 76,
             "description": "form列表相关",
-            "class": "Badge"
+            "class": "Accordion"
         },
         {
             "file": "src/utils/constants.js",
             "line": 86,
             "description": "tab",
-            "class": "Badge"
+            "class": "Accordion"
         },
         {
             "file": "src/utils/extend.js",
@@ -819,7 +1228,27 @@
                     "description": "- an object containing properties to be overwritten. It\n                  should have the same structure as the object object."
                 }
             ],
-            "class": "Badge"
+            "class": "Accordion"
+        },
+        {
+            "file": "src/Accordion.js",
+            "line": 21,
+            "description": "样式前缀",
+            "itemtype": "property",
+            "name": "classPrefix",
+            "type": "String",
+            "class": "Accordion",
+            "module": "Action"
+        },
+        {
+            "file": "src/Accordion.js",
+            "line": 27,
+            "description": "标签tagName",
+            "itemtype": "property",
+            "name": "componentTag",
+            "type": "String",
+            "class": "Accordion",
+            "module": "Action"
         },
         {
             "file": "src/Badge.js",
@@ -966,6 +1395,26 @@
             "module": "Grid"
         },
         {
+            "file": "src/Dialog.js",
+            "line": 23,
+            "description": "样式前缀",
+            "itemtype": "property",
+            "name": "classPrefix",
+            "type": "String",
+            "class": "Dialog",
+            "module": "Action"
+        },
+        {
+            "file": "src/Dialog.js",
+            "line": 29,
+            "description": "标签tagName",
+            "itemtype": "property",
+            "name": "componentTag",
+            "type": "String",
+            "class": "Dialog",
+            "module": "Action"
+        },
+        {
             "file": "src/FormGroup.js",
             "line": 20,
             "description": "样式前缀",
@@ -1050,6 +1499,26 @@
             "module": "Label(标签)"
         },
         {
+            "file": "src/Popover.js",
+            "line": 19,
+            "description": "标签tagName",
+            "itemtype": "property",
+            "name": "componentTag",
+            "type": "String",
+            "class": "Popover",
+            "module": "Tooltips"
+        },
+        {
+            "file": "src/Popup.js",
+            "line": 19,
+            "description": "标签tagName",
+            "itemtype": "property",
+            "name": "componentTag",
+            "type": "String",
+            "class": "Popup",
+            "module": "Action"
+        },
+        {
             "file": "src/Row.js",
             "line": 15,
             "description": "竖直方向的排列是靠上、居中、靠下、拉伸至父容器最大高度还是基于text的baseline对齐",
@@ -1087,6 +1556,26 @@
             "default": "",
             "class": "Star",
             "module": "UI"
+        },
+        {
+            "file": "src/Swipe.js",
+            "line": 21,
+            "description": "样式前缀",
+            "itemtype": "property",
+            "name": "classPrefix",
+            "type": "String",
+            "class": "Swipe",
+            "module": "Action"
+        },
+        {
+            "file": "src/Swipe.js",
+            "line": 27,
+            "description": "标签tagName",
+            "itemtype": "property",
+            "name": "componentTag",
+            "type": "String",
+            "class": "Swipe",
+            "module": "Action"
         },
         {
             "file": "src/Switch.js",
@@ -1181,17 +1670,114 @@
         {
             "file": "src/Tabset.js",
             "line": 77,
-            "description": "点击事件的回调函数",
+            "description": "点击事件的回调函数,返回当前选中项",
             "itemtype": "property",
-            "name": "clickCallback",
+            "name": "tabCallback",
             "default": "null",
             "class": "Tabset",
             "module": "Tab(选项卡)"
+        },
+        {
+            "file": "src/Tabset.js",
+            "line": 96,
+            "description": "首次进入获取active",
+            "class": "Tabset",
+            "module": "Tab(选项卡)"
+        },
+        {
+            "file": "src/Tabset.js",
+            "line": 101,
+            "description": "props再次改变，再次判断active",
+            "class": "Tabset",
+            "module": "Tab(选项卡)"
+        },
+        {
+            "file": "src/Tabset.js",
+            "line": 134,
+            "description": "tab handler",
+            "class": "Tabset",
+            "module": "Tab(选项卡)"
+        },
+        {
+            "file": "src/Textarea.js",
+            "line": 18,
+            "description": "样式前缀",
+            "itemtype": "property",
+            "name": "classPrefix",
+            "type": "String",
+            "class": "TextArea",
+            "module": "Form"
+        },
+        {
+            "file": "src/Textarea.js",
+            "line": 24,
+            "description": "是否显示输入计数",
+            "itemtype": "property",
+            "name": "isCount",
+            "type": "Boolean",
+            "class": "TextArea",
+            "module": "Form"
+        },
+        {
+            "file": "src/Textarea.js",
+            "line": 30,
+            "description": "可输入的总长度",
+            "itemtype": "property",
+            "name": "maxLength",
+            "type": "Number",
+            "class": "TextArea",
+            "module": "Form"
+        },
+        {
+            "file": "src/Toast.js",
+            "line": 19,
+            "description": "样式前缀",
+            "itemtype": "property",
+            "name": "classPrefix",
+            "type": "String",
+            "class": "Toast",
+            "module": "Action"
+        },
+        {
+            "file": "src/Toast.js",
+            "line": 25,
+            "description": "标签tagName",
+            "itemtype": "property",
+            "name": "componentTag",
+            "type": "String",
+            "class": "Toast",
+            "module": "Action"
+        },
+        {
+            "file": "src/Whisper.js",
+            "line": 18,
+            "description": "标签tagName",
+            "itemtype": "property",
+            "name": "componentTag",
+            "type": "String",
+            "class": "Whisper",
+            "module": "Tooltip"
         }
     ],
     "warnings": [
         {
             "message": "unknown tag: demo",
+            "line": " src/Accordion.js:8"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/Accordion.js:8"
+        },
+        {
+            "message": "unknown tag: show",
+            "line": " src/Accordion.js:8"
+        },
+        {
+            "message": "unknown tag: show",
+            "line": " src/Animate.js:5"
+        },
+        {
+            "message": "unknown tag: demo",
             "line": " src/Badge.js:4"
         },
         {
@@ -1225,6 +1811,26 @@
         {
             "message": "unknown tag: show",
             "line": " src/ButtonGroup.js:8"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/Dialog.js:10"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/Dialog.js:10"
+        },
+        {
+            "message": "unknown tag: show",
+            "line": " src/Dialog.js:10"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/Drag.js:5"
+        },
+        {
+            "message": "unknown tag: show",
+            "line": " src/Drag.js:5"
         },
         {
             "message": "unknown tag: demo",
@@ -1268,6 +1874,30 @@
         },
         {
             "message": "unknown tag: demo",
+            "line": " src/Popover.js:6"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/Popover.js:6"
+        },
+        {
+            "message": "unknown tag: show",
+            "line": " src/Popover.js:6"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/Popup.js:6"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/Popup.js:6"
+        },
+        {
+            "message": "unknown tag: show",
+            "line": " src/Popup.js:6"
+        },
+        {
+            "message": "unknown tag: demo",
             "line": " src/Star.js:5"
         },
         {
@@ -1277,6 +1907,18 @@
         {
             "message": "unknown tag: show",
             "line": " src/Star.js:5"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/Swipe.js:8"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/Swipe.js:8"
+        },
+        {
+            "message": "unknown tag: show",
+            "line": " src/Swipe.js:8"
         },
         {
             "message": "unknown tag: demo",
@@ -1325,6 +1967,42 @@
         {
             "message": "unknown tag: show",
             "line": " src/Tabset.js:15"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/Textarea.js:5"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/Textarea.js:5"
+        },
+        {
+            "message": "unknown tag: show",
+            "line": " src/Textarea.js:5"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/Toast.js:6"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/Toast.js:6"
+        },
+        {
+            "message": "unknown tag: show",
+            "line": " src/Toast.js:6"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/Whisper.js:5"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/Whisper.js:5"
+        },
+        {
+            "message": "unknown tag: show",
+            "line": " src/Whisper.js:5"
         },
         {
             "message": "Missing item type\nCreated by mac on 15/9/7.",
@@ -1337,6 +2015,10 @@
         {
             "message": "Missing item type\nCreated by mac on 16/1/3.",
             "line": " src/utils/PropertyMixin.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by mac on 16/11/28.",
+            "line": " src/utils/Tool.js:1"
         },
         {
             "message": "Missing item type\nCreated by mac on 15/9/7.",
@@ -1369,6 +2051,18 @@
         {
             "message": "Missing item type\n星级评价",
             "line": " src/Star.js:1"
+        },
+        {
+            "message": "Missing item type\n首次进入获取active",
+            "line": " src/Tabset.js:96"
+        },
+        {
+            "message": "Missing item type\nprops再次改变，再次判断active",
+            "line": " src/Tabset.js:101"
+        },
+        {
+            "message": "Missing item type\ntab handler",
+            "line": " src/Tabset.js:134"
         }
     ]
 }

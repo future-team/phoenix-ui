@@ -20,6 +20,7 @@ import Swipe from './swipe.js';
 import Dialog from './dialog.js';
 import Toast from './toast.js';
 import Popup from './popup.js';
+import Popover from './popover.js';
 import Accordion from './accordion.js';
 import Detail from './detailDemo.js';
 import ListDemo from './list-demo.js';
@@ -45,6 +46,7 @@ let Index = class index extends Component {
                         <a href="#/dialog">弹框 Dialog</a>
                         <a href="#/toast">飘字 Toast</a>
                         <a href="#/popup">弹层 Popup</a>
+                        <a href="#/popover">气泡 Popover</a>
                         <a href="#/accordion">手风琴 Accordion</a>
                         <a href="#/detail">详情页示例</a>
                         <a href="#/list-demo">列表页例子</a>
@@ -81,6 +83,7 @@ let AppRouter = class AppRouter extends Component {
                 <Route path="/dialog" name="dialog" component={Dialog} />
                 <Route path="/toast" name="toast" component={Toast} />
                 <Route path="/popup" name="popup" component={Popup} />
+                <Route path="/popover" name="popover" component={Popover} />
                 <Route path="/accordion" name="accordion" component={Accordion} />
                 <Route path="/detail" name="detail" component={Detail} />
                 <Route path="/list-demo" name="list-demo" component={ListDemo} />

@@ -49,25 +49,6 @@ export default class Popup extends Component{
         }
     }
 
-    // renderChildren(){
-    //     let newChildren = [];
-    //     let {visible, align, onClose, classMapping} = this.props;
-    //
-    //     React.Children.forEach(this.props.children, function(child, index){
-    //         console.log(child.type.name);
-    //
-    //         newChildren.push(React.cloneElement(child,{
-    //             key: index,
-    //             align: align,
-    //             visible: visible,
-    //             onClose: onClose,
-    //             classMapping: classMapping
-    //         }));
-    //     });
-    //
-    //     return newChildren;
-    // }
-
     renderPopup(){
         let {visible,children,className} = this.props;
 

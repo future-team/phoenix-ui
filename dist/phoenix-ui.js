@@ -191,6 +191,18 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.Accordion = _Accordion3['default'];
 
+	var _Popover2 = __webpack_require__(209);
+
+	var _Popover3 = _interopRequireDefault(_Popover2);
+
+	exports.Popover = _Popover3['default'];
+
+	var _Whisper2 = __webpack_require__(211);
+
+	var _Whisper3 = _interopRequireDefault(_Whisper2);
+
+	exports.Whisper = _Whisper3['default'];
+
 	//接入cat－browser
 	_utilsCatBrowserJs2['default']({
 	    moduleName: 'phoenix-ui',
@@ -198,7 +210,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	window['Phoenix'] = {};
 
-	['Button', 'Input', 'Textarea', 'Switch', 'Row', 'TableView', 'FormGroup', 'Col', 'Tabset', 'Tab', 'Label', 'Badge', 'Star', 'Swipe', 'Grid', 'ButtonGroup', 'Dialog', 'Toast', 'Popup', 'Accordion'].forEach(function (name) {
+	['Button', 'Input', 'Textarea', 'Switch', 'Row', 'TableView', 'FormGroup', 'Col', 'Tabset', 'Tab', 'Label', 'Badge', 'Star', 'Swipe', 'Grid', 'ButtonGroup', 'Dialog', 'Toast', 'Popup', 'Accordion', 'Popover', 'Whisper'].forEach(function (name) {
 	    Phoenix[name] = exports[name];
 	});
 
@@ -1488,6 +1500,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        },
 	        align: function align(val) {
 	            return getVal(['center', 'left', 'middle', 'auto', 'top', 'right', 'bottom'], val);
+	        },
+	        placement: function placement(val) {
+	            return getVal(['top', 'bottom', 'right', 'left', 'top left', 'top right', 'bottom left', 'bottom right'], val);
 	        },
 	        /*以下属性没有取值，需要的时候添加对应的属性即可*/
 	        disabled: true,
@@ -24810,6 +24825,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var layerElement = renderLayer(content);
 	        _renderLayer(layerElement, duration, callback);
 	    },
+	    show: function show(content, duration, callback) {
+	        this.info();
+	    },
 	    remove: function remove() {
 	        _unrenderLayer();
 	        clearTimeout(timer);
@@ -24917,25 +24935,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return '';
 	        }
 	    };
-
-	    // renderChildren(){
-	    //     let newChildren = [];
-	    //     let {visible, align, onClose, classMapping} = this.props;
-	    //
-	    //     React.Children.forEach(this.props.children, function(child, index){
-	    //         console.log(child.type.name);
-	    //
-	    //         newChildren.push(React.cloneElement(child,{
-	    //             key: index,
-	    //             align: align,
-	    //             visible: visible,
-	    //             onClose: onClose,
-	    //             classMapping: classMapping
-	    //         }));
-	    //     });
-	    //
-	    //     return newChildren;
-	    // }
 
 	    Popup.prototype.renderPopup = function renderPopup() {
 	        var _props2 = this.props;
@@ -25226,6 +25225,378 @@ return /******/ (function(modules) { // webpackBootstrap
 	})(_react.Component);
 
 	exports['default'] = AccordionBody;
+	module.exports = exports['default'];
+
+/***/ },
+/* 209 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(10);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utilsComponent = __webpack_require__(11);
+
+	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
+
+	var _classnames = __webpack_require__(12);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _utilsTool = __webpack_require__(210);
+
+	var _utilsTool2 = _interopRequireDefault(_utilsTool);
+
+	/**
+	 * 功能组件-气泡
+	 * @class Popover
+	 * @module Tooltips
+	 * @extends Component
+	 * @constructor
+	 * @demo popover.js {展示}
+	 * @demo popover.js {源码}
+	 * @show true
+	 * */
+
+	var Popover = (function (_Component) {
+	    _inherits(Popover, _Component);
+
+	    _createClass(Popover, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 标签tagName
+	             * @property componentTag
+	             * @type String
+	             * */
+	            componentTag: _react.PropTypes.string
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            componentTag: 'div',
+	            classMapping: {
+	                'top': 'popover-top center-x',
+	                'bottom': 'popover-bottom center-x',
+	                'left': 'popover-left center-y',
+	                'right': 'popover-right center-y',
+	                'top left': 'popover-top left-x',
+	                'top right': 'popover-top right-x',
+	                'bottom left': 'popover-bottom left-x',
+	                'bottom right': 'popover-bottom right-x'
+	            }
+	        },
+	        enumerable: true
+	    }]);
+
+	    function Popover(props, context) {
+	        _classCallCheck(this, Popover);
+
+	        _Component.call(this, props, context);
+
+	        this.handleDocumentClick = this.handleDocumentClick.bind(this);
+
+	        document.addEventListener('click', this.handleDocumentClick, false);
+	    }
+
+	    Popover.prototype.handleDocumentClick = function handleDocumentClick(event) {
+	        var el = event.target;
+
+	        !_utilsTool2['default'].closest(el, '.popover') && !_utilsTool2['default'].closest(el, '.whisper') && this.props.onClose();
+
+	        return false;
+	    };
+
+	    Popover.prototype.componentWillUnmount = function componentWillUnmount() {};
+
+	    Popover.prototype.render = function render() {
+	        var _props = this.props;
+	        var Component = _props.componentTag;
+	        var className = _props.className;
+	        var styles = _props.styles;
+	        var style = _props.style;
+	        var children = _props.children;
+
+	        return _react2['default'].createElement(
+	            Component,
+	            _extends({}, this.props, {
+	                className: _classnames2['default']('popover', this.getProperty(), className),
+	                style: Object.assign(styles, style)
+	            }),
+	            _react2['default'].createElement('div', { className: 'popover-arrow' }),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'popover-content' },
+	                children
+	            )
+	        );
+	    };
+
+	    return Popover;
+	})(_utilsComponent2['default']);
+
+	exports['default'] = Popover;
+	module.exports = exports['default'];
+
+/***/ },
+/* 210 */
+/***/ function(module, exports) {
+
+	/**
+	 * Created by mac on 16/11/28.
+	 */
+
+	'use strict';
+
+	exports.__esModule = true;
+	var Tool = {
+	    closest: function closest(el, selector) {
+	        var matchesFn;
+
+	        // find vendor prefix
+	        ['matches', 'webkitMatchesSelector', 'mozMatchesSelector', 'msMatchesSelector', 'oMatchesSelector'].some(function (fn) {
+	            if (typeof document.body[fn] == 'function') {
+	                matchesFn = fn;
+	                return true;
+	            }
+	            return false;
+	        });
+
+	        var parent;
+
+	        // traverse parents
+	        while (el) {
+	            if (el[matchesFn](selector)) return el;
+
+	            parent = el.parentElement;
+	            if (parent && parent[matchesFn](selector)) return parent;
+
+	            el = parent;
+	        }
+
+	        return null;
+	    }
+	};
+
+	exports['default'] = Tool;
+	module.exports = exports['default'];
+
+/***/ },
+/* 211 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(10);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(204);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _classnames = __webpack_require__(12);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	/**
+	 * 辅助功能组件 - 倾听者
+	 * @class Whisper
+	 * @module Tooltip
+	 * @extends Component
+	 * @constructor
+	 * @demo popover.js {展示}
+	 * @demo popover.js {源码}
+	 * @show true
+	 * */
+
+	var Whisper = (function (_Component) {
+	    _inherits(Whisper, _Component);
+
+	    _createClass(Whisper, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 标签tagName
+	             * @property componentTag
+	             * @type String
+	             * */
+	            componentTag: _react.PropTypes.string,
+	            placement: _react.PropTypes.string,
+	            distance: _react.PropTypes.number
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            distance: 15,
+	            placement: 'bottom',
+	            componentTag: 'div',
+	            classMapping: {}
+	        },
+	        enumerable: true
+	    }]);
+
+	    function Whisper(props, context) {
+	        _classCallCheck(this, Whisper);
+
+	        _Component.call(this, props, context);
+
+	        this.visible = false;
+	        this._layer = document.createElement('div');
+	    }
+
+	    Whisper.prototype.componentDidMount = function componentDidMount() {
+	        this.getWhisperPosition();
+	    };
+
+	    Whisper.prototype.getWhisperPosition = function getWhisperPosition() {
+	        this.position = {};
+	        this.size = {};
+
+	        this.position.x = parseInt(this.whisper.offsetLeft);
+	        this.position.y = parseInt(this.whisper.offsetTop);
+
+	        this.size.width = parseInt(this.whisper.offsetWidth);
+	        this.size.height = parseInt(this.whisper.offsetHeight);
+
+	        this.calcTooltipPosition();
+	    };
+
+	    Whisper.prototype.calcTooltipPosition = function calcTooltipPosition() {
+	        var ARROW_SIZE = this.props.distance;
+	        var winWidth = parseInt(document.body.clientWidth),
+	            winHeight = parseInt(document.body.clientHeight);
+
+	        document.body.style.position = 'relative';
+	        this.style = {};
+
+	        switch (this.props.placement) {
+	            case 'top':
+	                this.style.bottom = winHeight - this.position.y + ARROW_SIZE;
+	                this.style.left = this.position.x + this.size.width / 2;
+	                break;
+	            case 'bottom':
+	                this.style.top = this.position.y + this.size.height + ARROW_SIZE;
+	                this.style.left = this.position.x + this.size.width / 2;
+	                break;
+	            case 'left':
+	                this.style.right = winWidth - this.position.x + ARROW_SIZE;
+	                this.style.top = this.position.y + this.size.height / 2;
+	                break;
+	            case 'right':
+	                this.style.left = this.position.x + this.size.width + ARROW_SIZE;
+	                this.style.top = this.position.y + this.size.height / 2;
+	                break;
+	            case 'top left':
+	                this.style.bottom = winHeight - this.position.y + ARROW_SIZE;
+	                this.style.left = this.position.x;
+	                break;
+	            case 'top right':
+	                this.style.bottom = winHeight - this.position.y + ARROW_SIZE;
+	                this.style.right = winWidth - this.position.x - this.size.width;
+	                break;
+	            case 'bottom left':
+	                this.style.top = this.position.y + this.size.height + ARROW_SIZE;
+	                this.style.left = this.position.x;
+	                break;
+	            case 'bottom right':
+	                this.style.top = this.position.y + this.size.height + ARROW_SIZE;
+	                this.style.right = winWidth - this.position.x - this.size.width;
+	                break;
+	            default:
+	                this.style.top = 0;
+	                this.style.left = 0;
+	        }
+	    };
+
+	    Whisper.prototype.onToggle = function onToggle() {
+	        if (this.props.onToggle) this.props.onToggle();
+
+	        this.visible = !this.visible;
+
+	        if (this.visible) {
+	            this.renderTarget();
+	        } else {
+	            this.removeTarget();
+	        }
+	    };
+
+	    Whisper.prototype.onClose = function onClose() {
+	        this.visible = false;
+	        this.removeTarget();
+	    };
+
+	    Whisper.prototype.getTarget = function getTarget() {
+	        return _react.cloneElement(this.props.target, {
+	            styles: this.style,
+	            placement: this.props.placement,
+	            onClose: this.onClose.bind(this)
+	        });
+	    };
+
+	    Whisper.prototype.renderTarget = function renderTarget() {
+	        var newTarget = this.getTarget();
+
+	        _reactDom2['default'].unstable_renderSubtreeIntoContainer(this, newTarget, this._layer);
+	        document.body.appendChild(this._layer);
+	    };
+
+	    Whisper.prototype.removeTarget = function removeTarget() {
+	        _reactDom2['default'].unmountComponentAtNode(this._layer);
+	    };
+
+	    Whisper.prototype.render = function render() {
+	        var _this = this;
+
+	        var _props = this.props;
+	        var className = _props.className;
+	        var children = _props.children;
+
+	        return _react2['default'].createElement(
+	            'div',
+	            _extends({}, this.props, {
+	                className: _classnames2['default']('whisper', className),
+	                onClick: this.onToggle.bind(this),
+	                ref: function (whisper) {
+	                    _this.whisper = whisper;
+	                }
+	            }),
+	            children
+	        );
+	    };
+
+	    return Whisper;
+	})(_react.Component);
+
+	exports['default'] = Whisper;
 	module.exports = exports['default'];
 
 /***/ }

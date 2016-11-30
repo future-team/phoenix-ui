@@ -21,6 +21,8 @@ export Dialog from './Dialog';
 export Toast from './Toast';
 export Popup from './Popup';
 export Accordion from './Accordion';
+export Popover from './Popover';
+export Whisper from './Whisper';
 //接入cat－browser
 catBrowser({
     moduleName:'phoenix-ui',
@@ -48,7 +50,9 @@ window['Phoenix'] = {};
     'Dialog',
     'Toast',
     'Popup',
-    'Accordion'
+    'Accordion',
+    'Popover',
+    'Whisper'
 ].forEach(function(name){
     Phoenix[name] = exports[name];
 });

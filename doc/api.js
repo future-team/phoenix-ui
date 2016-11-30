@@ -1,33 +1,82 @@
 YUI.add("yuidoc-meta", function(Y) {
    Y.YUIDoc = { meta: {
     "classes": [
+        "Accordion",
+        "Animate",
         "Badge",
         "Button",
         "ButtonGroup",
         "Col",
+        "Dialog",
+        "Drag",
         "FormGroup",
         "Grid",
         "Input",
         "Label",
+        "Popover",
+        "Popup",
         "Row",
         "Star",
+        "Swipe",
         "Switch",
         "Tab",
         "TableView",
-        "Tabset"
+        "Tabset",
+        "TextArea",
+        "Toast",
+        "Whisper"
     ],
     "modules": [
+        "Action",
+        "Basic",
         "Form",
         "Grid",
         "Label(标签)",
         "Tab(选项卡)",
+        "Tooltip",
+        "Tooltips",
         "UI"
     ],
     "allModules": [
         {
+            "displayName": "Action",
+            "name": "Action",
+            "description": "功能组件-飘字",
+            "classes": [
+                {
+                    "name": "Dialog"
+                },
+                {
+                    "name": "Popup"
+                },
+                {
+                    "name": "Swipe"
+                },
+                {
+                    "name": "Toast"
+                },
+                {
+                    "name": "Accordion"
+                },
+                {
+                    "name": "Animate"
+                }
+            ]
+        },
+        {
+            "displayName": "Basic",
+            "name": "Basic",
+            "description": "拖动Drag",
+            "classes": [
+                {
+                    "name": "Drag"
+                }
+            ]
+        },
+        {
             "displayName": "Form",
             "name": "Form",
-            "description": "开关切换，仿真ios的开关控件",
+            "description": "表单元素textarea",
             "classes": [
                 {
                     "name": "FormGroup"
@@ -37,6 +86,9 @@ YUI.add("yuidoc-meta", function(Y) {
                 },
                 {
                     "name": "Switch"
+                },
+                {
+                    "name": "TextArea"
                 },
                 {
                     "name": "Button"
@@ -85,6 +137,26 @@ YUI.add("yuidoc-meta", function(Y) {
                 },
                 {
                     "name": "Tabset"
+                }
+            ]
+        },
+        {
+            "displayName": "Tooltip",
+            "name": "Tooltip",
+            "description": "辅助功能组件 - 倾听者",
+            "classes": [
+                {
+                    "name": "Whisper"
+                }
+            ]
+        },
+        {
+            "displayName": "Tooltips",
+            "name": "Tooltips",
+            "description": "功能组件-气泡",
+            "classes": [
+                {
+                    "name": "Popover"
                 }
             ]
         },

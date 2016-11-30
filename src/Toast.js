@@ -90,6 +90,9 @@ export default {
         let layerElement = renderLayer(content);
         _renderLayer(layerElement, duration, callback);
     },
+    show(content, duration, callback){
+        this.info();
+    },
     remove(){
         _unrenderLayer();
         clearTimeout(timer);
