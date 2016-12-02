@@ -15,7 +15,8 @@ export Tabset from './Tabset';
 export Label from './Label';
 export Badge from './Badge';
 export Star from './Star';
-export Swipe from './Swipe'
+export Drag from './Drag';
+export Swipe from './Swipe';
 export Grid from './Grid';
 export Dialog from './Dialog';
 export Toast from './Toast';
@@ -44,6 +45,7 @@ window['Phoenix'] = {};
     'Label',
     'Badge',
     'Star',
+    'Drag',
     'Swipe',
     'Grid',
     'ButtonGroup',
