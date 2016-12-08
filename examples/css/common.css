@@ -1,0 +1,150 @@
+html{
+    font-size: 16px;
+}
+body{
+    background: #efeff4;
+    color: #333;
+}
+
+/*** List ***/
+.menu{
+    background: #fff;
+}
+.menu h1{
+    padding: .6rem 1rem;
+    font-size: 125%;
+}
+.menu h2{
+    padding: .3rem 1rem;
+    background-color: #ff6633;
+    border: 1px solid #ee5511;
+    text-align: center;
+    font-size: 100%;
+    color: #fff;
+}
+
+.list-card{
+    display: block;
+    padding: .6rem 1rem;
+    border-top: 1px solid #ddd;
+}
+.list-card:first-child{
+    border-top: none;
+}
+.list-card:hover, .list-card:active{
+    background-color: #ff6633;
+}
+.list-card:hover h3, .list-card:hover p{
+    color: #fff;
+}
+.menu-panel h3{
+    margin-bottom: .3rem;
+    font-size: 100%;
+}
+.menu-panel p{
+    font-size: 80%;
+    color: #777;
+}
+
+/*** content ***/
+.comp-title{
+    padding: 1.2rem 1rem;
+    text-align: center;
+}
+.comp-type{
+    margin-bottom: 1rem;
+    padding: .3rem 1rem;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    font-size: 100%;
+}
+.comp-tip{
+    padding: .3rem 1rem;
+    font-size: 87.5%;
+    color: #777;
+}
+
+.content .btn:not(.btn-block),
+.content .badge{
+    margin: 0 0 1rem 1rem;
+}
+
+.content .btn-group .btn:not(.btn-block){
+    margin: 0 0 1rem 0;
+}
+
+// .menu {
+//     width: 100%;
+//     background: #fff;
+// }
+// .back{
+//     background: #fff;
+// }
+// .menu a{
+//     display: block;
+//     padding: 10px;
+//     width: 100%;
+//     border-bottom: 1px solid #e2e2e2;
+//     font-size: 14px;
+//     text-align: center;
+// }
+
+// .content {
+//     margin: 10px 10px 10px 310px;
+//     height: 100%;
+// }
+
+// .menu a.sub {
+
+//     font-size: 18px;
+//     background: #e2e2e2;
+// }
+
+// .menu a.active {
+//     background: #d94000;
+//     color: #fff;
+// }
+
+// .menu a:not(.sub):hover {
+//     background: #d94000;
+//     color: #fff;
+// }
+
+// #nav a {
+//     display: inline-block;
+//     padding: 5px;
+// }
+
+// #backToNav:hover {
+//     cursor: pointer;
+// }
+
+// #backToNav {
+//     position: fixed;
+//     right: 10px;
+//     bottom: 40px;
+//     text-decoration: underline;
+//     color: #0c80ba;
+//     background-color: white;
+// }
+
+// .uc-btn {
+//     margin: 5px !important;
+// }
+
+// .col-demo {
+//     padding: 5px;
+//     width: 100%;
+//     border: 1px solid #ddd;
+//     border-radius: 2px;
+//     background: #f7f7f7;
+//     text-align: center
+// }
+// .hint{
+//     text-align: center;
+//     margin:10px;
+//     font-size: 17px;
+// }
+// .top{
+//     background: #f1f1f1;
+// }

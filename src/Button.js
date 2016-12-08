@@ -84,7 +84,8 @@ export default class Button extends Component{
             'error':'btn-error',
             'warning':'btn-warning',
             'danger':'btn-danger',
-            'link':'btn-link'
+            'link':'btn-link',
+            'gray':'btn-gray'
         }
     };
 

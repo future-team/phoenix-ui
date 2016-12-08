@@ -19,12 +19,6 @@ export default class Swipe extends Component{
 
     static propTypes = {
         /**
-         * 样式前缀
-         * @property classPrefix
-         * @type String
-         * */
-        classPrefix:PropTypes.string,
-        /**
          * 标签tagName
          * @property componentTag
          * @type String
@@ -34,8 +28,6 @@ export default class Swipe extends Component{
 
     static defaultProps = {
         buttons: [],
-        egSize:'',
-        classPrefix:'',
         componentTag:'div',
         classMapping : {}
     };
@@ -49,7 +41,6 @@ export default class Swipe extends Component{
             btnsWidth: 0,
             isBtnsShow: false,
             OPE_RANGE: 10
-
         }
     }
 

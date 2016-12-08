@@ -24,6 +24,8 @@ export Popup from './Popup';
 export Accordion from './Accordion';
 export Popover from './Popover';
 export Whisper from './Whisper';
+export Slider from './Slider';
+export Animate from './Animate';
 //接入cat－browser
 catBrowser({
     moduleName:'phoenix-ui',
@@ -54,7 +56,9 @@ window['Phoenix'] = {};
     'Popup',
     'Accordion',
     'Popover',
-    'Whisper'
+    'Whisper',
+    'Slider',
+    'Animate'
 ].forEach(function(name){
     Phoenix[name] = exports[name];
 });

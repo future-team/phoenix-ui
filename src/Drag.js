@@ -68,7 +68,7 @@ export default class Drag extends Component{
 
     render(){
         return (
-            <div {...this.props} className={classnames('swipe-content', this.props.className)}
+            <div {...this.props} className={classnames('drag-action', this.props.className)}
                 onTouchStart={(event)=>{this.onStart(event)}}
                 onTouchMove={(event)=>{this.onMove(event)}}
                 onTouchEnd={(event)=>{this.onEnd(event)}}

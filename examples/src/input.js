@@ -24,10 +24,10 @@ export default class input extends Component{
             <div>
                 <Input type="text" value={this.state.name} onChange={::this.setValue.bind(this,'name')} />
                 <Row align="bottom">
-                    <Col><Input type="radio" label="男" name="sex"  /></Col>
-                    <Col><Input type="radio" label="女"  name="sex" /></Col>
+                    <Col><Input type="radio" label="男" name="sex" /></Col>
+                    <Col><Input type="radio" label="女" name="sex" /></Col>
                 </Row>
-                <Input type="checkbox" label="苹果"  />
+                <Input type="checkbox" label="苹果" />
             </div>
         );
     }

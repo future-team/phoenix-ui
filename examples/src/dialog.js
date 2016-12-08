@@ -37,7 +37,7 @@ export default class dialog extends Component{
                     <Dialog.Title>标题标题</Dialog.Title>
                     <Dialog.Body>
                         <input type="text" />
-                        内容内容内容内容内容内容内容内容内容内容内容内容
+                        可自定义表格内容
                     </Dialog.Body>
                     <Dialog.Footer>
                         <Button hollow radius phSize="lg" phStyle="gray" onClick={::this.onClose}>取消</Button>

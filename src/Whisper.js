@@ -105,7 +105,7 @@ export default class Whisper extends Component{
     }
 
     onToggle(){
-        if(this.props.onToggle) this.props.onToggle();
+        if(this.props.onChange) this.props.onChange();
 
         this.visible = !this.visible;
 

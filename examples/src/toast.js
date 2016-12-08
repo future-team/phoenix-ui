@@ -14,13 +14,8 @@ export default class modal extends Component{
 
     showToast(){
         Toast.info('只显示信息的toast！！', this.state.duration, ()=>{
-            // 额外的执行内容
-            this.test();
+            console.log('额外的执行内容');
         });
-    }
-
-    test(){
-        console.log('aahhaha');
     }
 
     render(){

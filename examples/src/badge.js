@@ -5,9 +5,13 @@ export default class Badges extends Component{
     render(){
         return(
             <div>
-                <Badge >惠1</Badge>
-                <div><Badge  phStyle="success">惠2</Badge></div>
-                <Badge  phStyle='info'>惠3</Badge>
+            	<h2 className="comp-title">ButtonGroup</h2>
+                <h3 className="comp-type">类型 phStyle</h3>
+                <div className="content">
+	                <Badge>惠1</Badge>
+	                <Badge phStyle="success">惠2</Badge>
+	                <Badge phStyle='info'>惠3</Badge>
+                </div>
             </div>
         );
     }

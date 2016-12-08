@@ -5,7 +5,7 @@ export default class Labels extends Component{
     render(){
         return(
             <div>
-                <Label >惠</Label>
+                <Label>惠</Label>
                 <div><Label phSize="lg" phStyle="success">惠</Label></div>
                 <Label phSize="md" phStyle='info'>惠</Label>
             </div>

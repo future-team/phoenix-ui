@@ -23,7 +23,7 @@ export default obj=>{
             return getVal(['lg','sm','default','xs','md'],val);
         },
         phStyle:function(val){
-            return getVal(['primary','info','success','error','warning','danger','link','light','positive','calm','balanced','energized','assertive','lightbrown','lightgray'],val);
+            return getVal(['primary','info','success','error','warning','danger','link','gray','light','positive','calm','balanced','energized','assertive','lightbrown','lightgray'],val);
         },
         status:val=>{
             getVal(['diabled','active','enable'],val)

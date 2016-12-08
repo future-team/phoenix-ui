@@ -90,206 +90,231 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _tabJs2 = _interopRequireDefault(_tabJs);
 
-	var _buttonJs = __webpack_require__(261);
+	var _buttonJs = __webpack_require__(262);
 
 	var _buttonJs2 = _interopRequireDefault(_buttonJs);
 
-	var _inputJs = __webpack_require__(262);
+	var _buttonGroupJs = __webpack_require__(263);
+
+	var _buttonGroupJs2 = _interopRequireDefault(_buttonGroupJs);
+
+	var _inputJs = __webpack_require__(264);
 
 	var _inputJs2 = _interopRequireDefault(_inputJs);
 
-	var _textareaJs = __webpack_require__(263);
+	var _textareaJs = __webpack_require__(265);
 
 	var _textareaJs2 = _interopRequireDefault(_textareaJs);
 
-	var _switchJs = __webpack_require__(264);
+	var _switchJs = __webpack_require__(266);
 
 	var _switchJs2 = _interopRequireDefault(_switchJs);
 
-	var _gridJs = __webpack_require__(265);
+	var _gridJs = __webpack_require__(267);
 
 	var _gridJs2 = _interopRequireDefault(_gridJs);
 
-	var _tableViewJs = __webpack_require__(266);
+	var _tableViewJs = __webpack_require__(268);
 
 	var _tableViewJs2 = _interopRequireDefault(_tableViewJs);
 
-	var _formGroupJs = __webpack_require__(267);
+	var _formGroupJs = __webpack_require__(269);
 
 	var _formGroupJs2 = _interopRequireDefault(_formGroupJs);
 
-	var _labelJs = __webpack_require__(268);
+	var _labelJs = __webpack_require__(270);
 
 	var _labelJs2 = _interopRequireDefault(_labelJs);
 
-	var _badgeJs = __webpack_require__(269);
+	var _badgeJs = __webpack_require__(271);
 
 	var _badgeJs2 = _interopRequireDefault(_badgeJs);
 
-	var _starJs = __webpack_require__(270);
+	var _starJs = __webpack_require__(272);
 
 	var _starJs2 = _interopRequireDefault(_starJs);
 
-	var _swipeJs = __webpack_require__(271);
+	var _swipeJs = __webpack_require__(273);
 
 	var _swipeJs2 = _interopRequireDefault(_swipeJs);
 
-	var _dialogJs = __webpack_require__(272);
+	var _sliderJs = __webpack_require__(274);
+
+	var _sliderJs2 = _interopRequireDefault(_sliderJs);
+
+	var _dialogJs = __webpack_require__(275);
 
 	var _dialogJs2 = _interopRequireDefault(_dialogJs);
 
-	var _toastJs = __webpack_require__(273);
+	var _toastJs = __webpack_require__(276);
 
 	var _toastJs2 = _interopRequireDefault(_toastJs);
 
-	var _popupJs = __webpack_require__(274);
+	var _popupJs = __webpack_require__(277);
 
 	var _popupJs2 = _interopRequireDefault(_popupJs);
 
-	var _popoverJs = __webpack_require__(275);
+	var _popoverJs = __webpack_require__(278);
 
 	var _popoverJs2 = _interopRequireDefault(_popoverJs);
 
-	var _accordionJs = __webpack_require__(276);
+	var _accordionJs = __webpack_require__(279);
 
 	var _accordionJs2 = _interopRequireDefault(_accordionJs);
 
-	var _detailDemoJs = __webpack_require__(277);
+	var _detailDemoJs = __webpack_require__(280);
 
 	var _detailDemoJs2 = _interopRequireDefault(_detailDemoJs);
 
-	var _listDemoJs = __webpack_require__(278);
+	var _listDemoJs = __webpack_require__(281);
 
 	var _listDemoJs2 = _interopRequireDefault(_listDemoJs);
 
-	var Index = (function (_Component) {
-	    _inherits(index, _Component);
+	var Card = (function (_Component) {
+	    _inherits(Card, _Component);
+
+	    function Card() {
+	        _classCallCheck(this, Card);
+
+	        _Component.apply(this, arguments);
+	    }
+
+	    Card.prototype.onstructor = function onstructor(props, context) {
+	        _Component.prototype.onstructor.call(this, props, context);
+	    };
+
+	    Card.prototype.render = function render() {
+	        var _props = this.props;
+	        var href = _props.href;
+	        var title = _props.title;
+	        var desp = _props.desp;
+
+	        return _react2['default'].createElement(
+	            'a',
+	            { className: 'list-card', href: href },
+	            _react2['default'].createElement(
+	                'h3',
+	                null,
+	                title
+	            ),
+	            _react2['default'].createElement(
+	                'p',
+	                null,
+	                desp
+	            )
+	        );
+	    };
+
+	    return Card;
+	})(_react.Component);
+
+	var Index = (function (_Component2) {
+	    _inherits(index, _Component2);
 
 	    function index() {
 	        _classCallCheck(this, index);
 
-	        _Component.apply(this, arguments);
+	        _Component2.apply(this, arguments);
 	    }
 
 	    index.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            'div',
-	            null,
+	            { className: 'menu' },
+	            _react2['default'].createElement(
+	                'h1',
+	                null,
+	                'Phoenix-UI'
+	            ),
+	            _react2['default'].createElement(
+	                'h2',
+	                null,
+	                '基础组件'
+	            ),
 	            _react2['default'].createElement(
 	                'div',
-	                { id: 'menu', className: 'menu' },
-	                _react2['default'].createElement(
-	                    'div',
-	                    { className: 'menu-panel' },
-	                    _react2['default'].createElement(
-	                        'a',
-	                        { href: '#/button' },
-	                        '按钮组 ButtonGroup'
-	                    ),
-	                    _react2['default'].createElement(
-	                        'a',
-	                        { href: '#/input' },
-	                        '文本框 Input'
-	                    ),
-	                    _react2['default'].createElement(
-	                        'a',
-	                        { href: '#/textarea' },
-	                        '多行文本 Textarea'
-	                    ),
-	                    _react2['default'].createElement(
-	                        'a',
-	                        { href: '#/switch' },
-	                        '开关 Switch'
-	                    ),
-	                    _react2['default'].createElement(
-	                        'a',
-	                        { href: '#/grid' },
-	                        '布局 Flex/Grid'
-	                    ),
-	                    _react2['default'].createElement(
-	                        'a',
-	                        { href: '#/tableview' },
-	                        '表格 TableView'
-	                    ),
-	                    _react2['default'].createElement(
-	                        'a',
-	                        { href: '#/formgroup' },
-	                        '表单组 FormGroup'
-	                    ),
-	                    _react2['default'].createElement(
-	                        'a',
-	                        { href: '#/tab' },
-	                        '选项卡 Tab'
-	                    ),
-	                    _react2['default'].createElement(
-	                        'a',
-	                        { href: '#/label' },
-	                        '标签 Label'
-	                    ),
-	                    _react2['default'].createElement(
-	                        'a',
-	                        { href: '#/badge' },
-	                        '徽章 Badge'
-	                    ),
-	                    _react2['default'].createElement(
-	                        'a',
-	                        { href: '#/star' },
-	                        '星星 Star'
-	                    ),
-	                    _react2['default'].createElement(
-	                        'a',
-	                        { href: '#/swipe' },
-	                        '左滑动 Swipe'
-	                    ),
-	                    _react2['default'].createElement(
-	                        'a',
-	                        { href: '#/dialog' },
-	                        '弹框 Dialog'
-	                    ),
-	                    _react2['default'].createElement(
-	                        'a',
-	                        { href: '#/toast' },
-	                        '飘字 Toast'
-	                    ),
-	                    _react2['default'].createElement(
-	                        'a',
-	                        { href: '#/popup' },
-	                        '弹层 Popup'
-	                    ),
-	                    _react2['default'].createElement(
-	                        'a',
-	                        { href: '#/popover' },
-	                        '气泡 Popover'
-	                    ),
-	                    _react2['default'].createElement(
-	                        'a',
-	                        { href: '#/accordion' },
-	                        '手风琴 Accordion'
-	                    ),
-	                    _react2['default'].createElement(
-	                        'a',
-	                        { href: '#/detail' },
-	                        '详情页示例'
-	                    ),
-	                    _react2['default'].createElement(
-	                        'a',
-	                        { href: '#/list-demo' },
-	                        '列表页例子'
-	                    )
-	                )
+	                { className: 'menu-panel' },
+	                _react2['default'].createElement(Card, { href: '#/button', title: 'Button', desp: '按钮' }),
+	                _react2['default'].createElement(Card, { href: '#/buttongroup', title: 'ButtonGroup', desp: '按钮组' }),
+	                _react2['default'].createElement(Card, { href: '#/badge', title: 'Badge', desp: '徽章' }),
+	                _react2['default'].createElement(Card, { href: '#/label', title: 'Label', desp: '标签' }),
+	                _react2['default'].createElement(Card, { href: '#/star', title: 'Star', desp: '星星' })
+	            ),
+	            _react2['default'].createElement(
+	                'h2',
+	                null,
+	                '表单'
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'menu-panel' },
+	                _react2['default'].createElement(Card, { href: '#/formgroup', title: 'FormGroup', desp: '表单组' }),
+	                _react2['default'].createElement(Card, { href: '#/input', title: 'Input', desp: '文本框' }),
+	                _react2['default'].createElement(Card, { href: '#/textarea', title: 'Textarea', desp: '多行文本' }),
+	                _react2['default'].createElement(Card, { href: '#/switch', title: 'Switch', desp: '开关' })
+	            ),
+	            _react2['default'].createElement(
+	                'h2',
+	                null,
+	                '布局'
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'menu-panel' },
+	                _react2['default'].createElement(Card, { href: '#/grid', title: 'Grid/Row/Col', desp: '布局' }),
+	                _react2['default'].createElement(Card, { href: '#/tableview', title: 'TableView', desp: '表格' })
+	            ),
+	            _react2['default'].createElement(
+	                'h2',
+	                null,
+	                '功能组件'
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'menu-panel' },
+	                _react2['default'].createElement(Card, { href: '#/accordion', title: 'Accordion', desp: '手风琴' }),
+	                _react2['default'].createElement(Card, { href: '#/dialog', title: 'Dialog', desp: '弹框' }),
+	                _react2['default'].createElement(Card, { href: '#/popup', title: 'Popup', desp: '弹层' }),
+	                _react2['default'].createElement(Card, { href: '#/popover', title: 'Whisper/Popover', desp: '气泡' }),
+	                _react2['default'].createElement(Card, { href: '#/tab', title: 'Tab', desp: '选项卡' }),
+	                _react2['default'].createElement(Card, { href: '#/slider', title: 'Slider', desp: '滑动输入条' }),
+	                _react2['default'].createElement(Card, { href: '#/swipe', title: 'Swipe', desp: '左滑动' })
+	            ),
+	            _react2['default'].createElement(
+	                'h2',
+	                null,
+	                '辅助'
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'menu-panel' },
+	                _react2['default'].createElement(Card, { href: '#/animate', title: 'Animate', desp: '动画' }),
+	                _react2['default'].createElement(Card, { href: '#/drag', title: 'Drag', desp: '拖拽' })
+	            ),
+	            _react2['default'].createElement(
+	                'h2',
+	                null,
+	                '示例'
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'menu-panel' },
+	                _react2['default'].createElement(Card, { href: '#/list-demo', title: '列表页示例', desp: '' }),
+	                _react2['default'].createElement(Card, { href: '#/detail', title: '详情页示例', desp: '' })
 	            )
 	        );
 	    };
 
 	    return index;
 	})(_react.Component);
-	var AppRouter = (function (_Component2) {
-	    _inherits(AppRouter, _Component2);
+
+	var AppRouter = (function (_Component3) {
+	    _inherits(AppRouter, _Component3);
 
 	    function AppRouter(props, context) {
 	        _classCallCheck(this, AppRouter);
 
-	        _Component2.call(this, props, context);
+	        _Component3.call(this, props, context);
 	        this.history = new _historyLibCreateHashHistory2['default']({
 	            queryKey: false
 	        });
@@ -302,16 +327,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/index', name: 'index', component: Index }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/tableview', name: 'TableView', component: _tableViewJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/formgroup', name: 'FormGroup', component: _formGroupJs2['default'] }),
-	            _react2['default'].createElement(_reactRouter.Route, { path: '/button', name: 'input', component: _buttonJs2['default'] }),
+	            _react2['default'].createElement(_reactRouter.Route, { path: '/button', name: 'button', component: _buttonJs2['default'] }),
+	            _react2['default'].createElement(_reactRouter.Route, { path: '/buttongroup', name: 'buttongroup', component: _buttonGroupJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/input', name: 'input', component: _inputJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/textarea', name: 'textarea', component: _textareaJs2['default'] }),
-	            _react2['default'].createElement(_reactRouter.Route, { path: '/switch', name: 'input', component: _switchJs2['default'] }),
-	            _react2['default'].createElement(_reactRouter.Route, { path: '/grid', name: 'input', component: _gridJs2['default'] }),
+	            _react2['default'].createElement(_reactRouter.Route, { path: '/switch', name: 'switch', component: _switchJs2['default'] }),
+	            _react2['default'].createElement(_reactRouter.Route, { path: '/grid', name: 'grid', component: _gridJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/tab', name: 'tab', component: _tabJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/label', name: 'label', component: _labelJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/badge', name: 'badge', component: _badgeJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/star', name: 'star', component: _starJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/swipe', name: 'swipe', component: _swipeJs2['default'] }),
+	            _react2['default'].createElement(_reactRouter.Route, { path: '/slider', name: 'slider', component: _sliderJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/dialog', name: 'dialog', component: _dialogJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/toast', name: 'toast', component: _toastJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/popup', name: 'popup', component: _popupJs2['default'] }),
@@ -24383,21 +24410,16 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        _Component.call(this, props, context);
 	        this.state = {
-	            tab2: '初始tab2内容',
 	            index: 0
 	        };
 	    }
 
-	    demo1.prototype.test = function test(index) {
-	        console.log(index);
+	    demo1.prototype.tabCallback = function tabCallback(index) {
+	        console.log('测试tabset 回调' + index);
 	    };
 
-	    demo1.prototype.test1 = function test1(index) {
-	        // index == 1 && this.setState({
-	        //     tab2:'测试panel内容改变',
-	        //     index:2
-	        // })
-	        console.log('测试tabset 回调' + index);
+	    demo1.prototype.clickCallback = function clickCallback(index) {
+	        console.log(index);
 	    };
 
 	    demo1.prototype.render = function render() {
@@ -24406,23 +24428,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	            null,
 	            _react2['default'].createElement(
 	                _srcIndex.Tabset,
-	                { activeIndex: this.state.index, className: '测试name', tabCallback: this.test1.bind(this), style: { color: 'green' } },
+	                { activeIndex: this.state.index, className: 'test-name', tabCallback: this.tabCallback.bind(this), style: { color: 'green' } },
 	                _react2['default'].createElement(
 	                    _srcIndex.Tab,
-	                    { heading: 'tab1', className: '测试', clickCallback: function (index) {
-	                            console.log(index);
-	                        } },
-	                    'hahadhdad1'
+	                    { heading: 'tab1', className: 'tab-test' },
+	                    '内容1'
 	                ),
 	                _react2['default'].createElement(
 	                    _srcIndex.Tab,
-	                    { heading: this.state.index, clickCallback: this.test.bind(this) },
-	                    'hahadhdad2'
+	                    { heading: 'tab2', clickCallback: this.clickCallback.bind(this) },
+	                    '内容2'
 	                ),
 	                _react2['default'].createElement(
 	                    _srcIndex.Tab,
 	                    { heading: 'tab3' },
-	                    'hahadhdad3'
+	                    '内容3'
 	                )
 	            )
 	        );
@@ -24430,6 +24450,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    return demo1;
 	})(_react.Component);
+
 	var Demo2 = (function (_Component2) {
 	    _inherits(demo2, _Component2);
 
@@ -24449,21 +24470,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	            null,
 	            _react2['default'].createElement(
 	                _srcIndex.Tabset,
-	                { activeIndex: 0, vertical: true, width: 30 },
+	                { activeIndex: 1, vertical: true, width: 30 },
 	                _react2['default'].createElement(
 	                    _srcIndex.Tab,
 	                    { heading: 'tab1' },
-	                    'hahadhdad1'
+	                    '内容1'
 	                ),
 	                _react2['default'].createElement(
 	                    _srcIndex.Tab,
 	                    { heading: 'tab2', onClick: this.test.bind(this) },
-	                    'hahadhdad2'
+	                    '内容2'
 	                ),
 	                _react2['default'].createElement(
 	                    _srcIndex.Tab,
 	                    { heading: 'tab3' },
-	                    'hahadhdad3'
+	                    '内容3'
 	                )
 	            )
 	        );
@@ -24658,6 +24679,18 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.Whisper = _Whisper3['default'];
 
+	var _Slider2 = __webpack_require__(261);
+
+	var _Slider3 = _interopRequireDefault(_Slider2);
+
+	exports.Slider = _Slider3['default'];
+
+	var _Animate2 = __webpack_require__(242);
+
+	var _Animate3 = _interopRequireDefault(_Animate2);
+
+	exports.Animate = _Animate3['default'];
+
 	//接入cat－browser
 	_utilsCatBrowserJs2['default']({
 	    moduleName: 'phoenix-ui',
@@ -24665,7 +24698,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	window['Phoenix'] = {};
 
-	['Button', 'Input', 'Textarea', 'Switch', 'Row', 'TableView', 'FormGroup', 'Col', 'Tabset', 'Tab', 'Label', 'Badge', 'Star', 'Drag', 'Swipe', 'Grid', 'ButtonGroup', 'Dialog', 'Toast', 'Popup', 'Accordion', 'Popover', 'Whisper'].forEach(function (name) {
+	['Button', 'Input', 'Textarea', 'Switch', 'Row', 'TableView', 'FormGroup', 'Col', 'Tabset', 'Tab', 'Label', 'Badge', 'Star', 'Drag', 'Swipe', 'Grid', 'ButtonGroup', 'Dialog', 'Toast', 'Popup', 'Accordion', 'Popover', 'Whisper', 'Slider', 'Animate'].forEach(function (name) {
 	    Phoenix[name] = exports[name];
 	});
 
@@ -27961,7 +27994,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            'div',
-	            _extends({}, this.props, { className: _classnames2['default']('swipe-content', this.props.className),
+	            _extends({}, this.props, { className: _classnames2['default']('drag-action', this.props.className),
 	                onTouchStart: function (event) {
 	                    _this.onStart(event);
 	                },
@@ -28039,12 +28072,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: 'propTypes',
 	        value: {
 	            /**
-	             * 样式前缀
-	             * @property classPrefix
-	             * @type String
-	             * */
-	            classPrefix: _react.PropTypes.string,
-	            /**
 	             * 标签tagName
 	             * @property componentTag
 	             * @type String
@@ -28056,8 +28083,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: 'defaultProps',
 	        value: {
 	            buttons: [],
-	            egSize: '',
-	            classPrefix: '',
 	            componentTag: 'div',
 	            classMapping: {}
 	        },
@@ -28075,7 +28100,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            btnsWidth: 0,
 	            isBtnsShow: false,
 	            OPE_RANGE: 10
-
 	        };
 	    }
 
@@ -30302,7 +30326,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    Whisper.prototype.onToggle = function onToggle() {
-	        if (this.props.onToggle) this.props.onToggle();
+	        if (this.props.onChange) this.props.onChange();
 
 	        this.visible = !this.visible;
 
@@ -30365,6 +30389,285 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 261 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utilsComponent = __webpack_require__(217);
+
+	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
+
+	var _classnames = __webpack_require__(218);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _Drag = __webpack_require__(238);
+
+	var _Drag2 = _interopRequireDefault(_Drag);
+
+	/**
+	 * 滑动输入条 Slider
+	 * @class Slider
+	 * @module Action
+	 * @extends Component
+	 * @constructor
+	 * @demo slider.js {展示}
+	 * @demo slider.js {源码}
+	 * @show true
+	 * */
+
+	var Slider = (function (_Component) {
+	    _inherits(Slider, _Component);
+
+	    _createClass(Slider, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 标签tagName
+	             * @property componentTag
+	             * @type String
+	             * */
+	            componentTag: _react.PropTypes.string,
+	            progress: _react.PropTypes.number
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            placement: 'top',
+	            progress: 0,
+	            componentTag: 'div',
+	            classMapping: {
+	                'disabled': 'slider-disabled',
+	                'top': 'slider-tip-top',
+	                'bottom': 'slider-tip-bottom'
+	            }
+	        },
+	        enumerable: true
+	    }]);
+
+	    function Slider(props, context) {
+	        _classCallCheck(this, Slider);
+
+	        _Component.call(this, props, context);
+
+	        this.state = {
+	            newProgress: this.props.progress,
+	            tipVisible: false
+	        };
+	    }
+
+	    Slider.prototype.componentDidMount = function componentDidMount() {
+	        this.sliderLength = parseInt(this.sliderLine.offsetWidth);
+	        this.newProgressWidth = this.sliderLength * this.props.progress / 100;
+
+	        this.setSliderPosition(this.newProgressWidth + 'px');
+	    };
+
+	    Slider.prototype.setSliderPosition = function setSliderPosition(distance) {
+	        this.sliderProgress.style.width = distance;
+	        this.sliderBtn.style.left = distance;
+	    };
+
+	    Slider.prototype.onDrag = function onDrag(event, position) {
+	        this.preX = position.start.x;
+	        this.X = position.move.x;
+	        this.distance = this.X - this.preX;
+
+	        this.prevProgressWidth = this.newProgressWidth + this.distance;
+
+	        if (this.newProgressWidth + this.distance <= 0) this.prevProgressWidth = 0;
+	        if (this.newProgressWidth + this.distance >= this.sliderLength) this.prevProgressWidth = this.sliderLength;
+
+	        this.setSliderPosition(this.prevProgressWidth + 'px');
+
+	        this.setState({
+	            tipVisible: true,
+	            newProgress: parseInt(this.prevProgressWidth / this.sliderLength * 100)
+	        });
+	    };
+
+	    Slider.prototype.onDrop = function onDrop(event, position) {
+	        this.setState({
+	            tipVisible: false
+	        });
+
+	        this.newProgressWidth = this.prevProgressWidth;
+
+	        this.props.onChange(this.state.newProgress);
+	    };
+
+	    Slider.prototype.render = function render() {
+	        var _this = this;
+
+	        var _props = this.props;
+	        var Component = _props.componentTag;
+	        var className = _props.className;
+
+	        return _react2['default'].createElement(
+	            Component,
+	            _extends({}, this.props, { className: _classnames2['default']('slider', this.getProperty(), className) }),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'slider-line', ref: function (sliderLine) {
+	                        _this.sliderLine = sliderLine;
+	                    } },
+	                _react2['default'].createElement('div', { className: 'slider-progress', ref: function (sliderProgress) {
+	                        _this.sliderProgress = sliderProgress;
+	                    } }),
+	                _react2['default'].createElement(
+	                    'div',
+	                    { className: 'slider-drag', ref: function (sliderBtn) {
+	                            _this.sliderBtn = sliderBtn;
+	                        } },
+	                    _react2['default'].createElement(
+	                        'div',
+	                        { className: _classnames2['default']("slider-tip", this.state.tipVisible ? 'show' : 'hide') },
+	                        this.state.newProgress
+	                    ),
+	                    _react2['default'].createElement(_Drag2['default'], { className: 'slider-btn', onDrag: this.onDrag.bind(this), onDrop: this.onDrop.bind(this) })
+	                )
+	            )
+	        );
+	    };
+
+	    return Slider;
+	})(_utilsComponent2['default']);
+
+	exports['default'] = Slider;
+	module.exports = exports['default'];
+
+/***/ },
+/* 262 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(159);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _srcIndex = __webpack_require__(208);
+
+	var input = (function (_Component) {
+	    _inherits(input, _Component);
+
+	    function input() {
+	        _classCallCheck(this, input);
+
+	        _Component.apply(this, arguments);
+	    }
+
+	    input.prototype.render = function render() {
+	        return _react2['default'].createElement(
+	            'div',
+	            { className: 'content' },
+	            _react2['default'].createElement(
+	                'h2',
+	                { className: 'comp-title' },
+	                'Button'
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                '类型 phStyle'
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                null,
+	                _react2['default'].createElement(
+	                    _srcIndex.Button,
+	                    { phStyle: 'info' },
+	                    'Info'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Button,
+	                    { phStyle: 'success' },
+	                    'Success'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Button,
+	                    { phStyle: 'primary' },
+	                    'Primary'
+	                )
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                '大小 phSize'
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                null,
+	                _react2['default'].createElement(
+	                    _srcIndex.Button,
+	                    { phSize: 'xs', phStyle: 'info' },
+	                    'xs'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Button,
+	                    { phSize: 'md', phStyle: 'success' },
+	                    'md'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Button,
+	                    { phSize: 'lg', phStyle: 'primary' },
+	                    'lg'
+	                )
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-tip' },
+	                '满行按钮 block'
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                null,
+	                _react2['default'].createElement(
+	                    _srcIndex.Button,
+	                    { block: true, phStyle: 'success' },
+	                    '确定'
+	                )
+	            )
+	        );
+	    };
+
+	    return input;
+	})(_react.Component);
+
+	exports['default'] = input;
+	module.exports = exports['default'];
+
+/***/ },
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30458,7 +30761,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 262 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30532,7 +30835,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 263 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30591,7 +30894,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 264 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30648,7 +30951,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 265 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31109,7 +31412,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 266 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31205,7 +31508,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 267 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31388,7 +31691,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 268 */
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31449,7 +31752,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 269 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31510,7 +31813,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 270 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31580,7 +31883,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 271 */
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31649,7 +31952,71 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 272 */
+/* 274 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(159);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _srcIndex = __webpack_require__(208);
+
+	var slider = (function (_Component) {
+	    _inherits(slider, _Component);
+
+	    function slider(props, context) {
+	        _classCallCheck(this, slider);
+
+	        _Component.call(this, props, context);
+
+	        this.state = {
+	            progress: 50
+	        };
+	    }
+
+	    slider.prototype.onChange = function onChange(newProgress) {
+	        // progress百分比
+	        this.setState({
+	            progress: newProgress
+	        });
+	    };
+
+	    slider.prototype.render = function render() {
+	        return _react2['default'].createElement(
+	            'div',
+	            null,
+	            _react2['default'].createElement(_srcIndex.Slider, { onChange: this.onChange.bind(this), progress: this.state.progress, placement: 'bottom' }),
+	            _react2['default'].createElement(
+	                'div',
+	                { style: { textAlign: 'center', paddingTop: '1rem' } },
+	                'Progress: ',
+	                this.state.progress
+	            )
+	        );
+	    };
+
+	    return slider;
+	})(_react.Component);
+
+	exports['default'] = slider;
+	module.exports = exports['default'];
+
+/***/ },
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31722,7 +32089,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    _srcIndex.Dialog.Body,
 	                    null,
 	                    _react2['default'].createElement('input', { type: 'text' }),
-	                    '内容内容内容内容内容内容内容内容内容内容内容内容'
+	                    '可自定义表格内容'
 	                ),
 	                _react2['default'].createElement(
 	                    _srcIndex.Dialog.Footer,
@@ -31749,7 +32116,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 273 */
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31786,16 +32153,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    modal.prototype.showToast = function showToast() {
-	        var _this = this;
-
 	        _srcIndex.Toast.info('只显示信息的toast！！', this.state.duration, function () {
-	            // 额外的执行内容
-	            _this.test();
+	            console.log('额外的执行内容');
 	        });
-	    };
-
-	    modal.prototype.test = function test() {
-	        console.log('aahhaha');
 	    };
 
 	    modal.prototype.render = function render() {
@@ -31817,7 +32177,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 274 */
+/* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31957,7 +32317,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 275 */
+/* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31989,7 +32349,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _Component.call(this, props, context);
 	    }
 
-	    popover.prototype.onToggle = function onToggle() {
+	    popover.prototype.onChange = function onChange() {
 	        console.log('气泡出现消失时额外的执行函数');
 	    };
 
@@ -32023,9 +32383,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	                'Popover',
 	                _react2['default'].createElement(
 	                    _srcIndex.Whisper,
-	                    {
-	                        onToggle: this.onToggle,
-	                        placement: 'bottom right',
+	                    { placement: 'bottom right',
+	                        onChange: this.onChange,
 	                        target: popover,
 	                        distance: 15,
 	                        style: { float: 'right', textAlign: 'right' } },
@@ -32042,7 +32401,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 276 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32178,7 +32537,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 277 */
+/* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32515,7 +32874,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 278 */
+/* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

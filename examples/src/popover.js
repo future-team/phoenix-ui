@@ -8,7 +8,7 @@ export default class popover extends Component{
         super(props,context); 
     }
 
-    onToggle(){
+    onChange(){
         console.log('气泡出现消失时额外的执行函数'); 
     }
 
@@ -26,9 +26,8 @@ export default class popover extends Component{
             <div>
                 <div style={{backgroundColor:'#fff',padding:'12px'}}>
                     Popover
-                    <Whisper 
-                        onToggle={this.onToggle}
-                        placement='bottom right'
+                    <Whisper placement='bottom right'
+                        onChange={this.onChange}
                         target={popover}
                         distance={15}
                         style={{float:'right',textAlign:'right'}}>Click Me</Whisper>
