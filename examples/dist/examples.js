@@ -249,7 +249,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                'div',
 	                { className: 'menu-panel' },
 	                _react2['default'].createElement(Card, { href: '#/formgroup', title: 'FormGroup', desp: '表单组' }),
-	                _react2['default'].createElement(Card, { href: '#/input', title: 'Input', desp: '文本框' }),
+	                _react2['default'].createElement(Card, { href: '#/input', title: 'Input', desp: '文本框，单选框，多选框' }),
 	                _react2['default'].createElement(Card, { href: '#/textarea', title: 'Textarea', desp: '多行文本' }),
 	                _react2['default'].createElement(Card, { href: '#/switch', title: 'Switch', desp: '开关' })
 	            ),
@@ -24402,11 +24402,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _srcIndex = __webpack_require__(208);
 
-	var Demo1 = (function (_Component) {
-	    _inherits(demo1, _Component);
+	var input = (function (_Component) {
+	    _inherits(input, _Component);
 
-	    function demo1(props, context) {
-	        _classCallCheck(this, demo1);
+	    function input(props, context) {
+	        _classCallCheck(this, input);
 
 	        _Component.call(this, props, context);
 	        this.state = {
@@ -24414,110 +24414,83 @@ return /******/ (function(modules) { // webpackBootstrap
 	        };
 	    }
 
-	    demo1.prototype.tabCallback = function tabCallback(index) {
+	    input.prototype.tabCallback = function tabCallback(index) {
 	        console.log('测试tabset 回调' + index);
 	    };
 
-	    demo1.prototype.clickCallback = function clickCallback(index) {
+	    input.prototype.clickCallback = function clickCallback(index) {
 	        console.log(index);
 	    };
 
-	    demo1.prototype.render = function render() {
-	        return _react2['default'].createElement(
-	            'div',
-	            null,
-	            _react2['default'].createElement(
-	                _srcIndex.Tabset,
-	                { activeIndex: this.state.index, className: 'test-name', tabCallback: this.tabCallback.bind(this), style: { color: 'green' } },
-	                _react2['default'].createElement(
-	                    _srcIndex.Tab,
-	                    { heading: 'tab1', className: 'tab-test' },
-	                    '内容1'
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Tab,
-	                    { heading: 'tab2', clickCallback: this.clickCallback.bind(this) },
-	                    '内容2'
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Tab,
-	                    { heading: 'tab3' },
-	                    '内容3'
-	                )
-	            )
-	        );
-	    };
-
-	    return demo1;
-	})(_react.Component);
-
-	var Demo2 = (function (_Component2) {
-	    _inherits(demo2, _Component2);
-
-	    function demo2() {
-	        _classCallCheck(this, demo2);
-
-	        _Component2.apply(this, arguments);
-	    }
-
-	    demo2.prototype.test = function test() {
+	    input.prototype.test = function test() {
 	        alert('测试自定义tab点击事件');
 	    };
-
-	    demo2.prototype.render = function render() {
-	        return _react2['default'].createElement(
-	            'div',
-	            null,
-	            _react2['default'].createElement(
-	                _srcIndex.Tabset,
-	                { activeIndex: 1, vertical: true, width: 30 },
-	                _react2['default'].createElement(
-	                    _srcIndex.Tab,
-	                    { heading: 'tab1' },
-	                    '内容1'
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Tab,
-	                    { heading: 'tab2', onClick: this.test.bind(this) },
-	                    '内容2'
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Tab,
-	                    { heading: 'tab3' },
-	                    '内容3'
-	                )
-	            )
-	        );
-	    };
-
-	    return demo2;
-	})(_react.Component);
-
-	var input = (function (_Component3) {
-	    _inherits(input, _Component3);
-
-	    function input() {
-	        _classCallCheck(this, input);
-
-	        _Component3.apply(this, arguments);
-	    }
 
 	    input.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            'div',
 	            null,
 	            _react2['default'].createElement(
-	                'h1',
-	                null,
-	                '默认横向'
+	                'h2',
+	                { className: 'comp-title' },
+	                'Tab'
 	            ),
-	            _react2['default'].createElement(Demo1, null),
 	            _react2['default'].createElement(
-	                'h1',
-	                null,
-	                '竖向'
+	                'h3',
+	                { className: 'comp-type' },
+	                '横向(default)'
 	            ),
-	            _react2['default'].createElement(Demo2, null)
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'content' },
+	                _react2['default'].createElement(
+	                    _srcIndex.Tabset,
+	                    { activeIndex: this.state.index, className: 'test-name', tabCallback: this.tabCallback.bind(this) },
+	                    _react2['default'].createElement(
+	                        _srcIndex.Tab,
+	                        { heading: '标题1', className: 'tab-test' },
+	                        '横向内容1'
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Tab,
+	                        { heading: '标题2', clickCallback: this.clickCallback.bind(this) },
+	                        '横向内容2'
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Tab,
+	                        { heading: '标题3' },
+	                        '横向内容3'
+	                    )
+	                )
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                '竖向 vertical'
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'content' },
+	                _react2['default'].createElement(
+	                    _srcIndex.Tabset,
+	                    { activeIndex: 1, vertical: true, width: 30 },
+	                    _react2['default'].createElement(
+	                        _srcIndex.Tab,
+	                        { heading: 'tab1' },
+	                        '竖向内容1'
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Tab,
+	                        { heading: 'tab2', onClick: this.test.bind(this) },
+	                        '竖向内容2'
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Tab,
+	                        { heading: 'tab3' },
+	                        '竖向内容3'
+	                    )
+	                )
+	            )
 	        );
 	    };
 
@@ -25344,7 +25317,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	                'error': 'btn-error',
 	                'warning': 'btn-warning',
 	                'danger': 'btn-danger',
-	                'link': 'btn-link'
+	                'link': 'btn-link',
+	                'gray': 'btn-gray'
 	            }
 	        },
 	        enumerable: true
@@ -25975,7 +25949,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return getVal(['lg', 'sm', 'default', 'xs', 'md'], val);
 	        },
 	        phStyle: function phStyle(val) {
-	            return getVal(['primary', 'info', 'success', 'error', 'warning', 'danger', 'link', 'light', 'positive', 'calm', 'balanced', 'energized', 'assertive', 'lightbrown', 'lightgray'], val);
+	            return getVal(['primary', 'info', 'success', 'error', 'warning', 'danger', 'link', 'gray', 'light', 'positive', 'calm', 'balanced', 'energized', 'assertive', 'lightbrown', 'lightgray'], val);
 	        },
 	        status: function status(val) {
 	            getVal(['diabled', 'active', 'enable'], val);
@@ -28188,7 +28162,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            { className: _classnames2['default']('swipe-action', className), style: this.getStyles(this.props.style) },
 	            _react2['default'].createElement(
 	                _Drag2['default'],
-	                { onDrag: this.onDrag.bind(this), onDrop: this.onDrop.bind(this) },
+	                { className: 'swipe-content', onDrag: this.onDrag.bind(this), onDrop: this.onDrop.bind(this) },
 	                this.props.children
 	            ),
 	            this.renderOperationButton(buttons)
@@ -30589,7 +30563,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    input.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            'div',
-	            { className: 'content' },
+	            null,
 	            _react2['default'].createElement(
 	                'h2',
 	                { className: 'comp-title' },
@@ -30602,7 +30576,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            ),
 	            _react2['default'].createElement(
 	                'div',
-	                null,
+	                { className: 'content' },
 	                _react2['default'].createElement(
 	                    _srcIndex.Button,
 	                    { phStyle: 'info' },
@@ -30617,6 +30591,45 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    _srcIndex.Button,
 	                    { phStyle: 'primary' },
 	                    'Primary'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Button,
+	                    { phStyle: 'danger' },
+	                    'Danger'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Button,
+	                    { phStyle: 'error' },
+	                    'Error'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Button,
+	                    { phStyle: 'warning' },
+	                    'Warning'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Button,
+	                    { phStyle: 'gray' },
+	                    'Gray'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Button,
+	                    { phStyle: 'link' },
+	                    'Link'
+	                )
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-tip' },
+	                'hollow'
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'content' },
+	                _react2['default'].createElement(
+	                    _srcIndex.Button,
+	                    { hollow: true, phStyle: 'info' },
+	                    'Info'
 	                )
 	            ),
 	            _react2['default'].createElement(
@@ -30626,15 +30639,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	            ),
 	            _react2['default'].createElement(
 	                'div',
-	                null,
+	                { className: 'content' },
 	                _react2['default'].createElement(
 	                    _srcIndex.Button,
-	                    { phSize: 'xs', phStyle: 'info' },
+	                    { phSize: 'xs', phStyle: 'primary' },
 	                    'xs'
 	                ),
 	                _react2['default'].createElement(
 	                    _srcIndex.Button,
-	                    { phSize: 'md', phStyle: 'success' },
+	                    { phSize: 'md', phStyle: 'primary' },
 	                    'md'
 	                ),
 	                _react2['default'].createElement(
@@ -30646,11 +30659,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	            _react2['default'].createElement(
 	                'h3',
 	                { className: 'comp-tip' },
-	                '满行按钮 block'
+	                'block'
 	            ),
 	            _react2['default'].createElement(
 	                'div',
-	                null,
+	                { className: 'content' },
 	                _react2['default'].createElement(
 	                    _srcIndex.Button,
 	                    { block: true, phStyle: 'success' },
@@ -30704,8 +30717,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	            'div',
 	            null,
 	            _react2['default'].createElement(
+	                'h2',
+	                { className: 'comp-title' },
+	                'ButtonGroup'
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                '水平(默认)  phType(justify)'
+	            ),
+	            _react2['default'].createElement(
 	                'div',
-	                null,
+	                { className: 'content' },
 	                _react2['default'].createElement(
 	                    _srcIndex.ButtonGroup,
 	                    { activeCallback: function (target, html) {
@@ -30729,8 +30752,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	                )
 	            ),
 	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                '垂直  phType(tacked)'
+	            ),
+	            _react2['default'].createElement(
 	                'div',
-	                null,
+	                { className: 'content' },
 	                _react2['default'].createElement(
 	                    _srcIndex.ButtonGroup,
 	                    { style: { width: '100%' }, phType: 'tacked' },
@@ -30809,22 +30837,43 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return _react2['default'].createElement(
 	            'div',
 	            null,
-	            _react2['default'].createElement(_srcIndex.Input, { type: 'text', value: this.state.name, onChange: (_context = this.setValue).bind.call(_context, this, 'name') }),
 	            _react2['default'].createElement(
-	                _srcIndex.Row,
-	                { align: 'bottom' },
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(_srcIndex.Input, { type: 'radio', label: '男', name: 'sex' })
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(_srcIndex.Input, { type: 'radio', label: '女', name: 'sex' })
-	                )
+	                'h2',
+	                { className: 'comp-title' },
+	                'Input'
 	            ),
-	            _react2['default'].createElement(_srcIndex.Input, { type: 'checkbox', label: '苹果' })
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                'Text'
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'content' },
+	                _react2['default'].createElement(_srcIndex.Input, { type: 'text', value: this.state.name, onChange: (_context = this.setValue).bind.call(_context, this, 'name'), placeholder: '请输入' })
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                'Radio'
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'content' },
+	                _react2['default'].createElement(_srcIndex.Input, { type: 'radio', label: '男', name: 'sex' }),
+	                _react2['default'].createElement(_srcIndex.Input, { type: 'radio', label: '女', name: 'sex' })
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                'Checkbox'
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'content' },
+	                _react2['default'].createElement(_srcIndex.Input, { type: 'checkbox', label: '苹果' }),
+	                _react2['default'].createElement(_srcIndex.Input, { type: 'checkbox', label: '香蕉' })
+	            )
 	        );
 	    };
 
@@ -30868,6 +30917,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        this.state = {
 	            name: '',
+	            words: '哈哈哈哈',
 	            MAX_LENGTH: 100
 	        };
 	    }
@@ -30882,8 +30932,33 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return _react2['default'].createElement(
 	            'div',
 	            null,
-	            _react2['default'].createElement(_srcIndex.Textarea, { value: this.state.name, placeholder: '请输入...',
-	                onChange: this.setValue.bind(this, 'name'), isCount: true, maxLength: this.state.MAX_LENGTH })
+	            _react2['default'].createElement(
+	                'h2',
+	                { className: 'comp-title' },
+	                'Textarea'
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                '不计字数 isCount(default:false)'
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'content' },
+	                _react2['default'].createElement(_srcIndex.Textarea, { value: this.state.name, placeholder: '请输入...',
+	                    onChange: this.setValue.bind(this, 'name'), maxLength: this.state.MAX_LENGTH })
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                '计字数 isCount(true)'
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'content' },
+	                _react2['default'].createElement(_srcIndex.Textarea, { value: this.state.words, placeholder: '请输入...',
+	                    onChange: this.setValue.bind(this, 'words'), isCount: true, maxLength: this.state.MAX_LENGTH })
+	            )
 	        );
 	    };
 
@@ -30917,37 +30992,61 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _srcIndex = __webpack_require__(208);
 
-	var input = (function (_Component) {
-	    _inherits(input, _Component);
+	var switchs = (function (_Component) {
+	    _inherits(switchs, _Component);
 
-	    function input(props, context) {
-	        _classCallCheck(this, input);
+	    function switchs(props, context) {
+	        _classCallCheck(this, switchs);
 
 	        _Component.call(this, props, context);
 
 	        this.state = {
-	            name: ''
+	            on: true
 	        };
 	    }
 
-	    input.prototype.setValue = function setValue(key, e) {
-	        var o = {};
-	        o[key || e.target.name] = e.target.value;
-	        this.setState(o);
+	    switchs.prototype.onChange = function onChange() {
+	        this.setState({
+	            on: !this.state.on
+	        });
 	    };
 
-	    input.prototype.render = function render() {
+	    switchs.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            'div',
-	            { style: { padding: '20px' } },
-	            _react2['default'].createElement(_srcIndex.Switch, null)
+	            null,
+	            _react2['default'].createElement(
+	                'h2',
+	                { className: 'comp-title' },
+	                'Switch'
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                '不可控(不需要传参)'
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'content' },
+	                _react2['default'].createElement(_srcIndex.Switch, null)
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                '可控(checked onChange)'
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'content' },
+	                _react2['default'].createElement(_srcIndex.Switch, { checked: this.state.on, onChange: this.onChange.bind(this) })
+	            )
 	        );
 	    };
 
-	    return input;
+	    return switchs;
 	})(_react.Component);
 
-	exports['default'] = input;
+	exports['default'] = switchs;
 	module.exports = exports['default'];
 
 /***/ },
@@ -31724,23 +31823,72 @@ return /******/ (function(modules) { // webpackBootstrap
 	            'div',
 	            null,
 	            _react2['default'].createElement(
-	                _srcIndex.Label,
-	                null,
-	                '惠'
+	                'h2',
+	                { className: 'comp-title' },
+	                'Label'
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                '类型 phStyle(default:primary)'
 	            ),
 	            _react2['default'].createElement(
 	                'div',
-	                null,
+	                { className: 'content' },
 	                _react2['default'].createElement(
 	                    _srcIndex.Label,
-	                    { phSize: 'lg', phStyle: 'success' },
+	                    null,
+	                    '惠'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Label,
+	                    { phStyle: 'success' },
+	                    '惠'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Label,
+	                    { phStyle: 'info' },
+	                    '惠'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Label,
+	                    { phStyle: 'danger' },
+	                    '惠'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Label,
+	                    { phStyle: 'error' },
+	                    '惠'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Label,
+	                    { phStyle: 'warning' },
 	                    '惠'
 	                )
 	            ),
 	            _react2['default'].createElement(
-	                _srcIndex.Label,
-	                { phSize: 'md', phStyle: 'info' },
-	                '惠'
+	                'h3',
+	                { className: 'comp-type' },
+	                '大小 phSize(default:xs)'
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'content' },
+	                _react2['default'].createElement(
+	                    _srcIndex.Label,
+	                    null,
+	                    '惠'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Label,
+	                    { phSize: 'md' },
+	                    '惠'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Label,
+	                    { phSize: 'lg' },
+	                    '惠'
+	                )
 	            )
 	        );
 	    };
@@ -31785,23 +31933,33 @@ return /******/ (function(modules) { // webpackBootstrap
 	            'div',
 	            null,
 	            _react2['default'].createElement(
-	                _srcIndex.Badge,
-	                null,
-	                '惠1'
+	                'h2',
+	                { className: 'comp-title' },
+	                'Badge'
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                '类型 phStyle'
 	            ),
 	            _react2['default'].createElement(
 	                'div',
-	                null,
+	                { className: 'content' },
+	                _react2['default'].createElement(
+	                    _srcIndex.Badge,
+	                    null,
+	                    '惠1'
+	                ),
 	                _react2['default'].createElement(
 	                    _srcIndex.Badge,
 	                    { phStyle: 'success' },
 	                    '惠2'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Badge,
+	                    { phStyle: 'info' },
+	                    '惠3'
 	                )
-	            ),
-	            _react2['default'].createElement(
-	                _srcIndex.Badge,
-	                { phStyle: 'info' },
-	                '惠3'
 	            )
 	        );
 	    };
@@ -31852,27 +32010,39 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return _react2['default'].createElement(
 	            'div',
 	            null,
-	            _react2['default'].createElement(_srcIndex.Star, null),
-	            _react2['default'].createElement('br', null),
-	            _react2['default'].createElement(_srcIndex.Star, { Rate: 5 }),
-	            _react2['default'].createElement('br', null),
-	            _react2['default'].createElement(_srcIndex.Star, { Rate: 10 }),
-	            _react2['default'].createElement('br', null),
-	            _react2['default'].createElement(_srcIndex.Star, { Rate: 15 }),
-	            _react2['default'].createElement('br', null),
-	            _react2['default'].createElement(_srcIndex.Star, { Rate: 20, size: 'md' }),
-	            _react2['default'].createElement('br', null),
-	            _react2['default'].createElement(_srcIndex.Star, { Rate: 25, size: 'md' }),
-	            _react2['default'].createElement('br', null),
-	            _react2['default'].createElement(_srcIndex.Star, { Rate: 30, size: 'md' }),
-	            _react2['default'].createElement('br', null),
-	            _react2['default'].createElement(_srcIndex.Star, { Rate: 35, size: 'lg' }),
-	            _react2['default'].createElement('br', null),
-	            _react2['default'].createElement(_srcIndex.Star, { Rate: 40, size: 'lg' }),
-	            _react2['default'].createElement('br', null),
-	            _react2['default'].createElement(_srcIndex.Star, { Rate: 45, size: 'lg' }),
-	            _react2['default'].createElement('br', null),
-	            _react2['default'].createElement(_srcIndex.Star, { Rate: 50, size: 'lg' })
+	            _react2['default'].createElement(
+	                'h2',
+	                { className: 'comp-title' },
+	                'Star'
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                '星级 Rate(default:0)'
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'content' },
+	                _react2['default'].createElement(_srcIndex.Star, null),
+	                _react2['default'].createElement(_srcIndex.Star, { Rate: 5 }),
+	                _react2['default'].createElement(_srcIndex.Star, { Rate: 15 }),
+	                _react2['default'].createElement(_srcIndex.Star, { Rate: 20 }),
+	                _react2['default'].createElement(_srcIndex.Star, { Rate: 25 }),
+	                _react2['default'].createElement(_srcIndex.Star, { Rate: 30 }),
+	                _react2['default'].createElement(_srcIndex.Star, { Rate: 35 })
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                '大小 size(default:xs)'
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'content' },
+	                _react2['default'].createElement(_srcIndex.Star, { Rate: 40, size: 'xs' }),
+	                _react2['default'].createElement(_srcIndex.Star, { Rate: 45, size: 'md' }),
+	                _react2['default'].createElement(_srcIndex.Star, { Rate: 50, size: 'lg' })
+	            )
 	        );
 	    };
 
@@ -31925,20 +32095,33 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    swipe.prototype.render = function render() {
 	        return _react2['default'].createElement(
-	            'ul',
+	            'div',
 	            null,
 	            _react2['default'].createElement(
-	                'li',
+	                'h2',
+	                { className: 'comp-title' },
+	                'Swipe'
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                '左滑动'
+	            ),
+	            _react2['default'].createElement(
+	                'ul',
 	                null,
 	                _react2['default'].createElement(
-	                    _srcIndex.Swipe,
-	                    {
-	                        buttons: [{ text: '删除', onHandle: this.onDelete, phStyle: 'error' }, { text: '取消', onHandle: this.onCancle, phStyle: 'info' }]
-	                    },
+	                    'li',
+	                    null,
 	                    _react2['default'].createElement(
-	                        'div',
-	                        { style: { backgroundColor: '#fff', padding: '1rem' } },
-	                        '向左滑'
+	                        _srcIndex.Swipe,
+	                        { buttons: [{ text: '删除', onHandle: this.onDelete, phStyle: 'error' }, { text: '取消', onHandle: this.onCancle, phStyle: 'info' }]
+	                        },
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { style: { backgroundColor: '#fff', padding: '1rem' } },
+	                            '内容'
+	                        )
 	                    )
 	                )
 	            )
@@ -31984,7 +32167,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _Component.call(this, props, context);
 
 	        this.state = {
-	            progress: 50
+	            progress: 50,
+	            progress1: 0
 	        };
 	    }
 
@@ -31995,16 +32179,62 @@ return /******/ (function(modules) { // webpackBootstrap
 	        });
 	    };
 
+	    slider.prototype.onChange1 = function onChange1(newProgress) {
+	        this.setState({
+	            progress1: newProgress
+	        });
+	    };
+
 	    slider.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            'div',
 	            null,
-	            _react2['default'].createElement(_srcIndex.Slider, { onChange: this.onChange.bind(this), progress: this.state.progress, placement: 'bottom' }),
+	            _react2['default'].createElement(
+	                'h2',
+	                { className: 'comp-title' },
+	                'Slider'
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                'placement(default:top)'
+	            ),
 	            _react2['default'].createElement(
 	                'div',
-	                { style: { textAlign: 'center', paddingTop: '1rem' } },
-	                'Progress: ',
-	                this.state.progress
+	                { className: 'content' },
+	                _react2['default'].createElement(_srcIndex.Slider, { onChange: this.onChange.bind(this), progress: this.state.progress }),
+	                _react2['default'].createElement(
+	                    'div',
+	                    { style: { textAlign: 'center', padding: '1rem 0' } },
+	                    'Progress: ',
+	                    this.state.progress
+	                )
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                'placement(bottom)'
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'content' },
+	                _react2['default'].createElement(_srcIndex.Slider, { onChange: this.onChange1.bind(this), progress: this.state.progress1, placement: 'bottom' }),
+	                _react2['default'].createElement(
+	                    'div',
+	                    { style: { textAlign: 'center', padding: '1rem 0' } },
+	                    'Progress: ',
+	                    this.state.progress1
+	                )
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-tip' },
+	                'disabled'
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'content' },
+	                _react2['default'].createElement(_srcIndex.Slider, { disabled: true, progress: 10, placement: 'bottom' })
 	            )
 	        );
 	    };
@@ -32073,9 +32303,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	            'div',
 	            null,
 	            _react2['default'].createElement(
+	                'h2',
+	                { className: 'comp-title' },
+	                'Dialog'
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                '自定义弹框'
+	            ),
+	            _react2['default'].createElement(
 	                _srcIndex.Button,
-	                { block: true, radius: true, phSize: 'lg', phStyle: 'error', onClick: this.onShow.bind(this) },
-	                'Click To Show Dialog'
+	                { block: true, radius: true, phSize: 'lg', phStyle: 'primary', onClick: this.onShow.bind(this) },
+	                '点击弹框'
 	            ),
 	            _react2['default'].createElement(
 	                _srcIndex.Dialog,
@@ -32243,6 +32483,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	            'div',
 	            null,
 	            _react2['default'].createElement(
+	                'h2',
+	                { className: 'comp-title' },
+	                'Popup'
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                '弹层 Top'
+	            ),
+	            _react2['default'].createElement(
 	                _srcIndex.Button,
 	                { block: true, radius: true, phSize: 'lg', phStyle: 'primary', onClick: this.onShowTopPopup.bind(this) },
 	                'Top Popup'
@@ -32274,6 +32524,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        '在线连锁店'
 	                    )
 	                )
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                '弹层 Bottom(提供ActionSheet样式)'
 	            ),
 	            _react2['default'].createElement(
 	                _srcIndex.Button,
@@ -32378,17 +32633,57 @@ return /******/ (function(modules) { // webpackBootstrap
 	            'div',
 	            null,
 	            _react2['default'].createElement(
+	                'h2',
+	                { className: 'comp-title' },
+	                'Whisper/Popover'
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                'placement(defult:bottom)'
+	            ),
+	            _react2['default'].createElement(
 	                'div',
-	                { style: { backgroundColor: '#fff', padding: '12px' } },
-	                'Popover',
+	                { className: 'content' },
 	                _react2['default'].createElement(
 	                    _srcIndex.Whisper,
-	                    { placement: 'bottom right',
-	                        onChange: this.onChange,
-	                        target: popover,
-	                        distance: 15,
-	                        style: { float: 'right', textAlign: 'right' } },
-	                    'Click Me'
+	                    { onChange: this.onChange, target: popover, distance: 10 },
+	                    'Bottom'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Whisper,
+	                    { placement: 'top', onChange: this.onChange, target: popover, distance: 10 },
+	                    'Top'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Whisper,
+	                    { placement: 'right', onChange: this.onChange, target: popover, distance: 10 },
+	                    'Right'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Whisper,
+	                    { placement: 'left', onChange: this.onChange, target: popover, distance: 10 },
+	                    'Left'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Whisper,
+	                    { placement: 'top right', onChange: this.onChange, target: popover, distance: 10 },
+	                    'Top Right'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Whisper,
+	                    { placement: 'top left', onChange: this.onChange, target: popover, distance: 10 },
+	                    'Top Left'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Whisper,
+	                    { placement: 'bottom right', onChange: this.onChange, target: popover, distance: 10 },
+	                    'Bottom Right'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Whisper,
+	                    { placement: 'bottom left', onChange: this.onChange, target: popover, distance: 10 },
+	                    'Bottom Left'
 	                )
 	            )
 	        );
@@ -32428,38 +32723,39 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _srcIndex = __webpack_require__(208);
 
-	var drawer = (function (_Component) {
-	    _inherits(drawer, _Component);
+	var accordion = (function (_Component) {
+	    _inherits(accordion, _Component);
 
-	    function drawer(props, context) {
-	        _classCallCheck(this, drawer);
+	    function accordion(props, context) {
+	        _classCallCheck(this, accordion);
 
 	        _Component.call(this, props, context);
 
 	        this.state = {
-	            visible: false,
-	            visible1: false
+	            visible: false
 	        };
 	    }
 
-	    drawer.prototype.onChange = function onChange() {
-	        // 第一种 直接传onChange
+	    accordion.prototype.onChange = function onChange() {
 	        this.setState({
 	            visible: !this.state.visible
 	        });
 	    };
 
-	    drawer.prototype.onChange1 = function onChange1() {
-	        // 第二种 给Header绑定事件
-	        this.setState({
-	            visible1: !this.state.visible1
-	        });
-	    };
-
-	    drawer.prototype.render = function render() {
+	    accordion.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            'div',
 	            null,
+	            _react2['default'].createElement(
+	                'h2',
+	                { className: 'comp-title' },
+	                'Accordion'
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                '手风琴'
+	            ),
 	            _react2['default'].createElement(
 	                _srcIndex.Accordion,
 	                { visible: this.state.visible, onChange: this.onChange.bind(this) },
@@ -32492,48 +32788,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        )
 	                    )
 	                )
-	            ),
-	            _react2['default'].createElement('br', null),
-	            _react2['default'].createElement(
-	                _srcIndex.Accordion,
-	                { visible: this.state.visible1 },
-	                _react2['default'].createElement(
-	                    _srcIndex.Accordion.Header,
-	                    { onClick: this.onChange1.bind(this) },
-	                    '标题二',
-	                    _react2['default'].createElement('span', { className: _classnames2['default']("iconfont icon-chevron-more", this.state.visible1 ? 'active' : ''), style: { float: 'right' } })
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Accordion.Body,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'ul',
-	                        { className: 'accordion-list' },
-	                        _react2['default'].createElement(
-	                            'li',
-	                            { className: 'accordion-item' },
-	                            '内容一'
-	                        ),
-	                        _react2['default'].createElement(
-	                            'li',
-	                            { className: 'accordion-item' },
-	                            '内容二'
-	                        ),
-	                        _react2['default'].createElement(
-	                            'li',
-	                            { className: 'accordion-item' },
-	                            '内容三'
-	                        )
-	                    )
-	                )
 	            )
 	        );
 	    };
 
-	    return drawer;
+	    return accordion;
 	})(_react.Component);
 
-	exports['default'] = drawer;
+	exports['default'] = accordion;
 	module.exports = exports['default'];
 
 /***/ },

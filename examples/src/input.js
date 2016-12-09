@@ -22,12 +22,21 @@ export default class input extends Component{
     render(){
         return(
             <div>
-                <Input type="text" value={this.state.name} onChange={::this.setValue.bind(this,'name')} />
-                <Row align="bottom">
-                    <Col><Input type="radio" label="男" name="sex" /></Col>
-                    <Col><Input type="radio" label="女" name="sex" /></Col>
-                </Row>
-                <Input type="checkbox" label="苹果" />
+                <h2 className="comp-title">Input</h2>
+                <h3 className="comp-type">Text</h3>
+                <div className="content">
+                    <Input type="text" value={this.state.name} onChange={::this.setValue.bind(this,'name')} placeholder="请输入" />
+                </div>
+                <h3 className="comp-type">Radio</h3>
+                <div className="content">
+                    <Input type="radio" label="男" name="sex" />
+                    <Input type="radio" label="女" name="sex" />
+                </div>
+                <h3 className="comp-type">Checkbox</h3>
+                <div className="content">
+                    <Input type="checkbox" label="苹果" />
+                    <Input type="checkbox" label="香蕉" />
+                </div>
             </div>
         );
     }

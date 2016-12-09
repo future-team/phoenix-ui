@@ -59,7 +59,7 @@ let Index = class index extends Component {
                 <h2>表单</h2>
                 <div className="menu-panel">
                     <Card href="#/formgroup" title="FormGroup" desp="表单组" />
-                    <Card href="#/input" title="Input" desp="文本框" />
+                    <Card href="#/input" title="Input" desp="文本框，单选框，多选框" />
                     <Card href="#/textarea" title="Textarea" desp="多行文本" />
                     <Card href="#/switch" title="Switch" desp="开关" />
                 </div>

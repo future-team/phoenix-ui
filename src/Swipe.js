@@ -116,7 +116,7 @@ export default class Swipe extends Component{
                 'swipe-action',
                 className
             )} style={this.getStyles(this.props.style)}>
-                <Drag onDrag={::this.onDrag} onDrop={::this.onDrop}>
+                <Drag className="swipe-content" onDrag={::this.onDrag} onDrop={::this.onDrop}>
                     {this.props.children}
                 </Drag>
                 {this.renderOperationButton(buttons)}

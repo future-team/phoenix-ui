@@ -24,8 +24,8 @@ export default class input extends Component{
                 </div>
                 <h3 className="comp-type">大小 phSize</h3>
                 <div className="content">
-                    <Button phSize="xs" phStyle="info">xs</Button>
-                    <Button phSize="md" phStyle="success">md</Button>
+                    <Button phSize="xs" phStyle="primary">xs</Button>
+                    <Button phSize="md" phStyle="primary">md</Button>
                     <Button phSize="lg" phStyle="primary">lg</Button>
                 </div>
                 <h3 className="comp-tip">block</h3>

@@ -31,8 +31,9 @@ export default class dialog extends Component{
     render(){
         return(
             <div>
-                <Button block radius phSize="lg" phStyle="error" onClick={::this.onShow}>Click To Show Dialog</Button>
-
+                <h2 className="comp-title">Dialog</h2>
+                <h3 className="comp-type">自定义弹框</h3>
+                <Button block radius phSize="lg" phStyle="primary" onClick={::this.onShow}>点击弹框</Button>
                 <Dialog visible={this.state.visible}>
                     <Dialog.Title>标题标题</Dialog.Title>
                     <Dialog.Body>

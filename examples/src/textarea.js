@@ -10,6 +10,7 @@ export default class textarea extends Component{
 
         this.state = {
             name:'',
+            words: '哈哈哈哈',
             MAX_LENGTH: 100
         };
     }
@@ -23,8 +24,17 @@ export default class textarea extends Component{
     render(){
         return(
             <div>
-                <Textarea value={this.state.name} placeholder='请输入...'
-                onChange={this.setValue.bind(this,'name')} isCount={true} maxLength={this.state.MAX_LENGTH}></Textarea>
+                <h2 className="comp-title">Textarea</h2>
+                <h3 className="comp-type">不计字数 isCount(default:false)</h3>
+                <div className="content">
+                    <Textarea value={this.state.name} placeholder='请输入...'
+                    onChange={this.setValue.bind(this,'name')} maxLength={this.state.MAX_LENGTH}></Textarea>
+                </div>
+                <h3 className="comp-type">计字数 isCount(true)</h3>
+                <div className="content">
+                    <Textarea value={this.state.words} placeholder='请输入...'
+                    onChange={this.setValue.bind(this,'words')} isCount={true} maxLength={this.state.MAX_LENGTH}></Textarea>
+                </div>
             </div>
         );
     }

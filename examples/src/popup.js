@@ -1,6 +1,6 @@
 import React, { Component ,PropTypes} from 'react';
 import ReactDOM,{findDOMNode} from 'react-dom';
-import {Button, Popup, Row, Col} from '../../src/index';
+import {Button, Popup} from '../../src/index';
 
 export default class popup extends Component{
 
@@ -40,6 +40,8 @@ export default class popup extends Component{
     render(){
         return(
             <div>
+                <h2 className="comp-title">Popup</h2>
+                <h3 className="comp-type">弹层 Top</h3>
                 <Button block radius phSize="lg" phStyle="primary" onClick={::this.onShowTopPopup}>Top Popup</Button>
                 <Popup align="top" visible={this.state.topVisible} onClose={::this.onCloseTopPopup}>
                     <ul className="popup-list">
@@ -49,7 +51,8 @@ export default class popup extends Component{
                         <li className="popup-item" onClick={::this.onCloseTopPopup}>在线连锁店</li>
                     </ul>
                 </Popup>
-
+                
+                <h3 className="comp-type">弹层 Bottom(提供ActionSheet样式)</h3>
                 <Button block radius phSize="lg" phStyle="primary" onClick={::this.onShowBottomPopup}>Bottom Popup</Button>
                 <Popup align="bottom" visible={this.state.bottomVisible} onClose={::this.onCloseBottomPopup}>
                     <div className="popup-action-sheet">

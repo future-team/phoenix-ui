@@ -874,7 +874,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	                'error': 'btn-error',
 	                'warning': 'btn-warning',
 	                'danger': 'btn-danger',
-	                'link': 'btn-link'
+	                'link': 'btn-link',
+	                'gray': 'btn-gray'
 	            }
 	        },
 	        enumerable: true
@@ -1511,7 +1512,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return getVal(['lg', 'sm', 'default', 'xs', 'md'], val);
 	        },
 	        phStyle: function phStyle(val) {
-	            return getVal(['primary', 'info', 'success', 'error', 'warning', 'danger', 'link', 'light', 'positive', 'calm', 'balanced', 'energized', 'assertive', 'lightbrown', 'lightgray'], val);
+	            return getVal(['primary', 'info', 'success', 'error', 'warning', 'danger', 'link', 'gray', 'light', 'positive', 'calm', 'balanced', 'energized', 'assertive', 'lightbrown', 'lightgray'], val);
 	        },
 	        status: function status(val) {
 	            getVal(['diabled', 'active', 'enable'], val);
@@ -3724,7 +3725,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            { className: _classnames2['default']('swipe-action', className), style: this.getStyles(this.props.style) },
 	            _react2['default'].createElement(
 	                _Drag2['default'],
-	                { onDrag: this.onDrag.bind(this), onDrop: this.onDrop.bind(this) },
+	                { className: 'swipe-content', onDrag: this.onDrag.bind(this), onDrop: this.onDrop.bind(this) },
 	                this.props.children
 	            ),
 	            this.renderOperationButton(buttons)

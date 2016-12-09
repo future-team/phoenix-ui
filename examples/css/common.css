@@ -31,7 +31,7 @@ body{
 .list-card:first-child{
     border-top: none;
 }
-.list-card:hover, .list-card:active{
+.list-card:hover{
     background-color: #ff6633;
 }
 .list-card:hover h3, .list-card:hover p{
@@ -65,12 +65,31 @@ body{
 }
 
 .content .btn:not(.btn-block),
-.content .badge{
+.content .badge,
+.content .label,
+.content .star,
+.content .multi-group,
+.content .label-switch{
     margin: 0 0 1rem 1rem;
 }
 
-.content .btn-group .btn:not(.btn-block){
+.content .btn-group .btn:not(.btn-block),
+.content .textarea-field,
+.content .ui-tabs:not(.vertical){
     margin: 0 0 1rem 0;
+}
+
+.content .whisper{
+    display: inline-block;
+    width: 40%;
+    margin: 0 0 1rem 1rem;
+    padding: 8px 12px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.content .ui-tabs{
+    background-color: #fff;
 }
 
 // .menu {
