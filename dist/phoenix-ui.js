@@ -3955,7 +3955,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var children = _props2.children;
 
 	        _react2['default'].Children.forEach(children, function (child, index) {
-	            console.log(child.type.name);
+	            // console.log(child.type.name);
 
 	            newChildren.push(_react2['default'].cloneElement(child, {
 	                key: index,
@@ -24800,12 +24800,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	})(_utilsComponent2['default']);
 
 	var _layer = document.createElement('div'),
-	    timer = null;
-
-	window.onhashchange = function () {
-	    // 处理url变动时手动插入dom不消失
-	    _unrenderLayer();
-	};
+	    timer = null,
+	    visible = false;
 
 	function renderLayer(content) {
 	    return _react2['default'].createElement(
@@ -24816,18 +24812,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 	function _renderLayer(layerElement, duration, callback) {
+	    visible = true;
+
 	    _reactDom2['default'].render(layerElement, _layer);
 	    document.body.appendChild(_layer);
 
+	    window.addEventListener('hashchange', _unrenderLayer, false);
+
 	    timer = setTimeout(function () {
+	        visible = false;
+
 	        _unrenderLayer();
-	        clearTimeout(timer);
 	        callback();
 	    }, duration);
 	}
 
 	function _unrenderLayer() {
 	    _reactDom2['default'].unmountComponentAtNode(_layer);
+	    if (visible) document.body.removeChild(_layer);
+
+	    window.removeEventListener('hashchange', _unrenderLayer, false);
+	    clearTimeout(timer);
 	}
 
 	exports['default'] = {
@@ -24836,7 +24841,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _renderLayer(layerElement, duration, callback);
 	    },
 	    show: function show(content, duration, callback) {
-	        this.info();
+	        this.info(content, duration, callback);
 	    },
 	    remove: function remove() {
 	        _unrenderLayer();
@@ -25327,12 +25332,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Popover.prototype.handleDocumentClick = function handleDocumentClick(event) {
 	        var el = event.target;
 
-	        !_utilsTool2['default'].closest(el, '.popover') && !_utilsTool2['default'].closest(el, '.whisper') && this.props.onClose();
+	        if (!_utilsTool2['default'].closest(el, '.popover') && !(this.props.whisper == event.target)) {
+	            this.props.onClose();
+	        }
 
 	        return false;
 	    };
 
-	    Popover.prototype.componentWillUnmount = function componentWillUnmount() {};
+	    Popover.prototype.componentWillUnmount = function componentWillUnmount() {
+	        document.removeEventListener('click', this.handleDocumentClick, false);
+	    };
 
 	    Popover.prototype.render = function render() {
 	        var _props = this.props;
@@ -25475,16 +25484,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }]);
 
 	    function Whisper(props, context) {
+	        var _this = this;
+
 	        _classCallCheck(this, Whisper);
 
 	        _Component.call(this, props, context);
 
 	        this.visible = false;
 	        this._layer = document.createElement('div');
+
+	        window.addEventListener('hashchange', function () {
+	            // this指向当前组件
+	            if (_this.visible) _this.onClose();
+	        }, false);
 	    }
 
 	    Whisper.prototype.componentDidMount = function componentDidMount() {
-	        this.getWhisperPosition();
+	        var _this2 = this;
+
+	        setTimeout(function () {
+	            _this2.getWhisperPosition();
+	        }, 0);
 	    };
 
 	    Whisper.prototype.getWhisperPosition = function getWhisperPosition() {
@@ -25568,7 +25588,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return _react.cloneElement(this.props.target, {
 	            styles: this.style,
 	            placement: this.props.placement,
-	            onClose: this.onClose.bind(this)
+	            onClose: this.onClose.bind(this),
+	            whisper: this.whisper,
+	            setVisible: this.setVisible
 	        });
 	    };
 
@@ -25581,10 +25603,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    Whisper.prototype.removeTarget = function removeTarget() {
 	        _reactDom2['default'].unmountComponentAtNode(this._layer);
+	        document.body.removeChild(this._layer);
 	    };
 
 	    Whisper.prototype.render = function render() {
-	        var _this = this;
+	        var _this3 = this;
 
 	        var _props = this.props;
 	        var className = _props.className;
@@ -25596,7 +25619,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                className: _classnames2['default']('whisper', className),
 	                onClick: this.onToggle.bind(this),
 	                ref: function (whisper) {
-	                    _this.whisper = whisper;
+	                    _this3.whisper = whisper;
 	                }
 	            }),
 	            children

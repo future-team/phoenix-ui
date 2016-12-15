@@ -162,26 +162,30 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _accordionJs2 = _interopRequireDefault(_accordionJs);
 
-	var _detailDemoJs = __webpack_require__(280);
+	var _animateJs = __webpack_require__(280);
 
-	var _detailDemoJs2 = _interopRequireDefault(_detailDemoJs);
+	var _animateJs2 = _interopRequireDefault(_animateJs);
 
-	var _listDemoJs = __webpack_require__(281);
+	var _dragJs = __webpack_require__(281);
+
+	var _dragJs2 = _interopRequireDefault(_dragJs);
+
+	var _listDemoJs = __webpack_require__(282);
 
 	var _listDemoJs2 = _interopRequireDefault(_listDemoJs);
+
+	var _detailDemoJs = __webpack_require__(283);
+
+	var _detailDemoJs2 = _interopRequireDefault(_detailDemoJs);
 
 	var Card = (function (_Component) {
 	    _inherits(Card, _Component);
 
-	    function Card() {
+	    function Card(props, context) {
 	        _classCallCheck(this, Card);
 
-	        _Component.apply(this, arguments);
+	        _Component.call(this, props, context);
 	    }
-
-	    Card.prototype.onstructor = function onstructor(props, context) {
-	        _Component.prototype.onstructor.call(this, props, context);
-	    };
 
 	    Card.prototype.render = function render() {
 	        var _props = this.props;
@@ -274,6 +278,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                { className: 'menu-panel' },
 	                _react2['default'].createElement(Card, { href: '#/accordion', title: 'Accordion', desp: '手风琴' }),
 	                _react2['default'].createElement(Card, { href: '#/dialog', title: 'Dialog', desp: '弹框' }),
+	                _react2['default'].createElement(Card, { href: '#/toast', title: 'Toast', desp: '飘字' }),
 	                _react2['default'].createElement(Card, { href: '#/popup', title: 'Popup', desp: '弹层' }),
 	                _react2['default'].createElement(Card, { href: '#/popover', title: 'Whisper/Popover', desp: '气泡' }),
 	                _react2['default'].createElement(Card, { href: '#/tab', title: 'Tab', desp: '选项卡' }),
@@ -344,6 +349,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/popup', name: 'popup', component: _popupJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/popover', name: 'popover', component: _popoverJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/accordion', name: 'accordion', component: _accordionJs2['default'] }),
+	            _react2['default'].createElement(_reactRouter.Route, { path: '/animate', name: 'animate', component: _animateJs2['default'] }),
+	            _react2['default'].createElement(_reactRouter.Route, { path: '/drag', name: 'drag', component: _dragJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/detail', name: 'detail', component: _detailDemoJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/list-demo', name: 'list-demo', component: _listDemoJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Redirect, { from: '/', to: '/index' })
@@ -353,7 +360,51 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return AppRouter;
 	})(_react.Component);
 
-	_reactDom2['default'].render(_react2['default'].createElement(AppRouter, null), document.getElementById('root'));
+	var App = (function (_Component4) {
+	    _inherits(App, _Component4);
+
+	    function App(props, context) {
+	        _classCallCheck(this, App);
+
+	        _Component4.call(this, props, context);
+	    }
+
+	    App.prototype.componentDidMount = function componentDidMount() {
+	        var _this = this;
+
+	        var Back = document.getElementById('Back');
+	        this.setBack(Back);
+	        window.addEventListener('hashchange', function () {
+	            _this.setBack(Back);
+	        }, false);
+	    };
+
+	    App.prototype.setBack = function setBack(Back) {
+	        var hash = location.hash.split('/')[1];
+	        if (hash == 'index') {
+	            Back.style.display = 'none';
+	        } else {
+	            Back.style.display = 'block';
+	        }
+	    };
+
+	    App.prototype.render = function render() {
+	        return _react2['default'].createElement(
+	            'div',
+	            null,
+	            _react2['default'].createElement(
+	                'a',
+	                { href: '#/index', id: 'Back' },
+	                'Back'
+	            ),
+	            _react2['default'].createElement(AppRouter, null)
+	        );
+	    };
+
+	    return App;
+	})(_react.Component);
+
+	_reactDom2['default'].render(_react2['default'].createElement(App, null), document.getElementById('root'));
 
 /***/ },
 /* 2 */
@@ -24476,17 +24527,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    { activeIndex: 1, vertical: true, width: 30 },
 	                    _react2['default'].createElement(
 	                        _srcIndex.Tab,
-	                        { heading: 'tab1' },
+	                        { heading: '标题1' },
 	                        '竖向内容1'
 	                    ),
 	                    _react2['default'].createElement(
 	                        _srcIndex.Tab,
-	                        { heading: 'tab2', onClick: this.test.bind(this) },
+	                        { heading: '标题2', onClick: this.test.bind(this) },
 	                        '竖向内容2'
 	                    ),
 	                    _react2['default'].createElement(
 	                        _srcIndex.Tab,
-	                        { heading: 'tab3' },
+	                        { heading: '标题3' },
 	                        '竖向内容3'
 	                    )
 	                )
@@ -28392,7 +28443,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var children = _props2.children;
 
 	        _react2['default'].Children.forEach(children, function (child, index) {
-	            console.log(child.type.name);
+	            // console.log(child.type.name);
 
 	            newChildren.push(_react2['default'].cloneElement(child, {
 	                key: index,
@@ -29561,12 +29612,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	})(_utilsComponent2['default']);
 
 	var _layer = document.createElement('div'),
-	    timer = null;
-
-	window.onhashchange = function () {
-	    // 处理url变动时手动插入dom不消失
-	    _unrenderLayer();
-	};
+	    timer = null,
+	    visible = false;
 
 	function renderLayer(content) {
 	    return _react2['default'].createElement(
@@ -29577,18 +29624,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 	function _renderLayer(layerElement, duration, callback) {
+	    visible = true;
+
 	    _reactDom2['default'].render(layerElement, _layer);
 	    document.body.appendChild(_layer);
 
+	    window.addEventListener('hashchange', _unrenderLayer, false);
+
 	    timer = setTimeout(function () {
+	        visible = false;
+
 	        _unrenderLayer();
-	        clearTimeout(timer);
 	        callback();
 	    }, duration);
 	}
 
 	function _unrenderLayer() {
 	    _reactDom2['default'].unmountComponentAtNode(_layer);
+	    if (visible) document.body.removeChild(_layer);
+
+	    window.removeEventListener('hashchange', _unrenderLayer, false);
+	    clearTimeout(timer);
 	}
 
 	exports['default'] = {
@@ -29597,7 +29653,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _renderLayer(layerElement, duration, callback);
 	    },
 	    show: function show(content, duration, callback) {
-	        this.info();
+	        this.info(content, duration, callback);
 	    },
 	    remove: function remove() {
 	        _unrenderLayer();
@@ -30079,12 +30135,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Popover.prototype.handleDocumentClick = function handleDocumentClick(event) {
 	        var el = event.target;
 
-	        !_utilsTool2['default'].closest(el, '.popover') && !_utilsTool2['default'].closest(el, '.whisper') && this.props.onClose();
+	        if (!_utilsTool2['default'].closest(el, '.popover') && !(this.props.whisper == event.target)) {
+	            this.props.onClose();
+	        }
 
 	        return false;
 	    };
 
-	    Popover.prototype.componentWillUnmount = function componentWillUnmount() {};
+	    Popover.prototype.componentWillUnmount = function componentWillUnmount() {
+	        document.removeEventListener('click', this.handleDocumentClick, false);
+	    };
 
 	    Popover.prototype.render = function render() {
 	        var _props = this.props;
@@ -30227,16 +30287,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }]);
 
 	    function Whisper(props, context) {
+	        var _this = this;
+
 	        _classCallCheck(this, Whisper);
 
 	        _Component.call(this, props, context);
 
 	        this.visible = false;
 	        this._layer = document.createElement('div');
+
+	        window.addEventListener('hashchange', function () {
+	            // this指向当前组件
+	            if (_this.visible) _this.onClose();
+	        }, false);
 	    }
 
 	    Whisper.prototype.componentDidMount = function componentDidMount() {
-	        this.getWhisperPosition();
+	        var _this2 = this;
+
+	        setTimeout(function () {
+	            _this2.getWhisperPosition();
+	        }, 0);
 	    };
 
 	    Whisper.prototype.getWhisperPosition = function getWhisperPosition() {
@@ -30320,7 +30391,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return _react.cloneElement(this.props.target, {
 	            styles: this.style,
 	            placement: this.props.placement,
-	            onClose: this.onClose.bind(this)
+	            onClose: this.onClose.bind(this),
+	            whisper: this.whisper,
+	            setVisible: this.setVisible
 	        });
 	    };
 
@@ -30333,10 +30406,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    Whisper.prototype.removeTarget = function removeTarget() {
 	        _reactDom2['default'].unmountComponentAtNode(this._layer);
+	        document.body.removeChild(this._layer);
 	    };
 
 	    Whisper.prototype.render = function render() {
-	        var _this = this;
+	        var _this3 = this;
 
 	        var _props = this.props;
 	        var className = _props.className;
@@ -30348,7 +30422,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                className: _classnames2['default']('whisper', className),
 	                onClick: this.onToggle.bind(this),
 	                ref: function (whisper) {
-	                    _this.whisper = whisper;
+	                    _this3.whisper = whisper;
 	                }
 	            }),
 	            children
@@ -31073,366 +31147,436 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _srcIndex = __webpack_require__(208);
 
-	var FilterDemo = (function (_Component) {
-	    _inherits(FilterDemo, _Component);
+	var grid = (function (_Component) {
+	    _inherits(grid, _Component);
 
-	    function FilterDemo() {
-	        _classCallCheck(this, FilterDemo);
+	    function grid() {
+	        _classCallCheck(this, grid);
 
 	        _Component.apply(this, arguments);
 	    }
 
-	    FilterDemo.prototype.showAlert = function showAlert() {
-	        alert(1);
-	    };
-
-	    FilterDemo.prototype.render = function render() {
+	    grid.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            'div',
 	            null,
 	            _react2['default'].createElement(
-	                _srcIndex.Row,
-	                { align: 'stretch' },
+	                'h2',
+	                { className: 'comp-title' },
+	                'Grid'
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                '容器属性 align-items(default:stretch)'
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-tip' },
+	                'stretch'
+	            ),
+	            _react2['default'].createElement(
+	                _srcIndex.Grid,
+	                { className: 'content' },
 	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
+	                    _srcIndex.Row,
+	                    { align: 'stretch' },
 	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'stretch'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'stretch'
+	                        )
+	                    ),
 	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'stretch'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'stretch',
+	                            _react2['default'].createElement('br', null),
+	                            'baseline'
+	                        )
+	                    ),
 	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'stretch'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        '1',
-	                        _react2['default'].createElement('br', null),
-	                        '2',
-	                        _react2['default'].createElement('br', null),
-	                        '3',
-	                        _react2['default'].createElement('br', null),
-	                        '4',
-	                        _react2['default'].createElement('br', null),
-	                        '4'
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'stretch',
+	                            _react2['default'].createElement('br', null),
+	                            'stretch',
+	                            _react2['default'].createElement('br', null),
+	                            'stretch',
+	                            _react2['default'].createElement('br', null),
+	                            'stretch'
+	                        )
 	                    )
 	                )
 	            ),
 	            _react2['default'].createElement(
-	                _srcIndex.Row,
-	                { align: 'baseline' },
+	                'h3',
+	                { className: 'comp-tip' },
+	                'baseline'
+	            ),
+	            _react2['default'].createElement(
+	                _srcIndex.Grid,
+	                { className: 'content' },
 	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
+	                    _srcIndex.Row,
+	                    { align: 'baseline' },
 	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'ffff ffff ff ffff'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'baseline'
+	                        )
+	                    ),
 	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'base line'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'baseline',
+	                            _react2['default'].createElement('br', null),
+	                            'baseline'
+	                        )
+	                    ),
 	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'baseli ne'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        '1',
-	                        _react2['default'].createElement('br', null),
-	                        '2',
-	                        _react2['default'].createElement('br', null),
-	                        '3',
-	                        _react2['default'].createElement('br', null),
-	                        '4',
-	                        _react2['default'].createElement('br', null),
-	                        '4'
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'baseline',
+	                            _react2['default'].createElement('br', null),
+	                            'baseline',
+	                            _react2['default'].createElement('br', null),
+	                            'baseline',
+	                            _react2['default'].createElement('br', null),
+	                            'baseline'
+	                        )
 	                    )
 	                )
 	            ),
 	            _react2['default'].createElement(
-	                _srcIndex.Row,
-	                { align: 'top' },
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'top'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'top'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'top'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        '1',
-	                        _react2['default'].createElement('br', null),
-	                        '2',
-	                        _react2['default'].createElement('br', null),
-	                        '3',
-	                        _react2['default'].createElement('br', null),
-	                        '4',
-	                        _react2['default'].createElement('br', null),
-	                        '4'
-	                    )
-	                )
+	                'h3',
+	                { className: 'comp-tip' },
+	                'top'
 	            ),
 	            _react2['default'].createElement(
-	                _srcIndex.Row,
-	                { align: 'bottom' },
+	                _srcIndex.Grid,
+	                { className: 'content' },
 	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'bottom'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'bottom'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'bottom'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        '1',
-	                        _react2['default'].createElement('br', null),
-	                        '2',
-	                        _react2['default'].createElement('br', null),
-	                        '3',
-	                        _react2['default'].createElement('br', null),
-	                        '4',
-	                        _react2['default'].createElement('br', null),
-	                        '4'
-	                    )
-	                )
-	            ),
-	            _react2['default'].createElement(
-	                _srcIndex.Row,
-	                { align: 'center' },
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'center'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'center'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'center'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        '1',
-	                        _react2['default'].createElement('br', null),
-	                        '2',
-	                        _react2['default'].createElement('br', null),
-	                        '3',
-	                        _react2['default'].createElement('br', null),
-	                        '4',
-	                        _react2['default'].createElement('br', null),
-	                        '4'
-	                    )
-	                )
-	            ),
-	            _react2['default'].createElement(
-	                _srcIndex.Row,
-	                null,
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
+	                    _srcIndex.Row,
 	                    { align: 'top' },
 	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'top'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    { align: 'center' },
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'top'
+	                        )
+	                    ),
 	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'center'
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'top',
+	                            _react2['default'].createElement('br', null),
+	                            'top'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'top',
+	                            _react2['default'].createElement('br', null),
+	                            'top',
+	                            _react2['default'].createElement('br', null),
+	                            'top',
+	                            _react2['default'].createElement('br', null),
+	                            'top'
+	                        )
 	                    )
-	                ),
+	                )
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-tip' },
+	                'bottom'
+	            ),
+	            _react2['default'].createElement(
+	                _srcIndex.Grid,
+	                { className: 'content' },
 	                _react2['default'].createElement(
-	                    _srcIndex.Col,
+	                    _srcIndex.Row,
 	                    { align: 'bottom' },
 	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'bottom'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'bottom'
+	                        )
+	                    ),
 	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        '1',
-	                        _react2['default'].createElement('br', null),
-	                        '2',
-	                        _react2['default'].createElement('br', null),
-	                        '3',
-	                        _react2['default'].createElement('br', null),
-	                        '4',
-	                        _react2['default'].createElement('br', null),
-	                        '4'
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'bottom',
+	                            _react2['default'].createElement('br', null),
+	                            'bottom'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'bottom',
+	                            _react2['default'].createElement('br', null),
+	                            'bottom',
+	                            _react2['default'].createElement('br', null),
+	                            'bottom',
+	                            _react2['default'].createElement('br', null),
+	                            'bottom'
+	                        )
 	                    )
 	                )
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-tip' },
+	                'center'
+	            ),
+	            _react2['default'].createElement(
+	                _srcIndex.Grid,
+	                { className: 'content' },
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    { align: 'center' },
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'center'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'center',
+	                            _react2['default'].createElement('br', null),
+	                            'center'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'center',
+	                            _react2['default'].createElement('br', null),
+	                            'center',
+	                            _react2['default'].createElement('br', null),
+	                            'center',
+	                            _react2['default'].createElement('br', null),
+	                            'center'
+	                        )
+	                    )
+	                )
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                '项目属性 align-self(default:auto)'
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-tip' },
+	                'auto'
+	            ),
+	            _react2['default'].createElement(
+	                _srcIndex.Grid,
+	                { className: 'content' },
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'auto'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'auto auto'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'auto auto auto auto'
+	                        )
+	                    )
+	                )
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-tip' },
+	                'top/center/bottom'
+	            ),
+	            _react2['default'].createElement(
+	                _srcIndex.Grid,
+	                { className: 'content' },
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        { align: 'top' },
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'top'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        { align: 'center' },
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'center'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        { align: 'bottom' },
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'bottom'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'top',
+	                            _react2['default'].createElement('br', null),
+	                            'center',
+	                            _react2['default'].createElement('br', null),
+	                            'bottom'
+	                        )
+	                    )
+	                )
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                '项目属性 flex'
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-tip' },
+	                'width'
+	            ),
+	            _react2['default'].createElement(
+	                _srcIndex.Grid,
+	                { className: 'content' },
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        { width: '15' },
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            '15'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        { width: '20' },
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            '20'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        { width: '25' },
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            '25'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        { width: '40' },
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            '40',
+	                            _react2['default'].createElement('br', null),
+	                            '40',
+	                            _react2['default'].createElement('br', null),
+	                            '40'
+	                        )
+	                    )
+	                )
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-tip' },
+	                'offset (margin-left)'
 	            ),
 	            _react2['default'].createElement(
 	                _srcIndex.Row,
 	                null,
 	                _react2['default'].createElement(
 	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'auto'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'auto auto'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'auto auto auto'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'auto auto auto auto'
-	                    )
-	                )
-	            ),
-	            _react2['default'].createElement(
-	                _srcIndex.Row,
-	                null,
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    { width: '5' },
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        '5'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    { width: '10' },
+	                    { width: '20', offset: '10' },
 	                    _react2['default'].createElement(
 	                        'div',
 	                        { className: 'col-demo' },
@@ -31441,73 +31585,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	                ),
 	                _react2['default'].createElement(
 	                    _srcIndex.Col,
-	                    { width: '15' },
+	                    { width: '40', offset: '10' },
 	                    _react2['default'].createElement(
 	                        'div',
 	                        { className: 'col-demo' },
-	                        '15'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    { offset: '10', width: '10' },
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
+	                        '10',
+	                        _react2['default'].createElement('br', null),
+	                        '10',
+	                        _react2['default'].createElement('br', null),
 	                        '10'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    { width: '20' },
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        '1',
-	                        _react2['default'].createElement('br', null),
-	                        '2',
-	                        _react2['default'].createElement('br', null),
-	                        '3',
-	                        _react2['default'].createElement('br', null),
-	                        '4'
-	                    )
-	                )
-	            ),
-	            _react2['default'].createElement(
-	                _srcIndex.Row,
-	                null,
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    { width: '50' },
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        '5'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    { offset: '10', width: '20' },
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        '1',
-	                        _react2['default'].createElement('br', null),
-	                        '2',
-	                        _react2['default'].createElement('br', null),
-	                        '3',
-	                        _react2['default'].createElement('br', null),
-	                        '4'
 	                    )
 	                )
 	            )
 	        );
 	    };
 
-	    return FilterDemo;
+	    return grid;
 	})(_react.Component);
 
-	exports['default'] = FilterDemo;
+	exports['default'] = grid;
 	module.exports = exports['default'];
 
 /***/ },
@@ -31534,11 +31630,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _srcIndex = __webpack_require__(208);
 
-	var input = (function (_Component) {
-	    _inherits(input, _Component);
+	var tableview = (function (_Component) {
+	    _inherits(tableview, _Component);
 
-	    function input(props, context) {
-	        _classCallCheck(this, input);
+	    function tableview(props, context) {
+	        _classCallCheck(this, tableview);
 
 	        _Component.call(this, props, context);
 
@@ -31547,16 +31643,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	        };
 	    }
 
-	    input.prototype.setValue = function setValue(key, e) {
+	    tableview.prototype.setValue = function setValue(key, e) {
 	        var o = {};
 	        o[key || e.target.name] = e.target.value;
 	        this.setState(o);
 	    };
 
-	    input.prototype.render = function render() {
+	    tableview.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            'div',
 	            null,
+	            _react2['default'].createElement(
+	                'h2',
+	                { className: 'comp-title' },
+	                'TableView'
+	            ),
 	            _react2['default'].createElement(
 	                _srcIndex.TableView,
 	                null,
@@ -31600,10 +31701,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        );
 	    };
 
-	    return input;
+	    return tableview;
 	})(_react.Component);
 
-	exports['default'] = input;
+	exports['default'] = tableview;
 	module.exports = exports['default'];
 
 /***/ },
@@ -31630,11 +31731,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _srcIndex = __webpack_require__(208);
 
-	var input = (function (_Component) {
-	    _inherits(input, _Component);
+	var formgroup = (function (_Component) {
+	    _inherits(formgroup, _Component);
 
-	    function input(props, context) {
-	        _classCallCheck(this, input);
+	    function formgroup(props, context) {
+	        _classCallCheck(this, formgroup);
 
 	        _Component.call(this, props, context);
 
@@ -31643,16 +31744,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	        };
 	    }
 
-	    input.prototype.setValue = function setValue(key, e) {
+	    formgroup.prototype.setValue = function setValue(key, e) {
 	        var o = {};
 	        o[key || e.target.name] = e.target.value;
 	        this.setState(o);
 	    };
 
-	    input.prototype.render = function render() {
+	    formgroup.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            'div',
 	            null,
+	            _react2['default'].createElement(
+	                'h2',
+	                { className: 'comp-title' },
+	                'FormGroup'
+	            ),
 	            _react2['default'].createElement(
 	                _srcIndex.FormGroup,
 	                null,
@@ -31691,10 +31797,34 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        null,
 	                        _react2['default'].createElement(
 	                            'label',
-	                            { 'for': '' },
+	                            null,
 	                            '地址'
 	                        ),
-	                        _react2['default'].createElement(_srcIndex.Input, { type: 'text', placeholder: '身份证' })
+	                        _react2['default'].createElement(_srcIndex.Input, { type: 'text', placeholder: '地址' })
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'label',
+	                            null,
+	                            '省'
+	                        ),
+	                        _react2['default'].createElement(_srcIndex.Input, { type: 'text', placeholder: '省' })
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'label',
+	                            null,
+	                            '市'
+	                        ),
+	                        _react2['default'].createElement(_srcIndex.Input, { type: 'text', placeholder: '市' })
 	                    )
 	                ),
 	                _react2['default'].createElement(
@@ -31705,7 +31835,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        { className: 'test' },
 	                        _react2['default'].createElement(
 	                            'label',
-	                            { 'for': '' },
+	                            null,
 	                            '兴趣爱好'
 	                        ),
 	                        _react2['default'].createElement(_srcIndex.Input, { type: 'checkbox', label: '篮球', className: 'a1' }),
@@ -31725,6 +31855,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	                            _react2['default'].createElement(
 	                                'label',
 	                                null,
+	                                _react2['default'].createElement(
+	                                    'span',
+	                                    { className: 'color-error' },
+	                                    '*'
+	                                ),
 	                                '性别'
 	                            ),
 	                            _react2['default'].createElement('input', { type: 'text', placeholder: '男/女', disabled: true })
@@ -31740,42 +31875,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        _react2['default'].createElement(
 	                            'label',
 	                            null,
-	                            '姓'
-	                        ),
-	                        _react2['default'].createElement(_srcIndex.Input, { type: 'text', placeholder: '姓' })
-	                    ),
-	                    _react2['default'].createElement(
-	                        _srcIndex.Col,
-	                        null,
-	                        _react2['default'].createElement(
-	                            'label',
-	                            null,
-	                            '名'
-	                        ),
-	                        _react2['default'].createElement(_srcIndex.Input, { type: 'text', placeholder: '名' })
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Row,
-	                    null,
-	                    _react2['default'].createElement(
-	                        _srcIndex.Col,
-	                        null,
-	                        _react2['default'].createElement(
-	                            'label',
-	                            null,
-	                            _react2['default'].createElement(
-	                                'span',
-	                                { className: 'color-error' },
-	                                '*'
-	                            ),
-	                            '喜欢的运动'
+	                            '喜欢的水果'
 	                        ),
 	                        _react2['default'].createElement(
 	                            'div',
 	                            { className: 'input', style: { textAlign: 'right' } },
-	                            _react2['default'].createElement(_srcIndex.Input, { type: 'checkbox', label: '篮球' }),
-	                            _react2['default'].createElement(_srcIndex.Input, { type: 'checkbox', label: '足球' })
+	                            _react2['default'].createElement(_srcIndex.Input, { type: 'checkbox', label: '苹果' }),
+	                            _react2['default'].createElement(_srcIndex.Input, { type: 'checkbox', label: '香蕉' })
 	                        )
 	                    )
 	                )
@@ -31783,10 +31889,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        );
 	    };
 
-	    return input;
+	    return formgroup;
 	})(_react.Component);
 
-	exports['default'] = input;
+	exports['default'] = formgroup;
 	module.exports = exports['default'];
 
 /***/ },
@@ -32379,11 +32485,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _srcIndex = __webpack_require__(208);
 
-	var modal = (function (_Component) {
-	    _inherits(modal, _Component);
+	var toast = (function (_Component) {
+	    _inherits(toast, _Component);
 
-	    function modal(props, context) {
-	        _classCallCheck(this, modal);
+	    function toast(props, context) {
+	        _classCallCheck(this, toast);
 
 	        _Component.call(this, props, context);
 
@@ -32392,28 +32498,38 @@ return /******/ (function(modules) { // webpackBootstrap
 	        };
 	    }
 
-	    modal.prototype.showToast = function showToast() {
+	    toast.prototype.showToast = function showToast() {
 	        _srcIndex.Toast.info('只显示信息的toast！！', this.state.duration, function () {
 	            console.log('额外的执行内容');
 	        });
 	    };
 
-	    modal.prototype.render = function render() {
+	    toast.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            'div',
 	            null,
 	            _react2['default'].createElement(
+	                'h2',
+	                { className: 'comp-title' },
+	                'Toast'
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                '自定义飘字'
+	            ),
+	            _react2['default'].createElement(
 	                _srcIndex.Button,
-	                { block: true, phSize: 'lg', phStyle: 'info', onClick: this.showToast.bind(this) },
-	                'Click Me To Show Toast'
+	                { block: true, phSize: 'lg', phStyle: 'primary', onClick: this.showToast.bind(this) },
+	                '点击飘字'
 	            )
 	        );
 	    };
 
-	    return modal;
+	    return toast;
 	})(_react.Component);
 
-	exports['default'] = modal;
+	exports['default'] = toast;
 	module.exports = exports['default'];
 
 /***/ },
@@ -32806,6 +32922,431 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.__esModule = true;
 
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(159);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _srcIndex = __webpack_require__(208);
+
+	var animate = (function (_Component) {
+	    _inherits(animate, _Component);
+
+	    function animate(props, context) {
+	        _classCallCheck(this, animate);
+
+	        _Component.call(this, props, context);
+
+	        this.state = {
+	            item: '',
+	            list: ['看一本书', '睡8个小时']
+	        };
+	    }
+
+	    animate.prototype.setValue = function setValue(key, e) {
+	        var o = {};
+	        o[key || e.target.name] = e.target.value;
+	        this.setState(o);
+	    };
+
+	    animate.prototype.addTodo = function addTodo() {
+	        var newList = this.state.list.concat(this.state.item);
+
+	        this.setState({
+	            item: '',
+	            list: newList
+	        });
+	    };
+
+	    animate.prototype.removeTodo = function removeTodo(index) {
+	        var newList = this.state.list.slice();
+
+	        newList.splice(index, 1);
+	        this.setState({
+	            list: newList
+	        });
+	    };
+
+	    animate.prototype.renderList = function renderList() {
+	        var _this = this;
+
+	        var items = this.state.list.map(function (item, index) {
+	            var _context;
+
+	            return _react2['default'].createElement(
+	                'div',
+	                { key: index, className: 'animated', onClick: (_context = _this.removeTodo).bind.call(_context, _this, index) },
+	                item
+	            );
+	        });
+	        return items;
+	    };
+
+	    animate.prototype.render = function render() {
+	        var _context2;
+
+	        return _react2['default'].createElement(
+	            'div',
+	            null,
+	            _react2['default'].createElement(
+	                'h2',
+	                { className: 'comp-title' },
+	                'Animate'
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                'e.g. Todo'
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'content row-no-padding todo-demo' },
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        { className: 'col-80' },
+	                        _react2['default'].createElement(_srcIndex.Input, { type: 'text', value: this.state.item, onChange: (_context2 = this.setValue).bind.call(_context2, this, 'item') })
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            _srcIndex.Button,
+	                            { block: true, phSize: 'lg', phStyle: 'primary', onClick: this.addTodo.bind(this) },
+	                            'Add'
+	                        )
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Animate,
+	                    { transitionName: 'fade', className: 'animate-field' },
+	                    this.renderList()
+	                )
+	            )
+	        );
+	    };
+
+	    return animate;
+	})(_react.Component);
+
+	exports['default'] = animate;
+	module.exports = exports['default'];
+
+/***/ },
+/* 281 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(159);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _srcIndex = __webpack_require__(208);
+
+	var toast = (function (_Component) {
+	    _inherits(toast, _Component);
+
+	    function toast(props, context) {
+	        _classCallCheck(this, toast);
+
+	        _Component.call(this, props, context);
+
+	        this.preDistanceX = 0;
+	        this.preDistanceY = 0;
+	        this.distanceX = 0;
+	        this.distanceY = 0;
+	    }
+
+	    toast.prototype.onDrag = function onDrag(event, position) {
+	        this.prePosition = position.start;
+	        this.nowPosition = position.move;
+
+	        this.distanceX = this.preDistanceX + this.nowPosition.x - this.prePosition.x;
+	        this.distanceY = this.preDistanceY + this.nowPosition.y - this.prePosition.y;
+
+	        this.setBoxPosition(this.distanceX, this.distanceY);
+	    };
+
+	    toast.prototype.onDrop = function onDrop(event, position) {
+	        this.preDistanceX = this.distanceX;
+	        this.preDistanceY = this.distanceY;
+	    };
+
+	    toast.prototype.setBoxPosition = function setBoxPosition(x, y) {
+	        this.box.style.webkitTransform = 'translate(' + x + 'px,' + y + 'px)';
+	        this.box.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+	    };
+
+	    toast.prototype.render = function render() {
+	        var _this = this;
+
+	        return _react2['default'].createElement(
+	            'div',
+	            null,
+	            _react2['default'].createElement(
+	                'h2',
+	                { className: 'comp-title' },
+	                'Drag'
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                'e.g. Dragable Box'
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'content content-drag' },
+	                _react2['default'].createElement(
+	                    _srcIndex.Drag,
+	                    { onDrag: this.onDrag.bind(this), onDrop: this.onDrop.bind(this), style: { height: 0 } },
+	                    _react2['default'].createElement(
+	                        'div',
+	                        { className: 'box', ref: function (box) {
+	                                _this.box = box;
+	                            } },
+	                        'Drag'
+	                    )
+	                )
+	            )
+	        );
+	    };
+
+	    return toast;
+	})(_react.Component);
+
+	exports['default'] = toast;
+	module.exports = exports['default'];
+
+/***/ },
+/* 282 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(159);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _srcIndex = __webpack_require__(208);
+
+	var Demo = (function (_Component) {
+	    _inherits(Demo, _Component);
+
+	    function Demo(props, context) {
+	        _classCallCheck(this, Demo);
+
+	        _Component.call(this, props, context);
+
+	        this.state = {
+	            name: ''
+	        };
+	    }
+
+	    Demo.prototype.setValue = function setValue(key, e) {
+	        var o = {};
+	        o[key || e.target.name] = e.target.value;
+	        this.setState(o);
+	    };
+
+	    Demo.prototype.render = function render() {
+	        return _react2['default'].createElement(
+	            'div',
+	            { className: 'list-demo' },
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'list-item' },
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        '三人行骨头王火锅'
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    { className: 'row-label' },
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            _srcIndex.Label,
+	                            { phSize: '' },
+	                            '惠'
+	                        ),
+	                        _react2['default'].createElement(
+	                            _srcIndex.Label,
+	                            { phSize: '', phStyle: 'info' },
+	                            '团'
+	                        )
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(_srcIndex.Star, { Rate: 20, size: '' })
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    { className: 'row-address' },
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'span',
+	                            null,
+	                            '休闲娱乐|黄浦路 南京东路819号百联世贸7楼'
+	                        ),
+	                        _react2['default'].createElement(
+	                            'span',
+	                            null,
+	                            '5.4km'
+	                        )
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            _srcIndex.Button,
+	                            { phSize: '' },
+	                            '非本战区 公海'
+	                        )
+	                    )
+	                )
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'list-item' },
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        '三人行骨头王火锅'
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    { className: 'row-label' },
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            _srcIndex.Label,
+	                            { phSize: '' },
+	                            '惠'
+	                        ),
+	                        _react2['default'].createElement(
+	                            _srcIndex.Label,
+	                            { phSize: '', phStyle: 'info' },
+	                            '团'
+	                        )
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(_srcIndex.Star, { Rate: 20, size: '' })
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    { className: 'row-address' },
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'span',
+	                            null,
+	                            '休闲娱乐|黄浦路 南京东路819号百联世贸7楼'
+	                        ),
+	                        _react2['default'].createElement(
+	                            'span',
+	                            null,
+	                            '5.4km'
+	                        )
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            _srcIndex.Button,
+	                            { phSize: '' },
+	                            '非本战区 公海'
+	                        )
+	                    )
+	                )
+	            )
+	        );
+	    };
+
+	    return Demo;
+	})(_react.Component);
+
+	exports['default'] = Demo;
+	module.exports = exports['default'];
+
+/***/ },
+/* 283 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -32837,7 +33378,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Detail.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            _srcIndex.Grid,
-	            null,
+	            { className: 'detail-demo' },
 	            _react2['default'].createElement(
 	                _srcIndex.Row,
 	                { className: 'top' },
@@ -33089,7 +33630,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            ),
 	            _react2['default'].createElement(
 	                _srcIndex.Row,
-	                { style: { padding: '10px', borderTop: '1px solid #ddd', position: 'fixed', bottom: '0', background: '#fff', width: '100%' } },
+	                { style: { padding: '15px', margin: 0, borderTop: '1px solid #ddd', position: 'fixed', bottom: '0', background: '#fff', width: '100%' } },
 	                _react2['default'].createElement(
 	                    _srcIndex.Col,
 	                    { style: { textAlign: 'center' } },
@@ -33133,220 +33674,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	})(_react.Component);
 
 	exports['default'] = Detail;
-	module.exports = exports['default'];
-
-/***/ },
-/* 281 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	exports.__esModule = true;
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(159);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	var _srcIndex = __webpack_require__(208);
-
-	var Demo = (function (_Component) {
-	    _inherits(Demo, _Component);
-
-	    function Demo(props, context) {
-	        _classCallCheck(this, Demo);
-
-	        _Component.call(this, props, context);
-
-	        this.state = {
-	            name: ''
-	        };
-	    }
-
-	    Demo.prototype.setValue = function setValue(key, e) {
-	        var o = {};
-	        o[key || e.target.name] = e.target.value;
-	        this.setState(o);
-	    };
-
-	    Demo.prototype.render = function render() {
-	        return _react2['default'].createElement(
-	            'div',
-	            { style: {
-	                    padding: '5px 15px'
-	                } },
-	            _react2['default'].createElement(
-	                'div',
-	                { style: {
-	                        borderBottom: '1px solid #ccc'
-	                    } },
-	                _react2['default'].createElement(
-	                    _srcIndex.Row,
-	                    null,
-	                    _react2['default'].createElement(
-	                        _srcIndex.Col,
-	                        null,
-	                        '三人行骨头王火锅'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Row,
-	                    null,
-	                    _react2['default'].createElement(
-	                        _srcIndex.Col,
-	                        null,
-	                        _react2['default'].createElement(
-	                            _srcIndex.Label,
-	                            { phSize: '', style: {
-	                                    marginRight: '5px'
-	                                } },
-	                            '惠'
-	                        ),
-	                        _react2['default'].createElement(
-	                            _srcIndex.Label,
-	                            { phSize: '', phStyle: 'info' },
-	                            '团'
-	                        )
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Row,
-	                    null,
-	                    _react2['default'].createElement(
-	                        _srcIndex.Col,
-	                        null,
-	                        _react2['default'].createElement(_srcIndex.Star, { Rate: 20, size: '' })
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Row,
-	                    null,
-	                    _react2['default'].createElement(
-	                        _srcIndex.Col,
-	                        { style: {
-	                                fontSize: '12px',
-	                                color: '#999'
-	                            } },
-	                        _react2['default'].createElement(
-	                            'span',
-	                            null,
-	                            '休闲娱乐|黄浦路  南京东路819号百联世贸7楼'
-	                        ),
-	                        _react2['default'].createElement(
-	                            'span',
-	                            null,
-	                            '5.4km'
-	                        )
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Row,
-	                    null,
-	                    _react2['default'].createElement(
-	                        _srcIndex.Col,
-	                        null,
-	                        _react2['default'].createElement(
-	                            _srcIndex.Button,
-	                            { phSize: '' },
-	                            '非本战区 公海'
-	                        )
-	                    )
-	                )
-	            ),
-	            _react2['default'].createElement(
-	                'div',
-	                { style: {
-	                        borderBottom: '1px solid #ccc'
-	                    } },
-	                _react2['default'].createElement(
-	                    _srcIndex.Row,
-	                    null,
-	                    _react2['default'].createElement(
-	                        _srcIndex.Col,
-	                        null,
-	                        '三人行骨头王火锅'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Row,
-	                    null,
-	                    _react2['default'].createElement(
-	                        _srcIndex.Col,
-	                        null,
-	                        _react2['default'].createElement(
-	                            _srcIndex.Label,
-	                            { phSize: '', style: {
-	                                    marginRight: '5px'
-	                                } },
-	                            '惠'
-	                        ),
-	                        _react2['default'].createElement(
-	                            _srcIndex.Label,
-	                            { phSize: '', phStyle: 'info' },
-	                            '团'
-	                        )
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Row,
-	                    null,
-	                    _react2['default'].createElement(
-	                        _srcIndex.Col,
-	                        null,
-	                        _react2['default'].createElement(_srcIndex.Star, { Rate: 20, size: '' })
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Row,
-	                    null,
-	                    _react2['default'].createElement(
-	                        _srcIndex.Col,
-	                        { style: {
-	                                fontSize: '12px',
-	                                color: '#999'
-	                            } },
-	                        _react2['default'].createElement(
-	                            'span',
-	                            null,
-	                            '休闲娱乐|黄浦路  南京东路819号百联世贸7楼'
-	                        ),
-	                        _react2['default'].createElement(
-	                            'span',
-	                            null,
-	                            '5.4km'
-	                        )
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Row,
-	                    null,
-	                    _react2['default'].createElement(
-	                        _srcIndex.Col,
-	                        null,
-	                        _react2['default'].createElement(
-	                            _srcIndex.Button,
-	                            { phSize: '' },
-	                            '非本战区 公海'
-	                        )
-	                    )
-	                )
-	            )
-	        );
-	    };
-
-	    return Demo;
-	})(_react.Component);
-
-	exports['default'] = Demo;
 	module.exports = exports['default'];
 
 /***/ }
