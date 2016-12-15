@@ -43,13 +43,13 @@ export default class input extends Component{
                 <h3 className="comp-type">竖向 vertical</h3>
                 <div className="content">
                     <Tabset activeIndex={1} vertical width={30}>
-                        <Tab heading='tab1'>
+                        <Tab heading='标题1'>
                             竖向内容1
                         </Tab>
-                        <Tab heading='tab2' onClick={::this.test}>
+                        <Tab heading='标题2' onClick={::this.test}>
                             竖向内容2
                         </Tab>
-                        <Tab heading='tab3'>
+                        <Tab heading='标题3'>
                             竖向内容3
                         </Tab>
                     </Tabset>

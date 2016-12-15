@@ -2,7 +2,7 @@ import React, { Component ,PropTypes} from 'react';
 import ReactDOM,{findDOMNode} from 'react-dom';
 import {FormGroup,Row,Col,Input} from '../../src/index';
 
-export default class input extends Component{
+export default class formgroup extends Component{
 
     constructor(props,context){
 
@@ -22,6 +22,7 @@ export default class input extends Component{
     render(){
         return(
             <div>
+                <h2 className="comp-title">FormGroup</h2>
                 <FormGroup>
                     <Row single>
                         <Col>
@@ -40,13 +41,23 @@ export default class input extends Component{
                     </Row>
                     <Row>
                         <Col>
-                            <label for="">地址</label>
-                            <Input type="text" placeholder="身份证" />
+                            <label>地址</label>
+                            <Input type="text" placeholder="地址" />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <label>省</label>
+                            <Input type="text" placeholder="省" />
+                        </Col>
+                        <Col>
+                            <label>市</label>
+                            <Input type="text" placeholder="市" />
                         </Col>
                     </Row>
                     <Row className='a'>
                         <Col className='test'>
-                            <label for="">兴趣爱好</label>
+                            <label>兴趣爱好</label>
                             <Input type="checkbox" label="篮球" className='a1'/>
                             <Input type="checkbox" label="足球" />
                             <Input type="checkbox" label="乒乓球" />
@@ -55,28 +66,17 @@ export default class input extends Component{
                     <Row className='test'>
                         <Col>
                             <a href="###" className="navigate-right">
-                                <label>性别</label>
+                                <label><span className="color-error">*</span>性别</label>
                                 <input type="text" placeholder="男/女" disabled/>
                             </a>
                         </Col>
                     </Row>
                     <Row>
                         <Col>
-                            <label>姓</label>
-                            <Input type="text" placeholder="姓" />
-                        </Col>
-                        <Col>
-                            <label>名</label>
-                            <Input type="text" placeholder="名" />
-                        </Col>
-                    </Row>
-
-                    <Row>
-                        <Col>
-                            <label><span className="color-error">*</span>喜欢的运动</label>
+                            <label>喜欢的水果</label>
                             <div className="input" style={{textAlign: 'right'}}>
-                                <Input type="checkbox" label="篮球" />
-                                <Input type="checkbox" label="足球" />
+                                <Input type="checkbox" label="苹果" />
+                                <Input type="checkbox" label="香蕉" />
                             </div>
                         </Col>
                     </Row>

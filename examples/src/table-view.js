@@ -2,7 +2,7 @@ import React, { Component ,PropTypes} from 'react';
 import ReactDOM,{findDOMNode} from 'react-dom';
 import {TableView} from '../../src/index';
 
-export default class input extends Component{
+export default class tableview extends Component{
 
     constructor(props,context){
 
@@ -22,6 +22,7 @@ export default class input extends Component{
     render(){
         return(
             <div>
+                <h2 className="comp-title">TableView</h2>
                 <TableView>
                     <a href="http://www.baidu.com">列表 1</a>
                     <a>
@@ -35,9 +36,9 @@ export default class input extends Component{
                     <a>
                         Item 2
                         <label className="label-switch">
-                            <input id="js-room-selected" type="checkbox" />
-                                <div className="checkbox"></div>
-                            </label>
+                        <input id="js-room-selected" type="checkbox" />
+                            <div className="checkbox"></div>
+                        </label>
                     </a>
                 </TableView>
             </div>

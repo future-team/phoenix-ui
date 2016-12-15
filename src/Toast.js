@@ -60,29 +60,35 @@ class Toast extends Component{
 }
 
 let _layer = document.createElement('div'),
-    timer  = null;
-
-window.onhashchange = function(){ // 处理url变动时手动插入dom不消失
-    _unrenderLayer();
-}
+    timer  = null,
+    visible = false;
 
 function renderLayer(content){
     return <Toast>{content}</Toast>;
 }
 
 function _renderLayer(layerElement, duration, callback){
+    visible = true;
+
     ReactDOM.render(layerElement, _layer);
     document.body.appendChild(_layer);
 
+    window.addEventListener('hashchange', _unrenderLayer, false);
+
     timer = setTimeout(function(){
+        visible = false;
+
         _unrenderLayer();
-        clearTimeout(timer);
         callback();
     }, duration);
 }
 
 function _unrenderLayer(){
     ReactDOM.unmountComponentAtNode(_layer);
+    if(visible) document.body.removeChild(_layer);
+
+    window.removeEventListener('hashchange', _unrenderLayer, false);
+    clearTimeout(timer);
 }
 
 export default {
@@ -91,7 +97,7 @@ export default {
         _renderLayer(layerElement, duration, callback);
     },
     show(content, duration, callback){
-        this.info();
+        this.info(content, duration, callback);
     },
     remove(){
         _unrenderLayer();

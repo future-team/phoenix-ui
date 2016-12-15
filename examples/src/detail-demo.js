@@ -14,11 +14,10 @@ export default class Detail extends Component {
 
     render() {
         return (
-            <Grid>
+            <Grid className="detail-demo">
                 <Row className='top'>
                     <Col className='col-40' style={{padding:'10px'}}>
-
-                        <img src="./img/meinv.jpg" style={{width:'100%',height:'auto'}}/>
+                        <img src='./img/meinv.jpg' style={{width:'100%',height:'auto'}}/>
                     </Col>
                     <Col>
                         <Row>
@@ -38,7 +37,6 @@ export default class Detail extends Component {
                     <Row >
                         <Col className='col-60'>
                             <label >门店浏览量</label>
-
                             <div className='input'>395826</div>
                         </Col>
                         <Col className='input'>
@@ -120,7 +118,7 @@ export default class Detail extends Component {
                         </Col>
                     </Row>
                 </FormGroup>
-                <Row style={{padding:'10px',borderTop:'1px solid #ddd',position:'fixed',bottom:'0',background:'#fff',width:'100%'}}>
+                <Row style={{padding:'15px',margin:0,borderTop:'1px solid #ddd',position:'fixed',bottom:'0',background:'#fff',width:'100%'}}>
                     <Col style={{textAlign:'center'}}><Button>上传POP</Button></Col>
                     <Col style={{textAlign:'center'}}><Button>POI报错</Button></Col>
                     <Col style={{textAlign:'center'}}><Button>上报WIFI</Button></Col>

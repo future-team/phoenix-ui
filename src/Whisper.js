@@ -38,10 +38,16 @@ export default class Whisper extends Component{
 
         this.visible = false;
         this._layer = document.createElement('div');
+
+        window.addEventListener('hashchange', ()=>{ // this指向当前组件
+            if(this.visible) this.onClose();
+        }, false);
     }
 
     componentDidMount(){
-        this.getWhisperPosition();
+        setTimeout(()=>{
+            this.getWhisperPosition();
+        },0);
     }
 
     getWhisperPosition(){
@@ -125,7 +131,9 @@ export default class Whisper extends Component{
         return cloneElement(this.props.target, {
             styles: this.style,
             placement: this.props.placement,
-            onClose: this.onClose.bind(this)
+            onClose: this.onClose.bind(this),
+            whisper: this.whisper,
+            setVisible: this.setVisible
         });
     }
 
@@ -138,6 +146,7 @@ export default class Whisper extends Component{
 
     removeTarget(){
         ReactDOM.unmountComponentAtNode(this._layer);
+        document.body.removeChild(this._layer);
     }
 
     render(){

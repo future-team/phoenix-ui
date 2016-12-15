@@ -2,7 +2,7 @@ import React, { Component ,PropTypes} from 'react';
 import ReactDOM,{findDOMNode} from 'react-dom';
 import {Button, Toast} from '../../src/index';
 
-export default class modal extends Component{
+export default class toast extends Component{
 
     constructor(props,context){
         super(props,context); 
@@ -21,7 +21,9 @@ export default class modal extends Component{
     render(){
         return(
             <div>
-                <Button block phSize="lg" phStyle="info" onClick={::this.showToast}>Click Me To Show Toast</Button>
+                <h2 className="comp-title">Toast</h2>
+                <h3 className="comp-type">自定义飘字</h3>
+                <Button block phSize="lg" phStyle="primary" onClick={::this.showToast}>点击飘字</Button>
             </div>
         );
     }

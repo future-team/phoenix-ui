@@ -49,12 +49,15 @@ export default class Popover extends Component{
     handleDocumentClick(event){
         let el = event.target;
 
-        !Tool.closest(el,'.popover') && !Tool.closest(el,'.whisper') && this.props.onClose();
+        if(!Tool.closest(el,'.popover') && !(this.props.whisper==event.target)){
+            this.props.onClose();
+        }
 
         return false;
     }
 
     componentWillUnmount(){
+        document.removeEventListener('click', this.handleDocumentClick, false);
     }
 
     render(){

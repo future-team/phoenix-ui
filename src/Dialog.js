@@ -77,7 +77,7 @@ class Dialog extends Component{
         let {visible, children} = this.props;
 
         React.Children.forEach(children, function(child, index){
-            console.log(child.type.name);
+            // console.log(child.type.name);
 
             newChildren.push(React.cloneElement(child,{
                 key: index,

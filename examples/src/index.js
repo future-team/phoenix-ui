@@ -24,11 +24,13 @@ import Toast from './toast.js';
 import Popup from './popup.js';
 import Popover from './popover.js';
 import Accordion from './accordion.js';
-import Detail from './detailDemo.js';
+import Animate from './animate.js';
+import Drag from './drag.js';
 import ListDemo from './list-demo.js';
+import Detail from './detail-demo.js';
 
 let Card = class Card extends Component {
-    onstructor(props, context){
+    constructor(props, context){
         super(props, context);
     }
 
@@ -72,6 +74,7 @@ let Index = class index extends Component {
                 <div className="menu-panel">
                     <Card href="#/accordion" title="Accordion" desp="手风琴" />
                     <Card href="#/dialog" title="Dialog" desp="弹框" />
+                    <Card href="#/toast" title="Toast" desp="飘字" />
                     <Card href="#/popup" title="Popup" desp="弹层" />
                     <Card href="#/popover" title="Whisper/Popover" desp="气泡" />
                     <Card href="#/tab" title="Tab" desp="选项卡" />
@@ -124,6 +127,8 @@ let AppRouter = class AppRouter extends Component {
                 <Route path="/popup" name="popup" component={Popup} />
                 <Route path="/popover" name="popover" component={Popover} />
                 <Route path="/accordion" name="accordion" component={Accordion} />
+                <Route path="/animate" name="animate" component={Animate} />
+                <Route path="/drag" name="drag" component={Drag} />
                 <Route path="/detail" name="detail" component={Detail} />
                 <Route path="/list-demo" name="list-demo" component={ListDemo} />
                 <Redirect from="/" to="/index" />
@@ -132,8 +137,40 @@ let AppRouter = class AppRouter extends Component {
     }
 };
 
+let App = class App extends Component {
+    constructor(props, context) {
+        super(props, context);
+    }
+
+    componentDidMount(){
+        let Back = document.getElementById('Back');
+        this.setBack(Back);
+        window.addEventListener('hashchange', ()=>{
+            this.setBack(Back);
+        }, false);
+    }
+
+    setBack(Back){
+        let hash = location.hash.split('/')[1];
+        if(hash=='index'){
+            Back.style.display = 'none';
+        }else{
+            Back.style.display = 'block';
+        }
+    }
+
+    render() {
+        return (
+            <div>
+                <a href="#/index" id="Back">Back</a>
+                <AppRouter />
+            </div>
+        )
+    }
+}
+
 ReactDOM.render(
-    <AppRouter />,
+    <App />,
     document.getElementById('root')
 );
 

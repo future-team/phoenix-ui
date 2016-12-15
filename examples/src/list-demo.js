@@ -21,20 +21,14 @@ export default class Demo extends Component{
 
     render(){
         return(
-            <div style={{
-                    padding:'5px 15px'
-                }}>
-                <div style={{
-                    borderBottom:'1px solid #ccc'
-                }}>
+            <div className="list-demo">
+                <div className="list-item">
                     <Row>
                         <Col>三人行骨头王火锅</Col>
                     </Row>
-                    <Row>
+                    <Row className="row-label">
                         <Col>
-                            <Label phSize="" style={{
-                            marginRight:'5px'
-                        }}>惠</Label>
+                            <Label phSize="">惠</Label>
                             <Label phSize="" phStyle="info">团</Label>
                         </Col>
                     </Row>
@@ -43,12 +37,9 @@ export default class Demo extends Component{
                             <Star Rate={20} size=''/>
                         </Col>
                     </Row>
-                    <Row>
-                        <Col style={{
-                        fontSize:'12px',
-                        color:'#999'
-                    }}>
-                            <span>休闲娱乐|黄浦路  南京东路819号百联世贸7楼</span>
+                    <Row className="row-address">
+                        <Col>
+                            <span>休闲娱乐|黄浦路 南京东路819号百联世贸7楼</span>
                             <span>5.4km</span>
                         </Col>
                     </Row>
@@ -58,17 +49,13 @@ export default class Demo extends Component{
                         </Col>
                     </Row>
                 </div>
-                <div style={{
-                    borderBottom:'1px solid #ccc'
-                }}>
+                <div className="list-item">
                     <Row>
                         <Col>三人行骨头王火锅</Col>
                     </Row>
-                    <Row>
+                    <Row className="row-label">
                         <Col>
-                            <Label phSize="" style={{
-                            marginRight:'5px'
-                        }}>惠</Label>
+                            <Label phSize="">惠</Label>
                             <Label phSize="" phStyle="info">团</Label>
                         </Col>
                     </Row>
@@ -77,12 +64,9 @@ export default class Demo extends Component{
                             <Star Rate={20} size=''/>
                         </Col>
                     </Row>
-                    <Row>
-                        <Col style={{
-                        fontSize:'12px',
-                        color:'#999'
-                    }}>
-                            <span>休闲娱乐|黄浦路  南京东路819号百联世贸7楼</span>
+                    <Row className="row-address">
+                        <Col>
+                            <span>休闲娱乐|黄浦路 南京东路819号百联世贸7楼</span>
                             <span>5.4km</span>
                         </Col>
                     </Row>
