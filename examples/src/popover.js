@@ -15,9 +15,9 @@ export default class popover extends Component{
     render(){
         const popover = ( // 可以通过style自定义位置
             <Popover>
-                <ul className="popover-list">
-                    <li className="popover-item">未上线单店</li>
-                    <li className="popover-item">未上线连锁店</li>
+                <ul className="ph-popover-list">
+                    <li className="ph-popover-item">未上线单店</li>
+                    <li className="ph-popover-item">未上线连锁店</li>
                 </ul>
             </Popover>
         );

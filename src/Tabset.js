@@ -7,8 +7,8 @@ import Tab from './Tab.js';
  * <strong><a href='../classes/Tabset.html'>tabset</a></strong><br/>
  * <strong><a href='../classes/Tab.html'>tab</a></strong><br>
  * <h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>
- * @module Tab(选项卡)
- * @main Tab(选项卡)
+ * @module 选项卡
+ * @main 选项卡
  * @static
  *
  */
@@ -43,7 +43,7 @@ import Tab from './Tab.js';
  *
  * </ul>
  * @class Tabset
- * @module Tab(选项卡)
+ * @module 选项卡
  * @extends Component
  * @constructor
  * @since 0.1.0
@@ -173,7 +173,7 @@ class Tabset extends Component {
                 </ul>
                 <div className={classnames(
                     this.getClass(false),
-                    'tab-bd"'
+                    'tab-bd'
                 )}>
                     {panels}
                 </div>

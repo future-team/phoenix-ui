@@ -6,8 +6,8 @@ import classnames from 'classnames';
  * <strong><a href='../classes/Label.html'>label 标签</a></strong><br/>
  * <strong><a href='../classes/Badge.html'>bridge 徽章</a></strong><br>
  * <h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>
- * @module Label(标签)
- * @main Label(标签)
+ * @module 标签组件
+ * @main 标签组件
  * @static
  *
  */
@@ -36,7 +36,7 @@ import classnames from 'classnames';
  *     </li>
  * </ul>
  * @class Label
- * @module Label(标签)
+ * @module 标签组件
  * @extends Component
  * @constructor
  * @since 0.1.0

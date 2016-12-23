@@ -16,6 +16,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Popover",
         "Popup",
         "Row",
+        "Slider",
         "Star",
         "Swipe",
         "Switch",
@@ -27,68 +28,23 @@ YUI.add("yuidoc-meta", function(Y) {
         "Whisper"
     ],
     "modules": [
-        "Action",
-        "Basic",
-        "Form",
-        "Grid",
-        "Label(标签)",
-        "Tab(选项卡)",
-        "Tooltip",
-        "Tooltips",
-        "UI"
+        "基础组件",
+        "布局组件",
+        "提示组件",
+        "操作类组件",
+        "标签组件",
+        "表单组件",
+        "辅助组件",
+        "选项卡"
     ],
     "allModules": [
         {
-            "displayName": "Action",
-            "name": "Action",
-            "description": "功能组件-飘字",
+            "displayName": "基础组件",
+            "name": "基础组件",
+            "description": "星级评价(Star)组件<br />\n提供的UI展示属性接口包括<br/>\n<ul>\n    <li>rate：星级评价的分数(满分为50)<code>默认为0</code></li>\n    <li>size：星星的大小(可选md、lg、默认3种size)<code></code></li>\n</ul><br>\n使用方式:\n<pre><code>&#60;Star rate={50} size={10}/&#62;</code>\n</pre>",
             "classes": [
                 {
-                    "name": "Dialog"
-                },
-                {
-                    "name": "Popup"
-                },
-                {
-                    "name": "Swipe"
-                },
-                {
-                    "name": "Toast"
-                },
-                {
-                    "name": "Accordion"
-                },
-                {
-                    "name": "Animate"
-                }
-            ]
-        },
-        {
-            "displayName": "Basic",
-            "name": "Basic",
-            "description": "拖动Drag",
-            "classes": [
-                {
-                    "name": "Drag"
-                }
-            ]
-        },
-        {
-            "displayName": "Form",
-            "name": "Form",
-            "description": "表单元素textarea",
-            "classes": [
-                {
-                    "name": "FormGroup"
-                },
-                {
-                    "name": "Input"
-                },
-                {
-                    "name": "Switch"
-                },
-                {
-                    "name": "TextArea"
+                    "name": "Star"
                 },
                 {
                     "name": "Button"
@@ -99,12 +55,15 @@ YUI.add("yuidoc-meta", function(Y) {
             ]
         },
         {
-            "displayName": "Grid",
-            "name": "Grid",
+            "displayName": "布局组件",
+            "name": "布局组件",
             "description": "<h5>主要栅格化布局组件</h5>\n<pre><code>\n    &#60;Grid&#62;//定义栅格\n        &#60;Col sm={6}&#62;//定义一列，总长度为12份\n            &#60;Row&#62; &#60;/Row&#62;//定义一行\n        &#60;/Col&#62;\n    &#60;/Grid&#62;\n</code></pre>\n\n<strong><a href='../classes/Grid.html'>Grid定义外框</a></strong><br>\n<strong><a href='../classes/Row.html'>Row定义行排列</a></strong><br>\n<strong><a href='../classes/Col.html'>Col定义竖排列</a></strong><br>\n<h6>点击以上链接进行相关查看</h6>",
             "classes": [
                 {
                     "name": "Row"
+                },
+                {
+                    "name": "TableView"
                 },
                 {
                     "name": "Col"
@@ -115,8 +74,46 @@ YUI.add("yuidoc-meta", function(Y) {
             ]
         },
         {
-            "displayName": "Label(标签)",
-            "name": "Label(标签)",
+            "displayName": "提示组件",
+            "name": "提示组件",
+            "description": "<h5>提示模块，主要包括一下两个组件:</h5>\n<strong><a href='../classes/Whisper.html'>Whisper</a></strong><br/>\n<strong><a href='../classes/Popover.html'>Popover</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
+            "classes": [
+                {
+                    "name": "Popover"
+                },
+                {
+                    "name": "Whisper"
+                }
+            ]
+        },
+        {
+            "displayName": "操作类组件",
+            "name": "操作类组件",
+            "description": "功能组件-飘字",
+            "classes": [
+                {
+                    "name": "Dialog"
+                },
+                {
+                    "name": "Popup"
+                },
+                {
+                    "name": "Slider"
+                },
+                {
+                    "name": "Swipe"
+                },
+                {
+                    "name": "Toast"
+                },
+                {
+                    "name": "Accordion"
+                }
+            ]
+        },
+        {
+            "displayName": "标签组件",
+            "name": "标签组件",
             "description": "<h5>label模块，主要包括一下两个组件:</h5>\n<strong><a href='../classes/Label.html'>label 标签</a></strong><br/>\n<strong><a href='../classes/Badge.html'>bridge 徽章</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
             "classes": [
                 {
@@ -128,8 +125,40 @@ YUI.add("yuidoc-meta", function(Y) {
             ]
         },
         {
-            "displayName": "Tab(选项卡)",
-            "name": "Tab(选项卡)",
+            "displayName": "表单组件",
+            "name": "表单组件",
+            "description": "表单元素textarea",
+            "classes": [
+                {
+                    "name": "Input"
+                },
+                {
+                    "name": "Switch"
+                },
+                {
+                    "name": "TextArea"
+                },
+                {
+                    "name": "FormGroup"
+                }
+            ]
+        },
+        {
+            "displayName": "辅助组件",
+            "name": "辅助组件",
+            "description": "拖动Drag",
+            "classes": [
+                {
+                    "name": "Drag"
+                },
+                {
+                    "name": "Animate"
+                }
+            ]
+        },
+        {
+            "displayName": "选项卡",
+            "name": "选项卡",
             "description": "<h5>tab选项卡，主要包括一下两个组件:</h5>\n<strong><a href='../classes/Tabset.html'>tabset</a></strong><br/>\n<strong><a href='../classes/Tab.html'>tab</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
             "classes": [
                 {
@@ -137,39 +166,6 @@ YUI.add("yuidoc-meta", function(Y) {
                 },
                 {
                     "name": "Tabset"
-                }
-            ]
-        },
-        {
-            "displayName": "Tooltip",
-            "name": "Tooltip",
-            "description": "辅助功能组件 - 倾听者",
-            "classes": [
-                {
-                    "name": "Whisper"
-                }
-            ]
-        },
-        {
-            "displayName": "Tooltips",
-            "name": "Tooltips",
-            "description": "功能组件-气泡",
-            "classes": [
-                {
-                    "name": "Popover"
-                }
-            ]
-        },
-        {
-            "displayName": "UI",
-            "name": "UI",
-            "description": "展现形式如表格一般,用来组织数据，显示链接的集合，或一系列的控件。<br />\n使用时需注意组件的子元素需要跳转功能需加上href标签并赋予正确的url，不论什么标签",
-            "classes": [
-                {
-                    "name": "TableView"
-                },
-                {
-                    "name": "Star"
                 }
             ]
         }

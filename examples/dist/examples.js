@@ -162,26 +162,30 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _accordionJs2 = _interopRequireDefault(_accordionJs);
 
-	var _detailDemoJs = __webpack_require__(280);
+	var _animateJs = __webpack_require__(280);
 
-	var _detailDemoJs2 = _interopRequireDefault(_detailDemoJs);
+	var _animateJs2 = _interopRequireDefault(_animateJs);
 
-	var _listDemoJs = __webpack_require__(281);
+	var _dragJs = __webpack_require__(281);
+
+	var _dragJs2 = _interopRequireDefault(_dragJs);
+
+	var _listDemoJs = __webpack_require__(282);
 
 	var _listDemoJs2 = _interopRequireDefault(_listDemoJs);
+
+	var _detailDemoJs = __webpack_require__(283);
+
+	var _detailDemoJs2 = _interopRequireDefault(_detailDemoJs);
 
 	var Card = (function (_Component) {
 	    _inherits(Card, _Component);
 
-	    function Card() {
+	    function Card(props, context) {
 	        _classCallCheck(this, Card);
 
-	        _Component.apply(this, arguments);
+	        _Component.call(this, props, context);
 	    }
-
-	    Card.prototype.onstructor = function onstructor(props, context) {
-	        _Component.prototype.onstructor.call(this, props, context);
-	    };
 
 	    Card.prototype.render = function render() {
 	        var _props = this.props;
@@ -274,9 +278,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	                { className: 'menu-panel' },
 	                _react2['default'].createElement(Card, { href: '#/accordion', title: 'Accordion', desp: '手风琴' }),
 	                _react2['default'].createElement(Card, { href: '#/dialog', title: 'Dialog', desp: '弹框' }),
+	                _react2['default'].createElement(Card, { href: '#/toast', title: 'Toast', desp: '飘字' }),
 	                _react2['default'].createElement(Card, { href: '#/popup', title: 'Popup', desp: '弹层' }),
 	                _react2['default'].createElement(Card, { href: '#/popover', title: 'Whisper/Popover', desp: '气泡' }),
-	                _react2['default'].createElement(Card, { href: '#/tab', title: 'Tab', desp: '选项卡' }),
+	                _react2['default'].createElement(Card, { href: '#/tab', title: 'Tabset/Tab', desp: '选项卡' }),
 	                _react2['default'].createElement(Card, { href: '#/slider', title: 'Slider', desp: '滑动输入条' }),
 	                _react2['default'].createElement(Card, { href: '#/swipe', title: 'Swipe', desp: '左滑动' })
 	            ),
@@ -344,6 +349,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/popup', name: 'popup', component: _popupJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/popover', name: 'popover', component: _popoverJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/accordion', name: 'accordion', component: _accordionJs2['default'] }),
+	            _react2['default'].createElement(_reactRouter.Route, { path: '/animate', name: 'animate', component: _animateJs2['default'] }),
+	            _react2['default'].createElement(_reactRouter.Route, { path: '/drag', name: 'drag', component: _dragJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/detail', name: 'detail', component: _detailDemoJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Route, { path: '/list-demo', name: 'list-demo', component: _listDemoJs2['default'] }),
 	            _react2['default'].createElement(_reactRouter.Redirect, { from: '/', to: '/index' })
@@ -353,7 +360,51 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return AppRouter;
 	})(_react.Component);
 
-	_reactDom2['default'].render(_react2['default'].createElement(AppRouter, null), document.getElementById('root'));
+	var App = (function (_Component4) {
+	    _inherits(App, _Component4);
+
+	    function App(props, context) {
+	        _classCallCheck(this, App);
+
+	        _Component4.call(this, props, context);
+	    }
+
+	    App.prototype.componentDidMount = function componentDidMount() {
+	        var _this = this;
+
+	        var Back = document.getElementById('Back');
+	        this.setBack(Back);
+	        window.addEventListener('hashchange', function () {
+	            _this.setBack(Back);
+	        }, false);
+	    };
+
+	    App.prototype.setBack = function setBack(Back) {
+	        var hash = location.hash.split('/')[1];
+	        if (hash == 'index') {
+	            Back.style.display = 'none';
+	        } else {
+	            Back.style.display = 'block';
+	        }
+	    };
+
+	    App.prototype.render = function render() {
+	        return _react2['default'].createElement(
+	            'div',
+	            null,
+	            _react2['default'].createElement(
+	                'a',
+	                { href: '#/index', id: 'Back' },
+	                'Back'
+	            ),
+	            _react2['default'].createElement(AppRouter, null)
+	        );
+	    };
+
+	    return App;
+	})(_react.Component);
+
+	_reactDom2['default'].render(_react2['default'].createElement(App, null), document.getElementById('root'));
 
 /***/ },
 /* 2 */
@@ -24433,7 +24484,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            _react2['default'].createElement(
 	                'h2',
 	                { className: 'comp-title' },
-	                'Tab'
+	                'Tabset/Tab'
 	            ),
 	            _react2['default'].createElement(
 	                'h3',
@@ -24476,17 +24527,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    { activeIndex: 1, vertical: true, width: 30 },
 	                    _react2['default'].createElement(
 	                        _srcIndex.Tab,
-	                        { heading: 'tab1' },
+	                        { heading: '标题1' },
 	                        '竖向内容1'
 	                    ),
 	                    _react2['default'].createElement(
 	                        _srcIndex.Tab,
-	                        { heading: 'tab2', onClick: this.test.bind(this) },
+	                        { heading: '标题2', onClick: this.test.bind(this) },
 	                        '竖向内容2'
 	                    ),
 	                    _react2['default'].createElement(
 	                        _srcIndex.Tab,
-	                        { heading: 'tab3' },
+	                        { heading: '标题3' },
 	                        '竖向内容3'
 	                    )
 	                )
@@ -25254,7 +25305,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *     </li>
 	 * </ul>
 	 * @class Button
-	 * @module Form
+	 * @module 基础组件
 	 * @extends Component
 	 * @constructor
 	 * @demo button.js {展示}
@@ -26246,7 +26297,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *     </li>
 	 * </ul>
 	 * @class ButtonGroup
-	 * @module Form
+	 * @module 基础组件
 	 * @extends Component
 	 * @constructor
 	 * @since 0.1.4
@@ -26368,7 +26419,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 表单元素，input框，使用方式跟原生一致
 	 * @class Input
-	 * @module Form
+	 * @module 表单组件
 	 * @extends Component
 	 * @constructor
 	 * @demo input.js {展示}
@@ -26490,7 +26541,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 表单元素textarea
 	 * @class TextArea
-	 * @module Form
+	 * @module 表单组件
 	 * @extends Component
 	 * @constructor
 	 * @demo textarea.js {展示}
@@ -26510,6 +26561,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * @type String
 	             * */
 	            classPrefix: _react.PropTypes.string,
+	            /**
+	             * 输入时执行的回调
+	             * @property onChange
+	             * @type Function
+	             * */
+	            onChange: _react.PropTypes.func,
 	            /**
 	             * 是否显示输入计数
 	             * @property isCount
@@ -26563,16 +26620,16 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            'div',
-	            { className: 'textarea-field' },
-	            _react2['default'].createElement('textarea', _extends({}, this.props, { className: _classnames2['default']('form-textarea', this.getProperty(), this.props.className), onChange: function (event) {
+	            { className: 'ph-textarea-field' },
+	            _react2['default'].createElement('textarea', _extends({}, this.props, { className: _classnames2['default']('ph-textarea', this.getProperty(), this.props.className), onChange: function (event) {
 	                    _this.onChange(event);
 	                } })),
 	            _react2['default'].createElement(
 	                'span',
-	                { className: _classnames2['default']('textarea-count', isCount ? 'show' : 'hide') },
+	                { className: _classnames2['default']('ph-textarea-count', isCount ? 'show' : 'hide') },
 	                _react2['default'].createElement(
 	                    'b',
-	                    { className: 'input-length' },
+	                    { className: 'ph-textarea-length' },
 	                    this.state.inputLength
 	                ),
 	                '/',
@@ -26624,7 +26681,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 开关切换，仿真ios的开关控件
 	 * @class Switch
-	 * @module Form
+	 * @module 表单组件
 	 * @extends Component
 	 * @constructor
 	 * @demo switch.js {展示}
@@ -26716,7 +26773,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 行
 	 * @class Row
-	 * @module Grid
+	 * @module 布局组件
 	 * @extends Component
 	 * @constructor
 	 * @since 0.1.0
@@ -26800,7 +26857,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 列
 	 * @class Col
-	 * @module Grid
+	 * @module 布局组件
 	 * @extends Component
 	 * @constructor
 	 * @since 0.1.0
@@ -26904,7 +26961,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * 展现形式如表格一般,用来组织数据，显示链接的集合，或一系列的控件。<br />
 	 * 使用时需注意组件的子元素需要跳转功能需加上href标签并赋予正确的url，不论什么标签
 	 * @class TableView
-	 * @module UI
+	 * @module 布局组件
 	 * @extends Component
 	 * @constructor
 	 * @demo table-view.js {展示}
@@ -27028,7 +27085,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 表单元素布局方式，整齐的排列一组表单元素
 	 * @class FormGroup
-	 * @module Form
+	 * @module 表单组件
 	 * @extends Component
 	 * @constructor
 	 * @demo form-group.js {展示}
@@ -27159,7 +27216,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *       <li>clickCallback: 点击事件的回调函数，默认为null</li>
 	 * </ul>
 	 * @class Tab
-	 * @module Tab(选项卡)
+	 * @module 选项卡
 	 * @extends Component
 	 * @constructor
 	 * @since 0.1.0
@@ -27284,8 +27341,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * <strong><a href='../classes/Tabset.html'>tabset</a></strong><br/>
 	 * <strong><a href='../classes/Tab.html'>tab</a></strong><br>
 	 * <h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>
-	 * @module Tab(选项卡)
-	 * @main Tab(选项卡)
+	 * @module 选项卡
+	 * @main 选项卡
 	 * @static
 	 *
 	 */
@@ -27320,7 +27377,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *
 	 * </ul>
 	 * @class Tabset
-	 * @module Tab(选项卡)
+	 * @module 选项卡
 	 * @extends Component
 	 * @constructor
 	 * @since 0.1.0
@@ -27471,7 +27528,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            ),
 	            _react2['default'].createElement(
 	                'div',
-	                { className: _classnames2['default'](this.getClass(false), 'tab-bd"') },
+	                { className: _classnames2['default'](this.getClass(false), 'tab-bd') },
 	                panels
 	            )
 	        );
@@ -27518,8 +27575,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * <strong><a href='../classes/Label.html'>label 标签</a></strong><br/>
 	 * <strong><a href='../classes/Badge.html'>bridge 徽章</a></strong><br>
 	 * <h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>
-	 * @module Label(标签)
-	 * @main Label(标签)
+	 * @module 标签组件
+	 * @main 标签组件
 	 * @static
 	 *
 	 */
@@ -27548,7 +27605,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *     </li>
 	 * </ul>
 	 * @class Label
-	 * @module Label(标签)
+	 * @module 标签组件
 	 * @extends Component
 	 * @constructor
 	 * @since 0.1.0
@@ -27678,7 +27735,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *     </li>
 	 * </ul>
 	 * @class Badge
-	 * @module Label(标签)
+	 * @module 标签组件
 	 * @extends Component
 	 * @constructor
 	 * @since 0.1.0
@@ -27771,7 +27828,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * <pre><code>&#60;Star rate={50} size={10}/&#62;</code>
 	 * </pre>
 	 * @class Star
-	 * @module UI
+	 * @module 基础组件
 	 * @extends Component
 	 * @constructor
 	 * @demo star.js {UI展示}
@@ -27894,7 +27951,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 拖动Drag
 	 * @class Drag
-	 * @module Basic
+	 * @module 辅助组件
 	 * @extends Component
 	 * @constructor
 	 * @demo Swipe.js {源码}
@@ -27906,13 +27963,24 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    _createClass(Drag, null, [{
 	        key: 'propTypes',
-	        value: {},
+	        value: {
+	            /**
+	             * 抓取的执行函数,对应TouchStart/TouchMove
+	             * @property onDrag
+	             * @type Function
+	             * */
+	            onDrag: _react.PropTypes.func,
+	            /**
+	             * 放开的执行函数,对应TouchEnd
+	             * @property onDrop
+	             * @type Function
+	             * */
+	            onDrop: _react.PropTypes.func
+	        },
 	        enumerable: true
 	    }, {
 	        key: 'defaultProps',
 	        value: {
-	            egSize: '',
-	            classPrefix: '',
 	            classMapping: {}
 	        },
 	        enumerable: true
@@ -27926,9 +27994,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.state = {
 	            position: {}
 	        };
+
+	        this.isMouseDown = false;
 	    }
 
-	    Drag.prototype.onStart = function onStart(event) {
+	    Drag.prototype.onTouchStart = function onTouchStart(event) {
 	        event.stopPropagation();
 
 	        this.state.position.start = { x: event.touches[0].pageX, y: event.touches[0].pageY };
@@ -27939,16 +28009,40 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return false;
 	    };
 
-	    Drag.prototype.onMove = function onMove(event) {
+	    Drag.prototype.onMouseStart = function onMouseStart(event) {
+	        this.isMouseDown = true;
 	        event.stopPropagation();
 
-	        this.state.position.move = { x: event.touches[0].pageX, y: event.touches[0].pageY };
+	        this.state.position.start = { x: event.pageX, y: event.pageY };
+	        this.state.position.move = this.state.position.start;
+
 	        this.props.onDrag(event, this.state.position);
 
 	        return false;
 	    };
 
-	    Drag.prototype.onEnd = function onEnd(event) {
+	    Drag.prototype.onTouchMove = function onTouchMove(event) {
+	        event.stopPropagation();
+
+	        this.state.position.move = { x: event.touches[0].pageX, y: event.touches[0].pageY };
+
+	        this.props.onDrag(event, this.state.position);
+
+	        return false;
+	    };
+
+	    Drag.prototype.onMouseMove = function onMouseMove(event) {
+	        if (!this.isMouseDown) return;
+	        event.stopPropagation();
+
+	        this.state.position.move = { x: event.pageX, y: event.pageY };
+
+	        this.props.onDrag(event, this.state.position);
+
+	        return false;
+	    };
+
+	    Drag.prototype.onTouchEnd = function onTouchEnd(event) {
 	        event.stopPropagation();
 
 	        this.state.position.end = { x: event.changedTouches[0].pageX, y: event.changedTouches[0].pageY };
@@ -27959,7 +28053,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return false;
 	    };
 
-	    Drag.prototype.onCancel = function onCancel(event) {
+	    Drag.prototype.onMouseEnd = function onMouseEnd(event) {
+	        event.stopPropagation();
+
+	        this.state.position.end = { x: event.pageX, y: event.pageY };
+	        this.state.position.start = this.state.position.move;
+
+	        this.props.onDrop(event, this.state.position);
+	        this.isMouseDown = false;
+
+	        return false;
+	    };
+
+	    Drag.prototype.onTouchCancel = function onTouchCancel(event) {
 	        // 触屏取消:忽然来电话等情况
 	    };
 
@@ -27968,18 +28074,28 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            'div',
-	            _extends({}, this.props, { className: _classnames2['default']('drag-action', this.props.className),
+	            _extends({}, this.props, { className: _classnames2['default']('ph-drag-action', this.props.className),
 	                onTouchStart: function (event) {
-	                    _this.onStart(event);
+	                    _this.onTouchStart(event);
 	                },
 	                onTouchMove: function (event) {
-	                    _this.onMove(event);
+	                    _this.onTouchMove(event);
 	                },
 	                onTouchEnd: function (event) {
-	                    _this.onEnd(event);
+	                    _this.onTouchEnd(event);
 	                },
 	                onTouchCancel: function (event) {
-	                    _this.onCancel(event);
+	                    _this.onTouchCancel(event);
+	                },
+
+	                onMouseDown: function (event) {
+	                    _this.onMouseStart(event);
+	                },
+	                onMouseMove: function (event) {
+	                    _this.onMouseMove(event);
+	                },
+	                onMouseUp: function (event) {
+	                    _this.onMouseEnd(event);
 	                }
 	            }),
 	            this.props.children
@@ -28031,7 +28147,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 功能组件-左滑swipe
 	 * @class Swipe
-	 * @module Action
+	 * @module 操作类组件
 	 * @extends Component
 	 * @constructor
 	 * @demo swipe.js {展示}
@@ -28050,7 +28166,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * @property componentTag
 	             * @type String
 	             * */
-	            componentTag: _react.PropTypes.string
+	            componentTag: _react.PropTypes.string,
+	            /**
+	             * 按钮组
+	             * @property buttons
+	             * @type Array
+	             * */
+	            buttons: _react.PropTypes.array
 	        },
 	        enumerable: true
 	    }, {
@@ -28090,7 +28212,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            'div',
-	            { className: 'swipe-btns', key: 'buttons', ref: function (buttons) {
+	            { className: 'ph-swipe-btns', key: 'buttons', ref: function (buttons) {
 	                    _this.buttons = buttons;
 	                } },
 	            btnInfo.map(function (item, index) {
@@ -28159,10 +28281,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            Component,
-	            { className: _classnames2['default']('swipe-action', className), style: this.getStyles(this.props.style) },
+	            { className: _classnames2['default']('ph-swipe', className), style: this.getStyles(this.props.style) },
 	            _react2['default'].createElement(
 	                _Drag2['default'],
-	                { className: 'swipe-content', onDrag: this.onDrag.bind(this), onDrop: this.onDrop.bind(this) },
+	                { className: 'ph-swipe-content', onDrag: this.onDrag.bind(this), onDrop: this.onDrop.bind(this) },
 	                this.props.children
 	            ),
 	            this.renderOperationButton(buttons)
@@ -28215,8 +28337,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * <strong><a href='../classes/Row.html'>Row定义行排列</a></strong><br>
 	 * <strong><a href='../classes/Col.html'>Col定义竖排列</a></strong><br>
 	 * <h6>点击以上链接进行相关查看</h6>
-	 * @module Grid
-	 * @main Grid
+	 * @module 布局组件
+	 * @main 布局组件
 	 * @static
 	 *
 	 */
@@ -28224,7 +28346,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 定义栅格容器,配合Col和Row使用
 	 * @class Grid
-	 * @module Grid
+	 * @module 布局组件
 	 * @extends Component
 	 * @constructor
 	 * @show true
@@ -28308,9 +28430,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _DialogFooter2 = _interopRequireDefault(_DialogFooter);
 
 	/**
-	 * 功能组件 - 弹框
+	 * 弹框
 	 * @class Dialog
-	 * @module Action
+	 * @module 操作类组件
 	 * @extends Component
 	 * @constructor
 	 * @demo dialog.js {展示}
@@ -28325,17 +28447,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: 'propTypes',
 	        value: {
 	            /**
-	             * 样式前缀
-	             * @property classPrefix
-	             * @type String
-	             * */
-	            classPrefix: _react.PropTypes.string,
-	            /**
 	             * 标签tagName
 	             * @property componentTag
 	             * @type String
 	             * */
 	            componentTag: _react.PropTypes.string,
+	            /**
+	             * 是否可见标识
+	             * @property visible
+	             * @type Boolean
+	             * */
 	            visible: _react.PropTypes.bool
 	        },
 	        enumerable: true
@@ -28343,8 +28464,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: 'defaultProps',
 	        value: {
 	            visible: false,
-	            egSize: '',
-	            classPrefix: '',
 	            componentTag: 'div',
 	            classMapping: {}
 	        },
@@ -28363,7 +28482,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var onClose = _props.onClose;
 
 	        if (visible) {
-	            return _react2['default'].createElement('div', { className: 'dialog-shadow animated', onClick: onClose });
+	            return _react2['default'].createElement('div', { className: 'ph-dialog-shadow animated', onClick: onClose });
 	        } else {
 	            return '';
 	        }
@@ -28373,10 +28492,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (this.props.visible) {
 	            return _react2['default'].createElement(
 	                'div',
-	                { className: 'dialog-main animated' },
+	                { className: 'ph-dialog-main animated' },
 	                _react2['default'].createElement(
 	                    'div',
-	                    { className: 'dialog-content' },
+	                    { className: 'ph-dialog-content' },
 	                    this.renderDialog()
 	                )
 	            );
@@ -28392,7 +28511,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var children = _props2.children;
 
 	        _react2['default'].Children.forEach(children, function (child, index) {
-	            console.log(child.type.name);
+	            // console.log(child.type.name);
 
 	            newChildren.push(_react2['default'].cloneElement(child, {
 	                key: index,
@@ -28410,7 +28529,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            Component,
-	            _extends({}, this.props, { className: _classnames2['default']('dialog', this.getProperty(), className) }),
+	            _extends({}, this.props, { className: _classnames2['default']('ph-dialog', this.getProperty(), className) }),
 	            _react2['default'].createElement(
 	                _Animate2['default'],
 	                null,
@@ -28467,7 +28586,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 动画外层
 	 * @class Animate
-	 * @module Action
+	 * @module 辅助组件
 	 * @extends Component
 	 * @constructor
 	 * @show false
@@ -28479,7 +28598,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _createClass(Animate, null, [{
 	        key: 'propTypes',
 	        value: {
-	            transitionName: _react.PropTypes.string
+	            /**
+	             * 动画名称,默认fade
+	             * @property transitionName
+	             * @type String
+	             * */
+	            transitionName: _react.PropTypes.string,
+	            /**
+	             * 动画进入延迟时间
+	             * @property transitionEnterTimeout
+	             * @type Number
+	             * */
+	            transitionEnterTimeout: _react.PropTypes.number,
+	            /**
+	             * 动画退出延迟时间
+	             * @property transitionLeaveTimeout
+	             * @type Number
+	             * */
+	            transitionLeaveTimeout: _react.PropTypes.number
 	        },
 	        enumerable: true
 	    }, {
@@ -29353,7 +29489,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    DialogTitle.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            'h2',
-	            _extends({}, this.props, { className: _classnames2['default']('dialog-title', this.props.className) }),
+	            _extends({}, this.props, { className: _classnames2['default']('ph-dialog-title', this.props.className) }),
 	            this.props.children
 	        );
 	    };
@@ -29400,7 +29536,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    DialogBody.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            'div',
-	            _extends({}, this.props, { className: _classnames2['default']('dialog-body', this.props.className) }),
+	            _extends({}, this.props, { className: _classnames2['default']('ph-dialog-body', this.props.className) }),
 	            this.props.children
 	        );
 	    };
@@ -29447,7 +29583,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    DialogFooter.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            'div',
-	            _extends({}, this.props, { className: _classnames2['default']('dialog-footer', this.props.className) }),
+	            _extends({}, this.props, { className: _classnames2['default']('ph-dialog-footer', this.props.className, 'btn-group  btn-group-justify clearfix') }),
 	            this.props.children
 	        );
 	    };
@@ -29493,9 +29629,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _classnames2 = _interopRequireDefault(_classnames);
 
 	/**
-	 * 功能组件-飘字
+	 * 飘字
 	 * @class Toast
-	 * @module Action
+	 * @module 操作类组件
 	 * @extends Component
 	 * @constructor
 	 * @demo toast.js {展示}
@@ -29509,12 +29645,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _createClass(Toast, null, [{
 	        key: 'propTypes',
 	        value: {
-	            /**
-	             * 样式前缀
-	             * @property classPrefix
-	             * @type String
-	             * */
-	            classPrefix: _react.PropTypes.string,
 	            /**
 	             * 标签tagName
 	             * @property componentTag
@@ -29543,14 +29673,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            Component,
-	            _extends({}, this.props, { className: _classnames2['default']('toast') }),
-	            _react2['default'].createElement('div', { className: 'toast-shadow' }),
+	            _extends({}, this.props, { className: _classnames2['default']('ph-toast') }),
+	            _react2['default'].createElement('div', { className: 'ph-toast-shadow' }),
 	            _react2['default'].createElement(
 	                'div',
-	                { className: 'toast-main' },
+	                { className: 'ph-toast-main' },
 	                _react2['default'].createElement(
 	                    'div',
-	                    { className: _classnames2['default']("toast-content") },
+	                    { className: _classnames2['default']("ph-toast-content") },
 	                    this.props.children
 	                )
 	            )
@@ -29561,12 +29691,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	})(_utilsComponent2['default']);
 
 	var _layer = document.createElement('div'),
-	    timer = null;
-
-	window.onhashchange = function () {
-	    // 处理url变动时手动插入dom不消失
-	    _unrenderLayer();
-	};
+	    timer = null,
+	    visible = false;
 
 	function renderLayer(content) {
 	    return _react2['default'].createElement(
@@ -29577,18 +29703,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 	function _renderLayer(layerElement, duration, callback) {
+	    visible = true;
+
 	    _reactDom2['default'].render(layerElement, _layer);
 	    document.body.appendChild(_layer);
 
+	    window.addEventListener('hashchange', _unrenderLayer, false);
+
 	    timer = setTimeout(function () {
+	        visible = false;
+
 	        _unrenderLayer();
-	        clearTimeout(timer);
 	        callback();
 	    }, duration);
 	}
 
 	function _unrenderLayer() {
 	    _reactDom2['default'].unmountComponentAtNode(_layer);
+	    if (visible) document.body.removeChild(_layer);
+
+	    window.removeEventListener('hashchange', _unrenderLayer, false);
+	    clearTimeout(timer);
 	}
 
 	exports['default'] = {
@@ -29597,7 +29732,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _renderLayer(layerElement, duration, callback);
 	    },
 	    show: function show(content, duration, callback) {
-	        this.info();
+	        this.info(content, duration, callback);
 	    },
 	    remove: function remove() {
 	        _unrenderLayer();
@@ -29641,9 +29776,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _Animate2 = _interopRequireDefault(_Animate);
 
 	/**
-	 * 功能组件-弹框
+	 * 弹层
 	 * @class Popup
-	 * @module Action
+	 * @module 操作类组件
 	 * @extends Component
 	 * @constructor
 	 * @demo popup.js {展示}
@@ -29663,7 +29798,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * @type String
 	             * */
 	            componentTag: _react.PropTypes.string,
-	            visible: _react.PropTypes.bool
+	            /**
+	             * 是否可见标识
+	             * @property visible
+	             * @type Boolean
+	             * */
+	            visible: _react.PropTypes.bool,
+	            /**
+	             * 弹层的位置,默认top
+	             * @property align
+	             * @type String
+	             * */
+	            align: _react.PropTypes.string,
+	            /**
+	             * 关闭的执行函数
+	             * @property onClose
+	             * @type Function
+	             * */
+	            onClose: _react.PropTypes.func
 	        },
 	        enumerable: true
 	    }, {
@@ -29673,8 +29825,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            align: 'top',
 	            componentTag: 'div',
 	            classMapping: {
-	                'top': 'popup-top',
-	                'bottom': 'popup-bottom'
+	                'top': 'ph-popup-top',
+	                'bottom': 'ph-popup-bottom'
 	            }
 	        },
 	        enumerable: true
@@ -29692,7 +29844,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var onClose = _props.onClose;
 
 	        if (visible) {
-	            return _react2['default'].createElement('div', { className: 'popup-shadow animated', onClick: onClose });
+	            return _react2['default'].createElement('div', { className: 'ph-popup-shadow animated', onClick: onClose });
 	        } else {
 	            return '';
 	        }
@@ -29707,7 +29859,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (visible) {
 	            return _react2['default'].createElement(
 	                'div',
-	                _extends({}, this.props, { className: _classnames2['default']('popup-main', 'animated', className) }),
+	                _extends({}, this.props, { className: _classnames2['default']('ph-popup-main', 'animated', className) }),
 	                children
 	            );
 	        } else {
@@ -29722,7 +29874,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            Component,
-	            _extends({}, this.props, { className: _classnames2['default']('popup', this.getProperty(), className) }),
+	            _extends({}, this.props, { className: _classnames2['default']('ph-popup', this.getProperty(), className) }),
 	            _react2['default'].createElement(
 	                _Animate2['default'],
 	                null,
@@ -29730,7 +29882,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            ),
 	            _react2['default'].createElement(
 	                _Animate2['default'],
-	                { className: 'popup-content', transitionName: 'slide-' + this.props.align },
+	                { className: 'ph-popup-content', transitionName: 'slide-' + this.props.align },
 	                this.renderPopup()
 	            )
 	        );
@@ -29783,7 +29935,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 手风琴
 	 * @class Accordion
-	 * @module Action
+	 * @module 操作类组件
 	 * @extends Component
 	 * @constructor
 	 * @demo accordion.js {展示}
@@ -29798,26 +29950,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: 'propTypes',
 	        value: {
 	            /**
-	             * 样式前缀
-	             * @property classPrefix
-	             * @type String
-	             * */
-	            classPrefix: _react.PropTypes.string,
-	            /**
 	             * 标签tagName
 	             * @property componentTag
 	             * @type String
 	             * */
 	            componentTag: _react.PropTypes.string,
-	            visible: _react.PropTypes.bool
+	            /**
+	             * 是否可见标识
+	             * @property visible
+	             * @type Boolean
+	             * */
+	            visible: _react.PropTypes.bool,
+	            /**
+	             * 动作的执行函数
+	             * @property onChange
+	             * @type Function
+	             * */
+	            onChange: _react.PropTypes.func
 	        },
 	        enumerable: true
 	    }, {
 	        key: 'defaultProps',
 	        value: {
 	            visible: false,
-	            egSize: '',
-	            classPrefix: '',
 	            componentTag: 'div',
 	            classMapping: {}
 	        },
@@ -29854,7 +30009,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            Component,
-	            _extends({}, this.props, { className: _classnames2['default']('accordion', this.getProperty(), className) }),
+	            _extends({}, this.props, { className: _classnames2['default']('ph-accordion', this.getProperty(), className) }),
 	            this.renderChildren()
 	        );
 	    };
@@ -29908,7 +30063,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            'div',
-	            _extends({ className: _classnames2['default']('accordion-header', className),
+	            _extends({ className: _classnames2['default']('ph-accordion-header', className),
 	                onClick: onChange
 	            }, this.props),
 	            this.props.children
@@ -29970,7 +30125,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            'div',
-	            _extends({}, this.props, { className: _classnames2['default']('accordion-body', 'animated', className), style: {
+	            _extends({}, this.props, { className: _classnames2['default']('ph-accordion-body', 'animated', className), style: {
 	                    height: visible ? this.height + 'px' : '0'
 	                } }),
 	            _react2['default'].createElement(
@@ -30024,9 +30179,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _utilsTool2 = _interopRequireDefault(_utilsTool);
 
 	/**
-	 * 功能组件-气泡
+	 * 气泡
 	 * @class Popover
-	 * @module Tooltips
+	 * @module 提示组件
 	 * @extends Component
 	 * @constructor
 	 * @demo popover.js {展示}
@@ -30053,14 +30208,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        value: {
 	            componentTag: 'div',
 	            classMapping: {
-	                'top': 'popover-top center-x',
-	                'bottom': 'popover-bottom center-x',
-	                'left': 'popover-left center-y',
-	                'right': 'popover-right center-y',
-	                'top left': 'popover-top left-x',
-	                'top right': 'popover-top right-x',
-	                'bottom left': 'popover-bottom left-x',
-	                'bottom right': 'popover-bottom right-x'
+	                'top': 'ph-popover-top center-x',
+	                'bottom': 'ph-popover-bottom center-x',
+	                'left': 'ph-popover-left center-y',
+	                'right': 'ph-popover-right center-y',
+	                'top left': 'ph-popover-top left-x',
+	                'top right': 'ph-popover-top right-x',
+	                'bottom left': 'ph-popover-bottom left-x',
+	                'bottom right': 'ph-popover-bottom right-x'
 	            }
 	        },
 	        enumerable: true
@@ -30079,12 +30234,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Popover.prototype.handleDocumentClick = function handleDocumentClick(event) {
 	        var el = event.target;
 
-	        !_utilsTool2['default'].closest(el, '.popover') && !_utilsTool2['default'].closest(el, '.whisper') && this.props.onClose();
+	        if (!_utilsTool2['default'].closest(el, '.ph-popover') && !(this.props.whisper == event.target)) {
+	            this.props.onClose();
+	        }
 
 	        return false;
 	    };
 
-	    Popover.prototype.componentWillUnmount = function componentWillUnmount() {};
+	    Popover.prototype.componentWillUnmount = function componentWillUnmount() {
+	        document.removeEventListener('click', this.handleDocumentClick, false);
+	    };
 
 	    Popover.prototype.render = function render() {
 	        var _props = this.props;
@@ -30097,13 +30256,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return _react2['default'].createElement(
 	            Component,
 	            _extends({}, this.props, {
-	                className: _classnames2['default']('popover', this.getProperty(), className),
+	                className: _classnames2['default']('ph-popover', this.getProperty(), className),
 	                style: Object.assign(styles, style)
 	            }),
-	            _react2['default'].createElement('div', { className: 'popover-arrow' }),
+	            _react2['default'].createElement('div', { className: 'ph-popover-arrow' }),
 	            _react2['default'].createElement(
 	                'div',
-	                { className: 'popover-content' },
+	                { className: 'ph-popover-content' },
 	                children
 	            )
 	        );
@@ -30189,9 +30348,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _classnames2 = _interopRequireDefault(_classnames);
 
 	/**
-	 * 辅助功能组件 - 倾听者
+	 * <h5>提示模块，主要包括一下两个组件:</h5>
+	 * <strong><a href='../classes/Whisper.html'>Whisper</a></strong><br/>
+	 * <strong><a href='../classes/Popover.html'>Popover</a></strong><br>
+	 * <h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>
+	 * @module 提示组件
+	 * @main 提示组件
+	 * @static
+	 *
+	 */
+
+	/**
+	 * 倾听者
 	 * @class Whisper
-	 * @module Tooltip
+	 * @module 提示组件
 	 * @extends Component
 	 * @constructor
 	 * @demo popover.js {展示}
@@ -30211,8 +30381,30 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * @type String
 	             * */
 	            componentTag: _react.PropTypes.string,
+	            /**
+	             * 显示的目标气泡
+	             * @property target
+	             * @type Object
+	             * */
+	            target: _react.PropTypes.object,
+	            /**
+	             * 气泡的位置,默认bottom
+	             * @property placement
+	             * @type String
+	             * */
 	            placement: _react.PropTypes.string,
-	            distance: _react.PropTypes.number
+	            /**
+	             * 气泡距离点击物的位置,默认15
+	             * @property distance
+	             * @type Number
+	             * */
+	            distance: _react.PropTypes.number,
+	            /**
+	             * 气泡显隐时可执行的额外函数,自定义
+	             * @property onChange
+	             * @type Function
+	             * */
+	            onChange: _react.PropTypes.func
 	        },
 	        enumerable: true
 	    }, {
@@ -30227,16 +30419,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }]);
 
 	    function Whisper(props, context) {
+	        var _this = this;
+
 	        _classCallCheck(this, Whisper);
 
 	        _Component.call(this, props, context);
 
 	        this.visible = false;
 	        this._layer = document.createElement('div');
+
+	        window.addEventListener('hashchange', function () {
+	            // this指向当前组件
+	            if (_this.visible) _this.onClose();
+	        }, false);
 	    }
 
 	    Whisper.prototype.componentDidMount = function componentDidMount() {
-	        this.getWhisperPosition();
+	        var _this2 = this;
+
+	        setTimeout(function () {
+	            _this2.getWhisperPosition();
+	        }, 0);
 	    };
 
 	    Whisper.prototype.getWhisperPosition = function getWhisperPosition() {
@@ -30320,7 +30523,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return _react.cloneElement(this.props.target, {
 	            styles: this.style,
 	            placement: this.props.placement,
-	            onClose: this.onClose.bind(this)
+	            onClose: this.onClose.bind(this),
+	            whisper: this.whisper,
+	            setVisible: this.setVisible
 	        });
 	    };
 
@@ -30333,10 +30538,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    Whisper.prototype.removeTarget = function removeTarget() {
 	        _reactDom2['default'].unmountComponentAtNode(this._layer);
+	        document.body.removeChild(this._layer);
 	    };
 
 	    Whisper.prototype.render = function render() {
-	        var _this = this;
+	        var _this3 = this;
 
 	        var _props = this.props;
 	        var className = _props.className;
@@ -30345,10 +30551,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return _react2['default'].createElement(
 	            'div',
 	            _extends({}, this.props, {
-	                className: _classnames2['default']('whisper', className),
+	                className: _classnames2['default']('ph-whisper', className),
 	                onClick: this.onToggle.bind(this),
 	                ref: function (whisper) {
-	                    _this.whisper = whisper;
+	                    _this3.whisper = whisper;
 	                }
 	            }),
 	            children
@@ -30398,7 +30604,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 滑动输入条 Slider
 	 * @class Slider
-	 * @module Action
+	 * @module 操作类组件
 	 * @extends Component
 	 * @constructor
 	 * @demo slider.js {展示}
@@ -30418,7 +30624,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * @type String
 	             * */
 	            componentTag: _react.PropTypes.string,
-	            progress: _react.PropTypes.number
+	            /**
+	             * 初始进程,默认0
+	             * @property progress
+	             * @type String
+	             * */
+	            progress: _react.PropTypes.number,
+	            /**
+	             * 进程提示的位置,默认top
+	             * @property placement
+	             * @type String
+	             * */
+	            placement: _react.PropTypes.string
 	        },
 	        enumerable: true
 	    }, {
@@ -30428,9 +30645,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	            progress: 0,
 	            componentTag: 'div',
 	            classMapping: {
-	                'disabled': 'slider-disabled',
-	                'top': 'slider-tip-top',
-	                'bottom': 'slider-tip-bottom'
+	                'disabled': 'ph-slider-disabled',
+	                'top': 'ph-slider-tip-top',
+	                'bottom': 'ph-slider-tip-bottom'
 	            }
 	        },
 	        enumerable: true
@@ -30496,26 +30713,26 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            Component,
-	            _extends({}, this.props, { className: _classnames2['default']('slider', this.getProperty(), className) }),
+	            _extends({}, this.props, { className: _classnames2['default']('ph-slider', this.getProperty(), className) }),
 	            _react2['default'].createElement(
 	                'div',
-	                { className: 'slider-line', ref: function (sliderLine) {
+	                { className: 'ph-slider-line', ref: function (sliderLine) {
 	                        _this.sliderLine = sliderLine;
 	                    } },
-	                _react2['default'].createElement('div', { className: 'slider-progress', ref: function (sliderProgress) {
+	                _react2['default'].createElement('div', { className: 'ph-slider-progress', ref: function (sliderProgress) {
 	                        _this.sliderProgress = sliderProgress;
 	                    } }),
 	                _react2['default'].createElement(
 	                    'div',
-	                    { className: 'slider-drag', ref: function (sliderBtn) {
+	                    { className: 'ph-slider-content', ref: function (sliderBtn) {
 	                            _this.sliderBtn = sliderBtn;
 	                        } },
 	                    _react2['default'].createElement(
 	                        'div',
-	                        { className: _classnames2['default']("slider-tip", this.state.tipVisible ? 'show' : 'hide') },
+	                        { className: _classnames2['default']("ph-slider-tip", this.state.tipVisible ? 'show' : 'hide') },
 	                        this.state.newProgress
 	                    ),
-	                    _react2['default'].createElement(_Drag2['default'], { className: 'slider-btn', onDrag: this.onDrag.bind(this), onDrop: this.onDrop.bind(this) })
+	                    _react2['default'].createElement(_Drag2['default'], { className: 'ph-slider-btn', onDrag: this.onDrag.bind(this), onDrop: this.onDrop.bind(this) })
 	                )
 	            )
 	        );
@@ -30579,7 +30796,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	                { className: 'content' },
 	                _react2['default'].createElement(
 	                    _srcIndex.Button,
-	                    { phStyle: 'info' },
+	                    { phStyle: 'primary' },
+	                    'Primary'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Button,
+	                    { radius: true, phStyle: 'info' },
 	                    'Info'
 	                ),
 	                _react2['default'].createElement(
@@ -30589,18 +30811,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	                ),
 	                _react2['default'].createElement(
 	                    _srcIndex.Button,
-	                    { phStyle: 'primary' },
-	                    'Primary'
+	                    { phStyle: 'error' },
+	                    'Error'
 	                ),
 	                _react2['default'].createElement(
 	                    _srcIndex.Button,
 	                    { phStyle: 'danger' },
 	                    'Danger'
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Button,
-	                    { phStyle: 'error' },
-	                    'Error'
 	                ),
 	                _react2['default'].createElement(
 	                    _srcIndex.Button,
@@ -30628,8 +30845,38 @@ return /******/ (function(modules) { // webpackBootstrap
 	                { className: 'content' },
 	                _react2['default'].createElement(
 	                    _srcIndex.Button,
+	                    { hollow: true, phStyle: 'primary' },
+	                    'Primary'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Button,
 	                    { hollow: true, phStyle: 'info' },
 	                    'Info'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Button,
+	                    { hollow: true, phStyle: 'success' },
+	                    'Success'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Button,
+	                    { hollow: true, phStyle: 'error' },
+	                    'Error'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Button,
+	                    { hollow: true, phStyle: 'danger' },
+	                    'Danger'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Button,
+	                    { hollow: true, phStyle: 'warning' },
+	                    'Warning'
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Button,
+	                    { hollow: true, phStyle: 'gray' },
+	                    'Gray'
 	                )
 	            ),
 	            _react2['default'].createElement(
@@ -30946,7 +31193,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                'div',
 	                { className: 'content' },
 	                _react2['default'].createElement(_srcIndex.Textarea, { value: this.state.name, placeholder: '请输入...',
-	                    onChange: this.setValue.bind(this, 'name'), maxLength: this.state.MAX_LENGTH })
+	                    onChange: this.setValue.bind(this, 'name') })
 	            ),
 	            _react2['default'].createElement(
 	                'h3',
@@ -31073,366 +31320,436 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _srcIndex = __webpack_require__(208);
 
-	var FilterDemo = (function (_Component) {
-	    _inherits(FilterDemo, _Component);
+	var grid = (function (_Component) {
+	    _inherits(grid, _Component);
 
-	    function FilterDemo() {
-	        _classCallCheck(this, FilterDemo);
+	    function grid() {
+	        _classCallCheck(this, grid);
 
 	        _Component.apply(this, arguments);
 	    }
 
-	    FilterDemo.prototype.showAlert = function showAlert() {
-	        alert(1);
-	    };
-
-	    FilterDemo.prototype.render = function render() {
+	    grid.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            'div',
 	            null,
 	            _react2['default'].createElement(
-	                _srcIndex.Row,
-	                { align: 'stretch' },
+	                'h2',
+	                { className: 'comp-title' },
+	                'Grid'
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                '容器属性 align-items(default:stretch)'
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-tip' },
+	                'stretch'
+	            ),
+	            _react2['default'].createElement(
+	                _srcIndex.Grid,
+	                { className: 'content' },
 	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
+	                    _srcIndex.Row,
+	                    { align: 'stretch' },
 	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'stretch'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'stretch'
+	                        )
+	                    ),
 	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'stretch'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'stretch',
+	                            _react2['default'].createElement('br', null),
+	                            'baseline'
+	                        )
+	                    ),
 	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'stretch'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        '1',
-	                        _react2['default'].createElement('br', null),
-	                        '2',
-	                        _react2['default'].createElement('br', null),
-	                        '3',
-	                        _react2['default'].createElement('br', null),
-	                        '4',
-	                        _react2['default'].createElement('br', null),
-	                        '4'
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'stretch',
+	                            _react2['default'].createElement('br', null),
+	                            'stretch',
+	                            _react2['default'].createElement('br', null),
+	                            'stretch',
+	                            _react2['default'].createElement('br', null),
+	                            'stretch'
+	                        )
 	                    )
 	                )
 	            ),
 	            _react2['default'].createElement(
-	                _srcIndex.Row,
-	                { align: 'baseline' },
+	                'h3',
+	                { className: 'comp-tip' },
+	                'baseline'
+	            ),
+	            _react2['default'].createElement(
+	                _srcIndex.Grid,
+	                { className: 'content' },
 	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
+	                    _srcIndex.Row,
+	                    { align: 'baseline' },
 	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'ffff ffff ff ffff'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'baseline'
+	                        )
+	                    ),
 	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'base line'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'baseline',
+	                            _react2['default'].createElement('br', null),
+	                            'baseline'
+	                        )
+	                    ),
 	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'baseli ne'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        '1',
-	                        _react2['default'].createElement('br', null),
-	                        '2',
-	                        _react2['default'].createElement('br', null),
-	                        '3',
-	                        _react2['default'].createElement('br', null),
-	                        '4',
-	                        _react2['default'].createElement('br', null),
-	                        '4'
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'baseline',
+	                            _react2['default'].createElement('br', null),
+	                            'baseline',
+	                            _react2['default'].createElement('br', null),
+	                            'baseline',
+	                            _react2['default'].createElement('br', null),
+	                            'baseline'
+	                        )
 	                    )
 	                )
 	            ),
 	            _react2['default'].createElement(
-	                _srcIndex.Row,
-	                { align: 'top' },
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'top'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'top'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'top'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        '1',
-	                        _react2['default'].createElement('br', null),
-	                        '2',
-	                        _react2['default'].createElement('br', null),
-	                        '3',
-	                        _react2['default'].createElement('br', null),
-	                        '4',
-	                        _react2['default'].createElement('br', null),
-	                        '4'
-	                    )
-	                )
+	                'h3',
+	                { className: 'comp-tip' },
+	                'top'
 	            ),
 	            _react2['default'].createElement(
-	                _srcIndex.Row,
-	                { align: 'bottom' },
+	                _srcIndex.Grid,
+	                { className: 'content' },
 	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'bottom'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'bottom'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'bottom'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        '1',
-	                        _react2['default'].createElement('br', null),
-	                        '2',
-	                        _react2['default'].createElement('br', null),
-	                        '3',
-	                        _react2['default'].createElement('br', null),
-	                        '4',
-	                        _react2['default'].createElement('br', null),
-	                        '4'
-	                    )
-	                )
-	            ),
-	            _react2['default'].createElement(
-	                _srcIndex.Row,
-	                { align: 'center' },
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'center'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'center'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'center'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        '1',
-	                        _react2['default'].createElement('br', null),
-	                        '2',
-	                        _react2['default'].createElement('br', null),
-	                        '3',
-	                        _react2['default'].createElement('br', null),
-	                        '4',
-	                        _react2['default'].createElement('br', null),
-	                        '4'
-	                    )
-	                )
-	            ),
-	            _react2['default'].createElement(
-	                _srcIndex.Row,
-	                null,
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
+	                    _srcIndex.Row,
 	                    { align: 'top' },
 	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'top'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    { align: 'center' },
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'top'
+	                        )
+	                    ),
 	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'center'
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'top',
+	                            _react2['default'].createElement('br', null),
+	                            'top'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'top',
+	                            _react2['default'].createElement('br', null),
+	                            'top',
+	                            _react2['default'].createElement('br', null),
+	                            'top',
+	                            _react2['default'].createElement('br', null),
+	                            'top'
+	                        )
 	                    )
-	                ),
+	                )
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-tip' },
+	                'bottom'
+	            ),
+	            _react2['default'].createElement(
+	                _srcIndex.Grid,
+	                { className: 'content' },
 	                _react2['default'].createElement(
-	                    _srcIndex.Col,
+	                    _srcIndex.Row,
 	                    { align: 'bottom' },
 	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'bottom'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'bottom'
+	                        )
+	                    ),
 	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        '1',
-	                        _react2['default'].createElement('br', null),
-	                        '2',
-	                        _react2['default'].createElement('br', null),
-	                        '3',
-	                        _react2['default'].createElement('br', null),
-	                        '4',
-	                        _react2['default'].createElement('br', null),
-	                        '4'
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'bottom',
+	                            _react2['default'].createElement('br', null),
+	                            'bottom'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'bottom',
+	                            _react2['default'].createElement('br', null),
+	                            'bottom',
+	                            _react2['default'].createElement('br', null),
+	                            'bottom',
+	                            _react2['default'].createElement('br', null),
+	                            'bottom'
+	                        )
 	                    )
 	                )
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-tip' },
+	                'center'
+	            ),
+	            _react2['default'].createElement(
+	                _srcIndex.Grid,
+	                { className: 'content' },
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    { align: 'center' },
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'center'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'center',
+	                            _react2['default'].createElement('br', null),
+	                            'center'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'center',
+	                            _react2['default'].createElement('br', null),
+	                            'center',
+	                            _react2['default'].createElement('br', null),
+	                            'center',
+	                            _react2['default'].createElement('br', null),
+	                            'center'
+	                        )
+	                    )
+	                )
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                '项目属性 align-self(default:auto)'
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-tip' },
+	                'auto'
+	            ),
+	            _react2['default'].createElement(
+	                _srcIndex.Grid,
+	                { className: 'content' },
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'auto'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'auto auto'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'auto auto auto auto'
+	                        )
+	                    )
+	                )
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-tip' },
+	                'top/center/bottom'
+	            ),
+	            _react2['default'].createElement(
+	                _srcIndex.Grid,
+	                { className: 'content' },
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        { align: 'top' },
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'top'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        { align: 'center' },
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'center'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        { align: 'bottom' },
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'bottom'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            'top',
+	                            _react2['default'].createElement('br', null),
+	                            'center',
+	                            _react2['default'].createElement('br', null),
+	                            'bottom'
+	                        )
+	                    )
+	                )
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                '项目属性 flex'
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-tip' },
+	                'width'
+	            ),
+	            _react2['default'].createElement(
+	                _srcIndex.Grid,
+	                { className: 'content' },
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        { width: '15' },
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            '15'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        { width: '20' },
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            '20'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        { width: '25' },
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            '25'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        { width: '40' },
+	                        _react2['default'].createElement(
+	                            'div',
+	                            { className: 'col-demo' },
+	                            '40',
+	                            _react2['default'].createElement('br', null),
+	                            '40',
+	                            _react2['default'].createElement('br', null),
+	                            '40'
+	                        )
+	                    )
+	                )
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-tip' },
+	                'offset (margin-left)'
 	            ),
 	            _react2['default'].createElement(
 	                _srcIndex.Row,
 	                null,
 	                _react2['default'].createElement(
 	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'auto'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'auto auto'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'auto auto auto'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    null,
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        'auto auto auto auto'
-	                    )
-	                )
-	            ),
-	            _react2['default'].createElement(
-	                _srcIndex.Row,
-	                null,
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    { width: '5' },
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        '5'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    { width: '10' },
+	                    { width: '20', offset: '10' },
 	                    _react2['default'].createElement(
 	                        'div',
 	                        { className: 'col-demo' },
@@ -31441,73 +31758,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	                ),
 	                _react2['default'].createElement(
 	                    _srcIndex.Col,
-	                    { width: '15' },
+	                    { width: '40', offset: '10' },
 	                    _react2['default'].createElement(
 	                        'div',
 	                        { className: 'col-demo' },
-	                        '15'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    { offset: '10', width: '10' },
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
+	                        '10',
+	                        _react2['default'].createElement('br', null),
+	                        '10',
+	                        _react2['default'].createElement('br', null),
 	                        '10'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    { width: '20' },
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        '1',
-	                        _react2['default'].createElement('br', null),
-	                        '2',
-	                        _react2['default'].createElement('br', null),
-	                        '3',
-	                        _react2['default'].createElement('br', null),
-	                        '4'
-	                    )
-	                )
-	            ),
-	            _react2['default'].createElement(
-	                _srcIndex.Row,
-	                null,
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    { width: '50' },
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        '5'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Col,
-	                    { offset: '10', width: '20' },
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'col-demo' },
-	                        '1',
-	                        _react2['default'].createElement('br', null),
-	                        '2',
-	                        _react2['default'].createElement('br', null),
-	                        '3',
-	                        _react2['default'].createElement('br', null),
-	                        '4'
 	                    )
 	                )
 	            )
 	        );
 	    };
 
-	    return FilterDemo;
+	    return grid;
 	})(_react.Component);
 
-	exports['default'] = FilterDemo;
+	exports['default'] = grid;
 	module.exports = exports['default'];
 
 /***/ },
@@ -31534,11 +31803,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _srcIndex = __webpack_require__(208);
 
-	var input = (function (_Component) {
-	    _inherits(input, _Component);
+	var tableview = (function (_Component) {
+	    _inherits(tableview, _Component);
 
-	    function input(props, context) {
-	        _classCallCheck(this, input);
+	    function tableview(props, context) {
+	        _classCallCheck(this, tableview);
 
 	        _Component.call(this, props, context);
 
@@ -31547,16 +31816,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	        };
 	    }
 
-	    input.prototype.setValue = function setValue(key, e) {
+	    tableview.prototype.setValue = function setValue(key, e) {
 	        var o = {};
 	        o[key || e.target.name] = e.target.value;
 	        this.setState(o);
 	    };
 
-	    input.prototype.render = function render() {
+	    tableview.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            'div',
 	            null,
+	            _react2['default'].createElement(
+	                'h2',
+	                { className: 'comp-title' },
+	                'TableView'
+	            ),
 	            _react2['default'].createElement(
 	                _srcIndex.TableView,
 	                null,
@@ -31600,10 +31874,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        );
 	    };
 
-	    return input;
+	    return tableview;
 	})(_react.Component);
 
-	exports['default'] = input;
+	exports['default'] = tableview;
 	module.exports = exports['default'];
 
 /***/ },
@@ -31630,11 +31904,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _srcIndex = __webpack_require__(208);
 
-	var input = (function (_Component) {
-	    _inherits(input, _Component);
+	var formgroup = (function (_Component) {
+	    _inherits(formgroup, _Component);
 
-	    function input(props, context) {
-	        _classCallCheck(this, input);
+	    function formgroup(props, context) {
+	        _classCallCheck(this, formgroup);
 
 	        _Component.call(this, props, context);
 
@@ -31643,16 +31917,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	        };
 	    }
 
-	    input.prototype.setValue = function setValue(key, e) {
+	    formgroup.prototype.setValue = function setValue(key, e) {
 	        var o = {};
 	        o[key || e.target.name] = e.target.value;
 	        this.setState(o);
 	    };
 
-	    input.prototype.render = function render() {
+	    formgroup.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            'div',
 	            null,
+	            _react2['default'].createElement(
+	                'h2',
+	                { className: 'comp-title' },
+	                'FormGroup'
+	            ),
 	            _react2['default'].createElement(
 	                _srcIndex.FormGroup,
 	                null,
@@ -31691,10 +31970,34 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        null,
 	                        _react2['default'].createElement(
 	                            'label',
-	                            { 'for': '' },
+	                            null,
 	                            '地址'
 	                        ),
-	                        _react2['default'].createElement(_srcIndex.Input, { type: 'text', placeholder: '身份证' })
+	                        _react2['default'].createElement(_srcIndex.Input, { type: 'text', placeholder: '地址' })
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'label',
+	                            null,
+	                            '省'
+	                        ),
+	                        _react2['default'].createElement(_srcIndex.Input, { type: 'text', placeholder: '省' })
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'label',
+	                            null,
+	                            '市'
+	                        ),
+	                        _react2['default'].createElement(_srcIndex.Input, { type: 'text', placeholder: '市' })
 	                    )
 	                ),
 	                _react2['default'].createElement(
@@ -31705,7 +32008,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        { className: 'test' },
 	                        _react2['default'].createElement(
 	                            'label',
-	                            { 'for': '' },
+	                            null,
 	                            '兴趣爱好'
 	                        ),
 	                        _react2['default'].createElement(_srcIndex.Input, { type: 'checkbox', label: '篮球', className: 'a1' }),
@@ -31725,6 +32028,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	                            _react2['default'].createElement(
 	                                'label',
 	                                null,
+	                                _react2['default'].createElement(
+	                                    'span',
+	                                    { className: 'color-error' },
+	                                    '*'
+	                                ),
 	                                '性别'
 	                            ),
 	                            _react2['default'].createElement('input', { type: 'text', placeholder: '男/女', disabled: true })
@@ -31740,42 +32048,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        _react2['default'].createElement(
 	                            'label',
 	                            null,
-	                            '姓'
-	                        ),
-	                        _react2['default'].createElement(_srcIndex.Input, { type: 'text', placeholder: '姓' })
-	                    ),
-	                    _react2['default'].createElement(
-	                        _srcIndex.Col,
-	                        null,
-	                        _react2['default'].createElement(
-	                            'label',
-	                            null,
-	                            '名'
-	                        ),
-	                        _react2['default'].createElement(_srcIndex.Input, { type: 'text', placeholder: '名' })
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Row,
-	                    null,
-	                    _react2['default'].createElement(
-	                        _srcIndex.Col,
-	                        null,
-	                        _react2['default'].createElement(
-	                            'label',
-	                            null,
-	                            _react2['default'].createElement(
-	                                'span',
-	                                { className: 'color-error' },
-	                                '*'
-	                            ),
-	                            '喜欢的运动'
+	                            '喜欢的水果'
 	                        ),
 	                        _react2['default'].createElement(
 	                            'div',
 	                            { className: 'input', style: { textAlign: 'right' } },
-	                            _react2['default'].createElement(_srcIndex.Input, { type: 'checkbox', label: '篮球' }),
-	                            _react2['default'].createElement(_srcIndex.Input, { type: 'checkbox', label: '足球' })
+	                            _react2['default'].createElement(_srcIndex.Input, { type: 'checkbox', label: '苹果' }),
+	                            _react2['default'].createElement(_srcIndex.Input, { type: 'checkbox', label: '香蕉' })
 	                        )
 	                    )
 	                )
@@ -31783,10 +32062,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        );
 	    };
 
-	    return input;
+	    return formgroup;
 	})(_react.Component);
 
-	exports['default'] = input;
+	exports['default'] = formgroup;
 	module.exports = exports['default'];
 
 /***/ },
@@ -32328,20 +32607,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	                _react2['default'].createElement(
 	                    _srcIndex.Dialog.Body,
 	                    null,
-	                    _react2['default'].createElement('input', { type: 'text' }),
-	                    '可自定义表格内容'
+	                    _react2['default'].createElement(
+	                        'p',
+	                        null,
+	                        '可自定义表格内容'
+	                    )
 	                ),
 	                _react2['default'].createElement(
 	                    _srcIndex.Dialog.Footer,
 	                    null,
 	                    _react2['default'].createElement(
 	                        _srcIndex.Button,
-	                        { hollow: true, radius: true, phSize: 'lg', phStyle: 'gray', onClick: this.onClose.bind(this) },
+	                        { hollow: true, phSize: 'lg', phStyle: 'gray', onClick: this.onClose.bind(this) },
 	                        '取消'
 	                    ),
 	                    _react2['default'].createElement(
 	                        _srcIndex.Button,
-	                        { radius: true, phSize: 'lg', phStyle: 'primary', onClick: this.onConfirm.bind(this) },
+	                        { hollow: true, phSize: 'lg', phStyle: 'primary', onClick: this.onConfirm.bind(this) },
 	                        '确定'
 	                    )
 	                )
@@ -32379,11 +32661,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _srcIndex = __webpack_require__(208);
 
-	var modal = (function (_Component) {
-	    _inherits(modal, _Component);
+	var toast = (function (_Component) {
+	    _inherits(toast, _Component);
 
-	    function modal(props, context) {
-	        _classCallCheck(this, modal);
+	    function toast(props, context) {
+	        _classCallCheck(this, toast);
 
 	        _Component.call(this, props, context);
 
@@ -32392,28 +32674,38 @@ return /******/ (function(modules) { // webpackBootstrap
 	        };
 	    }
 
-	    modal.prototype.showToast = function showToast() {
+	    toast.prototype.showToast = function showToast() {
 	        _srcIndex.Toast.info('只显示信息的toast！！', this.state.duration, function () {
 	            console.log('额外的执行内容');
 	        });
 	    };
 
-	    modal.prototype.render = function render() {
+	    toast.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            'div',
 	            null,
 	            _react2['default'].createElement(
+	                'h2',
+	                { className: 'comp-title' },
+	                'Toast'
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                '自定义飘字'
+	            ),
+	            _react2['default'].createElement(
 	                _srcIndex.Button,
-	                { block: true, phSize: 'lg', phStyle: 'info', onClick: this.showToast.bind(this) },
-	                'Click Me To Show Toast'
+	                { block: true, phSize: 'lg', phStyle: 'primary', onClick: this.showToast.bind(this) },
+	                '点击飘字'
 	            )
 	        );
 	    };
 
-	    return modal;
+	    return toast;
 	})(_react.Component);
 
-	exports['default'] = modal;
+	exports['default'] = toast;
 	module.exports = exports['default'];
 
 /***/ },
@@ -32502,25 +32794,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	                { align: 'top', visible: this.state.topVisible, onClose: this.onCloseTopPopup.bind(this) },
 	                _react2['default'].createElement(
 	                    'ul',
-	                    { className: 'popup-list' },
+	                    { className: 'ph-popup-list' },
 	                    _react2['default'].createElement(
 	                        'li',
-	                        { className: 'popup-item', onClick: this.onCloseTopPopup.bind(this) },
+	                        { className: 'ph-popup-item', onClick: this.onCloseTopPopup.bind(this) },
 	                        '未上线单店'
 	                    ),
 	                    _react2['default'].createElement(
 	                        'li',
-	                        { className: 'popup-item', onClick: this.onCloseTopPopup.bind(this) },
+	                        { className: 'ph-popup-item', onClick: this.onCloseTopPopup.bind(this) },
 	                        '未上线连锁店'
 	                    ),
 	                    _react2['default'].createElement(
 	                        'li',
-	                        { className: 'popup-item', onClick: this.onCloseTopPopup.bind(this) },
+	                        { className: 'ph-popup-item', onClick: this.onCloseTopPopup.bind(this) },
 	                        '在线单店'
 	                    ),
 	                    _react2['default'].createElement(
 	                        'li',
-	                        { className: 'popup-item', onClick: this.onCloseTopPopup.bind(this) },
+	                        { className: 'ph-popup-item', onClick: this.onCloseTopPopup.bind(this) },
 	                        '在线连锁店'
 	                    )
 	                )
@@ -32540,24 +32832,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	                { align: 'bottom', visible: this.state.bottomVisible, onClose: this.onCloseBottomPopup.bind(this) },
 	                _react2['default'].createElement(
 	                    'div',
-	                    { className: 'popup-action-sheet' },
+	                    { className: 'ph-action-sheet' },
 	                    _react2['default'].createElement(
 	                        'ul',
 	                        null,
 	                        _react2['default'].createElement(
 	                            'li',
-	                            { className: 'popup-item popup-tip' },
+	                            { className: 'ph-popup-item ph-popup-tip' },
 	                            '确认 删除此作品？'
 	                        ),
 	                        _react2['default'].createElement(
 	                            'li',
-	                            { className: 'popup-item popup-delete', onClick: this.onCloseBottomPopup.bind(this) },
+	                            { className: 'ph-popup-item ph-popup-delete', onClick: this.onCloseBottomPopup.bind(this) },
 	                            '删除作品'
 	                        )
 	                    ),
 	                    _react2['default'].createElement(
 	                        'div',
-	                        { className: 'popup-operate', onClick: this.onCloseBottomPopup.bind(this) },
+	                        { className: 'ph-popup-operate', onClick: this.onCloseBottomPopup.bind(this) },
 	                        '取消'
 	                    )
 	                )
@@ -32615,15 +32907,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	            null,
 	            _react2['default'].createElement(
 	                'ul',
-	                { className: 'popover-list' },
+	                { className: 'ph-popover-list' },
 	                _react2['default'].createElement(
 	                    'li',
-	                    { className: 'popover-item' },
+	                    { className: 'ph-popover-item' },
 	                    '未上线单店'
 	                ),
 	                _react2['default'].createElement(
 	                    'li',
-	                    { className: 'popover-item' },
+	                    { className: 'ph-popover-item' },
 	                    '未上线连锁店'
 	                )
 	            )
@@ -32770,20 +33062,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    null,
 	                    _react2['default'].createElement(
 	                        'ul',
-	                        { className: 'accordion-list' },
+	                        { className: 'ph-accordion-list' },
 	                        _react2['default'].createElement(
 	                            'li',
-	                            { className: 'accordion-item' },
+	                            { className: 'ph-accordion-item' },
 	                            '内容一'
 	                        ),
 	                        _react2['default'].createElement(
 	                            'li',
-	                            { className: 'accordion-item' },
+	                            { className: 'ph-accordion-item' },
 	                            '内容二'
 	                        ),
 	                        _react2['default'].createElement(
 	                            'li',
-	                            { className: 'accordion-item' },
+	                            { className: 'ph-accordion-item' },
 	                            '内容三'
 	                        )
 	                    )
@@ -32800,6 +33092,431 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 280 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(159);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _srcIndex = __webpack_require__(208);
+
+	var animate = (function (_Component) {
+	    _inherits(animate, _Component);
+
+	    function animate(props, context) {
+	        _classCallCheck(this, animate);
+
+	        _Component.call(this, props, context);
+
+	        this.state = {
+	            item: '',
+	            list: ['看一本书', '睡8个小时']
+	        };
+	    }
+
+	    animate.prototype.setValue = function setValue(key, e) {
+	        var o = {};
+	        o[key || e.target.name] = e.target.value;
+	        this.setState(o);
+	    };
+
+	    animate.prototype.addTodo = function addTodo() {
+	        var newList = this.state.list.concat(this.state.item);
+
+	        this.setState({
+	            item: '',
+	            list: newList
+	        });
+	    };
+
+	    animate.prototype.removeTodo = function removeTodo(index) {
+	        var newList = this.state.list.slice();
+
+	        newList.splice(index, 1);
+	        this.setState({
+	            list: newList
+	        });
+	    };
+
+	    animate.prototype.renderList = function renderList() {
+	        var _this = this;
+
+	        var items = this.state.list.map(function (item, index) {
+	            var _context;
+
+	            return _react2['default'].createElement(
+	                'div',
+	                { key: index, className: 'animated', onClick: (_context = _this.removeTodo).bind.call(_context, _this, index) },
+	                item
+	            );
+	        });
+	        return items;
+	    };
+
+	    animate.prototype.render = function render() {
+	        var _context2;
+
+	        return _react2['default'].createElement(
+	            'div',
+	            null,
+	            _react2['default'].createElement(
+	                'h2',
+	                { className: 'comp-title' },
+	                'Animate'
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                'e.g. Todo'
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'content row-no-padding todo-demo' },
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        { className: 'col-80' },
+	                        _react2['default'].createElement(_srcIndex.Input, { type: 'text', value: this.state.item, onChange: (_context2 = this.setValue).bind.call(_context2, this, 'item') })
+	                    ),
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            _srcIndex.Button,
+	                            { block: true, phSize: 'lg', phStyle: 'primary', onClick: this.addTodo.bind(this) },
+	                            'Add'
+	                        )
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Animate,
+	                    { transitionName: 'fade', className: 'animate-field' },
+	                    this.renderList()
+	                )
+	            )
+	        );
+	    };
+
+	    return animate;
+	})(_react.Component);
+
+	exports['default'] = animate;
+	module.exports = exports['default'];
+
+/***/ },
+/* 281 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(159);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _srcIndex = __webpack_require__(208);
+
+	var toast = (function (_Component) {
+	    _inherits(toast, _Component);
+
+	    function toast(props, context) {
+	        _classCallCheck(this, toast);
+
+	        _Component.call(this, props, context);
+
+	        this.preDistanceX = 0;
+	        this.preDistanceY = 0;
+	        this.distanceX = 0;
+	        this.distanceY = 0;
+	    }
+
+	    toast.prototype.onDrag = function onDrag(event, position) {
+	        this.prePosition = position.start;
+	        this.nowPosition = position.move;
+
+	        this.distanceX = this.preDistanceX + this.nowPosition.x - this.prePosition.x;
+	        this.distanceY = this.preDistanceY + this.nowPosition.y - this.prePosition.y;
+
+	        this.setBoxPosition(this.distanceX, this.distanceY);
+	    };
+
+	    toast.prototype.onDrop = function onDrop(event, position) {
+	        this.preDistanceX = this.distanceX;
+	        this.preDistanceY = this.distanceY;
+	    };
+
+	    toast.prototype.setBoxPosition = function setBoxPosition(x, y) {
+	        this.box.style.webkitTransform = 'translate(' + x + 'px,' + y + 'px)';
+	        this.box.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+	    };
+
+	    toast.prototype.render = function render() {
+	        var _this = this;
+
+	        return _react2['default'].createElement(
+	            'div',
+	            null,
+	            _react2['default'].createElement(
+	                'h2',
+	                { className: 'comp-title' },
+	                'Drag'
+	            ),
+	            _react2['default'].createElement(
+	                'h3',
+	                { className: 'comp-type' },
+	                'e.g. Dragable Box'
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'content content-drag' },
+	                _react2['default'].createElement(
+	                    _srcIndex.Drag,
+	                    { onDrag: this.onDrag.bind(this), onDrop: this.onDrop.bind(this), style: { height: 0 } },
+	                    _react2['default'].createElement(
+	                        'div',
+	                        { className: 'box', ref: function (box) {
+	                                _this.box = box;
+	                            } },
+	                        'Drag'
+	                    )
+	                )
+	            )
+	        );
+	    };
+
+	    return toast;
+	})(_react.Component);
+
+	exports['default'] = toast;
+	module.exports = exports['default'];
+
+/***/ },
+/* 282 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(159);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _srcIndex = __webpack_require__(208);
+
+	var Demo = (function (_Component) {
+	    _inherits(Demo, _Component);
+
+	    function Demo(props, context) {
+	        _classCallCheck(this, Demo);
+
+	        _Component.call(this, props, context);
+
+	        this.state = {
+	            name: ''
+	        };
+	    }
+
+	    Demo.prototype.setValue = function setValue(key, e) {
+	        var o = {};
+	        o[key || e.target.name] = e.target.value;
+	        this.setState(o);
+	    };
+
+	    Demo.prototype.render = function render() {
+	        return _react2['default'].createElement(
+	            'div',
+	            { className: 'list-demo' },
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'list-item' },
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        '三人行骨头王火锅'
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    { className: 'row-label' },
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            _srcIndex.Label,
+	                            { phSize: '' },
+	                            '惠'
+	                        ),
+	                        _react2['default'].createElement(
+	                            _srcIndex.Label,
+	                            { phSize: '', phStyle: 'info' },
+	                            '团'
+	                        )
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(_srcIndex.Star, { Rate: 20, size: '' })
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    { className: 'row-address' },
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'span',
+	                            null,
+	                            '休闲娱乐|黄浦路 南京东路819号百联世贸7楼'
+	                        ),
+	                        _react2['default'].createElement(
+	                            'span',
+	                            null,
+	                            '5.4km'
+	                        )
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            _srcIndex.Button,
+	                            { phSize: '' },
+	                            '非本战区 公海'
+	                        )
+	                    )
+	                )
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'list-item' },
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        '三人行骨头王火锅'
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    { className: 'row-label' },
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            _srcIndex.Label,
+	                            { phSize: '' },
+	                            '惠'
+	                        ),
+	                        _react2['default'].createElement(
+	                            _srcIndex.Label,
+	                            { phSize: '', phStyle: 'info' },
+	                            '团'
+	                        )
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(_srcIndex.Star, { Rate: 20, size: '' })
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    { className: 'row-address' },
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            'span',
+	                            null,
+	                            '休闲娱乐|黄浦路 南京东路819号百联世贸7楼'
+	                        ),
+	                        _react2['default'].createElement(
+	                            'span',
+	                            null,
+	                            '5.4km'
+	                        )
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    _srcIndex.Row,
+	                    null,
+	                    _react2['default'].createElement(
+	                        _srcIndex.Col,
+	                        null,
+	                        _react2['default'].createElement(
+	                            _srcIndex.Button,
+	                            { phSize: '' },
+	                            '非本战区 公海'
+	                        )
+	                    )
+	                )
+	            )
+	        );
+	    };
+
+	    return Demo;
+	})(_react.Component);
+
+	exports['default'] = Demo;
+	module.exports = exports['default'];
+
+/***/ },
+/* 283 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32837,7 +33554,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Detail.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            _srcIndex.Grid,
-	            null,
+	            { className: 'detail-demo' },
 	            _react2['default'].createElement(
 	                _srcIndex.Row,
 	                { className: 'top' },
@@ -33089,7 +33806,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            ),
 	            _react2['default'].createElement(
 	                _srcIndex.Row,
-	                { style: { padding: '10px', borderTop: '1px solid #ddd', position: 'fixed', bottom: '0', background: '#fff', width: '100%' } },
+	                { style: { padding: '15px', margin: 0, borderTop: '1px solid #ddd', position: 'fixed', bottom: '0', background: '#fff', width: '100%' } },
 	                _react2['default'].createElement(
 	                    _srcIndex.Col,
 	                    { style: { textAlign: 'center' } },
@@ -33133,220 +33850,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	})(_react.Component);
 
 	exports['default'] = Detail;
-	module.exports = exports['default'];
-
-/***/ },
-/* 281 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	exports.__esModule = true;
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(159);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	var _srcIndex = __webpack_require__(208);
-
-	var Demo = (function (_Component) {
-	    _inherits(Demo, _Component);
-
-	    function Demo(props, context) {
-	        _classCallCheck(this, Demo);
-
-	        _Component.call(this, props, context);
-
-	        this.state = {
-	            name: ''
-	        };
-	    }
-
-	    Demo.prototype.setValue = function setValue(key, e) {
-	        var o = {};
-	        o[key || e.target.name] = e.target.value;
-	        this.setState(o);
-	    };
-
-	    Demo.prototype.render = function render() {
-	        return _react2['default'].createElement(
-	            'div',
-	            { style: {
-	                    padding: '5px 15px'
-	                } },
-	            _react2['default'].createElement(
-	                'div',
-	                { style: {
-	                        borderBottom: '1px solid #ccc'
-	                    } },
-	                _react2['default'].createElement(
-	                    _srcIndex.Row,
-	                    null,
-	                    _react2['default'].createElement(
-	                        _srcIndex.Col,
-	                        null,
-	                        '三人行骨头王火锅'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Row,
-	                    null,
-	                    _react2['default'].createElement(
-	                        _srcIndex.Col,
-	                        null,
-	                        _react2['default'].createElement(
-	                            _srcIndex.Label,
-	                            { phSize: '', style: {
-	                                    marginRight: '5px'
-	                                } },
-	                            '惠'
-	                        ),
-	                        _react2['default'].createElement(
-	                            _srcIndex.Label,
-	                            { phSize: '', phStyle: 'info' },
-	                            '团'
-	                        )
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Row,
-	                    null,
-	                    _react2['default'].createElement(
-	                        _srcIndex.Col,
-	                        null,
-	                        _react2['default'].createElement(_srcIndex.Star, { Rate: 20, size: '' })
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Row,
-	                    null,
-	                    _react2['default'].createElement(
-	                        _srcIndex.Col,
-	                        { style: {
-	                                fontSize: '12px',
-	                                color: '#999'
-	                            } },
-	                        _react2['default'].createElement(
-	                            'span',
-	                            null,
-	                            '休闲娱乐|黄浦路  南京东路819号百联世贸7楼'
-	                        ),
-	                        _react2['default'].createElement(
-	                            'span',
-	                            null,
-	                            '5.4km'
-	                        )
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Row,
-	                    null,
-	                    _react2['default'].createElement(
-	                        _srcIndex.Col,
-	                        null,
-	                        _react2['default'].createElement(
-	                            _srcIndex.Button,
-	                            { phSize: '' },
-	                            '非本战区 公海'
-	                        )
-	                    )
-	                )
-	            ),
-	            _react2['default'].createElement(
-	                'div',
-	                { style: {
-	                        borderBottom: '1px solid #ccc'
-	                    } },
-	                _react2['default'].createElement(
-	                    _srcIndex.Row,
-	                    null,
-	                    _react2['default'].createElement(
-	                        _srcIndex.Col,
-	                        null,
-	                        '三人行骨头王火锅'
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Row,
-	                    null,
-	                    _react2['default'].createElement(
-	                        _srcIndex.Col,
-	                        null,
-	                        _react2['default'].createElement(
-	                            _srcIndex.Label,
-	                            { phSize: '', style: {
-	                                    marginRight: '5px'
-	                                } },
-	                            '惠'
-	                        ),
-	                        _react2['default'].createElement(
-	                            _srcIndex.Label,
-	                            { phSize: '', phStyle: 'info' },
-	                            '团'
-	                        )
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Row,
-	                    null,
-	                    _react2['default'].createElement(
-	                        _srcIndex.Col,
-	                        null,
-	                        _react2['default'].createElement(_srcIndex.Star, { Rate: 20, size: '' })
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Row,
-	                    null,
-	                    _react2['default'].createElement(
-	                        _srcIndex.Col,
-	                        { style: {
-	                                fontSize: '12px',
-	                                color: '#999'
-	                            } },
-	                        _react2['default'].createElement(
-	                            'span',
-	                            null,
-	                            '休闲娱乐|黄浦路  南京东路819号百联世贸7楼'
-	                        ),
-	                        _react2['default'].createElement(
-	                            'span',
-	                            null,
-	                            '5.4km'
-	                        )
-	                    )
-	                ),
-	                _react2['default'].createElement(
-	                    _srcIndex.Row,
-	                    null,
-	                    _react2['default'].createElement(
-	                        _srcIndex.Col,
-	                        null,
-	                        _react2['default'].createElement(
-	                            _srcIndex.Button,
-	                            { phSize: '' },
-	                            '非本战区 公海'
-	                        )
-	                    )
-	                )
-	            )
-	        );
-	    };
-
-	    return Demo;
-	})(_react.Component);
-
-	exports['default'] = Demo;
 	module.exports = exports['default'];
 
 /***/ }

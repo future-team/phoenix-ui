@@ -7,7 +7,7 @@ import Col from './Col';
 /**
  * 表单元素布局方式，整齐的排列一组表单元素
  * @class FormGroup
- * @module Form
+ * @module 表单组件
  * @extends Component
  * @constructor
  * @demo form-group.js {展示}

@@ -77,7 +77,7 @@ let Index = class index extends Component {
                     <Card href="#/toast" title="Toast" desp="飘字" />
                     <Card href="#/popup" title="Popup" desp="弹层" />
                     <Card href="#/popover" title="Whisper/Popover" desp="气泡" />
-                    <Card href="#/tab" title="Tab" desp="选项卡" />
+                    <Card href="#/tab" title="Tabset/Tab" desp="选项卡" />
                     <Card href="#/slider" title="Slider" desp="滑动输入条" />
                     <Card href="#/swipe" title="Swipe" desp="左滑动" />
                 </div>

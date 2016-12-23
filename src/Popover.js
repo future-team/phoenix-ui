@@ -4,9 +4,9 @@ import classnames from 'classnames';
 import Tool from './utils/Tool'
 
 /**
- * 功能组件-气泡
+ * 气泡
  * @class Popover
- * @module Tooltips
+ * @module 提示组件
  * @extends Component
  * @constructor
  * @demo popover.js {展示}
@@ -27,14 +27,14 @@ export default class Popover extends Component{
     static defaultProps = {
         componentTag: 'div',
         classMapping : {
-            'top': 'popover-top center-x',
-            'bottom': 'popover-bottom center-x',
-            'left': 'popover-left center-y',
-            'right': 'popover-right center-y',
-            'top left': 'popover-top left-x',
-            'top right': 'popover-top right-x',
-            'bottom left': 'popover-bottom left-x',
-            'bottom right': 'popover-bottom right-x'
+            'top': 'ph-popover-top center-x',
+            'bottom': 'ph-popover-bottom center-x',
+            'left': 'ph-popover-left center-y',
+            'right': 'ph-popover-right center-y',
+            'top left': 'ph-popover-top left-x',
+            'top right': 'ph-popover-top right-x',
+            'bottom left': 'ph-popover-bottom left-x',
+            'bottom right': 'ph-popover-bottom right-x'
         }
     };
 
@@ -49,7 +49,7 @@ export default class Popover extends Component{
     handleDocumentClick(event){
         let el = event.target;
 
-        if(!Tool.closest(el,'.popover') && !(this.props.whisper==event.target)){
+        if(!Tool.closest(el,'.ph-popover') && !(this.props.whisper==event.target)){
             this.props.onClose();
         }
 
@@ -66,14 +66,14 @@ export default class Popover extends Component{
         return (
             <Component {...this.props}
                 className={classnames(
-                    'popover',
+                    'ph-popover',
                     this.getProperty(),
                     className
                 )}
                 style={Object.assign(styles, style)}
             >
-                <div className='popover-arrow'></div>
-                <div className='popover-content'>
+                <div className='ph-popover-arrow'></div>
+                <div className='ph-popover-content'>
                     {children}
                 </div>
             </Component>

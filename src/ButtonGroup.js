@@ -13,7 +13,7 @@ import classnames from 'classnames';
  *     </li>
  * </ul>
  * @class ButtonGroup
- * @module Form
+ * @module 基础组件
  * @extends Component
  * @constructor
  * @since 0.1.4

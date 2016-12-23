@@ -4,7 +4,7 @@ import classnames from 'classnames';
 /**
  * 行
  * @class Row
- * @module Grid
+ * @module 布局组件
  * @extends Component
  * @constructor
  * @since 0.1.0

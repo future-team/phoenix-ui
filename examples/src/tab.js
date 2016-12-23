@@ -25,7 +25,7 @@ export default class input extends Component{
     render(){
         return(
            <div>
-                <h2 className="comp-title">Tab</h2>
+                <h2 className="comp-title">Tabset/Tab</h2>
                 <h3 className="comp-type">横向(default)</h3>
                 <div className="content">
                     <Tabset activeIndex ={this.state.index} className='test-name' tabCallback={::this.tabCallback}>

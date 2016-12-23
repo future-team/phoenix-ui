@@ -5,7 +5,7 @@ import classnames from 'classnames';
 /**
  * 表单元素textarea
  * @class TextArea
- * @module Form
+ * @module 表单组件
  * @extends Component
  * @constructor
  * @demo textarea.js {展示}
@@ -21,6 +21,12 @@ export default class Textarea extends Component{
          * @type String
          * */
         classPrefix:PropTypes.string,
+        /**
+         * 输入时执行的回调
+         * @property onChange
+         * @type Function
+         * */
+        onChange:PropTypes.func,
         /**
          * 是否显示输入计数
          * @property isCount
@@ -63,17 +69,17 @@ export default class Textarea extends Component{
         let {isCount, maxLength} = this.props;
 
         return (
-            <div className='textarea-field'>
+            <div className='ph-textarea-field'>
                 <textarea {...this.props} className={classnames(
-                    'form-textarea',
+                    'ph-textarea',
                     this.getProperty(),
                     this.props.className
                 )} onChange={(event)=>{this.onChange(event)}}></textarea>
                 <span className={classnames(
-                    'textarea-count',
+                    'ph-textarea-count',
                     isCount? 'show':'hide'
                 )}>
-                    <b className='input-length'>{this.state.inputLength}</b>/<b>{maxLength}</b>
+                    <b className='ph-textarea-length'>{this.state.inputLength}</b>/<b>{maxLength}</b>
                 </span>
             </div>
         );

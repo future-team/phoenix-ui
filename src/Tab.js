@@ -21,7 +21,7 @@ import classnames from 'classnames';
  *       <li>clickCallback: 点击事件的回调函数，默认为null</li>
  * </ul>
  * @class Tab
- * @module Tab(选项卡)
+ * @module 选项卡
  * @extends Component
  * @constructor
  * @since 0.1.0
