@@ -15,8 +15,8 @@ import classnames from 'classnames';
  * <strong><a href='../classes/Row.html'>Row定义行排列</a></strong><br>
  * <strong><a href='../classes/Col.html'>Col定义竖排列</a></strong><br>
  * <h6>点击以上链接进行相关查看</h6>
- * @module Grid
- * @main Grid
+ * @module 布局组件
+ * @main 布局组件
  * @static
  *
  */
@@ -24,7 +24,7 @@ import classnames from 'classnames';
 /**
  * 定义栅格容器,配合Col和Row使用
  * @class Grid
- * @module Grid
+ * @module 布局组件
  * @extends Component
  * @constructor
  * @show true

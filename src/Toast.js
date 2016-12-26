@@ -4,9 +4,9 @@ import Component from './utils/Component';
 import classnames from 'classnames';
 
 /**
- * 功能组件-飘字
+ * 飘字
  * @class Toast
- * @module Action
+ * @module 操作类组件
  * @extends Component
  * @constructor
  * @demo toast.js {展示}
@@ -16,12 +16,6 @@ import classnames from 'classnames';
 class Toast extends Component{
 
     static propTypes = {
-        /**
-         * 样式前缀
-         * @property classPrefix
-         * @type String
-         * */
-        classPrefix:PropTypes.string,
         /**
          * 标签tagName
          * @property componentTag
@@ -45,11 +39,11 @@ class Toast extends Component{
 
         return (
             <Component {...this.props} className={classnames(
-                'toast'
+                'ph-toast'
             )}>
-                <div className="toast-shadow"></div>
-                <div className="toast-main">
-                    <div className={classnames("toast-content")}>
+                <div className="ph-toast-shadow"></div>
+                <div className="ph-toast-main">
+                    <div className={classnames("ph-toast-content")}>
                         {this.props.children}
                     </div>
                 </div>

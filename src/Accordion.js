@@ -8,7 +8,7 @@ import AccordionBody from './AccordionBody';
 /**
  * 手风琴
  * @class Accordion
- * @module Action
+ * @module 操作类组件
  * @extends Component
  * @constructor
  * @demo accordion.js {展示}
@@ -19,24 +19,27 @@ class Accordion extends Component{
 
     static propTypes = {
         /**
-         * 样式前缀
-         * @property classPrefix
-         * @type String
-         * */
-        classPrefix:PropTypes.string,
-        /**
          * 标签tagName
          * @property componentTag
          * @type String
          * */
         componentTag:PropTypes.string,
-        visible: PropTypes.bool
+        /**
+         * 是否可见标识
+         * @property visible
+         * @type Boolean
+         * */
+        visible: PropTypes.bool,
+        /**
+         * 动作的执行函数
+         * @property onChange
+         * @type Function
+         * */
+        onChange: PropTypes.func
     };
 
     static defaultProps = {
         visible: false,
-        egSize:'',
-        classPrefix:'',
         componentTag:'div',
         classMapping : {
         }
@@ -66,7 +69,7 @@ class Accordion extends Component{
 
         return (
             <Component {...this.props} className={classnames(
-                'accordion',
+                'ph-accordion',
                 this.getProperty(),
                 className
             )}>

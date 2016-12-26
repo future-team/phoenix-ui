@@ -10,7 +10,7 @@ export default class DialogTitle extends Component{
     render(){
         return (
             <h2 {...this.props} className={classnames(
-                'dialog-title',
+                'ph-dialog-title',
                 this.props.className
             )}>
                 {this.props.children}

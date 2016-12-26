@@ -10,7 +10,7 @@ export default class DialogBody extends Component{
     render(){
         return (
             <div {...this.props} className={classnames(
-                'dialog-body',
+                'ph-dialog-body',
                 this.props.className
             )}>
                 {this.props.children}

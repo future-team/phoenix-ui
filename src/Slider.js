@@ -7,7 +7,7 @@ import Drag from './Drag';
 /**
  * 滑动输入条 Slider
  * @class Slider
- * @module Action
+ * @module 操作类组件
  * @extends Component
  * @constructor
  * @demo slider.js {展示}
@@ -23,7 +23,18 @@ export default class Slider extends Component{
          * @type String
          * */
         componentTag:PropTypes.string,
-        progress:PropTypes.number
+        /**
+         * 初始进程,默认0
+         * @property progress
+         * @type String
+         * */
+        progress:PropTypes.number,
+        /**
+         * 进程提示的位置,默认top
+         * @property placement
+         * @type String
+         * */
+        placement: PropTypes.string
     };
 
     static defaultProps = {
@@ -31,9 +42,9 @@ export default class Slider extends Component{
         progress: 0,
         componentTag:'div',
         classMapping : {
-            'disabled': 'slider-disabled',
-            'top': 'slider-tip-top',
-            'bottom': 'slider-tip-bottom'
+            'disabled': 'ph-slider-disabled',
+            'top': 'ph-slider-tip-top',
+            'bottom': 'ph-slider-tip-bottom'
         }
     };
 
@@ -91,15 +102,15 @@ export default class Slider extends Component{
 
         return (
             <Component {...this.props} className={classnames(
-                'slider',
+                'ph-slider',
                 this.getProperty(),
                 className
             )}>
-                <div className="slider-line" ref={(sliderLine)=>{this.sliderLine=sliderLine}}>
-                    <div className="slider-progress" ref={(sliderProgress)=>{this.sliderProgress=sliderProgress}}></div>
-                    <div className="slider-drag" ref={(sliderBtn)=>{this.sliderBtn=sliderBtn}}>
-                        <div className={classnames("slider-tip", this.state.tipVisible?'show':'hide')}>{this.state.newProgress}</div>
-                        <Drag className="slider-btn" onDrag={::this.onDrag} onDrop={::this.onDrop}></Drag>
+                <div className="ph-slider-line" ref={(sliderLine)=>{this.sliderLine=sliderLine}}>
+                    <div className="ph-slider-progress" ref={(sliderProgress)=>{this.sliderProgress=sliderProgress}}></div>
+                    <div className="ph-slider-content" ref={(sliderBtn)=>{this.sliderBtn=sliderBtn}}>
+                        <div className={classnames("ph-slider-tip", this.state.tipVisible?'show':'hide')}>{this.state.newProgress}</div>
+                        <Drag className="ph-slider-btn" onDrag={::this.onDrag} onDrop={::this.onDrop}></Drag>
                     </div>
                 </div>
             </Component>

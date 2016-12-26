@@ -1,11 +1,21 @@
 import React,{Component, PropTypes, cloneElement} from 'react';
 import ReactDOM from 'react-dom';
 import classnames from 'classnames';
+/**
+ * <h5>提示模块，主要包括一下两个组件:</h5>
+ * <strong><a href='../classes/Whisper.html'>Whisper</a></strong><br/>
+ * <strong><a href='../classes/Popover.html'>Popover</a></strong><br>
+ * <h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>
+ * @module 提示组件
+ * @main 提示组件
+ * @static
+ *
+ */
 
 /**
- * 辅助功能组件 - 倾听者
+ * 倾听者
  * @class Whisper
- * @module Tooltip
+ * @module 提示组件
  * @extends Component
  * @constructor
  * @demo popover.js {展示}
@@ -21,8 +31,30 @@ export default class Whisper extends Component{
          * @type String
          * */
         componentTag: PropTypes.string,
+        /**
+         * 显示的目标气泡
+         * @property target
+         * @type Object
+         * */
+        target: PropTypes.object,
+        /**
+         * 气泡的位置,默认bottom
+         * @property placement
+         * @type String
+         * */
         placement: PropTypes.string,
-        distance: PropTypes.number
+        /**
+         * 气泡距离点击物的位置,默认15
+         * @property distance
+         * @type Number
+         * */
+        distance: PropTypes.number,
+        /**
+         * 气泡显隐时可执行的额外函数,自定义
+         * @property onChange
+         * @type Function
+         * */
+        onChange: PropTypes.func
     };
 
     static defaultProps = {
@@ -154,7 +186,7 @@ export default class Whisper extends Component{
 
         return (
             <div {...this.props}
-                className={classnames('whisper', className)}
+                className={classnames('ph-whisper', className)}
                 onClick={::this.onToggle}
                 ref={(whisper)=>{this.whisper = whisper}}
             >

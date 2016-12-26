@@ -28,7 +28,7 @@ export default class textarea extends Component{
                 <h3 className="comp-type">不计字数 isCount(default:false)</h3>
                 <div className="content">
                     <Textarea value={this.state.name} placeholder='请输入...'
-                    onChange={this.setValue.bind(this,'name')} maxLength={this.state.MAX_LENGTH}></Textarea>
+                    onChange={this.setValue.bind(this,'name')}></Textarea>
                 </div>
                 <h3 className="comp-type">计字数 isCount(true)</h3>
                 <div className="content">

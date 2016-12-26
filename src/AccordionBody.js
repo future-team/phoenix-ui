@@ -18,7 +18,7 @@ export default class AccordionBody extends Component{
 
         return (
             <div {...this.props} className={classnames(
-                'accordion-body',
+                'ph-accordion-body',
                 'animated',
                 className
             )} style={{

@@ -4,9 +4,9 @@ import classnames from 'classnames';
 import Animate from './Animate';
 
 /**
- * 功能组件-弹框
+ * 弹层
  * @class Popup
- * @module Action
+ * @module 操作类组件
  * @extends Component
  * @constructor
  * @demo popup.js {展示}
@@ -22,7 +22,24 @@ export default class Popup extends Component{
          * @type String
          * */
         componentTag: PropTypes.string,
-        visible: PropTypes.bool
+        /**
+         * 是否可见标识
+         * @property visible
+         * @type Boolean
+         * */
+        visible: PropTypes.bool,
+        /**
+         * 弹层的位置,默认top
+         * @property align
+         * @type String
+         * */
+        align: PropTypes.string,
+        /**
+         * 关闭的执行函数
+         * @property onClose
+         * @type Function
+         * */
+        onClose: PropTypes.func
     };
 
     static defaultProps = {
@@ -30,8 +47,8 @@ export default class Popup extends Component{
         align: 'top',
         componentTag:'div',
         classMapping : {
-            'top': 'popup-top',
-            'bottom': 'popup-bottom'
+            'top': 'ph-popup-top',
+            'bottom': 'ph-popup-bottom'
         }
     };
 
@@ -43,7 +60,7 @@ export default class Popup extends Component{
         let {visible, onClose} = this.props;
 
         if(visible){
-            return <div className="popup-shadow animated" onClick={onClose}></div>;
+            return <div className="ph-popup-shadow animated" onClick={onClose}></div>;
         }else{
             return '';
         }
@@ -53,7 +70,7 @@ export default class Popup extends Component{
         let {visible,children,className} = this.props;
 
         if(visible){
-            return <div {...this.props} className={classnames('popup-main', 'animated', className)}>{children}</div>;
+            return <div {...this.props} className={classnames('ph-popup-main', 'animated', className)}>{children}</div>;
         }else{
             return '';
         }
@@ -64,14 +81,14 @@ export default class Popup extends Component{
 
         return (
             <Component {...this.props} className={classnames(
-                'popup',
+                'ph-popup',
                 this.getProperty(),
                 className
             )}>
                 <Animate>
                     {this.renderShadow()}
                 </Animate>
-                <Animate className='popup-content' transitionName={`slide-${this.props.align}`}>
+                <Animate className='ph-popup-content' transitionName={`slide-${this.props.align}`}>
                     {this.renderPopup()}
                 </Animate>
             </Component>

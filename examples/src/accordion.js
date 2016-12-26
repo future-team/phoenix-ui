@@ -29,10 +29,10 @@ export default class accordion extends Component{
                         标题一<span className={classnames("iconfont icon-chevron-more", this.state.visible?'active':'')} style={{float:'right'}}></span>
                     </Accordion.Header>
                     <Accordion.Body>
-                        <ul className="accordion-list">
-                            <li className="accordion-item">内容一</li>
-                            <li className="accordion-item">内容二</li>
-                            <li className="accordion-item">内容三</li>
+                        <ul className="ph-accordion-list">
+                            <li className="ph-accordion-item">内容一</li>
+                            <li className="ph-accordion-item">内容二</li>
+                            <li className="ph-accordion-item">内容三</li>
                         </ul>
                     </Accordion.Body>
                 </Accordion>

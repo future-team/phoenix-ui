@@ -6,7 +6,7 @@ import classnames from 'classnames';
  * 展现形式如表格一般,用来组织数据，显示链接的集合，或一系列的控件。<br />
  * 使用时需注意组件的子元素需要跳转功能需加上href标签并赋予正确的url，不论什么标签
  * @class TableView
- * @module UI
+ * @module 布局组件
  * @extends Component
  * @constructor
  * @demo table-view.js {展示}

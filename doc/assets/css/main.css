@@ -91,7 +91,7 @@ div.filterAPi {
 }
 .example-content {
     margin-bottom: 10px;
-    padding:0 20px;
+    padding:0;
 }
 .yui3-smart .sign-left1 {
     border-left: 5px #d9534f solid;
@@ -301,7 +301,7 @@ kbd .cmd {
     background: #e60923;
 }
 .apidocs .item {
-    padding-bottom: 10px;
+    padding: 0 20px 10px;
     margin: 20px 0 15px;
 }
 .apidocs .method.item {
@@ -323,15 +323,16 @@ kbd .cmd {
 .apidocs .item .name {
     font-size: 24px;
     border-bottom: 1px solid #efefef;
-    margin: 5px 0 10px -15px;
+    margin: 5px 0 10px 0;
     padding-bottom: 10px;
 }
 .apidocs .item .type, .apidocs .item .type a, .apidocs .returns-inline {
     color: #555;
 }
 .apidocs .item .type, .apidocs .returns-inline {
-    font-size: 11px;
-    margin: 0 0 0 5px;
+    font-size: 12px;
+    font-weight: 800;
+    margin: 0;
 }
 .apidocs .item .type a {
     border-bottom: 1px dotted #afafaf;
@@ -490,7 +491,7 @@ kbd .cmd {
     padding-bottom: 5px;
 }
 .nav.example-list {
-    margin:10px;
+    margin:10px 0;
 }
 .nav.example-list a {
     cursor:pointer !important;
@@ -507,7 +508,7 @@ kbd .cmd {
     background: none;
 }
 .btn-viewDemo,.btn-editDemo {
-    margin-left:20px;
+    margin-right:20px;
 }
 .example-content .stdoc-code {
     display: none;

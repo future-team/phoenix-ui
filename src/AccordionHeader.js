@@ -12,7 +12,7 @@ export default class AccordionHeader extends Component{
 
         return (
             <div className={classnames(
-                    'accordion-header',
+                    'ph-accordion-header',
                     className
                 )}
                 onClick={onChange}

@@ -8,7 +8,7 @@ import Button from './Button';
 /**
  * 功能组件-左滑swipe
  * @class Swipe
- * @module Action
+ * @module 操作类组件
  * @extends Component
  * @constructor
  * @demo swipe.js {展示}
@@ -23,7 +23,13 @@ export default class Swipe extends Component{
          * @property componentTag
          * @type String
          * */
-        componentTag:PropTypes.string
+        componentTag:PropTypes.string,
+        /**
+         * 按钮组
+         * @property buttons
+         * @type Array
+         * */
+        buttons: PropTypes.array
     };
 
     static defaultProps = {
@@ -54,7 +60,7 @@ export default class Swipe extends Component{
 
     renderButtonByType(btnInfo){
         return (
-            <div className={`swipe-btns`} key='buttons' ref={(buttons)=>{this.buttons = buttons;}}>
+            <div className={`ph-swipe-btns`} key='buttons' ref={(buttons)=>{this.buttons = buttons;}}>
                 {
                     btnInfo.map((item,index) => {
                         return <Button key={index} phStyle={item.phStyle}>{item.text}</Button>
@@ -113,10 +119,10 @@ export default class Swipe extends Component{
 
         return (
             <Component className={classnames(
-                'swipe-action',
+                'ph-swipe',
                 className
             )} style={this.getStyles(this.props.style)}>
-                <Drag className="swipe-content" onDrag={::this.onDrag} onDrop={::this.onDrop}>
+                <Drag className="ph-swipe-content" onDrag={::this.onDrag} onDrop={::this.onDrop}>
                     {this.props.children}
                 </Drag>
                 {this.renderOperationButton(buttons)}

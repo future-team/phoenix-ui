@@ -10,8 +10,9 @@ export default class DialogFooter extends Component{
     render(){
         return (
             <div {...this.props} className={classnames(
-                'dialog-footer',
-                this.props.className
+                'ph-dialog-footer',
+                this.props.className,
+                'btn-group  btn-group-justify clearfix'
             )}>
                 {this.props.children}
             </div>

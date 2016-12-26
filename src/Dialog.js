@@ -8,9 +8,9 @@ import DialogBody from './DialogBody';
 import DialogFooter from './DialogFooter';
 
 /**
- * 功能组件 - 弹框
+ * 弹框
  * @class Dialog
- * @module Action
+ * @module 操作类组件
  * @extends Component
  * @constructor
  * @demo dialog.js {展示}
@@ -21,24 +21,21 @@ class Dialog extends Component{
 
     static propTypes = {
         /**
-         * 样式前缀
-         * @property classPrefix
-         * @type String
-         * */
-        classPrefix:PropTypes.string,
-        /**
          * 标签tagName
          * @property componentTag
          * @type String
          * */
         componentTag:PropTypes.string,
+        /**
+         * 是否可见标识
+         * @property visible
+         * @type Boolean
+         * */
         visible: PropTypes.bool
     };
 
     static defaultProps = {
         visible: false,
-        egSize:'',
-        classPrefix:'',
         componentTag:'div',
         classMapping : {
         }
@@ -52,7 +49,7 @@ class Dialog extends Component{
         let {visible, onClose} = this.props;
 
         if(visible){
-            return <div className="dialog-shadow animated" onClick={onClose}></div>;
+            return <div className="ph-dialog-shadow animated" onClick={onClose}></div>;
         }else{
             return '';
         }
@@ -61,8 +58,8 @@ class Dialog extends Component{
     renderContent(){
         if(this.props.visible){
             return (
-                <div className="dialog-main animated">
-                    <div className="dialog-content">
+                <div className="ph-dialog-main animated">
+                    <div className="ph-dialog-content">
                         {this.renderDialog()}
                     </div>
                 </div>
@@ -93,7 +90,7 @@ class Dialog extends Component{
 
         return (
             <Component {...this.props} className={classnames(
-                'dialog',
+                'ph-dialog',
                 this.getProperty(),
                 className
             )}>

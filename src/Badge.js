@@ -18,7 +18,7 @@ import classnames from 'classnames';
  *     </li>
  * </ul>
  * @class Badge
- * @module Label(标签)
+ * @module 标签组件
  * @extends Component
  * @constructor
  * @since 0.1.0

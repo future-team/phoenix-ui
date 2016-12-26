@@ -17,35 +17,36 @@ module.exports = {
 
         //项目描述，可以配置html，会生成到document主页
         description:
-        '<h3>欢迎使用基于react开发的app组件库'+projectName+'，左侧的导航栏为相关组件的名称和链接</h3>' +
-        '<p>&nbsp;</p>'+
-        '<h4>该组件库为app组件库，什么？你说pc版？不要急我们也有。出门左转github搜索"eagle-ui"</h4>'+
-        '<p>&nbsp;</p>'+
-        '<h4>知道你很懒，来吧传送门猛戳<a href="http://uedfamily.com/documents/eagle-ui/doc/">eagle-ui</a></h4>'+
-        '<p>&nbsp;</p>'+
-        '<h4>您可以点击顶部导航栏的<strong><a href="/documents/eagle-ui/examples/">示例</a></strong>，' +
-        '查看eagle-ui组件的UI效果及功能演示</h4>'+
-        '<p>&nbsp;</p>'+
-        '<h4>您可以通过如下方式查看组件的API</h4>'+
-
-        '<ol>' +
-        '<li><h4>在输入框中输入组件名字进行查询</h4></li>' +
-        '<li><h4>点击左侧API导航栏</h4></li>' +
-        '</ol>'+
-        '<strong>说明:</strong>左侧导航栏中对应的链接名字即为组件名字'+
-        '<p>&nbsp;</p>'+
-        '<h4>您可以采用如下形式在项目中应用'+projectName+'</h4>'+
-        '<pre>import {CheckboxGroup}(根据您的需要引入组件) from \''+projectName+'\'使用相关组件</pre>'+
-        '或者' +
-        '<pre>'+
-        '<div>&#60;script src="path to '+projectName+'.js" &#62;&#60;/script&#62;的形式使用'+projectName+'</div></pre>',
+        '<h1>Phoenix-ui of React</h1>' +
+        '<p><strong>'+projectName+'</strong>是基于React框架实现的移动端UI组件库。</p>' +
+        '<p>github: <a href="https://github.com/future-team/phoenix-ui">https://github.com/future-team/phoenix-ui</a></p>' +
+        '<h2>特性</h2>'+
+        '<ul>' +
+        '<li>有较丰富的组件可供选择,也将持续丰富和优化</li>' +
+        '<li>组件具有拓展性</li>' +
+        '<li>具备组件基本的特性,同时提供很大程度的自定义内容的空间</li>' +
+        '</ul>' +
+        '<h2>安装</h2>'+
+        '<p>组件中使用到动画的部分需要额外安装 <strong>react-addons-css-transition-group</strong> 来支持</p>'+
+        '<pre>npm install '+projectName+' --save \nnpm install react-addons-css-transition-group --save</pre>'+
+        '<h2>使用</h2>'+
+        '<h3>CommonJS</h3>'+
+        '<pre>var Button = require(\''+projectName+'/lib/Button\')</pre>'+
+        '<h3>ES6</h3>'+
+        '<pre>import {Button} from \''+projectName+'\'</pre>'+
+        '<h3>Browser globals</h3>'+
+        '<pre>&#60;script src="./dist/'+projectName+'.js"&#62;&#60;/script&#62;</pre>'+
+        '<h2>其他</h2>'+
+        '<p>'+projectName+'需要和 <a href="https://github.com/future-team/phoenix-styles">phoenix-styles</a> 配合使用,提供阿波罗默认样式phoenix-styles.min.css,需要IOS样式同时引入skin-ios.min.css即可。</p>'+
+        '<h2>推荐PC端React UI组件库 - eagle-ui</h2>'+
+        '<p>github: <a href="https://github.com/future-team/eagle-ui">https://github.com/future-team/eagle-ui</a></p>',
 
         //版本信息
-        version: '0.1.0',
+        version: '1.0.0',
 
         //地址信息
         url: '',
-        //logo:'dp-logo.png',
+        // logo:'dp-logo.png',
 
         //导航信息
         navs: [
@@ -53,10 +54,10 @@ module.exports = {
                 name: "主页",
                 url: ""
             },
-            {
-                name: "例子",
-                url: "../examples/"
-            }
+            // {
+            //     name: "例子",
+            //     url: "../examples/"
+            // }
         ]
     },
     //demo页面需要加载的js库

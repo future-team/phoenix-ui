@@ -811,7 +811,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *     </li>
 	 * </ul>
 	 * @class Button
-	 * @module Form
+	 * @module 基础组件
 	 * @extends Component
 	 * @constructor
 	 * @demo button.js {展示}
@@ -1809,7 +1809,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *     </li>
 	 * </ul>
 	 * @class ButtonGroup
-	 * @module Form
+	 * @module 基础组件
 	 * @extends Component
 	 * @constructor
 	 * @since 0.1.4
@@ -1931,7 +1931,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 表单元素，input框，使用方式跟原生一致
 	 * @class Input
-	 * @module Form
+	 * @module 表单组件
 	 * @extends Component
 	 * @constructor
 	 * @demo input.js {展示}
@@ -2053,7 +2053,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 表单元素textarea
 	 * @class TextArea
-	 * @module Form
+	 * @module 表单组件
 	 * @extends Component
 	 * @constructor
 	 * @demo textarea.js {展示}
@@ -2073,6 +2073,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * @type String
 	             * */
 	            classPrefix: _react.PropTypes.string,
+	            /**
+	             * 输入时执行的回调
+	             * @property onChange
+	             * @type Function
+	             * */
+	            onChange: _react.PropTypes.func,
 	            /**
 	             * 是否显示输入计数
 	             * @property isCount
@@ -2126,16 +2132,16 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            'div',
-	            { className: 'textarea-field' },
-	            _react2['default'].createElement('textarea', _extends({}, this.props, { className: _classnames2['default']('form-textarea', this.getProperty(), this.props.className), onChange: function (event) {
+	            { className: 'ph-textarea-field' },
+	            _react2['default'].createElement('textarea', _extends({}, this.props, { className: _classnames2['default']('ph-textarea', this.getProperty(), this.props.className), onChange: function (event) {
 	                    _this.onChange(event);
 	                } })),
 	            _react2['default'].createElement(
 	                'span',
-	                { className: _classnames2['default']('textarea-count', isCount ? 'show' : 'hide') },
+	                { className: _classnames2['default']('ph-textarea-count', isCount ? 'show' : 'hide') },
 	                _react2['default'].createElement(
 	                    'b',
-	                    { className: 'input-length' },
+	                    { className: 'ph-textarea-length' },
 	                    this.state.inputLength
 	                ),
 	                '/',
@@ -2187,7 +2193,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 开关切换，仿真ios的开关控件
 	 * @class Switch
-	 * @module Form
+	 * @module 表单组件
 	 * @extends Component
 	 * @constructor
 	 * @demo switch.js {展示}
@@ -2279,7 +2285,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 行
 	 * @class Row
-	 * @module Grid
+	 * @module 布局组件
 	 * @extends Component
 	 * @constructor
 	 * @since 0.1.0
@@ -2363,7 +2369,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 列
 	 * @class Col
-	 * @module Grid
+	 * @module 布局组件
 	 * @extends Component
 	 * @constructor
 	 * @since 0.1.0
@@ -2467,7 +2473,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * 展现形式如表格一般,用来组织数据，显示链接的集合，或一系列的控件。<br />
 	 * 使用时需注意组件的子元素需要跳转功能需加上href标签并赋予正确的url，不论什么标签
 	 * @class TableView
-	 * @module UI
+	 * @module 布局组件
 	 * @extends Component
 	 * @constructor
 	 * @demo table-view.js {展示}
@@ -2591,7 +2597,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 表单元素布局方式，整齐的排列一组表单元素
 	 * @class FormGroup
-	 * @module Form
+	 * @module 表单组件
 	 * @extends Component
 	 * @constructor
 	 * @demo form-group.js {展示}
@@ -2722,7 +2728,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *       <li>clickCallback: 点击事件的回调函数，默认为null</li>
 	 * </ul>
 	 * @class Tab
-	 * @module Tab(选项卡)
+	 * @module 选项卡
 	 * @extends Component
 	 * @constructor
 	 * @since 0.1.0
@@ -2847,8 +2853,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * <strong><a href='../classes/Tabset.html'>tabset</a></strong><br/>
 	 * <strong><a href='../classes/Tab.html'>tab</a></strong><br>
 	 * <h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>
-	 * @module Tab(选项卡)
-	 * @main Tab(选项卡)
+	 * @module 选项卡
+	 * @main 选项卡
 	 * @static
 	 *
 	 */
@@ -2883,7 +2889,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *
 	 * </ul>
 	 * @class Tabset
-	 * @module Tab(选项卡)
+	 * @module 选项卡
 	 * @extends Component
 	 * @constructor
 	 * @since 0.1.0
@@ -3034,7 +3040,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            ),
 	            _react2['default'].createElement(
 	                'div',
-	                { className: _classnames2['default'](this.getClass(false), 'tab-bd"') },
+	                { className: _classnames2['default'](this.getClass(false), 'tab-bd') },
 	                panels
 	            )
 	        );
@@ -3081,8 +3087,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * <strong><a href='../classes/Label.html'>label 标签</a></strong><br/>
 	 * <strong><a href='../classes/Badge.html'>bridge 徽章</a></strong><br>
 	 * <h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>
-	 * @module Label(标签)
-	 * @main Label(标签)
+	 * @module 标签组件
+	 * @main 标签组件
 	 * @static
 	 *
 	 */
@@ -3111,7 +3117,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *     </li>
 	 * </ul>
 	 * @class Label
-	 * @module Label(标签)
+	 * @module 标签组件
 	 * @extends Component
 	 * @constructor
 	 * @since 0.1.0
@@ -3241,7 +3247,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *     </li>
 	 * </ul>
 	 * @class Badge
-	 * @module Label(标签)
+	 * @module 标签组件
 	 * @extends Component
 	 * @constructor
 	 * @since 0.1.0
@@ -3334,7 +3340,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * <pre><code>&#60;Star rate={50} size={10}/&#62;</code>
 	 * </pre>
 	 * @class Star
-	 * @module UI
+	 * @module 基础组件
 	 * @extends Component
 	 * @constructor
 	 * @demo star.js {UI展示}
@@ -3457,7 +3463,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 拖动Drag
 	 * @class Drag
-	 * @module Basic
+	 * @module 辅助组件
 	 * @extends Component
 	 * @constructor
 	 * @demo Swipe.js {源码}
@@ -3469,13 +3475,24 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    _createClass(Drag, null, [{
 	        key: 'propTypes',
-	        value: {},
+	        value: {
+	            /**
+	             * 抓取的执行函数,对应TouchStart/TouchMove
+	             * @property onDrag
+	             * @type Function
+	             * */
+	            onDrag: _react.PropTypes.func,
+	            /**
+	             * 放开的执行函数,对应TouchEnd
+	             * @property onDrop
+	             * @type Function
+	             * */
+	            onDrop: _react.PropTypes.func
+	        },
 	        enumerable: true
 	    }, {
 	        key: 'defaultProps',
 	        value: {
-	            egSize: '',
-	            classPrefix: '',
 	            classMapping: {}
 	        },
 	        enumerable: true
@@ -3489,9 +3506,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.state = {
 	            position: {}
 	        };
+
+	        this.isMouseDown = false;
 	    }
 
-	    Drag.prototype.onStart = function onStart(event) {
+	    Drag.prototype.onTouchStart = function onTouchStart(event) {
 	        event.stopPropagation();
 
 	        this.state.position.start = { x: event.touches[0].pageX, y: event.touches[0].pageY };
@@ -3502,16 +3521,40 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return false;
 	    };
 
-	    Drag.prototype.onMove = function onMove(event) {
+	    Drag.prototype.onMouseStart = function onMouseStart(event) {
+	        this.isMouseDown = true;
 	        event.stopPropagation();
 
-	        this.state.position.move = { x: event.touches[0].pageX, y: event.touches[0].pageY };
+	        this.state.position.start = { x: event.pageX, y: event.pageY };
+	        this.state.position.move = this.state.position.start;
+
 	        this.props.onDrag(event, this.state.position);
 
 	        return false;
 	    };
 
-	    Drag.prototype.onEnd = function onEnd(event) {
+	    Drag.prototype.onTouchMove = function onTouchMove(event) {
+	        event.stopPropagation();
+
+	        this.state.position.move = { x: event.touches[0].pageX, y: event.touches[0].pageY };
+
+	        this.props.onDrag(event, this.state.position);
+
+	        return false;
+	    };
+
+	    Drag.prototype.onMouseMove = function onMouseMove(event) {
+	        if (!this.isMouseDown) return;
+	        event.stopPropagation();
+
+	        this.state.position.move = { x: event.pageX, y: event.pageY };
+
+	        this.props.onDrag(event, this.state.position);
+
+	        return false;
+	    };
+
+	    Drag.prototype.onTouchEnd = function onTouchEnd(event) {
 	        event.stopPropagation();
 
 	        this.state.position.end = { x: event.changedTouches[0].pageX, y: event.changedTouches[0].pageY };
@@ -3522,7 +3565,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return false;
 	    };
 
-	    Drag.prototype.onCancel = function onCancel(event) {
+	    Drag.prototype.onMouseEnd = function onMouseEnd(event) {
+	        event.stopPropagation();
+
+	        this.state.position.end = { x: event.pageX, y: event.pageY };
+	        this.state.position.start = this.state.position.move;
+
+	        this.props.onDrop(event, this.state.position);
+	        this.isMouseDown = false;
+
+	        return false;
+	    };
+
+	    Drag.prototype.onTouchCancel = function onTouchCancel(event) {
 	        // 触屏取消:忽然来电话等情况
 	    };
 
@@ -3531,18 +3586,28 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            'div',
-	            _extends({}, this.props, { className: _classnames2['default']('drag-action', this.props.className),
+	            _extends({}, this.props, { className: _classnames2['default']('ph-drag-action', this.props.className),
 	                onTouchStart: function (event) {
-	                    _this.onStart(event);
+	                    _this.onTouchStart(event);
 	                },
 	                onTouchMove: function (event) {
-	                    _this.onMove(event);
+	                    _this.onTouchMove(event);
 	                },
 	                onTouchEnd: function (event) {
-	                    _this.onEnd(event);
+	                    _this.onTouchEnd(event);
 	                },
 	                onTouchCancel: function (event) {
-	                    _this.onCancel(event);
+	                    _this.onTouchCancel(event);
+	                },
+
+	                onMouseDown: function (event) {
+	                    _this.onMouseStart(event);
+	                },
+	                onMouseMove: function (event) {
+	                    _this.onMouseMove(event);
+	                },
+	                onMouseUp: function (event) {
+	                    _this.onMouseEnd(event);
 	                }
 	            }),
 	            this.props.children
@@ -3594,7 +3659,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 功能组件-左滑swipe
 	 * @class Swipe
-	 * @module Action
+	 * @module 操作类组件
 	 * @extends Component
 	 * @constructor
 	 * @demo swipe.js {展示}
@@ -3613,7 +3678,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * @property componentTag
 	             * @type String
 	             * */
-	            componentTag: _react.PropTypes.string
+	            componentTag: _react.PropTypes.string,
+	            /**
+	             * 按钮组
+	             * @property buttons
+	             * @type Array
+	             * */
+	            buttons: _react.PropTypes.array
 	        },
 	        enumerable: true
 	    }, {
@@ -3653,7 +3724,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            'div',
-	            { className: 'swipe-btns', key: 'buttons', ref: function (buttons) {
+	            { className: 'ph-swipe-btns', key: 'buttons', ref: function (buttons) {
 	                    _this.buttons = buttons;
 	                } },
 	            btnInfo.map(function (item, index) {
@@ -3722,10 +3793,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            Component,
-	            { className: _classnames2['default']('swipe-action', className), style: this.getStyles(this.props.style) },
+	            { className: _classnames2['default']('ph-swipe', className), style: this.getStyles(this.props.style) },
 	            _react2['default'].createElement(
 	                _Drag2['default'],
-	                { className: 'swipe-content', onDrag: this.onDrag.bind(this), onDrop: this.onDrop.bind(this) },
+	                { className: 'ph-swipe-content', onDrag: this.onDrag.bind(this), onDrop: this.onDrop.bind(this) },
 	                this.props.children
 	            ),
 	            this.renderOperationButton(buttons)
@@ -3778,8 +3849,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * <strong><a href='../classes/Row.html'>Row定义行排列</a></strong><br>
 	 * <strong><a href='../classes/Col.html'>Col定义竖排列</a></strong><br>
 	 * <h6>点击以上链接进行相关查看</h6>
-	 * @module Grid
-	 * @main Grid
+	 * @module 布局组件
+	 * @main 布局组件
 	 * @static
 	 *
 	 */
@@ -3787,7 +3858,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 定义栅格容器,配合Col和Row使用
 	 * @class Grid
-	 * @module Grid
+	 * @module 布局组件
 	 * @extends Component
 	 * @constructor
 	 * @show true
@@ -3871,9 +3942,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _DialogFooter2 = _interopRequireDefault(_DialogFooter);
 
 	/**
-	 * 功能组件 - 弹框
+	 * 弹框
 	 * @class Dialog
-	 * @module Action
+	 * @module 操作类组件
 	 * @extends Component
 	 * @constructor
 	 * @demo dialog.js {展示}
@@ -3888,17 +3959,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: 'propTypes',
 	        value: {
 	            /**
-	             * 样式前缀
-	             * @property classPrefix
-	             * @type String
-	             * */
-	            classPrefix: _react.PropTypes.string,
-	            /**
 	             * 标签tagName
 	             * @property componentTag
 	             * @type String
 	             * */
 	            componentTag: _react.PropTypes.string,
+	            /**
+	             * 是否可见标识
+	             * @property visible
+	             * @type Boolean
+	             * */
 	            visible: _react.PropTypes.bool
 	        },
 	        enumerable: true
@@ -3906,8 +3976,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: 'defaultProps',
 	        value: {
 	            visible: false,
-	            egSize: '',
-	            classPrefix: '',
 	            componentTag: 'div',
 	            classMapping: {}
 	        },
@@ -3926,7 +3994,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var onClose = _props.onClose;
 
 	        if (visible) {
-	            return _react2['default'].createElement('div', { className: 'dialog-shadow animated', onClick: onClose });
+	            return _react2['default'].createElement('div', { className: 'ph-dialog-shadow animated', onClick: onClose });
 	        } else {
 	            return '';
 	        }
@@ -3936,10 +4004,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (this.props.visible) {
 	            return _react2['default'].createElement(
 	                'div',
-	                { className: 'dialog-main animated' },
+	                { className: 'ph-dialog-main animated' },
 	                _react2['default'].createElement(
 	                    'div',
-	                    { className: 'dialog-content' },
+	                    { className: 'ph-dialog-content' },
 	                    this.renderDialog()
 	                )
 	            );
@@ -3973,7 +4041,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            Component,
-	            _extends({}, this.props, { className: _classnames2['default']('dialog', this.getProperty(), className) }),
+	            _extends({}, this.props, { className: _classnames2['default']('ph-dialog', this.getProperty(), className) }),
 	            _react2['default'].createElement(
 	                _Animate2['default'],
 	                null,
@@ -4030,7 +4098,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 动画外层
 	 * @class Animate
-	 * @module Action
+	 * @module 辅助组件
 	 * @extends Component
 	 * @constructor
 	 * @show false
@@ -4042,7 +4110,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _createClass(Animate, null, [{
 	        key: 'propTypes',
 	        value: {
-	            transitionName: _react.PropTypes.string
+	            /**
+	             * 动画名称,默认fade
+	             * @property transitionName
+	             * @type String
+	             * */
+	            transitionName: _react.PropTypes.string,
+	            /**
+	             * 动画进入延迟时间
+	             * @property transitionEnterTimeout
+	             * @type Number
+	             * */
+	            transitionEnterTimeout: _react.PropTypes.number,
+	            /**
+	             * 动画退出延迟时间
+	             * @property transitionLeaveTimeout
+	             * @type Number
+	             * */
+	            transitionLeaveTimeout: _react.PropTypes.number
 	        },
 	        enumerable: true
 	    }, {
@@ -24592,7 +24677,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    DialogTitle.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            'h2',
-	            _extends({}, this.props, { className: _classnames2['default']('dialog-title', this.props.className) }),
+	            _extends({}, this.props, { className: _classnames2['default']('ph-dialog-title', this.props.className) }),
 	            this.props.children
 	        );
 	    };
@@ -24639,7 +24724,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    DialogBody.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            'div',
-	            _extends({}, this.props, { className: _classnames2['default']('dialog-body', this.props.className) }),
+	            _extends({}, this.props, { className: _classnames2['default']('ph-dialog-body', this.props.className) }),
 	            this.props.children
 	        );
 	    };
@@ -24686,7 +24771,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    DialogFooter.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            'div',
-	            _extends({}, this.props, { className: _classnames2['default']('dialog-footer', this.props.className) }),
+	            _extends({}, this.props, { className: _classnames2['default']('ph-dialog-footer', this.props.className, 'btn-group  btn-group-justify clearfix') }),
 	            this.props.children
 	        );
 	    };
@@ -24732,9 +24817,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _classnames2 = _interopRequireDefault(_classnames);
 
 	/**
-	 * 功能组件-飘字
+	 * 飘字
 	 * @class Toast
-	 * @module Action
+	 * @module 操作类组件
 	 * @extends Component
 	 * @constructor
 	 * @demo toast.js {展示}
@@ -24748,12 +24833,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _createClass(Toast, null, [{
 	        key: 'propTypes',
 	        value: {
-	            /**
-	             * 样式前缀
-	             * @property classPrefix
-	             * @type String
-	             * */
-	            classPrefix: _react.PropTypes.string,
 	            /**
 	             * 标签tagName
 	             * @property componentTag
@@ -24782,14 +24861,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            Component,
-	            _extends({}, this.props, { className: _classnames2['default']('toast') }),
-	            _react2['default'].createElement('div', { className: 'toast-shadow' }),
+	            _extends({}, this.props, { className: _classnames2['default']('ph-toast') }),
+	            _react2['default'].createElement('div', { className: 'ph-toast-shadow' }),
 	            _react2['default'].createElement(
 	                'div',
-	                { className: 'toast-main' },
+	                { className: 'ph-toast-main' },
 	                _react2['default'].createElement(
 	                    'div',
-	                    { className: _classnames2['default']("toast-content") },
+	                    { className: _classnames2['default']("ph-toast-content") },
 	                    this.props.children
 	                )
 	            )
@@ -24894,9 +24973,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _Animate2 = _interopRequireDefault(_Animate);
 
 	/**
-	 * 功能组件-弹框
+	 * 弹层
 	 * @class Popup
-	 * @module Action
+	 * @module 操作类组件
 	 * @extends Component
 	 * @constructor
 	 * @demo popup.js {展示}
@@ -24916,7 +24995,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * @type String
 	             * */
 	            componentTag: _react.PropTypes.string,
-	            visible: _react.PropTypes.bool
+	            /**
+	             * 是否可见标识
+	             * @property visible
+	             * @type Boolean
+	             * */
+	            visible: _react.PropTypes.bool,
+	            /**
+	             * 弹层的位置,默认top
+	             * @property align
+	             * @type String
+	             * */
+	            align: _react.PropTypes.string,
+	            /**
+	             * 关闭的执行函数
+	             * @property onClose
+	             * @type Function
+	             * */
+	            onClose: _react.PropTypes.func
 	        },
 	        enumerable: true
 	    }, {
@@ -24926,8 +25022,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            align: 'top',
 	            componentTag: 'div',
 	            classMapping: {
-	                'top': 'popup-top',
-	                'bottom': 'popup-bottom'
+	                'top': 'ph-popup-top',
+	                'bottom': 'ph-popup-bottom'
 	            }
 	        },
 	        enumerable: true
@@ -24945,7 +25041,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var onClose = _props.onClose;
 
 	        if (visible) {
-	            return _react2['default'].createElement('div', { className: 'popup-shadow animated', onClick: onClose });
+	            return _react2['default'].createElement('div', { className: 'ph-popup-shadow animated', onClick: onClose });
 	        } else {
 	            return '';
 	        }
@@ -24960,7 +25056,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (visible) {
 	            return _react2['default'].createElement(
 	                'div',
-	                _extends({}, this.props, { className: _classnames2['default']('popup-main', 'animated', className) }),
+	                _extends({}, this.props, { className: _classnames2['default']('ph-popup-main', 'animated', className) }),
 	                children
 	            );
 	        } else {
@@ -24975,7 +25071,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            Component,
-	            _extends({}, this.props, { className: _classnames2['default']('popup', this.getProperty(), className) }),
+	            _extends({}, this.props, { className: _classnames2['default']('ph-popup', this.getProperty(), className) }),
 	            _react2['default'].createElement(
 	                _Animate2['default'],
 	                null,
@@ -24983,7 +25079,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            ),
 	            _react2['default'].createElement(
 	                _Animate2['default'],
-	                { className: 'popup-content', transitionName: 'slide-' + this.props.align },
+	                { className: 'ph-popup-content', transitionName: 'slide-' + this.props.align },
 	                this.renderPopup()
 	            )
 	        );
@@ -25036,7 +25132,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 手风琴
 	 * @class Accordion
-	 * @module Action
+	 * @module 操作类组件
 	 * @extends Component
 	 * @constructor
 	 * @demo accordion.js {展示}
@@ -25051,26 +25147,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: 'propTypes',
 	        value: {
 	            /**
-	             * 样式前缀
-	             * @property classPrefix
-	             * @type String
-	             * */
-	            classPrefix: _react.PropTypes.string,
-	            /**
 	             * 标签tagName
 	             * @property componentTag
 	             * @type String
 	             * */
 	            componentTag: _react.PropTypes.string,
-	            visible: _react.PropTypes.bool
+	            /**
+	             * 是否可见标识
+	             * @property visible
+	             * @type Boolean
+	             * */
+	            visible: _react.PropTypes.bool,
+	            /**
+	             * 动作的执行函数
+	             * @property onChange
+	             * @type Function
+	             * */
+	            onChange: _react.PropTypes.func
 	        },
 	        enumerable: true
 	    }, {
 	        key: 'defaultProps',
 	        value: {
 	            visible: false,
-	            egSize: '',
-	            classPrefix: '',
 	            componentTag: 'div',
 	            classMapping: {}
 	        },
@@ -25107,7 +25206,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            Component,
-	            _extends({}, this.props, { className: _classnames2['default']('accordion', this.getProperty(), className) }),
+	            _extends({}, this.props, { className: _classnames2['default']('ph-accordion', this.getProperty(), className) }),
 	            this.renderChildren()
 	        );
 	    };
@@ -25161,7 +25260,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            'div',
-	            _extends({ className: _classnames2['default']('accordion-header', className),
+	            _extends({ className: _classnames2['default']('ph-accordion-header', className),
 	                onClick: onChange
 	            }, this.props),
 	            this.props.children
@@ -25223,7 +25322,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            'div',
-	            _extends({}, this.props, { className: _classnames2['default']('accordion-body', 'animated', className), style: {
+	            _extends({}, this.props, { className: _classnames2['default']('ph-accordion-body', 'animated', className), style: {
 	                    height: visible ? this.height + 'px' : '0'
 	                } }),
 	            _react2['default'].createElement(
@@ -25277,9 +25376,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _utilsTool2 = _interopRequireDefault(_utilsTool);
 
 	/**
-	 * 功能组件-气泡
+	 * 气泡
 	 * @class Popover
-	 * @module Tooltips
+	 * @module 提示组件
 	 * @extends Component
 	 * @constructor
 	 * @demo popover.js {展示}
@@ -25306,14 +25405,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        value: {
 	            componentTag: 'div',
 	            classMapping: {
-	                'top': 'popover-top center-x',
-	                'bottom': 'popover-bottom center-x',
-	                'left': 'popover-left center-y',
-	                'right': 'popover-right center-y',
-	                'top left': 'popover-top left-x',
-	                'top right': 'popover-top right-x',
-	                'bottom left': 'popover-bottom left-x',
-	                'bottom right': 'popover-bottom right-x'
+	                'top': 'ph-popover-top center-x',
+	                'bottom': 'ph-popover-bottom center-x',
+	                'left': 'ph-popover-left center-y',
+	                'right': 'ph-popover-right center-y',
+	                'top left': 'ph-popover-top left-x',
+	                'top right': 'ph-popover-top right-x',
+	                'bottom left': 'ph-popover-bottom left-x',
+	                'bottom right': 'ph-popover-bottom right-x'
 	            }
 	        },
 	        enumerable: true
@@ -25332,7 +25431,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Popover.prototype.handleDocumentClick = function handleDocumentClick(event) {
 	        var el = event.target;
 
-	        if (!_utilsTool2['default'].closest(el, '.popover') && !(this.props.whisper == event.target)) {
+	        if (!_utilsTool2['default'].closest(el, '.ph-popover') && !(this.props.whisper == event.target)) {
 	            this.props.onClose();
 	        }
 
@@ -25354,13 +25453,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return _react2['default'].createElement(
 	            Component,
 	            _extends({}, this.props, {
-	                className: _classnames2['default']('popover', this.getProperty(), className),
+	                className: _classnames2['default']('ph-popover', this.getProperty(), className),
 	                style: Object.assign(styles, style)
 	            }),
-	            _react2['default'].createElement('div', { className: 'popover-arrow' }),
+	            _react2['default'].createElement('div', { className: 'ph-popover-arrow' }),
 	            _react2['default'].createElement(
 	                'div',
-	                { className: 'popover-content' },
+	                { className: 'ph-popover-content' },
 	                children
 	            )
 	        );
@@ -25446,9 +25545,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _classnames2 = _interopRequireDefault(_classnames);
 
 	/**
-	 * 辅助功能组件 - 倾听者
+	 * <h5>提示模块，主要包括一下两个组件:</h5>
+	 * <strong><a href='../classes/Whisper.html'>Whisper</a></strong><br/>
+	 * <strong><a href='../classes/Popover.html'>Popover</a></strong><br>
+	 * <h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>
+	 * @module 提示组件
+	 * @main 提示组件
+	 * @static
+	 *
+	 */
+
+	/**
+	 * 倾听者
 	 * @class Whisper
-	 * @module Tooltip
+	 * @module 提示组件
 	 * @extends Component
 	 * @constructor
 	 * @demo popover.js {展示}
@@ -25468,8 +25578,30 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * @type String
 	             * */
 	            componentTag: _react.PropTypes.string,
+	            /**
+	             * 显示的目标气泡
+	             * @property target
+	             * @type Object
+	             * */
+	            target: _react.PropTypes.object,
+	            /**
+	             * 气泡的位置,默认bottom
+	             * @property placement
+	             * @type String
+	             * */
 	            placement: _react.PropTypes.string,
-	            distance: _react.PropTypes.number
+	            /**
+	             * 气泡距离点击物的位置,默认15
+	             * @property distance
+	             * @type Number
+	             * */
+	            distance: _react.PropTypes.number,
+	            /**
+	             * 气泡显隐时可执行的额外函数,自定义
+	             * @property onChange
+	             * @type Function
+	             * */
+	            onChange: _react.PropTypes.func
 	        },
 	        enumerable: true
 	    }, {
@@ -25616,7 +25748,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return _react2['default'].createElement(
 	            'div',
 	            _extends({}, this.props, {
-	                className: _classnames2['default']('whisper', className),
+	                className: _classnames2['default']('ph-whisper', className),
 	                onClick: this.onToggle.bind(this),
 	                ref: function (whisper) {
 	                    _this3.whisper = whisper;
@@ -25669,7 +25801,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 滑动输入条 Slider
 	 * @class Slider
-	 * @module Action
+	 * @module 操作类组件
 	 * @extends Component
 	 * @constructor
 	 * @demo slider.js {展示}
@@ -25689,7 +25821,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * @type String
 	             * */
 	            componentTag: _react.PropTypes.string,
-	            progress: _react.PropTypes.number
+	            /**
+	             * 初始进程,默认0
+	             * @property progress
+	             * @type String
+	             * */
+	            progress: _react.PropTypes.number,
+	            /**
+	             * 进程提示的位置,默认top
+	             * @property placement
+	             * @type String
+	             * */
+	            placement: _react.PropTypes.string
 	        },
 	        enumerable: true
 	    }, {
@@ -25699,9 +25842,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	            progress: 0,
 	            componentTag: 'div',
 	            classMapping: {
-	                'disabled': 'slider-disabled',
-	                'top': 'slider-tip-top',
-	                'bottom': 'slider-tip-bottom'
+	                'disabled': 'ph-slider-disabled',
+	                'top': 'ph-slider-tip-top',
+	                'bottom': 'ph-slider-tip-bottom'
 	            }
 	        },
 	        enumerable: true
@@ -25767,26 +25910,26 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            Component,
-	            _extends({}, this.props, { className: _classnames2['default']('slider', this.getProperty(), className) }),
+	            _extends({}, this.props, { className: _classnames2['default']('ph-slider', this.getProperty(), className) }),
 	            _react2['default'].createElement(
 	                'div',
-	                { className: 'slider-line', ref: function (sliderLine) {
+	                { className: 'ph-slider-line', ref: function (sliderLine) {
 	                        _this.sliderLine = sliderLine;
 	                    } },
-	                _react2['default'].createElement('div', { className: 'slider-progress', ref: function (sliderProgress) {
+	                _react2['default'].createElement('div', { className: 'ph-slider-progress', ref: function (sliderProgress) {
 	                        _this.sliderProgress = sliderProgress;
 	                    } }),
 	                _react2['default'].createElement(
 	                    'div',
-	                    { className: 'slider-drag', ref: function (sliderBtn) {
+	                    { className: 'ph-slider-content', ref: function (sliderBtn) {
 	                            _this.sliderBtn = sliderBtn;
 	                        } },
 	                    _react2['default'].createElement(
 	                        'div',
-	                        { className: _classnames2['default']("slider-tip", this.state.tipVisible ? 'show' : 'hide') },
+	                        { className: _classnames2['default']("ph-slider-tip", this.state.tipVisible ? 'show' : 'hide') },
 	                        this.state.newProgress
 	                    ),
-	                    _react2['default'].createElement(_Drag2['default'], { className: 'slider-btn', onDrag: this.onDrag.bind(this), onDrop: this.onDrop.bind(this) })
+	                    _react2['default'].createElement(_Drag2['default'], { className: 'ph-slider-btn', onDrag: this.onDrag.bind(this), onDrop: this.onDrop.bind(this) })
 	                )
 	            )
 	        );
