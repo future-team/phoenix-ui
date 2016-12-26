@@ -59,4 +59,4 @@
 `version 0.3.0` 新增Textarea Swipe Modal Toast
 `version 0.4.0` 新增Popup Accordion Modal改Dialog
 `version 1.0.0` 新增Whisper/Popover Slider Animate Drag
-
+`version 1.1.0` 增加Drag对鼠标事件的支持;文案类整理
