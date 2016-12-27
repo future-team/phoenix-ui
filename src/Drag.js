@@ -8,7 +8,6 @@ import classnames from 'classnames';
  * @module 辅助组件
  * @extends Component
  * @constructor
- * @demo Swipe.js {源码}
  * @show false
  * */
 export default class Drag extends Component{

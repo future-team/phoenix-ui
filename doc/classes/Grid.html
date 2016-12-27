@@ -477,6 +477,318 @@
     
 
     
+        <div class="example">
+            <h4>Example:</h4>
+            <ul class="nav nav-tabs example-list">
+                
+                <li role="presentation"  class="active"  _no='0'> <a>展示</a></li>
+                
+                <li role="presentation"   _no='1'> <a>源码</a></li>
+                
+            </ul>
+
+            <div class="example-content  showdemo ">
+                <div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component ,PropTypes} from &#39;react&#39;;
+import ReactDOM from &#39;react-dom&#39;;
+
+import {Grid,Row,Col} from &#39;../../src/index&#39;;
+
+export default class grid extends Component {
+
+    render(){
+        return(
+            &lt;div&gt;
+                &lt;h2 className="comp-title"&gt;Grid&lt;/h2&gt;
+                &lt;h3 className="comp-type"&gt;容器属性 align-items(default:stretch)&lt;/h3&gt;
+                &lt;h3 className="comp-tip"&gt;stretch&lt;/h3&gt;
+                &lt;Grid className="content"&gt;
+                    &lt;Row align="stretch"&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;stretch&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;stretch&lt;br /&gt;baseline&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;stretch&lt;br /&gt;stretch&lt;br /&gt;stretch&lt;br /&gt;stretch&lt;/div&gt;
+                        &lt;/Col&gt;
+                    &lt;/Row&gt;
+                &lt;/Grid&gt;
+                &lt;h3 className="comp-tip"&gt;baseline&lt;/h3&gt;
+                &lt;Grid className="content"&gt;
+                    &lt;Row align="baseline"&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;baseline&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;baseline&lt;br /&gt;baseline&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;baseline&lt;br /&gt;baseline&lt;br /&gt;baseline&lt;br /&gt;baseline&lt;/div&gt;
+                        &lt;/Col&gt;
+                    &lt;/Row&gt;
+                &lt;/Grid&gt;
+                &lt;h3 className="comp-tip"&gt;top&lt;/h3&gt;
+                &lt;Grid className="content"&gt;
+                    &lt;Row align="top"&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;top&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;top&lt;br /&gt;top&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;top&lt;br /&gt;top&lt;br /&gt;top&lt;br /&gt;top&lt;/div&gt;
+                        &lt;/Col&gt;
+                    &lt;/Row&gt;
+                &lt;/Grid&gt;
+                &lt;h3 className="comp-tip"&gt;bottom&lt;/h3&gt;
+                &lt;Grid className="content"&gt;
+                    &lt;Row align="bottom"&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;bottom&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;bottom&lt;br /&gt;bottom&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;bottom&lt;br /&gt;bottom&lt;br /&gt;bottom&lt;br /&gt;bottom&lt;/div&gt;
+                        &lt;/Col&gt;
+                    &lt;/Row&gt;
+                &lt;/Grid&gt;
+                &lt;h3 className="comp-tip"&gt;center&lt;/h3&gt;
+                &lt;Grid className="content"&gt;
+                    &lt;Row align="center"&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;center&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;center&lt;br /&gt;center&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;center&lt;br /&gt;center&lt;br /&gt;center&lt;br /&gt;center&lt;/div&gt;
+                        &lt;/Col&gt;
+                    &lt;/Row&gt;
+                &lt;/Grid&gt;
+
+                &lt;h3 className="comp-type"&gt;项目属性 align-self(default:auto)&lt;/h3&gt;
+                &lt;h3 className="comp-tip"&gt;auto&lt;/h3&gt;
+                &lt;Grid className="content"&gt;
+                    &lt;Row&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;auto&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;auto auto&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;auto auto auto auto&lt;/div&gt;
+                        &lt;/Col&gt;
+                    &lt;/Row&gt;
+                &lt;/Grid&gt;
+                &lt;h3 className="comp-tip"&gt;top/center/bottom&lt;/h3&gt;
+                &lt;Grid className="content"&gt;
+                    &lt;Row&gt;
+                        &lt;Col align="top"&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;top&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col align="center"&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;center&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col align="bottom"&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;bottom&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col &gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;top&lt;br /&gt;center&lt;br /&gt;bottom&lt;/div&gt;
+                        &lt;/Col&gt;
+                    &lt;/Row&gt;
+                &lt;/Grid&gt;
+
+                &lt;h3 className="comp-type"&gt;项目属性 flex&lt;/h3&gt;
+                &lt;h3 className="comp-tip"&gt;width&lt;/h3&gt;
+                &lt;Grid className="content"&gt;
+                    &lt;Row&gt;
+                        &lt;Col width="15"&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;15&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col width="20"&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;20&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col width="25"&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;25&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col width="40"&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;40&lt;br /&gt;40&lt;br /&gt;40&lt;/div&gt;
+                        &lt;/Col&gt;
+                    &lt;/Row&gt;
+                &lt;/Grid&gt;
+                &lt;h3 className="comp-tip"&gt;offset (margin-left)&lt;/h3&gt;
+                &lt;Row&gt;
+                    &lt;Col width="20" offset="10"&gt;
+                        &lt;div className=&#39;col-demo&#39;&gt;10&lt;/div&gt;
+                    &lt;/Col&gt;
+                    &lt;Col width="40" offset="10" &gt;
+                        &lt;div className=&#39;col-demo&#39;&gt;10&lt;br /&gt;10&lt;br /&gt;10&lt;/div&gt;
+                    &lt;/Col&gt;
+                &lt;/Row&gt;
+            &lt;/div&gt;
+        )
+    }
+}</code></pre>
+</div><div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component ,PropTypes} from &#39;react&#39;;
+import ReactDOM from &#39;react-dom&#39;;
+
+import {Grid,Row,Col} from &#39;../../src/index&#39;;
+
+export default class grid extends Component {
+
+    render(){
+        return(
+            &lt;div&gt;
+                &lt;h2 className="comp-title"&gt;Grid&lt;/h2&gt;
+                &lt;h3 className="comp-type"&gt;容器属性 align-items(default:stretch)&lt;/h3&gt;
+                &lt;h3 className="comp-tip"&gt;stretch&lt;/h3&gt;
+                &lt;Grid className="content"&gt;
+                    &lt;Row align="stretch"&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;stretch&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;stretch&lt;br /&gt;baseline&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;stretch&lt;br /&gt;stretch&lt;br /&gt;stretch&lt;br /&gt;stretch&lt;/div&gt;
+                        &lt;/Col&gt;
+                    &lt;/Row&gt;
+                &lt;/Grid&gt;
+                &lt;h3 className="comp-tip"&gt;baseline&lt;/h3&gt;
+                &lt;Grid className="content"&gt;
+                    &lt;Row align="baseline"&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;baseline&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;baseline&lt;br /&gt;baseline&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;baseline&lt;br /&gt;baseline&lt;br /&gt;baseline&lt;br /&gt;baseline&lt;/div&gt;
+                        &lt;/Col&gt;
+                    &lt;/Row&gt;
+                &lt;/Grid&gt;
+                &lt;h3 className="comp-tip"&gt;top&lt;/h3&gt;
+                &lt;Grid className="content"&gt;
+                    &lt;Row align="top"&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;top&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;top&lt;br /&gt;top&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;top&lt;br /&gt;top&lt;br /&gt;top&lt;br /&gt;top&lt;/div&gt;
+                        &lt;/Col&gt;
+                    &lt;/Row&gt;
+                &lt;/Grid&gt;
+                &lt;h3 className="comp-tip"&gt;bottom&lt;/h3&gt;
+                &lt;Grid className="content"&gt;
+                    &lt;Row align="bottom"&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;bottom&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;bottom&lt;br /&gt;bottom&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;bottom&lt;br /&gt;bottom&lt;br /&gt;bottom&lt;br /&gt;bottom&lt;/div&gt;
+                        &lt;/Col&gt;
+                    &lt;/Row&gt;
+                &lt;/Grid&gt;
+                &lt;h3 className="comp-tip"&gt;center&lt;/h3&gt;
+                &lt;Grid className="content"&gt;
+                    &lt;Row align="center"&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;center&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;center&lt;br /&gt;center&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;center&lt;br /&gt;center&lt;br /&gt;center&lt;br /&gt;center&lt;/div&gt;
+                        &lt;/Col&gt;
+                    &lt;/Row&gt;
+                &lt;/Grid&gt;
+
+                &lt;h3 className="comp-type"&gt;项目属性 align-self(default:auto)&lt;/h3&gt;
+                &lt;h3 className="comp-tip"&gt;auto&lt;/h3&gt;
+                &lt;Grid className="content"&gt;
+                    &lt;Row&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;auto&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;auto auto&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;auto auto auto auto&lt;/div&gt;
+                        &lt;/Col&gt;
+                    &lt;/Row&gt;
+                &lt;/Grid&gt;
+                &lt;h3 className="comp-tip"&gt;top/center/bottom&lt;/h3&gt;
+                &lt;Grid className="content"&gt;
+                    &lt;Row&gt;
+                        &lt;Col align="top"&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;top&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col align="center"&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;center&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col align="bottom"&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;bottom&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col &gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;top&lt;br /&gt;center&lt;br /&gt;bottom&lt;/div&gt;
+                        &lt;/Col&gt;
+                    &lt;/Row&gt;
+                &lt;/Grid&gt;
+
+                &lt;h3 className="comp-type"&gt;项目属性 flex&lt;/h3&gt;
+                &lt;h3 className="comp-tip"&gt;width&lt;/h3&gt;
+                &lt;Grid className="content"&gt;
+                    &lt;Row&gt;
+                        &lt;Col width="15"&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;15&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col width="20"&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;20&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col width="25"&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;25&lt;/div&gt;
+                        &lt;/Col&gt;
+                        &lt;Col width="40"&gt;
+                            &lt;div className=&#39;col-demo&#39;&gt;40&lt;br /&gt;40&lt;br /&gt;40&lt;/div&gt;
+                        &lt;/Col&gt;
+                    &lt;/Row&gt;
+                &lt;/Grid&gt;
+                &lt;h3 className="comp-tip"&gt;offset (margin-left)&lt;/h3&gt;
+                &lt;Row&gt;
+                    &lt;Col width="20" offset="10"&gt;
+                        &lt;div className=&#39;col-demo&#39;&gt;10&lt;/div&gt;
+                    &lt;/Col&gt;
+                    &lt;Col width="40" offset="10" &gt;
+                        &lt;div className=&#39;col-demo&#39;&gt;10&lt;br /&gt;10&lt;br /&gt;10&lt;/div&gt;
+                    &lt;/Col&gt;
+                &lt;/Row&gt;
+            &lt;/div&gt;
+        )
+    }
+}</code></pre>
+</div>
+            </div>
+
+             <button class="btn btn-info btn-viewDemo" type="button">view demo</button>
+            <button class="btn btn-info btn-editDemo" type="button">edit code</button>
+        </div>
+    
 </div>
 
                 </div>
