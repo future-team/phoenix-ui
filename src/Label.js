@@ -80,14 +80,14 @@ export default class Label extends Component{
         classPrefix:'label',
         phStyle: 'primary',
         classMapping : {
-            'primary':'label-primary',
-            'info':'label-info',
-            'success':'label-success',
-            'error':'label-error',
-            'warning':'label-warning',
-            'danger':'label-danger',
-            'lg':'label-lg',
-            'md':'label-md'
+            'primary':'primary',
+            'info':'info',
+            'success':'success',
+            'error':'error',
+            'warning':'warning',
+            'danger':'danger',
+            'lg':'lg',
+            'md':'md'
         }
     }
     constructor(props,context){
@@ -96,8 +96,7 @@ export default class Label extends Component{
     render(){
         return(
            <span className={classnames(
-               'label',
-               this.getProperty(),
+               this.getProperty(true),
                this.props.className
            )} style={this.getStyles(this.props.style)}>
                {this.props.children}

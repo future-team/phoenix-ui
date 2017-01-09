@@ -2,6 +2,7 @@ import React,{PropTypes} from 'react';
 import ReactDOM from 'react-dom';
 import Component from './utils/Component';
 import classnames from 'classnames';
+import {setPhoenixPrefix} from './utils/Tool';
 
 /**
  * 飘字
@@ -25,6 +26,7 @@ class Toast extends Component{
    };
 
     static defaultProps = {
+        classPrefix:'toast',
         componentTag:'div',
         classMapping : {
         }
@@ -39,11 +41,11 @@ class Toast extends Component{
 
         return (
             <Component {...this.props} className={classnames(
-                'ph-toast'
+                this.getProperty(true),
             )}>
-                <div className="ph-toast-shadow"></div>
-                <div className="ph-toast-main">
-                    <div className={classnames("ph-toast-content")}>
+                <div className={setPhoenixPrefix("toast-shadow")}></div>
+                <div className={setPhoenixPrefix("toast-main")}>
+                    <div className={setPhoenixPrefix("toast-content")}>
                         {this.props.children}
                     </div>
                 </div>

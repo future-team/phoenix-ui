@@ -26,7 +26,7 @@ export default class accordion extends Component{
                 <h3 className="comp-type">手风琴</h3>
                 <Accordion visible={this.state.visible} onChange={::this.onChange}>
                     <Accordion.Header>
-                        标题一<span className={classnames("iconfont icon-chevron-more", this.state.visible?'active':'')} style={{float:'right'}}></span>
+                        标题一<span className={classnames("ph-iconfont icon-chevron-more", this.state.visible?'active':'')} style={{float:'right'}}></span>
                     </Accordion.Header>
                     <Accordion.Body>
                         <ul className="ph-accordion-list">

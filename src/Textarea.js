@@ -1,6 +1,7 @@
 import React,{PropTypes} from 'react';
 import Component from './utils/Component';
 import classnames from 'classnames';
+import {setPhoenixPrefix} from './utils/Tool';
 
 /**
  * 表单元素textarea
@@ -44,7 +45,7 @@ export default class Textarea extends Component{
     static defaultProps = {
         isCount: false,
         egSize:'',
-        classPrefix:'',
+        classPrefix:'textarea',
         classMapping : {}
     };
 
@@ -69,17 +70,16 @@ export default class Textarea extends Component{
         let {isCount, maxLength} = this.props;
 
         return (
-            <div className='ph-textarea-field'>
+            <div className={setPhoenixPrefix('textarea-field')}>
                 <textarea {...this.props} className={classnames(
-                    'ph-textarea',
-                    this.getProperty(),
+                    this.getProperty(true),
                     this.props.className
                 )} onChange={(event)=>{this.onChange(event)}}></textarea>
                 <span className={classnames(
-                    'ph-textarea-count',
+                    setPhoenixPrefix('textarea-count'),
                     isCount? 'show':'hide'
                 )}>
-                    <b className='ph-textarea-length'>{this.state.inputLength}</b>/<b>{maxLength}</b>
+                    <b className={setPhoenixPrefix('textarea-length')}>{this.state.inputLength}</b>/<b>{maxLength}</b>
                 </span>
             </div>
         );

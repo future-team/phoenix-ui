@@ -1,6 +1,7 @@
 import React,{PropTypes} from 'react';
 import Component from './utils/Component';
 import classnames from 'classnames';
+import {setPhoenixPrefix} from './utils/Tool';
 
 /**
  * 表单元素，input框，使用方式跟原生一致
@@ -30,8 +31,7 @@ export default class Input extends Component{
     };
 
     static defaultProps = {
-        egSize:'',
-        classPrefix:'',
+        classPrefix:'input',
         componentTag:'div',
         classMapping : {
 
@@ -44,8 +44,8 @@ export default class Input extends Component{
 
     otherView(type){
         return (
-            <label className="multi-group">
-                <div className={`ui-${type}`}>
+            <label className={setPhoenixPrefix("multi-group")}>
+                <div className={setPhoenixPrefix(type)}>
                     <input {...this.props} />
                     <i></i>
                 </div>
@@ -62,8 +62,7 @@ export default class Input extends Component{
         }else{
             html = (<input {...this.props} className={
                 classnames(
-                    'form-input',
-                    this.getProperty(),
+                    this.getProperty(true),
                     this.props.className
                 )
                 }/>);

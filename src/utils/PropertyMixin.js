@@ -86,8 +86,11 @@ export default obj=>{
                 borderRadius:val
             }
         },
+        width:function(val){
+            return ''+val;
+        }.bind(obj),
         offset:function(val){
-            return '-offset-'+val;
+            return 'offset-'+val;
         }.bind(obj),
         /*以下属性会被直接挂载在component上，可以不用通过component.props获取*/
         classPrefix:val=>{

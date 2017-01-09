@@ -4,6 +4,7 @@
 import {classConstants} from './constants.js';
 let consts = classConstants;
 
+const PREFIX = 'ph-';
 
 export default obj=>{
     /**
@@ -19,7 +20,7 @@ export default obj=>{
         let list = [],
             _this = this;
         name.forEach(function(item){
-            list.push(_this.setPrefix(item,pre) );
+            if(item) list.push(PREFIX + _this.setPrefix(item,pre) );
         });
 
         return list.join(' ');

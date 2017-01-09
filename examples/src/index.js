@@ -50,7 +50,7 @@ let Index = class index extends Component {
         return (
             <div className="menu">
                 <h1>Phoenix-UI</h1>
-                <h2>基础组件</h2>
+                <h2 className="ph-button-primary">基础组件</h2>
                 <div className="menu-panel">
                     <Card href="#/button" title="Button" desp="按钮" />
                     <Card href="#/buttongroup" title="ButtonGroup" desp="按钮组" />
@@ -58,19 +58,19 @@ let Index = class index extends Component {
                     <Card href="#/label" title="Label" desp="标签" />
                     <Card href="#/star" title="Star" desp="星星" />
                 </div>
-                <h2>表单</h2>
+                <h2 className="ph-button-primary">表单</h2>
                 <div className="menu-panel">
                     <Card href="#/formgroup" title="FormGroup" desp="表单组" />
                     <Card href="#/input" title="Input" desp="文本框，单选框，多选框" />
                     <Card href="#/textarea" title="Textarea" desp="多行文本" />
                     <Card href="#/switch" title="Switch" desp="开关" />
                 </div>
-                <h2>布局</h2>
+                <h2 className="ph-button-primary">布局</h2>
                 <div className="menu-panel">
                     <Card href="#/grid" title="Grid/Row/Col" desp="布局" />
                     <Card href="#/tableview" title="TableView" desp="表格" />
                 </div>
-                <h2>功能组件</h2>
+                <h2 className="ph-button-primary">功能组件</h2>
                 <div className="menu-panel">
                     <Card href="#/accordion" title="Accordion" desp="手风琴" />
                     <Card href="#/dialog" title="Dialog" desp="弹框" />
@@ -81,12 +81,12 @@ let Index = class index extends Component {
                     <Card href="#/slider" title="Slider" desp="滑动输入条" />
                     <Card href="#/swipe" title="Swipe" desp="左滑动" />
                 </div>
-                <h2>辅助</h2>
+                <h2 className="ph-button-primary">辅助</h2>
                 <div className="menu-panel">
                     <Card href="#/animate" title="Animate" desp="动画" />
                     <Card href="#/drag" title="Drag" desp="拖拽" />
                 </div>
-                <h2>示例</h2>
+                <h2 className="ph-button-primary">示例</h2>
                 <div className="menu-panel">
                     <Card href="#/list-demo" title="列表页示例" desp="" />
                     <Card href="#/detail" title="详情页示例" desp="" />
@@ -162,7 +162,7 @@ let App = class App extends Component {
     render() {
         return (
             <div>
-                <a href="#/index" id="Back">Back</a>
+                <a href="#/index" id="Back" className="ph-button-primary">Back</a>
                 <AppRouter />
             </div>
         )

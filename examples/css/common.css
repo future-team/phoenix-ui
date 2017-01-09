@@ -9,7 +9,7 @@ body{
 #Back{
     display: none;
     padding: .4rem 1rem;
-    background-color: #ff6633;
+    // background-color: #ff6633;
     color: #fff;
 }
 
@@ -23,8 +23,8 @@ body{
 }
 .menu h2{
     padding: .4rem 1rem;
-    background-color: #ff6633;
-    border: 1px solid #ee5511;
+    // background-color: #ff6633;
+    // border: 1px solid #ee5511;
     text-align: center;
     font-size: 100%;
     color: #fff;
@@ -38,11 +38,8 @@ body{
 .list-card:first-child{
     border-top: none;
 }
-.list-card:hover{
-    background-color: #ff6633;
-}
 .list-card:hover h3, .list-card:hover p{
-    color: #fff;
+    color: #f00;
 }
 .menu-panel h3{
     margin-bottom: .3rem;
@@ -76,18 +73,18 @@ body{
 }
 
 /*** content example ***/
-.content .btn:not(.btn-block),
-.content .badge,
-.content .label,
-.content .star,
-.content .multi-group,
-.content .label-switch{
+.content .ph-button:not(.ph-button-block),
+.content .ph-badge,
+.content .ph-label,
+.content .ph-star,
+.content .ph-multi-group,
+.content .ph-switch{
     margin: 0 0 1rem 1rem;
 }
 
-.content .btn-group .btn:not(.btn-block),
+.content .ph-button-group .ph-button:not(.ph-button-block),
 .content .ph-textarea-field,
-.content .ui-tabs:not(.vertical){
+.content .ph-tabs:not(.vertical){
     margin: 0 0 1rem 0;
 }
 
@@ -100,11 +97,11 @@ body{
     text-align: center;
 }
 
-.content .ui-tabs{
+.content .ph-tabs{
     background-color: #fff;
 }
 
-.todo-demo .btn.lg{
+.todo-demo .ph-button.ph-button-lg{
     height: 40px;
 }
 

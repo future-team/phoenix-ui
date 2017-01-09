@@ -1,6 +1,6 @@
 import React, { Component ,PropTypes} from 'react';
 import ReactDOM,{findDOMNode} from 'react-dom';
-import {TableView} from '../../src/index';
+import {TableView,Badge,Switch} from '../../src/index';
 
 export default class tableview extends Component{
 
@@ -24,21 +24,11 @@ export default class tableview extends Component{
             <div>
                 <h2 className="comp-title">TableView</h2>
                 <TableView>
-                    <a href="http://www.baidu.com">列表 1</a>
+                    <a href="http://www.baidu.com">Item 1</a>
+                    <a>Item 2 <Badge phStyle="primary">2</Badge></a>
+                    <a href="###">Item 3 <Badge>5</Badge></a>
                     <a>
-                        列表 2
-                        <span className="badge badge-primary">2</span>
-                    </a>
-                    <a href="###">
-                        <span className="badge">5</span>
-                        Item 1
-                    </a>
-                    <a>
-                        Item 2
-                        <label className="label-switch">
-                        <input id="js-room-selected" type="checkbox" />
-                            <div className="checkbox"></div>
-                        </label>
+                        Item 4 <Switch />
                     </a>
                 </TableView>
             </div>

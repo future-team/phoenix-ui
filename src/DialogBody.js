@@ -1,5 +1,6 @@
 import React,{Component,PropTypes} from 'react';
 import classnames from 'classnames';
+import {setPhoenixPrefix} from './utils/Tool';
 
 export default class DialogBody extends Component{
 
@@ -10,7 +11,7 @@ export default class DialogBody extends Component{
     render(){
         return (
             <div {...this.props} className={classnames(
-                'ph-dialog-body',
+                setPhoenixPrefix('dialog-body'),
                 this.props.className
             )}>
                 {this.props.children}

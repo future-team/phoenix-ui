@@ -1,5 +1,6 @@
 import React,{Component,PropTypes} from 'react';
 import classnames from 'classnames';
+import {setPhoenixPrefix} from './utils/Tool';
 
 export default class AccordionHeader extends Component{
 
@@ -12,7 +13,7 @@ export default class AccordionHeader extends Component{
 
         return (
             <div className={classnames(
-                    'ph-accordion-header',
+                    setPhoenixPrefix('accordion-header'),
                     className
                 )}
                 onClick={onChange}

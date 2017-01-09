@@ -1,5 +1,7 @@
-import React,{ PropTypes, Component } from 'react';
+import React,{ PropTypes } from 'react';
+import Component from './utils/Component';
 import classnames from 'classnames';
+import {setPhoenixPrefix} from './utils/Tool';
 
 /**
  * <h5>主要栅格化布局组件</h5>
@@ -34,13 +36,27 @@ import classnames from 'classnames';
 export default class Grid extends Component{
 
     static propTypes = {
-    };
+
+    }
+
+    static defaultProps = {
+        classPrefix:'grid',
+        classMapping : {
+        }
+    }
+
+    constructor(props, context) {
+        super(props, context);
+    }
 
     render(){
-
         return (
             <div {...this.props}
-                className={classnames('grid',this.props.fluid?'grid-'+'fluid':'',this.props.className)}>
+                className={classnames(
+                    this.getProperty(true),
+                    this.props.fluid ? setPhoenixPrefix('grid-fluid'):'',
+                    this.props.className
+            )}>
                 {this.props.children}
             </div>
         );

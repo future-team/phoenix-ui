@@ -1,5 +1,6 @@
 import React,{PropTypes} from 'react';
 import Component from './utils/Component';
+import {setPhoenixPrefix} from './utils/Tool';
 import classnames from 'classnames';
 
 /**
@@ -31,7 +32,7 @@ export default class TableView extends Component{
     };
 
     static defaultProps = {
-        classPrefix:'',
+        classPrefix:'table-view',
         componentTag:'ul',
         classMapping : {
 
@@ -47,10 +48,10 @@ export default class TableView extends Component{
             let {href, ...other} = options.props;
 
             return (
-                <li className="table-view-cell">
-                    {href && href!=''?<a href={href} className="navigate-right" {...other} className={
+                <li className={setPhoenixPrefix("table-view-cell")}>
+                    {href && href!=''?<a href={href} {...other} className={
                         classnames(
-                            'navigate-right',
+                            setPhoenixPrefix('navigate-right'),
                             options.props.className
                         )
                 }>{options.props.children}</a>:options.props.children}
@@ -67,8 +68,7 @@ export default class TableView extends Component{
         return (
             <Component {...this.otherProps} className={
                 classnames(
-                    'table-view',
-                    this.getProperty(),
+                    this.getProperty(true),
                     this.props.className
                 )
                 } style={this.getStyles(this.props.style) }>{this.renderItem() }</Component>

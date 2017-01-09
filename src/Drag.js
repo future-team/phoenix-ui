@@ -1,6 +1,7 @@
 import React,{PropTypes} from 'react';
 import Component from './utils/Component';
 import classnames from 'classnames';
+import {setPhoenixPrefix} from './utils/Tool';
 
 /**
  * 拖动Drag
@@ -114,7 +115,7 @@ export default class Drag extends Component{
 
     render(){
         return (
-            <div {...this.props} className={classnames('ph-drag-action', this.props.className)}
+            <div {...this.props} className={classnames(setPhoenixPrefix("drag-action"), this.props.className)}
                 onTouchStart={(event)=>{this.onTouchStart(event)}}
                 onTouchMove={(event)=>{this.onTouchMove(event)}}
                 onTouchEnd={(event)=>{this.onTouchEnd(event)}}

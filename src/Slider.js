@@ -1,6 +1,7 @@
 import React,{PropTypes} from 'react';
 import Component from './utils/Component';
 import classnames from 'classnames';
+import {setPhoenixPrefix} from './utils/Tool';
 
 import Drag from './Drag';
 
@@ -40,11 +41,12 @@ export default class Slider extends Component{
     static defaultProps = {
         placement: 'top',
         progress: 0,
+        classPrefix:'slider',
         componentTag:'div',
         classMapping : {
-            'disabled': 'ph-slider-disabled',
-            'top': 'ph-slider-tip-top',
-            'bottom': 'ph-slider-tip-bottom'
+            'disabled': 'disabled',
+            'top': 'tip-top',
+            'bottom': 'tip-bottom'
         }
     };
 
@@ -102,15 +104,14 @@ export default class Slider extends Component{
 
         return (
             <Component {...this.props} className={classnames(
-                'ph-slider',
-                this.getProperty(),
+                this.getProperty(true),
                 className
             )}>
-                <div className="ph-slider-line" ref={(sliderLine)=>{this.sliderLine=sliderLine}}>
-                    <div className="ph-slider-progress" ref={(sliderProgress)=>{this.sliderProgress=sliderProgress}}></div>
-                    <div className="ph-slider-content" ref={(sliderBtn)=>{this.sliderBtn=sliderBtn}}>
-                        <div className={classnames("ph-slider-tip", this.state.tipVisible?'show':'hide')}>{this.state.newProgress}</div>
-                        <Drag className="ph-slider-btn" onDrag={::this.onDrag} onDrop={::this.onDrop}></Drag>
+                <div className={setPhoenixPrefix("slider-line")} ref={(sliderLine)=>{this.sliderLine=sliderLine}}>
+                    <div className={setPhoenixPrefix("slider-progress")} ref={(sliderProgress)=>{this.sliderProgress=sliderProgress}}></div>
+                    <div className={setPhoenixPrefix("slider-content")} ref={(sliderBtn)=>{this.sliderBtn=sliderBtn}}>
+                        <div className={classnames(setPhoenixPrefix("slider-tip"), this.state.tipVisible?'show':'hide')}>{this.state.newProgress}</div>
+                        <Drag className={setPhoenixPrefix("slider-btn")} onDrag={::this.onDrag} onDrop={::this.onDrop}></Drag>
                     </div>
                 </div>
             </Component>

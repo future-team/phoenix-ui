@@ -1,6 +1,8 @@
 import React,{PropTypes} from 'react';
 import Component from './utils/Component';
 import classnames from 'classnames';
+import {setPhoenixPrefix} from './utils/Tool';
+
 import Row from './Row';
 import Col from './Col';
 
@@ -33,7 +35,7 @@ export default class FormGroup extends Component{
 
     static defaultProps = {
         egSize:'',
-        classPrefix:'',
+        classPrefix:'form-group',
         componentTag:'form',
         classMapping : {
 
@@ -49,12 +51,9 @@ export default class FormGroup extends Component{
 
             return  React.cloneElement(options, {
                     className:classnames(
-                        {
-                            'input-row':!options.props.single
-                        },
+                        !options.props.single? 'ph-form-row':'',
                         options.props.className
                     )
-
                 });
         }, this);
 
@@ -67,9 +66,8 @@ export default class FormGroup extends Component{
         return (
             <Component className={
                 classnames(
-                    'row-no-padding',
-                    'input-group',
-                    this.getProperty(),
+                    this.getProperty(true),
+                    setPhoenixPrefix('row-no-padding'),
                     this.props.className
                 )
             } {...other}>

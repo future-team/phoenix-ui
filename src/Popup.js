@@ -1,6 +1,7 @@
 import React,{PropTypes} from 'react';
 import Component from './utils/Component';
 import classnames from 'classnames';
+import {setPhoenixPrefix} from './utils/Tool';
 import Animate from './Animate';
 
 /**
@@ -45,10 +46,11 @@ export default class Popup extends Component{
     static defaultProps = {
         visible: false,
         align: 'top',
+        classPrefix:'popup',
         componentTag:'div',
         classMapping : {
-            'top': 'ph-popup-top',
-            'bottom': 'ph-popup-bottom'
+            'top': 'top',
+            'bottom': 'bottom'
         }
     };
 
@@ -60,7 +62,7 @@ export default class Popup extends Component{
         let {visible, onClose} = this.props;
 
         if(visible){
-            return <div className="ph-popup-shadow animated" onClick={onClose}></div>;
+            return <div className={classnames(setPhoenixPrefix("popup-shadow"),"animated")} onClick={onClose}></div>;
         }else{
             return '';
         }
@@ -70,7 +72,7 @@ export default class Popup extends Component{
         let {visible,children,className} = this.props;
 
         if(visible){
-            return <div {...this.props} className={classnames('ph-popup-main', 'animated', className)}>{children}</div>;
+            return <div {...this.props} className={classnames(setPhoenixPrefix('popup-main'), 'animated', className)}>{children}</div>;
         }else{
             return '';
         }
@@ -81,14 +83,13 @@ export default class Popup extends Component{
 
         return (
             <Component {...this.props} className={classnames(
-                'ph-popup',
-                this.getProperty(),
+                this.getProperty(true),
                 className
             )}>
                 <Animate>
                     {this.renderShadow()}
                 </Animate>
-                <Animate className='ph-popup-content' transitionName={`slide-${this.props.align}`}>
+                <Animate className={setPhoenixPrefix('popup-content')} transitionName={`slide-${this.props.align}`}>
                     {this.renderPopup()}
                 </Animate>
             </Component>

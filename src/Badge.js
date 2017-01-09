@@ -53,12 +53,12 @@ export default class Badge extends Component{
     static defaultProps ={
         classPrefix:'badge',
         classMapping : {
-            'primary':'badge-primary',
-            'info':'badge-info',
-            'success':'badge-success',
-            'error':'badge-error',
-            'warning':'badge-warning',
-            'danger':'badge-danger'
+            'primary':'primary',
+            'info':'info',
+            'success':'success',
+            'error':'error',
+            'warning':'warning',
+            'danger':'danger'
         }
     }
     constructor(props,context){
@@ -67,8 +67,7 @@ export default class Badge extends Component{
     render(){
         return(
             <span className={classnames(
-               'badge',
-               this.getProperty(),
+               this.getProperty(true),
                this.props.className
            )} style={this.getStyles(this.props.style)}>
                {this.props.children}

@@ -1,5 +1,6 @@
 import React,{Component,PropTypes} from 'react';
 import classnames from 'classnames';
+import {setPhoenixPrefix} from './utils/Tool';
 
 export default class DialogFooter extends Component{
 
@@ -10,9 +11,9 @@ export default class DialogFooter extends Component{
     render(){
         return (
             <div {...this.props} className={classnames(
-                'ph-dialog-footer',
+                setPhoenixPrefix('dialog-footer'),
                 this.props.className,
-                'btn-group  btn-group-justify clearfix'
+                'clearfix'
             )}>
                 {this.props.children}
             </div>

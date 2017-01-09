@@ -2,6 +2,7 @@ import React,{PropTypes} from 'react';
 import Component from './utils/Component';
 import classnames from 'classnames';
 import Animate from './Animate';
+import {setPhoenixPrefix} from './utils/Tool';
 
 import DialogTitle from './DialogTitle';
 import DialogBody from './DialogBody';
@@ -36,6 +37,7 @@ class Dialog extends Component{
 
     static defaultProps = {
         visible: false,
+        classPrefix:'dialog',
         componentTag:'div',
         classMapping : {
         }
@@ -49,7 +51,7 @@ class Dialog extends Component{
         let {visible, onClose} = this.props;
 
         if(visible){
-            return <div className="ph-dialog-shadow animated" onClick={onClose}></div>;
+            return <div className={classnames(setPhoenixPrefix("dialog-shadow"), "animated")} onClick={onClose}></div>;
         }else{
             return '';
         }
@@ -58,8 +60,8 @@ class Dialog extends Component{
     renderContent(){
         if(this.props.visible){
             return (
-                <div className="ph-dialog-main animated">
-                    <div className="ph-dialog-content">
+                <div className={classnames(setPhoenixPrefix("dialog-main"), "animated")}>
+                    <div className={classnames(setPhoenixPrefix("dialog-content"), "animated")}>
                         {this.renderDialog()}
                     </div>
                 </div>
@@ -90,8 +92,7 @@ class Dialog extends Component{
 
         return (
             <Component {...this.props} className={classnames(
-                'ph-dialog',
-                this.getProperty(),
+                this.getProperty(true),
                 className
             )}>
                 <Animate>

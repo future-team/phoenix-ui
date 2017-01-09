@@ -25,16 +25,17 @@ export default class Popover extends Component{
     };
 
     static defaultProps = {
+        classPrefix:'popover',
         componentTag: 'div',
         classMapping : {
-            'top': 'ph-popover-top center-x',
-            'bottom': 'ph-popover-bottom center-x',
-            'left': 'ph-popover-left center-y',
-            'right': 'ph-popover-right center-y',
-            'top left': 'ph-popover-top left-x',
-            'top right': 'ph-popover-top right-x',
-            'bottom left': 'ph-popover-bottom left-x',
-            'bottom right': 'ph-popover-bottom right-x'
+            'top': 'top center-x',
+            'bottom': 'bottom center-x',
+            'left': 'left center-y',
+            'right': 'right center-y',
+            'top left': 'top left-x',
+            'top right': 'top right-x',
+            'bottom left': 'bottom left-x',
+            'bottom right': 'bottom right-x'
         }
     };
 
@@ -66,14 +67,13 @@ export default class Popover extends Component{
         return (
             <Component {...this.props}
                 className={classnames(
-                    'ph-popover',
-                    this.getProperty(),
+                    this.getProperty(true),
                     className
                 )}
                 style={Object.assign(styles, style)}
             >
-                <div className='ph-popover-arrow'></div>
-                <div className='ph-popover-content'>
+                <div className={Tool.setPhoenixPrefix('popover-arrow')}></div>
+                <div className={Tool.setPhoenixPrefix('popover-content')}>
                     {children}
                 </div>
             </Component>

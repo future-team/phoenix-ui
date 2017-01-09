@@ -50,9 +50,9 @@ export default class animate extends Component{
             <div>
                 <h2 className="comp-title">Animate</h2>
                 <h3 className="comp-type">e.g. Todo</h3>
-                <div className="content row-no-padding todo-demo">
+                <div className="content ph-row-no-padding todo-demo">
                     <Row>
-                        <Col className="col-80">
+                        <Col className="ph-col-80">
                             <Input type="text" value={this.state.item} onChange={::this.setValue.bind(this,'item')} />
                         </Col>
                         <Col>

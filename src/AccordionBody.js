@@ -1,5 +1,6 @@
 import React,{Component, PropTypes} from 'react';
 import classnames from 'classnames';
+import {setPhoenixPrefix} from './utils/Tool';
 
 export default class AccordionBody extends Component{
 
@@ -18,7 +19,7 @@ export default class AccordionBody extends Component{
 
         return (
             <div {...this.props} className={classnames(
-                'ph-accordion-body',
+                setPhoenixPrefix('accordion-body'),
                 'animated',
                 className
             )} style={{

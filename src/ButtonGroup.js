@@ -40,12 +40,12 @@ export default class ButtonGroup extends Component{
     };
 
     static defaultProps = {
-        classPrefix:'btn-group',
+        classPrefix:'button-group',
         phType:'justify',
         componentTag:'div',
         classMapping : {
-            'justify':'btn-group-justify',
-            'tacked':'btn-group-tacked'
+            'justify':'justify',
+            'tacked':'tacked'
         }
     };
 
@@ -81,8 +81,7 @@ export default class ButtonGroup extends Component{
         return (
             <Component {...this.props} className={
                 classnames(
-                    'btn-group',
-                    this.getProperty(),
+                    this.getProperty(true),
                     'clearfix'
                 )}>{options}</Component>
         );

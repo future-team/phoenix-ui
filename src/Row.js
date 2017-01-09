@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes } from 'react';
+import Component from './utils/Component';
 import classnames from 'classnames';
 
 /**
@@ -19,17 +20,25 @@ export default class Row extends Component{
          * @property offset，默认不偏移
          * @type Integer
          * */
-        align:React.PropTypes.oneOf(['top', 'bottom','center','stretch','baseline'])
-    };
+        align: PropTypes.string
+    }
+
     static defaultProps = {
-        classPrefix:'row'
-    };
+        classPrefix: 'row',
+        classMapping : {
+            'top':'top',
+            'bottom':'bottom',
+            'center':'center',
+            'stretch':'stretch',
+            'baseline':'baseline'
+        }
+    }
+
     render(){
-        let  { align, ...others } = this.props;
+        let  { ...others } = this.props;
         return (
             <div {...others} className={classnames(
-                'row',
-                this.props.align?`${this.props.classPrefix}-${align}`:'',
+                this.getProperty(true),
                 this.props.className
             )} >
                 {this.props.children}

@@ -1,5 +1,6 @@
 import React, {PropTypes,Component} from 'react';
 import ClassNameMixin from './utils/ClassNameMixin';
+import {setPhoenixPrefix} from './utils/Tool';
 import classnames from 'classnames';
 /**
  * tab选项卡组件
@@ -63,17 +64,17 @@ export default class Tab extends Component {
         return this.props.index == this.props.activeIndex ? 'active':'';
     }
     isVertical(){
-        return !!this.props.vertical ? '':'col';
+        return !!this.props.vertical ? '':setPhoenixPrefix('col');
     }
     render(){
         let {className,onClick,...other} = this.props;
         return(
             <li className={
                 classnames(
-                   this.isVertical(),
-                   'tab-nav',
-                   this.isActive(),
-                   className
+                    this.isVertical(),
+                    setPhoenixPrefix('tab-nav'),
+                    this.isActive(),
+                    className
                 )
             } onClick={::this.handleClick} {...other}>
                 {this.props.heading}

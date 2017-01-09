@@ -1,6 +1,7 @@
 import React,{PropTypes} from 'react';
 import Component from './utils/Component';
 import classnames from 'classnames';
+import {setPhoenixPrefix} from './utils/Tool';
 
 /**
  * 开关切换，仿真ios的开关控件
@@ -31,7 +32,7 @@ export default class Switch extends Component{
 
     static defaultProps = {
         egSize:'',
-        classPrefix:'',
+        classPrefix:'switch',
         componentTag:'div',
         classMapping : {
 
@@ -47,13 +48,12 @@ export default class Switch extends Component{
         return (
             <label className={
                 classnames(
-                    'label-switch',
-                    this.getProperty(),
+                    this.getProperty(true),
                     this.props.className
                 )
                 }>
             <input  type="checkbox" {...this.props} />
-                <div className="checkbox"></div>
+                <div className={setPhoenixPrefix("checkbox")}></div>
             </label>
         );
     }

@@ -1,7 +1,9 @@
 import React,{PropTypes, Component} from 'react';
 import ClassNameMixin from './utils/ClassNameMixin';
 import classnames from 'classnames';
+import {setPhoenixPrefix} from './utils/Tool';
 import Tab from './Tab.js';
+
 /**
  * <h5>tab选项卡，主要包括一下两个组件:</h5>
  * <strong><a href='../classes/Tabset.html'>tabset</a></strong><br/>
@@ -104,8 +106,9 @@ class Tabset extends Component {
     componentWillReceiveProps(nextProps){
         this.state.activeIndex != nextProps.activeIndex && this.changeActive(nextProps.activeIndex);
     }
+
     isVertial() {
-        return !!this.props.vertical ? 'vertical row' : '';
+        return !!this.props.vertical ? 'vertical '+setPhoenixPrefix('row') : '';
     }
 
     isActive(index) {
@@ -124,10 +127,10 @@ class Tabset extends Component {
     getClass(flag) {
         let vertical = this.props.vertical;
         if(flag){
-            let cols = 'col-'+this.props.width;
-            return !vertical ? 'row': 'col '+cols;
+            let cols = setPhoenixPrefix('col-'+this.props.width);
+            return !vertical ? setPhoenixPrefix('row'): setPhoenixPrefix('col')+' '+cols;
         }else{
-            return vertical ? 'col': '';
+            return vertical ? setPhoenixPrefix('col'): '';
         }
 
     }
@@ -153,7 +156,7 @@ class Tabset extends Component {
             });
 
             let panel = <div className={classnames(
-                   'tab-panel',
+                    setPhoenixPrefix('tab-panel'),
                    this.isActive(index),
                    options.props.className
                 )} key={index}>
@@ -162,18 +165,19 @@ class Tabset extends Component {
             panels.push(panel);
             return opt;
         }, this);
+
         return (
             <div className={classnames(
-               'ui-tabs',
-               this.isVertial(),
-               className
+                setPhoenixPrefix('tabs'),
+                this.isVertial(),
+                className
             )}  {...other}>
                 <ul className={this.getClass(true)}>
                     {headings}
                 </ul>
                 <div className={classnames(
                     this.getClass(false),
-                    'tab-bd'
+                    setPhoenixPrefix('tab-bd')
                 )}>
                     {panels}
                 </div>

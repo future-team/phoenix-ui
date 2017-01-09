@@ -20,10 +20,11 @@
  * @demo star.js {源码}
  * @show true
  * */
-import React, { Component ,PropTypes} from 'react';
-import classNames from 'classnames';
-import classNameMixin from './utils/ClassNameMixin.js';
-@classNameMixin
+import React, {PropTypes} from 'react';
+import Component from './utils/Component';
+import classnames from 'classnames';
+import {setPhoenixPrefix} from './utils/Tool';
+
 export default class Star extends Component{
     static propTypes = {
         /**
@@ -40,21 +41,30 @@ export default class Star extends Component{
          * @default
          * */
         size:PropTypes.string
-    };
-    static defaultProps = {
-        Rate:0,
-        size:undefined
-    };
-    constructor(){
-        super();
     }
+
+    static defaultProps = {
+        classPrefix:'star',
+        Rate:0,
+        size:'xs'
+    }
+
+    constructor(props,context){
+        super(props,context);
+    }
+
     render(){
         let {Rate,size} = this.props;
-        let rateCls =Rate&&'star-'+ Math.round((Rate*2)/10)*5;
-        let sizeCls = size&&'star-'+size;
+        let rateCls = Rate && 'star-'+ Math.round((Rate*2)/10)*5;
+        let sizeCls = size && 'star-'+size;
+
         return (
-            <div className={`star ${rateCls} ${sizeCls}`}>
-                <div className="star-grey"></div>
+            <div className={classnames(
+                this.getProperty(true),
+                setPhoenixPrefix(rateCls),
+                setPhoenixPrefix(sizeCls)
+            )}>
+                <div className={setPhoenixPrefix("star-grey")}></div>
             </div>
         )
     }

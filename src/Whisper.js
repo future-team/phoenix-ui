@@ -1,6 +1,8 @@
-import React,{Component, PropTypes, cloneElement} from 'react';
+import React,{PropTypes, cloneElement} from 'react';
 import ReactDOM from 'react-dom';
+import Component from './utils/Component';
 import classnames from 'classnames';
+
 /**
  * <h5>提示模块，主要包括一下两个组件:</h5>
  * <strong><a href='../classes/Whisper.html'>Whisper</a></strong><br/>
@@ -60,6 +62,7 @@ export default class Whisper extends Component{
     static defaultProps = {
         distance: 15,
         placement: 'bottom',
+        classPrefix:'whisper',
         componentTag: 'div',
         classMapping : {
         }
@@ -186,7 +189,7 @@ export default class Whisper extends Component{
 
         return (
             <div {...this.props}
-                className={classnames('ph-whisper', className)}
+                className={classnames(this.getProperty(true), className)}
                 onClick={::this.onToggle}
                 ref={(whisper)=>{this.whisper = whisper}}
             >

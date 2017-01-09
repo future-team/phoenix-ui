@@ -167,15 +167,11 @@ export default class BaseComponent extends Component{
         this.otherProps=otherProps;
     }
 
-    getProperty(withPrefix=true){
+    getProperty(withPrefix=false){
         let p = this.classPrefix ? this.classPrefix+' ':'';
-        p +=this._properties.join(' ');
-        /*if(withPrefix){
-            return this.getClassName(p);
-        }else{
-            return this.getClassName(p,false);
-        }*/
-        return this.getClassName(p,false);//+' '+this.getClassName(p);
+        p += this._properties.join(' ');
+
+        return this.getClassName(p,withPrefix);//+' '+this.getClassName(p);
     }
 
     getStyles(style={}){

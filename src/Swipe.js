@@ -1,6 +1,7 @@
 import React,{PropTypes} from 'react';
 import Component from './utils/Component';
 import classnames from 'classnames';
+import {setPhoenixPrefix} from './utils/Tool';
 
 import Drag from './Drag';
 import Button from './Button';
@@ -34,6 +35,7 @@ export default class Swipe extends Component{
 
     static defaultProps = {
         buttons: [],
+        classPrefix:'swipe',
         componentTag:'div',
         classMapping : {}
     };
@@ -60,7 +62,7 @@ export default class Swipe extends Component{
 
     renderButtonByType(btnInfo){
         return (
-            <div className={`ph-swipe-btns`} key='buttons' ref={(buttons)=>{this.buttons = buttons;}}>
+            <div className={setPhoenixPrefix("swipe-btns")} key='buttons' ref={(buttons)=>{this.buttons = buttons;}}>
                 {
                     btnInfo.map((item,index) => {
                         return <Button key={index} phStyle={item.phStyle}>{item.text}</Button>
@@ -119,10 +121,10 @@ export default class Swipe extends Component{
 
         return (
             <Component className={classnames(
-                'ph-swipe',
+                this.getProperty(true),
                 className
             )} style={this.getStyles(this.props.style)}>
-                <Drag className="ph-swipe-content" onDrag={::this.onDrag} onDrop={::this.onDrop}>
+                <Drag className={setPhoenixPrefix("swipe-content")} onDrag={::this.onDrag} onDrop={::this.onDrop}>
                     {this.props.children}
                 </Drag>
                 {this.renderOperationButton(buttons)}

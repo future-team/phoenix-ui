@@ -74,18 +74,18 @@ export default class Button extends Component{
 
     static defaultProps = {
         egSize:'',
-        classPrefix:'',
+        classPrefix:'button',
         componentTag:'button',
         classMapping : {
-            'block':'btn-block',
-            'primary':'btn-primary',
-            'info':'btn-info',
-            'success':'btn-success',
-            'error':'btn-error',
-            'warning':'btn-warning',
-            'danger':'btn-danger',
-            'link':'btn-link',
-            'gray':'btn-gray'
+            'block':'block',
+            'primary':'primary',
+            'info':'info',
+            'success':'success',
+            'error':'error',
+            'warning':'warning',
+            'danger':'danger',
+            'link':'link',
+            'gray':'gray'
         }
     };
 
@@ -100,8 +100,7 @@ export default class Button extends Component{
         return (
             <Component {...this.otherProps} className={
                 classnames(
-                    'btn',
-                    this.getProperty(),
+                    this.getProperty(true),
                     this.props.className
                 )
                 } style={this.getStyles(this.props.style) }>{this.props.children}</Component>

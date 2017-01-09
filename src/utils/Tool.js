@@ -28,6 +28,10 @@ let Tool = {
         }
 
         return null;
+    },
+
+    setPhoenixPrefix: (val)=>{
+        return 'ph-' + val;
     }
 }
 

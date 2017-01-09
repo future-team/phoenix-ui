@@ -1,5 +1,6 @@
 import React,{Component,PropTypes} from 'react';
 import classnames from 'classnames';
+import {setPhoenixPrefix} from './utils/Tool';
 
 export default class DialogTitle extends Component{
 
@@ -10,7 +11,7 @@ export default class DialogTitle extends Component{
     render(){
         return (
             <h2 {...this.props} className={classnames(
-                'ph-dialog-title',
+                setPhoenixPrefix('dialog-title'),
                 this.props.className
             )}>
                 {this.props.children}

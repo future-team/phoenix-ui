@@ -40,6 +40,7 @@ class Accordion extends Component{
 
     static defaultProps = {
         visible: false,
+        classPrefix:'accordion',
         componentTag:'div',
         classMapping : {
         }
@@ -69,8 +70,7 @@ class Accordion extends Component{
 
         return (
             <Component {...this.props} className={classnames(
-                'ph-accordion',
-                this.getProperty(),
+                this.getProperty(true),
                 className
             )}>
                 {this.renderChildren()}
