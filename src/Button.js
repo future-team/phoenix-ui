@@ -5,7 +5,7 @@ import classnames from 'classnames';
 /**
  *  - 按钮组件提供所有properties中内置的颜色及字体大小样式供选择<br/>
  *  - 也可以自定义行内样式和className名字定义UI展示<br/>
- *  - 支持disabled, active, enable等属性定义<br/>
+ *  - 支持disabled, active属性定义<br/>
  *  - 可以通过phSize 设置大小，可选xs、sm、lg。<br/>
  *  - 通过phStyle选择按钮颜色，可选error、warning、danger、link、gray、white、success
  *  主要属性和接口：
@@ -73,7 +73,6 @@ export default class Button extends Component{
     };
 
     static defaultProps = {
-        egSize:'',
         classPrefix:'button',
         componentTag:'button',
         classMapping : {
@@ -102,8 +101,8 @@ export default class Button extends Component{
                 classnames(
                     this.getProperty(true),
                     this.props.className
-                )
-                } style={this.getStyles(this.props.style) }>{this.props.children}</Component>
+                )}
+                style={this.getStyles(this.props.style)}>{this.props.children}</Component>
         );
     }
 

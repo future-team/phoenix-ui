@@ -197,19 +197,19 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.Accordion = _Accordion3['default'];
 
-	var _Popover2 = __webpack_require__(210);
+	var _Popover2 = __webpack_require__(208);
 
 	var _Popover3 = _interopRequireDefault(_Popover2);
 
 	exports.Popover = _Popover3['default'];
 
-	var _Whisper2 = __webpack_require__(211);
+	var _Whisper2 = __webpack_require__(209);
 
 	var _Whisper3 = _interopRequireDefault(_Whisper2);
 
 	exports.Whisper = _Whisper3['default'];
 
-	var _Slider2 = __webpack_require__(212);
+	var _Slider2 = __webpack_require__(210);
 
 	var _Slider3 = _interopRequireDefault(_Slider2);
 
@@ -789,7 +789,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 *  - 按钮组件提供所有properties中内置的颜色及字体大小样式供选择<br/>
 	 *  - 也可以自定义行内样式和className名字定义UI展示<br/>
-	 *  - 支持disabled, active, enable等属性定义<br/>
+	 *  - 支持disabled, active属性定义<br/>
 	 *  - 可以通过phSize 设置大小，可选xs、sm、lg。<br/>
 	 *  - 通过phStyle选择按钮颜色，可选error、warning、danger、link、gray、white、success
 	 *  主要属性和接口：
@@ -863,7 +863,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, {
 	        key: 'defaultProps',
 	        value: {
-	            egSize: '',
 	            classPrefix: 'button',
 	            componentTag: 'button',
 	            classMapping: {
@@ -893,7 +892,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            Component,
-	            _extends({}, this.otherProps, { className: _classnames2['default'](this.getProperty(true), this.props.className), style: this.getStyles(this.props.style) }),
+	            _extends({}, this.otherProps, { className: _classnames2['default'](this.getProperty(true), this.props.className),
+	                style: this.getStyles(this.props.style) }),
 	            this.props.children
 	        );
 	    };
@@ -25230,13 +25230,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _AccordionHeader = __webpack_require__(208);
-
-	var _AccordionHeader2 = _interopRequireDefault(_AccordionHeader);
-
-	var _AccordionBody = __webpack_require__(209);
-
-	var _AccordionBody2 = _interopRequireDefault(_AccordionBody);
+	var _utilsTool = __webpack_require__(21);
 
 	/**
 	 * 手风琴
@@ -25324,51 +25318,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return Accordion;
 	})(_utilsComponent2['default']);
 
-	Accordion.Header = _AccordionHeader2['default'];
-	Accordion.Body = _AccordionBody2['default'];
-
-	exports['default'] = Accordion;
-	module.exports = exports['default'];
-
-/***/ },
-/* 208 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	exports.__esModule = true;
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _react = __webpack_require__(10);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _classnames = __webpack_require__(12);
-
-	var _classnames2 = _interopRequireDefault(_classnames);
-
-	var _utilsTool = __webpack_require__(21);
-
-	var AccordionHeader = (function (_Component) {
-	    _inherits(AccordionHeader, _Component);
+	var AccordionHeader = (function (_Component2) {
+	    _inherits(AccordionHeader, _Component2);
 
 	    function AccordionHeader(props, context) {
 	        _classCallCheck(this, AccordionHeader);
 
-	        _Component.call(this, props, context);
+	        _Component2.call(this, props, context);
 	    }
 
 	    AccordionHeader.prototype.render = function render() {
-	        var _props = this.props;
-	        var className = _props.className;
-	        var onChange = _props.onChange;
+	        var _props3 = this.props;
+	        var className = _props3.className;
+	        var onChange = _props3.onChange;
 
 	        return _react2['default'].createElement(
 	            'div',
@@ -25380,44 +25342,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    return AccordionHeader;
-	})(_react.Component);
+	})(_utilsComponent2['default']);
 
-	exports['default'] = AccordionHeader;
-	module.exports = exports['default'];
+	;
 
-/***/ },
-/* 209 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	exports.__esModule = true;
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _react = __webpack_require__(10);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _classnames = __webpack_require__(12);
-
-	var _classnames2 = _interopRequireDefault(_classnames);
-
-	var _utilsTool = __webpack_require__(21);
-
-	var AccordionBody = (function (_Component) {
-	    _inherits(AccordionBody, _Component);
+	var AccordionBody = (function (_Component3) {
+	    _inherits(AccordionBody, _Component3);
 
 	    function AccordionBody(props, context) {
 	        _classCallCheck(this, AccordionBody);
 
-	        _Component.call(this, props, context);
+	        _Component3.call(this, props, context);
 
 	        this.height = 0;
 	    }
@@ -25429,10 +25364,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    AccordionBody.prototype.render = function render() {
 	        var _this = this;
 
-	        var _props = this.props;
-	        var visible = _props.visible;
-	        var children = _props.children;
-	        var className = _props.className;
+	        var _props4 = this.props;
+	        var visible = _props4.visible;
+	        var children = _props4.children;
+	        var className = _props4.className;
 
 	        return _react2['default'].createElement(
 	            'div',
@@ -25450,13 +25385,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    return AccordionBody;
-	})(_react.Component);
+	})(_utilsComponent2['default']);
 
-	exports['default'] = AccordionBody;
+	Accordion.Header = AccordionHeader;
+	Accordion.Body = AccordionBody;
+
+	exports['default'] = Accordion;
 	module.exports = exports['default'];
 
 /***/ },
-/* 210 */
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25587,7 +25525,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 211 */
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25842,7 +25780,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 212 */
+/* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

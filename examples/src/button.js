@@ -35,6 +35,11 @@ export default class input extends Component{
                     <Button phSize="md" phStyle="primary">md</Button>
                     <Button phSize="lg" phStyle="primary">lg</Button>
                 </div>
+                <h3 className="comp-type">disabled/active</h3>
+                <div className="content">
+                    <Button disabled phStyle="primary">disabled</Button>
+                    <Button active phStyle="primary">active</Button>
+                </div>
                 <h3 className="comp-tip">block</h3>
                 <div className="content">
                     <Button block phStyle="success">确定</Button>

@@ -1,9 +1,7 @@
 import React,{PropTypes} from 'react';
 import Component from './utils/Component';
 import classnames from 'classnames';
-
-import AccordionHeader from './AccordionHeader';
-import AccordionBody from './AccordionBody';
+import {setPhoenixPrefix} from './utils/Tool';
 
 /**
  * 手风琴
@@ -75,6 +73,59 @@ class Accordion extends Component{
             )}>
                 {this.renderChildren()}
             </Component>
+        );
+    }
+}
+
+class AccordionHeader extends Component {
+    constructor(props, context){
+        super(props, context);
+    }
+
+    render(){
+        let {className, onChange} = this.props;
+
+        return (
+            <div className={classnames(
+                    setPhoenixPrefix('accordion-header'),
+                    className
+                )}
+                onClick={onChange}
+                {...this.props}
+            >
+                {this.props.children}
+            </div>
+        );
+    }
+};
+
+class AccordionBody extends Component{
+
+    constructor(props, context) {
+        super(props, context);
+
+        this.height = 0;
+    }
+
+    componentDidMount(){
+        this.height =  this.accordionBody.offsetHeight;
+    }
+
+    render(){
+        let {visible,children,className} = this.props;
+
+        return (
+            <div {...this.props} className={classnames(
+                    setPhoenixPrefix('accordion-body'),
+                    'animated',
+                    className
+                )} style={{
+                    height: visible? this.height+'px':'0'
+                }}>
+                <div ref={(accordionBody)=>{this.accordionBody = accordionBody;}}>
+                    {children}
+                </div>
+            </div>
         );
     }
 }
