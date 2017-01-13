@@ -21,11 +21,11 @@
 
 ## Documentation
 
-[http://uedfamily.com/documents/phoenix-ui/doc/](http://uedfamily.com/documents/phoenix-ui/doc/)
+[http://future-team.github.io/phoenix-ui/doc/index.html](http://future-team.github.io/phoenix-ui/doc/index.html)
 
 ## Examples
 
-[http://uedfamily.com/documents/phoenix-ui/examples](http://uedfamily.com/documents/phoenix-ui/examples)
+[http://future-team.github.io/phoenix-ui/examples/index.html](http://future-team.github.io/phoenix-ui/examples/index.html)
 
 ```
     $ cd phoenix-ui
