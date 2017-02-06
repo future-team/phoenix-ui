@@ -1,5 +1,21 @@
 (function(){
-	var code = window.name,
+
+    function getPramByUrl(name){
+        var reg = new RegExp(''+name+'=.*','g');
+        var code = location.search.match(reg);
+        if(code && code.length>0){
+            code = code[0].split('&')[0].split('=')[1] ;
+        }else{
+            code = '';
+            if(name =='code'){
+                code = window.name;
+            }
+        }
+
+        return decodeURIComponent(decodeURIComponent(code));
+    }
+
+	var code = getPramByUrl('code'),
     html = getCode('html');
     code = getCode('script') || code;
 

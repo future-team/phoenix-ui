@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui" />
     <title>src/utils/PropertyMixin.js - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
-    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
 </head>
-<body class="yui3-smart">
- <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<body class="yui3-smart" _assetsPath="../assets">
+ <nav class="navbar navbar-inverse navbar-fixed-top custom-navbar" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -41,7 +42,7 @@
         </div>
     </nav>
     <div id="sidebar">
-    <h3>Modules/Classes</h3>
+    <h3>模块/类</h3>
         <div id="api-tabview-filter">
             <input id='txtSearch' type="search" class="form-control" placeholder="Type to filter Modules/Classes">
         </div>
@@ -328,33 +329,10 @@
                 </dd>
              
         </dl>
+    <div class="icon-sidebar-btn icon-sidebar-btn-open"><span class="glyphicon glyphicon-chevron-left"></span>收起</div>
 </div>
    
     <div class="stdoc-content">
-        <!--     <form id="options-form" class="form-inline pull-right">
-        Show:
-        <label for="api-show-inherited" class="checkbox">
-            <input type="checkbox" id="api-show-inherited" checked>
-            Inherited
-        </label>
-
-        <label for="api-show-protected" class="checkbox">
-            <input type="checkbox" id="api-show-protected">
-            Protected
-        </label>
-
-        <label for="api-show-private" class="checkbox">
-            <input type="checkbox" id="api-show-private">
-            Private
-        </label>
-        <label for="api-show-deprecated" class="checkbox">
-            <input type="checkbox" id="api-show-deprecated">
-            Deprecated
-        </label>
-
-    </form>
-
- -->
         <div class="apidocs">
             <div id="docs-main">
                 <div class="content">
@@ -386,7 +364,7 @@ export default obj=&gt;{
             return getVal([&#x27;tacked&#x27;,&#x27;justify&#x27;],val);
         },
         phSize:function(val){
-            return getVal([&#x27;lg&#x27;,&#x27;sm&#x27;,&#x27;default&#x27;,&#x27;xs&#x27;,&#x27;md&#x27;],val);
+            return getVal([&#x27;lg&#x27;,&#x27;md&#x27;,&#x27;sm&#x27;,&#x27;default&#x27;,&#x27;xs&#x27;],val);
         },
         phStyle:function(val){
             return getVal([&#x27;primary&#x27;,&#x27;info&#x27;,&#x27;success&#x27;,&#x27;error&#x27;,&#x27;warning&#x27;,&#x27;danger&#x27;,&#x27;link&#x27;,&#x27;gray&#x27;,&#x27;light&#x27;,&#x27;positive&#x27;,&#x27;calm&#x27;,&#x27;balanced&#x27;,&#x27;energized&#x27;,&#x27;assertive&#x27;,&#x27;lightbrown&#x27;,&#x27;lightgray&#x27;],val);
@@ -452,8 +430,11 @@ export default obj=&gt;{
                 borderRadius:val
             }
         },
+        width:function(val){
+            return &#x27;&#x27;+val;
+        }.bind(obj),
         offset:function(val){
-            return &#x27;-offset-&#x27;+val;
+            return &#x27;offset-&#x27;+val;
         }.bind(obj),
         /*以下属性会被直接挂载在component上，可以不用通过component.props获取*/
         classPrefix:val=&gt;{
@@ -486,12 +467,12 @@ export default obj=&gt;{
         </div>
     </div>
 <a id="gotoTop" class='well well-small' href='#'>
-    Top
 </a>
-<script src="../assets/vendor/jquery/jquery-1.8.2.min.js"></script>
-<script src="../assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../assets/vendor/jquery/jquery-1.8.2.js"></script>
+<script src="../assets/vendor/bootstrap/js/bootstrap.js"></script>
 <script src="../assets/vendor/prettify/prettify-min.js"></script>
 <script src="../assets/js/config.js"></script>
 <script src="../assets/js/doc.js"></script>
+
 </body>
 </html>

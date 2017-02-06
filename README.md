@@ -55,6 +55,7 @@
 
 ## Repair
 
+`version 1.1.2` 统一组件使用方式,如Star由size改成phSize属性,大小统一用phSize;添加测试用例 <br/>
 `version 1.1.1` 样式统一加ph前缀，配合Phoenix-styles@v1.1.1使用 <br/>
 `version 1.1.0` 增加Drag对鼠标事件的支持;文案类整理 <br/>
 `version 1.0.0` 新增Whisper/Popover、Slider、Animate、Drag <br/>

@@ -1,14 +1,14 @@
 {
   "name": "phoenix-ui",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "future team ui for app with react",
   "main": "lib/",
   "scripts": {
     "build": "node_modules/.bin/gulp",
     "demo": "node_modules/.bin/gulp demo",
     "test": "karma start",
-    "doc": "smartDoc ||node_modules/.bin/smartDoc",
-    "docBuild": "node_modules/.bin/gulp  && smartDoc ||node_modules/.bin/smartDoc && node docTheme/addFile.js"
+    "doc": "gfsdoc ||node_modules/.bin/gfsdoc",
+    "docBuild": "node_modules/.bin/gulp  && gfsdoc ||node_modules/.bin/gfsdoc && node docTheme/addFile.js"
   },
   "repository": {
     "type": "git",
@@ -38,6 +38,7 @@
     "css-loader": "0.17.0",
     "extract-text-webpack-plugin": "^0.8.2",
     "file-loader": "^0.8.5",
+    "gfs-doc": "^0.1.27",
     "glob": "^5.0.14",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.3.0",
@@ -60,7 +61,6 @@
     "react-addons-css-transition-group": "^15.4.0",
     "react-hot-loader": "^1.3.0",
     "react-router": "^1.0.2",
-    "smartdoc": "^0.1.1",
     "style-loader": "^0.12.3",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.1",

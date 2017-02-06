@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui" />
     <title>src/Popup.js - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
-    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
 </head>
-<body class="yui3-smart">
- <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<body class="yui3-smart" _assetsPath="../assets">
+ <nav class="navbar navbar-inverse navbar-fixed-top custom-navbar" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -41,7 +42,7 @@
         </div>
     </nav>
     <div id="sidebar">
-    <h3>Modules/Classes</h3>
+    <h3>模块/类</h3>
         <div id="api-tabview-filter">
             <input id='txtSearch' type="search" class="form-control" placeholder="Type to filter Modules/Classes">
         </div>
@@ -328,33 +329,10 @@
                 </dd>
              
         </dl>
+    <div class="icon-sidebar-btn icon-sidebar-btn-open"><span class="glyphicon glyphicon-chevron-left"></span>收起</div>
 </div>
    
     <div class="stdoc-content">
-        <!--     <form id="options-form" class="form-inline pull-right">
-        Show:
-        <label for="api-show-inherited" class="checkbox">
-            <input type="checkbox" id="api-show-inherited" checked>
-            Inherited
-        </label>
-
-        <label for="api-show-protected" class="checkbox">
-            <input type="checkbox" id="api-show-protected">
-            Protected
-        </label>
-
-        <label for="api-show-private" class="checkbox">
-            <input type="checkbox" id="api-show-private">
-            Private
-        </label>
-        <label for="api-show-deprecated" class="checkbox">
-            <input type="checkbox" id="api-show-deprecated">
-            Deprecated
-        </label>
-
-    </form>
-
- -->
         <div class="apidocs">
             <div id="docs-main">
                 <div class="content">
@@ -367,6 +345,7 @@
 import React,{PropTypes} from &#x27;react&#x27;;
 import Component from &#x27;./utils/Component&#x27;;
 import classnames from &#x27;classnames&#x27;;
+import {setPhoenixPrefix} from &#x27;./utils/Tool&#x27;;
 import Animate from &#x27;./Animate&#x27;;
 
 /**
@@ -411,10 +390,11 @@ export default class Popup extends Component{
     static defaultProps = {
         visible: false,
         align: &#x27;top&#x27;,
+        classPrefix:&#x27;popup&#x27;,
         componentTag:&#x27;div&#x27;,
         classMapping : {
-            &#x27;top&#x27;: &#x27;ph-popup-top&#x27;,
-            &#x27;bottom&#x27;: &#x27;ph-popup-bottom&#x27;
+            &#x27;top&#x27;: &#x27;top&#x27;,
+            &#x27;bottom&#x27;: &#x27;bottom&#x27;
         }
     };
 
@@ -426,7 +406,7 @@ export default class Popup extends Component{
         let {visible, onClose} = this.props;
 
         if(visible){
-            return &lt;div className=&quot;ph-popup-shadow animated&quot; onClick={onClose}&gt;&lt;/div&gt;;
+            return &lt;div className={classnames(setPhoenixPrefix(&quot;popup-shadow&quot;),&quot;animated&quot;)} onClick={onClose}&gt;&lt;/div&gt;;
         }else{
             return &#x27;&#x27;;
         }
@@ -436,7 +416,7 @@ export default class Popup extends Component{
         let {visible,children,className} = this.props;
 
         if(visible){
-            return &lt;div {...this.props} className={classnames(&#x27;ph-popup-main&#x27;, &#x27;animated&#x27;, className)}&gt;{children}&lt;/div&gt;;
+            return &lt;div {...this.props} className={classnames(setPhoenixPrefix(&#x27;popup-main&#x27;), &#x27;animated&#x27;, className)}&gt;{children}&lt;/div&gt;;
         }else{
             return &#x27;&#x27;;
         }
@@ -447,14 +427,13 @@ export default class Popup extends Component{
 
         return (
             &lt;Component {...this.props} className={classnames(
-                &#x27;ph-popup&#x27;,
-                this.getProperty(),
+                this.getProperty(true),
                 className
             )}&gt;
                 &lt;Animate&gt;
                     {this.renderShadow()}
                 &lt;/Animate&gt;
-                &lt;Animate className=&#x27;ph-popup-content&#x27; transitionName={&#x60;slide-${this.props.align}&#x60;}&gt;
+                &lt;Animate className={setPhoenixPrefix(&#x27;popup-content&#x27;)} transitionName={&#x60;slide-${this.props.align}&#x60;}&gt;
                     {this.renderPopup()}
                 &lt;/Animate&gt;
             &lt;/Component&gt;
@@ -470,12 +449,12 @@ export default class Popup extends Component{
         </div>
     </div>
 <a id="gotoTop" class='well well-small' href='#'>
-    Top
 </a>
-<script src="../assets/vendor/jquery/jquery-1.8.2.min.js"></script>
-<script src="../assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../assets/vendor/jquery/jquery-1.8.2.js"></script>
+<script src="../assets/vendor/bootstrap/js/bootstrap.js"></script>
 <script src="../assets/vendor/prettify/prettify-min.js"></script>
 <script src="../assets/js/config.js"></script>
 <script src="../assets/js/doc.js"></script>
+
 </body>
 </html>

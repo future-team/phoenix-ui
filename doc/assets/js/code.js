@@ -30,10 +30,24 @@ $(function() {
         extraKeys: {
             "Ctrl-J": "autocomplete"
         }
-    })
+    });
 
 
-    code = window.name;
+    function getPramByUrl(name){
+        var reg = new RegExp(''+name+'=.*','g');
+        var code = location.search.match(reg);
+        if(code && code.length>0){
+            code = code[0].split('&')[0].split('=')[1] ;
+        }else{
+            code = '';
+           if(name =='code'){
+               code = window.name;
+           }
+        }
+        return decodeURIComponent(decodeURIComponent(code));
+    }
+
+    code = getPramByUrl('code');
     html = getCode('html');
     code = getCode('script') ||  (html && code);
 
@@ -52,7 +66,7 @@ $(function() {
     }
     resetCode();
 
-    $('#mod').text(location.search.substr(3));
+    $('#mod').text(getPramByUrl('n'));
 
     $('#btnRun').click(function() {
         var win = ifrRender.contentWindow;

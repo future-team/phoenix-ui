@@ -6,7 +6,7 @@
         logs.innerHTML = '';
 
         if(code){
-             eval('(function (){  \r\n try { \r\n' + code + "\r\n} \r\n catch(e) {\r\n __showErr(e); \r\n} \r\n})();")
+             eval('(function (){  \r\n try { \r\n' + code + "\r\n} \r\n catch(e) {\r\n __showErr(e); \r\n} \r\n})();");
         }
     }
 
@@ -105,6 +105,27 @@
         css && (li.className = css);
         li.innerHTML = html;
         logs.appendChild(li);
+    }
+
+
+    function loadScript(url, callback){
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        if (script.readyState){ //IE
+            script.onreadystatechange = function(){
+                if (script.readyState == "loaded" ||
+                    script.readyState == "complete"){
+                    script.onreadystatechange = null;
+                    callback();
+                }
+            };
+        } else {
+            script.onload = function(){
+                callback();
+            };
+        }
+        script.src = url;
+        document.body.appendChild(script);
     }
 
 })();

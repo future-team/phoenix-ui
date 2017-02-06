@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui" />
     <title>phoenix-ui</title>
   
     <link rel="stylesheet" href="./assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="./assets/vendor/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="./assets/css/main.css" id="site_styles">
-    <link rel="stylesheet" href="./assets/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="shortcut icon" type="image/png" href="./assets/favicon.png">
 </head>
-<body class="yui3-smart">
- <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<body class="yui3-smart" _assetsPath="./assets">
+ <nav class="navbar navbar-inverse navbar-fixed-top custom-navbar" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -41,7 +42,7 @@
         </div>
     </nav>
     <div id="sidebar">
-    <h3>Modules/Classes</h3>
+    <h3>模块/类</h3>
         <div id="api-tabview-filter">
             <input id='txtSearch' type="search" class="form-control" placeholder="Type to filter Modules/Classes">
         </div>
@@ -328,41 +329,52 @@
                 </dd>
              
         </dl>
+    <div class="icon-sidebar-btn icon-sidebar-btn-open"><span class="glyphicon glyphicon-chevron-left"></span>收起</div>
 </div>
    
     <div class="stdoc-content">
-        <!--     <form id="options-form" class="form-inline pull-right">
-        Show:
-        <label for="api-show-inherited" class="checkbox">
-            <input type="checkbox" id="api-show-inherited" checked>
-            Inherited
-        </label>
-
-        <label for="api-show-protected" class="checkbox">
-            <input type="checkbox" id="api-show-protected">
-            Protected
-        </label>
-
-        <label for="api-show-private" class="checkbox">
-            <input type="checkbox" id="api-show-private">
-            Private
-        </label>
-        <label for="api-show-deprecated" class="checkbox">
-            <input type="checkbox" id="api-show-deprecated">
-            Deprecated
-        </label>
-
-    </form>
-
- -->
         <div class="apidocs">
             <div id="docs-main">
                 <div class="content">
-                        <div class="apidocs">
+                        <div class="apidocs apidocs-index">
         <div id="docs-main" class="content">
             
-                <h1>Phoenix-ui of React</h1><p><strong>phoenix-ui</strong>是基于React框架实现的移动端UI组件库。</p><p>github: <a href="https://github.com/future-team/phoenix-ui">https://github.com/future-team/phoenix-ui</a></p><h2>特性</h2><ul><li>有较丰富的组件可供选择,也将持续丰富和优化</li><li>组件具有拓展性</li><li>具备组件基本的特性,同时提供很大程度的自定义内容的空间</li></ul><h2>安装</h2><p>组件中使用到动画的部分需要额外安装 <strong>react-addons-css-transition-group</strong> 来支持</p><pre>npm install phoenix-ui --save 
-npm install react-addons-css-transition-group --save</pre><h2>使用</h2><h3>CommonJS</h3><pre>var Button = require('phoenix-ui/lib/Button')</pre><h3>ES6</h3><pre>import {Button} from 'phoenix-ui'</pre><h3>Browser globals</h3><pre>&#60;script src="./dist/phoenix-ui.js"&#62;&#60;/script&#62;</pre><h2>其他</h2><p>phoenix-ui需要和 <a href="https://github.com/future-team/phoenix-styles">phoenix-styles</a> 配合使用,提供阿波罗默认样式phoenix-styles.min.css,需要IOS样式同时引入skin-ios.min.css即可。</p><h2>推荐PC端React UI组件库 - eagle-ui</h2><p>github: <a href="https://github.com/future-team/eagle-ui">https://github.com/future-team/eagle-ui</a></p>
+                <h1>Phoenix-ui of React</h1>
+<p><strong>phoenix-ui</strong>是基于React框架实现的移动端UI组件库。</p>
+<p>github: <a href="https://github.com/future-team/phoenix-ui">https://github.com/future-team/phoenix-ui</a></p>
+
+<h2>特性</h2>
+<ul>
+    <li>有较丰富的组件可供选择,也将持续丰富和优化</li>
+    <li>组件具有拓展性</li>
+</ul>
+
+<h2>安装</h2>
+<p>组件中使用到动画的部分需要额外安装 <strong>react-addons-css-transition-group</strong> 来支持</p>
+<pre>
+    npm install phoenix-ui --save
+    npm install react-addons-css-transition-group --save
+</pre>
+
+<h2>使用</h2>
+<h3>CommonJS</h3>
+<pre>
+    var Button = require('phoenix-ui/lib/Button')
+</pre>
+<h3>ES6</h3>
+<pre>
+    import {Button} from 'phoenix-ui'
+</pre>
+<h3>Browser globals</h3>
+<pre>
+    &#60;script src="http://future-team.github.io/phoenix-ui/dist/phoenix-ui.min.js"&#62;&#60;/script&#62;
+</pre>
+
+<h2>其他</h2>
+<p>phoenix-ui需要和 <a href="https://github.com/future-team/phoenix-styles">phoenix-styles</a> 配合使用,提供阿波罗默认样式phoenix-styles.min.css,需要IOS样式同时引入skin-ios.min.css即可。</p>
+<h2>推荐PC端React UI组件库 - eagle-ui</h2>
+<p>github: <a href="https://github.com/future-team/eagle-ui">https://github.com/future-team/eagle-ui</a></p>
+
             
         </div>
     </div>
@@ -374,12 +386,12 @@ npm install react-addons-css-transition-group --save</pre><h2>使用</h2><h3>Com
         </div>
     </div>
 <a id="gotoTop" class='well well-small' href='#'>
-    Top
 </a>
-<script src="./assets/vendor/jquery/jquery-1.8.2.min.js"></script>
-<script src="./assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="./assets/vendor/jquery/jquery-1.8.2.js"></script>
+<script src="./assets/vendor/bootstrap/js/bootstrap.js"></script>
 <script src="./assets/vendor/prettify/prettify-min.js"></script>
 <script src="./assets/js/config.js"></script>
 <script src="./assets/js/doc.js"></script>
+
 </body>
 </html>

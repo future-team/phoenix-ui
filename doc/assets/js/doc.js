@@ -1,12 +1,18 @@
 /* global $:true */
 $(function() {
     'use strict';
+    var _assetsPath = $(document.body).attr("_assetsPath");
 
     //nav init
     function navInit() {
         var sidebar = $('#sidebar_list');
         sidebar.find(' > dt > span').click(function() {
-            $(this).toggleClass('glyphicon-plus').parent().next().toggleClass('hide');
+            if($(this).hasClass('glyphicon-plus')){
+                $(this).addClass('glyphicon-minus').removeClass('glyphicon-plus');
+            }else{
+                $(this).addClass('glyphicon-plus').removeClass('glyphicon-minus');
+            }
+            $(this).parent().next().toggleClass('hide');
         })
 
         $('#txtSearch').keyup(function(e) {
@@ -16,9 +22,9 @@ $(function() {
         })
 
         var path = window.location.pathname,
-            name = path.substring(path.lastIndexOf('/')),
-            current = sidebar.find('a[href$="' + name + '"]:first').addClass('active').parent().parent().parent();
-
+            name = path.substring(path.lastIndexOf('/'));
+        if(decodeURI){name=decodeURI(name);}
+        var current = sidebar.find('a[href$="' + name + '"]:first').addClass('active').parent().parent().parent();
         if (current.hasClass('hide')) {
             current.removeClass('hide').prev().children('span').removeClass('glyphicon-plus');
         }
@@ -130,7 +136,7 @@ $(function() {
              loadShowDemo(demo);
         });
 
-        $('.btn-viewDemo').click(openDemo).next().click(editDemo);
+        $('.btn-viewDemo').on('click',openDemo).next().on('click',editDemo);
     }
     function loadShowDemo(code){
         if(code.hasClass('demo-loaded'))
@@ -142,7 +148,7 @@ $(function() {
         if (code.parent().hasClass('showdemo')) {
             ifr = $(html_ifr).load(loadDemo);
             code.prepend(ifr);
-            ifr.attr('src', '/assets/show.html');
+            ifr.attr('src', _assetsPath + '/show.html');
         }
         code.addClass('demo-loaded');
     }
@@ -153,7 +159,7 @@ $(function() {
         if (code.parent().hasClass('showdemo')) {
             ifr = $(html_ifr).load(loadDemo);
             code.before(ifr);
-            ifr.attr('src', '/assets/show.html');
+            ifr.attr('src', _assetsPath + '/show.html');
         }
 
         (ifr || code).attr('id', no);
@@ -161,13 +167,13 @@ $(function() {
 
     function openDemo() {
         var code = $(this).prev().children('.active').text().trim();
-        window.open('../assets/show.html', code);
+        window.open(_assetsPath + '/show.html', code);
     }
 
     function editDemo() {
         var btn = $(this),
             code = btn.prev().prev().children('.active').text().trim();
-        window.open('../assets/code.html?n=' + btn.parent().parent().children(':first').text(), code);
+        window.open(_assetsPath + '/code.html?n=' + btn.parent().parent().children(':first').text(), code);
     }
 
     function loadDemo() {
@@ -188,10 +194,10 @@ $(function() {
     }
 
     function getCode(code, type) {
-        var index = code.indexOf('<' + type + '>');
+        var index = code.indexOf('<'+ type + '>');
 
         if (index > -1) {
-            return code.substring(index + type.length + 2, code.indexOf('</' + type + '>'));
+            return code.substring(index + type.length + 2, code.indexOf('</'+ type + '>'));
         }
     }
 
@@ -303,4 +309,45 @@ $(function() {
 
     $(window).resize(autoHeight);
     autoHeight();
+
+    $(function(){
+        var sidebar = $('#sidebar');
+        $('.icon-sidebar-btn').on('click',function(){
+            var $this = $(this);
+            if($this.hasClass('icon-sidebar-btn-open') ){
+                sidebar.animate({
+                    'margin-left':-260
+                },400,function(){
+                    $this.removeClass('icon-sidebar-btn-open').addClass('icon-sidebar-btn-close').html('<span class="glyphicon glyphicon-chevron-right"></span>展开');
+                    $this.animate({
+                        'right':-50
+                    },400,function(){
+
+                    }).end();
+                });
+                $('.stdoc-content').animate({'margin-left':0},400);
+
+            }else{
+                sidebar.animate({
+                    'margin-left':0
+                },400,function(){
+                    $this.removeClass('icon-sidebar-btn-close').addClass('icon-sidebar-btn-open').html('<span class="glyphicon glyphicon-chevron-left"></span>收起');
+                    $this.animate({
+                        'right':10
+                    },400,function(){
+
+                    }).end();
+                });
+                if(!navigator.userAgent.match(/mobile/i)) {
+                    $('.stdoc-content').animate({'margin-left': 260}, 400);
+                }
+            }
+        });
+
+        //如果是移动端隐藏sidebar
+        if(navigator.userAgent.match(/mobile/i)){
+            $('.icon-sidebar-btn').trigger('click');
+            $('body').css('font-size',12);
+        }
+    });
 });
