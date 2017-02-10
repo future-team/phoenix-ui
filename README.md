@@ -55,7 +55,7 @@
 
 ## Repair
 
-`version 1.1.2` 统一组件使用方式; Textarea bug处理&使用方式优化; 优化手风琴使用方式; 增加弹框可操控参数; Tab的回调函数统一为onChange; <br/>
+`version 1.1.3` 统一组件使用方式; Textarea bug处理&使用方式优化; 优化手风琴使用方式; 增加弹框可操控参数; <br/>
 `version 1.1.1` 样式统一加ph前缀，配合Phoenix-styles@v1.1.1使用 <br/>
 `version 1.1.0` 增加Drag对鼠标事件的支持;文案类整理 <br/>
 `version 1.0.0` 新增Whisper/Popover、Slider、Animate、Drag <br/>

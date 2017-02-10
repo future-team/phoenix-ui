@@ -72,6 +72,7 @@ export default class Drag extends Component{
 
     onTouchStart(event){
         event.stopPropagation();
+        event.preventDefault();
 
         this.state.position.start = {x:event.touches[0].pageX, y: event.touches[0].pageY};
         this.state.position.move = this.state.position.start;
@@ -84,6 +85,7 @@ export default class Drag extends Component{
     onMouseStart(event){
         this.isMouseDown = true;
         event.stopPropagation();
+        event.preventDefault();
 
         this.state.position.start = {x:event.pageX, y: event.pageY};
         this.state.position.move = this.state.position.start;
@@ -95,6 +97,7 @@ export default class Drag extends Component{
 
     onTouchMove(event){
         event.stopPropagation();
+        event.preventDefault();
 
         this.state.position.move = {x:event.touches[0].pageX, y: event.touches[0].pageY};
 
@@ -106,6 +109,7 @@ export default class Drag extends Component{
     onMouseMove(event){
         if(!this.isMouseDown) return;
         event.stopPropagation();
+        event.preventDefault();
 
         this.state.position.move = {x:event.pageX, y: event.pageY};
 
@@ -116,6 +120,7 @@ export default class Drag extends Component{
 
     onTouchEnd(event){
         event.stopPropagation();
+        event.preventDefault();
 
         this.state.position.end = {x:event.changedTouches[0].pageX, y: event.changedTouches[0].pageY};
         this.state.position.start = this.state.position.move;
@@ -127,6 +132,7 @@ export default class Drag extends Component{
 
     onMouseEnd(event){
         event.stopPropagation();
+        event.preventDefault();
 
         this.state.position.end = {x:event.pageX, y: event.pageY};
         this.state.position.start = this.state.position.move;

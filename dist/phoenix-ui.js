@@ -3846,6 +3846,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    Drag.prototype.onTouchStart = function onTouchStart(event) {
 	        event.stopPropagation();
+	        event.preventDefault();
 
 	        this.state.position.start = { x: event.touches[0].pageX, y: event.touches[0].pageY };
 	        this.state.position.move = this.state.position.start;
@@ -3858,6 +3859,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Drag.prototype.onMouseStart = function onMouseStart(event) {
 	        this.isMouseDown = true;
 	        event.stopPropagation();
+	        event.preventDefault();
 
 	        this.state.position.start = { x: event.pageX, y: event.pageY };
 	        this.state.position.move = this.state.position.start;
@@ -3869,6 +3871,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    Drag.prototype.onTouchMove = function onTouchMove(event) {
 	        event.stopPropagation();
+	        event.preventDefault();
 
 	        this.state.position.move = { x: event.touches[0].pageX, y: event.touches[0].pageY };
 
@@ -3880,6 +3883,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Drag.prototype.onMouseMove = function onMouseMove(event) {
 	        if (!this.isMouseDown) return;
 	        event.stopPropagation();
+	        event.preventDefault();
 
 	        this.state.position.move = { x: event.pageX, y: event.pageY };
 
@@ -3890,6 +3894,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    Drag.prototype.onTouchEnd = function onTouchEnd(event) {
 	        event.stopPropagation();
+	        event.preventDefault();
 
 	        this.state.position.end = { x: event.changedTouches[0].pageX, y: event.changedTouches[0].pageY };
 	        this.state.position.start = this.state.position.move;
@@ -3901,6 +3906,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    Drag.prototype.onMouseEnd = function onMouseEnd(event) {
 	        event.stopPropagation();
+	        event.preventDefault();
 
 	        this.state.position.end = { x: event.pageX, y: event.pageY };
 	        this.state.position.start = this.state.position.move;
