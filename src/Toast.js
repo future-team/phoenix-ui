@@ -5,31 +5,30 @@ import classnames from 'classnames';
 import {setPhoenixPrefix} from './utils/Tool';
 
 /**
- * 飘字
+ * 飘字组件<br/>
+ * - 由于飘字的使用范围可预估, 为方便使用在原组件的基础上更进一步改为函数式的使用方式。
+ * - 使用: `Toast.info(message, duration, callback)`
+ *
+ * 示例: <br/>
+ * - 显示普通飘字, 如:<br/>
+ * `Toast.info('注册成功!', 1000, ()=>{console.log('飘字消失时执行的回调函数');})`
+ *
  * @class Toast
  * @module 操作类组件
  * @extends Component
  * @constructor
- * @demo toast.js {展示}
- * @demo toast.js {源码}
  * @show true
+ * @demo toast.js
  * */
+
 class Toast extends Component{
 
-    static propTypes = {
-        /**
-         * 标签tagName
-         * @property componentTag
-         * @type String
-         * */
-        componentTag:PropTypes.string
-   };
+    static propTypes = {};
 
     static defaultProps = {
         classPrefix:'toast',
         componentTag:'div',
-        classMapping : {
-        }
+        classMapping : {}
     };
 
     constructor(props, context) {
@@ -91,9 +90,6 @@ export default {
     info(content, duration, callback){
         let layerElement = renderLayer(content);
         _renderLayer(layerElement, duration, callback);
-    },
-    show(content, duration, callback){
-        this.info(content, duration, callback);
     },
     remove(){
         _unrenderLayer();

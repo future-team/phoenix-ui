@@ -1,6 +1,6 @@
 import React, { Component ,PropTypes} from 'react';
 import ReactDOM,{findDOMNode} from 'react-dom';
-import {Input,Row,Col,Label,Star,Button} from '../../src/index';
+import {Input,Row,Col,Label,Star,Button} from 'phoenix-ui';
 
 export default class Demo extends Component{
 

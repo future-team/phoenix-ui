@@ -1,6 +1,6 @@
-import React, { Component ,PropTypes} from 'react';
-import ReactDOM,{findDOMNode} from 'react-dom';
-import {Switch} from '../../src/index';
+import React, { Component } from 'react';
+import {Switch} from 'phoenix-ui';
+import Code from "./code/code";
 
 export default class switchs extends Component{
 
@@ -9,13 +9,13 @@ export default class switchs extends Component{
         super(props,context);
 
         this.state = {
-            on: true
+            checked: true
         };
     }
 
     onChange(){
         this.setState({
-            on: !this.state.on
+            checked: !this.state.checked
         });
     }
 
@@ -23,14 +23,16 @@ export default class switchs extends Component{
         return(
             <div>
                 <h2 className="comp-title">Switch</h2>
-                <h3 className="comp-type">不可控(不需要传参)</h3>
+                <h3 className="comp-type">开关</h3>
                 <div className="content">
+                    <h3 className="comp-tip">默认</h3>
                     <Switch />
+                    <h3 className="comp-tip">defaultChecked 初始传值</h3>
+                    <Switch defaultChecked={true} />
+                    <h3 className="comp-tip">checked和onChange配合使用</h3>
+                    <Switch checked={this.state.checked} onChange={::this.onChange} />
                 </div>
-                <h3 className="comp-type">可控(checked onChange)</h3>
-                <div className="content">
-                    <Switch checked={this.state.on} onChange={::this.onChange} />
-                </div>
+                <Code target="switch" />
             </div>
         );
     }

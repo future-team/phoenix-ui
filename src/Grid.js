@@ -5,26 +5,34 @@ import {setPhoenixPrefix} from './utils/Tool';
 
 /**
  * <h5>主要栅格化布局组件</h5>
- * <pre><code>
- *     &#60;Grid&#62;//定义栅格
- *         &#60;Col sm={6}&#62;//定义一列，总长度为12份
- *             &#60;Row&#62; &#60;/Row&#62;//定义一行
- *         &#60;/Col&#62;
- *     &#60;/Grid&#62;
- * </code></pre>
- *
- * <strong><a href='../classes/Grid.html'>Grid定义外框</a></strong><br>
- * <strong><a href='../classes/Row.html'>Row定义行排列</a></strong><br>
- * <strong><a href='../classes/Col.html'>Col定义竖排列</a></strong><br>
+ * <strong><a href='../classes/Grid.html'>Grid 外框</a></strong><br>
+ * <strong><a href='../classes/Row.html'>Row 行排列</a></strong><br>
+ * <strong><a href='../classes/Col.html'>Col 竖排列</a></strong><br>
+ * <strong><a href='../classes/TableView.html'>TableView 仿表格组件</a></strong><br>
  * <h6>点击以上链接进行相关查看</h6>
  * @module 布局组件
  * @main 布局组件
  * @static
- *
  */
-
 /**
- * 定义栅格容器,配合Col和Row使用
+ * 栅格容器组件<br/>
+ * - 配合Row、Col使用布局。
+ * - 可自定义className、style等属性以及自定义事件。
+ *
+ * 示例:
+ * ```code
+ *     <Grid> //定义栅格
+ *         <Row> //定义一行
+ *             <Col> //定义一列，最多12份
+ *                 <div className='col-demo'>内容</div>
+ *             </Col>
+ *             <Col>
+ *                 <div className='col-demo'>stretch<br />baseline</div>
+ *             </Col>
+ *         </Row>
+ *     </Grid>
+ * ```
+ *
  * @class Grid
  * @module 布局组件
  * @extends Component
@@ -36,14 +44,19 @@ import {setPhoenixPrefix} from './utils/Tool';
 export default class Grid extends Component{
 
     static propTypes = {
-
-    }
+        /**
+         * 样式前缀
+         * @property classPrefix
+         * @type String
+         * @default 'grid'
+         * */
+        classPrefix: PropTypes.string,
+    };
 
     static defaultProps = {
         classPrefix:'grid',
-        classMapping : {
-        }
-    }
+        classMapping : {}
+    };
 
     constructor(props, context) {
         super(props, context);

@@ -1,51 +1,49 @@
 'use strict';
 
 import React from 'react';
-import {findDOMNode} from 'react-dom';
 import assert from 'assert';
-import TestUtils from 'react/lib/ReactTestUtils.js';
+import {shallowRender} from './utils/Tool';
 
 import Button from '../src/Button';
 
-// function shallowRender(Component, props){
-//     const renderer = TestUtils.createRenderer();
-//     renderer.render(<Component {...props}/>);
-//     return renderer.getRenderOutput();
-// }
-
 describe("<Button/>", function(){
-    it('radius', function(){
-        const button = TestUtils.renderIntoDocument(<Button radius phStyle='primary'></Button>);
-        assert(findDOMNode(button).className.match('radius'));
+    it('默认是否是primry & sm', ()=>{
+        const button = shallowRender(<Button>btn</Button>);
+        assert(button.props.className.match('primary'));
     });
 
-    it('block', function(){
-        const button = TestUtils.renderIntoDocument(<Button block phStyle='primary'></Button>);
-        assert(findDOMNode(button).className.match('block'));
+    it('添加radius属性', ()=>{
+        const button = shallowRender(<Button radius phStyle='primary'>btn</Button>);
+        assert(button.props.className.match('radius'));
     });
 
-    it('disabled', function(){
-        const button = TestUtils.renderIntoDocument(<Button disabled phStyle='primary'></Button>);
-        assert(findDOMNode(button).className.match('disabled'));
+    it('添加block属性', ()=>{
+        const button = shallowRender(<Button block phStyle='primary'>btn</Button>);
+        assert(button.props.className.match('block'));
     });
 
-    it('active', function(){
-        const button = TestUtils.renderIntoDocument(<Button active phStyle='primary'></Button>);
-        assert(findDOMNode(button).className.match('active'));
+    it('添加disabled属性', ()=>{
+        const button = shallowRender(<Button disabled phStyle='primary'>btn</Button>);
+        assert(button.props.className.match('disabled'));
     });
 
-    it('hollow', function(){
-        const button = TestUtils.renderIntoDocument(<Button hollow phStyle='primary'></Button>);
-        assert(findDOMNode(button).className.match('hollow'));
+    it('添加active属性', ()=>{
+        const button = shallowRender(<Button active phStyle='primary'>btn</Button>);
+        assert(button.props.className.match('active'));
     });
 
-    it('phStyle-primary', function(){
-        const button = TestUtils.renderIntoDocument(<Button phStyle='primary'></Button>);
-        assert(findDOMNode(button).className.match('primary'));
+    it('添加hollow属性', ()=>{
+        const button = shallowRender(<Button hollow phStyle='primary'>btn</Button>);
+        assert(button.props.className.match('hollow'));
     });
 
-    it('phSize-lg', function(){
-        const button = TestUtils.renderIntoDocument(<Button phSize='lg'></Button>);
-        assert(findDOMNode(button).className.match('lg'));
+    it('phStyle设置为primary', ()=>{
+        const button = shallowRender(<Button phStyle='primary'>btn</Button>);
+        assert(button.props.className.match('primary'));
+    });
+
+    it('phSize设置为lg', function(){
+        const button = shallowRender(<Button phSize='lg'>btn</Button>);
+        assert(button.props.className.match('lg'));
     });
 });

@@ -1,16 +1,24 @@
-import React, { Component ,PropTypes} from 'react';
-import ReactDOM,{findDOMNode} from 'react-dom';
-import {Button} from '../../src/index';
+import React, { Component } from "react";
+import {Button} from "phoenix-ui";
+import Code from "./code/code";
 
-export default class input extends Component{
+export default class button extends Component{
     render(){
         return(
             <div>
                 <h2 className="comp-title">Button</h2>
-                <h3 className="comp-type">类型 phStyle</h3>
+                <h3 className="comp-type">phSize(默认sm) 按钮大小</h3>
                 <div className="content">
-                    <Button phStyle="primary">Primary</Button>
-                    <Button radius phStyle="info">Info</Button>
+                    <Button>默认sm</Button>
+                    <Button phSize="md">md</Button>
+                    <Button phSize="lg">lg</Button>
+                </div>
+                <Code target="button-phsize" />
+
+                <h3 className="comp-type">phStyle(默认primary) 按钮颜色</h3>
+                <div className="content">
+                    <Button>默认Primary</Button>
+                    <Button phStyle="info">Info</Button>
                     <Button phStyle="success">Success</Button>
                     <Button phStyle="error">Error</Button>
                     <Button phStyle="danger">Danger</Button>
@@ -18,32 +26,37 @@ export default class input extends Component{
                     <Button phStyle="gray">Gray</Button>
                     <Button phStyle="link">Link</Button>
                 </div>
-                <h3 className="comp-tip">hollow</h3>
-                
+                <Code target="button-phstyle" />
+
+                <h3 className="comp-type">hollow属性</h3>
                 <div className="content">
-                    <Button hollow phStyle="primary">Primary</Button>
-                    <Button hollow phStyle="info">Info</Button>
-                    <Button hollow phStyle="success">Success</Button>
-                    <Button hollow phStyle="error">Error</Button>
-                    <Button hollow phStyle="danger">Danger</Button>
-                    <Button hollow phStyle="warning">Warning</Button>
-                    <Button hollow phStyle="gray">Gray</Button>
+                    <Button hollow>hollow</Button>
                 </div>
-                <h3 className="comp-type">大小 phSize</h3>
+                <Code target="button-phstyle" />
+
+                <h3 className="comp-type">radius属性</h3>
                 <div className="content">
-                    <Button phSize="xs" phStyle="primary">xs</Button>
-                    <Button phSize="md" phStyle="primary">md</Button>
-                    <Button phSize="lg" phStyle="primary">lg</Button>
+                    <Button radius>radius</Button>
                 </div>
-                <h3 className="comp-type">disabled/active</h3>
+                <Code target="button-radius" />
+
+                <h3 className="comp-type">block属性</h3>
                 <div className="content">
-                    <Button disabled phStyle="primary">disabled</Button>
-                    <Button active phStyle="primary">active</Button>
+                    <Button block>block</Button>
                 </div>
-                <h3 className="comp-tip">block</h3>
+                <Code target="button-block" />
+
+                <h3 className="comp-type">disabled属性</h3>
                 <div className="content">
-                    <Button block phStyle="success">确定</Button>
+                    <Button disabled>disabled</Button>
                 </div>
+                <Code target="button-disabled" />
+
+                <h3 className="comp-type">active属性</h3>
+                <div className="content">
+                    <Button active>active</Button>
+                </div>
+                <Code target="button-active" />
             </div>
         );
     }

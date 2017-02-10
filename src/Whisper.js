@@ -15,7 +15,33 @@ import classnames from 'classnames';
  */
 
 /**
- * 倾听者
+ * 倾听者组件<br/>
+ * - 配合提示组件使用, 通过target设置显示的目标。
+ * - 可通过placement设置目标物的显示位置, 可选top、bottom、left、right、top left、top right、bottom left、bottom right。
+ * - 可通过distance设置目标物到点击对象(倾听者)的位置。
+ * - 可通过onChange定义目标物显隐时额外的回调函数。
+ *
+ * 主要属性和接口：
+ * - target:目标物。
+ * - placement:目标物的显示位置, 默认bottom。
+ * - distance:目标物到点击对象(倾听者)的位置, 默认15。
+ * - onChange:目标物显隐时额外的回调函数。
+ *
+ * 示例:
+ * ```code
+ *     const popover = ( // 可以通过style自定义位置
+ *         <Popover>
+ *             <ul className="ph-popover-list">
+ *                 <li className="ph-popover-item">未上线单店</li>
+ *                 <li className="ph-popover-item">未上线连锁店</li>
+ *             </ul>
+ *         </Popover>
+ *     );
+ * ```
+ * ```code
+ *     <Whisper placement="top" onChange={()=>{console.log('气泡出现消失时额外的执行函数');}} target={popover} distance={10} >Top</Whisper>
+ * ```
+ *
  * @class Whisper
  * @module 提示组件
  * @extends Component
@@ -27,6 +53,13 @@ import classnames from 'classnames';
 export default class Whisper extends Component{
 
     static propTypes = {
+        /**
+         * 样式前缀
+         * @property classPrefix
+         * @type String
+         * @default 'whisper'
+         * */
+        classPrefix: PropTypes.string,
         /**
          * 标签tagName
          * @property componentTag
@@ -53,7 +86,7 @@ export default class Whisper extends Component{
         distance: PropTypes.number,
         /**
          * 气泡显隐时可执行的额外函数,自定义
-         * @property onChange
+         * @method onChange
          * @type Function
          * */
         onChange: PropTypes.func
@@ -64,8 +97,7 @@ export default class Whisper extends Component{
         placement: 'bottom',
         classPrefix:'whisper',
         componentTag: 'div',
-        classMapping : {
-        }
+        classMapping : {}
     };
 
     constructor(props, context) {

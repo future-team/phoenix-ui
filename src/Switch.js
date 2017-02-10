@@ -4,7 +4,16 @@ import classnames from 'classnames';
 import {setPhoenixPrefix} from './utils/Tool';
 
 /**
- * 开关切换，仿真ios的开关控件
+ * 开关切换组件，仿真ios的开关控件<br/>
+ * - 可通过defaultChecked设置默认值。
+ * - 可通过checked和onChange事件配合使用手动设置输入值。
+ *
+ * 主要属性和接口：
+ * - defaultChecked:默认值<br/>
+ * 如：`<Switch defaultChecked={true} />`
+ * - checked&onChange:<br/>
+ * 如：`<Switch checked={this.state.checked} onChange={()=>{this.setState({checked:false})}} />`
+ *
  * @class Switch
  * @module 表单组件
  * @extends Component
@@ -13,27 +22,40 @@ import {setPhoenixPrefix} from './utils/Tool';
  * @demo switch.js {源码}
  * @show true
  * */
+
 export default class Switch extends Component{
 
     static propTypes = {
         /**
          * 样式前缀
          * @property classPrefix
-         * @type Stringx
-         * */
-        classPrefix:PropTypes.string,
-        /**
-         * 标签tagName
-         * @property componentTag
          * @type String
+         * @default 'switch'
          * */
-        componentTag:PropTypes.string
+        classPrefix: PropTypes.string,
+        /**
+         * 默认开关值
+         * @property defaultChecked
+         * @type Boolean
+         * */
+        defaultChecked: PropTypes.bool,
+        /**
+         * 开关值
+         * @property checked
+         * @type Boolean
+         * */
+        checked: PropTypes.bool,
+        /**
+         * 更改值时触发的回调
+         * @event onChange
+         * @type Function
+         * */
+        onChange: PropTypes.func
     };
 
     static defaultProps = {
         egSize:'',
         classPrefix:'switch',
-        componentTag:'div',
         classMapping : {
 
         }
@@ -51,8 +73,8 @@ export default class Switch extends Component{
                     this.getProperty(true),
                     this.props.className
                 )
-                }>
-            <input  type="checkbox" {...this.props} />
+            }>
+                <input  type="checkbox" {...this.props} />
                 <div className={setPhoenixPrefix("checkbox")}></div>
             </label>
         );

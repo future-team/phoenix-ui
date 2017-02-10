@@ -7,7 +7,23 @@ import Drag from './Drag';
 import Button from './Button';
 
 /**
- * 功能组件-左滑swipe
+ * 左滑组件<br/>
+ * - 向左滑动出现可操作按钮, 类似IOS列表操作的组件。
+ * - 通过buttons设置可操作按钮的文字text、样式phStyle以及点击按钮的回调函数onHandle。
+ * - buttons的phStyle默认'primary', 可选primary、info、error、warning、danger、link、gray、success。
+ *
+ * 示例:
+ * ```code
+ *     <Swipe buttons={[
+ *         {text: '删除', onHandle: this.onDelete, phStyle: 'error'},
+ *         {text: '取消', onHandle: this.onCancle, phStyle: 'info'}
+ *     ]}>
+ *         <div style={{padding: '1rem'}}>
+ *             // 内容
+ *         </div>
+ *     </Swipe>
+ * ```
+ *
  * @class Swipe
  * @module 操作类组件
  * @extends Component
@@ -16,9 +32,17 @@ import Button from './Button';
  * @demo swipe.js {源码}
  * @show true
  * */
+
 export default class Swipe extends Component{
 
     static propTypes = {
+        /**
+         * 样式前缀
+         * @property classPrefix
+         * @type String
+         * @default 'swipe'
+         * */
+        classPrefix: PropTypes.string,
         /**
          * 标签tagName
          * @property componentTag
@@ -65,7 +89,7 @@ export default class Swipe extends Component{
             <div className={setPhoenixPrefix("swipe-btns")} key='buttons' ref={(buttons)=>{this.buttons = buttons;}}>
                 {
                     btnInfo.map((item,index) => {
-                        return <Button key={index} phStyle={item.phStyle}>{item.text}</Button>
+                        return <Button key={index} phStyle={item.phStyle || 'primary'}>{item.text}</Button>
                     })
                 }
             </div>

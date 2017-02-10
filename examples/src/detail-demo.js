@@ -1,6 +1,6 @@
 import React,{PropTypes,Component} from 'react';
 import classnames from 'classnames';
-import {Star,Label,FormGroup,Input,Switch,Button,Row,Col,Badge,Grid} from '../../src/index';
+import {Star,Label,FormGroup,Input,Switch,Button,Row,Col,Badge,Grid} from 'phoenix-ui';
 
 export default class Detail extends Component {
     constructor(props, context) {

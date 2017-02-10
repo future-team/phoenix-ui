@@ -7,7 +7,7 @@ let consts = classConstants;
 const PREFIX = 'ph-';
 
 export default obj=>{
-    /**
+    /*
      * 给className添加前缀后返回className
      * @method getClassName
      * @param name {String} 从该字符串中去查找
@@ -25,7 +25,7 @@ export default obj=>{
 
         return list.join(' ');
     };
-    /**
+    /*
      * 验证props中的样式是否符合规则
      * @method getClassNames
      * @param props {Object} 从该对象中去查找
@@ -41,7 +41,7 @@ export default obj=>{
         }
         return clazz;
     };
-    /**
+    /*
      * 给多个className添加前缀后返回
      * @method getClassNamesForArguments
      * @param arguments {Arguments String} 多个class参数
@@ -63,7 +63,7 @@ export default obj=>{
 
         return arr.join(' ');
     };
-    /**
+    /*
      * 设置css类名前缀
      * @method setPrefix
      * @param name{String} class名字
@@ -83,7 +83,7 @@ export default obj=>{
         return classArray.join(classArray.length>1?'-':'');
     };
 
-    /**
+    /*
      * 检查元素是否存在样式名
      * @method hasClass
      * @param obj {Object} 元素
@@ -94,7 +94,7 @@ export default obj=>{
         return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
     };
 
-    /**
+    /*
      * 给元素增加一个样式名
      * @method addClass
      * @param obj {Object} 元素
@@ -103,7 +103,7 @@ export default obj=>{
     obj.prototype.addClass = function(obj,cls){
         if (!this.hasClass(obj, cls)) obj.className += " " + cls;
     };
-    /**
+    /*
      * 给元素删除一个样式名
      * @method removeClass
      * @param obj {Object} 元素

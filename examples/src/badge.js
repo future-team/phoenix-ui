@@ -1,17 +1,22 @@
-import React, { Component ,PropTypes} from 'react';
-import {Badge} from '../../src/index';
+import React, { Component } from "react";
+import {Badge} from "phoenix-ui";
+import Code from "./code/code";
 
-export default class Badges extends Component{
+export default class badge extends Component{
     render(){
         return(
             <div>
             	<h2 className="comp-title">Badge</h2>
-                <h3 className="comp-type">类型 phStyle</h3>
+                <h3 className="comp-type">phStyle(默认primary) 徽章颜色</h3>
                 <div className="content">
-	                <Badge>惠1</Badge>
-	                <Badge phStyle="success">惠2</Badge>
-	                <Badge phStyle='info'>惠3</Badge>
+	                <Badge>惠</Badge>
+	                <Badge phStyle="success">惠</Badge>
+	                <Badge phStyle="info">惠</Badge>
+                    <Badge phStyle="danger">惠</Badge>
+                    <Badge phStyle="error">惠</Badge>
+                    <Badge phStyle="warning">惠</Badge>
                 </div>
+                <Code target="badge-phstyle" />
             </div>
         );
     }

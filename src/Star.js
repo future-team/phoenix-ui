@@ -1,29 +1,37 @@
-/**
- *
- * 星级评价
- */
-/**
- * 星级评价(Star)组件<br />
- * 提供的UI展示属性接口包括<br/>
- * <ul>
- *     <li>rate：星级评价的分数(满分为50)<code>默认为0</code></li>
- *     <li>size：星星的大小(可选md、lg、默认3种size)<code></code></li>
- * </ul><br>
- * 使用方式:
- * <pre><code>&#60;Star rate={50} size={10}/&#62;</code>
- * </pre>
- * @class Star
- * @module 基础组件
- * @extends Component
- * @constructor
- * @demo star.js {UI展示}
- * @demo star.js {源码}
- * @show true
- * */
 import React, {PropTypes} from 'react';
 import Component from './utils/Component';
 import classnames from 'classnames';
 import {setPhoenixPrefix} from './utils/Tool';
+
+/**
+ * <h5>基础组件，主要包括:</h5>
+ * <strong><a href='../classes/Star.html'>Star 星级</a></strong><br/>
+ * <strong><a href='../classes/Button.html'>Button 按钮</a></strong><br>
+ *  <strong><a href='../classes/ButtonGroup.html'>ButtonGroup 按钮组</a></strong><br>
+ * <h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>
+ * @module 基础组件
+ * @main 基础组件
+ * @static
+ */
+/**
+ * 星级评价组件<br />
+ * - 通过Rate设置星级评价的分数, 最低0, 最高50, 5的倍数。
+ * - 通过phSize设置大小, 可选sm、md、lg。
+ *
+ * 主要属性和接口：
+ * - phSize(v1.1.2以下用size):星星的大小。分别为sm、md、lg, 默认sm。 <br/>
+ * 如：`<Star phSize="lg" />`
+ * - Rate:星级评价的分数。最低0, 最高50, 5的倍数递增, 默认0。 <br/>
+ * 如：`<Star Rate={10} />`
+ *
+ * @class Star
+ * @module 基础组件
+ * @extends Component
+ * @constructor
+ * @demo star.js {展示}
+ * @demo star.js {源码}
+ * @show true
+ * */
 
 export default class Star extends Component{
     static propTypes = {
@@ -36,33 +44,41 @@ export default class Star extends Component{
         Rate:PropTypes.number,
         /**
          * 星星大小
-         * @property size
+         * @property phSize
          * @type String
-         * @default
+         * @default 'sm'
          * */
-        size:PropTypes.string
-    }
+        phSize:PropTypes.string,
+        /**
+         * 样式前缀
+         * @property classPrefix
+         * @type String
+         * @default 'star'
+         * */
+        classPrefix: PropTypes.string,
+    };
 
     static defaultProps = {
-        classPrefix:'star',
-        Rate:0,
-        size:'xs'
-    }
+        phSize: 'sm',
+        classPrefix: 'star',
+        Rate: 0,
+        classMapping: {}
+    };
 
     constructor(props,context){
         super(props,context);
     }
 
     render(){
-        let {Rate,size} = this.props;
-        let rateCls = Rate && 'star-'+ Math.round((Rate*2)/10)*5;
-        let sizeCls = size && 'star-'+size;
+        let {Rate,className} = this.props;
+        let rateCls = 'star-'+ Math.round((Rate*2)/10)*5;
+        // let sizeCls = size && 'star-'+size;
 
         return (
             <div className={classnames(
                 this.getProperty(true),
                 setPhoenixPrefix(rateCls),
-                setPhoenixPrefix(sizeCls)
+                className
             )}>
                 <div className={setPhoenixPrefix("star-grey")}></div>
             </div>

@@ -7,6 +7,13 @@ module.exports =extend({},{
     output:{
         pathinfo:true
     },
+    externals: {
+        'jsdom': 'window',
+        // 'cheerio': 'window',
+        'react/addons': true,
+        'react/lib/ExecutionEnvironment': true,
+        'react/lib/ReactContext': true
+    },
     module:{
         loaders:[
             {
@@ -17,6 +24,10 @@ module.exports =extend({},{
             {
                 test: /\.less$/,
                 loader: "style-loader!css-loader!less-loader"
+            },
+            {
+                test: /\.json$/,
+                loader: 'json',
             }
         ]
     }

@@ -1,6 +1,6 @@
-import React, { Component ,PropTypes} from 'react';
-import ReactDOM,{findDOMNode} from 'react-dom';
-import {Row,Col,Input,Button,Animate} from '../../src/index';
+import React, { Component } from "react";
+import {Row,Col,Input,Button,Animate} from "phoenix-ui";
+import Code from "./code/code";
 
 export default class animate extends Component{
 
@@ -8,8 +8,8 @@ export default class animate extends Component{
         super(props,context); 
 
         this.state = {
-            item: '',
-            list: ['看一本书','睡8个小时']
+            item: "",
+            list: ["看一本书","睡8个小时"]
         }
     }
 
@@ -23,7 +23,7 @@ export default class animate extends Component{
         let newList = this.state.list.concat(this.state.item);
         
         this.setState({
-            item: '',
+            item: "",
             list: newList
         });
     }
@@ -49,11 +49,11 @@ export default class animate extends Component{
         return(
             <div>
                 <h2 className="comp-title">Animate</h2>
-                <h3 className="comp-type">e.g. Todo</h3>
+                <h3 className="comp-type">Todo demo</h3>
                 <div className="content ph-row-no-padding todo-demo">
                     <Row>
                         <Col className="ph-col-80">
-                            <Input type="text" value={this.state.item} onChange={::this.setValue.bind(this,'item')} />
+                            <Input type="text" value={this.state.item} onChange={::this.setValue.bind(this,"item")} />
                         </Col>
                         <Col>
                             <Button block phSize="lg" phStyle="primary" onClick={::this.addTodo} >Add</Button>
@@ -62,7 +62,9 @@ export default class animate extends Component{
                     <Animate transitionName="fade" className="animate-field">
                         {this.renderList()}
                     </Animate>
-                </div>                
+                </div>
+                <br/>
+                <Code target="animate" />             
             </div>
         );
     }

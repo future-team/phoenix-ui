@@ -1,16 +1,13 @@
-/**
- * Created by slashhuang on 16/5/31.
- */
-import React, { Component ,PropTypes} from 'react';
-import ReactDOM,{findDOMNode} from 'react-dom';
-import {Star} from '../../src/index';
+import React, { Component } from "react";
+import {Star} from "phoenix-ui";
+import Code from "./code/code";
 
-export default class StarDemo extends Component{
+export default class star extends Component{
     render(){
         return(
             <div>
                 <h2 className="comp-title">Star</h2>
-                <h3 className="comp-type">星级 Rate(default:0)</h3>
+                <h3 className="comp-type">Rate(默认0) 星级评价的分数</h3>
                 <div className="content">
                     <Star />
                     <Star Rate={5} />
@@ -20,12 +17,15 @@ export default class StarDemo extends Component{
                     <Star Rate={30} />
                     <Star Rate={35} />
                 </div>
-                <h3 className="comp-type">大小 size(default:xs)</h3>
+                <Code target="star-rate" />
+
+                <h3 className="comp-type">phSize(默认sm) 星星大小</h3>
                 <div className="content">
-                    <Star Rate={40} size='xs' />
-                    <Star Rate={45} size='md' />
-                    <Star Rate={50} size='lg' />
+                    <Star Rate={40} phSize="sm" />
+                    <Star Rate={45} phSize="md" />
+                    <Star Rate={50} phSize="lg" />
                 </div>
+                <Code target="star-phsize" />
             </div>
         );
     }

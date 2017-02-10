@@ -4,15 +4,40 @@ import classnames from 'classnames';
 import {setPhoenixPrefix} from './utils/Tool';
 
 /**
- * 表单元素textarea
+ * <h5>表单组件，主要包括组件:</h5>
+ * <strong><a href='../classes/Input.html'>Input 文本框/单选框/多选框</a></strong><br/>
+ * <strong><a href='../classes/Textarea.html'>Textarea 多行文本框</a></strong><br>
+ * <strong><a href='../classes/FormGroup.html'>FormGroup 表单组</a></strong><br/>
+ * <strong><a href='../classes/Switch.html'>Switch 开关</a></strong><br>
+ * <h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>
+ * @module 表单组件
+ * @main 表单组件
+ * @static
+ */
+/**
+ * 多行文本框组件<br/>
+ * - 使用方式跟原生一致。
+ * - 可通过defaultValue设置默认值; 可通过value和onChange事件配合使用手动设置输入值。
+ * - 可通过设置count判断是否显示当前输入字数。
+ * - 可通过设置maxLength配置最大输入字数。
+ *
+ * 主要属性和接口：
+ * - defaultValue:默认值 <br/>
+ * 如：`<Textarea defaultValue="测试" />`
+ * - value&onChange:<br/>
+ * 如：`<Textarea value={this.state.value} onChange={()=>{this.setState({value:"测试"})}} />`
+ * - count:是否显示当前输入字数, 默认false不显示, 配合maxLength使用<br/>
+ * 如：`<Textarea count maxLength={150} />`
+ *
  * @class TextArea
  * @module 表单组件
  * @extends Component
  * @constructor
  * @demo textarea.js {展示}
- * @demo TextArea.js {源码}
+ * @demo textarea.js {源码}
  * @show true
  * */
+
 export default class Textarea extends Component{
 
     static propTypes = {
@@ -20,20 +45,33 @@ export default class Textarea extends Component{
          * 样式前缀
          * @property classPrefix
          * @type String
+         * @default 'textarea'
          * */
-        classPrefix:PropTypes.string,
+        classPrefix: PropTypes.string,
+        /**
+         * 默认值
+         * @property defaultValue
+         * @type String
+         * */
+        defaultValue: PropTypes.string,
+        /**
+         * 值
+         * @property value
+         * @type String
+         * */
+        value: PropTypes.string,
         /**
          * 输入时执行的回调
-         * @property onChange
+         * @event onChange
          * @type Function
          * */
         onChange:PropTypes.func,
         /**
          * 是否显示输入计数
-         * @property isCount
+         * @property count
          * @type Boolean
          * */
-        isCount: PropTypes.bool,
+        count: PropTypes.bool,
         /**
          * 可输入的总长度
          * @property maxLength
@@ -43,8 +81,6 @@ export default class Textarea extends Component{
     };
 
     static defaultProps = {
-        isCount: false,
-        egSize:'',
         classPrefix:'textarea',
         classMapping : {}
     };
@@ -53,7 +89,7 @@ export default class Textarea extends Component{
         super(props, context);
 
         this.state = {
-            inputLength: props.value.length
+            inputLength: props.value? props.value.length:0
         }
     }
 
@@ -67,7 +103,7 @@ export default class Textarea extends Component{
     }
 
     render(){
-        let {isCount, maxLength} = this.props;
+        let {count, maxLength} = this.props;
 
         return (
             <div className={setPhoenixPrefix('textarea-field')}>
@@ -77,7 +113,7 @@ export default class Textarea extends Component{
                 )} onChange={(event)=>{this.onChange(event)}}></textarea>
                 <span className={classnames(
                     setPhoenixPrefix('textarea-count'),
-                    isCount? 'show':'hide'
+                    count? 'show':'hide'
                 )}>
                     <b className={setPhoenixPrefix('textarea-length')}>{this.state.inputLength}</b>/<b>{maxLength}</b>
                 </span>

@@ -1,6 +1,6 @@
-import React, { Component ,PropTypes} from 'react';
-import ReactDOM,{findDOMNode} from 'react-dom';
-import {Input,Row,Col} from '../../src/index';
+import React, { Component } from "react";
+import {Input} from "phoenix-ui";
+import Code from "./code/code";
 
 export default class input extends Component{
 
@@ -9,7 +9,8 @@ export default class input extends Component{
         super(props,context);
 
         this.state = {
-            name:''
+            name: "value和onChange配合使用",
+            checked: true
         };
     }
 
@@ -19,24 +20,44 @@ export default class input extends Component{
         this.setState(o);
     }
 
+    onChange(){
+        this.setState({
+            checked: !this.state.checked
+        });
+    }
+
     render(){
         return(
             <div>
                 <h2 className="comp-title">Input</h2>
-                <h3 className="comp-type">Text</h3>
+                <h3 className="comp-type">type(默认text) 类型</h3>
+                <h3 className="comp-type">text 文本框</h3>
                 <div className="content">
-                    <Input type="text" value={this.state.name} onChange={::this.setValue.bind(this,'name')} placeholder="请输入" />
+                    <Input placeholder="默认text" />
+                    <Input maxLength={20} defaultValue="设置最大长度maxLength" placeholder="请输入" />
+                    <Input type="text" defaultValue="默认值defaultValue" placeholder="请输入" />
+                    <Input type="text" value={this.state.name} onChange={::this.setValue.bind(this,"name")} placeholder="请输入" />
                 </div>
-                <h3 className="comp-type">Radio</h3>
+                <Code target="input-text" />
+
+                <h3 className="comp-type">checkbox 多选框</h3>
                 <div className="content">
+                    <h3 className="comp-tip">默认</h3>
+                    <Input type="checkbox" label="苹果" />
+                    <h3 className="comp-tip">defaultChecked 初始传值</h3>
+                    <Input type="checkbox" label="香蕉" defaultChecked={true} />
+                    <h3 className="comp-tip">checked和onChange配合使用</h3>
+                    <Input type="checkbox" label="西瓜" checked={this.state.checked} onChange={::this.onChange} />
+                </div>
+                <Code target="input-checkbox" />
+
+                <h3 className="comp-type">radio 单选框</h3>
+                <div className="content">
+                    <h3 className="comp-tip">默认</h3>
                     <Input type="radio" label="男" name="sex" />
                     <Input type="radio" label="女" name="sex" />
                 </div>
-                <h3 className="comp-type">Checkbox</h3>
-                <div className="content">
-                    <Input type="checkbox" label="苹果" />
-                    <Input type="checkbox" label="香蕉" />
-                </div>
+                <Code target="input-radio" />
             </div>
         );
     }

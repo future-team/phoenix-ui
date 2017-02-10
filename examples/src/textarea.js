@@ -1,6 +1,6 @@
-import React, { Component ,PropTypes} from 'react';
-import ReactDOM,{findDOMNode} from 'react-dom';
-import {Textarea} from '../../src/index';
+import React, { Component } from "react";
+import {Textarea} from "phoenix-ui";
+import Code from "./code/code";
 
 export default class textarea extends Component{
 
@@ -9,8 +9,8 @@ export default class textarea extends Component{
         super(props,context);
 
         this.state = {
-            name:'',
-            words: '哈哈哈哈',
+            name:"默认值defaultValue",
+            words: "value和onChange配合使用",
             MAX_LENGTH: 100
         };
     }
@@ -25,16 +25,20 @@ export default class textarea extends Component{
         return(
             <div>
                 <h2 className="comp-title">Textarea</h2>
-                <h3 className="comp-type">不计字数 isCount(default:false)</h3>
+                <h3 className="comp-type">count(默认false) 是否计字数</h3>
                 <div className="content">
-                    <Textarea value={this.state.name} placeholder='请输入...'
-                    onChange={this.setValue.bind(this,'name')}></Textarea>
+                    <Textarea placeholder="不计数..." />
+                    <Textarea count maxLength={this.state.MAX_LENGTH} placeholder="count配合maxLength计数..." />
                 </div>
-                <h3 className="comp-type">计字数 isCount(true)</h3>
+                <Code target="textarea-count" />
+
                 <div className="content">
-                    <Textarea value={this.state.words} placeholder='请输入...'
-                    onChange={this.setValue.bind(this,'words')} isCount={true} maxLength={this.state.MAX_LENGTH}></Textarea>
+                    <h3 className="comp-tip">defaultValue 默认值</h3>
+                    <Textarea defaultValue={this.state.name} placeholder="请输入..." />
+                    <h3 className="comp-tip">value和onChange配合使用</h3>
+                    <Textarea defaultValue={this.state.words} placeholder="请输入..." onChange={this.setValue.bind(this,"words")} />
                 </div>
+                <Code target="textarea" />
             </div>
         );
     }

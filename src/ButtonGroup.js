@@ -1,17 +1,29 @@
-/**
- * Created by mac on 15/9/8.
- */
 import React,{PropTypes} from 'react';
 import Component from './utils/Component';
 import classnames from 'classnames';
 
 /**
- * 按钮组组件配合Button组件,提供了横、竖两种排列方式<br/>
- *  主要属性和接口：
- * <ul>
- *     <li>phType:是否自适应宽度或者垂直排列，可选'justify,tacked'默认'justify'
- *     </li>
- * </ul>
+ * 按钮组组件<br/>
+ * - 按钮组组件配合Button组件,提供了横、竖两种排列方式, 可选justify,tacked。
+ * - 可通过activeCallback实现点击回调。
+ *
+ * 主要属性和接口：
+ * - phType:是否自适应宽度或者垂直排列, 默认justify <br/>
+ * 如:
+ * ```code
+ *     <ButtonGroup phType="tacked">
+ *         <Button block>tacked1</Button>
+ *         <Button block>tacked2</Button>
+ *     </ButtonGroup>
+ * ```
+ * - activeCallback:点击按钮组的回调函数。<br/>
+ * ```code
+ *     <ButtonGroup activeCallback={function(target,html){console.log(target,html);}}>
+ *         <Button>tacked1</Button>
+ *         <Button>tacked2</Button>
+ *     </ButtonGroup>
+ * ```
+ *
  * @class ButtonGroup
  * @module 基础组件
  * @extends Component
@@ -25,6 +37,13 @@ export default class ButtonGroup extends Component{
 
     static propTypes={
         /**
+         * 样式前缀
+         * @property classPrefix
+         * @type String
+         * @default 'button-group'
+         * */
+        classPrefix: PropTypes.string,
+        /**
          * 是否有自适应宽度，垂直排列等属性，取值为justify(水平排列)或者tacked(垂直排列)
          * @property phType
          * @type String
@@ -32,8 +51,8 @@ export default class ButtonGroup extends Component{
          * */
         phType:PropTypes.string,
         /**
-         * 某个按钮被按下后的回调
-         * @property activeCallback
+         * 按钮被按下后的回调
+         * @method activeCallback
          * @type Function
          * */
         activeCallback:PropTypes.func

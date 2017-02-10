@@ -6,7 +6,23 @@ import {setPhoenixPrefix} from './utils/Tool';
 import Drag from './Drag';
 
 /**
- * 滑动输入条 Slider
+ * 滑动输入条组件<br/>
+ * - 滑动进度条确定当前进度的百分比。
+ * - 可通过设置process确定初始进度百分比, 范围从0-100。
+ * - 可通过placement设置当前进度提示框的位置, 可选top/bottoom。
+ * - 可通过onChange设置拖拽进度条松开时的回调函数。
+ * - 可通过disabled设置进度条只读。
+ *
+ * 主要属性和接口：
+ * - process:初始进度百分比, 默认0 <br/>
+ * 如: `<Slider progress={10}/>`
+ * - placement:进度提示框的位置, 默认top <br/>
+ * 如: `<Slider placement="bottom" />`
+ * - onChange:拖拽进度条松开时的回调函数 <br/>
+ * 如: `<Slider onChange={(progress)=>{console.log(progress);} />`
+ * - disabled:进度条只读, 不可操作 <br/>
+ * 如: `<Slider disabled/>`
+ *
  * @class Slider
  * @module 操作类组件
  * @extends Component
@@ -15,9 +31,17 @@ import Drag from './Drag';
  * @demo slider.js {源码}
  * @show true
  * */
+
 export default class Slider extends Component{
 
     static propTypes = {
+        /**
+         * 样式前缀
+         * @property classPrefix
+         * @type String
+         * @default 'slider'
+         * */
+        classPrefix: PropTypes.string,
         /**
          * 标签tagName
          * @property componentTag
@@ -34,8 +58,15 @@ export default class Slider extends Component{
          * 进程提示的位置,默认top
          * @property placement
          * @type String
+         * @default 'top'
          * */
-        placement: PropTypes.string
+        placement: PropTypes.string,
+        /**
+         * 改变进程时的回调函数
+         * @method onChange
+         * @type Function
+         * */
+        onChange: PropTypes.func
     };
 
     static defaultProps = {
@@ -54,7 +85,7 @@ export default class Slider extends Component{
         super(props, context);
 
         this.state = {
-            newProgress: this.props.progress,
+            newProgress: props.progress,
             tipVisible: false
         }
     }
@@ -96,7 +127,7 @@ export default class Slider extends Component{
 
         this.newProgressWidth = this.prevProgressWidth;
 
-        this.props.onChange(this.state.newProgress);
+        if(this.props.onChange) this.props.onChange(this.state.newProgress);
     }
 
     render(){

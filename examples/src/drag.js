@@ -1,6 +1,6 @@
-import React, { Component ,PropTypes} from 'react';
-import ReactDOM,{findDOMNode} from 'react-dom';
-import {Drag} from '../../src/index';
+import React, { Component } from 'react';
+import {Drag} from 'phoenix-ui';
+import Code from "./code/code";
 
 export default class toast extends Component{
 
@@ -37,7 +37,8 @@ export default class toast extends Component{
         return(
             <div>
                 <h2 className="comp-title">Drag</h2>
-                <h3 className="comp-type">e.g. Dragable Box</h3>
+                <h3 className="comp-type">Dragable Box demo</h3>
+                <Code target="drag" />
                 <div className="content content-drag">
                     <Drag onDrag={::this.onDrag} onDrop={::this.onDrop} style={{height:0}}>
                         <div className="box" ref={(box)=>{this.box = box}}>Drag</div>

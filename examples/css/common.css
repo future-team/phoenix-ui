@@ -60,7 +60,7 @@ body{
     padding: .3rem 1rem;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
-    font-size: 100%;
+    font-size: 92%;
 }
 .comp-tip{
     padding: .3rem 1rem;
@@ -70,6 +70,25 @@ body{
 
 .content-drag{
     position: relative;
+}
+
+.code-mark{
+    display: inline-block;
+    padding: 0 1rem 1rem;
+    text-decoration: underline;
+    font-size: 87.5%;
+    color: #ff6633;
+}
+
+.code-dialog .ph-dialog-content{
+    padding: 1rem;
+}
+
+.code-dialog .ph-dialog-body.code-body{
+    overflow-x: auto;
+    margin: .5rem 0;
+    text-align: left;
+    white-space: pre;
 }
 
 /*** content example ***/
@@ -82,10 +101,16 @@ body{
     margin: 0 0 1rem 1rem;
 }
 
-.content .ph-button-group .ph-button:not(.ph-button-block),
 .content .ph-textarea-field,
-.content .ph-tabs:not(.vertical){
+.content .ph-tabs:not(.vertical),
+.content .ph-button-group,
+.contents .ph-form-group,
+.contents .ph-swipe{
     margin: 0 0 1rem 0;
+}
+
+.content .ph-button-group .ph-button{
+    margin: 0;
 }
 
 .content .ph-whisper{

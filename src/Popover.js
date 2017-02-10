@@ -4,7 +4,24 @@ import classnames from 'classnames';
 import Tool from './utils/Tool'
 
 /**
- * 气泡
+ * 气泡组件<br/>
+ * - 配合倾听者组件Whisper使用, 作为Whisper的target。
+ *
+ * 示例:
+ * ```code
+ *     const popover = ( // 可以通过style自定义位置
+ *         <Popover>
+ *             <ul className="ph-popover-list">
+ *                 <li className="ph-popover-item">未上线单店</li>
+ *                 <li className="ph-popover-item">未上线连锁店</li>
+ *             </ul>
+ *         </Popover>
+ *     );
+ * ```
+ * ```code
+ *     <Whisper placement="top" onChange={()=>{console.log('气泡出现消失时额外的执行函数');}} target={popover} distance={10} >Top</Whisper>
+ * ```
+ *
  * @class Popover
  * @module 提示组件
  * @extends Component
@@ -16,6 +33,13 @@ import Tool from './utils/Tool'
 export default class Popover extends Component{
 
     static propTypes = {
+        /**
+         * 样式前缀
+         * @property classPrefix
+         * @type String
+         * @default 'popover'
+         * */
+        classPrefix: PropTypes.string,
         /**
          * 标签tagName
          * @property componentTag

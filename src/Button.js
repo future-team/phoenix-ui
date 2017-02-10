@@ -3,29 +3,21 @@ import Component from './utils/Component';
 import classnames from 'classnames';
 
 /**
- *  - 按钮组件提供所有properties中内置的颜色及字体大小样式供选择<br/>
- *  - 也可以自定义行内样式和className名字定义UI展示<br/>
- *  - 支持disabled, active属性定义<br/>
- *  - 可以通过phSize 设置大小，可选xs、sm、lg。<br/>
- *  - 通过phStyle选择按钮颜色，可选error、warning、danger、link、gray、white、success
- *  主要属性和接口：
- * <ul>
- *     <li>phSize:按钮颜色<br>
- *         如：<code>
- *            Button radius phSize="sm" egStyle="warning"
- *         </code>
- *     </li>
- *     <li>egStyle:按钮的大小。分别为md、sm、lg，默认sm<br>
- *         如：<code>
- *            Button radius phSize="md" phStyle="warning"
- *         </code>
- *     </li>
- *     <li>block:是否块级显示，默认false<br>
- *         如：<code>
- *            Button block
- *         </code>
- *     </li>
- * </ul>
+ * 按钮组件<br/>
+ * - 按钮组件提供所有properties中内置的颜色及字体大小样式供选择。
+ * - 也可以自定义行内样式和className名字定义UI展示。
+ * - 通过phSize设置大小, 可选sm、md、lg。
+ * - 通过phStyle选择按钮颜色，可选primary、info、error、warning、danger、link、gray、success。
+ * - 支持disabled, active属性定义。
+ *
+ * 主要属性和接口：
+ * - phSize:按钮大小, 默认sm <br/>
+ * 如: `<Button phSize="lg">button</Button>`
+ * - phStyle:按钮颜色, 默认primary <br/>
+ * 如: `<Button phStyle="info">button</Button>`
+ * - block:是否块级显示，默认false <br/>
+ * 如: `<Button block>button</Button>`
+ *
  * @class Button
  * @module 基础组件
  * @extends Component
@@ -38,23 +30,24 @@ export default class Button extends Component{
 
     static propTypes = {
         /**
-         * 按钮尺寸,分别为xs、sm、lg
+         * 按钮尺寸[sm、md、lg], 默认为sm
          * @property phSize
          * @type String
-         * @default sm
+         * @default 'sm'
          * */
         phSize:PropTypes.string,
         /**
-         * 颜色[error、warning、danger、link、gray、white、success、'']
+         * 按钮颜色[primary、warning、danger、info、error、success、link、gray], 默认primary
          * @property phStyle
          * @type Boolean
-         * @default ''
+         * @default 'primary'
          * */
         phStyle:PropTypes.string,
         /**
          * 样式前缀
          * @property classPrefix
          * @type String
+         * @default 'button'
          * */
         classPrefix:PropTypes.string,
         /**
@@ -69,10 +62,40 @@ export default class Button extends Component{
          * @type Boolean
          * @default false
          * */
-        block:PropTypes.bool
+        block:PropTypes.bool,
+        /**
+         * 圆角
+         * @property radius
+         * @type Boolean
+         * @default false
+         * */
+        radius:PropTypes.bool,
+        /**
+         * 空背景
+         * @property hollow
+         * @type Boolean
+         * @default false
+         * */
+        hollow:PropTypes.bool,
+        /**
+         * 不可点状态
+         * @property disabled
+         * @type Boolean
+         * @default false
+         * */
+        disabled:PropTypes.bool,
+        /**
+         * 激活状态
+         * @property active
+         * @type Boolean
+         * @default false
+         * */
+        active:PropTypes.bool
     };
 
     static defaultProps = {
+        phSize: 'sm',
+        phStyle: 'primary',
         classPrefix:'button',
         componentTag:'button',
         classMapping : {

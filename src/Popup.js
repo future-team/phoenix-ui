@@ -5,7 +5,38 @@ import {setPhoenixPrefix} from './utils/Tool';
 import Animate from './Animate';
 
 /**
- * 弹层
+ * 弹层组件<br/>
+ * - 由于弹层的显示操作在组件以外, 所以需要在使用时自定义visible、onShow、onClose函数。
+ * - 通过align设置碳层弹出的位置, 可选top/bottom。
+ * - 可通过onClose配置点击弹层阴影部分来关闭弹层。
+ *
+ * 主要属性和接口：
+ * - visible:弹层是否显示标识, 默认false不可见
+ * - onClose:关闭弹层的功能函数
+ * - align:弹层的位置, 默认top
+ *
+ * 示例:
+ * ```code
+ *     <Popup align="top" visible={this.state.visible} onClose={::this.onClose}>
+ *         <ul className="ph-popup-list">
+ *             <li className="ph-popup-item" onClick={::this.onClose}>未上线单店</li>
+ *             <li className="ph-popup-item" onClick={::this.onClose}>未上线连锁店</li>
+ *         </ul>
+ *     </Popup>
+ * ```
+ * ```code
+ *     onShow(){
+ *         this.setState({
+ *             visible: true
+ *         });
+ *     }
+ *     onClose(){
+ *         this.setState({
+ *             visible: false
+ *         });
+ *     }
+ * ```
+ *
  * @class Popup
  * @module 操作类组件
  * @extends Component
@@ -14,9 +45,17 @@ import Animate from './Animate';
  * @demo popup.js {源码}
  * @show true
  * */
+
 export default class Popup extends Component{
 
     static propTypes = {
+        /**
+         * 样式前缀
+         * @property classPrefix
+         * @type String
+         * @default 'popup'
+         * */
+        classPrefix: PropTypes.string,
         /**
          * 标签tagName
          * @property componentTag
@@ -37,7 +76,7 @@ export default class Popup extends Component{
         align: PropTypes.string,
         /**
          * 关闭的执行函数
-         * @property onClose
+         * @method onClose
          * @type Function
          * */
         onClose: PropTypes.func

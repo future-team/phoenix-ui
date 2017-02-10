@@ -20,7 +20,7 @@ export default obj=>{
             return getVal(['tacked','justify'],val);
         },
         phSize:function(val){
-            return getVal(['lg','sm','default','xs','md'],val);
+            return getVal(['lg','md','sm','default','xs'],val);
         },
         phStyle:function(val){
             return getVal(['primary','info','success','error','warning','danger','link','gray','light','positive','calm','balanced','energized','assertive','lightbrown','lightgray'],val);

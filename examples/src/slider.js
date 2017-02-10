@@ -1,6 +1,6 @@
-import React, { Component ,PropTypes} from 'react';
-import ReactDOM,{findDOMNode} from 'react-dom';
-import {Slider} from '../../src/index';
+import React, { Component } from "react";
+import {Slider} from "phoenix-ui";
+import Code from "./code/code";
 
 export default class slider extends Component{
 
@@ -8,8 +8,7 @@ export default class slider extends Component{
         super(props,context); 
 
         this.state = {
-            progress: 50,
-            progress1: 0,
+            progress: 50
         }
     }
 
@@ -19,30 +18,36 @@ export default class slider extends Component{
         });
     }
 
-    onChange1(newProgress){
-        this.setState({
-            progress1: newProgress
-        });
-    }
-
     render(){
         return(
             <div>
                 <h2 className="comp-title">Slider</h2>
-                <h3 className="comp-type">placement(default:top)</h3>
+                <h3 className="comp-type">progress(默认0) 初始进度百分比</h3>
                 <div className="content">
-                    <Slider onChange={::this.onChange} progress={this.state.progress} />
-                    <div style={{textAlign:'center',padding:'1rem 0'}}>Progress: {this.state.progress}</div>
+                    <Slider progress={25} />
                 </div>
-                <h3 className="comp-type">placement(bottom)</h3>
+                <Code target="slider-progress" />
+
+                <h3 className="comp-type">placement(默认top) 进度条提示框的位置</h3>
                 <div className="content">
-                    <Slider onChange={::this.onChange1} progress={this.state.progress1} placement='bottom' />
-                    <div style={{textAlign:'center',padding:'1rem 0'}}>Progress: {this.state.progress1}</div>
+                    <Slider />
+                    <Slider placement="bottom" />
                 </div>
-                <h3 className="comp-tip">disabled</h3>
+                <Code target="slider-placement" />
+
+                <h3 className="comp-type">onChange 拖拽进度条松开时的回调函数</h3>
                 <div className="content">
-                    <Slider disabled progress={10} placement='bottom' />
+                    <Slider progress={this.state.progress} onChange={::this.onChange} />
+                    <div style={{textAlign:"center",padding:"1rem 0"}}>Progress: {this.state.progress}</div>
                 </div>
+                <Code target="slider-onchange" />
+
+
+                <h3 className="comp-type">disabled 进度条只读</h3>
+                <div className="content">
+                    <Slider disabled progress={10} />
+                </div>
+                <Code target="slider-disabled" />
             </div>
         );
     }

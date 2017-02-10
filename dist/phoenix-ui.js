@@ -179,37 +179,37 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.Dialog = _Dialog3['default'];
 
-	var _Toast2 = __webpack_require__(204);
+	var _Toast2 = __webpack_require__(201);
 
 	var _Toast3 = _interopRequireDefault(_Toast2);
 
 	exports.Toast = _Toast3['default'];
 
-	var _Popup2 = __webpack_require__(206);
+	var _Popup2 = __webpack_require__(203);
 
 	var _Popup3 = _interopRequireDefault(_Popup2);
 
 	exports.Popup = _Popup3['default'];
 
-	var _Accordion2 = __webpack_require__(207);
+	var _Accordion2 = __webpack_require__(204);
 
 	var _Accordion3 = _interopRequireDefault(_Accordion2);
 
 	exports.Accordion = _Accordion3['default'];
 
-	var _Popover2 = __webpack_require__(208);
+	var _Popover2 = __webpack_require__(205);
 
 	var _Popover3 = _interopRequireDefault(_Popover2);
 
 	exports.Popover = _Popover3['default'];
 
-	var _Whisper2 = __webpack_require__(209);
+	var _Whisper2 = __webpack_require__(206);
 
 	var _Whisper3 = _interopRequireDefault(_Whisper2);
 
 	exports.Whisper = _Whisper3['default'];
 
-	var _Slider2 = __webpack_require__(210);
+	var _Slider2 = __webpack_require__(207);
 
 	var _Slider3 = _interopRequireDefault(_Slider2);
 
@@ -740,7 +740,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * 后端对应的url，默认dp，catjs报警接口
 	   * 不建议更改，因为字段需保持一致
 	   * */
-	  url: '//221.181.67.144/web-broker-service/api/js',
+	  url: '//catdot.dianping.com/web-broker-service/api/js',
 	  /**
 	   * 可设置cookie名称和value，以判断是否符合规则的登录
 	   * 建议设置不易重复的值或者使用默认值
@@ -787,29 +787,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _classnames2 = _interopRequireDefault(_classnames);
 
 	/**
-	 *  - 按钮组件提供所有properties中内置的颜色及字体大小样式供选择<br/>
-	 *  - 也可以自定义行内样式和className名字定义UI展示<br/>
-	 *  - 支持disabled, active属性定义<br/>
-	 *  - 可以通过phSize 设置大小，可选xs、sm、lg。<br/>
-	 *  - 通过phStyle选择按钮颜色，可选error、warning、danger、link、gray、white、success
-	 *  主要属性和接口：
-	 * <ul>
-	 *     <li>phSize:按钮颜色<br>
-	 *         如：<code>
-	 *            Button radius phSize="sm" egStyle="warning"
-	 *         </code>
-	 *     </li>
-	 *     <li>egStyle:按钮的大小。分别为md、sm、lg，默认sm<br>
-	 *         如：<code>
-	 *            Button radius phSize="md" phStyle="warning"
-	 *         </code>
-	 *     </li>
-	 *     <li>block:是否块级显示，默认false<br>
-	 *         如：<code>
-	 *            Button block
-	 *         </code>
-	 *     </li>
-	 * </ul>
+	 * 按钮组件<br/>
+	 * - 按钮组件提供所有properties中内置的颜色及字体大小样式供选择。
+	 * - 也可以自定义行内样式和className名字定义UI展示。
+	 * - 通过phSize设置大小, 可选sm、md、lg。
+	 * - 通过phStyle选择按钮颜色，可选primary、info、error、warning、danger、link、gray、success。
+	 * - 支持disabled, active属性定义。
+	 *
+	 * 主要属性和接口：
+	 * - phSize:按钮大小, 默认sm <br/>
+	 * 如: `<Button phSize="lg">button</Button>`
+	 * - phStyle:按钮颜色, 默认primary <br/>
+	 * 如: `<Button phStyle="info">button</Button>`
+	 * - block:是否块级显示，默认false <br/>
+	 * 如: `<Button block>button</Button>`
+	 *
 	 * @class Button
 	 * @module 基础组件
 	 * @extends Component
@@ -820,85 +812,116 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * */
 
 	var Button = (function (_Component) {
-	    _inherits(Button, _Component);
+	  _inherits(Button, _Component);
 
-	    _createClass(Button, null, [{
-	        key: 'propTypes',
-	        value: {
-	            /**
-	             * 按钮尺寸,分别为xs、sm、lg
-	             * @property phSize
-	             * @type String
-	             * @default sm
-	             * */
-	            phSize: _react.PropTypes.string,
-	            /**
-	             * 颜色[error、warning、danger、link、gray、white、success、'']
-	             * @property phStyle
-	             * @type Boolean
-	             * @default ''
-	             * */
-	            phStyle: _react.PropTypes.string,
-	            /**
-	             * 样式前缀
-	             * @property classPrefix
-	             * @type String
-	             * */
-	            classPrefix: _react.PropTypes.string,
-	            /**
-	             * 标签tagName
-	             * @property componentTag
-	             * @type String
-	             * */
-	            componentTag: _react.PropTypes.string,
-	            /**
-	             * 块级显示
-	             * @property block
-	             * @type Boolean
-	             * @default false
-	             * */
-	            block: _react.PropTypes.bool
-	        },
-	        enumerable: true
-	    }, {
-	        key: 'defaultProps',
-	        value: {
-	            classPrefix: 'button',
-	            componentTag: 'button',
-	            classMapping: {
-	                'block': 'block',
-	                'primary': 'primary',
-	                'info': 'info',
-	                'success': 'success',
-	                'error': 'error',
-	                'warning': 'warning',
-	                'danger': 'danger',
-	                'link': 'link',
-	                'gray': 'gray'
-	            }
-	        },
-	        enumerable: true
-	    }]);
+	  _createClass(Button, null, [{
+	    key: 'propTypes',
+	    value: {
+	      /**
+	       * 按钮尺寸[sm、md、lg], 默认为sm
+	       * @property phSize
+	       * @type String
+	       * @default 'sm'
+	       * */
+	      phSize: _react.PropTypes.string,
+	      /**
+	       * 按钮颜色[primary、warning、danger、info、error、success、link、gray], 默认primary
+	       * @property phStyle
+	       * @type Boolean
+	       * @default 'primary'
+	       * */
+	      phStyle: _react.PropTypes.string,
+	      /**
+	       * 样式前缀
+	       * @property classPrefix
+	       * @type String
+	       * @default 'button'
+	       * */
+	      classPrefix: _react.PropTypes.string,
+	      /**
+	       * 标签tagName
+	       * @property componentTag
+	       * @type String
+	       * */
+	      componentTag: _react.PropTypes.string,
+	      /**
+	       * 块级显示
+	       * @property block
+	       * @type Boolean
+	       * @default false
+	       * */
+	      block: _react.PropTypes.bool,
+	      /**
+	       * 圆角
+	       * @property radius
+	       * @type Boolean
+	       * @default false
+	       * */
+	      radius: _react.PropTypes.bool,
+	      /**
+	       * 空背景
+	       * @property hollow
+	       * @type Boolean
+	       * @default false
+	       * */
+	      hollow: _react.PropTypes.bool,
+	      /**
+	       * 不可点状态
+	       * @property disabled
+	       * @type Boolean
+	       * @default false
+	       * */
+	      disabled: _react.PropTypes.bool,
+	      /**
+	       * 激活状态
+	       * @property active
+	       * @type Boolean
+	       * @default false
+	       * */
+	      active: _react.PropTypes.bool
+	    },
+	    enumerable: true
+	  }, {
+	    key: 'defaultProps',
+	    value: {
+	      phSize: 'sm',
+	      phStyle: 'primary',
+	      classPrefix: 'button',
+	      componentTag: 'button',
+	      classMapping: {
+	        'block': 'block',
+	        'primary': 'primary',
+	        'info': 'info',
+	        'success': 'success',
+	        'error': 'error',
+	        'warning': 'warning',
+	        'danger': 'danger',
+	        'link': 'link',
+	        'gray': 'gray'
+	      }
+	    },
+	    enumerable: true
+	  }]);
 
-	    function Button(props, context) {
-	        _classCallCheck(this, Button);
+	  function Button(props, context) {
+	    _classCallCheck(this, Button);
 
-	        _Component.call(this, props, context);
-	        this.setProperty('hollow', 'hollow');
-	    }
+	    _Component.call(this, props, context);
+	    this.setProperty('hollow', 'hollow');
+	  }
 
-	    Button.prototype.render = function render() {
-	        var Component = this.props.componentTag;
+	  Button.prototype.render = function render() {
+	    var Component = this.props.componentTag;
 
-	        return _react2['default'].createElement(
-	            Component,
-	            _extends({}, this.otherProps, { className: _classnames2['default'](this.getProperty(true), this.props.className),
-	                style: this.getStyles(this.props.style) }),
-	            this.props.children
-	        );
-	    };
+	    return _react2['default'].createElement(
+	      Component,
+	      _extends({}, this.otherProps, { className: _classnames2['default'](this.getProperty(true), this.props.className),
+	        style: this.getStyles(this.props.style) }),
+	      this.props.children
+	    );
+	  };
 
-	    return Button;
+	  return Button;
 	})(_utilsComponent2['default']);
 
 	exports['default'] = Button;
@@ -1258,7 +1281,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var PREFIX = 'ph-';
 
 	exports['default'] = function (obj) {
-	    /**
+	    /*
 	     * 给className添加前缀后返回className
 	     * @method getClassName
 	     * @param name {String} 从该字符串中去查找
@@ -1278,7 +1301,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return list.join(' ');
 	    };
-	    /**
+	    /*
 	     * 验证props中的样式是否符合规则
 	     * @method getClassNames
 	     * @param props {Object} 从该对象中去查找
@@ -1296,7 +1319,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	        return clazz;
 	    };
-	    /**
+	    /*
 	     * 给多个className添加前缀后返回
 	     * @method getClassNamesForArguments
 	     * @param arguments {Arguments String} 多个class参数
@@ -1317,7 +1340,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return arr.join(' ');
 	    };
-	    /**
+	    /*
 	     * 设置css类名前缀
 	     * @method setPrefix
 	     * @param name{String} class名字
@@ -1339,7 +1362,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return classArray.join(classArray.length > 1 ? '-' : '');
 	    };
 
-	    /**
+	    /*
 	     * 检查元素是否存在样式名
 	     * @method hasClass
 	     * @param obj {Object} 元素
@@ -1350,7 +1373,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
 	    };
 
-	    /**
+	    /*
 	     * 给元素增加一个样式名
 	     * @method addClass
 	     * @param obj {Object} 元素
@@ -1359,7 +1382,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    obj.prototype.addClass = function (obj, cls) {
 	        if (!this.hasClass(obj, cls)) obj.className += " " + cls;
 	    };
-	    /**
+	    /*
 	     * 给元素删除一个样式名
 	     * @method removeClass
 	     * @param obj {Object} 元素
@@ -1507,7 +1530,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return getVal(['tacked', 'justify'], val);
 	        },
 	        phSize: function phSize(val) {
-	            return getVal(['lg', 'sm', 'default', 'xs', 'md'], val);
+	            return getVal(['lg', 'md', 'sm', 'default', 'xs'], val);
 	        },
 	        phStyle: function phStyle(val) {
 	            return getVal(['primary', 'info', 'success', 'error', 'warning', 'danger', 'link', 'gray', 'light', 'positive', 'calm', 'balanced', 'energized', 'assertive', 'lightbrown', 'lightgray'], val);
@@ -1773,9 +1796,6 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/**
-	 * Created by mac on 15/9/8.
-	 */
 	'use strict';
 
 	exports.__esModule = true;
@@ -1803,12 +1823,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _classnames2 = _interopRequireDefault(_classnames);
 
 	/**
-	 * 按钮组组件配合Button组件,提供了横、竖两种排列方式<br/>
-	 *  主要属性和接口：
-	 * <ul>
-	 *     <li>phType:是否自适应宽度或者垂直排列，可选'justify,tacked'默认'justify'
-	 *     </li>
-	 * </ul>
+	 * 按钮组组件<br/>
+	 * - 按钮组组件配合Button组件,提供了横、竖两种排列方式, 可选justify,tacked。
+	 * - 可通过activeCallback实现点击回调。
+	 *
+	 * 主要属性和接口：
+	 * - phType:是否自适应宽度或者垂直排列, 默认justify <br/>
+	 * 如:
+	 * ```code
+	 *     <ButtonGroup phType="tacked">
+	 *         <Button block>tacked1</Button>
+	 *         <Button block>tacked2</Button>
+	 *     </ButtonGroup>
+	 * ```
+	 * - activeCallback:点击按钮组的回调函数。<br/>
+	 * ```code
+	 *     <ButtonGroup activeCallback={function(target,html){console.log(target,html);}}>
+	 *         <Button>tacked1</Button>
+	 *         <Button>tacked2</Button>
+	 *     </ButtonGroup>
+	 * ```
+	 *
 	 * @class ButtonGroup
 	 * @module 基础组件
 	 * @extends Component
@@ -1826,6 +1861,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: 'propTypes',
 	        value: {
 	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * @default 'button-group'
+	             * */
+	            classPrefix: _react.PropTypes.string,
+	            /**
 	             * 是否有自适应宽度，垂直排列等属性，取值为justify(水平排列)或者tacked(垂直排列)
 	             * @property phType
 	             * @type String
@@ -1833,8 +1875,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * */
 	            phType: _react.PropTypes.string,
 	            /**
-	             * 某个按钮被按下后的回调
-	             * @property activeCallback
+	             * 按钮被按下后的回调
+	             * @method activeCallback
 	             * @type Function
 	             * */
 	            activeCallback: _react.PropTypes.func
@@ -1932,7 +1974,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _utilsTool = __webpack_require__(21);
 
 	/**
-	 * 表单元素，input框，使用方式跟原生一致
+	 * input框组件<br/>
+	 * - 使用方式跟原生一致, 支持disabled。
+	 * - 通过type设置input的类型, 可选text,checkbox,radio。
+	 * - 当类型为text时, 可通过defaultValue设置默认值; 可通过value和onChange事件配合使用手动设置输入值。
+	 * - 当类型为checkbox&radio时, 可通过label设置展示的文字。
+	 * - 当类型为checkbox&radio时, 可通过defaultChecked设置默认值; 可通过checked和onChange事件配合使用手动设置输入值。
+	 *
+	 * 主要属性和接口：
+	 * - type:input类型, 默认text <br/>
+	 * 如：`<Input type="checkbox" />`
+	 * - defaultValue:默认值(text) <br/>
+	 * 如：`<Input type="text" defaultValue="测试" />`
+	 * - value&onChange:(text)<br/>
+	 * 如：`<Input type="text" value={this.state.value} onChange={()=>{this.setState({value:"测试"})}} />`
+	 * - label:展示的文字信息(checkbox&radio), 默认空<br/>
+	 * 如：`<Input type="checkbox" label="测试" />`
+	 * - defaultChecked:默认值(checkbox&radio)<br/>
+	 * 如：`<Input type="checkbox" defaultChecked={true} />`
+	 * - checked&onChange:(checkbox&radio)<br/>
+	 * 如：`<Input type="checkbox" checked={this.state.checked} onChange={()=>{this.setState({checked:false})}} />`
+	 *
 	 * @class Input
 	 * @module 表单组件
 	 * @extends Component
@@ -1949,9 +2011,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: 'propTypes',
 	        value: {
 	            /**
+	             * input类型, 可选[text,checkbox,radio], 默认text
+	             * @property type
+	             * @type String
+	             * @default 'text'
+	             * */
+	            type: _react.PropTypes.string,
+	            /**
+	             * 类型为checkbox&radio时, 展示的文字信息
+	             * @property label
+	             * @type String
+	             * @default ''
+	             * */
+	            label: _react.PropTypes.string,
+	            /**
 	             * 样式前缀
 	             * @property classPrefix
 	             * @type String
+	             * @default 'input'
 	             * */
 	            classPrefix: _react.PropTypes.string,
 	            /**
@@ -1959,12 +2036,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * @property componentTag
 	             * @type String
 	             * */
-	            componentTag: _react.PropTypes.string
+	            componentTag: _react.PropTypes.string,
+	            /**
+	             * 更改值时触发的回调
+	             * @event onChange
+	             * @type Function
+	             * */
+	            onChange: _react.PropTypes.func
 	        },
 	        enumerable: true
 	    }, {
 	        key: 'defaultProps',
 	        value: {
+	            type: 'text',
 	            classPrefix: 'input',
 	            componentTag: 'div',
 	            classMapping: {}
@@ -2102,13 +2186,37 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _utilsTool = __webpack_require__(21);
 
 	/**
-	 * 表单元素textarea
+	 * <h5>表单组件，主要包括组件:</h5>
+	 * <strong><a href='../classes/Input.html'>Input 文本框/单选框/多选框</a></strong><br/>
+	 * <strong><a href='../classes/Textarea.html'>Textarea 多行文本框</a></strong><br>
+	 * <strong><a href='../classes/FormGroup.html'>FormGroup 表单组</a></strong><br/>
+	 * <strong><a href='../classes/Switch.html'>Switch 开关</a></strong><br>
+	 * <h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>
+	 * @module 表单组件
+	 * @main 表单组件
+	 * @static
+	 */
+	/**
+	 * 多行文本框组件<br/>
+	 * - 使用方式跟原生一致。
+	 * - 可通过defaultValue设置默认值; 可通过value和onChange事件配合使用手动设置输入值。
+	 * - 可通过设置count判断是否显示当前输入字数。
+	 * - 可通过设置maxLength配置最大输入字数。
+	 *
+	 * 主要属性和接口：
+	 * - defaultValue:默认值 <br/>
+	 * 如：`<Textarea defaultValue="测试" />`
+	 * - value&onChange:<br/>
+	 * 如：`<Textarea value={this.state.value} onChange={()=>{this.setState({value:"测试"})}} />`
+	 * - count:是否显示当前输入字数, 默认false不显示, 配合maxLength使用<br/>
+	 * 如：`<Textarea count maxLength={150} />`
+	 *
 	 * @class TextArea
 	 * @module 表单组件
 	 * @extends Component
 	 * @constructor
 	 * @demo textarea.js {展示}
-	 * @demo TextArea.js {源码}
+	 * @demo textarea.js {源码}
 	 * @show true
 	 * */
 
@@ -2122,20 +2230,33 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * 样式前缀
 	             * @property classPrefix
 	             * @type String
+	             * @default 'textarea'
 	             * */
 	            classPrefix: _react.PropTypes.string,
 	            /**
+	             * 默认值
+	             * @property defaultValue
+	             * @type String
+	             * */
+	            defaultValue: _react.PropTypes.string,
+	            /**
+	             * 值
+	             * @property value
+	             * @type String
+	             * */
+	            value: _react.PropTypes.string,
+	            /**
 	             * 输入时执行的回调
-	             * @property onChange
+	             * @event onChange
 	             * @type Function
 	             * */
 	            onChange: _react.PropTypes.func,
 	            /**
 	             * 是否显示输入计数
-	             * @property isCount
+	             * @property count
 	             * @type Boolean
 	             * */
-	            isCount: _react.PropTypes.bool,
+	            count: _react.PropTypes.bool,
 	            /**
 	             * 可输入的总长度
 	             * @property maxLength
@@ -2147,8 +2268,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, {
 	        key: 'defaultProps',
 	        value: {
-	            isCount: false,
-	            egSize: '',
 	            classPrefix: 'textarea',
 	            classMapping: {}
 	        },
@@ -2161,7 +2280,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _Component.call(this, props, context);
 
 	        this.state = {
-	            inputLength: props.value.length
+	            inputLength: props.value ? props.value.length : 0
 	        };
 	    }
 
@@ -2178,7 +2297,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var _this = this;
 
 	        var _props = this.props;
-	        var isCount = _props.isCount;
+	        var count = _props.count;
 	        var maxLength = _props.maxLength;
 
 	        return _react2['default'].createElement(
@@ -2189,7 +2308,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                } })),
 	            _react2['default'].createElement(
 	                'span',
-	                { className: _classnames2['default'](_utilsTool.setPhoenixPrefix('textarea-count'), isCount ? 'show' : 'hide') },
+	                { className: _classnames2['default'](_utilsTool.setPhoenixPrefix('textarea-count'), count ? 'show' : 'hide') },
 	                _react2['default'].createElement(
 	                    'b',
 	                    { className: _utilsTool.setPhoenixPrefix('textarea-length') },
@@ -2244,7 +2363,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _utilsTool = __webpack_require__(21);
 
 	/**
-	 * 开关切换，仿真ios的开关控件
+	 * 开关切换组件，仿真ios的开关控件<br/>
+	 * - 可通过defaultChecked设置默认值。
+	 * - 可通过checked和onChange事件配合使用手动设置输入值。
+	 *
+	 * 主要属性和接口：
+	 * - defaultChecked:默认值<br/>
+	 * 如：`<Switch defaultChecked={true} />`
+	 * - checked&onChange:<br/>
+	 * 如：`<Switch checked={this.state.checked} onChange={()=>{this.setState({checked:false})}} />`
+	 *
 	 * @class Switch
 	 * @module 表单组件
 	 * @extends Component
@@ -2263,15 +2391,28 @@ return /******/ (function(modules) { // webpackBootstrap
 	            /**
 	             * 样式前缀
 	             * @property classPrefix
-	             * @type Stringx
+	             * @type String
+	             * @default 'switch'
 	             * */
 	            classPrefix: _react.PropTypes.string,
 	            /**
-	             * 标签tagName
-	             * @property componentTag
-	             * @type String
+	             * 默认开关值
+	             * @property defaultChecked
+	             * @type Boolean
 	             * */
-	            componentTag: _react.PropTypes.string
+	            defaultChecked: _react.PropTypes.bool,
+	            /**
+	             * 开关值
+	             * @property checked
+	             * @type Boolean
+	             * */
+	            checked: _react.PropTypes.bool,
+	            /**
+	             * 更改值时触发的回调
+	             * @event onChange
+	             * @type Function
+	             * */
+	            onChange: _react.PropTypes.func
 	        },
 	        enumerable: true
 	    }, {
@@ -2279,7 +2420,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        value: {
 	            egSize: '',
 	            classPrefix: 'switch',
-	            componentTag: 'div',
 	            classMapping: {}
 	        },
 	        enumerable: true
@@ -2340,7 +2480,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _classnames2 = _interopRequireDefault(_classnames);
 
 	/**
-	 * 行
+	 * 行组件<br/>
+	 * - 搭配Col列组件可实现自适应宽度布局。
+	 * - 可通过align定义项目在交叉轴上的对齐方式, 可选top、bottom、center、baseline、stretch。
+	 *
+	 * 主要属性和接口：
+	 * - align:项目在交叉轴上的对齐方式, 默认stretch
+	 * ```code
+	 *     <Row align="baseline">
+	 *         <Col>
+	 *             <div className='col-demo'>baseline</div>
+	 *         </Col>
+	 *         <Col>
+	 *             <div className='col-demo'>baseline<br />baseline</div>
+	 *         </Col>
+	 *     </Row>
+	 * ```
+	 *
 	 * @class Row
 	 * @module 布局组件
 	 * @extends Component
@@ -2373,9 +2529,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: 'propTypes',
 	        value: {
 	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * @default 'row'
+	             * */
+	            classPrefix: _react.PropTypes.string,
+	            /**
 	             * 竖直方向的排列是靠上、居中、靠下、拉伸至父容器最大高度还是基于text的baseline对齐
-	             * @property offset，默认不偏移
-	             * @type Integer
+	             * @property align
+	             * @type String
 	             * */
 	            align: _react.PropTypes.string
 	        },
@@ -2434,7 +2597,44 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _classnames2 = _interopRequireDefault(_classnames);
 
 	/**
-	 * 列
+	 * 列组件<br/>
+	 * - 搭配Row行组件可实现自适应宽度布局。
+	 * - 可通过align定义单个项目在交叉轴上的对齐方式, 可选auto、top、bottom、center。
+	 * - 可通过width设置单个项目宽度的百分比, 目前支持5-100之间5的倍数、33（1\3）和66(2\3)。
+	 * - 可通过offset设置单个项目左边外边距。
+	 *
+	 * 主要属性和接口：
+	 * - align:单个项目在交叉轴上的对齐方式, 默认auto <br/>
+	 * ```code
+	 *     <Row>
+	 *         <Col align="top">
+	 *             <div className="col-demo">top</div>
+	 *         </Col>
+	 *         <Col align="center">
+	 *             <div className="col-demo">center</div>
+	 *         </Col>
+	 *         <Col align="bottom">
+	 *             <div className="col-demo">bottom</div>
+	 *         </Col>
+	 *     </Row>
+	 * ```
+	 * - width:单个项目的宽度百分比 <br/>
+	 * ```code
+	 *     <Row>
+	 *         <Col width="15">
+	 *             <div className="col-demo">15</div>
+	 *         </Col>
+	 *     </Row>
+	 * ```
+	 * - offset:单个项目的偏移值,即左边外边距 <br/>
+	 * ```code
+	 *     <Row>
+	 *         <Col width="20" offset="10">
+	 *             <div className="col-demo">10</div>
+	 *         </Col>
+	 *     </Row>
+	 * ```
+	 *
 	 * @class Col
 	 * @module 布局组件
 	 * @extends Component
@@ -2467,20 +2667,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: 'propTypes',
 	        value: {
 	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * @default 'col'
+	             * */
+	            classPrefix: _react.PropTypes.string,
+	            /**
 	             * 占100份的多少份，目前支持5-100之间5的倍数、33（1\3）和66(2\3)
 	             * @property width
 	             * @type Integer
 	             * */
 	            width: _react.PropTypes.string,
 	            /**
-	             * 偏移多少，，目前支持5-100之间5的倍数、33（1\3）和66(2\3)
-	             * @property offset，默认不偏移
+	             * 偏移多少，目前支持5-100之间5的倍数、33（1\3）和66(2\3)，默认不偏移
+	             * @property offset
 	             * @type Integer
 	             * */
 	            offset: _react.PropTypes.string,
 	            /**
 	             * 竖直方向的排列是靠上、居中还是靠下
-	             * @property offset，默认不偏移
+	             * @property align
 	             * @type Integer
 	             * */
 	            align: _react2['default'].PropTypes.oneOf(['top', 'bottom', 'center'])
@@ -2540,8 +2747,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _classnames2 = _interopRequireDefault(_classnames);
 
 	/**
-	 * 展现形式如表格一般,用来组织数据，显示链接的集合，或一系列的控件。<br />
-	 * 使用时需注意组件的子元素需要跳转功能需加上href标签并赋予正确的url，不论什么标签
+	 * 展现形式如表格一般, 用来组织数据, 显示链接的集合, 或一系列的控件。<br />
+	 * - 使用时如果需要跳转功能可通过添加href属性并赋予正确的url(任何标签)。
+	 * - 可搭配其他组件一起使用, 如徽章组件Badge, 开关组件Switch等。
+	 *
+	 * 示例:
+	 * ```code
+	 *     <TableView>
+	 *         <a href="https://github.com/future-team/phoenix-ui">Item 1</a>
+	 *         <a>Item 2 <Badge>2</Badge></a>
+	 *         <a>Item 3 <Switch /></a>
+	 *     </TableView>
+	 * ```
+	 *
 	 * @class TableView
 	 * @module 布局组件
 	 * @extends Component
@@ -2561,6 +2779,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * 样式前缀
 	             * @property classPrefix
 	             * @type String
+	             * @default 'table-view'
 	             * */
 	            classPrefix: _react.PropTypes.string,
 	            /**
@@ -2658,16 +2877,36 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _utilsTool = __webpack_require__(21);
 
-	var _Row = __webpack_require__(24);
-
-	var _Row2 = _interopRequireDefault(_Row);
-
-	var _Col = __webpack_require__(25);
-
-	var _Col2 = _interopRequireDefault(_Col);
-
 	/**
-	 * 表单元素布局方式，整齐的排列一组表单元素
+	 * 表单元素布局方式，整齐的排列一组表单元素<br/>
+	 *
+	 * 示例:
+	 * - 单列, 如:
+	 * ```code
+	 *     <FormGroup>
+	 *         <Row single>
+	 *             <Col>
+	 *                 <Input type="text" placeholder="姓名" />
+	 *             </Col>
+	 *         </Row>
+	 *     </FormGroup>
+	 * ```
+	 * - 多列, 如:
+	 * ```code
+	 *     <FormGroup>
+	 *         <Row>
+	 *             <Col>
+	 *                 <label>省</label>
+	 *                 <Input type="text" placeholder="省" />
+	 *             </Col>
+	 *             <Col>
+	 *                 <label>市</label>
+	 *                 <Input type="text" placeholder="市" />
+	 *             </Col>
+	 *         </Row>
+	 *     </FormGroup>
+	 * ```
+	 *
 	 * @class FormGroup
 	 * @module 表单组件
 	 * @extends Component
@@ -2687,6 +2926,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * 样式前缀
 	             * @property classPrefix
 	             * @type String
+	             * @default 'form-group'
 	             * */
 	            classPrefix: _react.PropTypes.string,
 	            /**
@@ -2700,7 +2940,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, {
 	        key: 'defaultProps',
 	        value: {
-	            egSize: '',
 	            classPrefix: 'form-group',
 	            componentTag: 'form',
 	            classMapping: {}
@@ -2780,24 +3019,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _classnames2 = _interopRequireDefault(_classnames);
 
 	/**
-	 * tab选项卡组件
-	 * - 标签内容为heading属性，children部分为对应要显示的内容<br/>
-	 * - 此外支持自定义类名,事件等操作<br/>
+	 * tab选项卡组件<br/>
+	 * - 通过heading设置选项卡的显示内容。
+	 * - 可通过onChange设置点击选项卡的回调函数。
+	 * - 可自定义className等常用属性以及事件。
+	 *
 	 * 具体属性和接口如下：
-	 * <ul>
-	 *     <li>heading; 标签卡的显示内容，默认‘tab’ 。
-	 *         虽然有默认值但是这应该是必填的。</li>
-	 *       <li>
-	 *         例如:
-	 *          <code>
-	 *            Tabset activeIndex ={0} width={30}
-	 *               Tab heading='tab1' className='测试'>hahadhdad1
-	 *               /Tab
-	 *            /Tabset
-	 *          </code>
-	 *       </li>
-	 *       <li>clickCallback: 点击事件的回调函数，默认为null</li>
-	 * </ul>
+	 * - heading:选项卡的显示内容, 默认'tab'
+	 * - onChange:点击事件的回调函数
+	 *
+	 * 示例:
+	 * ```code
+	 *     <Tabset activeIndex ={this.state.index} tabCallback={(index)=>{console.log(index);}>
+	 *         <Tab heading='标题1' className='tab-test'>
+	 *             横向内容1
+	 *         </Tab>
+	 *         <Tab heading='标题2' onChange={(index)=>{console.log(index);}>
+	 *             横向内容2
+	 *         </Tab>
+	 *     </Tabset>
+	 * ```
+	 *
 	 * @class Tab
 	 * @module 选项卡
 	 * @extends Component
@@ -2816,17 +3058,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	        value: {
 	            /**
 	             * 选项卡的标题文字，默认为‘tab’
-	             * 但是这个应该是必填的，一个tab显示出来也没意思啦
 	             * @property heading
+	             * @type String
 	             * @default 'tab'
 	             * */
 	            heading: _react.PropTypes.string,
 	            /**
 	             * 点击事件的回调函数
-	             * @property clickCallback
+	             * @method onChange
+	             * @type Function
 	             * @default null
 	             * */
-	            clickCallback: _react.PropTypes.func
+	            onChange: _react.PropTypes.func
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            heading: 'tab',
+	            activeIndex: 0,
+	            vertical: false,
+	            onChange: null
 	        },
 	        enumerable: true
 	    }]);
@@ -2839,7 +3091,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    Tab.prototype.handleClick = function handleClick() {
 	        this.props.changeActive(this.props.index);
-	        this.props.clickCallback && this.props.clickCallback(this.props.index);
+	        this.props.onChange && this.props.onChange(this.props.index);
 	    };
 
 	    Tab.prototype.isActive = function isActive() {
@@ -2863,17 +3115,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            this.props.heading
 	        );
 	    };
-
-	    _createClass(Tab, null, [{
-	        key: 'defaultProps',
-	        value: {
-	            heading: 'tab',
-	            activeIndex: 0,
-	            vertical: false,
-	            clickCallback: null
-	        },
-	        enumerable: true
-	    }]);
 
 	    var _Tab = Tab;
 	    Tab = _utilsClassNameMixin2['default'](Tab) || Tab;
@@ -2932,35 +3173,43 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *
 	 */
 	/**
-	 * tabset选项卡组件
-	 * - 可以指定当前actie选项。
-	 * - 支持选项卡横排，竖排两种情况。
-	 * - 此外支持自定义类名,事件等操作
+	 * tabset选项卡组件<br/>
+	 * - 通过activeIndex指定默认的选中tab的索引值。
+	 * - 选项卡默认横排, 可通过vertical设置为竖排。
+	 * - 当设置为vertical后, 可通过width设置tab标题部分的宽度占比。
+	 * - 可通过onChange设置点击选项卡的回调函数。
+	 * - 可自定义className等常用属性以及事件。
+	 *
 	 * 具体属性和接口如下：
-	 * <ul>
-	 *     <li>activeIndex; 当前选中标签卡，默认0</li>
-	 *     <li>vertiacl; 是否竖排，如需要直接添加改属性即可，默认不竖排</li>
-	 *     <li>width; 选项卡头部的宽度，取值0-100之间 即class＝‘col－20’，取值即可，注只有在竖排的情况下生效，
-	 *          也就是没有vertical属性，设置width也没用的，默认20
-	 *          例如横排情况:
-	 *     </li>
-	 *     <li>
-	 *          <code>
-	 *             Tabset activeIndex ={0} width={30}
-	 *               Tab heading='tab1' className='测试'>hahadhdad1
-	 *               /Tab
-	 *            /Tabset
-	 *          </code>
-	 *         上面的width是不起作用的
-	 *        竖排情况:
-	 *          <code>
-	 *              Tabset activeIndex ={0} vertical width={30}
-	 *          </code>
-	 *         此时表明默认选中第一个选项卡，并且竖排标签部分width为30%
+	 * - activeIndex:默认选中的标签卡索引值，默认0第一个tab
+	 * - vertical:是否竖排，如需要直接添加改属性即可，默认不竖排
+	 * - width:选项卡头部的宽度，取值0-100之间, 只有设置vertical下生效, 默认20
+	 * - onChange:点击选项卡执行的回调函数
 	 *
-	 *          </li>
+	 * 示例:
+	 * - 横排
+	 * ```code
+	 *     <Tabset activeIndex ={this.state.index} onChange={(index)=>{console.log(index);}>
+	 *         <Tab heading='标题1' className='tab-test'>
+	 *             横向内容1
+	 *         </Tab>
+	 *         <Tab heading='标题2' clickCallback={(index)=>{console.log(index);}>
+	 *             横向内容2
+	 *         </Tab>
+	 *     </Tabset>
+	 * ```
+	 * - 竖排
+	 * ```code
+	 *     <Tabset vertical width={30} activeIndex ={this.state.index} onChange={(index)=>{console.log(index);}>
+	 *         <Tab heading='标题1'>
+	 *             竖向内容1
+	 *         </Tab>
+	 *         <Tab heading='标题2' clickCallback={(index)=>{console.log(index);}>
+	 *             竖向内容2
+	 *         </Tab>
+	 *     </Tabset>
+	 * ```
 	 *
-	 * </ul>
 	 * @class Tabset
 	 * @module 选项卡
 	 * @extends Component
@@ -2980,27 +3229,31 @@ return /******/ (function(modules) { // webpackBootstrap
 	            /**
 	             * 指定默认选中的选项卡，默认为0
 	             * @property activeIndex
+	             * @type Number
 	             * @default 0
 	             * */
 	            activeIndex: _react.PropTypes.number,
 	            /**
 	             * 是否竖排
 	             * @property vertical
+	             * @type Boolean
 	             * @default false || null
 	             * */
 	            vertical: _react.PropTypes.bool,
 	            /**
 	             * 设置选项卡头部的宽度，只有竖排的情况下才起作用
 	             * @property width
+	             * @type Number
 	             * @default '20'
 	             * */
 	            width: _react.PropTypes.number,
 	            /**
 	             * 点击事件的回调函数,返回当前选中项
-	             * @property tabCallback
+	             * @method onChange
+	             * @type Function
 	             * @default null
 	             * */
-	            tabCallback: _react.PropTypes.func
+	            onChange: _react.PropTypes.func
 	        },
 	        enumerable: true
 	    }, {
@@ -3009,7 +3262,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            activeIndex: 0,
 	            vertical: false,
 	            width: 20,
-	            tabCallback: null
+	            onChange: null
 	        },
 	        enumerable: true
 	    }]);
@@ -3024,7 +3277,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        /**
 	         * 首次进入获取active
 	         * */
-	        this.props.tabCallback && this.props.tabCallback(this.props.activeIndex);
+	        // this.props.onChange && this.props.onChange(this.props.activeIndex);
 	    }
 
 	    /**
@@ -3062,14 +3315,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    };
 
-	    /**
-	     * tab handler
-	     * */
-
 	    Tabset.prototype.tabHandler = function tabHandler(index) {
-	        var tabCallback = this.props.tabCallback;
+	        var onChange = this.props.onChange;
 
-	        tabCallback && tabCallback(index);
+	        onChange && onChange(index);
 	    };
 
 	    Tabset.prototype.render = function render() {
@@ -3157,46 +3406,33 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _classnames2 = _interopRequireDefault(_classnames);
 
 	/**
-	 * <h5>label模块，主要包括一下两个组件:</h5>
-	 * <strong><a href='../classes/Label.html'>label 标签</a></strong><br/>
-	 * <strong><a href='../classes/Badge.html'>bridge 徽章</a></strong><br>
+	 * <h5>标签组件，主要包括组件:</h5>
+	 * <strong><a href='../classes/Label.html'>Label 标签</a></strong><br/>
+	 * <strong><a href='../classes/Badge.html'>Badge 徽章</a></strong><br>
 	 * <h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>
 	 * @module 标签组件
 	 * @main 标签组件
 	 * @static
-	 *
 	 */
 	/**
-	 * Label标记，主要是用来提供不同颜色的标识<br/>
-	 * 可以通过phStyle来改变颜色,phSize改变大小<br/>
-	 * 因为发生回调的概率不大所以没有提供回调函数<br/>
-	 * 但支持自定义类名，事件等操作<br/>
-	 * 具体属性和接口如下：
-	 * <ul>
-	 *     <li>phStyle:label徽章颜色,可取值[primary、warning、danger、info、error、success]等，默认primary</li>
-	 *     <li>
-	 *         <code>
-	 *             Label phSize="lg" phStyle="success"
-	 *             惠
-	 *            /Label
-	 *         </code>
-	 *     </li>
-	 *     <li>phSize:badge徽章颜色,可取值[lg、md、'']，默认即为‘’</li>
-	 *     <li>
-	 *         <code>
-	 *            Label phSize="lg" phStyle="success"
-	 *             惠
-	 *            /Label
-	 *         </code>
-	 *     </li>
-	 * </ul>
+	 * 标签组件<br/>
+	 * - 通过phStyle来改变颜色, 可选primary、warning、danger、info、error、success。
+	 * - 通过phSize设置大小, 可选sm、md、lg。
+	 * - 不提供默认回调, 但支持自定义className，事件等操作。
+	 *
+	 * 主要属性和接口：
+	 * - phStyle:标签颜色, 默认primary <br/>
+	 * 如：`<Label phStyle="info">惠</Label>`
+	 * - phSize:标签大小, 默认sm <br/>
+	 * 如：`<Label phSize="lg">惠</Label>`
+	 *
 	 * @class Label
 	 * @module 标签组件
 	 * @extends Component
 	 * @constructor
 	 * @since 0.1.0
-	 * @demo Label.js{展示}
-	 * @demo Label.js{源码}
+	 * @demo label.js{展示}
+	 * @demo label.js{源码}
 	 * @show true
 	 * */
 
@@ -3210,47 +3446,38 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * 样式前缀
 	             * @property classPrefix
 	             * @type String
-	             * @default btn
+	             * @default 'label'
 	             * */
 	            classPrefix: _react.PropTypes.string,
 	            /**
-	             * label标签大小 [lg、md、'']默认为‘’即为sm不用指定
+	             * label标签大小[lg、md、sm], 默认为sm
 	             * @property phSize
 	             * @type string
-	             * @default ''
+	             * @default 'sm'
 	             * */
 	            phSize: _react.PropTypes.string,
 	            /**
-	             * label标签颜色[primary、warning、danger、info、error、success]
+	             * label标签颜色[primary、warning、danger、info、error、success], 默认primary
 	             * @property phStyle
 	             * @type string
 	             * @default 'primary'
 	             **/
-	            phStyle: _react.PropTypes.string,
-	            /**
-	             * 标签tagName
-	             * @property componentTag
-	             * @type String
-	             * @default a
-	             * */
-	            componentTag: _react.PropTypes.string
+	            phStyle: _react.PropTypes.string
 	        },
 	        enumerable: true
 	    }, {
 	        key: 'defaultProps',
 	        value: {
-	            phSize: '',
-	            classPrefix: 'label',
+	            phSize: 'sm',
 	            phStyle: 'primary',
+	            classPrefix: 'label',
 	            classMapping: {
 	                'primary': 'primary',
 	                'info': 'info',
 	                'success': 'success',
 	                'error': 'error',
 	                'warning': 'warning',
-	                'danger': 'danger',
-	                'lg': 'lg',
-	                'md': 'md'
+	                'danger': 'danger'
 	            }
 	        },
 	        enumerable: true
@@ -3305,28 +3532,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _classnames2 = _interopRequireDefault(_classnames);
 
 	/**
-	 * Badge徽章标记，主要是用来提供不同颜色的标识<br/>
-	 * 可以通过phStyle来改变颜色<br/>
-	 * 因为发生回调的概率不大所以没有提供回调函数<br/>
-	 * 但支持自定义类名，事件等操作<br/>
-	 * 具体属性和接口如下：
-	 * <ul>
-	 *     <li>phStyle:badge徽章颜色,可取值[primary、warning、danger、info、error、success]等，默认primary</li>
-	 *     <li>
-	 *         <code>
-	 *            Badge  phStyle="success"
-	 *            惠2
-	 *            /Badge
-	 *         </code>
-	 *     </li>
-	 * </ul>
+	 * Badge徽章标记<br/>
+	 * - 主要是用来提供不同颜色的标识, 通过phStyle来改变颜色, 可选primary、warning、danger、info、error、success。
+	 * - 不提供默认回调, 但支持自定义className，事件等操作。
+	 *
+	 * 主要属性和接口：
+	 * - phStyle:徽章颜色, 默认primary <br/>
+	 * 如：`<Badge phStyle="info">惠</Badge>`
+	 *
 	 * @class Badge
 	 * @module 标签组件
 	 * @extends Component
 	 * @constructor
 	 * @since 0.1.0
-	 * @demo Badge.js{展示}
-	 * @demo Badge.js{源码}
+	 * @demo badge.js {展示}
+	 * @demo badge.js {源码}
 	 * @show true
 	 * */
 
@@ -3340,28 +3560,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * 样式前缀
 	             * @property classPrefix
 	             * @type String
-	             * @default btn
+	             * @default 'badge'
 	             * */
 	            classPrefix: _react.PropTypes.string,
 	            /**
-	             * badge徽章颜色[primary、warning、danger、info、error、success]
+	             * badge徽章颜色[primary、warning、danger、info、error、success], 默认primary
 	             * @property phStyle
 	             * @type string
-	             * @default ''
+	             * @default 'primary'
 	             **/
-	            phStyle: _react.PropTypes.string,
-	            /**
-	             * 标签tagName
-	             * @property componentTag
-	             * @type String
-	             * @default a
-	             * */
-	            componentTag: _react.PropTypes.string
+	            phStyle: _react.PropTypes.string
 	        },
 	        enumerable: true
 	    }, {
 	        key: 'defaultProps',
 	        value: {
+	            phStyle: 'primary',
 	            classPrefix: 'badge',
 	            classMapping: {
 	                'primary': 'primary',
@@ -3399,28 +3613,6 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/**
-	 *
-	 * 星级评价
-	 */
-	/**
-	 * 星级评价(Star)组件<br />
-	 * 提供的UI展示属性接口包括<br/>
-	 * <ul>
-	 *     <li>rate：星级评价的分数(满分为50)<code>默认为0</code></li>
-	 *     <li>size：星星的大小(可选md、lg、默认3种size)<code></code></li>
-	 * </ul><br>
-	 * 使用方式:
-	 * <pre><code>&#60;Star rate={50} size={10}/&#62;</code>
-	 * </pre>
-	 * @class Star
-	 * @module 基础组件
-	 * @extends Component
-	 * @constructor
-	 * @demo star.js {UI展示}
-	 * @demo star.js {源码}
-	 * @show true
-	 * */
 	'use strict';
 
 	exports.__esModule = true;
@@ -3447,6 +3639,36 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _utilsTool = __webpack_require__(21);
 
+	/**
+	 * <h5>基础组件，主要包括:</h5>
+	 * <strong><a href='../classes/Star.html'>Star 星级</a></strong><br/>
+	 * <strong><a href='../classes/Button.html'>Button 按钮</a></strong><br>
+	 *  <strong><a href='../classes/ButtonGroup.html'>ButtonGroup 按钮组</a></strong><br>
+	 * <h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>
+	 * @module 基础组件
+	 * @main 基础组件
+	 * @static
+	 */
+	/**
+	 * 星级评价组件<br />
+	 * - 通过Rate设置星级评价的分数, 最低0, 最高50, 5的倍数。
+	 * - 通过phSize设置大小, 可选sm、md、lg。
+	 *
+	 * 主要属性和接口：
+	 * - phSize(v1.1.2以下用size):星星的大小。分别为sm、md、lg, 默认sm。 <br/>
+	 * 如：`<Star phSize="lg" />`
+	 * - Rate:星级评价的分数。最低0, 最高50, 5的倍数递增, 默认0。 <br/>
+	 * 如：`<Star Rate={10} />`
+	 *
+	 * @class Star
+	 * @module 基础组件
+	 * @extends Component
+	 * @constructor
+	 * @demo star.js {展示}
+	 * @demo star.js {源码}
+	 * @show true
+	 * */
+
 	var Star = (function (_Component) {
 	    _inherits(Star, _Component);
 
@@ -3462,19 +3684,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	            Rate: _react.PropTypes.number,
 	            /**
 	             * 星星大小
-	             * @property size
+	             * @property phSize
 	             * @type String
-	             * @default
+	             * @default 'sm'
 	             * */
-	            size: _react.PropTypes.string
+	            phSize: _react.PropTypes.string,
+	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * @default 'star'
+	             * */
+	            classPrefix: _react.PropTypes.string
 	        },
 	        enumerable: true
 	    }, {
 	        key: 'defaultProps',
 	        value: {
+	            phSize: 'sm',
 	            classPrefix: 'star',
 	            Rate: 0,
-	            size: 'xs'
+	            classMapping: {}
 	        },
 	        enumerable: true
 	    }]);
@@ -3488,14 +3718,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Star.prototype.render = function render() {
 	        var _props = this.props;
 	        var Rate = _props.Rate;
-	        var size = _props.size;
+	        var className = _props.className;
 
-	        var rateCls = Rate && 'star-' + Math.round(Rate * 2 / 10) * 5;
-	        var sizeCls = size && 'star-' + size;
+	        var rateCls = 'star-' + Math.round(Rate * 2 / 10) * 5;
+	        // let sizeCls = size && 'star-'+size;
 
 	        return _react2['default'].createElement(
 	            'div',
-	            { className: _classnames2['default'](this.getProperty(true), _utilsTool.setPhoenixPrefix(rateCls), _utilsTool.setPhoenixPrefix(sizeCls)) },
+	            { className: _classnames2['default'](this.getProperty(true), _utilsTool.setPhoenixPrefix(rateCls), className) },
 	            _react2['default'].createElement('div', { className: _utilsTool.setPhoenixPrefix("star-grey") })
 	        );
 	    };
@@ -3539,12 +3769,39 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _utilsTool = __webpack_require__(21);
 
 	/**
-	 * 拖动Drag
+	 * 拖拽组件<br/>
+	 * - 兼容移动端的touch和pc端的mouse事件。
+	 * - 可通过onDrag设置抓取的回调函数, 返回抓取在屏幕上的位置, 分别保存在start和move中, 以x和y的形式展示。
+	 * - 可通过onDrop设置松开瞬间的回调函数, 返回松开时在屏幕上的位置, 保存在end中, 以x和y的形式展示。
+	 *
+	 * 示例:
+	 * ```code
+	 *     <Drag onDrag={::this.onDrag} onDrop={::this.onDrop} style={{height:0}}>
+	 *         <div className="box" ref={(box)=>{this.box = box}}>Drag</div>
+	 *     </Drag>
+	 * ```
+	 * ```code
+	 *     onDrag(event,position){
+	 *         this.prePosition = position.start;
+	 *         this.nowPosition = position.move;
+	 *
+	 *         this.distanceX = this.preDistanceX + this.nowPosition.x - this.prePosition.x;
+	 *         this.distanceY = this.preDistanceY + this.nowPosition.y - this.prePosition.y;
+	 *         console.log(this.distanceX, this.distanceY);
+	 *     }
+	 *     onDrop(event,position){
+	 *         this.preDistanceX = this.distanceX;
+	 *         this.preDistanceY = this.distanceY;
+	 *     }
+	 * ```
+	 *
 	 * @class Drag
 	 * @module 辅助组件
 	 * @extends Component
 	 * @constructor
-	 * @show false
+	 * @demo drag.js {展示}
+	 * @demo drag.js {源码}
+	 * @show true
 	 * */
 
 	var Drag = (function (_Component) {
@@ -3555,13 +3812,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	        value: {
 	            /**
 	             * 抓取的执行函数,对应TouchStart/TouchMove
-	             * @property onDrag
+	             * @method onDrag
 	             * @type Function
 	             * */
 	            onDrag: _react.PropTypes.func,
 	            /**
 	             * 放开的执行函数,对应TouchEnd
-	             * @property onDrop
+	             * @method onDrop
 	             * @type Function
 	             * */
 	            onDrop: _react.PropTypes.func
@@ -3736,7 +3993,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _Button2 = _interopRequireDefault(_Button);
 
 	/**
-	 * 功能组件-左滑swipe
+	 * 左滑组件<br/>
+	 * - 向左滑动出现可操作按钮, 类似IOS列表操作的组件。
+	 * - 通过buttons设置可操作按钮的文字text、样式phStyle以及点击按钮的回调函数onHandle。
+	 * - buttons的phStyle默认'primary', 可选primary、info、error、warning、danger、link、gray、success。
+	 *
+	 * 示例:
+	 * ```code
+	 *     <Swipe buttons={[
+	 *         {text: '删除', onHandle: this.onDelete, phStyle: 'error'},
+	 *         {text: '取消', onHandle: this.onCancle, phStyle: 'info'}
+	 *     ]}>
+	 *         <div style={{padding: '1rem'}}>
+	 *             // 内容
+	 *         </div>
+	 *     </Swipe>
+	 * ```
+	 *
 	 * @class Swipe
 	 * @module 操作类组件
 	 * @extends Component
@@ -3752,6 +4025,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _createClass(Swipe, null, [{
 	        key: 'propTypes',
 	        value: {
+	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * @default 'swipe'
+	             * */
+	            classPrefix: _react.PropTypes.string,
 	            /**
 	             * 标签tagName
 	             * @property componentTag
@@ -3810,7 +4090,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            btnInfo.map(function (item, index) {
 	                return _react2['default'].createElement(
 	                    _Button2['default'],
-	                    { key: index, phStyle: item.phStyle },
+	                    { key: index, phStyle: item.phStyle || 'primary' },
 	                    item.text
 	                );
 	            })
@@ -3923,26 +4203,34 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/**
 	 * <h5>主要栅格化布局组件</h5>
-	 * <pre><code>
-	 *     &#60;Grid&#62;//定义栅格
-	 *         &#60;Col sm={6}&#62;//定义一列，总长度为12份
-	 *             &#60;Row&#62; &#60;/Row&#62;//定义一行
-	 *         &#60;/Col&#62;
-	 *     &#60;/Grid&#62;
-	 * </code></pre>
-	 *
-	 * <strong><a href='../classes/Grid.html'>Grid定义外框</a></strong><br>
-	 * <strong><a href='../classes/Row.html'>Row定义行排列</a></strong><br>
-	 * <strong><a href='../classes/Col.html'>Col定义竖排列</a></strong><br>
+	 * <strong><a href='../classes/Grid.html'>Grid 外框</a></strong><br>
+	 * <strong><a href='../classes/Row.html'>Row 行排列</a></strong><br>
+	 * <strong><a href='../classes/Col.html'>Col 竖排列</a></strong><br>
+	 * <strong><a href='../classes/TableView.html'>TableView 仿表格组件</a></strong><br>
 	 * <h6>点击以上链接进行相关查看</h6>
 	 * @module 布局组件
 	 * @main 布局组件
 	 * @static
-	 *
 	 */
-
 	/**
-	 * 定义栅格容器,配合Col和Row使用
+	 * 栅格容器组件<br/>
+	 * - 配合Row、Col使用布局。
+	 * - 可自定义className、style等属性以及自定义事件。
+	 *
+	 * 示例:
+	 * ```code
+	 *     <Grid> //定义栅格
+	 *         <Row> //定义一行
+	 *             <Col> //定义一列，最多12份
+	 *                 <div className='col-demo'>内容</div>
+	 *             </Col>
+	 *             <Col>
+	 *                 <div className='col-demo'>stretch<br />baseline</div>
+	 *             </Col>
+	 *         </Row>
+	 *     </Grid>
+	 * ```
+	 *
 	 * @class Grid
 	 * @module 布局组件
 	 * @extends Component
@@ -3957,7 +4245,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    _createClass(Grid, null, [{
 	        key: 'propTypes',
-	        value: {},
+	        value: {
+	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * @default 'grid'
+	             * */
+	            classPrefix: _react.PropTypes.string
+	        },
 	        enumerable: true
 	    }, {
 	        key: 'defaultProps',
@@ -4025,20 +4321,45 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _utilsTool = __webpack_require__(21);
 
-	var _DialogTitle = __webpack_require__(201);
-
-	var _DialogTitle2 = _interopRequireDefault(_DialogTitle);
-
-	var _DialogBody = __webpack_require__(202);
-
-	var _DialogBody2 = _interopRequireDefault(_DialogBody);
-
-	var _DialogFooter = __webpack_require__(203);
-
-	var _DialogFooter2 = _interopRequireDefault(_DialogFooter);
-
 	/**
-	 * 弹框
+	 * 弹框组件<br/>
+	 * - 由于弹框的显示操作在组件以外, 所以需要在使用时自定义visible、onShow、onClose函数。
+	 * - 通过visible设置弹框是否显示, 可选true/false, 必需。
+	 * - 可通过onClose配置点击弹框阴影部分以及弹框右上角X按钮来关闭弹框。
+	 * - 可通过closeButton来配置弹框右上角X按钮是否显示, 默认不显示。
+	 * - 默认传了onClose之后阴影部分就具备点击关闭弹框的按钮, 如果需要去掉该功能需要额外传shadowDisabled作为标识。
+	 *
+	 * 主要属性和接口：
+	 * - visible:弹框是否显示标识, 默认false不可见<br/>
+	 * - onClose:关闭弹框的功能函数<br/>
+	 * - closeButton:右上角关闭按钮是否显示的标识, 默认不显示<br/>
+	 * - shadowDisabled:阴影部分是否可点击关闭按钮, 默认传了onClose函数就可以关闭<br/>
+	 *
+	 * 示例:
+	 * ```code
+	 *     <Dialog visible={this.state.visible} onClose={::this.onClose} closeButton shadowDisabled>
+	 *         <Dialog.Title>标题标题</Dialog.Title>
+	 *         <Dialog.Body>
+	 *             <p>可自定义表格内容</p>
+	 *         </Dialog.Body>
+	 *         <Dialog.Footer>
+	 *             <Button hollow phSize="lg" phStyle="gray" onClick={::this.onClose}>取消</Button>
+	 *         </Dialog.Footer>
+	 *     </Dialog>
+	 * ```
+	 * ```code
+	 *     onShow(){
+	 *         this.setState({
+	 *             visible: true
+	 *         });
+	 *     }
+	 *     onClose(){
+	 *         this.setState({
+	 *             visible: false
+	 *         });
+	 *     }
+	 * ```
+	 *
 	 * @class Dialog
 	 * @module 操作类组件
 	 * @extends Component
@@ -4055,6 +4376,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: 'propTypes',
 	        value: {
 	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * @default 'dialog'
+	             * */
+	            classPrefix: _react.PropTypes.string,
+	            /**
 	             * 标签tagName
 	             * @property componentTag
 	             * @type String
@@ -4065,7 +4393,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * @property visible
 	             * @type Boolean
 	             * */
-	            visible: _react.PropTypes.bool
+	            visible: _react.PropTypes.bool,
+	            /**
+	             * 关闭弹框的执行函数
+	             * @method onClose
+	             * @type Function
+	             * */
+	            onClose: _react.PropTypes.func,
+	            /**
+	             * 右上角按钮是否可见, 默认不可见
+	             * @property closeButton
+	             * @type Boolean
+	             * */
+	            closeButton: _react.PropTypes.bool,
+	            /**
+	             * 阴影部分是否点击可关闭弹框, 默认传了onClose之后可关闭
+	             * @property shadowDisabled
+	             * @type Boolean
+	             * */
+	            shadowDisabled: _react.PropTypes.bool
 	        },
 	        enumerable: true
 	    }, {
@@ -4085,26 +4431,39 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _Component.call(this, props, context);
 	    }
 
-	    Dialog.prototype.renderShadow = function renderShadow() {
+	    Dialog.prototype.onShadowClose = function onShadowClose() {
 	        var _props = this.props;
-	        var visible = _props.visible;
+	        var shadowDisabled = _props.shadowDisabled;
 	        var onClose = _props.onClose;
 
+	        if (shadowDisabled) return;
+	        onClose();
+	    };
+
+	    Dialog.prototype.renderShadow = function renderShadow() {
+	        var visible = this.props.visible;
+
 	        if (visible) {
-	            return _react2['default'].createElement('div', { className: _classnames2['default'](_utilsTool.setPhoenixPrefix("dialog-shadow"), "animated"), onClick: onClose });
+	            return _react2['default'].createElement('div', { className: _classnames2['default'](_utilsTool.setPhoenixPrefix("dialog-shadow"), "animated"), onClick: this.onShadowClose.bind(this) });
 	        } else {
 	            return '';
 	        }
 	    };
 
 	    Dialog.prototype.renderContent = function renderContent() {
-	        if (this.props.visible) {
+	        var _props2 = this.props;
+	        var visible = _props2.visible;
+	        var closeButton = _props2.closeButton;
+	        var onClose = _props2.onClose;
+
+	        if (visible) {
 	            return _react2['default'].createElement(
 	                'div',
 	                { className: _classnames2['default'](_utilsTool.setPhoenixPrefix("dialog-main"), "animated") },
 	                _react2['default'].createElement(
 	                    'div',
 	                    { className: _classnames2['default'](_utilsTool.setPhoenixPrefix("dialog-content"), "animated") },
+	                    _react2['default'].createElement('a', { href: 'javascript:;', onClick: onClose, className: _classnames2['default'](_utilsTool.setPhoenixPrefix("dialog-close"), closeButton ? "show" : "hide", "ph-iconfont icon-close") }),
 	                    this.renderDialog()
 	                )
 	            );
@@ -4115,9 +4474,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    Dialog.prototype.renderDialog = function renderDialog() {
 	        var newChildren = [];
-	        var _props2 = this.props;
-	        var visible = _props2.visible;
-	        var children = _props2.children;
+	        var _props3 = this.props;
+	        var visible = _props3.visible;
+	        var children = _props3.children;
 
 	        _react2['default'].Children.forEach(children, function (child, index) {
 	            // console.log(child.type.name);
@@ -4132,9 +4491,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    Dialog.prototype.render = function render() {
-	        var _props3 = this.props;
-	        var Component = _props3.componentTag;
-	        var className = _props3.className;
+	        var _props4 = this.props;
+	        var Component = _props4.componentTag;
+	        var className = _props4.className;
 
 	        return _react2['default'].createElement(
 	            Component,
@@ -4155,9 +4514,69 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return Dialog;
 	})(_utilsComponent2['default']);
 
-	Dialog.Title = _DialogTitle2['default'];
-	Dialog.Body = _DialogBody2['default'];
-	Dialog.Footer = _DialogFooter2['default'];
+	var DialogTitle = (function (_Component2) {
+	    _inherits(DialogTitle, _Component2);
+
+	    function DialogTitle(props, context) {
+	        _classCallCheck(this, DialogTitle);
+
+	        _Component2.call(this, props, context);
+	    }
+
+	    DialogTitle.prototype.render = function render() {
+	        return _react2['default'].createElement(
+	            'h2',
+	            _extends({}, this.props, { className: _classnames2['default'](_utilsTool.setPhoenixPrefix('dialog-title'), this.props.className) }),
+	            this.props.children
+	        );
+	    };
+
+	    return DialogTitle;
+	})(_utilsComponent2['default']);
+
+	var DialogBody = (function (_Component3) {
+	    _inherits(DialogBody, _Component3);
+
+	    function DialogBody(props, context) {
+	        _classCallCheck(this, DialogBody);
+
+	        _Component3.call(this, props, context);
+	    }
+
+	    DialogBody.prototype.render = function render() {
+	        return _react2['default'].createElement(
+	            'div',
+	            _extends({}, this.props, { className: _classnames2['default'](_utilsTool.setPhoenixPrefix('dialog-body'), this.props.className) }),
+	            this.props.children
+	        );
+	    };
+
+	    return DialogBody;
+	})(_utilsComponent2['default']);
+
+	var DialogFooter = (function (_Component4) {
+	    _inherits(DialogFooter, _Component4);
+
+	    function DialogFooter(props, context) {
+	        _classCallCheck(this, DialogFooter);
+
+	        _Component4.call(this, props, context);
+	    }
+
+	    DialogFooter.prototype.render = function render() {
+	        return _react2['default'].createElement(
+	            'div',
+	            _extends({}, this.props, { className: _classnames2['default'](_utilsTool.setPhoenixPrefix('dialog-footer'), this.props.className, 'clearfix') }),
+	            this.props.children
+	        );
+	    };
+
+	    return DialogFooter;
+	})(_utilsComponent2['default']);
+
+	Dialog.Title = DialogTitle;
+	Dialog.Body = DialogBody;
+	Dialog.Footer = DialogFooter;
 
 	exports['default'] = Dialog;
 	module.exports = exports['default'];
@@ -4193,12 +4612,37 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 
 	/**
-	 * 动画外层
+	 * 动画外层组件<br/>
+	 * - 用`react-addons-css-transition-group`实现, 所以使用时需要额外安装该模块。
+	 * - 使用时需要在子元素增加animated类名实现动画效果, animated定义的是过渡的duration和fill-mode, 默认300ms, 完全可以自定义。
+	 * - 可通过transitionName设置动画名称, 可选fade、slide-top、slide-bottom(还将补充), 默认fade。
+	 * - 可通过transitionEnterTimeout设置进入延迟时间。
+	 * - 可通过transitionLeaveTimeout设置离开延迟时间。
+	 *
+	 * 示例:
+	 * ```code
+	 *     <Animate className='popup-content' transitionName='slide-top'>
+	 *         {this.renderPopup()}
+	 *     </Animate>
+	 * ```
+	 * ```code
+	 *     renderPopup(){
+	 *         let {visible,children,className} = this.props;
+	 *         if(visible){
+	 *             return <div {...this.props} className={'popup-main', 'animated', className)}>{children}</div>;
+	 *         }else{
+	 *             return '';
+	 *         }
+	 *     }
+	 * ```
+	 *
 	 * @class Animate
 	 * @module 辅助组件
 	 * @extends Component
 	 * @constructor
-	 * @show false
+	 * @demo animate.js {展示}
+	 * @demo animate.js {源码}
+	 * @show true
 	 * */
 
 	var Animate = (function (_Component) {
@@ -4211,6 +4655,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * 动画名称,默认fade
 	             * @property transitionName
 	             * @type String
+	             * @default 'fade'
 	             * */
 	            transitionName: _react.PropTypes.string,
 	            /**
@@ -24748,153 +25193,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _react = __webpack_require__(10);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _classnames = __webpack_require__(12);
-
-	var _classnames2 = _interopRequireDefault(_classnames);
-
-	var _utilsTool = __webpack_require__(21);
-
-	var DialogTitle = (function (_Component) {
-	    _inherits(DialogTitle, _Component);
-
-	    function DialogTitle(props, context) {
-	        _classCallCheck(this, DialogTitle);
-
-	        _Component.call(this, props, context);
-	    }
-
-	    DialogTitle.prototype.render = function render() {
-	        return _react2['default'].createElement(
-	            'h2',
-	            _extends({}, this.props, { className: _classnames2['default'](_utilsTool.setPhoenixPrefix('dialog-title'), this.props.className) }),
-	            this.props.children
-	        );
-	    };
-
-	    return DialogTitle;
-	})(_react.Component);
-
-	exports['default'] = DialogTitle;
-	module.exports = exports['default'];
-
-/***/ },
-/* 202 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	exports.__esModule = true;
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _react = __webpack_require__(10);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _classnames = __webpack_require__(12);
-
-	var _classnames2 = _interopRequireDefault(_classnames);
-
-	var _utilsTool = __webpack_require__(21);
-
-	var DialogBody = (function (_Component) {
-	    _inherits(DialogBody, _Component);
-
-	    function DialogBody(props, context) {
-	        _classCallCheck(this, DialogBody);
-
-	        _Component.call(this, props, context);
-	    }
-
-	    DialogBody.prototype.render = function render() {
-	        return _react2['default'].createElement(
-	            'div',
-	            _extends({}, this.props, { className: _classnames2['default'](_utilsTool.setPhoenixPrefix('dialog-body'), this.props.className) }),
-	            this.props.children
-	        );
-	    };
-
-	    return DialogBody;
-	})(_react.Component);
-
-	exports['default'] = DialogBody;
-	module.exports = exports['default'];
-
-/***/ },
-/* 203 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	exports.__esModule = true;
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _react = __webpack_require__(10);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _classnames = __webpack_require__(12);
-
-	var _classnames2 = _interopRequireDefault(_classnames);
-
-	var _utilsTool = __webpack_require__(21);
-
-	var DialogFooter = (function (_Component) {
-	    _inherits(DialogFooter, _Component);
-
-	    function DialogFooter(props, context) {
-	        _classCallCheck(this, DialogFooter);
-
-	        _Component.call(this, props, context);
-	    }
-
-	    DialogFooter.prototype.render = function render() {
-	        return _react2['default'].createElement(
-	            'div',
-	            _extends({}, this.props, { className: _classnames2['default'](_utilsTool.setPhoenixPrefix('dialog-footer'), this.props.className, 'clearfix') }),
-	            this.props.children
-	        );
-	    };
-
-	    return DialogFooter;
-	})(_react.Component);
-
-	exports['default'] = DialogFooter;
-	module.exports = exports['default'];
-
-/***/ },
-/* 204 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	exports.__esModule = true;
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -24907,7 +25205,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(205);
+	var _reactDom = __webpack_require__(202);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -24922,14 +25220,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _utilsTool = __webpack_require__(21);
 
 	/**
-	 * 飘字
+	 * 飘字组件<br/>
+	 * - 由于飘字的使用范围可预估, 为方便使用在原组件的基础上更进一步改为函数式的使用方式。
+	 * - 使用: `Toast.info(message, duration, callback)`
+	 *
+	 * 示例: <br/>
+	 * - 显示普通飘字, 如:<br/>
+	 * `Toast.info('注册成功!', 1000, ()=>{console.log('飘字消失时执行的回调函数');})`
+	 *
 	 * @class Toast
 	 * @module 操作类组件
 	 * @extends Component
 	 * @constructor
-	 * @demo toast.js {展示}
-	 * @demo toast.js {源码}
 	 * @show true
+	 * @demo toast.js
 	 * */
 
 	var Toast = (function (_Component) {
@@ -24937,14 +25241,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    _createClass(Toast, null, [{
 	        key: 'propTypes',
-	        value: {
-	            /**
-	             * 标签tagName
-	             * @property componentTag
-	             * @type String
-	             * */
-	            componentTag: _react.PropTypes.string
-	        },
+	        value: {},
 	        enumerable: true
 	    }, {
 	        key: 'defaultProps',
@@ -25025,9 +25322,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var layerElement = renderLayer(content);
 	        _renderLayer(layerElement, duration, callback);
 	    },
-	    show: function show(content, duration, callback) {
-	        this.info(content, duration, callback);
-	    },
 	    remove: function remove() {
 	        _unrenderLayer();
 	        clearTimeout(timer);
@@ -25036,7 +25330,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 205 */
+/* 202 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25045,7 +25339,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 206 */
+/* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25081,7 +25375,38 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _Animate2 = _interopRequireDefault(_Animate);
 
 	/**
-	 * 弹层
+	 * 弹层组件<br/>
+	 * - 由于弹层的显示操作在组件以外, 所以需要在使用时自定义visible、onShow、onClose函数。
+	 * - 通过align设置碳层弹出的位置, 可选top/bottom。
+	 * - 可通过onClose配置点击弹层阴影部分来关闭弹层。
+	 *
+	 * 主要属性和接口：
+	 * - visible:弹层是否显示标识, 默认false不可见
+	 * - onClose:关闭弹层的功能函数
+	 * - align:弹层的位置, 默认top
+	 *
+	 * 示例:
+	 * ```code
+	 *     <Popup align="top" visible={this.state.visible} onClose={::this.onClose}>
+	 *         <ul className="ph-popup-list">
+	 *             <li className="ph-popup-item" onClick={::this.onClose}>未上线单店</li>
+	 *             <li className="ph-popup-item" onClick={::this.onClose}>未上线连锁店</li>
+	 *         </ul>
+	 *     </Popup>
+	 * ```
+	 * ```code
+	 *     onShow(){
+	 *         this.setState({
+	 *             visible: true
+	 *         });
+	 *     }
+	 *     onClose(){
+	 *         this.setState({
+	 *             visible: false
+	 *         });
+	 *     }
+	 * ```
+	 *
 	 * @class Popup
 	 * @module 操作类组件
 	 * @extends Component
@@ -25097,6 +25422,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _createClass(Popup, null, [{
 	        key: 'propTypes',
 	        value: {
+	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * @default 'popup'
+	             * */
+	            classPrefix: _react.PropTypes.string,
 	            /**
 	             * 标签tagName
 	             * @property componentTag
@@ -25117,7 +25449,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            align: _react.PropTypes.string,
 	            /**
 	             * 关闭的执行函数
-	             * @property onClose
+	             * @method onClose
 	             * @type Function
 	             * */
 	            onClose: _react.PropTypes.func
@@ -25201,7 +25533,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 207 */
+/* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25233,7 +25565,49 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _utilsTool = __webpack_require__(21);
 
 	/**
-	 * 手风琴
+	 * <h5>操作类组件，主要包括组件:</h5>
+	 * <strong><a href='../classes/Accordion.html'>Accordion 手风琴</a></strong><br/>
+	 * <strong><a href='../classes/Dialog.html'>Dialog 弹框</a></strong><br>
+	 * <strong><a href='../classes/Toast.html'>Toast 飘字</a></strong><br>
+	 * <strong><a href='../classes/Popup.html'>Popup 弹层</a></strong><br>
+	 * <strong><a href='../classes/Slider.html'>Slider 滑动输入条</a></strong><br>
+	 * <strong><a href='../classes/Swipe.html'>Swipe 左滑动</a></strong><br>
+	 * <h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>
+	 * @module 操作类组件
+	 * @main 操作类组件
+	 * @static
+	 */
+	/**
+	 * 手风琴组件<br/>
+	 * - 通过visible设置初始展开或收起的状态, 可选true/false。
+	 * - 可通过onChange设置展开收起时额外的回调函数。
+	 *
+	 * 主要属性和接口：
+	 * - visible:初始展开或收起的状态, 默认false收起 <br/>
+	 * 如：
+	 * ```code
+	 *     <Accordion visible={true}>
+	 *         <Accordion.Header>
+	 *             标题一
+	 *         </Accordion.Header>
+	 *         <Accordion.Body>
+	 *             ...
+	 *         </Accordion.Body>
+	 *     </Accordion>
+	 * ```
+	 * - onChange:点击收起展开的额外的回调执行函数 <br/>
+	 * 如：
+	 * ```code
+	 *     <Accordion onChange={(visible)=>{console.log(visible);}}>
+	 *         <Accordion.Header>
+	 *             标题一
+	 *         </Accordion.Header>
+	 *         <Accordion.Body>
+	 *             ...
+	 *         </Accordion.Body>
+	 *     </Accordion>
+	 * ```
+	 *
 	 * @class Accordion
 	 * @module 操作类组件
 	 * @extends Component
@@ -25250,6 +25624,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: 'propTypes',
 	        value: {
 	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * @default 'badge'
+	             * */
+	            classPrefix: _react.PropTypes.string,
+	            /**
 	             * 标签tagName
 	             * @property componentTag
 	             * @type String
@@ -25259,11 +25640,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * 是否可见标识
 	             * @property visible
 	             * @type Boolean
+	             * @default false
 	             * */
 	            visible: _react.PropTypes.bool,
 	            /**
-	             * 动作的执行函数
-	             * @property onChange
+	             * 点击收起展开的回调函数
+	             * @method onChange
 	             * @type Function
 	             * */
 	            onChange: _react.PropTypes.func
@@ -25284,19 +25666,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _classCallCheck(this, Accordion);
 
 	        _Component.call(this, props, context);
+
+	        this.state = {
+	            visible: props.visible
+	        };
 	    }
 
+	    Accordion.prototype.changeVisible = function changeVisible(fn) {
+	        this.setState({
+	            visible: !this.state.visible
+	        }, fn);
+	    };
+
 	    Accordion.prototype.renderChildren = function renderChildren() {
+	        var _this = this;
 	        var newChildren = [];
-	        var _props = this.props;
-	        var visible = _props.visible;
-	        var onChange = _props.onChange;
+	        var onChange = this.props.onChange;
 
 	        _react2['default'].Children.forEach(this.props.children, function (child, index) {
 	            newChildren.push(_react2['default'].cloneElement(child, {
 	                key: index,
-	                visible: visible,
-	                onChange: onChange
+	                visible: _this.state.visible,
+	                onChange: onChange,
+	                changeVisible: _this.changeVisible.bind(_this)
 	            }));
 	        });
 
@@ -25304,9 +25696,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    Accordion.prototype.render = function render() {
-	        var _props2 = this.props;
-	        var Component = _props2.componentTag;
-	        var className = _props2.className;
+	        var _props = this.props;
+	        var Component = _props.componentTag;
+	        var className = _props.className;
 
 	        return _react2['default'].createElement(
 	            Component,
@@ -25327,15 +25719,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _Component2.call(this, props, context);
 	    }
 
+	    AccordionHeader.prototype.onChange = function onChange() {
+	        var _this2 = this;
+
+	        this.props.changeVisible(function () {
+	            if (_this2.props.onChange) _this2.props.onChange(_this2.props.visible);
+	        });
+	    };
+
 	    AccordionHeader.prototype.render = function render() {
-	        var _props3 = this.props;
-	        var className = _props3.className;
-	        var onChange = _props3.onChange;
+	        var className = this.props.className;
 
 	        return _react2['default'].createElement(
 	            'div',
 	            _extends({ className: _classnames2['default'](_utilsTool.setPhoenixPrefix('accordion-header'), className),
-	                onClick: onChange
+	                onClick: this.onChange.bind(this)
 	            }, this.props),
 	            this.props.children
 	        );
@@ -25358,26 +25756,35 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    AccordionBody.prototype.componentDidMount = function componentDidMount() {
-	        this.height = this.accordionBody.offsetHeight;
+	        this.height = this.accordionBody.offsetHeight + 'px';
+	        this.setHeight();
+	    };
+
+	    AccordionBody.prototype.componentDidUpdate = function componentDidUpdate() {
+	        this.setHeight();
+	    };
+
+	    AccordionBody.prototype.setHeight = function setHeight() {
+	        this.accordionBodyParent.style.height = this.props.visible ? this.height : 0;
 	    };
 
 	    AccordionBody.prototype.render = function render() {
-	        var _this = this;
+	        var _this3 = this;
 
-	        var _props4 = this.props;
-	        var visible = _props4.visible;
-	        var children = _props4.children;
-	        var className = _props4.className;
+	        var _props2 = this.props;
+	        var visible = _props2.visible;
+	        var children = _props2.children;
+	        var className = _props2.className;
 
 	        return _react2['default'].createElement(
 	            'div',
-	            _extends({}, this.props, { className: _classnames2['default'](_utilsTool.setPhoenixPrefix('accordion-body'), 'animated', className), style: {
-	                    height: visible ? this.height + 'px' : '0'
+	            _extends({}, this.props, { className: _classnames2['default'](_utilsTool.setPhoenixPrefix('accordion-body'), 'animated', className), ref: function (accordionBodyParent) {
+	                    _this3.accordionBodyParent = accordionBodyParent;
 	                } }),
 	            _react2['default'].createElement(
 	                'div',
 	                { ref: function (accordionBody) {
-	                        _this.accordionBody = accordionBody;
+	                        _this3.accordionBody = accordionBody;
 	                    } },
 	                children
 	            )
@@ -25394,7 +25801,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 208 */
+/* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25428,7 +25835,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _utilsTool2 = _interopRequireDefault(_utilsTool);
 
 	/**
-	 * 气泡
+	 * 气泡组件<br/>
+	 * - 配合倾听者组件Whisper使用, 作为Whisper的target。
+	 *
+	 * 示例:
+	 * ```code
+	 *     const popover = ( // 可以通过style自定义位置
+	 *         <Popover>
+	 *             <ul className="ph-popover-list">
+	 *                 <li className="ph-popover-item">未上线单店</li>
+	 *                 <li className="ph-popover-item">未上线连锁店</li>
+	 *             </ul>
+	 *         </Popover>
+	 *     );
+	 * ```
+	 * ```code
+	 *     <Whisper placement="top" onChange={()=>{console.log('气泡出现消失时额外的执行函数');}} target={popover} distance={10} >Top</Whisper>
+	 * ```
+	 *
 	 * @class Popover
 	 * @module 提示组件
 	 * @extends Component
@@ -25444,6 +25868,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _createClass(Popover, null, [{
 	        key: 'propTypes',
 	        value: {
+	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * @default 'popover'
+	             * */
+	            classPrefix: _react.PropTypes.string,
 	            /**
 	             * 标签tagName
 	             * @property componentTag
@@ -25525,7 +25956,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 209 */
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25546,7 +25977,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(205);
+	var _reactDom = __webpack_require__(202);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -25570,7 +26001,33 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 	/**
-	 * 倾听者
+	 * 倾听者组件<br/>
+	 * - 配合提示组件使用, 通过target设置显示的目标。
+	 * - 可通过placement设置目标物的显示位置, 可选top、bottom、left、right、top left、top right、bottom left、bottom right。
+	 * - 可通过distance设置目标物到点击对象(倾听者)的位置。
+	 * - 可通过onChange定义目标物显隐时额外的回调函数。
+	 *
+	 * 主要属性和接口：
+	 * - target:目标物。
+	 * - placement:目标物的显示位置, 默认bottom。
+	 * - distance:目标物到点击对象(倾听者)的位置, 默认15。
+	 * - onChange:目标物显隐时额外的回调函数。
+	 *
+	 * 示例:
+	 * ```code
+	 *     const popover = ( // 可以通过style自定义位置
+	 *         <Popover>
+	 *             <ul className="ph-popover-list">
+	 *                 <li className="ph-popover-item">未上线单店</li>
+	 *                 <li className="ph-popover-item">未上线连锁店</li>
+	 *             </ul>
+	 *         </Popover>
+	 *     );
+	 * ```
+	 * ```code
+	 *     <Whisper placement="top" onChange={()=>{console.log('气泡出现消失时额外的执行函数');}} target={popover} distance={10} >Top</Whisper>
+	 * ```
+	 *
 	 * @class Whisper
 	 * @module 提示组件
 	 * @extends Component
@@ -25586,6 +26043,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _createClass(Whisper, null, [{
 	        key: 'propTypes',
 	        value: {
+	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * @default 'whisper'
+	             * */
+	            classPrefix: _react.PropTypes.string,
 	            /**
 	             * 标签tagName
 	             * @property componentTag
@@ -25612,7 +26076,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            distance: _react.PropTypes.number,
 	            /**
 	             * 气泡显隐时可执行的额外函数,自定义
-	             * @property onChange
+	             * @method onChange
 	             * @type Function
 	             * */
 	            onChange: _react.PropTypes.func
@@ -25780,7 +26244,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 210 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25816,7 +26280,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _Drag2 = _interopRequireDefault(_Drag);
 
 	/**
-	 * 滑动输入条 Slider
+	 * 滑动输入条组件<br/>
+	 * - 滑动进度条确定当前进度的百分比。
+	 * - 可通过设置process确定初始进度百分比, 范围从0-100。
+	 * - 可通过placement设置当前进度提示框的位置, 可选top/bottoom。
+	 * - 可通过onChange设置拖拽进度条松开时的回调函数。
+	 * - 可通过disabled设置进度条只读。
+	 *
+	 * 主要属性和接口：
+	 * - process:初始进度百分比, 默认0 <br/>
+	 * 如: `<Slider progress={10}/>`
+	 * - placement:进度提示框的位置, 默认top <br/>
+	 * 如: `<Slider placement="bottom" />`
+	 * - onChange:拖拽进度条松开时的回调函数 <br/>
+	 * 如: `<Slider onChange={(progress)=>{console.log(progress);} />`
+	 * - disabled:进度条只读, 不可操作 <br/>
+	 * 如: `<Slider disabled/>`
+	 *
 	 * @class Slider
 	 * @module 操作类组件
 	 * @extends Component
@@ -25833,6 +26313,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: 'propTypes',
 	        value: {
 	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * @default 'slider'
+	             * */
+	            classPrefix: _react.PropTypes.string,
+	            /**
 	             * 标签tagName
 	             * @property componentTag
 	             * @type String
@@ -25848,8 +26335,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * 进程提示的位置,默认top
 	             * @property placement
 	             * @type String
+	             * @default 'top'
 	             * */
-	            placement: _react.PropTypes.string
+	            placement: _react.PropTypes.string,
+	            /**
+	             * 改变进程时的回调函数
+	             * @method onChange
+	             * @type Function
+	             * */
+	            onChange: _react.PropTypes.func
 	        },
 	        enumerable: true
 	    }, {
@@ -25874,7 +26368,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _Component.call(this, props, context);
 
 	        this.state = {
-	            newProgress: this.props.progress,
+	            newProgress: props.progress,
 	            tipVisible: false
 	        };
 	    }
@@ -25916,7 +26410,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        this.newProgressWidth = this.prevProgressWidth;
 
-	        this.props.onChange(this.state.newProgress);
+	        if (this.props.onChange) this.props.onChange(this.state.newProgress);
 	    };
 
 	    Slider.prototype.render = function render() {

@@ -6,11 +6,11 @@ var gulp = require('gulp'),
     gutil = require('gulp-util'),
     open = require('gulp-open'),
     Server = require('karma').Server,
-     webpackConfig = require('./webpack/webpack.config.js'),
+    webpackConfig = require('./webpack/webpack.config.js'),
     exampleConfig = require('./webpack/example.config.js'),
-     WebpackDevServer = require("webpack-dev-server"),
-     projectName = require("./package.json").name,
-     devPort = 3005;
+    WebpackDevServer = require("webpack-dev-server"),
+    projectName = require("./package.json").name,
+    devPort = 3005;
 
 gulp.task('babel', function () {
     return gulp.src('src/**/*.js')

@@ -17,7 +17,7 @@ describe("<Accordion/>", function(){
         }
     });
 
-    it('click', function(){
+    it('点击高度是否显示正常', ()=>{
         visible = false;
         const accordion = TestUtils.renderIntoDocument(
             <Accordion visible={visible} onChange={onChange}>
@@ -34,7 +34,7 @@ describe("<Accordion/>", function(){
 
         TestUtils.Simulate.click(accordionHeader);
         // 未完成
-        console.log(parseInt(findDOMNode(accordionBody).style.height));
+        // console.log(parseInt(findDOMNode(accordionBody).style.height));
         // assert.notEqual(parseInt(findDOMNode(accordionBody).style.height), 0);
     });
 });

@@ -1,28 +1,45 @@
-import React, { Component ,PropTypes} from 'react';
-import ReactDOM,{findDOMNode} from 'react-dom';
-import {Button} from '../../src/index';
-import {ButtonGroup} from '../../src/index';
+import React, { Component } from "react";
+import {ButtonGroup, Button} from "phoenix-ui";
+import Code from "./code/code";
+
 export default class input extends Component{
+    
+    activeCallback(target,html){
+        console.log(target);
+        alert(html);
+    }
+
     render(){
         return(
             <div>
                 <h2 className="comp-title">ButtonGroup</h2>
-                <h3 className="comp-type">水平(默认)  phType(justify)</h3>
+                <h3 className="comp-type">phType(默认justify) 自适应宽度或垂直排列</h3>
                 <div className="content">
-                    <ButtonGroup activeCallback={function(target,html){console.log(target,html);}}>
-                        <Button>水平按钮组1</Button>
-                        <Button>水平按钮组2</Button>
-                        <Button>水平按钮组3</Button>
+                    <ButtonGroup>
+                        <Button>justify1</Button>
+                        <Button>justify2</Button>
+                        <Button>justify3</Button>
                     </ButtonGroup>
                 </div>
-                <h3 className="comp-type">垂直  phType(tacked)</h3>
+                <Code target="button-group-phtype-justify" />
                 <div className="content">
                     <ButtonGroup phType="tacked">
-                        <Button block>垂直按钮组1</Button>
-                        <Button block>垂直按钮组2</Button>
-                        <Button block>垂直按钮组3</Button>
+                        <Button block>tacked1</Button>
+                        <Button block>tacked2</Button>
+                        <Button block>tacked3</Button>
                     </ButtonGroup>
                 </div>
+                <Code target="button-group-phtype-tacked" />
+
+                <h3 className="comp-type">activeCallback 点击按钮组回调函数</h3>
+                <div className="content">
+                    <ButtonGroup activeCallback={this.activeCallback}>
+                        <Button>justify1</Button>
+                        <Button>justify2</Button>
+                        <Button>justify3</Button>
+                    </ButtonGroup>
+                </div>
+                <Code target="button-group-callback" />
             </div>
         );
     }

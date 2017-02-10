@@ -3,11 +3,36 @@ import Component from './utils/Component';
 import classnames from 'classnames';
 import {setPhoenixPrefix} from './utils/Tool';
 
-import Row from './Row';
-import Col from './Col';
-
 /**
- * 表单元素布局方式，整齐的排列一组表单元素
+ * 表单元素布局方式，整齐的排列一组表单元素<br/>
+ *
+ * 示例:
+ * - 单列, 如:
+ * ```code
+ *     <FormGroup>
+ *         <Row single>
+ *             <Col>
+ *                 <Input type="text" placeholder="姓名" />
+ *             </Col>
+ *         </Row>
+ *     </FormGroup>
+ * ```
+ * - 多列, 如:
+ * ```code
+ *     <FormGroup>
+ *         <Row>
+ *             <Col>
+ *                 <label>省</label>
+ *                 <Input type="text" placeholder="省" />
+ *             </Col>
+ *             <Col>
+ *                 <label>市</label>
+ *                 <Input type="text" placeholder="市" />
+ *             </Col>
+ *         </Row>
+ *     </FormGroup>
+ * ```
+ *
  * @class FormGroup
  * @module 表单组件
  * @extends Component
@@ -16,6 +41,7 @@ import Col from './Col';
  * @demo form-group.js {源码}
  * @show true
  * */
+
 export default class FormGroup extends Component{
 
     static propTypes = {
@@ -23,6 +49,7 @@ export default class FormGroup extends Component{
          * 样式前缀
          * @property classPrefix
          * @type String
+         * @default 'form-group'
          * */
         classPrefix:PropTypes.string,
         /**
@@ -34,12 +61,9 @@ export default class FormGroup extends Component{
     };
 
     static defaultProps = {
-        egSize:'',
         classPrefix:'form-group',
         componentTag:'form',
-        classMapping : {
-
-        }
+        classMapping : {}
     };
 
     constructor(props, context) {
@@ -59,7 +83,6 @@ export default class FormGroup extends Component{
 
         return items;
     }
-
 
     render(){
         let {componentTag:Component,className,...other} = this.props;

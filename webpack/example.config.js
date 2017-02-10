@@ -26,6 +26,9 @@ module.exports = extend({},{
             loader: 'file-loader'
         }]
     },
+    resolve: {
+        alias: { "phoenix-ui" : "../../src/index.js" }
+    },
     plugins:[
         new webpack.optimize.UglifyJsPlugin()
     ]

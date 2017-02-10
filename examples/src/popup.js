@@ -1,6 +1,6 @@
-import React, { Component ,PropTypes} from 'react';
-import ReactDOM,{findDOMNode} from 'react-dom';
-import {Button, Popup} from '../../src/index';
+import React, { Component } from 'react';
+import {Button, Popup} from 'phoenix-ui';
+import Code from "./code/code";
 
 export default class popup extends Component{
 
@@ -41,9 +41,11 @@ export default class popup extends Component{
         return(
             <div>
                 <h2 className="comp-title">Popup</h2>
-                <h3 className="comp-type">弹层 Top</h3>
-                <Button block radius phSize="lg" phStyle="primary" onClick={::this.onShowTopPopup}>Top Popup</Button>
-                <Popup align="top" visible={this.state.topVisible} onClose={::this.onCloseTopPopup}>
+                <h3 className="comp-type">visible(默认false) 弹层是否可见，必需<br/>onClose 关闭弹层的执行函数<br/>align(默认top) 弹层弹出位置</h3>
+                <div className="content">
+                    <Button phSize="lg" onClick={::this.onShowTopPopup}>Top</Button>
+                </div>
+                <Popup visible={this.state.topVisible} onClose={::this.onCloseTopPopup}>
                     <ul className="ph-popup-list">
                         <li className="ph-popup-item" onClick={::this.onCloseTopPopup}>未上线单店</li>
                         <li className="ph-popup-item" onClick={::this.onCloseTopPopup}>未上线连锁店</li>
@@ -51,9 +53,11 @@ export default class popup extends Component{
                         <li className="ph-popup-item" onClick={::this.onCloseTopPopup}>在线连锁店</li>
                     </ul>
                 </Popup>
-                
-                <h3 className="comp-type">弹层 Bottom(提供ActionSheet样式)</h3>
-                <Button block radius phSize="lg" phStyle="primary" onClick={::this.onShowBottomPopup}>Bottom Popup</Button>
+                <Code target="popup-top" />
+
+                <div className="content">
+                    <Button phSize="lg" onClick={::this.onShowBottomPopup}>Bottom</Button>
+                </div>
                 <Popup align="bottom" visible={this.state.bottomVisible} onClose={::this.onCloseBottomPopup}>
                     <div className="ph-action-sheet">
                         <ul>
@@ -63,6 +67,7 @@ export default class popup extends Component{
                         <div className="ph-popup-operate" onClick={::this.onCloseBottomPopup}>取消</div>
                     </div>
                 </Popup>
+                <Code target="popup-bottom" />
             </div>
         );
     }

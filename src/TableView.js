@@ -4,8 +4,19 @@ import {setPhoenixPrefix} from './utils/Tool';
 import classnames from 'classnames';
 
 /**
- * 展现形式如表格一般,用来组织数据，显示链接的集合，或一系列的控件。<br />
- * 使用时需注意组件的子元素需要跳转功能需加上href标签并赋予正确的url，不论什么标签
+ * 展现形式如表格一般, 用来组织数据, 显示链接的集合, 或一系列的控件。<br />
+ * - 使用时如果需要跳转功能可通过添加href属性并赋予正确的url(任何标签)。
+ * - 可搭配其他组件一起使用, 如徽章组件Badge, 开关组件Switch等。
+ *
+ * 示例:
+ * ```code
+ *     <TableView>
+ *         <a href="https://github.com/future-team/phoenix-ui">Item 1</a>
+ *         <a>Item 2 <Badge>2</Badge></a>
+ *         <a>Item 3 <Switch /></a>
+ *     </TableView>
+ * ```
+ *
  * @class TableView
  * @module 布局组件
  * @extends Component
@@ -14,6 +25,7 @@ import classnames from 'classnames';
  * @demo table-view.js {源码}
  * @show true
  * */
+
 export default class TableView extends Component{
 
     static propTypes = {
@@ -21,8 +33,9 @@ export default class TableView extends Component{
          * 样式前缀
          * @property classPrefix
          * @type String
+         * @default 'table-view'
          * */
-        classPrefix:PropTypes.string,
+        classPrefix: PropTypes.string,
         /**
          * 标签tagName
          * @property componentTag
@@ -34,9 +47,7 @@ export default class TableView extends Component{
     static defaultProps = {
         classPrefix:'table-view',
         componentTag:'ul',
-        classMapping : {
-
-        }
+        classMapping : {}
     };
 
     constructor(props, context) {

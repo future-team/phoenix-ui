@@ -2,25 +2,29 @@ import React, {PropTypes,Component} from 'react';
 import ClassNameMixin from './utils/ClassNameMixin';
 import {setPhoenixPrefix} from './utils/Tool';
 import classnames from 'classnames';
+
 /**
- * tab选项卡组件
- * - 标签内容为heading属性，children部分为对应要显示的内容<br/>
- * - 此外支持自定义类名,事件等操作<br/>
+ * tab选项卡组件<br/>
+ * - 通过heading设置选项卡的显示内容。
+ * - 可通过onChange设置点击选项卡的回调函数。
+ * - 可自定义className等常用属性以及事件。
+ *
  * 具体属性和接口如下：
- * <ul>
- *     <li>heading; 标签卡的显示内容，默认‘tab’ 。
- *         虽然有默认值但是这应该是必填的。</li>
- *       <li>
- *         例如:
- *          <code>
- *            Tabset activeIndex ={0} width={30}
- *               Tab heading='tab1' className='测试'>hahadhdad1
- *               /Tab
- *            /Tabset
- *          </code>
- *       </li>
- *       <li>clickCallback: 点击事件的回调函数，默认为null</li>
- * </ul>
+ * - heading:选项卡的显示内容, 默认'tab'
+ * - onChange:点击事件的回调函数
+ *
+ * 示例:
+ * ```code
+ *     <Tabset activeIndex ={this.state.index} tabCallback={(index)=>{console.log(index);}>
+ *         <Tab heading='标题1' className='tab-test'>
+ *             横向内容1
+ *         </Tab>
+ *         <Tab heading='标题2' onChange={(index)=>{console.log(index);}>
+ *             横向内容2
+ *         </Tab>
+ *     </Tabset>
+ * ```
+ *
  * @class Tab
  * @module 选项卡
  * @extends Component
@@ -30,42 +34,50 @@ import classnames from 'classnames';
  * @demo Tab.js{源码}
  * @show true
  * */
+
 @ClassNameMixin
 export default class Tab extends Component {
     static ProTypes = {
         /**
          * 选项卡的标题文字，默认为‘tab’
-         * 但是这个应该是必填的，一个tab显示出来也没意思啦
          * @property heading
+         * @type String
          * @default 'tab'
          * */
         heading: PropTypes.string,
         /**
          * 点击事件的回调函数
-         * @property clickCallback
+         * @method onChange
+         * @type Function
          * @default null
          * */
-        clickCallback: PropTypes.func
-    }
-    constructor(props,context){
-        super(props,context);
-    }
+        onChange: PropTypes.func
+    };
+
     static defaultProps = {
         heading: 'tab',
         activeIndex:0,
         vertical:false,
-        clickCallback: null
+        onChange: null
     };
+
+    constructor(props,context){
+        super(props,context);
+    }
+
     handleClick(){
         this.props.changeActive(this.props.index);
-        this.props.clickCallback && this.props.clickCallback(this.props.index);
+        this.props.onChange && this.props.onChange(this.props.index);
     }
+
     isActive(){
         return this.props.index == this.props.activeIndex ? 'active':'';
     }
+
     isVertical(){
         return !!this.props.vertical ? '':setPhoenixPrefix('col');
     }
+
     render(){
         let {className,onClick,...other} = this.props;
         return(

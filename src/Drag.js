@@ -4,25 +4,53 @@ import classnames from 'classnames';
 import {setPhoenixPrefix} from './utils/Tool';
 
 /**
- * 拖动Drag
+ * 拖拽组件<br/>
+ * - 兼容移动端的touch和pc端的mouse事件。
+ * - 可通过onDrag设置抓取的回调函数, 返回抓取在屏幕上的位置, 分别保存在start和move中, 以x和y的形式展示。
+ * - 可通过onDrop设置松开瞬间的回调函数, 返回松开时在屏幕上的位置, 保存在end中, 以x和y的形式展示。
+ *
+ * 示例:
+ * ```code
+ *     <Drag onDrag={::this.onDrag} onDrop={::this.onDrop} style={{height:0}}>
+ *         <div className="box" ref={(box)=>{this.box = box}}>Drag</div>
+ *     </Drag>
+ * ```
+ * ```code
+ *     onDrag(event,position){
+ *         this.prePosition = position.start;
+ *         this.nowPosition = position.move;
+ *
+ *         this.distanceX = this.preDistanceX + this.nowPosition.x - this.prePosition.x;
+ *         this.distanceY = this.preDistanceY + this.nowPosition.y - this.prePosition.y;
+ *         console.log(this.distanceX, this.distanceY);
+ *     }
+ *     onDrop(event,position){
+ *         this.preDistanceX = this.distanceX;
+ *         this.preDistanceY = this.distanceY;
+ *     }
+ * ```
+ *
  * @class Drag
  * @module 辅助组件
  * @extends Component
  * @constructor
- * @show false
+ * @demo drag.js {展示}
+ * @demo drag.js {源码}
+ * @show true
  * */
+
 export default class Drag extends Component{
 
     static propTypes = {
         /**
          * 抓取的执行函数,对应TouchStart/TouchMove
-         * @property onDrag
+         * @method onDrag
          * @type Function
          * */
         onDrag: PropTypes.func,
         /**
          * 放开的执行函数,对应TouchEnd
-         * @property onDrop
+         * @method onDrop
          * @type Function
          * */
         onDrop: PropTypes.func
@@ -37,7 +65,7 @@ export default class Drag extends Component{
 
         this.state = {
             position: {}
-        }
+        };
 
         this.isMouseDown = false;
     }
