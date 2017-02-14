@@ -356,12 +356,12 @@ import classnames from &#x27;classnames&#x27;;
 
 /**
  * Icon&lt;br/&gt;
- * - 主要是用来提供不同类型的符号, 可选[search]。
+ * - 可通过phIcon来配置不同类型的符号, 可选[查看所有icon类型](http://future-team.github.io/gfs-icons/index.html)。
  * - 支持自定义className，事件等操作。
  *
  * 主要属性和接口：
- * - phStyle:徽章颜色, 默认primary &lt;br/&gt;
- * 如：&#x60;&lt;Badge phStyle=&quot;info&quot;&gt;惠&lt;/Badge&gt;&#x60;
+ * - phIcon:配置不同类型的符号 &lt;br/&gt;
+ * 如：&#x60;&lt;Icon phIcon=&quot;search&quot; /&gt;&#x60;
  *
  * @class Icon
  * @module 标签组件
@@ -378,11 +378,18 @@ export default class Badge extends Component{
          * 样式前缀
          * @property classPrefix
          * @type String
-         * @default &#x27;badge&#x27;
+         * @default &#x27;icon&#x27;
          * */
         classPrefix: PropTypes.string,
         /**
-         * icon符号类型[search]
+         * 标签tagName
+         * @property componentTag
+         * @type String
+         * @default &#x27;span&#x27;
+         * */
+        componentTag:PropTypes.string,
+        /**
+         * icon符号类型
          * @property phIcon
          * @type string
          * @default &#x27;&#x27;
@@ -393,10 +400,8 @@ export default class Badge extends Component{
     static defaultProps ={
         phIcon: &#x27;&#x27;,
         classPrefix:&#x27;icon&#x27;,
-        classMapping : {
-            &#x27;search&#x27;:&#x27;search&#x27;,
-            &#x27;home&#x27;: &#x27;home&#x27;
-        }
+        componentTag:&#x27;span&#x27;,
+        classMapping : {}
     };
 
     constructor(props,context){
@@ -404,14 +409,15 @@ export default class Badge extends Component{
     }
 
     render(){
+        let {componentTag:Component, phIcon, classPrefix} = this.props;
         return(
-            &lt;span {...this.props} className={classnames(
+            &lt;Component {...this.props} className={classnames(
                 &#x27;iconfont&#x27;,
-                this.getProperty(true,false),
-                this.props.className
+                this.props.className,
+                phIcon? classPrefix + &#x27;-&#x27; + phIcon:&#x27;&#x27;
            )}&gt;
                {this.props.children}
-           &lt;/span&gt;
+           &lt;/Component&gt;
         )
     }
 }

@@ -350,13 +350,13 @@
  <div class="well well-small sign-left3">
       <div class="stdoc-code"><p>Icon<br/></p>
 <ul>
-<li>主要是用来提供不同类型的符号, 可选[search]。</li>
+<li>可通过phIcon来配置不同类型的符号, 可选<a href="http://future-team.github.io/gfs-icons/index.html">查看所有icon类型</a>。</li>
 <li>支持自定义className，事件等操作。</li>
 </ul>
 <p>主要属性和接口：</p>
 <ul>
-<li>phStyle:徽章颜色, 默认primary <br/>
-如：<code>&lt;Badge phStyle="info"&gt;惠&lt;/Badge&gt;</code></li>
+<li>phIcon:配置不同类型的符号 <br/>
+如：<code>&lt;Icon phIcon="search" /&gt;</code></li>
 </ul>
 </div>
  </div>
@@ -376,6 +376,13 @@
                         
                             <li class="index-item property">
                                 <a href="#" data-tabid="#property" data-anchor="#property_classPrefix" data-tablink="classPrefix">classPrefix</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#" data-tabid="#property" data-anchor="#property_componentTag" data-tablink="componentTag">componentTag</a>
 
                                 
                                 
@@ -501,7 +508,7 @@
             <h4>Example:</h4>
             <ul class="nav nav-tabs example-list">
                 
-                <li role="presentation"  class="active"  data-demo="http://172.24.107.159:8000/examples/index.html#/icon"  _no='0'> <a>展示</a></li>
+                <li role="presentation"  class="active"  data-demo="http://future-team.github.io/phoenix-ui/examples/index.html#/icon"  _no='0'> <a>展示</a></li>
                 
             </ul>
             <div class="example-content  showdemo ">
@@ -514,11 +521,17 @@ export default class icon extends Component{
         return(
             &lt;div&gt;
                 &lt;h2 className="comp-title"&gt;Icon&lt;/h2&gt;
-                &lt;h3 className="comp-type"&gt;phType 符号类型&lt;/h3&gt;
+                &lt;h3 className="comp-type"&gt;phIcon 符号类型(对应icon的名称)&lt;/h3&gt;
+                &lt;a className="code-mark" href="http://future-team.github.io/gfs-icons/index.html"&gt;查看所有icon类型&lt;/a&gt;
                 &lt;div className="content"&gt;
+                    &lt;h3 className="comp-tip"&gt;通过phIcon设定&lt;/h3&gt;
                     &lt;Icon phIcon="search" /&gt;
+                    &lt;h3 className="comp-tip"&gt;设置className&lt;/h3&gt;
+                    &lt;Icon className="icon-home" /&gt;
+                    &lt;h3 className="comp-tip"&gt;不用Icon组件的方式&lt;/h3&gt;
+                    &lt;span className="iconfont icon-chevron-left"&gt;&lt;/span&gt;
                 &lt;/div&gt;
-                &lt;Code target="badge-phstyle" /&gt;
+                &lt;Code target="icon-phicon" /&gt;
             &lt;/div&gt;
         );
     }
@@ -585,7 +598,7 @@ export default class icon extends Component{
 
     
         <p><strong>Default:</strong></p>
-         <code> &#x27;badge&#x27;</code>
+         <code> &#x27;icon&#x27;</code>
     
 
     
@@ -594,8 +607,8 @@ export default class icon extends Component{
 </div>
 
                 
-                    <div id="property_phIcon" class="property item">
-    <h3 class="name"><code>phIcon</code></h3>
+                    <div id="property_componentTag" class="property item">
+    <h3 class="name"><code>componentTag</code></h3>
     <span class="type">String</span>
 
     
@@ -627,7 +640,55 @@ export default class icon extends Component{
     </div>
 
     <div class="description">
-        <div class="stdoc-code"><p>icon符号类型[search]</p>
+        <div class="stdoc-code"><p>标签tagName</p>
+</div>
+    </div>
+
+    
+        <p><strong>Default:</strong></p>
+         <code> &#x27;span&#x27;</code>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_phIcon" class="property item">
+    <h3 class="name"><code>phIcon</code></h3>
+    <span class="type">String</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_Icon.js.html#l39"><code>src&#x2F;Icon.js:39</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>icon符号类型</p>
 </div>
     </div>
 

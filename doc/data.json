@@ -2071,7 +2071,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://172.24.107.159:8000/examples/index.html#/accordion"
+                "http://future-team.github.io/phoenix-ui/examples/index.html#/accordion"
             ],
             "isApp": true,
             "show": true
@@ -2098,7 +2098,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://172.24.107.159:8000/examples/index.html#/animate"
+                "http://future-team.github.io/phoenix-ui/examples/index.html#/animate"
             ],
             "isApp": true,
             "show": true
@@ -2126,7 +2126,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://172.24.107.159:8000/examples/index.html#/badge"
+                "http://future-team.github.io/phoenix-ui/examples/index.html#/badge"
             ],
             "isApp": true,
             "show": true
@@ -2153,7 +2153,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://172.24.107.159:8000/examples/index.html#/button"
+                "http://future-team.github.io/phoenix-ui/examples/index.html#/button"
             ],
             "isApp": true,
             "show": true
@@ -2181,7 +2181,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://172.24.107.159:8000/examples/index.html#/buttongroup"
+                "http://future-team.github.io/phoenix-ui/examples/index.html#/buttongroup"
             ],
             "isApp": true,
             "show": true
@@ -2208,7 +2208,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://172.24.107.159:8000/examples/index.html#/grid"
+                "http://future-team.github.io/phoenix-ui/examples/index.html#/grid"
             ],
             "isApp": true,
             "since": "0.1.0",
@@ -2236,7 +2236,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://172.24.107.159:8000/examples/index.html#/dialog"
+                "http://future-team.github.io/phoenix-ui/examples/index.html#/dialog"
             ],
             "isApp": true,
             "show": true
@@ -2263,7 +2263,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://172.24.107.159:8000/examples/index.html#/drag"
+                "http://future-team.github.io/phoenix-ui/examples/index.html#/drag"
             ],
             "isApp": true,
             "show": true
@@ -2290,7 +2290,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://172.24.107.159:8000/examples/index.html#/formgroup"
+                "http://future-team.github.io/phoenix-ui/examples/index.html#/formgroup"
             ],
             "isApp": true,
             "show": true
@@ -2317,7 +2317,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://172.24.107.159:8000/examples/index.html#/grid"
+                "http://future-team.github.io/phoenix-ui/examples/index.html#/grid"
             ],
             "isApp": true,
             "show": true
@@ -2334,18 +2334,18 @@
             "namespace": "",
             "file": "src/Icon.js",
             "line": 5,
-            "description": "Icon<br/>\n- 主要是用来提供不同类型的符号, 可选[search]。\n- 支持自定义className，事件等操作。\n\n主要属性和接口：\n- phStyle:徽章颜色, 默认primary <br/>\n如：`<Badge phStyle=\"info\">惠</Badge>`",
+            "description": "Icon<br/>\n- 可通过phIcon来配置不同类型的符号, 可选[查看所有icon类型](http://future-team.github.io/gfs-icons/index.html)。\n- 支持自定义className，事件等操作。\n\n主要属性和接口：\n- phIcon:配置不同类型的符号 <br/>\n如：`<Icon phIcon=\"search\" />`",
             "extends": "Component",
             "is_constructor": 1,
             "since": "0.1.0",
             "example": [
-                "\timport React, { Component } from \"react\";\n\timport {Icon} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class icon extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t            \t<h2 className=\"comp-title\">Icon</h2>\n\t                <h3 className=\"comp-type\">phType 符号类型</h3>\n\t                <div className=\"content\">\n\t\t                <Icon phIcon=\"search\" />\n\t                </div>\n\t                <Code target=\"badge-phstyle\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
+                "\timport React, { Component } from \"react\";\n\timport {Icon} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class icon extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t            \t<h2 className=\"comp-title\">Icon</h2>\n\t                <h3 className=\"comp-type\">phIcon 符号类型(对应icon的名称)</h3>\n\t                <a className=\"code-mark\" href=\"http://future-team.github.io/gfs-icons/index.html\">查看所有icon类型</a>\n\t                <div className=\"content\">\n\t                    <h3 className=\"comp-tip\">通过phIcon设定</h3>\n\t\t                <Icon phIcon=\"search\" />\n\t                    <h3 className=\"comp-tip\">设置className</h3>\n\t                    <Icon className=\"icon-home\" />\n\t                    <h3 className=\"comp-tip\">不用Icon组件的方式</h3>\n\t                    <span className=\"iconfont icon-chevron-left\"></span>\n\t                </div>\n\t                <Code target=\"icon-phicon\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
                 "展示"
             ],
             "exampleUrls": [
-                "http://172.24.107.159:8000/examples/index.html#/icon"
+                "http://future-team.github.io/phoenix-ui/examples/index.html#/icon"
             ],
             "isApp": true,
             "show": true
@@ -2372,7 +2372,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://172.24.107.159:8000/examples/index.html#/input"
+                "http://future-team.github.io/phoenix-ui/examples/index.html#/input"
             ],
             "isApp": true,
             "show": true
@@ -2400,7 +2400,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://172.24.107.159:8000/examples/index.html#/label"
+                "http://future-team.github.io/phoenix-ui/examples/index.html#/label"
             ],
             "isApp": true,
             "show": true
@@ -2427,7 +2427,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://172.24.107.159:8000/examples/index.html#/popover"
+                "http://future-team.github.io/phoenix-ui/examples/index.html#/popover"
             ],
             "isApp": true,
             "show": true
@@ -2454,7 +2454,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://172.24.107.159:8000/examples/index.html#/popup"
+                "http://future-team.github.io/phoenix-ui/examples/index.html#/popup"
             ],
             "isApp": true,
             "show": true
@@ -2481,7 +2481,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://172.24.107.159:8000/examples/index.html#/grid"
+                "http://future-team.github.io/phoenix-ui/examples/index.html#/grid"
             ],
             "isApp": true,
             "since": "0.1.0",
@@ -2509,7 +2509,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://172.24.107.159:8000/examples/index.html#/slider"
+                "http://future-team.github.io/phoenix-ui/examples/index.html#/slider"
             ],
             "isApp": true,
             "show": true
@@ -2536,7 +2536,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://172.24.107.159:8000/examples/index.html#/star"
+                "http://future-team.github.io/phoenix-ui/examples/index.html#/star"
             ],
             "isApp": true,
             "show": true
@@ -2563,7 +2563,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://172.24.107.159:8000/examples/index.html#/swipe"
+                "http://future-team.github.io/phoenix-ui/examples/index.html#/swipe"
             ],
             "isApp": true,
             "show": true
@@ -2590,7 +2590,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://172.24.107.159:8000/examples/index.html#/switch"
+                "http://future-team.github.io/phoenix-ui/examples/index.html#/switch"
             ],
             "isApp": true,
             "show": true
@@ -2618,7 +2618,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://172.24.107.159:8000/examples/index.html#/tab"
+                "http://future-team.github.io/phoenix-ui/examples/index.html#/tab"
             ],
             "isApp": true,
             "show": true
@@ -2645,7 +2645,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://172.24.107.159:8000/examples/index.html#/tableview"
+                "http://future-team.github.io/phoenix-ui/examples/index.html#/tableview"
             ],
             "isApp": true,
             "show": true
@@ -2673,7 +2673,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://172.24.107.159:8000/examples/index.html#/tab"
+                "http://future-team.github.io/phoenix-ui/examples/index.html#/tab"
             ],
             "isApp": true,
             "show": true
@@ -2700,7 +2700,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://172.24.107.159:8000/examples/index.html#/textarea"
+                "http://future-team.github.io/phoenix-ui/examples/index.html#/textarea"
             ],
             "isApp": true,
             "show": true
@@ -2727,7 +2727,7 @@
                 "toast"
             ],
             "exampleUrls": [
-                "http://172.24.107.159:8000/examples/index.html#/toast"
+                "http://future-team.github.io/phoenix-ui/examples/index.html#/toast"
             ],
             "isApp": true,
             "show": true
@@ -2754,7 +2754,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://172.24.107.159:8000/examples/index.html#/popover"
+                "http://future-team.github.io/phoenix-ui/examples/index.html#/popover"
             ],
             "isApp": true,
             "show": true
@@ -3217,14 +3217,25 @@
             "itemtype": "property",
             "name": "classPrefix",
             "type": "String",
-            "default": "'badge'",
+            "default": "'icon'",
             "class": "Icon",
             "module": "标签组件"
         },
         {
             "file": "src/Icon.js",
             "line": 32,
-            "description": "icon符号类型[search]",
+            "description": "标签tagName",
+            "itemtype": "property",
+            "name": "componentTag",
+            "type": "String",
+            "default": "'span'",
+            "class": "Icon",
+            "module": "标签组件"
+        },
+        {
+            "file": "src/Icon.js",
+            "line": 39,
+            "description": "icon符号类型",
             "itemtype": "property",
             "name": "phIcon",
             "type": "string",
