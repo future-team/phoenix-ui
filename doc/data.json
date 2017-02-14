@@ -1616,7 +1616,8 @@
                 "name": "主页",
                 "url": "index.html"
             }
-        ]
+        ],
+        "isApp": true
     },
     "files": {
         "src/utils/ClassNameMixin.js": {
@@ -1753,6 +1754,15 @@
             },
             "classes": {
                 "Grid": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Icon.js": {
+            "name": "src/Icon.js",
+            "modules": {},
+            "classes": {
+                "Icon": 1
             },
             "fors": {},
             "namespaces": {}
@@ -1943,6 +1953,7 @@
             "name": "标签组件",
             "submodules": {},
             "classes": {
+                "Icon": 1,
                 "Badge": 1,
                 "Label": 1
             },
@@ -2054,13 +2065,15 @@
             "extends": "Component",
             "is_constructor": 1,
             "example": [
-                "\timport React, { Component } from \"react\";\n\timport classnames from \"classnames\";\n\timport {Accordion} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class accordion extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            visible : false\n\t        }\n\t    }\n\t\n\t    onChange(visible){\n\t        this.setState({\n\t            visible: visible\n\t        });\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Accordion</h2>\n\t                <h3 className=\"comp-type\">visible(默认false) 初始可见值</h3>\n\t                <Accordion>\n\t                    <Accordion.Header>\n\t                        标题一-收起<span className={classnames(\"ph-iconfont icon-chevron-more\")} style={{float:\"right\"}}></span>\n\t                    </Accordion.Header>\n\t                    <Accordion.Body>\n\t                        <ul className=\"ph-accordion-list\">\n\t                            <li className=\"ph-accordion-item\">内容一</li>\n\t                        </ul>\n\t                    </Accordion.Body>\n\t                </Accordion>\n\t                <Accordion visible={true}>\n\t                    <Accordion.Header>\n\t                        标题二-展开<span className={classnames(\"ph-iconfont icon-chevron-more\")} style={{float:\"right\"}}></span>\n\t                    </Accordion.Header>\n\t                    <Accordion.Body>\n\t                        <ul className=\"ph-accordion-list\">\n\t                            <li className=\"ph-accordion-item\">内容一</li>\n\t                            <li className=\"ph-accordion-item\">内容二</li>\n\t                        </ul>\n\t                    </Accordion.Body>\n\t                </Accordion>\n\t                <br/>\n\t                <Code target=\"accordion-visible\" />\n\t                \n\t                <h3 className=\"comp-type\">onChange 展开收起的回调函数</h3>\n\t                <Accordion visible={this.state.visible} onChange={(visible)=>{this.setState({visible: visible})}}>\n\t                    <Accordion.Header>\n\t                        标题一<span className={classnames(\"ph-iconfont icon-chevron-more\", this.state.visible?\"active\":\"\")} style={{float:\"right\"}}></span>\n\t                    </Accordion.Header>\n\t                    <Accordion.Body>\n\t                        <ul className=\"ph-accordion-list\">\n\t                            <li className=\"ph-accordion-item\">内容一</li>\n\t                            <li className=\"ph-accordion-item\">内容二</li>\n\t                        </ul>\n\t                    </Accordion.Body>\n\t                </Accordion>\n\t                <br/>\n\t                <Code target=\"accordion-onchange\" />\n\t            </div>\n\t        );\n\t    }\n\t}",
                 "\timport React, { Component } from \"react\";\n\timport classnames from \"classnames\";\n\timport {Accordion} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class accordion extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            visible : false\n\t        }\n\t    }\n\t\n\t    onChange(visible){\n\t        this.setState({\n\t            visible: visible\n\t        });\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Accordion</h2>\n\t                <h3 className=\"comp-type\">visible(默认false) 初始可见值</h3>\n\t                <Accordion>\n\t                    <Accordion.Header>\n\t                        标题一-收起<span className={classnames(\"ph-iconfont icon-chevron-more\")} style={{float:\"right\"}}></span>\n\t                    </Accordion.Header>\n\t                    <Accordion.Body>\n\t                        <ul className=\"ph-accordion-list\">\n\t                            <li className=\"ph-accordion-item\">内容一</li>\n\t                        </ul>\n\t                    </Accordion.Body>\n\t                </Accordion>\n\t                <Accordion visible={true}>\n\t                    <Accordion.Header>\n\t                        标题二-展开<span className={classnames(\"ph-iconfont icon-chevron-more\")} style={{float:\"right\"}}></span>\n\t                    </Accordion.Header>\n\t                    <Accordion.Body>\n\t                        <ul className=\"ph-accordion-list\">\n\t                            <li className=\"ph-accordion-item\">内容一</li>\n\t                            <li className=\"ph-accordion-item\">内容二</li>\n\t                        </ul>\n\t                    </Accordion.Body>\n\t                </Accordion>\n\t                <br/>\n\t                <Code target=\"accordion-visible\" />\n\t                \n\t                <h3 className=\"comp-type\">onChange 展开收起的回调函数</h3>\n\t                <Accordion visible={this.state.visible} onChange={(visible)=>{this.setState({visible: visible})}}>\n\t                    <Accordion.Header>\n\t                        标题一<span className={classnames(\"ph-iconfont icon-chevron-more\", this.state.visible?\"active\":\"\")} style={{float:\"right\"}}></span>\n\t                    </Accordion.Header>\n\t                    <Accordion.Body>\n\t                        <ul className=\"ph-accordion-list\">\n\t                            <li className=\"ph-accordion-item\">内容一</li>\n\t                            <li className=\"ph-accordion-item\">内容二</li>\n\t                        </ul>\n\t                    </Accordion.Body>\n\t                </Accordion>\n\t                <br/>\n\t                <Code target=\"accordion-onchange\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
-                "展示",
-                "源码"
+                "展示"
             ],
+            "exampleUrls": [
+                "http://172.24.107.159:8000/examples/index.html#/accordion"
+            ],
+            "isApp": true,
             "show": true
         },
         "Animate": {
@@ -2079,13 +2092,15 @@
             "extends": "Component",
             "is_constructor": 1,
             "example": [
-                "\timport React, { Component } from \"react\";\n\timport {Row,Col,Input,Button,Animate} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class animate extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t\n\t        this.state = {\n\t            item: \"\",\n\t            list: [\"看一本书\",\"睡8个小时\"]\n\t        }\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    addTodo(){\n\t        let newList = this.state.list.concat(this.state.item);\n\t        \n\t        this.setState({\n\t            item: \"\",\n\t            list: newList\n\t        });\n\t    }\n\t\n\t    removeTodo(index){\n\t        let newList = this.state.list.slice();\n\t\n\t        newList.splice(index,1);\n\t        this.setState({\n\t            list: newList\n\t        });\n\t    }\n\t\n\t    renderList(){\n\t        const items = this.state.list.map((item,index)=>{\n\t            return <div key={index} className=\"animated\" onClick={::this.removeTodo.bind(this,index)}>{item}</div>;\n\t        });\n\t        return items;\n\t    }\n\t\n\t    render(){\n\t        \n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Animate</h2>\n\t                <h3 className=\"comp-type\">Todo demo</h3>\n\t                <div className=\"content ph-row-no-padding todo-demo\">\n\t                    <Row>\n\t                        <Col className=\"ph-col-80\">\n\t                            <Input type=\"text\" value={this.state.item} onChange={::this.setValue.bind(this,\"item\")} />\n\t                        </Col>\n\t                        <Col>\n\t                            <Button block phSize=\"lg\" phStyle=\"primary\" onClick={::this.addTodo} >Add</Button>\n\t                        </Col>\n\t                    </Row>\n\t                    <Animate transitionName=\"fade\" className=\"animate-field\">\n\t                        {this.renderList()}\n\t                    </Animate>\n\t                </div>\n\t                <br/>\n\t                <Code target=\"animate\" />             \n\t            </div>\n\t        );\n\t    }\n\t}",
                 "\timport React, { Component } from \"react\";\n\timport {Row,Col,Input,Button,Animate} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class animate extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t\n\t        this.state = {\n\t            item: \"\",\n\t            list: [\"看一本书\",\"睡8个小时\"]\n\t        }\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    addTodo(){\n\t        let newList = this.state.list.concat(this.state.item);\n\t        \n\t        this.setState({\n\t            item: \"\",\n\t            list: newList\n\t        });\n\t    }\n\t\n\t    removeTodo(index){\n\t        let newList = this.state.list.slice();\n\t\n\t        newList.splice(index,1);\n\t        this.setState({\n\t            list: newList\n\t        });\n\t    }\n\t\n\t    renderList(){\n\t        const items = this.state.list.map((item,index)=>{\n\t            return <div key={index} className=\"animated\" onClick={::this.removeTodo.bind(this,index)}>{item}</div>;\n\t        });\n\t        return items;\n\t    }\n\t\n\t    render(){\n\t        \n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Animate</h2>\n\t                <h3 className=\"comp-type\">Todo demo</h3>\n\t                <div className=\"content ph-row-no-padding todo-demo\">\n\t                    <Row>\n\t                        <Col className=\"ph-col-80\">\n\t                            <Input type=\"text\" value={this.state.item} onChange={::this.setValue.bind(this,\"item\")} />\n\t                        </Col>\n\t                        <Col>\n\t                            <Button block phSize=\"lg\" phStyle=\"primary\" onClick={::this.addTodo} >Add</Button>\n\t                        </Col>\n\t                    </Row>\n\t                    <Animate transitionName=\"fade\" className=\"animate-field\">\n\t                        {this.renderList()}\n\t                    </Animate>\n\t                </div>\n\t                <br/>\n\t                <Code target=\"animate\" />             \n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
-                "展示",
-                "源码"
+                "展示"
             ],
+            "exampleUrls": [
+                "http://172.24.107.159:8000/examples/index.html#/animate"
+            ],
+            "isApp": true,
             "show": true
         },
         "Badge": {
@@ -2105,13 +2120,15 @@
             "is_constructor": 1,
             "since": "0.1.0",
             "example": [
-                "\timport React, { Component } from \"react\";\n\timport {Badge} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class badge extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t            \t<h2 className=\"comp-title\">Badge</h2>\n\t                <h3 className=\"comp-type\">phStyle(默认primary) 徽章颜色</h3>\n\t                <div className=\"content\">\n\t\t                <Badge>惠</Badge>\n\t\t                <Badge phStyle=\"success\">惠</Badge>\n\t\t                <Badge phStyle=\"info\">惠</Badge>\n\t                    <Badge phStyle=\"danger\">惠</Badge>\n\t                    <Badge phStyle=\"error\">惠</Badge>\n\t                    <Badge phStyle=\"warning\">惠</Badge>\n\t                </div>\n\t                <Code target=\"badge-phstyle\" />\n\t            </div>\n\t        );\n\t    }\n\t}",
                 "\timport React, { Component } from \"react\";\n\timport {Badge} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class badge extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t            \t<h2 className=\"comp-title\">Badge</h2>\n\t                <h3 className=\"comp-type\">phStyle(默认primary) 徽章颜色</h3>\n\t                <div className=\"content\">\n\t\t                <Badge>惠</Badge>\n\t\t                <Badge phStyle=\"success\">惠</Badge>\n\t\t                <Badge phStyle=\"info\">惠</Badge>\n\t                    <Badge phStyle=\"danger\">惠</Badge>\n\t                    <Badge phStyle=\"error\">惠</Badge>\n\t                    <Badge phStyle=\"warning\">惠</Badge>\n\t                </div>\n\t                <Code target=\"badge-phstyle\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
-                "展示",
-                "源码"
+                "展示"
             ],
+            "exampleUrls": [
+                "http://172.24.107.159:8000/examples/index.html#/badge"
+            ],
+            "isApp": true,
             "show": true
         },
         "Button": {
@@ -2130,13 +2147,15 @@
             "extends": "Component",
             "is_constructor": 1,
             "example": [
-                "\timport React, { Component } from \"react\";\n\timport {Button} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class button extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Button</h2>\n\t                <h3 className=\"comp-type\">phSize(默认sm) 按钮大小</h3>\n\t                <div className=\"content\">\n\t                    <Button>默认sm</Button>\n\t                    <Button phSize=\"md\">md</Button>\n\t                    <Button phSize=\"lg\">lg</Button>\n\t                </div>\n\t                <Code target=\"button-phsize\" />\n\t\n\t                <h3 className=\"comp-type\">phStyle(默认primary) 按钮颜色</h3>\n\t                <div className=\"content\">\n\t                    <Button>默认Primary</Button>\n\t                    <Button phStyle=\"info\">Info</Button>\n\t                    <Button phStyle=\"success\">Success</Button>\n\t                    <Button phStyle=\"error\">Error</Button>\n\t                    <Button phStyle=\"danger\">Danger</Button>\n\t                    <Button phStyle=\"warning\">Warning</Button>\n\t                    <Button phStyle=\"gray\">Gray</Button>\n\t                    <Button phStyle=\"link\">Link</Button>\n\t                </div>\n\t                <Code target=\"button-phstyle\" />\n\t\n\t                <h3 className=\"comp-type\">hollow属性</h3>\n\t                <div className=\"content\">\n\t                    <Button hollow>hollow</Button>\n\t                </div>\n\t                <Code target=\"button-phstyle\" />\n\t\n\t                <h3 className=\"comp-type\">radius属性</h3>\n\t                <div className=\"content\">\n\t                    <Button radius>radius</Button>\n\t                </div>\n\t                <Code target=\"button-radius\" />\n\t\n\t                <h3 className=\"comp-type\">block属性</h3>\n\t                <div className=\"content\">\n\t                    <Button block>block</Button>\n\t                </div>\n\t                <Code target=\"button-block\" />\n\t\n\t                <h3 className=\"comp-type\">disabled属性</h3>\n\t                <div className=\"content\">\n\t                    <Button disabled>disabled</Button>\n\t                </div>\n\t                <Code target=\"button-disabled\" />\n\t\n\t                <h3 className=\"comp-type\">active属性</h3>\n\t                <div className=\"content\">\n\t                    <Button active>active</Button>\n\t                </div>\n\t                <Code target=\"button-active\" />\n\t            </div>\n\t        );\n\t    }\n\t}\n\t",
                 "\timport React, { Component } from \"react\";\n\timport {Button} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class button extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Button</h2>\n\t                <h3 className=\"comp-type\">phSize(默认sm) 按钮大小</h3>\n\t                <div className=\"content\">\n\t                    <Button>默认sm</Button>\n\t                    <Button phSize=\"md\">md</Button>\n\t                    <Button phSize=\"lg\">lg</Button>\n\t                </div>\n\t                <Code target=\"button-phsize\" />\n\t\n\t                <h3 className=\"comp-type\">phStyle(默认primary) 按钮颜色</h3>\n\t                <div className=\"content\">\n\t                    <Button>默认Primary</Button>\n\t                    <Button phStyle=\"info\">Info</Button>\n\t                    <Button phStyle=\"success\">Success</Button>\n\t                    <Button phStyle=\"error\">Error</Button>\n\t                    <Button phStyle=\"danger\">Danger</Button>\n\t                    <Button phStyle=\"warning\">Warning</Button>\n\t                    <Button phStyle=\"gray\">Gray</Button>\n\t                    <Button phStyle=\"link\">Link</Button>\n\t                </div>\n\t                <Code target=\"button-phstyle\" />\n\t\n\t                <h3 className=\"comp-type\">hollow属性</h3>\n\t                <div className=\"content\">\n\t                    <Button hollow>hollow</Button>\n\t                </div>\n\t                <Code target=\"button-phstyle\" />\n\t\n\t                <h3 className=\"comp-type\">radius属性</h3>\n\t                <div className=\"content\">\n\t                    <Button radius>radius</Button>\n\t                </div>\n\t                <Code target=\"button-radius\" />\n\t\n\t                <h3 className=\"comp-type\">block属性</h3>\n\t                <div className=\"content\">\n\t                    <Button block>block</Button>\n\t                </div>\n\t                <Code target=\"button-block\" />\n\t\n\t                <h3 className=\"comp-type\">disabled属性</h3>\n\t                <div className=\"content\">\n\t                    <Button disabled>disabled</Button>\n\t                </div>\n\t                <Code target=\"button-disabled\" />\n\t\n\t                <h3 className=\"comp-type\">active属性</h3>\n\t                <div className=\"content\">\n\t                    <Button active>active</Button>\n\t                </div>\n\t                <Code target=\"button-active\" />\n\t            </div>\n\t        );\n\t    }\n\t}\n\t"
             ],
             "exampleTitles": [
-                "展示",
-                "源码"
+                "展示"
             ],
+            "exampleUrls": [
+                "http://172.24.107.159:8000/examples/index.html#/button"
+            ],
+            "isApp": true,
             "show": true
         },
         "ButtonGroup": {
@@ -2156,13 +2175,15 @@
             "is_constructor": 1,
             "since": "0.1.4",
             "example": [
-                "\timport React, { Component } from \"react\";\n\timport {Button} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class button extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Button</h2>\n\t                <h3 className=\"comp-type\">phSize(默认sm) 按钮大小</h3>\n\t                <div className=\"content\">\n\t                    <Button>默认sm</Button>\n\t                    <Button phSize=\"md\">md</Button>\n\t                    <Button phSize=\"lg\">lg</Button>\n\t                </div>\n\t                <Code target=\"button-phsize\" />\n\t\n\t                <h3 className=\"comp-type\">phStyle(默认primary) 按钮颜色</h3>\n\t                <div className=\"content\">\n\t                    <Button>默认Primary</Button>\n\t                    <Button phStyle=\"info\">Info</Button>\n\t                    <Button phStyle=\"success\">Success</Button>\n\t                    <Button phStyle=\"error\">Error</Button>\n\t                    <Button phStyle=\"danger\">Danger</Button>\n\t                    <Button phStyle=\"warning\">Warning</Button>\n\t                    <Button phStyle=\"gray\">Gray</Button>\n\t                    <Button phStyle=\"link\">Link</Button>\n\t                </div>\n\t                <Code target=\"button-phstyle\" />\n\t\n\t                <h3 className=\"comp-type\">hollow属性</h3>\n\t                <div className=\"content\">\n\t                    <Button hollow>hollow</Button>\n\t                </div>\n\t                <Code target=\"button-phstyle\" />\n\t\n\t                <h3 className=\"comp-type\">radius属性</h3>\n\t                <div className=\"content\">\n\t                    <Button radius>radius</Button>\n\t                </div>\n\t                <Code target=\"button-radius\" />\n\t\n\t                <h3 className=\"comp-type\">block属性</h3>\n\t                <div className=\"content\">\n\t                    <Button block>block</Button>\n\t                </div>\n\t                <Code target=\"button-block\" />\n\t\n\t                <h3 className=\"comp-type\">disabled属性</h3>\n\t                <div className=\"content\">\n\t                    <Button disabled>disabled</Button>\n\t                </div>\n\t                <Code target=\"button-disabled\" />\n\t\n\t                <h3 className=\"comp-type\">active属性</h3>\n\t                <div className=\"content\">\n\t                    <Button active>active</Button>\n\t                </div>\n\t                <Code target=\"button-active\" />\n\t            </div>\n\t        );\n\t    }\n\t}\n\t",
-                "\timport React, { Component } from \"react\";\n\timport {Button} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class button extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Button</h2>\n\t                <h3 className=\"comp-type\">phSize(默认sm) 按钮大小</h3>\n\t                <div className=\"content\">\n\t                    <Button>默认sm</Button>\n\t                    <Button phSize=\"md\">md</Button>\n\t                    <Button phSize=\"lg\">lg</Button>\n\t                </div>\n\t                <Code target=\"button-phsize\" />\n\t\n\t                <h3 className=\"comp-type\">phStyle(默认primary) 按钮颜色</h3>\n\t                <div className=\"content\">\n\t                    <Button>默认Primary</Button>\n\t                    <Button phStyle=\"info\">Info</Button>\n\t                    <Button phStyle=\"success\">Success</Button>\n\t                    <Button phStyle=\"error\">Error</Button>\n\t                    <Button phStyle=\"danger\">Danger</Button>\n\t                    <Button phStyle=\"warning\">Warning</Button>\n\t                    <Button phStyle=\"gray\">Gray</Button>\n\t                    <Button phStyle=\"link\">Link</Button>\n\t                </div>\n\t                <Code target=\"button-phstyle\" />\n\t\n\t                <h3 className=\"comp-type\">hollow属性</h3>\n\t                <div className=\"content\">\n\t                    <Button hollow>hollow</Button>\n\t                </div>\n\t                <Code target=\"button-phstyle\" />\n\t\n\t                <h3 className=\"comp-type\">radius属性</h3>\n\t                <div className=\"content\">\n\t                    <Button radius>radius</Button>\n\t                </div>\n\t                <Code target=\"button-radius\" />\n\t\n\t                <h3 className=\"comp-type\">block属性</h3>\n\t                <div className=\"content\">\n\t                    <Button block>block</Button>\n\t                </div>\n\t                <Code target=\"button-block\" />\n\t\n\t                <h3 className=\"comp-type\">disabled属性</h3>\n\t                <div className=\"content\">\n\t                    <Button disabled>disabled</Button>\n\t                </div>\n\t                <Code target=\"button-disabled\" />\n\t\n\t                <h3 className=\"comp-type\">active属性</h3>\n\t                <div className=\"content\">\n\t                    <Button active>active</Button>\n\t                </div>\n\t                <Code target=\"button-active\" />\n\t            </div>\n\t        );\n\t    }\n\t}\n\t"
+                "\timport React, { Component } from \"react\";\n\timport {ButtonGroup, Button} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class input extends Component{\n\t    \n\t    activeCallback(target,html){\n\t        console.log(target);\n\t        alert(html);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">ButtonGroup</h2>\n\t                <h3 className=\"comp-type\">phType(默认justify) 自适应宽度或垂直排列</h3>\n\t                <div className=\"content\">\n\t                    <ButtonGroup>\n\t                        <Button>justify1</Button>\n\t                        <Button>justify2</Button>\n\t                        <Button>justify3</Button>\n\t                    </ButtonGroup>\n\t                </div>\n\t                <Code target=\"button-group-phtype-justify\" />\n\t                <div className=\"content\">\n\t                    <ButtonGroup phType=\"tacked\">\n\t                        <Button block>tacked1</Button>\n\t                        <Button block>tacked2</Button>\n\t                        <Button block>tacked3</Button>\n\t                    </ButtonGroup>\n\t                </div>\n\t                <Code target=\"button-group-phtype-tacked\" />\n\t\n\t                <h3 className=\"comp-type\">activeCallback 点击按钮组回调函数</h3>\n\t                <div className=\"content\">\n\t                    <ButtonGroup activeCallback={this.activeCallback}>\n\t                        <Button>justify1</Button>\n\t                        <Button>justify2</Button>\n\t                        <Button>justify3</Button>\n\t                    </ButtonGroup>\n\t                </div>\n\t                <Code target=\"button-group-callback\" />\n\t            </div>\n\t        );\n\t    }\n\t}\n\t"
             ],
             "exampleTitles": [
-                "展示",
-                "源码"
+                "展示"
             ],
+            "exampleUrls": [
+                "http://172.24.107.159:8000/examples/index.html#/buttongroup"
+            ],
+            "isApp": true,
             "show": true
         },
         "Col": {
@@ -2181,14 +2202,17 @@
             "extends": "Component",
             "is_constructor": 1,
             "example": [
-                "\timport React, { Component } from \"react\";\n\timport {Grid,Row,Col} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class grid extends Component {\n\t    \n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Grid</h2>\n\t                <h3 className=\"comp-type\"><strong>Row</strong></h3>\n\t                <h3 className=\"comp-type\">align(默认stretch) 容器属性</h3>\n\t                <h3 className=\"comp-tip\">stretch</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"stretch\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">stretch</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">stretch<br />baseline</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">stretch<br />stretch<br />stretch</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">baseline</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"baseline\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">baseline</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">baseline<br />baseline</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">baseline<br />baseline<br />baseline</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">top</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"top\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">top</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">top<br />top</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">top<br />top<br />top</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">bottom</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"bottom\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">bottom</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">bottom<br />bottom</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">bottom<br />bottom<br />bottom</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">center</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"center\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">center</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">center<br />center</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">center<br />center<br />center</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <Code target=\"row-align\" />\n\t\n\t                <h3 className=\"comp-type\"><strong>Col</strong></h3>\n\t                <h3 className=\"comp-type\">align(默认auto) 项目属性</h3>\n\t                <h3 className=\"comp-tip\">auto</h3>\n\t                <Grid className=\"content\">\n\t                    <Row>\n\t                        <Col>\n\t                            <div className=\"col-demo\">auto</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">auto auto</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">auto auto auto auto</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">top/center/bottom</h3>\n\t                <Grid className=\"content\">\n\t                    <Row>\n\t                        <Col align=\"top\">\n\t                            <div className=\"col-demo\">top</div>\n\t                        </Col>\n\t                        <Col align=\"center\">\n\t                            <div className=\"col-demo\">center</div>\n\t                        </Col>\n\t                        <Col align=\"bottom\">\n\t                            <div className=\"col-demo\">bottom</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">top<br />center<br />bottom</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <Code target=\"col-align\" />\n\t\n\t                <h3 className=\"comp-type\">width 设置项目宽度百分比</h3>\n\t                <Grid className=\"content\">\n\t                    <Row>\n\t                        <Col width=\"15\">\n\t                            <div className=\"col-demo\">15</div>\n\t                        </Col>\n\t                        <Col width=\"20\">\n\t                            <div className=\"col-demo\">20</div>\n\t                        </Col>\n\t                        <Col width=\"25\">\n\t                            <div className=\"col-demo\">25</div>\n\t                        </Col>\n\t                        <Col width=\"40\">\n\t                            <div className=\"col-demo\">40<br />40<br />40</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <Code target=\"col-width\" />\n\t\n\t                <h3 className=\"comp-type\">offset(即margin-left) 偏移值</h3>\n\t                <Grid className=\"content\">\n\t                    <Row>\n\t                        <Col width=\"20\" offset=\"10\">\n\t                            <div className=\"col-demo\">10</div>\n\t                        </Col>\n\t                        <Col width=\"40\" offset=\"10\" >\n\t                            <div className=\"col-demo\">10<br />10<br />10</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <Code target=\"col-offset\" />\n\t            </div>\n\t        )\n\t    }\n\t}\n\t",
                 "\timport React, { Component } from \"react\";\n\timport {Grid,Row,Col} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class grid extends Component {\n\t    \n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Grid</h2>\n\t                <h3 className=\"comp-type\"><strong>Row</strong></h3>\n\t                <h3 className=\"comp-type\">align(默认stretch) 容器属性</h3>\n\t                <h3 className=\"comp-tip\">stretch</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"stretch\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">stretch</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">stretch<br />baseline</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">stretch<br />stretch<br />stretch</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">baseline</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"baseline\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">baseline</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">baseline<br />baseline</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">baseline<br />baseline<br />baseline</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">top</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"top\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">top</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">top<br />top</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">top<br />top<br />top</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">bottom</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"bottom\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">bottom</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">bottom<br />bottom</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">bottom<br />bottom<br />bottom</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">center</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"center\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">center</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">center<br />center</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">center<br />center<br />center</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <Code target=\"row-align\" />\n\t\n\t                <h3 className=\"comp-type\"><strong>Col</strong></h3>\n\t                <h3 className=\"comp-type\">align(默认auto) 项目属性</h3>\n\t                <h3 className=\"comp-tip\">auto</h3>\n\t                <Grid className=\"content\">\n\t                    <Row>\n\t                        <Col>\n\t                            <div className=\"col-demo\">auto</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">auto auto</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">auto auto auto auto</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">top/center/bottom</h3>\n\t                <Grid className=\"content\">\n\t                    <Row>\n\t                        <Col align=\"top\">\n\t                            <div className=\"col-demo\">top</div>\n\t                        </Col>\n\t                        <Col align=\"center\">\n\t                            <div className=\"col-demo\">center</div>\n\t                        </Col>\n\t                        <Col align=\"bottom\">\n\t                            <div className=\"col-demo\">bottom</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">top<br />center<br />bottom</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <Code target=\"col-align\" />\n\t\n\t                <h3 className=\"comp-type\">width 设置项目宽度百分比</h3>\n\t                <Grid className=\"content\">\n\t                    <Row>\n\t                        <Col width=\"15\">\n\t                            <div className=\"col-demo\">15</div>\n\t                        </Col>\n\t                        <Col width=\"20\">\n\t                            <div className=\"col-demo\">20</div>\n\t                        </Col>\n\t                        <Col width=\"25\">\n\t                            <div className=\"col-demo\">25</div>\n\t                        </Col>\n\t                        <Col width=\"40\">\n\t                            <div className=\"col-demo\">40<br />40<br />40</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <Code target=\"col-width\" />\n\t\n\t                <h3 className=\"comp-type\">offset(即margin-left) 偏移值</h3>\n\t                <Grid className=\"content\">\n\t                    <Row>\n\t                        <Col width=\"20\" offset=\"10\">\n\t                            <div className=\"col-demo\">10</div>\n\t                        </Col>\n\t                        <Col width=\"40\" offset=\"10\" >\n\t                            <div className=\"col-demo\">10<br />10<br />10</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <Code target=\"col-offset\" />\n\t            </div>\n\t        )\n\t    }\n\t}\n\t"
             ],
             "exampleTitles": [
-                "展示",
-                "源码"
+                "展示"
             ],
-            "since": "0.1.0"
+            "exampleUrls": [
+                "http://172.24.107.159:8000/examples/index.html#/grid"
+            ],
+            "isApp": true,
+            "since": "0.1.0",
+            "show": true
         },
         "Dialog": {
             "name": "Dialog",
@@ -2206,13 +2230,15 @@
             "extends": "Component",
             "is_constructor": 1,
             "example": [
-                "\timport React, { Component } from \"react\";\n\timport {Button, Dialog} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class dialog extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t\n\t        this.state = {\n\t            visible1: false,\n\t            visible2: false,\n\t            visible3: false\n\t        }\n\t    }\n\t\n\t    onShow(key){\n\t        let o = {};\n\t        o[key] = true;\n\t        this.setState(o);\n\t    }\n\t\n\t    onClose(key){\n\t        let o = {};\n\t        o[key] = false;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Dialog</h2>\n\t                <h3 className=\"comp-type\">visible(默认false) 弹框是否可见，必需<br/>onClose 关闭弹框的执行函数</h3>\n\t                <div className=\"content\">\n\t                    <Button radius phSize=\"lg\" phStyle=\"info\" onClick={::this.onShow.bind(this,\"visible1\")}>dialog1</Button>\n\t                </div>\n\t                <Dialog visible={this.state.visible1} onClose={::this.onClose.bind(this,\"visible1\")}>\n\t                    <Dialog.Title>标题1</Dialog.Title>\n\t                    <Dialog.Body>\n\t                        <p>可自定义表格内容</p>\n\t                    </Dialog.Body>\n\t                    <Dialog.Footer>                        \n\t                        <Button hollow phSize=\"lg\" phStyle=\"gray\" onClick={::this.onClose.bind(this,\"visible1\")}>取消</Button>\n\t                        <Button phSize=\"lg\" onClick={::this.onClose.bind(this,\"visible1\")}>确定</Button>\n\t                    </Dialog.Footer>\n\t                </Dialog>\n\t                <Code target=\"dialog-onclose\" />\n\t\n\t                <h3 className=\"comp-type\">closeButton(默认不显示) 是否显示弹框左上角关闭按钮</h3>\n\t                <div className=\"content\">\n\t                    <Button radius phSize=\"lg\" phStyle=\"info\" onClick={::this.onShow.bind(this,\"visible2\")}>dialog2</Button>\n\t                </div>\n\t                <Dialog visible={this.state.visible2} onClose={::this.onClose.bind(this,\"visible2\")} closeButton>\n\t                    <Dialog.Title>标题2</Dialog.Title>\n\t                    <Dialog.Body>\n\t                        <p>可自定义表格内容</p>\n\t                    </Dialog.Body>\n\t                    <Dialog.Footer>                        \n\t                        <Button hollow phSize=\"lg\" phStyle=\"gray\" onClick={::this.onClose.bind(this,\"visible2\")}>取消</Button>\n\t                        <Button phSize=\"lg\" onClick={::this.onClose.bind(this,\"visible2\")}>确定</Button>\n\t                    </Dialog.Footer>\n\t                </Dialog>\n\t                <Code target=\"dialog-closebutton\" />\n\t\n\t                <h3 className=\"comp-type\">shadowDisabled(默认可关闭) 阴影部分是否可点击关闭弹框</h3>\n\t                <div className=\"content\">\n\t                    <Button radius phSize=\"lg\" phStyle=\"info\" onClick={::this.onShow.bind(this,\"visible3\")}>dialog3</Button>\n\t                </div>\n\t                <Dialog visible={this.state.visible3} onClose={::this.onClose.bind(this,\"visible3\")} shadowDisabled>\n\t                    <Dialog.Title>标题3</Dialog.Title>\n\t                    <Dialog.Body>\n\t                        <p>可自定义表格内容</p>\n\t                    </Dialog.Body>\n\t                    <Dialog.Footer>                        \n\t                        <Button hollow phSize=\"lg\" phStyle=\"gray\" onClick={::this.onClose.bind(this,\"visible3\")}>取消</Button>\n\t                        <Button phSize=\"lg\" onClick={::this.onClose.bind(this,\"visible3\")}>确定</Button>\n\t                    </Dialog.Footer>\n\t                </Dialog>\n\t                <Code target=\"dialog-shadowdisabled\" />\n\t            </div>\n\t        );\n\t    }\n\t}",
                 "\timport React, { Component } from \"react\";\n\timport {Button, Dialog} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class dialog extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t\n\t        this.state = {\n\t            visible1: false,\n\t            visible2: false,\n\t            visible3: false\n\t        }\n\t    }\n\t\n\t    onShow(key){\n\t        let o = {};\n\t        o[key] = true;\n\t        this.setState(o);\n\t    }\n\t\n\t    onClose(key){\n\t        let o = {};\n\t        o[key] = false;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Dialog</h2>\n\t                <h3 className=\"comp-type\">visible(默认false) 弹框是否可见，必需<br/>onClose 关闭弹框的执行函数</h3>\n\t                <div className=\"content\">\n\t                    <Button radius phSize=\"lg\" phStyle=\"info\" onClick={::this.onShow.bind(this,\"visible1\")}>dialog1</Button>\n\t                </div>\n\t                <Dialog visible={this.state.visible1} onClose={::this.onClose.bind(this,\"visible1\")}>\n\t                    <Dialog.Title>标题1</Dialog.Title>\n\t                    <Dialog.Body>\n\t                        <p>可自定义表格内容</p>\n\t                    </Dialog.Body>\n\t                    <Dialog.Footer>                        \n\t                        <Button hollow phSize=\"lg\" phStyle=\"gray\" onClick={::this.onClose.bind(this,\"visible1\")}>取消</Button>\n\t                        <Button phSize=\"lg\" onClick={::this.onClose.bind(this,\"visible1\")}>确定</Button>\n\t                    </Dialog.Footer>\n\t                </Dialog>\n\t                <Code target=\"dialog-onclose\" />\n\t\n\t                <h3 className=\"comp-type\">closeButton(默认不显示) 是否显示弹框左上角关闭按钮</h3>\n\t                <div className=\"content\">\n\t                    <Button radius phSize=\"lg\" phStyle=\"info\" onClick={::this.onShow.bind(this,\"visible2\")}>dialog2</Button>\n\t                </div>\n\t                <Dialog visible={this.state.visible2} onClose={::this.onClose.bind(this,\"visible2\")} closeButton>\n\t                    <Dialog.Title>标题2</Dialog.Title>\n\t                    <Dialog.Body>\n\t                        <p>可自定义表格内容</p>\n\t                    </Dialog.Body>\n\t                    <Dialog.Footer>                        \n\t                        <Button hollow phSize=\"lg\" phStyle=\"gray\" onClick={::this.onClose.bind(this,\"visible2\")}>取消</Button>\n\t                        <Button phSize=\"lg\" onClick={::this.onClose.bind(this,\"visible2\")}>确定</Button>\n\t                    </Dialog.Footer>\n\t                </Dialog>\n\t                <Code target=\"dialog-closebutton\" />\n\t\n\t                <h3 className=\"comp-type\">shadowDisabled(默认可关闭) 阴影部分是否可点击关闭弹框</h3>\n\t                <div className=\"content\">\n\t                    <Button radius phSize=\"lg\" phStyle=\"info\" onClick={::this.onShow.bind(this,\"visible3\")}>dialog3</Button>\n\t                </div>\n\t                <Dialog visible={this.state.visible3} onClose={::this.onClose.bind(this,\"visible3\")} shadowDisabled>\n\t                    <Dialog.Title>标题3</Dialog.Title>\n\t                    <Dialog.Body>\n\t                        <p>可自定义表格内容</p>\n\t                    </Dialog.Body>\n\t                    <Dialog.Footer>                        \n\t                        <Button hollow phSize=\"lg\" phStyle=\"gray\" onClick={::this.onClose.bind(this,\"visible3\")}>取消</Button>\n\t                        <Button phSize=\"lg\" onClick={::this.onClose.bind(this,\"visible3\")}>确定</Button>\n\t                    </Dialog.Footer>\n\t                </Dialog>\n\t                <Code target=\"dialog-shadowdisabled\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
-                "展示",
-                "源码"
+                "展示"
             ],
+            "exampleUrls": [
+                "http://172.24.107.159:8000/examples/index.html#/dialog"
+            ],
+            "isApp": true,
             "show": true
         },
         "Drag": {
@@ -2231,13 +2257,15 @@
             "extends": "Component",
             "is_constructor": 1,
             "example": [
-                "\timport React, { Component } from 'react';\n\timport {Drag} from 'phoenix-ui';\n\timport Code from \"./code/code\";\n\t\n\texport default class toast extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t\n\t        this.preDistanceX = 0;\n\t        this.preDistanceY = 0;\n\t        this.distanceX = 0;\n\t        this.distanceY = 0;\n\t    }\n\t\n\t    onDrag(event,position){\n\t        this.prePosition = position.start;\n\t        this.nowPosition = position.move;\n\t\n\t        this.distanceX = this.preDistanceX + this.nowPosition.x - this.prePosition.x;\n\t        this.distanceY = this.preDistanceY + this.nowPosition.y - this.prePosition.y;\n\t\n\t        this.setBoxPosition(this.distanceX, this.distanceY);\n\t    }\n\t\n\t    onDrop(event,position){\n\t        this.preDistanceX = this.distanceX;\n\t        this.preDistanceY = this.distanceY;\n\t    }\n\t\n\t    setBoxPosition(x,y){\n\t        this.box.style.webkitTransform = 'translate('+x+'px,'+y+'px)';\n\t        this.box.style.transform = 'translate('+x+'px,'+y+'px)';\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Drag</h2>\n\t                <h3 className=\"comp-type\">Dragable Box demo</h3>\n\t                <Code target=\"drag\" />\n\t                <div className=\"content content-drag\">\n\t                    <Drag onDrag={::this.onDrag} onDrop={::this.onDrop} style={{height:0}}>\n\t                        <div className=\"box\" ref={(box)=>{this.box = box}}>Drag</div>\n\t                    </Drag>\n\t                </div>\n\t            </div>\n\t        );\n\t    }\n\t}",
                 "\timport React, { Component } from 'react';\n\timport {Drag} from 'phoenix-ui';\n\timport Code from \"./code/code\";\n\t\n\texport default class toast extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t\n\t        this.preDistanceX = 0;\n\t        this.preDistanceY = 0;\n\t        this.distanceX = 0;\n\t        this.distanceY = 0;\n\t    }\n\t\n\t    onDrag(event,position){\n\t        this.prePosition = position.start;\n\t        this.nowPosition = position.move;\n\t\n\t        this.distanceX = this.preDistanceX + this.nowPosition.x - this.prePosition.x;\n\t        this.distanceY = this.preDistanceY + this.nowPosition.y - this.prePosition.y;\n\t\n\t        this.setBoxPosition(this.distanceX, this.distanceY);\n\t    }\n\t\n\t    onDrop(event,position){\n\t        this.preDistanceX = this.distanceX;\n\t        this.preDistanceY = this.distanceY;\n\t    }\n\t\n\t    setBoxPosition(x,y){\n\t        this.box.style.webkitTransform = 'translate('+x+'px,'+y+'px)';\n\t        this.box.style.transform = 'translate('+x+'px,'+y+'px)';\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Drag</h2>\n\t                <h3 className=\"comp-type\">Dragable Box demo</h3>\n\t                <Code target=\"drag\" />\n\t                <div className=\"content content-drag\">\n\t                    <Drag onDrag={::this.onDrag} onDrop={::this.onDrop} style={{height:0}}>\n\t                        <div className=\"box\" ref={(box)=>{this.box = box}}>Drag</div>\n\t                    </Drag>\n\t                </div>\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
-                "展示",
-                "源码"
+                "展示"
             ],
+            "exampleUrls": [
+                "http://172.24.107.159:8000/examples/index.html#/drag"
+            ],
+            "isApp": true,
             "show": true
         },
         "FormGroup": {
@@ -2256,13 +2284,15 @@
             "extends": "Component",
             "is_constructor": 1,
             "example": [
-                "\timport React, { Component } from \"react\";\n\timport {FormGroup,Row,Col,Input} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class formgroup extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:\"\"\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">FormGroup</h2>\n\t                <h3 className=\"comp-type\">单列</h3>\n\t                <div className=\"contents\">\n\t                    <FormGroup>\n\t                        <Row single>\n\t                            <Col>\n\t                                <Input type=\"text\" placeholder=\"姓名\" />\n\t                            </Col>\n\t                        </Row>\n\t                        <Row single>\n\t                            <Col>\n\t                                <Input type=\"text\" placeholder=\"用户名\" />\n\t                            </Col>\n\t                        </Row>\n\t                    </FormGroup>\n\t                </div>\n\t                <Code target=\"form-group-single\" />\n\t\n\t                <h3 className=\"comp-type\">多列</h3>\n\t                <div className=\"contents\">\n\t                    <FormGroup>\n\t                        <Row>\n\t                            <Col>\n\t                                <label>地址</label>\n\t                                <Input type=\"text\" placeholder=\"地址\" />\n\t                            </Col>\n\t                        </Row>\n\t                        <Row>\n\t                            <Col>\n\t                                <label>省</label>\n\t                                <Input type=\"text\" placeholder=\"省\" />\n\t                            </Col>\n\t                            <Col>\n\t                                <label>市</label>\n\t                                <Input type=\"text\" placeholder=\"市\" />\n\t                            </Col>\n\t                        </Row>\n\t                    </FormGroup>\n\t                    <Code target=\"form-group-multiple\" />\n\t\n\t                    <FormGroup>\n\t                        <Row>\n\t                            <Col>\n\t                                <a href=\"javascript:;\" className=\"ph-navigate-right\">\n\t                                    <label><span className=\"color-error\">*</span>性别</label>\n\t                                    <input type=\"text\" placeholder=\"男/女\" disabled/>\n\t                                </a>\n\t                            </Col>\n\t                        </Row>\n\t                    </FormGroup>\n\t                    <Code target=\"form-group-a\" />\n\t                    \n\t                    <FormGroup>\n\t                        <Row>\n\t                            <Col>\n\t                                <label>兴趣爱好</label>\n\t                                <Input type=\"checkbox\" label=\"篮球\" />\n\t                                <Input type=\"checkbox\" label=\"足球\" />\n\t                                <Input type=\"checkbox\" label=\"乒乓球\" />\n\t                            </Col>\n\t                        </Row>\n\t                        <Row>\n\t                            <Col>\n\t                                <label>喜欢的水果</label>\n\t                                <div style={{textAlign: \"right\"}}>\n\t                                    <Input type=\"radio\" label=\"苹果\" name=\"fruit\" />\n\t                                    <Input type=\"radio\" label=\"香蕉\" name=\"fruit\" />\n\t                                </div>\n\t                            </Col>\n\t                        </Row>\n\t                    </FormGroup>\n\t                    <Code target=\"form-group-input\" />\n\t                </div>\n\t            </div>\n\t        );\n\t    }\n\t}",
                 "\timport React, { Component } from \"react\";\n\timport {FormGroup,Row,Col,Input} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class formgroup extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:\"\"\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">FormGroup</h2>\n\t                <h3 className=\"comp-type\">单列</h3>\n\t                <div className=\"contents\">\n\t                    <FormGroup>\n\t                        <Row single>\n\t                            <Col>\n\t                                <Input type=\"text\" placeholder=\"姓名\" />\n\t                            </Col>\n\t                        </Row>\n\t                        <Row single>\n\t                            <Col>\n\t                                <Input type=\"text\" placeholder=\"用户名\" />\n\t                            </Col>\n\t                        </Row>\n\t                    </FormGroup>\n\t                </div>\n\t                <Code target=\"form-group-single\" />\n\t\n\t                <h3 className=\"comp-type\">多列</h3>\n\t                <div className=\"contents\">\n\t                    <FormGroup>\n\t                        <Row>\n\t                            <Col>\n\t                                <label>地址</label>\n\t                                <Input type=\"text\" placeholder=\"地址\" />\n\t                            </Col>\n\t                        </Row>\n\t                        <Row>\n\t                            <Col>\n\t                                <label>省</label>\n\t                                <Input type=\"text\" placeholder=\"省\" />\n\t                            </Col>\n\t                            <Col>\n\t                                <label>市</label>\n\t                                <Input type=\"text\" placeholder=\"市\" />\n\t                            </Col>\n\t                        </Row>\n\t                    </FormGroup>\n\t                    <Code target=\"form-group-multiple\" />\n\t\n\t                    <FormGroup>\n\t                        <Row>\n\t                            <Col>\n\t                                <a href=\"javascript:;\" className=\"ph-navigate-right\">\n\t                                    <label><span className=\"color-error\">*</span>性别</label>\n\t                                    <input type=\"text\" placeholder=\"男/女\" disabled/>\n\t                                </a>\n\t                            </Col>\n\t                        </Row>\n\t                    </FormGroup>\n\t                    <Code target=\"form-group-a\" />\n\t                    \n\t                    <FormGroup>\n\t                        <Row>\n\t                            <Col>\n\t                                <label>兴趣爱好</label>\n\t                                <Input type=\"checkbox\" label=\"篮球\" />\n\t                                <Input type=\"checkbox\" label=\"足球\" />\n\t                                <Input type=\"checkbox\" label=\"乒乓球\" />\n\t                            </Col>\n\t                        </Row>\n\t                        <Row>\n\t                            <Col>\n\t                                <label>喜欢的水果</label>\n\t                                <div style={{textAlign: \"right\"}}>\n\t                                    <Input type=\"radio\" label=\"苹果\" name=\"fruit\" />\n\t                                    <Input type=\"radio\" label=\"香蕉\" name=\"fruit\" />\n\t                                </div>\n\t                            </Col>\n\t                        </Row>\n\t                    </FormGroup>\n\t                    <Code target=\"form-group-input\" />\n\t                </div>\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
-                "展示",
-                "源码"
+                "展示"
             ],
+            "exampleUrls": [
+                "http://172.24.107.159:8000/examples/index.html#/formgroup"
+            ],
+            "isApp": true,
             "show": true
         },
         "Grid": {
@@ -2281,13 +2311,43 @@
             "extends": "Component",
             "is_constructor": 1,
             "example": [
-                "\timport React, { Component } from \"react\";\n\timport {Grid,Row,Col} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class grid extends Component {\n\t    \n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Grid</h2>\n\t                <h3 className=\"comp-type\"><strong>Row</strong></h3>\n\t                <h3 className=\"comp-type\">align(默认stretch) 容器属性</h3>\n\t                <h3 className=\"comp-tip\">stretch</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"stretch\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">stretch</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">stretch<br />baseline</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">stretch<br />stretch<br />stretch</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">baseline</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"baseline\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">baseline</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">baseline<br />baseline</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">baseline<br />baseline<br />baseline</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">top</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"top\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">top</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">top<br />top</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">top<br />top<br />top</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">bottom</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"bottom\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">bottom</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">bottom<br />bottom</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">bottom<br />bottom<br />bottom</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">center</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"center\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">center</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">center<br />center</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">center<br />center<br />center</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <Code target=\"row-align\" />\n\t\n\t                <h3 className=\"comp-type\"><strong>Col</strong></h3>\n\t                <h3 className=\"comp-type\">align(默认auto) 项目属性</h3>\n\t                <h3 className=\"comp-tip\">auto</h3>\n\t                <Grid className=\"content\">\n\t                    <Row>\n\t                        <Col>\n\t                            <div className=\"col-demo\">auto</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">auto auto</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">auto auto auto auto</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">top/center/bottom</h3>\n\t                <Grid className=\"content\">\n\t                    <Row>\n\t                        <Col align=\"top\">\n\t                            <div className=\"col-demo\">top</div>\n\t                        </Col>\n\t                        <Col align=\"center\">\n\t                            <div className=\"col-demo\">center</div>\n\t                        </Col>\n\t                        <Col align=\"bottom\">\n\t                            <div className=\"col-demo\">bottom</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">top<br />center<br />bottom</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <Code target=\"col-align\" />\n\t\n\t                <h3 className=\"comp-type\">width 设置项目宽度百分比</h3>\n\t                <Grid className=\"content\">\n\t                    <Row>\n\t                        <Col width=\"15\">\n\t                            <div className=\"col-demo\">15</div>\n\t                        </Col>\n\t                        <Col width=\"20\">\n\t                            <div className=\"col-demo\">20</div>\n\t                        </Col>\n\t                        <Col width=\"25\">\n\t                            <div className=\"col-demo\">25</div>\n\t                        </Col>\n\t                        <Col width=\"40\">\n\t                            <div className=\"col-demo\">40<br />40<br />40</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <Code target=\"col-width\" />\n\t\n\t                <h3 className=\"comp-type\">offset(即margin-left) 偏移值</h3>\n\t                <Grid className=\"content\">\n\t                    <Row>\n\t                        <Col width=\"20\" offset=\"10\">\n\t                            <div className=\"col-demo\">10</div>\n\t                        </Col>\n\t                        <Col width=\"40\" offset=\"10\" >\n\t                            <div className=\"col-demo\">10<br />10<br />10</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <Code target=\"col-offset\" />\n\t            </div>\n\t        )\n\t    }\n\t}\n\t",
                 "\timport React, { Component } from \"react\";\n\timport {Grid,Row,Col} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class grid extends Component {\n\t    \n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Grid</h2>\n\t                <h3 className=\"comp-type\"><strong>Row</strong></h3>\n\t                <h3 className=\"comp-type\">align(默认stretch) 容器属性</h3>\n\t                <h3 className=\"comp-tip\">stretch</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"stretch\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">stretch</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">stretch<br />baseline</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">stretch<br />stretch<br />stretch</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">baseline</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"baseline\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">baseline</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">baseline<br />baseline</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">baseline<br />baseline<br />baseline</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">top</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"top\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">top</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">top<br />top</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">top<br />top<br />top</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">bottom</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"bottom\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">bottom</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">bottom<br />bottom</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">bottom<br />bottom<br />bottom</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">center</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"center\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">center</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">center<br />center</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">center<br />center<br />center</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <Code target=\"row-align\" />\n\t\n\t                <h3 className=\"comp-type\"><strong>Col</strong></h3>\n\t                <h3 className=\"comp-type\">align(默认auto) 项目属性</h3>\n\t                <h3 className=\"comp-tip\">auto</h3>\n\t                <Grid className=\"content\">\n\t                    <Row>\n\t                        <Col>\n\t                            <div className=\"col-demo\">auto</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">auto auto</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">auto auto auto auto</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">top/center/bottom</h3>\n\t                <Grid className=\"content\">\n\t                    <Row>\n\t                        <Col align=\"top\">\n\t                            <div className=\"col-demo\">top</div>\n\t                        </Col>\n\t                        <Col align=\"center\">\n\t                            <div className=\"col-demo\">center</div>\n\t                        </Col>\n\t                        <Col align=\"bottom\">\n\t                            <div className=\"col-demo\">bottom</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">top<br />center<br />bottom</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <Code target=\"col-align\" />\n\t\n\t                <h3 className=\"comp-type\">width 设置项目宽度百分比</h3>\n\t                <Grid className=\"content\">\n\t                    <Row>\n\t                        <Col width=\"15\">\n\t                            <div className=\"col-demo\">15</div>\n\t                        </Col>\n\t                        <Col width=\"20\">\n\t                            <div className=\"col-demo\">20</div>\n\t                        </Col>\n\t                        <Col width=\"25\">\n\t                            <div className=\"col-demo\">25</div>\n\t                        </Col>\n\t                        <Col width=\"40\">\n\t                            <div className=\"col-demo\">40<br />40<br />40</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <Code target=\"col-width\" />\n\t\n\t                <h3 className=\"comp-type\">offset(即margin-left) 偏移值</h3>\n\t                <Grid className=\"content\">\n\t                    <Row>\n\t                        <Col width=\"20\" offset=\"10\">\n\t                            <div className=\"col-demo\">10</div>\n\t                        </Col>\n\t                        <Col width=\"40\" offset=\"10\" >\n\t                            <div className=\"col-demo\">10<br />10<br />10</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <Code target=\"col-offset\" />\n\t            </div>\n\t        )\n\t    }\n\t}\n\t"
             ],
             "exampleTitles": [
-                "展示",
-                "源码"
+                "展示"
             ],
+            "exampleUrls": [
+                "http://172.24.107.159:8000/examples/index.html#/grid"
+            ],
+            "isApp": true,
+            "show": true
+        },
+        "Icon": {
+            "name": "Icon",
+            "shortname": "Icon",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "标签组件",
+            "namespace": "",
+            "file": "src/Icon.js",
+            "line": 5,
+            "description": "Icon<br/>\n- 主要是用来提供不同类型的符号, 可选[search]。\n- 支持自定义className，事件等操作。\n\n主要属性和接口：\n- phStyle:徽章颜色, 默认primary <br/>\n如：`<Badge phStyle=\"info\">惠</Badge>`",
+            "extends": "Component",
+            "is_constructor": 1,
+            "since": "0.1.0",
+            "example": [
+                "\timport React, { Component } from \"react\";\n\timport {Icon} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class icon extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t            \t<h2 className=\"comp-title\">Icon</h2>\n\t                <h3 className=\"comp-type\">phType 符号类型</h3>\n\t                <div className=\"content\">\n\t\t                <Icon phIcon=\"search\" />\n\t                </div>\n\t                <Code target=\"badge-phstyle\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
+            ],
+            "exampleTitles": [
+                "展示"
+            ],
+            "exampleUrls": [
+                "http://172.24.107.159:8000/examples/index.html#/icon"
+            ],
+            "isApp": true,
             "show": true
         },
         "Input": {
@@ -2306,13 +2366,15 @@
             "extends": "Component",
             "is_constructor": 1,
             "example": [
-                "\timport React, { Component } from \"react\";\n\timport {Input} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class input extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name: \"value和onChange配合使用\",\n\t            checked: true\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    onChange(){\n\t        this.setState({\n\t            checked: !this.state.checked\n\t        });\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Input</h2>\n\t                <h3 className=\"comp-type\">type(默认text) 类型</h3>\n\t                <h3 className=\"comp-type\">text 文本框</h3>\n\t                <div className=\"content\">\n\t                    <Input placeholder=\"默认text\" />\n\t                    <Input maxLength={20} defaultValue=\"设置最大长度maxLength\" placeholder=\"请输入\" />\n\t                    <Input type=\"text\" defaultValue=\"默认值defaultValue\" placeholder=\"请输入\" />\n\t                    <Input type=\"text\" value={this.state.name} onChange={::this.setValue.bind(this,\"name\")} placeholder=\"请输入\" />\n\t                </div>\n\t                <Code target=\"input-text\" />\n\t\n\t                <h3 className=\"comp-type\">checkbox 多选框</h3>\n\t                <div className=\"content\">\n\t                    <h3 className=\"comp-tip\">默认</h3>\n\t                    <Input type=\"checkbox\" label=\"苹果\" />\n\t                    <h3 className=\"comp-tip\">defaultChecked 初始传值</h3>\n\t                    <Input type=\"checkbox\" label=\"香蕉\" defaultChecked={true} />\n\t                    <h3 className=\"comp-tip\">checked和onChange配合使用</h3>\n\t                    <Input type=\"checkbox\" label=\"西瓜\" checked={this.state.checked} onChange={::this.onChange} />\n\t                </div>\n\t                <Code target=\"input-checkbox\" />\n\t\n\t                <h3 className=\"comp-type\">radio 单选框</h3>\n\t                <div className=\"content\">\n\t                    <h3 className=\"comp-tip\">默认</h3>\n\t                    <Input type=\"radio\" label=\"男\" name=\"sex\" />\n\t                    <Input type=\"radio\" label=\"女\" name=\"sex\" />\n\t                </div>\n\t                <Code target=\"input-radio\" />\n\t            </div>\n\t        );\n\t    }\n\t}",
                 "\timport React, { Component } from \"react\";\n\timport {Input} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class input extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name: \"value和onChange配合使用\",\n\t            checked: true\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    onChange(){\n\t        this.setState({\n\t            checked: !this.state.checked\n\t        });\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Input</h2>\n\t                <h3 className=\"comp-type\">type(默认text) 类型</h3>\n\t                <h3 className=\"comp-type\">text 文本框</h3>\n\t                <div className=\"content\">\n\t                    <Input placeholder=\"默认text\" />\n\t                    <Input maxLength={20} defaultValue=\"设置最大长度maxLength\" placeholder=\"请输入\" />\n\t                    <Input type=\"text\" defaultValue=\"默认值defaultValue\" placeholder=\"请输入\" />\n\t                    <Input type=\"text\" value={this.state.name} onChange={::this.setValue.bind(this,\"name\")} placeholder=\"请输入\" />\n\t                </div>\n\t                <Code target=\"input-text\" />\n\t\n\t                <h3 className=\"comp-type\">checkbox 多选框</h3>\n\t                <div className=\"content\">\n\t                    <h3 className=\"comp-tip\">默认</h3>\n\t                    <Input type=\"checkbox\" label=\"苹果\" />\n\t                    <h3 className=\"comp-tip\">defaultChecked 初始传值</h3>\n\t                    <Input type=\"checkbox\" label=\"香蕉\" defaultChecked={true} />\n\t                    <h3 className=\"comp-tip\">checked和onChange配合使用</h3>\n\t                    <Input type=\"checkbox\" label=\"西瓜\" checked={this.state.checked} onChange={::this.onChange} />\n\t                </div>\n\t                <Code target=\"input-checkbox\" />\n\t\n\t                <h3 className=\"comp-type\">radio 单选框</h3>\n\t                <div className=\"content\">\n\t                    <h3 className=\"comp-tip\">默认</h3>\n\t                    <Input type=\"radio\" label=\"男\" name=\"sex\" />\n\t                    <Input type=\"radio\" label=\"女\" name=\"sex\" />\n\t                </div>\n\t                <Code target=\"input-radio\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
-                "展示",
-                "源码"
+                "展示"
             ],
+            "exampleUrls": [
+                "http://172.24.107.159:8000/examples/index.html#/input"
+            ],
+            "isApp": true,
             "show": true
         },
         "Label": {
@@ -2332,13 +2394,15 @@
             "is_constructor": 1,
             "since": "0.1.0",
             "example": [
-                "\timport React, { Component } from \"react\";\n\timport {Label} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class Labels extends Component{\n\t    render(){\n\t        return(\n\t        \t<div>\n\t            \t<h2 className=\"comp-title\">Label</h2>\n\t                <h3 className=\"comp-type\">phStyle(默认primary) 标签颜色</h3>\n\t                <div className=\"content\">\n\t\t                <Label>惠</Label>\n\t\t                <Label phStyle=\"success\">惠</Label>\n\t\t                <Label phStyle=\"info\">惠</Label>\n\t\t\t\t\t\t<Label phStyle=\"danger\">惠</Label>\n\t\t                <Label phStyle=\"error\">惠</Label>\n\t\t                <Label phStyle=\"warning\">惠</Label>\n\t                </div>\n\t                <Code target=\"label-phstyle\" />\n\t\n\t                <h3 className=\"comp-type\">phSize(默认sm) 标签大小</h3>\n\t                <div className=\"content\">\n\t\t                <Label>惠</Label>\n\t\t                <Label phSize=\"md\">惠</Label>\n\t\t                <Label phSize=\"lg\">惠</Label>\n\t                </div>\n\t                <Code target=\"label-phsize\" />\n\t            </div>\n\t        );\n\t    }\n\t}",
                 "\timport React, { Component } from \"react\";\n\timport {Label} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class Labels extends Component{\n\t    render(){\n\t        return(\n\t        \t<div>\n\t            \t<h2 className=\"comp-title\">Label</h2>\n\t                <h3 className=\"comp-type\">phStyle(默认primary) 标签颜色</h3>\n\t                <div className=\"content\">\n\t\t                <Label>惠</Label>\n\t\t                <Label phStyle=\"success\">惠</Label>\n\t\t                <Label phStyle=\"info\">惠</Label>\n\t\t\t\t\t\t<Label phStyle=\"danger\">惠</Label>\n\t\t                <Label phStyle=\"error\">惠</Label>\n\t\t                <Label phStyle=\"warning\">惠</Label>\n\t                </div>\n\t                <Code target=\"label-phstyle\" />\n\t\n\t                <h3 className=\"comp-type\">phSize(默认sm) 标签大小</h3>\n\t                <div className=\"content\">\n\t\t                <Label>惠</Label>\n\t\t                <Label phSize=\"md\">惠</Label>\n\t\t                <Label phSize=\"lg\">惠</Label>\n\t                </div>\n\t                <Code target=\"label-phsize\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
-                "展示",
-                "源码"
+                "展示"
             ],
+            "exampleUrls": [
+                "http://172.24.107.159:8000/examples/index.html#/label"
+            ],
+            "isApp": true,
             "show": true
         },
         "Popover": {
@@ -2357,13 +2421,15 @@
             "extends": "Component",
             "is_constructor": 1,
             "example": [
-                "\timport React, { Component } from \"react\";\n\timport {Whisper, Popover} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class popover extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t    }\n\t\n\t    onChange(){\n\t        alert(\"气泡出现消失时额外的执行函数\"); \n\t    }\n\t\n\t    render(){\n\t        const popover = ( // 可以通过style自定义位置\n\t            <Popover>\n\t                <ul className=\"ph-popover-list\">\n\t                    <li className=\"ph-popover-item\">未上线单店</li>\n\t                    <li className=\"ph-popover-item\">未上线连锁店</li>\n\t                </ul>\n\t            </Popover>\n\t        );\n\t\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Whisper/Popover</h2>\n\t                <h3 className=\"comp-type\">\n\t                    target 显示的目标物<br/>\n\t                    placement(默认bottom) 气泡出现时相对点击对象的位置\n\t                </h3>\n\t                <div className=\"content\">\n\t                    <Whisper target={popover}>Bottom</Whisper>\n\t                    <Whisper placement=\"top\" target={popover}>Top</Whisper>\n\t                    <Whisper placement=\"right\" target={popover}>Right</Whisper>\n\t                    <Whisper placement=\"left\" target={popover}>Left</Whisper>\n\t                    <Whisper placement=\"top right\" target={popover}>Top Right</Whisper>\n\t                    <Whisper placement=\"top left\" target={popover}>Top Left</Whisper>\n\t                    <Whisper placement=\"bottom right\" target={popover}>Bottom Right</Whisper>\n\t                    <Whisper placement=\"bottom left\" target={popover}>Bottom Left</Whisper>\n\t                </div>\n\t                <Code target=\"popover-placement\" />\n\t\n\t                <h3 className=\"comp-type\">distance(默认15) 气泡想对点击对象的距离</h3>\n\t                <div className=\"content\">\n\t                    <Whisper target={popover} distance={10}>10</Whisper>\n\t                    <Whisper target={popover} distance={20}>20</Whisper>\n\t                </div>\n\t                <Code target=\"popover-distance\" />\n\t\n\t                <h3 className=\"comp-type\">onChange 气泡显隐时额外的回调函数</h3>\n\t                <div className=\"content\">\n\t                    <Whisper onChange={this.onChange} target={popover}>popover</Whisper>\n\t                </div>\n\t                <Code target=\"popover-onchange\" />\n\t            </div>\n\t        );\n\t    }\n\t}",
                 "\timport React, { Component } from \"react\";\n\timport {Whisper, Popover} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class popover extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t    }\n\t\n\t    onChange(){\n\t        alert(\"气泡出现消失时额外的执行函数\"); \n\t    }\n\t\n\t    render(){\n\t        const popover = ( // 可以通过style自定义位置\n\t            <Popover>\n\t                <ul className=\"ph-popover-list\">\n\t                    <li className=\"ph-popover-item\">未上线单店</li>\n\t                    <li className=\"ph-popover-item\">未上线连锁店</li>\n\t                </ul>\n\t            </Popover>\n\t        );\n\t\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Whisper/Popover</h2>\n\t                <h3 className=\"comp-type\">\n\t                    target 显示的目标物<br/>\n\t                    placement(默认bottom) 气泡出现时相对点击对象的位置\n\t                </h3>\n\t                <div className=\"content\">\n\t                    <Whisper target={popover}>Bottom</Whisper>\n\t                    <Whisper placement=\"top\" target={popover}>Top</Whisper>\n\t                    <Whisper placement=\"right\" target={popover}>Right</Whisper>\n\t                    <Whisper placement=\"left\" target={popover}>Left</Whisper>\n\t                    <Whisper placement=\"top right\" target={popover}>Top Right</Whisper>\n\t                    <Whisper placement=\"top left\" target={popover}>Top Left</Whisper>\n\t                    <Whisper placement=\"bottom right\" target={popover}>Bottom Right</Whisper>\n\t                    <Whisper placement=\"bottom left\" target={popover}>Bottom Left</Whisper>\n\t                </div>\n\t                <Code target=\"popover-placement\" />\n\t\n\t                <h3 className=\"comp-type\">distance(默认15) 气泡想对点击对象的距离</h3>\n\t                <div className=\"content\">\n\t                    <Whisper target={popover} distance={10}>10</Whisper>\n\t                    <Whisper target={popover} distance={20}>20</Whisper>\n\t                </div>\n\t                <Code target=\"popover-distance\" />\n\t\n\t                <h3 className=\"comp-type\">onChange 气泡显隐时额外的回调函数</h3>\n\t                <div className=\"content\">\n\t                    <Whisper onChange={this.onChange} target={popover}>popover</Whisper>\n\t                </div>\n\t                <Code target=\"popover-onchange\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
-                "展示",
-                "源码"
+                "展示"
             ],
+            "exampleUrls": [
+                "http://172.24.107.159:8000/examples/index.html#/popover"
+            ],
+            "isApp": true,
             "show": true
         },
         "Popup": {
@@ -2382,13 +2448,15 @@
             "extends": "Component",
             "is_constructor": 1,
             "example": [
-                "\timport React, { Component } from 'react';\n\timport {Button, Popup} from 'phoenix-ui';\n\timport Code from \"./code/code\";\n\t\n\texport default class popup extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t\n\t        this.state = {\n\t            topVisible: false,\n\t            bottomVisible: false\n\t        }\n\t    }\n\t\n\t    onShowTopPopup(){\n\t        this.setState({\n\t          topVisible: true\n\t        });\n\t    }\n\t\n\t    onCloseTopPopup(){\n\t        this.setState({\n\t          topVisible: false\n\t        });\n\t    }\n\t\n\t    onShowBottomPopup(){\n\t        this.setState({\n\t          bottomVisible: true\n\t        });\n\t    }\n\t\n\t    onCloseBottomPopup(){\n\t        this.setState({\n\t          bottomVisible: false\n\t        });\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Popup</h2>\n\t                <h3 className=\"comp-type\">visible(默认false) 弹层是否可见，必需<br/>onClose 关闭弹层的执行函数<br/>align(默认top) 弹层弹出位置</h3>\n\t                <div className=\"content\">\n\t                    <Button phSize=\"lg\" onClick={::this.onShowTopPopup}>Top</Button>\n\t                </div>\n\t                <Popup visible={this.state.topVisible} onClose={::this.onCloseTopPopup}>\n\t                    <ul className=\"ph-popup-list\">\n\t                        <li className=\"ph-popup-item\" onClick={::this.onCloseTopPopup}>未上线单店</li>\n\t                        <li className=\"ph-popup-item\" onClick={::this.onCloseTopPopup}>未上线连锁店</li>\n\t                        <li className=\"ph-popup-item\" onClick={::this.onCloseTopPopup}>在线单店</li>\n\t                        <li className=\"ph-popup-item\" onClick={::this.onCloseTopPopup}>在线连锁店</li>\n\t                    </ul>\n\t                </Popup>\n\t                <Code target=\"popup-top\" />\n\t\n\t                <div className=\"content\">\n\t                    <Button phSize=\"lg\" onClick={::this.onShowBottomPopup}>Bottom</Button>\n\t                </div>\n\t                <Popup align=\"bottom\" visible={this.state.bottomVisible} onClose={::this.onCloseBottomPopup}>\n\t                    <div className=\"ph-action-sheet\">\n\t                        <ul>\n\t                            <li className=\"ph-popup-item ph-popup-tip\">确认 删除此作品？</li>\n\t                            <li className=\"ph-popup-item ph-popup-delete\" onClick={::this.onCloseBottomPopup}>删除作品</li>\n\t                        </ul>\n\t                        <div className=\"ph-popup-operate\" onClick={::this.onCloseBottomPopup}>取消</div>\n\t                    </div>\n\t                </Popup>\n\t                <Code target=\"popup-bottom\" />\n\t            </div>\n\t        );\n\t    }\n\t}",
                 "\timport React, { Component } from 'react';\n\timport {Button, Popup} from 'phoenix-ui';\n\timport Code from \"./code/code\";\n\t\n\texport default class popup extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t\n\t        this.state = {\n\t            topVisible: false,\n\t            bottomVisible: false\n\t        }\n\t    }\n\t\n\t    onShowTopPopup(){\n\t        this.setState({\n\t          topVisible: true\n\t        });\n\t    }\n\t\n\t    onCloseTopPopup(){\n\t        this.setState({\n\t          topVisible: false\n\t        });\n\t    }\n\t\n\t    onShowBottomPopup(){\n\t        this.setState({\n\t          bottomVisible: true\n\t        });\n\t    }\n\t\n\t    onCloseBottomPopup(){\n\t        this.setState({\n\t          bottomVisible: false\n\t        });\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Popup</h2>\n\t                <h3 className=\"comp-type\">visible(默认false) 弹层是否可见，必需<br/>onClose 关闭弹层的执行函数<br/>align(默认top) 弹层弹出位置</h3>\n\t                <div className=\"content\">\n\t                    <Button phSize=\"lg\" onClick={::this.onShowTopPopup}>Top</Button>\n\t                </div>\n\t                <Popup visible={this.state.topVisible} onClose={::this.onCloseTopPopup}>\n\t                    <ul className=\"ph-popup-list\">\n\t                        <li className=\"ph-popup-item\" onClick={::this.onCloseTopPopup}>未上线单店</li>\n\t                        <li className=\"ph-popup-item\" onClick={::this.onCloseTopPopup}>未上线连锁店</li>\n\t                        <li className=\"ph-popup-item\" onClick={::this.onCloseTopPopup}>在线单店</li>\n\t                        <li className=\"ph-popup-item\" onClick={::this.onCloseTopPopup}>在线连锁店</li>\n\t                    </ul>\n\t                </Popup>\n\t                <Code target=\"popup-top\" />\n\t\n\t                <div className=\"content\">\n\t                    <Button phSize=\"lg\" onClick={::this.onShowBottomPopup}>Bottom</Button>\n\t                </div>\n\t                <Popup align=\"bottom\" visible={this.state.bottomVisible} onClose={::this.onCloseBottomPopup}>\n\t                    <div className=\"ph-action-sheet\">\n\t                        <ul>\n\t                            <li className=\"ph-popup-item ph-popup-tip\">确认 删除此作品？</li>\n\t                            <li className=\"ph-popup-item ph-popup-delete\" onClick={::this.onCloseBottomPopup}>删除作品</li>\n\t                        </ul>\n\t                        <div className=\"ph-popup-operate\" onClick={::this.onCloseBottomPopup}>取消</div>\n\t                    </div>\n\t                </Popup>\n\t                <Code target=\"popup-bottom\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
-                "展示",
-                "源码"
+                "展示"
             ],
+            "exampleUrls": [
+                "http://172.24.107.159:8000/examples/index.html#/popup"
+            ],
+            "isApp": true,
             "show": true
         },
         "Row": {
@@ -2407,14 +2475,17 @@
             "extends": "Component",
             "is_constructor": 1,
             "example": [
-                "\timport React, { Component } from \"react\";\n\timport {Grid,Row,Col} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class grid extends Component {\n\t    \n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Grid</h2>\n\t                <h3 className=\"comp-type\"><strong>Row</strong></h3>\n\t                <h3 className=\"comp-type\">align(默认stretch) 容器属性</h3>\n\t                <h3 className=\"comp-tip\">stretch</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"stretch\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">stretch</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">stretch<br />baseline</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">stretch<br />stretch<br />stretch</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">baseline</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"baseline\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">baseline</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">baseline<br />baseline</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">baseline<br />baseline<br />baseline</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">top</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"top\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">top</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">top<br />top</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">top<br />top<br />top</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">bottom</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"bottom\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">bottom</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">bottom<br />bottom</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">bottom<br />bottom<br />bottom</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">center</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"center\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">center</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">center<br />center</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">center<br />center<br />center</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <Code target=\"row-align\" />\n\t\n\t                <h3 className=\"comp-type\"><strong>Col</strong></h3>\n\t                <h3 className=\"comp-type\">align(默认auto) 项目属性</h3>\n\t                <h3 className=\"comp-tip\">auto</h3>\n\t                <Grid className=\"content\">\n\t                    <Row>\n\t                        <Col>\n\t                            <div className=\"col-demo\">auto</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">auto auto</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">auto auto auto auto</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">top/center/bottom</h3>\n\t                <Grid className=\"content\">\n\t                    <Row>\n\t                        <Col align=\"top\">\n\t                            <div className=\"col-demo\">top</div>\n\t                        </Col>\n\t                        <Col align=\"center\">\n\t                            <div className=\"col-demo\">center</div>\n\t                        </Col>\n\t                        <Col align=\"bottom\">\n\t                            <div className=\"col-demo\">bottom</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">top<br />center<br />bottom</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <Code target=\"col-align\" />\n\t\n\t                <h3 className=\"comp-type\">width 设置项目宽度百分比</h3>\n\t                <Grid className=\"content\">\n\t                    <Row>\n\t                        <Col width=\"15\">\n\t                            <div className=\"col-demo\">15</div>\n\t                        </Col>\n\t                        <Col width=\"20\">\n\t                            <div className=\"col-demo\">20</div>\n\t                        </Col>\n\t                        <Col width=\"25\">\n\t                            <div className=\"col-demo\">25</div>\n\t                        </Col>\n\t                        <Col width=\"40\">\n\t                            <div className=\"col-demo\">40<br />40<br />40</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <Code target=\"col-width\" />\n\t\n\t                <h3 className=\"comp-type\">offset(即margin-left) 偏移值</h3>\n\t                <Grid className=\"content\">\n\t                    <Row>\n\t                        <Col width=\"20\" offset=\"10\">\n\t                            <div className=\"col-demo\">10</div>\n\t                        </Col>\n\t                        <Col width=\"40\" offset=\"10\" >\n\t                            <div className=\"col-demo\">10<br />10<br />10</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <Code target=\"col-offset\" />\n\t            </div>\n\t        )\n\t    }\n\t}\n\t",
                 "\timport React, { Component } from \"react\";\n\timport {Grid,Row,Col} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class grid extends Component {\n\t    \n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Grid</h2>\n\t                <h3 className=\"comp-type\"><strong>Row</strong></h3>\n\t                <h3 className=\"comp-type\">align(默认stretch) 容器属性</h3>\n\t                <h3 className=\"comp-tip\">stretch</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"stretch\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">stretch</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">stretch<br />baseline</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">stretch<br />stretch<br />stretch</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">baseline</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"baseline\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">baseline</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">baseline<br />baseline</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">baseline<br />baseline<br />baseline</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">top</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"top\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">top</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">top<br />top</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">top<br />top<br />top</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">bottom</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"bottom\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">bottom</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">bottom<br />bottom</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">bottom<br />bottom<br />bottom</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">center</h3>\n\t                <Grid className=\"content\">\n\t                    <Row align=\"center\">\n\t                        <Col>\n\t                            <div className=\"col-demo\">center</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">center<br />center</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">center<br />center<br />center</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <Code target=\"row-align\" />\n\t\n\t                <h3 className=\"comp-type\"><strong>Col</strong></h3>\n\t                <h3 className=\"comp-type\">align(默认auto) 项目属性</h3>\n\t                <h3 className=\"comp-tip\">auto</h3>\n\t                <Grid className=\"content\">\n\t                    <Row>\n\t                        <Col>\n\t                            <div className=\"col-demo\">auto</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">auto auto</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">auto auto auto auto</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <h3 className=\"comp-tip\">top/center/bottom</h3>\n\t                <Grid className=\"content\">\n\t                    <Row>\n\t                        <Col align=\"top\">\n\t                            <div className=\"col-demo\">top</div>\n\t                        </Col>\n\t                        <Col align=\"center\">\n\t                            <div className=\"col-demo\">center</div>\n\t                        </Col>\n\t                        <Col align=\"bottom\">\n\t                            <div className=\"col-demo\">bottom</div>\n\t                        </Col>\n\t                        <Col>\n\t                            <div className=\"col-demo\">top<br />center<br />bottom</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <Code target=\"col-align\" />\n\t\n\t                <h3 className=\"comp-type\">width 设置项目宽度百分比</h3>\n\t                <Grid className=\"content\">\n\t                    <Row>\n\t                        <Col width=\"15\">\n\t                            <div className=\"col-demo\">15</div>\n\t                        </Col>\n\t                        <Col width=\"20\">\n\t                            <div className=\"col-demo\">20</div>\n\t                        </Col>\n\t                        <Col width=\"25\">\n\t                            <div className=\"col-demo\">25</div>\n\t                        </Col>\n\t                        <Col width=\"40\">\n\t                            <div className=\"col-demo\">40<br />40<br />40</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <Code target=\"col-width\" />\n\t\n\t                <h3 className=\"comp-type\">offset(即margin-left) 偏移值</h3>\n\t                <Grid className=\"content\">\n\t                    <Row>\n\t                        <Col width=\"20\" offset=\"10\">\n\t                            <div className=\"col-demo\">10</div>\n\t                        </Col>\n\t                        <Col width=\"40\" offset=\"10\" >\n\t                            <div className=\"col-demo\">10<br />10<br />10</div>\n\t                        </Col>\n\t                    </Row>\n\t                </Grid>\n\t                <Code target=\"col-offset\" />\n\t            </div>\n\t        )\n\t    }\n\t}\n\t"
             ],
             "exampleTitles": [
-                "展示",
-                "源码"
+                "展示"
             ],
-            "since": "0.1.0"
+            "exampleUrls": [
+                "http://172.24.107.159:8000/examples/index.html#/grid"
+            ],
+            "isApp": true,
+            "since": "0.1.0",
+            "show": true
         },
         "Slider": {
             "name": "Slider",
@@ -2432,13 +2503,15 @@
             "extends": "Component",
             "is_constructor": 1,
             "example": [
-                "\timport React, { Component } from \"react\";\n\timport {Slider} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class slider extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t\n\t        this.state = {\n\t            progress: 50\n\t        }\n\t    }\n\t\n\t    onChange(newProgress){ // progress百分比\n\t        this.setState({\n\t            progress: newProgress\n\t        });\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Slider</h2>\n\t                <h3 className=\"comp-type\">progress(默认0) 初始进度百分比</h3>\n\t                <div className=\"content\">\n\t                    <Slider progress={25} />\n\t                </div>\n\t                <Code target=\"slider-progress\" />\n\t\n\t                <h3 className=\"comp-type\">placement(默认top) 进度条提示框的位置</h3>\n\t                <div className=\"content\">\n\t                    <Slider />\n\t                    <Slider placement=\"bottom\" />\n\t                </div>\n\t                <Code target=\"slider-placement\" />\n\t\n\t                <h3 className=\"comp-type\">onChange 拖拽进度条松开时的回调函数</h3>\n\t                <div className=\"content\">\n\t                    <Slider progress={this.state.progress} onChange={::this.onChange} />\n\t                    <div style={{textAlign:\"center\",padding:\"1rem 0\"}}>Progress: {this.state.progress}</div>\n\t                </div>\n\t                <Code target=\"slider-onchange\" />\n\t\n\t\n\t                <h3 className=\"comp-type\">disabled 进度条只读</h3>\n\t                <div className=\"content\">\n\t                    <Slider disabled progress={10} />\n\t                </div>\n\t                <Code target=\"slider-disabled\" />\n\t            </div>\n\t        );\n\t    }\n\t}",
                 "\timport React, { Component } from \"react\";\n\timport {Slider} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class slider extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t\n\t        this.state = {\n\t            progress: 50\n\t        }\n\t    }\n\t\n\t    onChange(newProgress){ // progress百分比\n\t        this.setState({\n\t            progress: newProgress\n\t        });\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Slider</h2>\n\t                <h3 className=\"comp-type\">progress(默认0) 初始进度百分比</h3>\n\t                <div className=\"content\">\n\t                    <Slider progress={25} />\n\t                </div>\n\t                <Code target=\"slider-progress\" />\n\t\n\t                <h3 className=\"comp-type\">placement(默认top) 进度条提示框的位置</h3>\n\t                <div className=\"content\">\n\t                    <Slider />\n\t                    <Slider placement=\"bottom\" />\n\t                </div>\n\t                <Code target=\"slider-placement\" />\n\t\n\t                <h3 className=\"comp-type\">onChange 拖拽进度条松开时的回调函数</h3>\n\t                <div className=\"content\">\n\t                    <Slider progress={this.state.progress} onChange={::this.onChange} />\n\t                    <div style={{textAlign:\"center\",padding:\"1rem 0\"}}>Progress: {this.state.progress}</div>\n\t                </div>\n\t                <Code target=\"slider-onchange\" />\n\t\n\t\n\t                <h3 className=\"comp-type\">disabled 进度条只读</h3>\n\t                <div className=\"content\">\n\t                    <Slider disabled progress={10} />\n\t                </div>\n\t                <Code target=\"slider-disabled\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
-                "展示",
-                "源码"
+                "展示"
             ],
+            "exampleUrls": [
+                "http://172.24.107.159:8000/examples/index.html#/slider"
+            ],
+            "isApp": true,
             "show": true
         },
         "Star": {
@@ -2457,13 +2530,15 @@
             "extends": "Component",
             "is_constructor": 1,
             "example": [
-                "\timport React, { Component } from \"react\";\n\timport {Star} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class star extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Star</h2>\n\t                <h3 className=\"comp-type\">Rate(默认0) 星级评价的分数</h3>\n\t                <div className=\"content\">\n\t                    <Star />\n\t                    <Star Rate={5} />\n\t                    <Star Rate={15} />\n\t                    <Star Rate={20} />\n\t                    <Star Rate={25} />\n\t                    <Star Rate={30} />\n\t                    <Star Rate={35} />\n\t                </div>\n\t                <Code target=\"star-rate\" />\n\t\n\t                <h3 className=\"comp-type\">phSize(默认sm) 星星大小</h3>\n\t                <div className=\"content\">\n\t                    <Star Rate={40} phSize=\"sm\" />\n\t                    <Star Rate={45} phSize=\"md\" />\n\t                    <Star Rate={50} phSize=\"lg\" />\n\t                </div>\n\t                <Code target=\"star-phsize\" />\n\t            </div>\n\t        );\n\t    }\n\t}",
                 "\timport React, { Component } from \"react\";\n\timport {Star} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class star extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Star</h2>\n\t                <h3 className=\"comp-type\">Rate(默认0) 星级评价的分数</h3>\n\t                <div className=\"content\">\n\t                    <Star />\n\t                    <Star Rate={5} />\n\t                    <Star Rate={15} />\n\t                    <Star Rate={20} />\n\t                    <Star Rate={25} />\n\t                    <Star Rate={30} />\n\t                    <Star Rate={35} />\n\t                </div>\n\t                <Code target=\"star-rate\" />\n\t\n\t                <h3 className=\"comp-type\">phSize(默认sm) 星星大小</h3>\n\t                <div className=\"content\">\n\t                    <Star Rate={40} phSize=\"sm\" />\n\t                    <Star Rate={45} phSize=\"md\" />\n\t                    <Star Rate={50} phSize=\"lg\" />\n\t                </div>\n\t                <Code target=\"star-phsize\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
-                "展示",
-                "源码"
+                "展示"
             ],
+            "exampleUrls": [
+                "http://172.24.107.159:8000/examples/index.html#/star"
+            ],
+            "isApp": true,
             "show": true
         },
         "Swipe": {
@@ -2482,13 +2557,15 @@
             "extends": "Component",
             "is_constructor": 1,
             "example": [
-                "\timport React, { Component } from \"react\";\n\timport {Swipe} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class swipe extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t    }\n\t\n\t    onDelete(){\n\t        console.log(\"delete!!\");\n\t    }\n\t\n\t    onCancle(){\n\t        console.log(\"cancle!!\");\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Swipe</h2>\n\t                <h3 className=\"comp-type\">buttons(默认空数组) 左滑后出现的操作按钮</h3>\n\t                <div className=\"contents\">\n\t                    <h3 className=\"comp-tip\">buttons的phStyle默认primary</h3>\n\t                    <Swipe buttons={[\n\t                        {text: \"删除\", onHandle: this.onDelete}\n\t                    ]}>\n\t                        <div style={{padding: \"1rem\"}}>\n\t                            滑动块1\n\t                        </div>\n\t                    </Swipe>\n\t                </div>\n\t                <Code target=\"swipe-phstyle\" />\n\t\n\t                <div className=\"contents\">\n\t                    <h3 className=\"comp-tip\">自定义buttons参数</h3>\n\t                    <Swipe buttons={[\n\t                        {text: \"删除\", onHandle: this.onDelete, phStyle: \"error\"},\n\t                        {text: \"取消\", onHandle: this.onCancle, phStyle: \"info\"}\n\t                    ]}>\n\t                        <div style={{padding: \"1rem\"}}>\n\t                            滑动块2\n\t                        </div>\n\t                    </Swipe>\n\t                </div>\n\t                <Code target=\"swipe-buttons\" />\n\t            </div>\n\t        );\n\t    }\n\t}",
                 "\timport React, { Component } from \"react\";\n\timport {Swipe} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class swipe extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t    }\n\t\n\t    onDelete(){\n\t        console.log(\"delete!!\");\n\t    }\n\t\n\t    onCancle(){\n\t        console.log(\"cancle!!\");\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Swipe</h2>\n\t                <h3 className=\"comp-type\">buttons(默认空数组) 左滑后出现的操作按钮</h3>\n\t                <div className=\"contents\">\n\t                    <h3 className=\"comp-tip\">buttons的phStyle默认primary</h3>\n\t                    <Swipe buttons={[\n\t                        {text: \"删除\", onHandle: this.onDelete}\n\t                    ]}>\n\t                        <div style={{padding: \"1rem\"}}>\n\t                            滑动块1\n\t                        </div>\n\t                    </Swipe>\n\t                </div>\n\t                <Code target=\"swipe-phstyle\" />\n\t\n\t                <div className=\"contents\">\n\t                    <h3 className=\"comp-tip\">自定义buttons参数</h3>\n\t                    <Swipe buttons={[\n\t                        {text: \"删除\", onHandle: this.onDelete, phStyle: \"error\"},\n\t                        {text: \"取消\", onHandle: this.onCancle, phStyle: \"info\"}\n\t                    ]}>\n\t                        <div style={{padding: \"1rem\"}}>\n\t                            滑动块2\n\t                        </div>\n\t                    </Swipe>\n\t                </div>\n\t                <Code target=\"swipe-buttons\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
-                "展示",
-                "源码"
+                "展示"
             ],
+            "exampleUrls": [
+                "http://172.24.107.159:8000/examples/index.html#/swipe"
+            ],
+            "isApp": true,
             "show": true
         },
         "Switch": {
@@ -2507,13 +2584,15 @@
             "extends": "Component",
             "is_constructor": 1,
             "example": [
-                "\timport React, { Component } from 'react';\n\timport {Switch} from 'phoenix-ui';\n\timport Code from \"./code/code\";\n\t\n\texport default class switchs extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            checked: true\n\t        };\n\t    }\n\t\n\t    onChange(){\n\t        this.setState({\n\t            checked: !this.state.checked\n\t        });\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Switch</h2>\n\t                <h3 className=\"comp-type\">开关</h3>\n\t                <div className=\"content\">\n\t                    <h3 className=\"comp-tip\">默认</h3>\n\t                    <Switch />\n\t                    <h3 className=\"comp-tip\">defaultChecked 初始传值</h3>\n\t                    <Switch defaultChecked={true} />\n\t                    <h3 className=\"comp-tip\">checked和onChange配合使用</h3>\n\t                    <Switch checked={this.state.checked} onChange={::this.onChange} />\n\t                </div>\n\t                <Code target=\"switch\" />\n\t            </div>\n\t        );\n\t    }\n\t}",
                 "\timport React, { Component } from 'react';\n\timport {Switch} from 'phoenix-ui';\n\timport Code from \"./code/code\";\n\t\n\texport default class switchs extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            checked: true\n\t        };\n\t    }\n\t\n\t    onChange(){\n\t        this.setState({\n\t            checked: !this.state.checked\n\t        });\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Switch</h2>\n\t                <h3 className=\"comp-type\">开关</h3>\n\t                <div className=\"content\">\n\t                    <h3 className=\"comp-tip\">默认</h3>\n\t                    <Switch />\n\t                    <h3 className=\"comp-tip\">defaultChecked 初始传值</h3>\n\t                    <Switch defaultChecked={true} />\n\t                    <h3 className=\"comp-tip\">checked和onChange配合使用</h3>\n\t                    <Switch checked={this.state.checked} onChange={::this.onChange} />\n\t                </div>\n\t                <Code target=\"switch\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
-                "展示",
-                "源码"
+                "展示"
             ],
+            "exampleUrls": [
+                "http://172.24.107.159:8000/examples/index.html#/switch"
+            ],
+            "isApp": true,
             "show": true
         },
         "Tab": {
@@ -2533,13 +2612,15 @@
             "is_constructor": 1,
             "since": "0.1.0",
             "example": [
-                "\timport React, { Component } from \"react\";\n\timport {Tabset,Tab} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class tab extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context);\n\t    }\n\t\n\t    onChange(index){\n\t        alert(\"测试tabset回调\", \"index: \" + index);\n\t    }\n\t\n\t    onTabChange(index){\n\t        alert(\"测试tab回调\", \"index: \" + index);\n\t    }\n\t\n\t    onTabClickHandle(){\n\t        alert(\"测试自定义tab点击事件\");\n\t    }\n\t\n\t    render(){\n\t        return(\n\t           <div>\n\t                <h2 className=\"comp-title\">Tabset/Tab</h2>\n\t                <h3 className=\"comp-type\"><strong>Tabset</strong></h3>\n\t                <h3 className=\"comp-type\">activeIndex(默认0) 默认选中选项卡的索引值</h3>\n\t                <div className=\"content\">\n\t                    <Tabset activeIndex={1}>\n\t                        <Tab heading=\"标题1\">\n\t                            横向内容1\n\t                        </Tab>\n\t                        <Tab heading=\"标题2\">\n\t                            横向内容2\n\t                        </Tab>\n\t                    </Tabset>\n\t                </div>\n\t                <Code target=\"tabset-activeindex\" />\n\t\n\t                <h3 className=\"comp-type\">vertical(默认false) 设置选项卡竖排</h3>\n\t                <div className=\"content\">\n\t                    <Tabset vertical>\n\t                        <Tab heading=\"标题1\">\n\t                            竖向内容1\n\t                        </Tab>\n\t                        <Tab heading=\"标题2\">\n\t                            竖向内容2\n\t                        </Tab>\n\t                    </Tabset>\n\t                </div>\n\t                <br/>\n\t                <Code target=\"tabset-vertical\" />\n\t\n\t                <h3 className=\"comp-type\">width(默认20) 设置vertical之后标题的占比</h3>\n\t                <div className=\"content\">\n\t                    <Tabset vertical width={30}>\n\t                        <Tab heading=\"标题1\">\n\t                            竖向内容1\n\t                        </Tab>\n\t                        <Tab heading=\"标题2\">\n\t                            竖向内容2\n\t                        </Tab>\n\t                    </Tabset>\n\t                </div>\n\t                <br/>\n\t                <Code target=\"tabset-width\" />\n\t\n\t                <h3 className=\"comp-type\">onChange 点击选项卡的回调函数</h3>\n\t                <div className=\"content\">\n\t                    <Tabset onChange={::this.onChange}>\n\t                        <Tab heading=\"标题1\">\n\t                            横向内容1\n\t                        </Tab>\n\t                        <Tab heading=\"标题2\">\n\t                            横向内容2\n\t                        </Tab>\n\t                    </Tabset>\n\t                </div>\n\t                <Code target=\"tabset-onchange\" />\n\t\n\t                <h3 className=\"comp-type\"><strong>Tab</strong></h3>\n\t                <h3 className=\"comp-type\">heading(默认\"tab\") 选项卡的标题内容</h3>\n\t                <div className=\"content\">\n\t                    <Tabset>\n\t                        <Tab heading=\"Tab heading 1\">\n\t                            横向内容1\n\t                        </Tab>\n\t                        <Tab heading=\"Tab heading 2\">\n\t                            横向内容2\n\t                        </Tab>\n\t                    </Tabset>\n\t                </div>\n\t                <Code target=\"tab-heading\" />\n\t\n\t                <h3 className=\"comp-type\">onChange 点击单个选项卡的回调函数</h3>\n\t                <div className=\"content\">\n\t                    <Tabset>\n\t                        <Tab heading=\"标题1\" onChange={::this.onTabChange}>\n\t                            横向内容1\n\t                        </Tab>\n\t                        <Tab heading=\"标题2\">\n\t                            横向内容2\n\t                        </Tab>\n\t                    </Tabset>\n\t                </div>\n\t                <Code target=\"tab-onchange\" />\n\t           </div>\n\t        );\n\t    }\n\t}",
                 "\timport React, { Component } from \"react\";\n\timport {Tabset,Tab} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class tab extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context);\n\t    }\n\t\n\t    onChange(index){\n\t        alert(\"测试tabset回调\", \"index: \" + index);\n\t    }\n\t\n\t    onTabChange(index){\n\t        alert(\"测试tab回调\", \"index: \" + index);\n\t    }\n\t\n\t    onTabClickHandle(){\n\t        alert(\"测试自定义tab点击事件\");\n\t    }\n\t\n\t    render(){\n\t        return(\n\t           <div>\n\t                <h2 className=\"comp-title\">Tabset/Tab</h2>\n\t                <h3 className=\"comp-type\"><strong>Tabset</strong></h3>\n\t                <h3 className=\"comp-type\">activeIndex(默认0) 默认选中选项卡的索引值</h3>\n\t                <div className=\"content\">\n\t                    <Tabset activeIndex={1}>\n\t                        <Tab heading=\"标题1\">\n\t                            横向内容1\n\t                        </Tab>\n\t                        <Tab heading=\"标题2\">\n\t                            横向内容2\n\t                        </Tab>\n\t                    </Tabset>\n\t                </div>\n\t                <Code target=\"tabset-activeindex\" />\n\t\n\t                <h3 className=\"comp-type\">vertical(默认false) 设置选项卡竖排</h3>\n\t                <div className=\"content\">\n\t                    <Tabset vertical>\n\t                        <Tab heading=\"标题1\">\n\t                            竖向内容1\n\t                        </Tab>\n\t                        <Tab heading=\"标题2\">\n\t                            竖向内容2\n\t                        </Tab>\n\t                    </Tabset>\n\t                </div>\n\t                <br/>\n\t                <Code target=\"tabset-vertical\" />\n\t\n\t                <h3 className=\"comp-type\">width(默认20) 设置vertical之后标题的占比</h3>\n\t                <div className=\"content\">\n\t                    <Tabset vertical width={30}>\n\t                        <Tab heading=\"标题1\">\n\t                            竖向内容1\n\t                        </Tab>\n\t                        <Tab heading=\"标题2\">\n\t                            竖向内容2\n\t                        </Tab>\n\t                    </Tabset>\n\t                </div>\n\t                <br/>\n\t                <Code target=\"tabset-width\" />\n\t\n\t                <h3 className=\"comp-type\">onChange 点击选项卡的回调函数</h3>\n\t                <div className=\"content\">\n\t                    <Tabset onChange={::this.onChange}>\n\t                        <Tab heading=\"标题1\">\n\t                            横向内容1\n\t                        </Tab>\n\t                        <Tab heading=\"标题2\">\n\t                            横向内容2\n\t                        </Tab>\n\t                    </Tabset>\n\t                </div>\n\t                <Code target=\"tabset-onchange\" />\n\t\n\t                <h3 className=\"comp-type\"><strong>Tab</strong></h3>\n\t                <h3 className=\"comp-type\">heading(默认\"tab\") 选项卡的标题内容</h3>\n\t                <div className=\"content\">\n\t                    <Tabset>\n\t                        <Tab heading=\"Tab heading 1\">\n\t                            横向内容1\n\t                        </Tab>\n\t                        <Tab heading=\"Tab heading 2\">\n\t                            横向内容2\n\t                        </Tab>\n\t                    </Tabset>\n\t                </div>\n\t                <Code target=\"tab-heading\" />\n\t\n\t                <h3 className=\"comp-type\">onChange 点击单个选项卡的回调函数</h3>\n\t                <div className=\"content\">\n\t                    <Tabset>\n\t                        <Tab heading=\"标题1\" onChange={::this.onTabChange}>\n\t                            横向内容1\n\t                        </Tab>\n\t                        <Tab heading=\"标题2\">\n\t                            横向内容2\n\t                        </Tab>\n\t                    </Tabset>\n\t                </div>\n\t                <Code target=\"tab-onchange\" />\n\t           </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
-                "展示",
-                "源码"
+                "展示"
             ],
+            "exampleUrls": [
+                "http://172.24.107.159:8000/examples/index.html#/tab"
+            ],
+            "isApp": true,
             "show": true
         },
         "TableView": {
@@ -2558,13 +2639,15 @@
             "extends": "Component",
             "is_constructor": 1,
             "example": [
-                "\timport React, { Component } from 'react';\n\timport {TableView,Badge,Switch} from 'phoenix-ui';\n\timport Code from \"./code/code\";\n\t\n\texport default class tableview extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">TableView</h2>\n\t                <h3 className=\"comp-type\">仿表格组件</h3>\n\t                <div className=\"contents\">\n\t                    <h3 className=\"comp-tip\">子元素设置href属性(设置href属性增加右箭头)</h3>\n\t                    <TableView>\n\t                        <a href=\"http://www.baidu.com\">Item 1</a>\n\t                    </TableView>\n\t                </div>\n\t                <Code target=\"table-view-href\" />\n\t\n\t                <div className=\"contents\">\n\t                    <h3 className=\"comp-tip\">配合其他组件使用</h3>\n\t                    <TableView>\n\t                        <a>Item 2 <Badge>2</Badge></a>\n\t                        <a href=\"###\">Item 3 <Badge>5</Badge></a>\n\t                        <a>Item 4 <Switch /></a>\n\t                    </TableView>\n\t                </div>\n\t                <Code target=\"table-view-other-component\" />\n\t            </div>\n\t        );\n\t    }\n\t}",
                 "\timport React, { Component } from 'react';\n\timport {TableView,Badge,Switch} from 'phoenix-ui';\n\timport Code from \"./code/code\";\n\t\n\texport default class tableview extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">TableView</h2>\n\t                <h3 className=\"comp-type\">仿表格组件</h3>\n\t                <div className=\"contents\">\n\t                    <h3 className=\"comp-tip\">子元素设置href属性(设置href属性增加右箭头)</h3>\n\t                    <TableView>\n\t                        <a href=\"http://www.baidu.com\">Item 1</a>\n\t                    </TableView>\n\t                </div>\n\t                <Code target=\"table-view-href\" />\n\t\n\t                <div className=\"contents\">\n\t                    <h3 className=\"comp-tip\">配合其他组件使用</h3>\n\t                    <TableView>\n\t                        <a>Item 2 <Badge>2</Badge></a>\n\t                        <a href=\"###\">Item 3 <Badge>5</Badge></a>\n\t                        <a>Item 4 <Switch /></a>\n\t                    </TableView>\n\t                </div>\n\t                <Code target=\"table-view-other-component\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
-                "展示",
-                "源码"
+                "展示"
             ],
+            "exampleUrls": [
+                "http://172.24.107.159:8000/examples/index.html#/tableview"
+            ],
+            "isApp": true,
             "show": true
         },
         "Tabset": {
@@ -2584,13 +2667,15 @@
             "is_constructor": 1,
             "since": "0.1.0",
             "example": [
-                "\timport React, { Component } from \"react\";\n\timport {Tabset,Tab} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class tab extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context);\n\t    }\n\t\n\t    onChange(index){\n\t        alert(\"测试tabset回调\", \"index: \" + index);\n\t    }\n\t\n\t    onTabChange(index){\n\t        alert(\"测试tab回调\", \"index: \" + index);\n\t    }\n\t\n\t    onTabClickHandle(){\n\t        alert(\"测试自定义tab点击事件\");\n\t    }\n\t\n\t    render(){\n\t        return(\n\t           <div>\n\t                <h2 className=\"comp-title\">Tabset/Tab</h2>\n\t                <h3 className=\"comp-type\"><strong>Tabset</strong></h3>\n\t                <h3 className=\"comp-type\">activeIndex(默认0) 默认选中选项卡的索引值</h3>\n\t                <div className=\"content\">\n\t                    <Tabset activeIndex={1}>\n\t                        <Tab heading=\"标题1\">\n\t                            横向内容1\n\t                        </Tab>\n\t                        <Tab heading=\"标题2\">\n\t                            横向内容2\n\t                        </Tab>\n\t                    </Tabset>\n\t                </div>\n\t                <Code target=\"tabset-activeindex\" />\n\t\n\t                <h3 className=\"comp-type\">vertical(默认false) 设置选项卡竖排</h3>\n\t                <div className=\"content\">\n\t                    <Tabset vertical>\n\t                        <Tab heading=\"标题1\">\n\t                            竖向内容1\n\t                        </Tab>\n\t                        <Tab heading=\"标题2\">\n\t                            竖向内容2\n\t                        </Tab>\n\t                    </Tabset>\n\t                </div>\n\t                <br/>\n\t                <Code target=\"tabset-vertical\" />\n\t\n\t                <h3 className=\"comp-type\">width(默认20) 设置vertical之后标题的占比</h3>\n\t                <div className=\"content\">\n\t                    <Tabset vertical width={30}>\n\t                        <Tab heading=\"标题1\">\n\t                            竖向内容1\n\t                        </Tab>\n\t                        <Tab heading=\"标题2\">\n\t                            竖向内容2\n\t                        </Tab>\n\t                    </Tabset>\n\t                </div>\n\t                <br/>\n\t                <Code target=\"tabset-width\" />\n\t\n\t                <h3 className=\"comp-type\">onChange 点击选项卡的回调函数</h3>\n\t                <div className=\"content\">\n\t                    <Tabset onChange={::this.onChange}>\n\t                        <Tab heading=\"标题1\">\n\t                            横向内容1\n\t                        </Tab>\n\t                        <Tab heading=\"标题2\">\n\t                            横向内容2\n\t                        </Tab>\n\t                    </Tabset>\n\t                </div>\n\t                <Code target=\"tabset-onchange\" />\n\t\n\t                <h3 className=\"comp-type\"><strong>Tab</strong></h3>\n\t                <h3 className=\"comp-type\">heading(默认\"tab\") 选项卡的标题内容</h3>\n\t                <div className=\"content\">\n\t                    <Tabset>\n\t                        <Tab heading=\"Tab heading 1\">\n\t                            横向内容1\n\t                        </Tab>\n\t                        <Tab heading=\"Tab heading 2\">\n\t                            横向内容2\n\t                        </Tab>\n\t                    </Tabset>\n\t                </div>\n\t                <Code target=\"tab-heading\" />\n\t\n\t                <h3 className=\"comp-type\">onChange 点击单个选项卡的回调函数</h3>\n\t                <div className=\"content\">\n\t                    <Tabset>\n\t                        <Tab heading=\"标题1\" onChange={::this.onTabChange}>\n\t                            横向内容1\n\t                        </Tab>\n\t                        <Tab heading=\"标题2\">\n\t                            横向内容2\n\t                        </Tab>\n\t                    </Tabset>\n\t                </div>\n\t                <Code target=\"tab-onchange\" />\n\t           </div>\n\t        );\n\t    }\n\t}",
                 "\timport React, { Component } from \"react\";\n\timport {Tabset,Tab} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class tab extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context);\n\t    }\n\t\n\t    onChange(index){\n\t        alert(\"测试tabset回调\", \"index: \" + index);\n\t    }\n\t\n\t    onTabChange(index){\n\t        alert(\"测试tab回调\", \"index: \" + index);\n\t    }\n\t\n\t    onTabClickHandle(){\n\t        alert(\"测试自定义tab点击事件\");\n\t    }\n\t\n\t    render(){\n\t        return(\n\t           <div>\n\t                <h2 className=\"comp-title\">Tabset/Tab</h2>\n\t                <h3 className=\"comp-type\"><strong>Tabset</strong></h3>\n\t                <h3 className=\"comp-type\">activeIndex(默认0) 默认选中选项卡的索引值</h3>\n\t                <div className=\"content\">\n\t                    <Tabset activeIndex={1}>\n\t                        <Tab heading=\"标题1\">\n\t                            横向内容1\n\t                        </Tab>\n\t                        <Tab heading=\"标题2\">\n\t                            横向内容2\n\t                        </Tab>\n\t                    </Tabset>\n\t                </div>\n\t                <Code target=\"tabset-activeindex\" />\n\t\n\t                <h3 className=\"comp-type\">vertical(默认false) 设置选项卡竖排</h3>\n\t                <div className=\"content\">\n\t                    <Tabset vertical>\n\t                        <Tab heading=\"标题1\">\n\t                            竖向内容1\n\t                        </Tab>\n\t                        <Tab heading=\"标题2\">\n\t                            竖向内容2\n\t                        </Tab>\n\t                    </Tabset>\n\t                </div>\n\t                <br/>\n\t                <Code target=\"tabset-vertical\" />\n\t\n\t                <h3 className=\"comp-type\">width(默认20) 设置vertical之后标题的占比</h3>\n\t                <div className=\"content\">\n\t                    <Tabset vertical width={30}>\n\t                        <Tab heading=\"标题1\">\n\t                            竖向内容1\n\t                        </Tab>\n\t                        <Tab heading=\"标题2\">\n\t                            竖向内容2\n\t                        </Tab>\n\t                    </Tabset>\n\t                </div>\n\t                <br/>\n\t                <Code target=\"tabset-width\" />\n\t\n\t                <h3 className=\"comp-type\">onChange 点击选项卡的回调函数</h3>\n\t                <div className=\"content\">\n\t                    <Tabset onChange={::this.onChange}>\n\t                        <Tab heading=\"标题1\">\n\t                            横向内容1\n\t                        </Tab>\n\t                        <Tab heading=\"标题2\">\n\t                            横向内容2\n\t                        </Tab>\n\t                    </Tabset>\n\t                </div>\n\t                <Code target=\"tabset-onchange\" />\n\t\n\t                <h3 className=\"comp-type\"><strong>Tab</strong></h3>\n\t                <h3 className=\"comp-type\">heading(默认\"tab\") 选项卡的标题内容</h3>\n\t                <div className=\"content\">\n\t                    <Tabset>\n\t                        <Tab heading=\"Tab heading 1\">\n\t                            横向内容1\n\t                        </Tab>\n\t                        <Tab heading=\"Tab heading 2\">\n\t                            横向内容2\n\t                        </Tab>\n\t                    </Tabset>\n\t                </div>\n\t                <Code target=\"tab-heading\" />\n\t\n\t                <h3 className=\"comp-type\">onChange 点击单个选项卡的回调函数</h3>\n\t                <div className=\"content\">\n\t                    <Tabset>\n\t                        <Tab heading=\"标题1\" onChange={::this.onTabChange}>\n\t                            横向内容1\n\t                        </Tab>\n\t                        <Tab heading=\"标题2\">\n\t                            横向内容2\n\t                        </Tab>\n\t                    </Tabset>\n\t                </div>\n\t                <Code target=\"tab-onchange\" />\n\t           </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
-                "展示",
-                "源码"
+                "展示"
             ],
+            "exampleUrls": [
+                "http://172.24.107.159:8000/examples/index.html#/tab"
+            ],
+            "isApp": true,
             "show": true
         },
         "TextArea": {
@@ -2609,13 +2694,15 @@
             "extends": "Component",
             "is_constructor": 1,
             "example": [
-                "\timport React, { Component } from \"react\";\n\timport {Textarea} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class textarea extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:\"默认值defaultValue\",\n\t            words: \"value和onChange配合使用\",\n\t            MAX_LENGTH: 100\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Textarea</h2>\n\t                <h3 className=\"comp-type\">count(默认false) 是否计字数</h3>\n\t                <div className=\"content\">\n\t                    <Textarea placeholder=\"不计数...\" />\n\t                    <Textarea count maxLength={this.state.MAX_LENGTH} placeholder=\"count配合maxLength计数...\" />\n\t                </div>\n\t                <Code target=\"textarea-count\" />\n\t\n\t                <div className=\"content\">\n\t                    <h3 className=\"comp-tip\">defaultValue 默认值</h3>\n\t                    <Textarea defaultValue={this.state.name} placeholder=\"请输入...\" />\n\t                    <h3 className=\"comp-tip\">value和onChange配合使用</h3>\n\t                    <Textarea defaultValue={this.state.words} placeholder=\"请输入...\" onChange={this.setValue.bind(this,\"words\")} />\n\t                </div>\n\t                <Code target=\"textarea\" />\n\t            </div>\n\t        );\n\t    }\n\t}",
                 "\timport React, { Component } from \"react\";\n\timport {Textarea} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class textarea extends Component{\n\t\n\t    constructor(props,context){\n\t\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            name:\"默认值defaultValue\",\n\t            words: \"value和onChange配合使用\",\n\t            MAX_LENGTH: 100\n\t        };\n\t    }\n\t\n\t    setValue(key,e){\n\t        let o ={};\n\t        o[key || e.target.name] = e.target.value;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Textarea</h2>\n\t                <h3 className=\"comp-type\">count(默认false) 是否计字数</h3>\n\t                <div className=\"content\">\n\t                    <Textarea placeholder=\"不计数...\" />\n\t                    <Textarea count maxLength={this.state.MAX_LENGTH} placeholder=\"count配合maxLength计数...\" />\n\t                </div>\n\t                <Code target=\"textarea-count\" />\n\t\n\t                <div className=\"content\">\n\t                    <h3 className=\"comp-tip\">defaultValue 默认值</h3>\n\t                    <Textarea defaultValue={this.state.name} placeholder=\"请输入...\" />\n\t                    <h3 className=\"comp-tip\">value和onChange配合使用</h3>\n\t                    <Textarea defaultValue={this.state.words} placeholder=\"请输入...\" onChange={this.setValue.bind(this,\"words\")} />\n\t                </div>\n\t                <Code target=\"textarea\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
-                "展示",
-                "源码"
+                "展示"
             ],
+            "exampleUrls": [
+                "http://172.24.107.159:8000/examples/index.html#/textarea"
+            ],
+            "isApp": true,
             "show": true
         },
         "Toast": {
@@ -2633,13 +2720,17 @@
             "description": "飘字组件<br/>\n- 由于飘字的使用范围可预估, 为方便使用在原组件的基础上更进一步改为函数式的使用方式。\n- 使用: `Toast.info(message, duration, callback)`\n\n示例: <br/>\n- 显示普通飘字, 如:<br/>\n`Toast.info('注册成功!', 1000, ()=>{console.log('飘字消失时执行的回调函数');})`",
             "extends": "Component",
             "is_constructor": 1,
-            "show": true,
             "example": [
                 "\timport React, { Component } from \"react\";\n\timport {Button, Toast} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class toast extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context);\n\t    }\n\t\n\t    showToast(){\n\t         Toast.info(\"只显示信息的toast！！\", 2000, ()=>{\n\t            console.log(\"额外的执行内容\");\n\t        });\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Toast</h2>\n\t                <h3 className=\"comp-type\">Toast.info(message, duration, callback)</h3>\n\t                <div className=\"content\">\n\t                    <Button phSize=\"lg\" onClick={::this.showToast}>Toast</Button>\n\t                </div>\n\t                <Code target=\"toast-info\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
                 "toast"
-            ]
+            ],
+            "exampleUrls": [
+                "http://172.24.107.159:8000/examples/index.html#/toast"
+            ],
+            "isApp": true,
+            "show": true
         },
         "Whisper": {
             "name": "Whisper",
@@ -2657,13 +2748,15 @@
             "extends": "Component",
             "is_constructor": 1,
             "example": [
-                "\timport React, { Component } from \"react\";\n\timport {Whisper, Popover} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class popover extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t    }\n\t\n\t    onChange(){\n\t        alert(\"气泡出现消失时额外的执行函数\"); \n\t    }\n\t\n\t    render(){\n\t        const popover = ( // 可以通过style自定义位置\n\t            <Popover>\n\t                <ul className=\"ph-popover-list\">\n\t                    <li className=\"ph-popover-item\">未上线单店</li>\n\t                    <li className=\"ph-popover-item\">未上线连锁店</li>\n\t                </ul>\n\t            </Popover>\n\t        );\n\t\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Whisper/Popover</h2>\n\t                <h3 className=\"comp-type\">\n\t                    target 显示的目标物<br/>\n\t                    placement(默认bottom) 气泡出现时相对点击对象的位置\n\t                </h3>\n\t                <div className=\"content\">\n\t                    <Whisper target={popover}>Bottom</Whisper>\n\t                    <Whisper placement=\"top\" target={popover}>Top</Whisper>\n\t                    <Whisper placement=\"right\" target={popover}>Right</Whisper>\n\t                    <Whisper placement=\"left\" target={popover}>Left</Whisper>\n\t                    <Whisper placement=\"top right\" target={popover}>Top Right</Whisper>\n\t                    <Whisper placement=\"top left\" target={popover}>Top Left</Whisper>\n\t                    <Whisper placement=\"bottom right\" target={popover}>Bottom Right</Whisper>\n\t                    <Whisper placement=\"bottom left\" target={popover}>Bottom Left</Whisper>\n\t                </div>\n\t                <Code target=\"popover-placement\" />\n\t\n\t                <h3 className=\"comp-type\">distance(默认15) 气泡想对点击对象的距离</h3>\n\t                <div className=\"content\">\n\t                    <Whisper target={popover} distance={10}>10</Whisper>\n\t                    <Whisper target={popover} distance={20}>20</Whisper>\n\t                </div>\n\t                <Code target=\"popover-distance\" />\n\t\n\t                <h3 className=\"comp-type\">onChange 气泡显隐时额外的回调函数</h3>\n\t                <div className=\"content\">\n\t                    <Whisper onChange={this.onChange} target={popover}>popover</Whisper>\n\t                </div>\n\t                <Code target=\"popover-onchange\" />\n\t            </div>\n\t        );\n\t    }\n\t}",
                 "\timport React, { Component } from \"react\";\n\timport {Whisper, Popover} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class popover extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t    }\n\t\n\t    onChange(){\n\t        alert(\"气泡出现消失时额外的执行函数\"); \n\t    }\n\t\n\t    render(){\n\t        const popover = ( // 可以通过style自定义位置\n\t            <Popover>\n\t                <ul className=\"ph-popover-list\">\n\t                    <li className=\"ph-popover-item\">未上线单店</li>\n\t                    <li className=\"ph-popover-item\">未上线连锁店</li>\n\t                </ul>\n\t            </Popover>\n\t        );\n\t\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Whisper/Popover</h2>\n\t                <h3 className=\"comp-type\">\n\t                    target 显示的目标物<br/>\n\t                    placement(默认bottom) 气泡出现时相对点击对象的位置\n\t                </h3>\n\t                <div className=\"content\">\n\t                    <Whisper target={popover}>Bottom</Whisper>\n\t                    <Whisper placement=\"top\" target={popover}>Top</Whisper>\n\t                    <Whisper placement=\"right\" target={popover}>Right</Whisper>\n\t                    <Whisper placement=\"left\" target={popover}>Left</Whisper>\n\t                    <Whisper placement=\"top right\" target={popover}>Top Right</Whisper>\n\t                    <Whisper placement=\"top left\" target={popover}>Top Left</Whisper>\n\t                    <Whisper placement=\"bottom right\" target={popover}>Bottom Right</Whisper>\n\t                    <Whisper placement=\"bottom left\" target={popover}>Bottom Left</Whisper>\n\t                </div>\n\t                <Code target=\"popover-placement\" />\n\t\n\t                <h3 className=\"comp-type\">distance(默认15) 气泡想对点击对象的距离</h3>\n\t                <div className=\"content\">\n\t                    <Whisper target={popover} distance={10}>10</Whisper>\n\t                    <Whisper target={popover} distance={20}>20</Whisper>\n\t                </div>\n\t                <Code target=\"popover-distance\" />\n\t\n\t                <h3 className=\"comp-type\">onChange 气泡显隐时额外的回调函数</h3>\n\t                <div className=\"content\">\n\t                    <Whisper onChange={this.onChange} target={popover}>popover</Whisper>\n\t                </div>\n\t                <Code target=\"popover-onchange\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
-                "展示",
-                "源码"
+                "展示"
             ],
+            "exampleUrls": [
+                "http://172.24.107.159:8000/examples/index.html#/popover"
+            ],
+            "isApp": true,
             "show": true
         }
     },
@@ -2740,7 +2833,7 @@
         },
         {
             "file": "src/Accordion.js",
-            "line": 62,
+            "line": 61,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -2751,7 +2844,7 @@
         },
         {
             "file": "src/Accordion.js",
-            "line": 69,
+            "line": 68,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
@@ -2761,7 +2854,7 @@
         },
         {
             "file": "src/Accordion.js",
-            "line": 75,
+            "line": 74,
             "description": "是否可见标识",
             "itemtype": "property",
             "name": "visible",
@@ -2772,7 +2865,7 @@
         },
         {
             "file": "src/Accordion.js",
-            "line": 82,
+            "line": 81,
             "description": "点击收起展开的回调函数",
             "itemtype": "method",
             "name": "onChange",
@@ -2782,7 +2875,7 @@
         },
         {
             "file": "src/Animate.js",
-            "line": 42,
+            "line": 41,
             "description": "动画名称,默认fade",
             "itemtype": "property",
             "name": "transitionName",
@@ -2793,7 +2886,7 @@
         },
         {
             "file": "src/Animate.js",
-            "line": 49,
+            "line": 48,
             "description": "动画进入延迟时间",
             "itemtype": "property",
             "name": "transitionEnterTimeout",
@@ -2803,7 +2896,7 @@
         },
         {
             "file": "src/Animate.js",
-            "line": 55,
+            "line": 54,
             "description": "动画退出延迟时间",
             "itemtype": "property",
             "name": "transitionLeaveTimeout",
@@ -2813,7 +2906,7 @@
         },
         {
             "file": "src/Badge.js",
-            "line": 26,
+            "line": 25,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -2824,7 +2917,7 @@
         },
         {
             "file": "src/Badge.js",
-            "line": 33,
+            "line": 32,
             "description": "badge徽章颜色[primary、warning、danger、info、error、success], 默认primary",
             "itemtype": "property",
             "name": "phStyle",
@@ -2835,7 +2928,7 @@
         },
         {
             "file": "src/Button.js",
-            "line": 32,
+            "line": 31,
             "description": "按钮尺寸[sm、md、lg], 默认为sm",
             "itemtype": "property",
             "name": "phSize",
@@ -2846,7 +2939,7 @@
         },
         {
             "file": "src/Button.js",
-            "line": 39,
+            "line": 38,
             "description": "按钮颜色[primary、warning、danger、info、error、success、link、gray], 默认primary",
             "itemtype": "property",
             "name": "phStyle",
@@ -2857,7 +2950,7 @@
         },
         {
             "file": "src/Button.js",
-            "line": 46,
+            "line": 45,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -2868,7 +2961,7 @@
         },
         {
             "file": "src/Button.js",
-            "line": 53,
+            "line": 52,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
@@ -2878,7 +2971,7 @@
         },
         {
             "file": "src/Button.js",
-            "line": 59,
+            "line": 58,
             "description": "块级显示",
             "itemtype": "property",
             "name": "block",
@@ -2889,7 +2982,7 @@
         },
         {
             "file": "src/Button.js",
-            "line": 66,
+            "line": 65,
             "description": "圆角",
             "itemtype": "property",
             "name": "radius",
@@ -2900,7 +2993,7 @@
         },
         {
             "file": "src/Button.js",
-            "line": 73,
+            "line": 72,
             "description": "空背景",
             "itemtype": "property",
             "name": "hollow",
@@ -2911,7 +3004,7 @@
         },
         {
             "file": "src/Button.js",
-            "line": 80,
+            "line": 79,
             "description": "不可点状态",
             "itemtype": "property",
             "name": "disabled",
@@ -2922,7 +3015,7 @@
         },
         {
             "file": "src/Button.js",
-            "line": 87,
+            "line": 86,
             "description": "激活状态",
             "itemtype": "property",
             "name": "active",
@@ -2933,7 +3026,7 @@
         },
         {
             "file": "src/ButtonGroup.js",
-            "line": 39,
+            "line": 38,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -2944,7 +3037,7 @@
         },
         {
             "file": "src/ButtonGroup.js",
-            "line": 46,
+            "line": 45,
             "description": "是否有自适应宽度，垂直排列等属性，取值为justify(水平排列)或者tacked(垂直排列)",
             "itemtype": "property",
             "name": "phType",
@@ -2955,7 +3048,7 @@
         },
         {
             "file": "src/ButtonGroup.js",
-            "line": 53,
+            "line": 52,
             "description": "按钮被按下后的回调",
             "itemtype": "method",
             "name": "activeCallback",
@@ -3006,7 +3099,7 @@
         },
         {
             "file": "src/Dialog.js",
-            "line": 58,
+            "line": 57,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -3017,7 +3110,7 @@
         },
         {
             "file": "src/Dialog.js",
-            "line": 65,
+            "line": 64,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
@@ -3027,7 +3120,7 @@
         },
         {
             "file": "src/Dialog.js",
-            "line": 71,
+            "line": 70,
             "description": "是否可见标识",
             "itemtype": "property",
             "name": "visible",
@@ -3037,7 +3130,7 @@
         },
         {
             "file": "src/Dialog.js",
-            "line": 77,
+            "line": 76,
             "description": "关闭弹框的执行函数",
             "itemtype": "method",
             "name": "onClose",
@@ -3047,7 +3140,7 @@
         },
         {
             "file": "src/Dialog.js",
-            "line": 83,
+            "line": 82,
             "description": "右上角按钮是否可见, 默认不可见",
             "itemtype": "property",
             "name": "closeButton",
@@ -3057,7 +3150,7 @@
         },
         {
             "file": "src/Dialog.js",
-            "line": 89,
+            "line": 88,
             "description": "阴影部分是否点击可关闭弹框, 默认传了onClose之后可关闭",
             "itemtype": "property",
             "name": "shadowDisabled",
@@ -3067,7 +3160,7 @@
         },
         {
             "file": "src/Drag.js",
-            "line": 45,
+            "line": 44,
             "description": "抓取的执行函数,对应TouchStart/TouchMove",
             "itemtype": "method",
             "name": "onDrag",
@@ -3077,7 +3170,7 @@
         },
         {
             "file": "src/Drag.js",
-            "line": 51,
+            "line": 50,
             "description": "放开的执行函数,对应TouchEnd",
             "itemtype": "method",
             "name": "onDrop",
@@ -3087,7 +3180,7 @@
         },
         {
             "file": "src/FormGroup.js",
-            "line": 48,
+            "line": 47,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -3098,7 +3191,7 @@
         },
         {
             "file": "src/FormGroup.js",
-            "line": 55,
+            "line": 54,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
@@ -3108,7 +3201,7 @@
         },
         {
             "file": "src/Grid.js",
-            "line": 47,
+            "line": 46,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -3118,8 +3211,30 @@
             "module": "布局组件"
         },
         {
+            "file": "src/Icon.js",
+            "line": 25,
+            "description": "样式前缀",
+            "itemtype": "property",
+            "name": "classPrefix",
+            "type": "String",
+            "default": "'badge'",
+            "class": "Icon",
+            "module": "标签组件"
+        },
+        {
+            "file": "src/Icon.js",
+            "line": 32,
+            "description": "icon符号类型[search]",
+            "itemtype": "property",
+            "name": "phIcon",
+            "type": "string",
+            "default": "''",
+            "class": "Icon",
+            "module": "标签组件"
+        },
+        {
             "file": "src/Input.js",
-            "line": 40,
+            "line": 39,
             "description": "input类型, 可选[text,checkbox,radio], 默认text",
             "itemtype": "property",
             "name": "type",
@@ -3130,7 +3245,7 @@
         },
         {
             "file": "src/Input.js",
-            "line": 47,
+            "line": 46,
             "description": "类型为checkbox&radio时, 展示的文字信息",
             "itemtype": "property",
             "name": "label",
@@ -3141,7 +3256,7 @@
         },
         {
             "file": "src/Input.js",
-            "line": 54,
+            "line": 53,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -3152,7 +3267,7 @@
         },
         {
             "file": "src/Input.js",
-            "line": 61,
+            "line": 60,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
@@ -3162,7 +3277,7 @@
         },
         {
             "file": "src/Input.js",
-            "line": 67,
+            "line": 66,
             "description": "更改值时触发的回调",
             "itemtype": "event",
             "name": "onChange",
@@ -3172,7 +3287,7 @@
         },
         {
             "file": "src/Label.js",
-            "line": 38,
+            "line": 37,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -3183,7 +3298,7 @@
         },
         {
             "file": "src/Label.js",
-            "line": 45,
+            "line": 44,
             "description": "label标签大小[lg、md、sm], 默认为sm",
             "itemtype": "property",
             "name": "phSize",
@@ -3194,7 +3309,7 @@
         },
         {
             "file": "src/Label.js",
-            "line": 52,
+            "line": 51,
             "description": "label标签颜色[primary、warning、danger、info、error、success], 默认primary",
             "itemtype": "property",
             "name": "phStyle",
@@ -3205,7 +3320,7 @@
         },
         {
             "file": "src/Popover.js",
-            "line": 36,
+            "line": 35,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -3216,7 +3331,7 @@
         },
         {
             "file": "src/Popover.js",
-            "line": 43,
+            "line": 42,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
@@ -3226,7 +3341,7 @@
         },
         {
             "file": "src/Popup.js",
-            "line": 52,
+            "line": 51,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -3237,7 +3352,7 @@
         },
         {
             "file": "src/Popup.js",
-            "line": 59,
+            "line": 58,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
@@ -3247,7 +3362,7 @@
         },
         {
             "file": "src/Popup.js",
-            "line": 65,
+            "line": 64,
             "description": "是否可见标识",
             "itemtype": "property",
             "name": "visible",
@@ -3257,7 +3372,7 @@
         },
         {
             "file": "src/Popup.js",
-            "line": 71,
+            "line": 70,
             "description": "弹层的位置,默认top",
             "itemtype": "property",
             "name": "align",
@@ -3267,7 +3382,7 @@
         },
         {
             "file": "src/Popup.js",
-            "line": 77,
+            "line": 76,
             "description": "关闭的执行函数",
             "itemtype": "method",
             "name": "onClose",
@@ -3298,7 +3413,7 @@
         },
         {
             "file": "src/Slider.js",
-            "line": 38,
+            "line": 37,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -3309,7 +3424,7 @@
         },
         {
             "file": "src/Slider.js",
-            "line": 45,
+            "line": 44,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
@@ -3319,7 +3434,7 @@
         },
         {
             "file": "src/Slider.js",
-            "line": 51,
+            "line": 50,
             "description": "初始进程,默认0",
             "itemtype": "property",
             "name": "progress",
@@ -3329,7 +3444,7 @@
         },
         {
             "file": "src/Slider.js",
-            "line": 57,
+            "line": 56,
             "description": "进程提示的位置,默认top",
             "itemtype": "property",
             "name": "placement",
@@ -3340,7 +3455,7 @@
         },
         {
             "file": "src/Slider.js",
-            "line": 64,
+            "line": 63,
             "description": "改变进程时的回调函数",
             "itemtype": "method",
             "name": "onChange",
@@ -3350,7 +3465,7 @@
         },
         {
             "file": "src/Star.js",
-            "line": 38,
+            "line": 37,
             "description": "星级评价分数",
             "itemtype": "property",
             "name": "Rate",
@@ -3361,7 +3476,7 @@
         },
         {
             "file": "src/Star.js",
-            "line": 45,
+            "line": 44,
             "description": "星星大小",
             "itemtype": "property",
             "name": "phSize",
@@ -3372,7 +3487,7 @@
         },
         {
             "file": "src/Star.js",
-            "line": 52,
+            "line": 51,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -3383,7 +3498,7 @@
         },
         {
             "file": "src/Swipe.js",
-            "line": 39,
+            "line": 38,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -3394,7 +3509,7 @@
         },
         {
             "file": "src/Swipe.js",
-            "line": 46,
+            "line": 45,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
@@ -3404,7 +3519,7 @@
         },
         {
             "file": "src/Swipe.js",
-            "line": 52,
+            "line": 51,
             "description": "按钮组",
             "itemtype": "property",
             "name": "buttons",
@@ -3414,7 +3529,7 @@
         },
         {
             "file": "src/Switch.js",
-            "line": 29,
+            "line": 28,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -3425,7 +3540,7 @@
         },
         {
             "file": "src/Switch.js",
-            "line": 36,
+            "line": 35,
             "description": "默认开关值",
             "itemtype": "property",
             "name": "defaultChecked",
@@ -3435,7 +3550,7 @@
         },
         {
             "file": "src/Switch.js",
-            "line": 42,
+            "line": 41,
             "description": "开关值",
             "itemtype": "property",
             "name": "checked",
@@ -3445,7 +3560,7 @@
         },
         {
             "file": "src/Switch.js",
-            "line": 48,
+            "line": 47,
             "description": "更改值时触发的回调",
             "itemtype": "event",
             "name": "onChange",
@@ -3455,7 +3570,7 @@
         },
         {
             "file": "src/Tab.js",
-            "line": 41,
+            "line": 40,
             "description": "选项卡的标题文字，默认为‘tab’",
             "itemtype": "property",
             "name": "heading",
@@ -3466,7 +3581,7 @@
         },
         {
             "file": "src/Tab.js",
-            "line": 48,
+            "line": 47,
             "description": "点击事件的回调函数",
             "itemtype": "method",
             "name": "onChange",
@@ -3477,7 +3592,7 @@
         },
         {
             "file": "src/TableView.js",
-            "line": 32,
+            "line": 31,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -3488,7 +3603,7 @@
         },
         {
             "file": "src/TableView.js",
-            "line": 39,
+            "line": 38,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
@@ -3498,7 +3613,7 @@
         },
         {
             "file": "src/Tabset.js",
-            "line": 69,
+            "line": 68,
             "description": "指定默认选中的选项卡，默认为0",
             "itemtype": "property",
             "name": "activeIndex",
@@ -3509,7 +3624,7 @@
         },
         {
             "file": "src/Tabset.js",
-            "line": 76,
+            "line": 75,
             "description": "是否竖排",
             "itemtype": "property",
             "name": "vertical",
@@ -3520,7 +3635,7 @@
         },
         {
             "file": "src/Tabset.js",
-            "line": 83,
+            "line": 82,
             "description": "设置选项卡头部的宽度，只有竖排的情况下才起作用",
             "itemtype": "property",
             "name": "width",
@@ -3531,7 +3646,7 @@
         },
         {
             "file": "src/Tabset.js",
-            "line": 90,
+            "line": 89,
             "description": "点击事件的回调函数,返回当前选中项",
             "itemtype": "method",
             "name": "onChange",
@@ -3542,21 +3657,21 @@
         },
         {
             "file": "src/Tabset.js",
-            "line": 111,
+            "line": 110,
             "description": "首次进入获取active",
             "class": "Tabset",
             "module": "选项卡"
         },
         {
             "file": "src/Tabset.js",
-            "line": 117,
+            "line": 116,
             "description": "props再次改变，再次判断active",
             "class": "Tabset",
             "module": "选项卡"
         },
         {
             "file": "src/Textarea.js",
-            "line": 44,
+            "line": 43,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -3567,7 +3682,7 @@
         },
         {
             "file": "src/Textarea.js",
-            "line": 51,
+            "line": 50,
             "description": "默认值",
             "itemtype": "property",
             "name": "defaultValue",
@@ -3577,7 +3692,7 @@
         },
         {
             "file": "src/Textarea.js",
-            "line": 57,
+            "line": 56,
             "description": "值",
             "itemtype": "property",
             "name": "value",
@@ -3587,7 +3702,7 @@
         },
         {
             "file": "src/Textarea.js",
-            "line": 63,
+            "line": 62,
             "description": "输入时执行的回调",
             "itemtype": "event",
             "name": "onChange",
@@ -3597,7 +3712,7 @@
         },
         {
             "file": "src/Textarea.js",
-            "line": 69,
+            "line": 68,
             "description": "是否显示输入计数",
             "itemtype": "property",
             "name": "count",
@@ -3607,7 +3722,7 @@
         },
         {
             "file": "src/Textarea.js",
-            "line": 75,
+            "line": 74,
             "description": "可输入的总长度",
             "itemtype": "property",
             "name": "maxLength",
@@ -3617,7 +3732,7 @@
         },
         {
             "file": "src/Whisper.js",
-            "line": 56,
+            "line": 55,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -3628,7 +3743,7 @@
         },
         {
             "file": "src/Whisper.js",
-            "line": 63,
+            "line": 62,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
@@ -3638,7 +3753,7 @@
         },
         {
             "file": "src/Whisper.js",
-            "line": 69,
+            "line": 68,
             "description": "显示的目标气泡",
             "itemtype": "property",
             "name": "target",
@@ -3648,7 +3763,7 @@
         },
         {
             "file": "src/Whisper.js",
-            "line": 75,
+            "line": 74,
             "description": "气泡的位置,默认bottom",
             "itemtype": "property",
             "name": "placement",
@@ -3658,7 +3773,7 @@
         },
         {
             "file": "src/Whisper.js",
-            "line": 81,
+            "line": 80,
             "description": "气泡距离点击物的位置,默认15",
             "itemtype": "property",
             "name": "distance",
@@ -3668,7 +3783,7 @@
         },
         {
             "file": "src/Whisper.js",
-            "line": 87,
+            "line": 86,
             "description": "气泡显隐时可执行的额外函数,自定义",
             "itemtype": "method",
             "name": "onChange",
@@ -3683,10 +3798,6 @@
             "line": " src/Accordion.js:19"
         },
         {
-            "message": "unknown tag: demo",
-            "line": " src/Accordion.js:19"
-        },
-        {
             "message": "unknown tag: show",
             "line": " src/Accordion.js:19"
         },
@@ -3695,10 +3806,6 @@
             "line": " src/Animate.js:5"
         },
         {
-            "message": "unknown tag: demo",
-            "line": " src/Animate.js:5"
-        },
-        {
             "message": "unknown tag: show",
             "line": " src/Animate.js:5"
         },
@@ -3707,10 +3814,6 @@
             "line": " src/Badge.js:5"
         },
         {
-            "message": "unknown tag: demo",
-            "line": " src/Badge.js:5"
-        },
-        {
             "message": "unknown tag: show",
             "line": " src/Badge.js:5"
         },
@@ -3719,16 +3822,8 @@
             "line": " src/Button.js:5"
         },
         {
-            "message": "unknown tag: demo",
-            "line": " src/Button.js:5"
-        },
-        {
             "message": "unknown tag: show",
             "line": " src/Button.js:5"
-        },
-        {
-            "message": "unknown tag: demo",
-            "line": " src/ButtonGroup.js:5"
         },
         {
             "message": "unknown tag: demo",
@@ -3743,7 +3838,7 @@
             "line": " src/Col.js:5"
         },
         {
-            "message": "unknown tag: demo",
+            "message": "unknown tag: show",
             "line": " src/Col.js:5"
         },
         {
@@ -3751,10 +3846,6 @@
             "line": " src/Dialog.js:7"
         },
         {
-            "message": "unknown tag: demo",
-            "line": " src/Dialog.js:7"
-        },
-        {
             "message": "unknown tag: show",
             "line": " src/Dialog.js:7"
         },
@@ -3763,10 +3854,6 @@
             "line": " src/Drag.js:6"
         },
         {
-            "message": "unknown tag: demo",
-            "line": " src/Drag.js:6"
-        },
-        {
             "message": "unknown tag: show",
             "line": " src/Drag.js:6"
         },
@@ -3775,10 +3862,6 @@
             "line": " src/FormGroup.js:6"
         },
         {
-            "message": "unknown tag: demo",
-            "line": " src/FormGroup.js:6"
-        },
-        {
             "message": "unknown tag: show",
             "line": " src/FormGroup.js:6"
         },
@@ -3787,16 +3870,16 @@
             "line": " src/Grid.js:17"
         },
         {
-            "message": "unknown tag: demo",
-            "line": " src/Grid.js:17"
-        },
-        {
             "message": "unknown tag: show",
             "line": " src/Grid.js:17"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/Input.js:6"
+            "line": " src/Icon.js:5"
+        },
+        {
+            "message": "unknown tag: show",
+            "line": " src/Icon.js:5"
         },
         {
             "message": "unknown tag: demo",
@@ -3811,10 +3894,6 @@
             "line": " src/Label.js:14"
         },
         {
-            "message": "unknown tag: demo",
-            "line": " src/Label.js:14"
-        },
-        {
             "message": "unknown tag: show",
             "line": " src/Label.js:14"
         },
@@ -3823,16 +3902,8 @@
             "line": " src/Popover.js:6"
         },
         {
-            "message": "unknown tag: demo",
-            "line": " src/Popover.js:6"
-        },
-        {
             "message": "unknown tag: show",
             "line": " src/Popover.js:6"
-        },
-        {
-            "message": "unknown tag: demo",
-            "line": " src/Popup.js:7"
         },
         {
             "message": "unknown tag: demo",
@@ -3847,7 +3918,7 @@
             "line": " src/Row.js:5"
         },
         {
-            "message": "unknown tag: demo",
+            "message": "unknown tag: show",
             "line": " src/Row.js:5"
         },
         {
@@ -3855,10 +3926,6 @@
             "line": " src/Slider.js:8"
         },
         {
-            "message": "unknown tag: demo",
-            "line": " src/Slider.js:8"
-        },
-        {
             "message": "unknown tag: show",
             "line": " src/Slider.js:8"
         },
@@ -3867,10 +3934,6 @@
             "line": " src/Star.js:16"
         },
         {
-            "message": "unknown tag: demo",
-            "line": " src/Star.js:16"
-        },
-        {
             "message": "unknown tag: show",
             "line": " src/Star.js:16"
         },
@@ -3879,10 +3942,6 @@
             "line": " src/Swipe.js:9"
         },
         {
-            "message": "unknown tag: demo",
-            "line": " src/Swipe.js:9"
-        },
-        {
             "message": "unknown tag: show",
             "line": " src/Swipe.js:9"
         },
@@ -3891,10 +3950,6 @@
             "line": " src/Switch.js:6"
         },
         {
-            "message": "unknown tag: demo",
-            "line": " src/Switch.js:6"
-        },
-        {
             "message": "unknown tag: show",
             "line": " src/Switch.js:6"
         },
@@ -3903,10 +3958,6 @@
             "line": " src/Tab.js:6"
         },
         {
-            "message": "unknown tag: demo",
-            "line": " src/Tab.js:6"
-        },
-        {
             "message": "unknown tag: show",
             "line": " src/Tab.js:6"
         },
@@ -3915,10 +3966,6 @@
             "line": " src/TableView.js:6"
         },
         {
-            "message": "unknown tag: demo",
-            "line": " src/TableView.js:6"
-        },
-        {
             "message": "unknown tag: show",
             "line": " src/TableView.js:6"
         },
@@ -3927,10 +3974,6 @@
             "line": " src/Tabset.js:17"
         },
         {
-            "message": "unknown tag: demo",
-            "line": " src/Tabset.js:17"
-        },
-        {
             "message": "unknown tag: show",
             "line": " src/Tabset.js:17"
         },
@@ -3939,24 +3982,16 @@
             "line": " src/Textarea.js:17"
         },
         {
-            "message": "unknown tag: demo",
-            "line": " src/Textarea.js:17"
-        },
-        {
             "message": "unknown tag: show",
             "line": " src/Textarea.js:17"
-        },
-        {
-            "message": "unknown tag: show",
-            "line": " src/Toast.js:7"
         },
         {
             "message": "unknown tag: demo",
             "line": " src/Toast.js:7"
         },
         {
-            "message": "unknown tag: demo",
-            "line": " src/Whisper.js:17"
+            "message": "unknown tag: show",
+            "line": " src/Toast.js:7"
         },
         {
             "message": "unknown tag: demo",
@@ -4008,11 +4043,11 @@
         },
         {
             "message": "Missing item type\n首次进入获取active",
-            "line": " src/Tabset.js:111"
+            "line": " src/Tabset.js:110"
         },
         {
             "message": "Missing item type\nprops再次改变，再次判断active",
-            "line": " src/Tabset.js:117"
+            "line": " src/Tabset.js:116"
         }
     ]
 }

@@ -217,6 +217,14 @@
                    
                        <li>
                             
+                           <a href="../classes/Icon.html">Icon</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
                            <a href="../classes/Badge.html">Badge</a>
                            <ul>
                                 
@@ -489,16 +497,13 @@
     
 
     
-        <div class="example">
+        <div class="example app-example">
             <h4>Example:</h4>
             <ul class="nav nav-tabs example-list">
                 
-                <li role="presentation"  class="active"  _no='0'> <a>展示</a></li>
-                
-                <li role="presentation"   _no='1'> <a>源码</a></li>
+                <li role="presentation"  class="active"  data-demo="http://172.24.107.159:8000/examples/index.html#/popover"  _no='0'> <a>展示</a></li>
                 
             </ul>
-
             <div class="example-content  showdemo ">
                 <div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from "react";
 import {Whisper, Popover} from "phoenix-ui";
@@ -559,69 +564,14 @@ export default class popover extends Component{
         );
     }
 }</code></pre>
-</div><div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from "react";
-import {Whisper, Popover} from "phoenix-ui";
-import Code from "./code/code";
-
-export default class popover extends Component{
-
-    constructor(props,context){
-        super(props,context); 
-    }
-
-    onChange(){
-        alert("气泡出现消失时额外的执行函数"); 
-    }
-
-    render(){
-        const popover = ( // 可以通过style自定义位置
-            &lt;Popover&gt;
-                &lt;ul className="ph-popover-list"&gt;
-                    &lt;li className="ph-popover-item"&gt;未上线单店&lt;/li&gt;
-                    &lt;li className="ph-popover-item"&gt;未上线连锁店&lt;/li&gt;
-                &lt;/ul&gt;
-            &lt;/Popover&gt;
-        );
-
-        return(
-            &lt;div&gt;
-                &lt;h2 className="comp-title"&gt;Whisper/Popover&lt;/h2&gt;
-                &lt;h3 className="comp-type"&gt;
-                    target 显示的目标物&lt;br/&gt;
-                    placement(默认bottom) 气泡出现时相对点击对象的位置
-                &lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;Whisper target={popover}&gt;Bottom&lt;/Whisper&gt;
-                    &lt;Whisper placement="top" target={popover}&gt;Top&lt;/Whisper&gt;
-                    &lt;Whisper placement="right" target={popover}&gt;Right&lt;/Whisper&gt;
-                    &lt;Whisper placement="left" target={popover}&gt;Left&lt;/Whisper&gt;
-                    &lt;Whisper placement="top right" target={popover}&gt;Top Right&lt;/Whisper&gt;
-                    &lt;Whisper placement="top left" target={popover}&gt;Top Left&lt;/Whisper&gt;
-                    &lt;Whisper placement="bottom right" target={popover}&gt;Bottom Right&lt;/Whisper&gt;
-                    &lt;Whisper placement="bottom left" target={popover}&gt;Bottom Left&lt;/Whisper&gt;
-                &lt;/div&gt;
-                &lt;Code target="popover-placement" /&gt;
-
-                &lt;h3 className="comp-type"&gt;distance(默认15) 气泡想对点击对象的距离&lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;Whisper target={popover} distance={10}&gt;10&lt;/Whisper&gt;
-                    &lt;Whisper target={popover} distance={20}&gt;20&lt;/Whisper&gt;
-                &lt;/div&gt;
-                &lt;Code target="popover-distance" /&gt;
-
-                &lt;h3 className="comp-type"&gt;onChange 气泡显隐时额外的回调函数&lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;Whisper onChange={this.onChange} target={popover}&gt;popover&lt;/Whisper&gt;
-                &lt;/div&gt;
-                &lt;Code target="popover-onchange" /&gt;
-            &lt;/div&gt;
-        );
-    }
-}</code></pre>
 </div>
             </div>
-             <button class="btn btn-info btn-viewDemo" type="button">查看示例</button>
-            <button class="btn btn-info btn-editDemo" type="button">编辑代码</button>
+            <div class="btn-method-box">
+                <button class="btn btn-info btn-viewDemo" type="button">查看示例</button>
+                <button class="btn btn-info btn-editDemo" type="button">编辑代码</button>
+            </div>
+
+            <div class="device"></div>
         </div>
     
 </div>
@@ -660,7 +610,7 @@ export default class popover extends Component{
             
         
         
-        <a href="../files/src_Popover.js.html#l36"><code>src&#x2F;Popover.js:36</code></a>
+        <a href="../files/src_Popover.js.html#l35"><code>src&#x2F;Popover.js:35</code></a>
         
         </p>
 
@@ -708,7 +658,7 @@ export default class popover extends Component{
             
         
         
-        <a href="../files/src_Popover.js.html#l43"><code>src&#x2F;Popover.js:43</code></a>
+        <a href="../files/src_Popover.js.html#l42"><code>src&#x2F;Popover.js:42</code></a>
         
         </p>
 

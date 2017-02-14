@@ -217,6 +217,14 @@
                    
                        <li>
                             
+                           <a href="../classes/Icon.html">Icon</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
                            <a href="../classes/Badge.html">Badge</a>
                            <ul>
                                 
@@ -502,16 +510,13 @@
     
 
     
-        <div class="example">
+        <div class="example app-example">
             <h4>Example:</h4>
             <ul class="nav nav-tabs example-list">
                 
-                <li role="presentation"  class="active"  _no='0'> <a>展示</a></li>
-                
-                <li role="presentation"   _no='1'> <a>源码</a></li>
+                <li role="presentation"  class="active"  data-demo="http://172.24.107.159:8000/examples/index.html#/animate"  _no='0'> <a>展示</a></li>
                 
             </ul>
-
             <div class="example-content  showdemo ">
                 <div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from "react";
 import {Row,Col,Input,Button,Animate} from "phoenix-ui";
@@ -584,81 +589,14 @@ export default class animate extends Component{
         );
     }
 }</code></pre>
-</div><div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from "react";
-import {Row,Col,Input,Button,Animate} from "phoenix-ui";
-import Code from "./code/code";
-
-export default class animate extends Component{
-
-    constructor(props,context){
-        super(props,context); 
-
-        this.state = {
-            item: "",
-            list: ["看一本书","睡8个小时"]
-        }
-    }
-
-    setValue(key,e){
-        let o ={};
-        o[key || e.target.name] = e.target.value;
-        this.setState(o);
-    }
-
-    addTodo(){
-        let newList = this.state.list.concat(this.state.item);
-
-        this.setState({
-            item: "",
-            list: newList
-        });
-    }
-
-    removeTodo(index){
-        let newList = this.state.list.slice();
-
-        newList.splice(index,1);
-        this.setState({
-            list: newList
-        });
-    }
-
-    renderList(){
-        const items = this.state.list.map((item,index)=&gt;{
-            return &lt;div key={index} className="animated" onClick={::this.removeTodo.bind(this,index)}&gt;{item}&lt;/div&gt;;
-        });
-        return items;
-    }
-
-    render(){
-
-        return(
-            &lt;div&gt;
-                &lt;h2 className="comp-title"&gt;Animate&lt;/h2&gt;
-                &lt;h3 className="comp-type"&gt;Todo demo&lt;/h3&gt;
-                &lt;div className="content ph-row-no-padding todo-demo"&gt;
-                    &lt;Row&gt;
-                        &lt;Col className="ph-col-80"&gt;
-                            &lt;Input type="text" value={this.state.item} onChange={::this.setValue.bind(this,"item")} /&gt;
-                        &lt;/Col&gt;
-                        &lt;Col&gt;
-                            &lt;Button block phSize="lg" phStyle="primary" onClick={::this.addTodo} &gt;Add&lt;/Button&gt;
-                        &lt;/Col&gt;
-                    &lt;/Row&gt;
-                    &lt;Animate transitionName="fade" className="animate-field"&gt;
-                        {this.renderList()}
-                    &lt;/Animate&gt;
-                &lt;/div&gt;
-                &lt;br/&gt;
-                &lt;Code target="animate" /&gt;             
-            &lt;/div&gt;
-        );
-    }
-}</code></pre>
 </div>
             </div>
-             <button class="btn btn-info btn-viewDemo" type="button">查看示例</button>
-            <button class="btn btn-info btn-editDemo" type="button">编辑代码</button>
+            <div class="btn-method-box">
+                <button class="btn btn-info btn-viewDemo" type="button">查看示例</button>
+                <button class="btn btn-info btn-editDemo" type="button">编辑代码</button>
+            </div>
+
+            <div class="device"></div>
         </div>
     
 </div>
@@ -697,7 +635,7 @@ export default class animate extends Component{
             
         
         
-        <a href="../files/src_Animate.js.html#l49"><code>src&#x2F;Animate.js:49</code></a>
+        <a href="../files/src_Animate.js.html#l48"><code>src&#x2F;Animate.js:48</code></a>
         
         </p>
 
@@ -742,7 +680,7 @@ export default class animate extends Component{
             
         
         
-        <a href="../files/src_Animate.js.html#l55"><code>src&#x2F;Animate.js:55</code></a>
+        <a href="../files/src_Animate.js.html#l54"><code>src&#x2F;Animate.js:54</code></a>
         
         </p>
 
@@ -787,7 +725,7 @@ export default class animate extends Component{
             
         
         
-        <a href="../files/src_Animate.js.html#l42"><code>src&#x2F;Animate.js:42</code></a>
+        <a href="../files/src_Animate.js.html#l41"><code>src&#x2F;Animate.js:41</code></a>
         
         </p>
 

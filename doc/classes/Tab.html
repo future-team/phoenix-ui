@@ -217,6 +217,14 @@
                    
                        <li>
                             
+                           <a href="../classes/Icon.html">Icon</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
                            <a href="../classes/Badge.html">Badge</a>
                            <ul>
                                 
@@ -505,16 +513,13 @@
     
 
     
-        <div class="example">
+        <div class="example app-example">
             <h4>Example:</h4>
             <ul class="nav nav-tabs example-list">
                 
-                <li role="presentation"  class="active"  _no='0'> <a>展示</a></li>
-                
-                <li role="presentation"   _no='1'> <a>源码</a></li>
+                <li role="presentation"  class="active"  data-demo="http://172.24.107.159:8000/examples/index.html#/tab"  _no='0'> <a>展示</a></li>
                 
             </ul>
-
             <div class="example-content  showdemo ">
                 <div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from "react";
 import {Tabset,Tab} from "phoenix-ui";
@@ -627,121 +632,14 @@ export default class tab extends Component{
         );
     }
 }</code></pre>
-</div><div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from "react";
-import {Tabset,Tab} from "phoenix-ui";
-import Code from "./code/code";
-
-export default class tab extends Component{
-
-    constructor(props,context){
-        super(props,context);
-    }
-
-    onChange(index){
-        alert("测试tabset回调", "index: " + index);
-    }
-
-    onTabChange(index){
-        alert("测试tab回调", "index: " + index);
-    }
-
-    onTabClickHandle(){
-        alert("测试自定义tab点击事件");
-    }
-
-    render(){
-        return(
-           &lt;div&gt;
-                &lt;h2 className="comp-title"&gt;Tabset/Tab&lt;/h2&gt;
-                &lt;h3 className="comp-type"&gt;&lt;strong&gt;Tabset&lt;/strong&gt;&lt;/h3&gt;
-                &lt;h3 className="comp-type"&gt;activeIndex(默认0) 默认选中选项卡的索引值&lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;Tabset activeIndex={1}&gt;
-                        &lt;Tab heading="标题1"&gt;
-                            横向内容1
-                        &lt;/Tab&gt;
-                        &lt;Tab heading="标题2"&gt;
-                            横向内容2
-                        &lt;/Tab&gt;
-                    &lt;/Tabset&gt;
-                &lt;/div&gt;
-                &lt;Code target="tabset-activeindex" /&gt;
-
-                &lt;h3 className="comp-type"&gt;vertical(默认false) 设置选项卡竖排&lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;Tabset vertical&gt;
-                        &lt;Tab heading="标题1"&gt;
-                            竖向内容1
-                        &lt;/Tab&gt;
-                        &lt;Tab heading="标题2"&gt;
-                            竖向内容2
-                        &lt;/Tab&gt;
-                    &lt;/Tabset&gt;
-                &lt;/div&gt;
-                &lt;br/&gt;
-                &lt;Code target="tabset-vertical" /&gt;
-
-                &lt;h3 className="comp-type"&gt;width(默认20) 设置vertical之后标题的占比&lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;Tabset vertical width={30}&gt;
-                        &lt;Tab heading="标题1"&gt;
-                            竖向内容1
-                        &lt;/Tab&gt;
-                        &lt;Tab heading="标题2"&gt;
-                            竖向内容2
-                        &lt;/Tab&gt;
-                    &lt;/Tabset&gt;
-                &lt;/div&gt;
-                &lt;br/&gt;
-                &lt;Code target="tabset-width" /&gt;
-
-                &lt;h3 className="comp-type"&gt;onChange 点击选项卡的回调函数&lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;Tabset onChange={::this.onChange}&gt;
-                        &lt;Tab heading="标题1"&gt;
-                            横向内容1
-                        &lt;/Tab&gt;
-                        &lt;Tab heading="标题2"&gt;
-                            横向内容2
-                        &lt;/Tab&gt;
-                    &lt;/Tabset&gt;
-                &lt;/div&gt;
-                &lt;Code target="tabset-onchange" /&gt;
-
-                &lt;h3 className="comp-type"&gt;&lt;strong&gt;Tab&lt;/strong&gt;&lt;/h3&gt;
-                &lt;h3 className="comp-type"&gt;heading(默认"tab") 选项卡的标题内容&lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;Tabset&gt;
-                        &lt;Tab heading="Tab heading 1"&gt;
-                            横向内容1
-                        &lt;/Tab&gt;
-                        &lt;Tab heading="Tab heading 2"&gt;
-                            横向内容2
-                        &lt;/Tab&gt;
-                    &lt;/Tabset&gt;
-                &lt;/div&gt;
-                &lt;Code target="tab-heading" /&gt;
-
-                &lt;h3 className="comp-type"&gt;onChange 点击单个选项卡的回调函数&lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;Tabset&gt;
-                        &lt;Tab heading="标题1" onChange={::this.onTabChange}&gt;
-                            横向内容1
-                        &lt;/Tab&gt;
-                        &lt;Tab heading="标题2"&gt;
-                            横向内容2
-                        &lt;/Tab&gt;
-                    &lt;/Tabset&gt;
-                &lt;/div&gt;
-                &lt;Code target="tab-onchange" /&gt;
-           &lt;/div&gt;
-        );
-    }
-}</code></pre>
 </div>
             </div>
-             <button class="btn btn-info btn-viewDemo" type="button">查看示例</button>
-            <button class="btn btn-info btn-editDemo" type="button">编辑代码</button>
+            <div class="btn-method-box">
+                <button class="btn btn-info btn-viewDemo" type="button">查看示例</button>
+                <button class="btn btn-info btn-editDemo" type="button">编辑代码</button>
+            </div>
+
+            <div class="device"></div>
         </div>
     
 </div>
@@ -789,7 +687,7 @@ export default class tab extends Component{
             
         
         
-        <a href="../files/src_Tab.js.html#l48"><code>src&#x2F;Tab.js:48</code></a>
+        <a href="../files/src_Tab.js.html#l47"><code>src&#x2F;Tab.js:47</code></a>
         
         </p>
 
@@ -843,7 +741,7 @@ export default class tab extends Component{
             
         
         
-        <a href="../files/src_Tab.js.html#l41"><code>src&#x2F;Tab.js:41</code></a>
+        <a href="../files/src_Tab.js.html#l40"><code>src&#x2F;Tab.js:40</code></a>
         
         </p>
 

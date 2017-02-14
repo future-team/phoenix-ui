@@ -11,6 +11,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Drag",
         "FormGroup",
         "Grid",
+        "Icon",
         "Input",
         "Label",
         "Popover",
@@ -116,6 +117,9 @@ YUI.add("yuidoc-meta", function(Y) {
             "name": "标签组件",
             "description": "<h5>标签组件，主要包括组件:</h5>\n<strong><a href='../classes/Label.html'>Label 标签</a></strong><br/>\n<strong><a href='../classes/Badge.html'>Badge 徽章</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
             "classes": [
+                {
+                    "name": "Icon"
+                },
                 {
                     "name": "Badge"
                 },

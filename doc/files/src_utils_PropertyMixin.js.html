@@ -217,6 +217,14 @@
                    
                        <li>
                             
+                           <a href="../classes/Icon.html">Icon</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
                            <a href="../classes/Badge.html">Badge</a>
                            <ul>
                                 
@@ -368,6 +376,9 @@ export default obj=&gt;{
         },
         phStyle:function(val){
             return getVal([&#x27;primary&#x27;,&#x27;info&#x27;,&#x27;success&#x27;,&#x27;error&#x27;,&#x27;warning&#x27;,&#x27;danger&#x27;,&#x27;link&#x27;,&#x27;gray&#x27;,&#x27;light&#x27;,&#x27;positive&#x27;,&#x27;calm&#x27;,&#x27;balanced&#x27;,&#x27;energized&#x27;,&#x27;assertive&#x27;,&#x27;lightbrown&#x27;,&#x27;lightgray&#x27;],val);
+        },
+        phIcon: function(val){
+            return getVal([&#x27;search&#x27;,&#x27;home&#x27;],val);
         },
         status:val=&gt;{
             getVal([&#x27;diabled&#x27;,&#x27;active&#x27;,&#x27;enable&#x27;],val)

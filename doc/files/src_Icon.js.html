@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui" />
-    <title>src/Toast.js - phoenix-ui</title>
+    <title>src/Icon.js - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css">
@@ -345,107 +345,74 @@
             <div id="docs-main">
                 <div class="content">
                     <div class="page-header">
-    <h1>src/Toast.js <small>File</small></h1>
+    <h1>src/Icon.js <small>File</small></h1>
 </div>
 
 <div class="file">
     <pre class="prettyprint linenums" id='src_code'>
 import React,{PropTypes} from &#x27;react&#x27;;
-import ReactDOM from &#x27;react-dom&#x27;;
 import Component from &#x27;./utils/Component&#x27;;
 import classnames from &#x27;classnames&#x27;;
-import {setPhoenixPrefix} from &#x27;./utils/Tool&#x27;;
 
 /**
- * 飘字组件&lt;br/&gt;
- * - 由于飘字的使用范围可预估, 为方便使用在原组件的基础上更进一步改为函数式的使用方式。
- * - 使用: &#x60;Toast.info(message, duration, callback)&#x60;
+ * Icon&lt;br/&gt;
+ * - 主要是用来提供不同类型的符号, 可选[search]。
+ * - 支持自定义className，事件等操作。
  *
- * 示例: &lt;br/&gt;
- * - 显示普通飘字, 如:&lt;br/&gt;
- * &#x60;Toast.info(&#x27;注册成功!&#x27;, 1000, ()=&gt;{console.log(&#x27;飘字消失时执行的回调函数&#x27;);})&#x60;
+ * 主要属性和接口：
+ * - phStyle:徽章颜色, 默认primary &lt;br/&gt;
+ * 如：&#x60;&lt;Badge phStyle=&quot;info&quot;&gt;惠&lt;/Badge&gt;&#x60;
  *
- * @class Toast
- * @module 操作类组件
+ * @class Icon
+ * @module 标签组件
  * @extends Component
  * @constructor
- * @demo toast|toast.js
+ * @since 0.1.0
+ * @demo icon|icon.js {展示}
  * @show true
  * */
 
-class Toast extends Component{
-
-    static propTypes = {};
-
-    static defaultProps = {
-        classPrefix:&#x27;toast&#x27;,
-        componentTag:&#x27;div&#x27;,
-        classMapping : {}
+export default class Badge extends Component{
+    static propTypes = {
+        /**
+         * 样式前缀
+         * @property classPrefix
+         * @type String
+         * @default &#x27;badge&#x27;
+         * */
+        classPrefix: PropTypes.string,
+        /**
+         * icon符号类型[search]
+         * @property phIcon
+         * @type string
+         * @default &#x27;&#x27;
+         **/
+        phIcon:PropTypes.string
     };
 
-    constructor(props, context) {
-        super(props, context);
+    static defaultProps ={
+        phIcon: &#x27;&#x27;,
+        classPrefix:&#x27;icon&#x27;,
+        classMapping : {
+            &#x27;search&#x27;:&#x27;search&#x27;,
+            &#x27;home&#x27;: &#x27;home&#x27;
+        }
+    };
+
+    constructor(props,context){
+        super(props,context);
     }
 
     render(){
-        let {componentTag:Component} = this.props;
-
-        return (
-            &lt;Component {...this.props} className={classnames(
-                this.getProperty(true),
-            )}&gt;
-                &lt;div className={setPhoenixPrefix(&quot;toast-shadow&quot;)}&gt;&lt;/div&gt;
-                &lt;div className={setPhoenixPrefix(&quot;toast-main&quot;)}&gt;
-                    &lt;div className={setPhoenixPrefix(&quot;toast-content&quot;)}&gt;
-                        {this.props.children}
-                    &lt;/div&gt;
-                &lt;/div&gt;
-            &lt;/Component&gt;
-        );
-    }
-
-}
-
-let _layer = document.createElement(&#x27;div&#x27;),
-    timer  = null,
-    visible = false;
-
-function renderLayer(content){
-    return &lt;Toast&gt;{content}&lt;/Toast&gt;;
-}
-
-function _renderLayer(layerElement, duration, callback){
-    visible = true;
-
-    ReactDOM.render(layerElement, _layer);
-    document.body.appendChild(_layer);
-
-    window.addEventListener(&#x27;hashchange&#x27;, _unrenderLayer, false);
-
-    timer = setTimeout(function(){
-        visible = false;
-
-        _unrenderLayer();
-        callback();
-    }, duration);
-}
-
-function _unrenderLayer(){
-    ReactDOM.unmountComponentAtNode(_layer);
-    if(visible) document.body.removeChild(_layer);
-
-    window.removeEventListener(&#x27;hashchange&#x27;, _unrenderLayer, false);
-    clearTimeout(timer);
-}
-
-export default {
-    info(content, duration, callback){
-        let layerElement = renderLayer(content);
-        _renderLayer(layerElement, duration, callback);
-    },
-    remove(){
-        _unrenderLayer();
-        clearTimeout(timer);
+        return(
+            &lt;span {...this.props} className={classnames(
+                &#x27;iconfont&#x27;,
+                this.getProperty(true,false),
+                this.props.className
+           )}&gt;
+               {this.props.children}
+           &lt;/span&gt;
+        )
     }
 }
     </pre>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui" />
-    <title>Row - phoenix-ui</title>
+    <title>Icon - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css">
@@ -345,25 +345,18 @@
             <div id="docs-main">
                 <div class="content">
                     <div class="page-header">
-    <h1>Row</h1>
+    <h1>Icon</h1>
 </div>
  <div class="well well-small sign-left3">
-      <div class="stdoc-code"><p>行组件<br/></p>
+      <div class="stdoc-code"><p>Icon<br/></p>
 <ul>
-<li>搭配Col列组件可实现自适应宽度布局。</li>
-<li>可通过align定义项目在交叉轴上的对齐方式, 可选top、bottom、center、baseline、stretch。</li>
+<li>主要是用来提供不同类型的符号, 可选[search]。</li>
+<li>支持自定义className，事件等操作。</li>
 </ul>
 <p>主要属性和接口：</p>
 <ul>
-<li>align:项目在交叉轴上的对齐方式, 默认stretch<pre><code class="lang-code">  &lt;Row align="baseline"&gt;
-      &lt;Col&gt;
-          &lt;div className=&#39;col-demo&#39;&gt;baseline&lt;/div&gt;
-      &lt;/Col&gt;
-      &lt;Col&gt;
-          &lt;div className=&#39;col-demo&#39;&gt;baseline&lt;br /&gt;baseline&lt;/div&gt;
-      &lt;/Col&gt;
-  &lt;/Row&gt;</code></pre>
-</li>
+<li>phStyle:徽章颜色, 默认primary <br/>
+如：<code>&lt;Badge phStyle="info"&gt;惠&lt;/Badge&gt;</code></li>
 </ul>
 </div>
  </div>
@@ -382,14 +375,14 @@
                     <ul class="index-list properties extends">
                         
                             <li class="index-item property">
-                                <a href="#" data-tabid="#property" data-anchor="#property_align" data-tablink="align">align</a>
+                                <a href="#" data-tabid="#property" data-anchor="#property_classPrefix" data-tablink="classPrefix">classPrefix</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item property">
-                                <a href="#" data-tabid="#property" data-anchor="#property_classPrefix" data-tablink="classPrefix">classPrefix</a>
+                                <a href="#" data-tabid="#property" data-anchor="#property_phIcon" data-tablink="phIcon">phIcon</a>
 
                                 
                                 
@@ -430,13 +423,13 @@
 
             
                 <div class="foundat">
-                    Defined in: <a href="../files/src_Row.js.html#l5"><code>src&#x2F;Row.js:5</code></a>
+                    Defined in: <a href="../files/src_Icon.js.html#l5"><code>src&#x2F;Icon.js:5</code></a>
                 </div>
             
 
             
                 
-                    Module: <a href="../modules/布局组件.html">布局组件</a>
+                    Module: <a href="../modules/标签组件.html">标签组件</a>
                 
             
 
@@ -449,10 +442,10 @@
             
                 <div class="constructor">
                     <h2>Constructor</h2>
-                    <div id="method_Row" class="method item">
-    <h3 class="name">Row</h3>
+                    <div id="method_Icon" class="method item">
+    <h3 class="name">Icon</h3>
     <code>
-    Row
+    Icon
     
         <span class="paren">()</span>
     
@@ -483,7 +476,7 @@
             
         
         
-        <a href="../files/src_Row.js.html#l5"><code>src&#x2F;Row.js:5</code></a>
+        <a href="../files/src_Icon.js.html#l5"><code>src&#x2F;Icon.js:5</code></a>
         
         </p>
 
@@ -508,162 +501,26 @@
             <h4>Example:</h4>
             <ul class="nav nav-tabs example-list">
                 
-                <li role="presentation"  class="active"  data-demo="http://172.24.107.159:8000/examples/index.html#/grid"  _no='0'> <a>展示</a></li>
+                <li role="presentation"  class="active"  data-demo="http://172.24.107.159:8000/examples/index.html#/icon"  _no='0'> <a>展示</a></li>
                 
             </ul>
             <div class="example-content  showdemo ">
                 <div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from "react";
-import {Grid,Row,Col} from "phoenix-ui";
+import {Icon} from "phoenix-ui";
 import Code from "./code/code";
 
-export default class grid extends Component {
-
+export default class icon extends Component{
     render(){
         return(
             &lt;div&gt;
-                &lt;h2 className="comp-title"&gt;Grid&lt;/h2&gt;
-                &lt;h3 className="comp-type"&gt;&lt;strong&gt;Row&lt;/strong&gt;&lt;/h3&gt;
-                &lt;h3 className="comp-type"&gt;align(默认stretch) 容器属性&lt;/h3&gt;
-                &lt;h3 className="comp-tip"&gt;stretch&lt;/h3&gt;
-                &lt;Grid className="content"&gt;
-                    &lt;Row align="stretch"&gt;
-                        &lt;Col&gt;
-                            &lt;div className="col-demo"&gt;stretch&lt;/div&gt;
-                        &lt;/Col&gt;
-                        &lt;Col&gt;
-                            &lt;div className="col-demo"&gt;stretch&lt;br /&gt;baseline&lt;/div&gt;
-                        &lt;/Col&gt;
-                        &lt;Col&gt;
-                            &lt;div className="col-demo"&gt;stretch&lt;br /&gt;stretch&lt;br /&gt;stretch&lt;/div&gt;
-                        &lt;/Col&gt;
-                    &lt;/Row&gt;
-                &lt;/Grid&gt;
-                &lt;h3 className="comp-tip"&gt;baseline&lt;/h3&gt;
-                &lt;Grid className="content"&gt;
-                    &lt;Row align="baseline"&gt;
-                        &lt;Col&gt;
-                            &lt;div className="col-demo"&gt;baseline&lt;/div&gt;
-                        &lt;/Col&gt;
-                        &lt;Col&gt;
-                            &lt;div className="col-demo"&gt;baseline&lt;br /&gt;baseline&lt;/div&gt;
-                        &lt;/Col&gt;
-                        &lt;Col&gt;
-                            &lt;div className="col-demo"&gt;baseline&lt;br /&gt;baseline&lt;br /&gt;baseline&lt;/div&gt;
-                        &lt;/Col&gt;
-                    &lt;/Row&gt;
-                &lt;/Grid&gt;
-                &lt;h3 className="comp-tip"&gt;top&lt;/h3&gt;
-                &lt;Grid className="content"&gt;
-                    &lt;Row align="top"&gt;
-                        &lt;Col&gt;
-                            &lt;div className="col-demo"&gt;top&lt;/div&gt;
-                        &lt;/Col&gt;
-                        &lt;Col&gt;
-                            &lt;div className="col-demo"&gt;top&lt;br /&gt;top&lt;/div&gt;
-                        &lt;/Col&gt;
-                        &lt;Col&gt;
-                            &lt;div className="col-demo"&gt;top&lt;br /&gt;top&lt;br /&gt;top&lt;/div&gt;
-                        &lt;/Col&gt;
-                    &lt;/Row&gt;
-                &lt;/Grid&gt;
-                &lt;h3 className="comp-tip"&gt;bottom&lt;/h3&gt;
-                &lt;Grid className="content"&gt;
-                    &lt;Row align="bottom"&gt;
-                        &lt;Col&gt;
-                            &lt;div className="col-demo"&gt;bottom&lt;/div&gt;
-                        &lt;/Col&gt;
-                        &lt;Col&gt;
-                            &lt;div className="col-demo"&gt;bottom&lt;br /&gt;bottom&lt;/div&gt;
-                        &lt;/Col&gt;
-                        &lt;Col&gt;
-                            &lt;div className="col-demo"&gt;bottom&lt;br /&gt;bottom&lt;br /&gt;bottom&lt;/div&gt;
-                        &lt;/Col&gt;
-                    &lt;/Row&gt;
-                &lt;/Grid&gt;
-                &lt;h3 className="comp-tip"&gt;center&lt;/h3&gt;
-                &lt;Grid className="content"&gt;
-                    &lt;Row align="center"&gt;
-                        &lt;Col&gt;
-                            &lt;div className="col-demo"&gt;center&lt;/div&gt;
-                        &lt;/Col&gt;
-                        &lt;Col&gt;
-                            &lt;div className="col-demo"&gt;center&lt;br /&gt;center&lt;/div&gt;
-                        &lt;/Col&gt;
-                        &lt;Col&gt;
-                            &lt;div className="col-demo"&gt;center&lt;br /&gt;center&lt;br /&gt;center&lt;/div&gt;
-                        &lt;/Col&gt;
-                    &lt;/Row&gt;
-                &lt;/Grid&gt;
-                &lt;Code target="row-align" /&gt;
-
-                &lt;h3 className="comp-type"&gt;&lt;strong&gt;Col&lt;/strong&gt;&lt;/h3&gt;
-                &lt;h3 className="comp-type"&gt;align(默认auto) 项目属性&lt;/h3&gt;
-                &lt;h3 className="comp-tip"&gt;auto&lt;/h3&gt;
-                &lt;Grid className="content"&gt;
-                    &lt;Row&gt;
-                        &lt;Col&gt;
-                            &lt;div className="col-demo"&gt;auto&lt;/div&gt;
-                        &lt;/Col&gt;
-                        &lt;Col&gt;
-                            &lt;div className="col-demo"&gt;auto auto&lt;/div&gt;
-                        &lt;/Col&gt;
-                        &lt;Col&gt;
-                            &lt;div className="col-demo"&gt;auto auto auto auto&lt;/div&gt;
-                        &lt;/Col&gt;
-                    &lt;/Row&gt;
-                &lt;/Grid&gt;
-                &lt;h3 className="comp-tip"&gt;top/center/bottom&lt;/h3&gt;
-                &lt;Grid className="content"&gt;
-                    &lt;Row&gt;
-                        &lt;Col align="top"&gt;
-                            &lt;div className="col-demo"&gt;top&lt;/div&gt;
-                        &lt;/Col&gt;
-                        &lt;Col align="center"&gt;
-                            &lt;div className="col-demo"&gt;center&lt;/div&gt;
-                        &lt;/Col&gt;
-                        &lt;Col align="bottom"&gt;
-                            &lt;div className="col-demo"&gt;bottom&lt;/div&gt;
-                        &lt;/Col&gt;
-                        &lt;Col&gt;
-                            &lt;div className="col-demo"&gt;top&lt;br /&gt;center&lt;br /&gt;bottom&lt;/div&gt;
-                        &lt;/Col&gt;
-                    &lt;/Row&gt;
-                &lt;/Grid&gt;
-                &lt;Code target="col-align" /&gt;
-
-                &lt;h3 className="comp-type"&gt;width 设置项目宽度百分比&lt;/h3&gt;
-                &lt;Grid className="content"&gt;
-                    &lt;Row&gt;
-                        &lt;Col width="15"&gt;
-                            &lt;div className="col-demo"&gt;15&lt;/div&gt;
-                        &lt;/Col&gt;
-                        &lt;Col width="20"&gt;
-                            &lt;div className="col-demo"&gt;20&lt;/div&gt;
-                        &lt;/Col&gt;
-                        &lt;Col width="25"&gt;
-                            &lt;div className="col-demo"&gt;25&lt;/div&gt;
-                        &lt;/Col&gt;
-                        &lt;Col width="40"&gt;
-                            &lt;div className="col-demo"&gt;40&lt;br /&gt;40&lt;br /&gt;40&lt;/div&gt;
-                        &lt;/Col&gt;
-                    &lt;/Row&gt;
-                &lt;/Grid&gt;
-                &lt;Code target="col-width" /&gt;
-
-                &lt;h3 className="comp-type"&gt;offset(即margin-left) 偏移值&lt;/h3&gt;
-                &lt;Grid className="content"&gt;
-                    &lt;Row&gt;
-                        &lt;Col width="20" offset="10"&gt;
-                            &lt;div className="col-demo"&gt;10&lt;/div&gt;
-                        &lt;/Col&gt;
-                        &lt;Col width="40" offset="10" &gt;
-                            &lt;div className="col-demo"&gt;10&lt;br /&gt;10&lt;br /&gt;10&lt;/div&gt;
-                        &lt;/Col&gt;
-                    &lt;/Row&gt;
-                &lt;/Grid&gt;
-                &lt;Code target="col-offset" /&gt;
+                &lt;h2 className="comp-title"&gt;Icon&lt;/h2&gt;
+                &lt;h3 className="comp-type"&gt;phType 符号类型&lt;/h3&gt;
+                &lt;div className="content"&gt;
+                    &lt;Icon phIcon="search" /&gt;
+                &lt;/div&gt;
+                &lt;Code target="badge-phstyle" /&gt;
             &lt;/div&gt;
-        )
+        );
     }
 }</code></pre>
 </div>
@@ -689,51 +546,6 @@ export default class grid extends Component {
                 <h2 class="off-left">属性</h2>
 
                 
-                    <div id="property_align" class="property item">
-    <h3 class="name"><code>align</code></h3>
-    <span class="type">String</span>
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p class="foundat">
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_Row.js.html#l42"><code>src&#x2F;Row.js:42</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <div class="stdoc-code"><p>竖直方向的排列是靠上、居中、靠下、拉伸至父容器最大高度还是基于text的baseline对齐</p>
-</div>
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
                     <div id="property_classPrefix" class="property item">
     <h3 class="name"><code>classPrefix</code></h3>
     <span class="type">String</span>
@@ -757,7 +569,7 @@ export default class grid extends Component {
             
         
         
-        <a href="../files/src_Row.js.html#l35"><code>src&#x2F;Row.js:35</code></a>
+        <a href="../files/src_Icon.js.html#l25"><code>src&#x2F;Icon.js:25</code></a>
         
         </p>
 
@@ -773,7 +585,55 @@ export default class grid extends Component {
 
     
         <p><strong>Default:</strong></p>
-         <code> &#x27;row&#x27;</code>
+         <code> &#x27;badge&#x27;</code>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_phIcon" class="property item">
+    <h3 class="name"><code>phIcon</code></h3>
+    <span class="type">String</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_Icon.js.html#l32"><code>src&#x2F;Icon.js:32</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>icon符号类型[search]</p>
+</div>
+    </div>
+
+    
+        <p><strong>Default:</strong></p>
+         <code> &#x27;&#x27;</code>
     
 
     

@@ -508,7 +508,7 @@ kbd .cmd {
     border-radius: 3px;
     width:100%;
     height:50px;
-    max-height: 300px;
+    /*max-height: 700px;*/
     background: url(loading.gif) no-repeat center center;
 }
 .example-show.demo-loaded  {
@@ -746,4 +746,49 @@ body .apidocs .tab-content #property .item:hover h3,body .apidocs .tab-content #
     h1{
         font-size: 20px;
     }
+}
+@media screen and (min-width: 768px){
+    .app-example .device-box{
+        position: relative;
+    }
+    .app-example .device {
+        display: block;
+        position: absolute;
+        top: 78px;
+        left: 16px;
+        width: 395px;
+        height: 813px;
+        margin-left: -20px;
+        font-family: "Helvetica Neue",sans-serif;
+        background-image: url(device-sprite.png);
+        background-repeat: no-repeat;
+        background-position: -395px 0;
+        background-size: 300%;
+        -webkit-transition: background-image .1s linear;
+        -moz-transition: background-image .1s linear;
+        transition: background-image .1s linear;
+    }
+    .app-example .device-content,.app-example .example-show{
+        background-color: #efeff4;
+        position: absolute;
+        top: 195px;
+        left: 33px;
+        width: 321px;
+        height: 569px;
+        max-height: 569px;
+        overflow: hidden;
+        font-size: 17px;
+        line-height: 21px;
+        z-index: 2;
+    }
+    .app-example .example-content .prettyprint{
+        margin-left: 395px;
+    }
+    .app-example{
+        min-height: 880px;position: relative;
+    }
+    .app-example .btn-method-box{
+        text-align: right;
+    }
+
 }

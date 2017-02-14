@@ -217,6 +217,14 @@
                    
                        <li>
                             
+                           <a href="../classes/Icon.html">Icon</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
                            <a href="../classes/Badge.html">Badge</a>
                            <ul>
                                 
@@ -523,16 +531,13 @@
     
 
     
-        <div class="example">
+        <div class="example app-example">
             <h4>Example:</h4>
             <ul class="nav nav-tabs example-list">
                 
-                <li role="presentation"  class="active"  _no='0'> <a>展示</a></li>
-                
-                <li role="presentation"   _no='1'> <a>源码</a></li>
+                <li role="presentation"  class="active"  data-demo="http://172.24.107.159:8000/examples/index.html#/accordion"  _no='0'> <a>展示</a></li>
                 
             </ul>
-
             <div class="example-content  showdemo ">
                 <div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from "react";
 import classnames from "classnames";
@@ -602,78 +607,14 @@ export default class accordion extends Component{
         );
     }
 }</code></pre>
-</div><div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from "react";
-import classnames from "classnames";
-import {Accordion} from "phoenix-ui";
-import Code from "./code/code";
-
-export default class accordion extends Component{
-
-    constructor(props,context){
-        super(props,context);
-
-        this.state = {
-            visible : false
-        }
-    }
-
-    onChange(visible){
-        this.setState({
-            visible: visible
-        });
-    }
-
-    render(){
-        return(
-            &lt;div&gt;
-                &lt;h2 className="comp-title"&gt;Accordion&lt;/h2&gt;
-                &lt;h3 className="comp-type"&gt;visible(默认false) 初始可见值&lt;/h3&gt;
-                &lt;Accordion&gt;
-                    &lt;Accordion.Header&gt;
-                        标题一-收起&lt;span className={classnames("ph-iconfont icon-chevron-more")} style={{float:"right"}}&gt;&lt;/span&gt;
-                    &lt;/Accordion.Header&gt;
-                    &lt;Accordion.Body&gt;
-                        &lt;ul className="ph-accordion-list"&gt;
-                            &lt;li className="ph-accordion-item"&gt;内容一&lt;/li&gt;
-                        &lt;/ul&gt;
-                    &lt;/Accordion.Body&gt;
-                &lt;/Accordion&gt;
-                &lt;Accordion visible={true}&gt;
-                    &lt;Accordion.Header&gt;
-                        标题二-展开&lt;span className={classnames("ph-iconfont icon-chevron-more")} style={{float:"right"}}&gt;&lt;/span&gt;
-                    &lt;/Accordion.Header&gt;
-                    &lt;Accordion.Body&gt;
-                        &lt;ul className="ph-accordion-list"&gt;
-                            &lt;li className="ph-accordion-item"&gt;内容一&lt;/li&gt;
-                            &lt;li className="ph-accordion-item"&gt;内容二&lt;/li&gt;
-                        &lt;/ul&gt;
-                    &lt;/Accordion.Body&gt;
-                &lt;/Accordion&gt;
-                &lt;br/&gt;
-                &lt;Code target="accordion-visible" /&gt;
-
-                &lt;h3 className="comp-type"&gt;onChange 展开收起的回调函数&lt;/h3&gt;
-                &lt;Accordion visible={this.state.visible} onChange={(visible)=&gt;{this.setState({visible: visible})}}&gt;
-                    &lt;Accordion.Header&gt;
-                        标题一&lt;span className={classnames("ph-iconfont icon-chevron-more", this.state.visible?"active":"")} style={{float:"right"}}&gt;&lt;/span&gt;
-                    &lt;/Accordion.Header&gt;
-                    &lt;Accordion.Body&gt;
-                        &lt;ul className="ph-accordion-list"&gt;
-                            &lt;li className="ph-accordion-item"&gt;内容一&lt;/li&gt;
-                            &lt;li className="ph-accordion-item"&gt;内容二&lt;/li&gt;
-                        &lt;/ul&gt;
-                    &lt;/Accordion.Body&gt;
-                &lt;/Accordion&gt;
-                &lt;br/&gt;
-                &lt;Code target="accordion-onchange" /&gt;
-            &lt;/div&gt;
-        );
-    }
-}</code></pre>
 </div>
             </div>
-             <button class="btn btn-info btn-viewDemo" type="button">查看示例</button>
-            <button class="btn btn-info btn-editDemo" type="button">编辑代码</button>
+            <div class="btn-method-box">
+                <button class="btn btn-info btn-viewDemo" type="button">查看示例</button>
+                <button class="btn btn-info btn-editDemo" type="button">编辑代码</button>
+            </div>
+
+            <div class="device"></div>
         </div>
     
 </div>
@@ -721,7 +662,7 @@ export default class accordion extends Component{
             
         
         
-        <a href="../files/src_Accordion.js.html#l82"><code>src&#x2F;Accordion.js:82</code></a>
+        <a href="../files/src_Accordion.js.html#l81"><code>src&#x2F;Accordion.js:81</code></a>
         
         </p>
 
@@ -775,7 +716,7 @@ export default class accordion extends Component{
             
         
         
-        <a href="../files/src_Accordion.js.html#l62"><code>src&#x2F;Accordion.js:62</code></a>
+        <a href="../files/src_Accordion.js.html#l61"><code>src&#x2F;Accordion.js:61</code></a>
         
         </p>
 
@@ -823,7 +764,7 @@ export default class accordion extends Component{
             
         
         
-        <a href="../files/src_Accordion.js.html#l69"><code>src&#x2F;Accordion.js:69</code></a>
+        <a href="../files/src_Accordion.js.html#l68"><code>src&#x2F;Accordion.js:68</code></a>
         
         </p>
 
@@ -868,7 +809,7 @@ export default class accordion extends Component{
             
         
         
-        <a href="../files/src_Accordion.js.html#l75"><code>src&#x2F;Accordion.js:75</code></a>
+        <a href="../files/src_Accordion.js.html#l74"><code>src&#x2F;Accordion.js:74</code></a>
         
         </p>
 

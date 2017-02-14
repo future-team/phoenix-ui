@@ -217,6 +217,14 @@
                    
                        <li>
                             
+                           <a href="../classes/Icon.html">Icon</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
                            <a href="../classes/Badge.html">Badge</a>
                            <ul>
                                 
@@ -541,16 +549,13 @@
     
 
     
-        <div class="example">
+        <div class="example app-example">
             <h4>Example:</h4>
             <ul class="nav nav-tabs example-list">
                 
-                <li role="presentation"  class="active"  _no='0'> <a>展示</a></li>
-                
-                <li role="presentation"   _no='1'> <a>源码</a></li>
+                <li role="presentation"  class="active"  data-demo="http://172.24.107.159:8000/examples/index.html#/button"  _no='0'> <a>展示</a></li>
                 
             </ul>
-
             <div class="example-content  showdemo ">
                 <div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from "react";
 import {Button} from "phoenix-ui";
@@ -615,73 +620,14 @@ export default class button extends Component{
         );
     }
 }</code></pre>
-</div><div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from "react";
-import {Button} from "phoenix-ui";
-import Code from "./code/code";
-
-export default class button extends Component{
-    render(){
-        return(
-            &lt;div&gt;
-                &lt;h2 className="comp-title"&gt;Button&lt;/h2&gt;
-                &lt;h3 className="comp-type"&gt;phSize(默认sm) 按钮大小&lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;Button&gt;默认sm&lt;/Button&gt;
-                    &lt;Button phSize="md"&gt;md&lt;/Button&gt;
-                    &lt;Button phSize="lg"&gt;lg&lt;/Button&gt;
-                &lt;/div&gt;
-                &lt;Code target="button-phsize" /&gt;
-
-                &lt;h3 className="comp-type"&gt;phStyle(默认primary) 按钮颜色&lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;Button&gt;默认Primary&lt;/Button&gt;
-                    &lt;Button phStyle="info"&gt;Info&lt;/Button&gt;
-                    &lt;Button phStyle="success"&gt;Success&lt;/Button&gt;
-                    &lt;Button phStyle="error"&gt;Error&lt;/Button&gt;
-                    &lt;Button phStyle="danger"&gt;Danger&lt;/Button&gt;
-                    &lt;Button phStyle="warning"&gt;Warning&lt;/Button&gt;
-                    &lt;Button phStyle="gray"&gt;Gray&lt;/Button&gt;
-                    &lt;Button phStyle="link"&gt;Link&lt;/Button&gt;
-                &lt;/div&gt;
-                &lt;Code target="button-phstyle" /&gt;
-
-                &lt;h3 className="comp-type"&gt;hollow属性&lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;Button hollow&gt;hollow&lt;/Button&gt;
-                &lt;/div&gt;
-                &lt;Code target="button-phstyle" /&gt;
-
-                &lt;h3 className="comp-type"&gt;radius属性&lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;Button radius&gt;radius&lt;/Button&gt;
-                &lt;/div&gt;
-                &lt;Code target="button-radius" /&gt;
-
-                &lt;h3 className="comp-type"&gt;block属性&lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;Button block&gt;block&lt;/Button&gt;
-                &lt;/div&gt;
-                &lt;Code target="button-block" /&gt;
-
-                &lt;h3 className="comp-type"&gt;disabled属性&lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;Button disabled&gt;disabled&lt;/Button&gt;
-                &lt;/div&gt;
-                &lt;Code target="button-disabled" /&gt;
-
-                &lt;h3 className="comp-type"&gt;active属性&lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;Button active&gt;active&lt;/Button&gt;
-                &lt;/div&gt;
-                &lt;Code target="button-active" /&gt;
-            &lt;/div&gt;
-        );
-    }
-}</code></pre>
 </div>
             </div>
-             <button class="btn btn-info btn-viewDemo" type="button">查看示例</button>
-            <button class="btn btn-info btn-editDemo" type="button">编辑代码</button>
+            <div class="btn-method-box">
+                <button class="btn btn-info btn-viewDemo" type="button">查看示例</button>
+                <button class="btn btn-info btn-editDemo" type="button">编辑代码</button>
+            </div>
+
+            <div class="device"></div>
         </div>
     
 </div>
@@ -720,7 +666,7 @@ export default class button extends Component{
             
         
         
-        <a href="../files/src_Button.js.html#l87"><code>src&#x2F;Button.js:87</code></a>
+        <a href="../files/src_Button.js.html#l86"><code>src&#x2F;Button.js:86</code></a>
         
         </p>
 
@@ -768,7 +714,7 @@ export default class button extends Component{
             
         
         
-        <a href="../files/src_Button.js.html#l59"><code>src&#x2F;Button.js:59</code></a>
+        <a href="../files/src_Button.js.html#l58"><code>src&#x2F;Button.js:58</code></a>
         
         </p>
 
@@ -816,7 +762,7 @@ export default class button extends Component{
             
         
         
-        <a href="../files/src_Button.js.html#l46"><code>src&#x2F;Button.js:46</code></a>
+        <a href="../files/src_Button.js.html#l45"><code>src&#x2F;Button.js:45</code></a>
         
         </p>
 
@@ -864,7 +810,7 @@ export default class button extends Component{
             
         
         
-        <a href="../files/src_Button.js.html#l53"><code>src&#x2F;Button.js:53</code></a>
+        <a href="../files/src_Button.js.html#l52"><code>src&#x2F;Button.js:52</code></a>
         
         </p>
 
@@ -909,7 +855,7 @@ export default class button extends Component{
             
         
         
-        <a href="../files/src_Button.js.html#l80"><code>src&#x2F;Button.js:80</code></a>
+        <a href="../files/src_Button.js.html#l79"><code>src&#x2F;Button.js:79</code></a>
         
         </p>
 
@@ -957,7 +903,7 @@ export default class button extends Component{
             
         
         
-        <a href="../files/src_Button.js.html#l73"><code>src&#x2F;Button.js:73</code></a>
+        <a href="../files/src_Button.js.html#l72"><code>src&#x2F;Button.js:72</code></a>
         
         </p>
 
@@ -1005,7 +951,7 @@ export default class button extends Component{
             
         
         
-        <a href="../files/src_Button.js.html#l32"><code>src&#x2F;Button.js:32</code></a>
+        <a href="../files/src_Button.js.html#l31"><code>src&#x2F;Button.js:31</code></a>
         
         </p>
 
@@ -1053,7 +999,7 @@ export default class button extends Component{
             
         
         
-        <a href="../files/src_Button.js.html#l39"><code>src&#x2F;Button.js:39</code></a>
+        <a href="../files/src_Button.js.html#l38"><code>src&#x2F;Button.js:38</code></a>
         
         </p>
 
@@ -1101,7 +1047,7 @@ export default class button extends Component{
             
         
         
-        <a href="../files/src_Button.js.html#l66"><code>src&#x2F;Button.js:66</code></a>
+        <a href="../files/src_Button.js.html#l65"><code>src&#x2F;Button.js:65</code></a>
         
         </p>
 

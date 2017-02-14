@@ -217,6 +217,14 @@
                    
                        <li>
                             
+                           <a href="../classes/Icon.html">Icon</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
                            <a href="../classes/Badge.html">Badge</a>
                            <ul>
                                 
@@ -497,16 +505,13 @@
     
 
     
-        <div class="example">
+        <div class="example app-example">
             <h4>Example:</h4>
             <ul class="nav nav-tabs example-list">
                 
-                <li role="presentation"  class="active"  _no='0'> <a>展示</a></li>
-                
-                <li role="presentation"   _no='1'> <a>源码</a></li>
+                <li role="presentation"  class="active"  data-demo="http://172.24.107.159:8000/examples/index.html#/drag"  _no='0'> <a>展示</a></li>
                 
             </ul>
-
             <div class="example-content  showdemo ">
                 <div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from &#39;react&#39;;
 import {Drag} from &#39;phoenix-ui&#39;;
@@ -558,60 +563,14 @@ export default class toast extends Component{
         );
     }
 }</code></pre>
-</div><div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from &#39;react&#39;;
-import {Drag} from &#39;phoenix-ui&#39;;
-import Code from "./code/code";
-
-export default class toast extends Component{
-
-    constructor(props,context){
-        super(props,context); 
-
-        this.preDistanceX = 0;
-        this.preDistanceY = 0;
-        this.distanceX = 0;
-        this.distanceY = 0;
-    }
-
-    onDrag(event,position){
-        this.prePosition = position.start;
-        this.nowPosition = position.move;
-
-        this.distanceX = this.preDistanceX + this.nowPosition.x - this.prePosition.x;
-        this.distanceY = this.preDistanceY + this.nowPosition.y - this.prePosition.y;
-
-        this.setBoxPosition(this.distanceX, this.distanceY);
-    }
-
-    onDrop(event,position){
-        this.preDistanceX = this.distanceX;
-        this.preDistanceY = this.distanceY;
-    }
-
-    setBoxPosition(x,y){
-        this.box.style.webkitTransform = &#39;translate(&#39;+x+&#39;px,&#39;+y+&#39;px)&#39;;
-        this.box.style.transform = &#39;translate(&#39;+x+&#39;px,&#39;+y+&#39;px)&#39;;
-    }
-
-    render(){
-        return(
-            &lt;div&gt;
-                &lt;h2 className="comp-title"&gt;Drag&lt;/h2&gt;
-                &lt;h3 className="comp-type"&gt;Dragable Box demo&lt;/h3&gt;
-                &lt;Code target="drag" /&gt;
-                &lt;div className="content content-drag"&gt;
-                    &lt;Drag onDrag={::this.onDrag} onDrop={::this.onDrop} style={{height:0}}&gt;
-                        &lt;div className="box" ref={(box)=&gt;{this.box = box}}&gt;Drag&lt;/div&gt;
-                    &lt;/Drag&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        );
-    }
-}</code></pre>
 </div>
             </div>
-             <button class="btn btn-info btn-viewDemo" type="button">查看示例</button>
-            <button class="btn btn-info btn-editDemo" type="button">编辑代码</button>
+            <div class="btn-method-box">
+                <button class="btn btn-info btn-viewDemo" type="button">查看示例</button>
+                <button class="btn btn-info btn-editDemo" type="button">编辑代码</button>
+            </div>
+
+            <div class="device"></div>
         </div>
     
 </div>
@@ -659,7 +618,7 @@ export default class toast extends Component{
             
         
         
-        <a href="../files/src_Drag.js.html#l45"><code>src&#x2F;Drag.js:45</code></a>
+        <a href="../files/src_Drag.js.html#l44"><code>src&#x2F;Drag.js:44</code></a>
         
         </p>
 
@@ -716,7 +675,7 @@ export default class toast extends Component{
             
         
         
-        <a href="../files/src_Drag.js.html#l51"><code>src&#x2F;Drag.js:51</code></a>
+        <a href="../files/src_Drag.js.html#l50"><code>src&#x2F;Drag.js:50</code></a>
         
         </p>
 

@@ -217,6 +217,14 @@
                    
                        <li>
                             
+                           <a href="../classes/Icon.html">Icon</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
                            <a href="../classes/Badge.html">Badge</a>
                            <ul>
                                 
@@ -525,16 +533,13 @@
     
 
     
-        <div class="example">
+        <div class="example app-example">
             <h4>Example:</h4>
             <ul class="nav nav-tabs example-list">
                 
-                <li role="presentation"  class="active"  _no='0'> <a>展示</a></li>
-                
-                <li role="presentation"   _no='1'> <a>源码</a></li>
+                <li role="presentation"  class="active"  data-demo="http://172.24.107.159:8000/examples/index.html#/textarea"  _no='0'> <a>展示</a></li>
                 
             </ul>
-
             <div class="example-content  showdemo ">
                 <div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from "react";
 import {Textarea} from "phoenix-ui";
@@ -581,55 +586,14 @@ export default class textarea extends Component{
         );
     }
 }</code></pre>
-</div><div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from "react";
-import {Textarea} from "phoenix-ui";
-import Code from "./code/code";
-
-export default class textarea extends Component{
-
-    constructor(props,context){
-
-        super(props,context);
-
-        this.state = {
-            name:"默认值defaultValue",
-            words: "value和onChange配合使用",
-            MAX_LENGTH: 100
-        };
-    }
-
-    setValue(key,e){
-        let o ={};
-        o[key || e.target.name] = e.target.value;
-        this.setState(o);
-    }
-
-    render(){
-        return(
-            &lt;div&gt;
-                &lt;h2 className="comp-title"&gt;Textarea&lt;/h2&gt;
-                &lt;h3 className="comp-type"&gt;count(默认false) 是否计字数&lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;Textarea placeholder="不计数..." /&gt;
-                    &lt;Textarea count maxLength={this.state.MAX_LENGTH} placeholder="count配合maxLength计数..." /&gt;
-                &lt;/div&gt;
-                &lt;Code target="textarea-count" /&gt;
-
-                &lt;div className="content"&gt;
-                    &lt;h3 className="comp-tip"&gt;defaultValue 默认值&lt;/h3&gt;
-                    &lt;Textarea defaultValue={this.state.name} placeholder="请输入..." /&gt;
-                    &lt;h3 className="comp-tip"&gt;value和onChange配合使用&lt;/h3&gt;
-                    &lt;Textarea defaultValue={this.state.words} placeholder="请输入..." onChange={this.setValue.bind(this,"words")} /&gt;
-                &lt;/div&gt;
-                &lt;Code target="textarea" /&gt;
-            &lt;/div&gt;
-        );
-    }
-}</code></pre>
 </div>
             </div>
-             <button class="btn btn-info btn-viewDemo" type="button">查看示例</button>
-            <button class="btn btn-info btn-editDemo" type="button">编辑代码</button>
+            <div class="btn-method-box">
+                <button class="btn btn-info btn-viewDemo" type="button">查看示例</button>
+                <button class="btn btn-info btn-editDemo" type="button">编辑代码</button>
+            </div>
+
+            <div class="device"></div>
         </div>
     
 </div>
@@ -668,7 +632,7 @@ export default class textarea extends Component{
             
         
         
-        <a href="../files/src_Textarea.js.html#l44"><code>src&#x2F;Textarea.js:44</code></a>
+        <a href="../files/src_Textarea.js.html#l43"><code>src&#x2F;Textarea.js:43</code></a>
         
         </p>
 
@@ -716,7 +680,7 @@ export default class textarea extends Component{
             
         
         
-        <a href="../files/src_Textarea.js.html#l69"><code>src&#x2F;Textarea.js:69</code></a>
+        <a href="../files/src_Textarea.js.html#l68"><code>src&#x2F;Textarea.js:68</code></a>
         
         </p>
 
@@ -761,7 +725,7 @@ export default class textarea extends Component{
             
         
         
-        <a href="../files/src_Textarea.js.html#l51"><code>src&#x2F;Textarea.js:51</code></a>
+        <a href="../files/src_Textarea.js.html#l50"><code>src&#x2F;Textarea.js:50</code></a>
         
         </p>
 
@@ -806,7 +770,7 @@ export default class textarea extends Component{
             
         
         
-        <a href="../files/src_Textarea.js.html#l75"><code>src&#x2F;Textarea.js:75</code></a>
+        <a href="../files/src_Textarea.js.html#l74"><code>src&#x2F;Textarea.js:74</code></a>
         
         </p>
 
@@ -851,7 +815,7 @@ export default class textarea extends Component{
             
         
         
-        <a href="../files/src_Textarea.js.html#l57"><code>src&#x2F;Textarea.js:57</code></a>
+        <a href="../files/src_Textarea.js.html#l56"><code>src&#x2F;Textarea.js:56</code></a>
         
         </p>
 
@@ -904,7 +868,7 @@ export default class textarea extends Component{
             
         
         
-        <a href="../files/src_Textarea.js.html#l63"><code>src&#x2F;Textarea.js:63</code></a>
+        <a href="../files/src_Textarea.js.html#l62"><code>src&#x2F;Textarea.js:62</code></a>
         
         </p>
 

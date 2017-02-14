@@ -217,6 +217,14 @@
                    
                        <li>
                             
+                           <a href="../classes/Icon.html">Icon</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
                            <a href="../classes/Badge.html">Badge</a>
                            <ul>
                                 
@@ -525,16 +533,13 @@
     
 
     
-        <div class="example">
+        <div class="example app-example">
             <h4>Example:</h4>
             <ul class="nav nav-tabs example-list">
                 
-                <li role="presentation"  class="active"  _no='0'> <a>展示</a></li>
-                
-                <li role="presentation"   _no='1'> <a>源码</a></li>
+                <li role="presentation"  class="active"  data-demo="http://172.24.107.159:8000/examples/index.html#/input"  _no='0'> <a>展示</a></li>
                 
             </ul>
-
             <div class="example-content  showdemo ">
                 <div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from "react";
 import {Input} from "phoenix-ui";
@@ -600,74 +605,14 @@ export default class input extends Component{
         );
     }
 }</code></pre>
-</div><div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from "react";
-import {Input} from "phoenix-ui";
-import Code from "./code/code";
-
-export default class input extends Component{
-
-    constructor(props,context){
-
-        super(props,context);
-
-        this.state = {
-            name: "value和onChange配合使用",
-            checked: true
-        };
-    }
-
-    setValue(key,e){
-        let o ={};
-        o[key || e.target.name] = e.target.value;
-        this.setState(o);
-    }
-
-    onChange(){
-        this.setState({
-            checked: !this.state.checked
-        });
-    }
-
-    render(){
-        return(
-            &lt;div&gt;
-                &lt;h2 className="comp-title"&gt;Input&lt;/h2&gt;
-                &lt;h3 className="comp-type"&gt;type(默认text) 类型&lt;/h3&gt;
-                &lt;h3 className="comp-type"&gt;text 文本框&lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;Input placeholder="默认text" /&gt;
-                    &lt;Input maxLength={20} defaultValue="设置最大长度maxLength" placeholder="请输入" /&gt;
-                    &lt;Input type="text" defaultValue="默认值defaultValue" placeholder="请输入" /&gt;
-                    &lt;Input type="text" value={this.state.name} onChange={::this.setValue.bind(this,"name")} placeholder="请输入" /&gt;
-                &lt;/div&gt;
-                &lt;Code target="input-text" /&gt;
-
-                &lt;h3 className="comp-type"&gt;checkbox 多选框&lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;h3 className="comp-tip"&gt;默认&lt;/h3&gt;
-                    &lt;Input type="checkbox" label="苹果" /&gt;
-                    &lt;h3 className="comp-tip"&gt;defaultChecked 初始传值&lt;/h3&gt;
-                    &lt;Input type="checkbox" label="香蕉" defaultChecked={true} /&gt;
-                    &lt;h3 className="comp-tip"&gt;checked和onChange配合使用&lt;/h3&gt;
-                    &lt;Input type="checkbox" label="西瓜" checked={this.state.checked} onChange={::this.onChange} /&gt;
-                &lt;/div&gt;
-                &lt;Code target="input-checkbox" /&gt;
-
-                &lt;h3 className="comp-type"&gt;radio 单选框&lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;h3 className="comp-tip"&gt;默认&lt;/h3&gt;
-                    &lt;Input type="radio" label="男" name="sex" /&gt;
-                    &lt;Input type="radio" label="女" name="sex" /&gt;
-                &lt;/div&gt;
-                &lt;Code target="input-radio" /&gt;
-            &lt;/div&gt;
-        );
-    }
-}</code></pre>
 </div>
             </div>
-             <button class="btn btn-info btn-viewDemo" type="button">查看示例</button>
-            <button class="btn btn-info btn-editDemo" type="button">编辑代码</button>
+            <div class="btn-method-box">
+                <button class="btn btn-info btn-viewDemo" type="button">查看示例</button>
+                <button class="btn btn-info btn-editDemo" type="button">编辑代码</button>
+            </div>
+
+            <div class="device"></div>
         </div>
     
 </div>
@@ -706,7 +651,7 @@ export default class input extends Component{
             
         
         
-        <a href="../files/src_Input.js.html#l54"><code>src&#x2F;Input.js:54</code></a>
+        <a href="../files/src_Input.js.html#l53"><code>src&#x2F;Input.js:53</code></a>
         
         </p>
 
@@ -754,7 +699,7 @@ export default class input extends Component{
             
         
         
-        <a href="../files/src_Input.js.html#l61"><code>src&#x2F;Input.js:61</code></a>
+        <a href="../files/src_Input.js.html#l60"><code>src&#x2F;Input.js:60</code></a>
         
         </p>
 
@@ -799,7 +744,7 @@ export default class input extends Component{
             
         
         
-        <a href="../files/src_Input.js.html#l47"><code>src&#x2F;Input.js:47</code></a>
+        <a href="../files/src_Input.js.html#l46"><code>src&#x2F;Input.js:46</code></a>
         
         </p>
 
@@ -847,7 +792,7 @@ export default class input extends Component{
             
         
         
-        <a href="../files/src_Input.js.html#l40"><code>src&#x2F;Input.js:40</code></a>
+        <a href="../files/src_Input.js.html#l39"><code>src&#x2F;Input.js:39</code></a>
         
         </p>
 
@@ -903,7 +848,7 @@ export default class input extends Component{
             
         
         
-        <a href="../files/src_Input.js.html#l67"><code>src&#x2F;Input.js:67</code></a>
+        <a href="../files/src_Input.js.html#l66"><code>src&#x2F;Input.js:66</code></a>
         
         </p>
 
