@@ -17,8 +17,8 @@ import {setPhoenixPrefix} from './utils/Tool';
  * @module 操作类组件
  * @extends Component
  * @constructor
+ * @demo toast|toast.js
  * @show true
- * @demo toast.js
  * */
 
 class Toast extends Component{

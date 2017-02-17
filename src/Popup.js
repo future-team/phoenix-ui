@@ -41,8 +41,7 @@ import Animate from './Animate';
  * @module 操作类组件
  * @extends Component
  * @constructor
- * @demo popup.js {展示}
- * @demo popup.js {源码}
+ * @demo popup|popup.js {展示}
  * @show true
  * */
 

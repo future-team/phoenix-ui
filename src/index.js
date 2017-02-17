@@ -2,7 +2,6 @@ import catBrowser from './utils/CatBrowser.js';
 
 export Button from './Button';
 export ButtonGroup from './ButtonGroup';
-
 export Input from './Input';
 export Textarea from './Textarea';
 export Switch from './Switch';
@@ -26,39 +25,9 @@ export Popover from './Popover';
 export Whisper from './Whisper';
 export Slider from './Slider';
 export Animate from './Animate';
+export Icon from './Icon';
 //接入cat－browser
 catBrowser({
     moduleName:'phoenix-ui',
     isOnlyDp:false
-});
-window['Phoenix'] = {};
-
-[
-    'Button',
-    'Input',
-    'Textarea',
-    'Switch',
-    'Row',
-    'TableView',
-    'FormGroup',
-    'Col',
-    'Tabset',
-    'Tab',
-    'Label',
-    'Badge',
-    'Star',
-    'Drag',
-    'Swipe',
-    'Grid',
-    'ButtonGroup',
-    'Dialog',
-    'Toast',
-    'Popup',
-    'Accordion',
-    'Popover',
-    'Whisper',
-    'Slider',
-    'Animate'
-].forEach(function(name){
-    Phoenix[name] = exports[name];
 });

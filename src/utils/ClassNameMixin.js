@@ -14,13 +14,16 @@ export default obj=>{
      * @param pre {Boolean} 是否添加Component中定义的class前缀，默认添加
      * @return {String}
      * */
-    obj.prototype.getClassName=function(name,pre=true){
+    obj.prototype.getClassName=function(name,pre=true,constPre=true){
         name=name?name:'';
         name = (name+'').split(' ');
         let list = [],
             _this = this;
         name.forEach(function(item){
-            if(item) list.push(PREFIX + _this.setPrefix(item,pre) );
+            if(item){
+                if(constPre) list.push(PREFIX + _this.setPrefix(item,pre) );
+                else list.push(_this.setPrefix(item,pre) );
+            }
         });
 
         return list.join(' ');

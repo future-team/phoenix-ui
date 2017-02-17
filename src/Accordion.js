@@ -51,8 +51,7 @@ import {setPhoenixPrefix} from './utils/Tool';
  * @module 操作类组件
  * @extends Component
  * @constructor
- * @demo accordion.js {展示}
- * @demo accordion.js {源码}
+ * @demo accordion|accordion.js {展示}
  * @show true
  * */
 

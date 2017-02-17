@@ -8,19 +8,24 @@
     <meta name="format-detection" content="email=no">
     <title>Phoenix-ui</title>
 
-    <!--<link rel="stylesheet" href="./lib/phoenix-styles/dist/phoenix-styles.css">-->
-    <!-- <link rel="stylesheet" href="./lib/phoenix-styles/dist/ios-skin.css"> -->
+    <script>
+        var link = document.createElement('link');
+        var href = "http://future-team.github.io/phoenix-styles/dist/phoenix-styles.min.css";
+        if(location.origin.indexOf('github')==-1){
+            href = "./lib/phoenix-styles/dist/phoenix-styles.css";
+        }
+        
+        link.rel = "stylesheet";
+        link.href = href;
 
-    <link rel="stylesheet" href="http://future-team.github.io/phoenix-styles/dist/phoenix-styles.min.css">
-    <!-- <link rel="stylesheet" href="http://future-team.github.io/phoenix-styles/dist/ios-skin.css"> -->
+        document.head.appendChild(link); 
+    </script>
 
     <link rel="stylesheet" href="./css/common.css">
 </head>
 <body>
     <div id="root"></div>
-    <!-- <a id="backToNav" href="#/index">
-        回到主页
-    </a> -->
+
     <script src="./dist/examples.js"></script>
 </body>
 </html>

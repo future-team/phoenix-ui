@@ -1,6 +1,6 @@
 {
   "name": "phoenix-ui",
-  "version": "1.1.3",
+  "version": "1.2.0",
   "description": "future team ui for app with react",
   "main": "lib/",
   "scripts": {
@@ -38,7 +38,7 @@
     "css-loader": "0.17.0",
     "extract-text-webpack-plugin": "^0.8.2",
     "file-loader": "^0.8.5",
-    "gfs-doc": "^0.1.27",
+    "gfs-doc": "^0.1.35",
     "glob": "^5.0.14",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.3.0",

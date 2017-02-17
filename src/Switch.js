@@ -18,8 +18,7 @@ import {setPhoenixPrefix} from './utils/Tool';
  * @module 表单组件
  * @extends Component
  * @constructor
- * @demo switch.js {展示}
- * @demo switch.js {源码}
+ * @demo switch|switch.js {展示}
  * @show true
  * */
 

@@ -37,8 +37,7 @@ import {setPhoenixPrefix} from './utils/Tool';
  * @module 表单组件
  * @extends Component
  * @constructor
- * @demo form-group.js {展示}
- * @demo form-group.js {源码}
+ * @demo formgroup|form-group.js {展示}
  * @show true
  * */
 

@@ -24,9 +24,9 @@ import classnames from 'classnames';
  * @module 布局组件
  * @extends Component
  * @constructor
- * @demo grid.js {展示}
- * @demo grid.js {源码}
+ * @demo grid|grid.js {展示}
  * @since 0.1.0
+ * @show true
  * */
 
 export default class Row extends Component{

@@ -3,10 +3,10 @@
 		module.exports = factory(require("react"));
 	else if(typeof define === 'function' && define.amd)
 		define(["react"], factory);
-	else {
-		var a = typeof exports === 'object' ? factory(require("react")) : factory(root["React"]);
-		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
-	}
+	else if(typeof exports === 'object')
+		exports["Phoenix"] = factory(require("react"));
+	else
+		root["Phoenix"] = factory(root["React"]);
 })(this, function(__WEBPACK_EXTERNAL_MODULE_10__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -221,15 +221,16 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.Animate = _Animate3['default'];
 
+	var _Icon2 = __webpack_require__(208);
+
+	var _Icon3 = _interopRequireDefault(_Icon2);
+
+	exports.Icon = _Icon3['default'];
+
 	//接入cat－browser
 	_utilsCatBrowserJs2['default']({
 	    moduleName: 'phoenix-ui',
 	    isOnlyDp: false
-	});
-	window['Phoenix'] = {};
-
-	['Button', 'Input', 'Textarea', 'Switch', 'Row', 'TableView', 'FormGroup', 'Col', 'Tabset', 'Tab', 'Label', 'Badge', 'Star', 'Drag', 'Swipe', 'Grid', 'ButtonGroup', 'Dialog', 'Toast', 'Popup', 'Accordion', 'Popover', 'Whisper', 'Slider', 'Animate'].forEach(function (name) {
-	    Phoenix[name] = exports[name];
 	});
 
 /***/ },
@@ -806,8 +807,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 基础组件
 	 * @extends Component
 	 * @constructor
-	 * @demo button.js {展示}
-	 * @demo button.js {源码}
+	 * @demo button|button.js {展示}
 	 * @show true
 	 * */
 
@@ -1150,11 +1150,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    BaseComponent.prototype.getProperty = function getProperty() {
 	        var withPrefix = arguments.length <= 0 || arguments[0] === undefined ? false : arguments[0];
+	        var withConstPrefix = arguments.length <= 1 || arguments[1] === undefined ? true : arguments[1];
 
 	        var p = this.classPrefix ? this.classPrefix + ' ' : '';
 	        p += this._properties.join(' ');
 
-	        return this.getClassName(p, withPrefix); //+' '+this.getClassName(p);
+	        return this.getClassName(p, withPrefix, withConstPrefix); //+' '+this.getClassName(p);
 	    };
 
 	    BaseComponent.prototype.getStyles = function getStyles() {
@@ -1290,13 +1291,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * */
 	    obj.prototype.getClassName = function (name) {
 	        var pre = arguments.length <= 1 || arguments[1] === undefined ? true : arguments[1];
+	        var constPre = arguments.length <= 2 || arguments[2] === undefined ? true : arguments[2];
 
 	        name = name ? name : '';
 	        name = (name + '').split(' ');
 	        var list = [],
 	            _this = this;
 	        name.forEach(function (item) {
-	            if (item) list.push(PREFIX + _this.setPrefix(item, pre));
+	            if (item) {
+	                if (constPre) list.push(PREFIX + _this.setPrefix(item, pre));else list.push(_this.setPrefix(item, pre));
+	            }
 	        });
 
 	        return list.join(' ');
@@ -1849,8 +1853,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @extends Component
 	 * @constructor
 	 * @since 0.1.4
-	 * @demo button.js {展示}
-	 * @demo button.js {源码}
+	 * @demo buttongroup|button-group.js {展示}
 	 * @show true
 	 * */
 
@@ -1999,8 +2002,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 表单组件
 	 * @extends Component
 	 * @constructor
-	 * @demo input.js {展示}
-	 * @demo input.js {源码}
+	 * @demo input|input.js {展示}
 	 * @show true
 	 * */
 
@@ -2215,8 +2217,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 表单组件
 	 * @extends Component
 	 * @constructor
-	 * @demo textarea.js {展示}
-	 * @demo textarea.js {源码}
+	 * @demo textarea|textarea.js {展示}
 	 * @show true
 	 * */
 
@@ -2280,7 +2281,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _Component.call(this, props, context);
 
 	        this.state = {
-	            inputLength: props.value ? props.value.length : 0
+	            inputLength: props.value ? props.value.length : props.defaultValue ? props.defaultValue.length : 0
 	        };
 	    }
 
@@ -2377,8 +2378,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 表单组件
 	 * @extends Component
 	 * @constructor
-	 * @demo switch.js {展示}
-	 * @demo switch.js {源码}
+	 * @demo switch|switch.js {展示}
 	 * @show true
 	 * */
 
@@ -2501,9 +2501,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 布局组件
 	 * @extends Component
 	 * @constructor
-	 * @demo grid.js {展示}
-	 * @demo grid.js {源码}
+	 * @demo grid|grid.js {展示}
 	 * @since 0.1.0
+	 * @show true
 	 * */
 
 	var Row = (function (_Component) {
@@ -2639,9 +2639,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 布局组件
 	 * @extends Component
 	 * @constructor
-	 * @demo grid.js {展示}
-	 * @demo grid.js {源码}
+	 * @demo grid|grid.js {展示}
 	 * @since 0.1.0
+	 * @show true
 	 * */
 
 	var Col = (function (_Component) {
@@ -2764,8 +2764,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 布局组件
 	 * @extends Component
 	 * @constructor
-	 * @demo table-view.js {展示}
-	 * @demo table-view.js {源码}
+	 * @demo tableview|table-view.js {展示}
 	 * @show true
 	 * */
 
@@ -2911,8 +2910,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 表单组件
 	 * @extends Component
 	 * @constructor
-	 * @demo form-group.js {展示}
-	 * @demo form-group.js {源码}
+	 * @demo formgroup|form-group.js {展示}
 	 * @show true
 	 * */
 
@@ -3045,8 +3043,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @extends Component
 	 * @constructor
 	 * @since 0.1.0
-	 * @demo Tab.js{展示}
-	 * @demo Tab.js{源码}
+	 * @demo tab|tab.js{展示}
 	 * @show true
 	 * */
 
@@ -3215,8 +3212,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @extends Component
 	 * @constructor
 	 * @since 0.1.0
-	 * @demo Tab.js{展示}
-	 * @demo Tab.js{源码}
+	 * @demo tab|tab.js{展示}
 	 * @show true
 	 * */
 
@@ -3431,8 +3427,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @extends Component
 	 * @constructor
 	 * @since 0.1.0
-	 * @demo label.js{展示}
-	 * @demo label.js{源码}
+	 * @demo label|label.js{展示}
 	 * @show true
 	 * */
 
@@ -3545,8 +3540,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @extends Component
 	 * @constructor
 	 * @since 0.1.0
-	 * @demo badge.js {展示}
-	 * @demo badge.js {源码}
+	 * @demo badge|badge.js {展示}
 	 * @show true
 	 * */
 
@@ -3664,8 +3658,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 基础组件
 	 * @extends Component
 	 * @constructor
-	 * @demo star.js {展示}
-	 * @demo star.js {源码}
+	 * @demo star|star.js {展示}
 	 * @show true
 	 * */
 
@@ -3799,8 +3792,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 辅助组件
 	 * @extends Component
 	 * @constructor
-	 * @demo drag.js {展示}
-	 * @demo drag.js {源码}
+	 * @demo drag|drag.js {展示}
 	 * @show true
 	 * */
 
@@ -4020,8 +4012,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 操作类组件
 	 * @extends Component
 	 * @constructor
-	 * @demo swipe.js {展示}
-	 * @demo swipe.js {源码}
+	 * @demo swipe|swipe.js {展示}
 	 * @show true
 	 * */
 
@@ -4241,8 +4232,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 布局组件
 	 * @extends Component
 	 * @constructor
-	 * @demo grid.js {展示}
-	 * @demo grid.js {源码}
+	 * @demo grid|grid.js {展示}
 	 * @show true
 	 * */
 
@@ -4370,8 +4360,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 操作类组件
 	 * @extends Component
 	 * @constructor
-	 * @demo dialog.js {展示}
-	 * @demo dialog.js {源码}
+	 * @demo dialog|dialog.js {展示}
 	 * @show true
 	 * */
 
@@ -4469,7 +4458,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                _react2['default'].createElement(
 	                    'div',
 	                    { className: _classnames2['default'](_utilsTool.setPhoenixPrefix("dialog-content"), "animated") },
-	                    _react2['default'].createElement('a', { href: 'javascript:;', onClick: onClose, className: _classnames2['default'](_utilsTool.setPhoenixPrefix("dialog-close"), closeButton ? "show" : "hide", "ph-iconfont icon-close") }),
+	                    _react2['default'].createElement('a', { href: 'javascript:;', onClick: onClose, className: _classnames2['default'](_utilsTool.setPhoenixPrefix("dialog-close"), closeButton ? "show" : "hide", "ph-iconfont iconfont icon-close") }),
 	                    this.renderDialog()
 	                )
 	            );
@@ -4646,8 +4635,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 辅助组件
 	 * @extends Component
 	 * @constructor
-	 * @demo animate.js {展示}
-	 * @demo animate.js {源码}
+	 * @demo animate|animate.js {展示}
 	 * @show true
 	 * */
 
@@ -25238,8 +25226,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 操作类组件
 	 * @extends Component
 	 * @constructor
+	 * @demo toast|toast.js
 	 * @show true
-	 * @demo toast.js
 	 * */
 
 	var Toast = (function (_Component) {
@@ -25417,8 +25405,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 操作类组件
 	 * @extends Component
 	 * @constructor
-	 * @demo popup.js {展示}
-	 * @demo popup.js {源码}
+	 * @demo popup|popup.js {展示}
 	 * @show true
 	 * */
 
@@ -25618,8 +25605,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 操作类组件
 	 * @extends Component
 	 * @constructor
-	 * @demo accordion.js {展示}
-	 * @demo accordion.js {源码}
+	 * @demo accordion|accordion.js {展示}
 	 * @show true
 	 * */
 
@@ -25863,8 +25849,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 提示组件
 	 * @extends Component
 	 * @constructor
-	 * @demo popover.js {展示}
-	 * @demo popover.js {源码}
+	 * @demo popover|popover.js {展示}
 	 * @show true
 	 * */
 
@@ -26038,8 +26023,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 提示组件
 	 * @extends Component
 	 * @constructor
-	 * @demo popover.js {展示}
-	 * @demo popover.js {源码}
+	 * @demo popover|popover.js {展示}
 	 * @show true
 	 * */
 
@@ -26307,8 +26291,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 操作类组件
 	 * @extends Component
 	 * @constructor
-	 * @demo slider.js {展示}
-	 * @demo slider.js {源码}
+	 * @demo slider|slider.js {展示}
 	 * @show true
 	 * */
 
@@ -26457,6 +26440,119 @@ return /******/ (function(modules) { // webpackBootstrap
 	})(_utilsComponent2['default']);
 
 	exports['default'] = Slider;
+	module.exports = exports['default'];
+
+/***/ },
+/* 208 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(10);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utilsComponent = __webpack_require__(11);
+
+	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
+
+	var _classnames = __webpack_require__(12);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	/**
+	 * Icon<br/>
+	 * - 可通过phIcon来配置不同类型的符号, 可选[查看所有icon类型](http://future-team.github.io/gfs-icons/index.html)。
+	 * - 支持自定义className，事件等操作。
+	 *
+	 * 主要属性和接口：
+	 * - phIcon:配置不同类型的符号 <br/>
+	 * 如：`<Icon phIcon="search" />`
+	 *
+	 * @class Icon
+	 * @module 标签组件
+	 * @extends Component
+	 * @constructor
+	 * @since 0.1.0
+	 * @demo icon|icon.js {展示}
+	 * @show true
+	 * */
+
+	var Icon = (function (_Component) {
+	    _inherits(Icon, _Component);
+
+	    _createClass(Icon, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * @default 'icon'
+	             * */
+	            classPrefix: _react.PropTypes.string,
+	            /**
+	             * 标签tagName
+	             * @property componentTag
+	             * @type String
+	             * @default 'span'
+	             * */
+	            componentTag: _react.PropTypes.string,
+	            /**
+	             * icon符号类型
+	             * @property phIcon
+	             * @type string
+	             * @default ''
+	             **/
+	            phIcon: _react.PropTypes.string
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            phIcon: '',
+	            classPrefix: 'icon',
+	            componentTag: 'span',
+	            classMapping: {}
+	        },
+	        enumerable: true
+	    }]);
+
+	    function Icon(props, context) {
+	        _classCallCheck(this, Icon);
+
+	        _Component.call(this, props, context);
+	    }
+
+	    Icon.prototype.render = function render() {
+	        var _props = this.props;
+	        var Component = _props.componentTag;
+	        var phIcon = _props.phIcon;
+	        var classPrefix = _props.classPrefix;
+
+	        return _react2['default'].createElement(
+	            Component,
+	            _extends({}, this.props, { className: _classnames2['default']('gfs-icon', this.props.className, phIcon ? classPrefix + '-' + phIcon : '') }),
+	            this.props.children
+	        );
+	    };
+
+	    return Icon;
+	})(_utilsComponent2['default']);
+
+	exports['default'] = Icon;
 	module.exports = exports['default'];
 
 /***/ }

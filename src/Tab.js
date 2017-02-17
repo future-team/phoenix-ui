@@ -30,8 +30,7 @@ import classnames from 'classnames';
  * @extends Component
  * @constructor
  * @since 0.1.0
- * @demo Tab.js{展示}
- * @demo Tab.js{源码}
+ * @demo tab|tab.js{展示}
  * @show true
  * */
 

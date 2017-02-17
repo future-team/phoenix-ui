@@ -26,8 +26,7 @@ import Tool from './utils/Tool'
  * @module 提示组件
  * @extends Component
  * @constructor
- * @demo popover.js {展示}
- * @demo popover.js {源码}
+ * @demo popover|popover.js {展示}
  * @show true
  * */
 export default class Popover extends Component{

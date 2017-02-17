@@ -47,8 +47,7 @@ import {setPhoenixPrefix} from './utils/Tool';
  * @module 操作类组件
  * @extends Component
  * @constructor
- * @demo dialog.js {展示}
- * @demo dialog.js {源码}
+ * @demo dialog|dialog.js {展示}
  * @show true
  * */
 
@@ -132,7 +131,7 @@ class Dialog extends Component{
                         <a href="javascript:;" onClick={onClose} className={classnames(
                             setPhoenixPrefix("dialog-close"),
                             closeButton ? "show":"hide",
-                            "ph-iconfont icon-close"
+                            "ph-iconfont iconfont icon-close"
                         )}></a>
                         {this.renderDialog()}
                     </div>

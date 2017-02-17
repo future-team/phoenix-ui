@@ -16,8 +16,7 @@ import classnames from 'classnames';
  * @extends Component
  * @constructor
  * @since 0.1.0
- * @demo badge.js {展示}
- * @demo badge.js {源码}
+ * @demo badge|badge.js {展示}
  * @show true
  * */
 

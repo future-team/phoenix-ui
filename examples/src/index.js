@@ -27,6 +27,7 @@ import Popover from './popover.js';
 import Accordion from './accordion.js';
 import Animate from './animate.js';
 import Drag from './drag.js';
+import Icon from './icon.js';
 import ListDemo from './list-demo.js';
 import Detail from './detail-demo.js';
 
@@ -50,7 +51,7 @@ let Index = class index extends Component {
     render() {
         return (
             <div className="menu">
-                <h1>Phoenix-UI</h1>
+                <h1>Phoenix-UI<a href="http://future-team.github.io/phoenix-ui/doc/index.html">Doc</a></h1>
                 <h2 className="ph-button-primary">基础组件</h2>
                 <div className="menu-panel">
                     <Card href="#/button" title="Button" desp="按钮" />
@@ -58,6 +59,7 @@ let Index = class index extends Component {
                     <Card href="#/badge" title="Badge" desp="徽章" />
                     <Card href="#/label" title="Label" desp="标签" />
                     <Card href="#/star" title="Star" desp="星星" />
+                    <Card href="#/icon" title="Icon" desp="符号" />
                 </div>
                 <h2 className="ph-button-primary">表单</h2>
                 <div className="menu-panel">
@@ -130,6 +132,7 @@ let AppRouter = class AppRouter extends Component {
                 <Route path="/accordion" name="accordion" component={Accordion} />
                 <Route path="/animate" name="animate" component={Animate} />
                 <Route path="/drag" name="drag" component={Drag} />
+                <Route path="/icon" name="icon" component={Icon} />
                 <Route path="/detail" name="detail" component={Detail} />
                 <Route path="/list-demo" name="list-demo" component={ListDemo} />
                 <Redirect from="/" to="/index" />

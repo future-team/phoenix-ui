@@ -28,8 +28,7 @@ import classnames from 'classnames';
  * @extends Component
  * @constructor
  * @since 0.1.0
- * @demo label.js{展示}
- * @demo label.js{源码}
+ * @demo label|label.js{展示}
  * @show true
  * */
 

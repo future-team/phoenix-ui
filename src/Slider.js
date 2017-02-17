@@ -27,8 +27,7 @@ import Drag from './Drag';
  * @module 操作类组件
  * @extends Component
  * @constructor
- * @demo slider.js {展示}
- * @demo slider.js {源码}
+ * @demo slider|slider.js {展示}
  * @show true
  * */
 

@@ -33,8 +33,7 @@ import {setPhoenixPrefix} from './utils/Tool';
  * @module 表单组件
  * @extends Component
  * @constructor
- * @demo textarea.js {展示}
- * @demo textarea.js {源码}
+ * @demo textarea|textarea.js {展示}
  * @show true
  * */
 
@@ -89,7 +88,7 @@ export default class Textarea extends Component{
         super(props, context);
 
         this.state = {
-            inputLength: props.value? props.value.length:0
+            inputLength: props.value? props.value.length: props.defaultValue? props.defaultValue.length:0
         }
     }
 

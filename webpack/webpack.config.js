@@ -14,6 +14,7 @@ module.exports = {
         ]
     },
     output: {
+        library: 'Phoenix',
         libraryTarget: 'umd',
         path: path.join(process.cwd(),'dist'),
         filename: projectName+'.js'

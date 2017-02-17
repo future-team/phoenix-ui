@@ -28,8 +28,7 @@ import {setPhoenixPrefix} from './utils/Tool';
  * @module 基础组件
  * @extends Component
  * @constructor
- * @demo star.js {展示}
- * @demo star.js {源码}
+ * @demo star|star.js {展示}
  * @show true
  * */
 

@@ -22,8 +22,7 @@ import classnames from 'classnames';
  * @module 基础组件
  * @extends Component
  * @constructor
- * @demo button.js {展示}
- * @demo button.js {源码}
+ * @demo button|button.js {展示}
  * @show true
  * */
 export default class Button extends Component{

@@ -11,6 +11,8 @@ var code = {
 	'button-group-phtype-tacked': '<ButtonGroup phType="tacked">\n\  <Button block>tacked1</Button>\n\  <Button block>tacked2</Button>\n\  <Button block>tacked3</Button>\n</ButtonGroup>',
 	'button-group-callback': '<ButtonGroup activeCallback={(target,html)=>{console.log(target);alert(html);}}>\n\  <Button>justify1</Button>\n\  <Button>justify2</Button>\n\  <Button>justify3</Button>\n</ButtonGroup>',
 	
+	'icon-phicon': '<Icon phIcon="search" />\n<Icon className="icon-home" />\n<span className="gfs-icon icon-chevron-left"></span>',
+
 	'star-rate': '<Star />\n<Star Rate={5} />\n<Star Rate={15} />\n<Star Rate={20} />\n<Star Rate={25} />\n<Star Rate={30} />\n<Star Rate={35} />',
 	'star-phsize': '<Star Rate={40} phSize="sm" />\n<Star Rate={45} phSize="md" />\n<Star Rate={50} phSize="lg" />',
 
