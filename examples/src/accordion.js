@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import classnames from "classnames";
-import {Accordion} from "phoenix-ui";
+import {Icon, Accordion} from "phoenix-ui";
 import Code from "./code/code";
 
 export default class accordion extends Component{
@@ -26,7 +26,7 @@ export default class accordion extends Component{
                 <h3 className="comp-type">visible(默认false) 初始可见值</h3>
                 <Accordion>
                     <Accordion.Header>
-                        标题一-收起<span className={classnames("ph-iconfont icon-chevron-more")} style={{float:"right"}}></span>
+                        标题一-收起<Icon phIcon="expand-more" style={{float:"right"}} />
                     </Accordion.Header>
                     <Accordion.Body>
                         <ul className="ph-accordion-list">

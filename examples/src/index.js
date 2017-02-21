@@ -30,6 +30,7 @@ import Drag from './drag.js';
 import Icon from './icon.js';
 import ListDemo from './list-demo.js';
 import Detail from './detail-demo.js';
+import PhoenixStyle from './phoenix-styles.js';
 
 let Card = class Card extends Component {
     constructor(props, context){
@@ -51,7 +52,11 @@ let Index = class index extends Component {
     render() {
         return (
             <div className="menu">
-                <h1>Phoenix-UI<a href="http://future-team.github.io/phoenix-ui/doc/index.html">Doc</a></h1>
+                <h1>Phoenix-UI<a href="http://future-team.github.io/phoenix-ui/doc/index.html" style={{float:'right'}}>Doc</a></h1>
+                <h2 className="ph-button-error">样式引入</h2>
+                <div className="menu-panel">
+                    <Card href="#/phoenix-styles" title="phoenix-styles" desp="phoenix-ui的最佳样式搭档" />
+                </div>
                 <h2 className="ph-button-primary">基础组件</h2>
                 <div className="menu-panel">
                     <Card href="#/button" title="Button" desp="按钮" />
@@ -111,6 +116,7 @@ let AppRouter = class AppRouter extends Component {
         return (
             <Router history={this.history}>
                 <Route path="/index" name="index" component={Index} />
+                <Route path="/phoenix-styles" name="PhoenixStyle" component={PhoenixStyle} />
                 <Route path="/tableview" name="TableView" component={TableView} />
                 <Route path="/formgroup" name="FormGroup" component={FormGroup} />
                 <Route path="/button" name="button" component={Button} />

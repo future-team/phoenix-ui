@@ -541,7 +541,7 @@
             <div class="example-content  showdemo ">
                 <div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from "react";
 import classnames from "classnames";
-import {Accordion} from "phoenix-ui";
+import {Icon, Accordion} from "phoenix-ui";
 import Code from "./code/code";
 
 export default class accordion extends Component{
@@ -567,7 +567,7 @@ export default class accordion extends Component{
                 &lt;h3 className="comp-type"&gt;visible(默认false) 初始可见值&lt;/h3&gt;
                 &lt;Accordion&gt;
                     &lt;Accordion.Header&gt;
-                        标题一-收起&lt;span className={classnames("ph-iconfont icon-chevron-more")} style={{float:"right"}}&gt;&lt;/span&gt;
+                        标题一-收起&lt;Icon phIcon="expand-more" style={{float:"right"}} /&gt;
                     &lt;/Accordion.Header&gt;
                     &lt;Accordion.Body&gt;
                         &lt;ul className="ph-accordion-list"&gt;

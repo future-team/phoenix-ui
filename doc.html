@@ -1,33 +1,53 @@
-<h1>Phoenix-ui of React</h1>
-<p>phoenix-ui是基于React框架实现的移动端UI组件库。github: <a href="https://github.com/future-team/phoenix-ui">https://github.com/future-team/phoenix-ui</a></p>
-<br />
+<div style="margin: -15px -20px 15px;padding: 50px 24px 60px 24px;box-sizing: border-box;background-color: #38b7ea;overflow: hidden;text-align:center; color:#fff;">
+    <h1>Phoenix-ui</h1>
+    <p style="margin-top:15px">基于React框架实现的移动端UI组件库</p>
+    <p style="margin-top:15px">
+        <a style="color:#fff" href="https://github.com/future-team/phoenix-ui">Github</a> |
+        <a style="color:#fff" href="http://future-team.github.io/phoenix-ui/examples/index.html">Examples</a>
+    </p>
+</div>
+<p class="lead">phoenix-ui是基于React框架实现的移动端UI组件库。</p>
 
 <h2>安装</h2>
 <p>使用组件需要额外安装 <em>react-addons-css-transition-group</em> 来支持动画</p>
-<pre>
-    npm install phoenix-ui --save
-    npm install react-addons-css-transition-group --save
+<pre class="well well-small sign-left2">
+$ npm install phoenix-ui --save
+$ npm install react-addons-css-transition-group --save
 </pre>
-<br />
 
 <h2>使用</h2>
-<h3>CommonJS</h3>
-<pre>
-    var Button = require('phoenix-ui/lib/Button')
+<h3>CommonJS & ES6</h3>
+<pre class="well well-small sign-left3">
+// CommonJS
+var Button = require('phoenix-ui/lib/Button')
+// ES6
+import {Button} from 'phoenix-ui'
+...
+render: function() {
+    return (
+        &#60;div&#62;
+            &#60;Button phStyle="info" phSize="lg" active&#62;按钮&#60;/Button&#62;
+        &#60;/div&#62;
+    );
+}
 </pre>
-<h3>ES6</h3>
-<pre>
-    import {Button} from 'phoenix-ui'
-</pre>
+
 <h3>Browser globals</h3>
-<pre>
-    &#60;script src="http://future-team.github.io/phoenix-ui/dist/phoenix-ui.min.js"&#62;&#60;/script&#62;
+<pre class="well well-small sign-left3">
+&#60;script src="http://future-team.github.io/phoenix-ui/dist/phoenix-ui.min.js"&#62;&#60;/script&#62;
+...
+render: function() {
+    return (
+        &#60;div&#62;
+            &#60;Phoenix.Button phStyle="info" phSize="lg" active&#62;按钮&#60;/Phoenix.Button&#62;
+        &#60;/div&#62;
+    );
+}
 </pre>
-<br />
 
 <h2>其他</h2>
 <p>和 <a href="https://github.com/future-team/phoenix-styles">phoenix-styles</a> (组件样式库)配合使用最佳。</p>
-<h3>关于phoenix-styles</h3>
+<h3>phoenix-styles</h3>
 <p>默认提供阿波罗默认样式phoenix-styles.min.css,如果需要IOS样式同时引入skin-ios.min.css即可。</p>
 <pre>
     // Global
@@ -36,12 +56,29 @@
     &#60;link rel="stylesheet" href="http://future-team.github.io/phoenix-styles/dist/skin-ios.min.css" /&#62;
 
     // ES6
-    import 'phoenix-styles/less/public.less';
-
-    // Less
-    @import 'phoenix-styles/less/public.less';
+    import 'phoenix-styles/less/phoenix-styles.less';
+    // add IOS skin
+    import 'phoenix-styles/less/skin-ios.less';
 </pre>
-<br />
 
-<h2>推荐PC端React UI组件库 - eagle-ui</h2>
-<p>github: <a href="https://github.com/future-team/eagle-ui">https://github.com/future-team/eagle-ui</a></p>
+<h3>phoenix系列插件(完善中...)</h3>
+<ul>
+    <li><a href="https://github.com/future-team/ph-picker">ph-picker</a>: 基于Phoenix-ui的移动端的`选择(时间、城市等)`组件</li>
+    <li><a href="https://github.com/future-team/ph-filter">ph-filter</a>: 基于Phoenix-ui的移动端的`下拉筛选`组件</li>
+    <li><a href="https://github.com/future-team/ph-cascade-selector">ph-cascade-selector</a>: 基于Phoenix-ui的移动端的`级联选择`组件</li>
+    <li><a href="https://github.com/future-team/ph-image-list">ph-image-list</a>: 基于Phoenix-ui的移动端的`图片列表展示、增删、全屏查看`组件</li>
+    <li><a href="https://github.com/future-team/ph-image-upload">ph-image-upload</a>: 基于Phoenix-ui的移动端的`图片上传`组件</li>
+    <li><a href="https://github.com/future-team/ph-upload">ph-upload</a>: 基于Phoenix-ui的移动端的`文件上传`组件</li>
+    <li><a href="https://github.com/future-team/ph-selector">ph-selector</a>: 基于Phoenix-ui的移动端的`搜索筛选`组件</li>
+    <li><a href="https://github.com/future-team/ph-swipe">ph-swipe</a>: 基于Phoenix-ui的移动端的`大图滚动`组件</li>
+    <li><a href="https://github.com/future-team/ph-scroll">ph-scroll</a>: 基于Phoenix-ui的移动端的`滚动刷新`组件</li>
+</ul>
+
+<h3>推荐PC端React UI组件库 - eagle-ui</h3>
+<p>Github: <a href="https://github.com/future-team/eagle-ui">https://github.com/future-team/eagle-ui</a></p>
+<p>Document: <a href="http://future-team.github.io/eagle-ui/doc/index.html">http://future-team.github.io/eagle-ui/doc/index.html</a></p>
+
+<div style="margin:25px -20px -15px;padding:50px 24px 60px 24px;box-sizing:border-box;background-color:rgb(238,238,238);text-align:center;">
+    <p class="lead">使用中遇到问题请提交issue: <a href="https://github.com/future-team/phoenix-ui/issues">Phoenix-ui Issues</a></p>
+    <p class="lead">For 点评的小伙伴, 可大象 @chenaibing 或 @min.xiao</p>
+</div>

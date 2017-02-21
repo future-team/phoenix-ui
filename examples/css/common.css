@@ -47,13 +47,15 @@ body{
 .list-card{
     display: block;
     padding: .6rem 1rem;
-    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    -webkit-transition: all .5s;
+    transition: all .5s;
 }
-.list-card:first-child{
-    border-top: none;
+.list-card:last-child{
+    border-bottom: none;
 }
-.list-card:hover h3, .list-card:hover p{
-    color: #f00;
+.list-card:hover{
+    padding-left: 3rem;
 }
 .menu-panel h3{
     margin-bottom: .3rem;
@@ -63,6 +65,20 @@ body{
     font-size: 80%;
     color: #777;
 }
+/*** phoenix-styles ***/
+.phoenix-styles{
+    display: block;
+    padding: .6rem 1rem;
+}
+.phoenix-styles:hover{
+    text-decoration: underline;
+}
+
+.switch-skin{
+    display: inline-block;
+    margin: 0 0 1rem 1rem;
+}
+
 
 /*** content common ***/
 .comp-title{
@@ -86,12 +102,13 @@ body{
     position: relative;
 }
 
-.code-mark{
+.code-mark.ph-button-primary.ph-button-hollow{
     display: inline-block;
     padding: 0 1rem 1rem;
+    background-color: transparent;
+    border: none;
     text-decoration: underline;
     font-size: 87.5%;
-    color: #ff6633;
 }
 
 .code-dialog .ph-dialog-content{
@@ -124,7 +141,8 @@ body{
 .content .ph-tabs:not(.vertical),
 .content .ph-button-group,
 .contents .ph-form-group,
-.contents .ph-swipe{
+.contents .ph-swipe,
+.content code{
     margin: 0 0 1rem 0;
 }
 
@@ -171,6 +189,19 @@ body{
     border-radius: 2px;
     background: #f7f7f7;
     text-align: center
+}
+
+.content code{
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 1rem;
+    background-color: #fff;
+    font-size: 67%;
+}
+
+::-webkit-scrollbar{
+    height: 0;
 }
 
 /*** 列表页demo ***/

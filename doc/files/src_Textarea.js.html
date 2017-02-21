@@ -440,7 +440,7 @@ export default class Textarea extends Component{
         super(props, context);
 
         this.state = {
-            inputLength: props.value? props.value.length:0
+            inputLength: props.value? props.value.length: props.defaultValue? props.defaultValue.length:0
         }
     }
 

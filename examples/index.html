@@ -9,16 +9,25 @@
     <title>Phoenix-ui</title>
 
     <script>
-        var link = document.createElement('link');
-        var href = "http://future-team.github.io/phoenix-styles/dist/phoenix-styles.min.css";
-        if(location.origin.indexOf('github')==-1){
-            href = "./lib/phoenix-styles/dist/phoenix-styles.css";
-        }
+        appendLink('phoenix-styles');
+        localStorage.skinTheme=="ios" && appendLink('ios-skin');
         
-        link.rel = "stylesheet";
-        link.href = href;
+        function appendLink(fileName) {
+            var link = document.createElement('link');
 
-        document.head.appendChild(link); 
+            link.rel = "stylesheet";
+            link.href = getCorrectHref(fileName);
+
+            document.head.appendChild(link); 
+        }
+
+        function getCorrectHref(fileName){
+            var href = "http://future-team.github.io/phoenix-styles/dist/"+fileName+".min.css";
+            if(location.origin.indexOf('github')==-1){
+                href = "./lib/phoenix-styles/dist/"+fileName+".css";
+            }
+            return href;
+        }
     </script>
 
     <link rel="stylesheet" href="./css/common.css">

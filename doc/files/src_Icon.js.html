@@ -372,7 +372,7 @@ import classnames from &#x27;classnames&#x27;;
  * @show true
  * */
 
-export default class Badge extends Component{
+export default class Icon extends Component{
     static propTypes = {
         /**
          * 样式前缀
@@ -412,7 +412,7 @@ export default class Badge extends Component{
         let {componentTag:Component, phIcon, classPrefix} = this.props;
         return(
             &lt;Component {...this.props} className={classnames(
-                &#x27;iconfont&#x27;,
+                &#x27;gfs-icon&#x27;,
                 this.props.className,
                 phIcon? classPrefix + &#x27;-&#x27; + phIcon:&#x27;&#x27;
            )}&gt;
