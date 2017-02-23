@@ -102,7 +102,7 @@ body{
     position: relative;
 }
 
-.code-mark.ph-button-primary.ph-button-hollow{
+.code-mark{
     display: inline-block;
     padding: 0 1rem 1rem;
     background-color: transparent;
