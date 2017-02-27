@@ -32,7 +32,7 @@ export default obj=>{
             return getVal(['center','left','middle','auto','top','right','bottom'],val);
         },
         placement:function(val){
-            return getVal(['top','bottom','right','left','top left','top right','bottom left','bottom right'],val);
+            return getVal(['top','bottom','right','left','top left','top right','bottom left','bottom right','left-full','right-full','full-screen'],val);
         },
         /*以下属性没有取值，需要的时候添加对应的属性即可*/
         disabled:true,

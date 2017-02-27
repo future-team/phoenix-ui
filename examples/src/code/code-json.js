@@ -81,6 +81,17 @@ var code = {
 	'col-width': '<Row>\n\  <Col width="15">\n\    <div className="col-demo">15</div>\n\  </Col>\n</Row>',
 	'col-offset': '<Row>\n\  <Col width="20" offset="10">\n\    <div className="col-demo">10</div>\n\  </Col>\n</Row>',
 
+	'menu-visible': '<Menu visible={true}>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body>...</Menu.Body>\n</Menu>',
+	'menu-scrollceiling': '// 设置为0表示至始至终吸顶\n<Menu scrollCeiling={0}>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body>...</Menu.Body>\n</Menu>\n'+
+		'// 设置为100表示从滚动100开始吸顶\n<Menu scrollCeiling={100}>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body>...</Menu.Body>\n</Menu>',
+	'menu-onchange': '<Menu onChange={(visible)=>{console.log(visible);}}>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body>...</Menu.Body>\n</Menu>',
+
+	'menu-header-align': '<Menu>\n\  <Menu.Header align="right">...</Menu.Header>\n\  <Menu.Body>...</Menu.Body>\n</Menu>',
+	'menu-body-placement': '<Menu>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body placement="left">...</Menu.Body>\n</Menu>',
+	'menu-body-width': '<Menu>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body width={50}>...</Menu.Body>\n</Menu>',
+	'menu-body-closebutton': '<Menu>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body closeButton>...</Menu.Body>\n</Menu>\n or \n'+
+		'<Menu>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body closeButton={false}>...</Menu.Body>\n</Menu>',
+
 	'animate': '<Animate transitionName="fade">\n\  {this.renderList()}\n</Animate>\n'+
 		'this.state = {list: ["看一本书","睡8个小时"]}\nrenderList(){// 渲染todo list \n\  const items = this.state.list.map((item,index)=>{\n\    return <div key={index} className="animated" onClick={()=>{...}}>{item}</div>;\n\  });\n\  return items;\n}',
 	'drag': '<Drag onDrag={::this.onDrag} onDrop={::this.onDrop} style={{height:0}}>\n\  <div className="box" ref={(box)=>{this.box = box}}>Drag</div>\n</Drag>\n'+
