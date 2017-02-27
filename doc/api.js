@@ -14,6 +14,9 @@ YUI.add("yuidoc-meta", function(Y) {
         "Icon",
         "Input",
         "Label",
+        "Menu",
+        "MenuBody",
+        "MenuHeader",
         "Popover",
         "Popup",
         "Row",
@@ -90,7 +93,7 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "操作类组件",
             "name": "操作类组件",
-            "description": "<h5>操作类组件，主要包括组件:</h5>\n<strong><a href='../classes/Accordion.html'>Accordion 手风琴</a></strong><br/>\n<strong><a href='../classes/Dialog.html'>Dialog 弹框</a></strong><br>\n<strong><a href='../classes/Toast.html'>Toast 飘字</a></strong><br>\n<strong><a href='../classes/Popup.html'>Popup 弹层</a></strong><br>\n<strong><a href='../classes/Slider.html'>Slider 滑动输入条</a></strong><br>\n<strong><a href='../classes/Swipe.html'>Swipe 左滑动</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
+            "description": "<h5>操作类组件，主要包括组件:</h5>\n<strong><a href='../classes/Accordion.html'>Accordion 手风琴</a></strong><br/>\n<strong><a href='../classes/Dialog.html'>Dialog 弹框</a></strong><br>\n<strong><a href='../classes/Toast.html'>Toast 飘字</a></strong><br>\n<strong><a href='../classes/Popup.html'>Popup 弹层</a></strong><br>\n<strong><a href='../classes/Slider.html'>Slider 滑动输入条</a></strong><br>\n<strong><a href='../classes/Swipe.html'>Swipe 左滑动</a></strong><br>\n<strong><a href='../classes/Menu.html'>Menu 菜单</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
             "classes": [
                 {
                     "name": "Dialog"
@@ -106,6 +109,15 @@ YUI.add("yuidoc-meta", function(Y) {
                 },
                 {
                     "name": "Toast"
+                },
+                {
+                    "name": "Menu"
+                },
+                {
+                    "name": "MenuBody"
+                },
+                {
+                    "name": "MenuHeader"
                 },
                 {
                     "name": "Accordion"

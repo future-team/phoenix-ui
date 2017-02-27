@@ -25,6 +25,7 @@ import Toast from './toast.js';
 import Popup from './popup.js';
 import Popover from './popover.js';
 import Accordion from './accordion.js';
+import Menu from './menu.js';
 import Animate from './animate.js';
 import Drag from './drag.js';
 import Icon from './icon.js';
@@ -88,6 +89,7 @@ let Index = class index extends Component {
                     <Card href="#/tab" title="Tabset/Tab" desp="选项卡" />
                     <Card href="#/slider" title="Slider" desp="滑动输入条" />
                     <Card href="#/swipe" title="Swipe" desp="左滑动" />
+                    <Card href="#/menu" title="Menu" desp="菜单" />
                 </div>
                 <h2 className="ph-button-primary">辅助</h2>
                 <div className="menu-panel">
@@ -136,6 +138,7 @@ let AppRouter = class AppRouter extends Component {
                 <Route path="/popup" name="popup" component={Popup} />
                 <Route path="/popover" name="popover" component={Popover} />
                 <Route path="/accordion" name="accordion" component={Accordion} />
+                <Route path="/menu" name="menu" component={Menu} />
                 <Route path="/animate" name="animate" component={Animate} />
                 <Route path="/drag" name="drag" component={Drag} />
                 <Route path="/icon" name="icon" component={Icon} />
@@ -172,8 +175,8 @@ let App = class App extends Component {
     render() {
         return (
             <div>
-                <a href="#/index" id="Back" className="ph-button-primary">Back</a>
                 <AppRouter />
+                <a href="#/index" id="Back" className="ph-button-primary">Back <i className="gfs-icon icon-chevron-right"></i></a>
             </div>
         )
     }

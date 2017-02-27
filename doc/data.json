@@ -4282,6 +4282,33 @@
         "isApp": true
     },
     "files": {
+        "src/Menu/Menu.js": {
+            "name": "src/Menu/Menu.js",
+            "modules": {},
+            "classes": {
+                "Menu": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Menu/MenuBody.js": {
+            "name": "src/Menu/MenuBody.js",
+            "modules": {},
+            "classes": {
+                "MenuBody": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Menu/MenuHeader.js": {
+            "name": "src/Menu/MenuHeader.js",
+            "modules": {},
+            "classes": {
+                "MenuHeader": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src/utils/ClassNameMixin.js": {
             "name": "src/utils/ClassNameMixin.js",
             "modules": {},
@@ -4587,6 +4614,9 @@
                 "Slider": 1,
                 "Swipe": 1,
                 "Toast": 1,
+                "Menu": 1,
+                "MenuBody": 1,
+                "MenuHeader": 1,
                 "Accordion": 1
             },
             "fors": {},
@@ -4594,7 +4624,7 @@
             "tag": "main",
             "file": "src/Toast.js",
             "line": 7,
-            "description": "<h5>操作类组件，主要包括组件:</h5>\n<strong><a href='../classes/Accordion.html'>Accordion 手风琴</a></strong><br/>\n<strong><a href='../classes/Dialog.html'>Dialog 弹框</a></strong><br>\n<strong><a href='../classes/Toast.html'>Toast 飘字</a></strong><br>\n<strong><a href='../classes/Popup.html'>Popup 弹层</a></strong><br>\n<strong><a href='../classes/Slider.html'>Slider 滑动输入条</a></strong><br>\n<strong><a href='../classes/Swipe.html'>Swipe 左滑动</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
+            "description": "<h5>操作类组件，主要包括组件:</h5>\n<strong><a href='../classes/Accordion.html'>Accordion 手风琴</a></strong><br/>\n<strong><a href='../classes/Dialog.html'>Dialog 弹框</a></strong><br>\n<strong><a href='../classes/Toast.html'>Toast 飘字</a></strong><br>\n<strong><a href='../classes/Popup.html'>Popup 弹层</a></strong><br>\n<strong><a href='../classes/Slider.html'>Slider 滑动输入条</a></strong><br>\n<strong><a href='../classes/Swipe.html'>Swipe 左滑动</a></strong><br>\n<strong><a href='../classes/Menu.html'>Menu 菜单</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
             "itemtype": "main"
         },
         "辅助组件": {
@@ -4711,6 +4741,86 @@
         }
     },
     "classes": {
+        "Menu": {
+            "name": "Menu",
+            "shortname": "Menu",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "操作类组件",
+            "file": "src/Menu/Menu.js",
+            "line": 9,
+            "description": "菜单组件<br/>\n- 可通过visible设置菜单初始是否可见，默认不可见。\n- 不设置scrollCeiling时默认菜单不吸顶，设置scrollCeiling为具体数值时表示从当前距离开始吸顶，设置0表示至始至终吸顶。\n- 可通过onChange函数设置菜单打开收起的回调函数。\n\n主要属性和接口：\n- visible:初始展开或收起的状态, 默认false收起。\n- scrollCeiling:设置吸顶的距离, 默认不吸顶, 设置0表示始终吸顶。\n- onChange:菜单打开关闭时的回调函数。 <br/>\n如：\n```code\n    <Menu scrollCeiling={100} visible={true} onChange={(visible)=>{console.log(visible);}}>\n        <Menu.Header>\n            标题一\n        </Menu.Header>\n        <Menu.Body>\n            ...\n        </Menu.Body>\n    </Menu>\n```",
+            "extends": "Component",
+            "is_constructor": 1,
+            "example": [
+                "\timport React, { Component } from \"react\";\n\timport classnames from \"classnames\";\n\timport {Menu, Button} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class menu extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            visible: false,\n\t            placement: 'top',\n\t            align: 'left',\n\t            width: 40,\n\t            closeButton: false\n\t        }\n\t    }\n\t\n\t    onChange(visible){\n\t        console.log(visible);\n\t    }\n\t\n\t    onClose(){\n\t        this.setState({\n\t            visible: false\n\t        });\n\t    }\n\t\n\t    switchAlign(){\n\t        let newAlign = \"left\";\n\t\n\t        if(this.state.align == \"left\") newAlign=\"right\";\n\t\n\t        this.setState({\n\t            align: newAlign\n\t        });\n\t    }\n\t\n\t    switchVisible(){\n\t        this.setState({\n\t            visible: !this.state.visible\n\t        });\n\t    }\n\t\n\t    switchPlacement(){\n\t        this.setState({\n\t            placement: \"left\"\n\t        });\n\t    }\n\t\n\t    switchWidth(){\n\t        this.setState({\n\t            width: 50\n\t        });\n\t    }\n\t\n\t    switchCloseButton(){\n\t        this.setState({\n\t            closeButton: !this.state.closeButton\n\t        });\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Menu visible={this.state.visible} scrollCeiling={100} onChange={::this.onChange}>\n\t                    <Menu.Header align={this.state.align}>Phoenix</Menu.Header>\n\t                    <Menu.Body width={this.state.width} placement={this.state.placement} closeButton={this.state.closeButton}>\n\t                        <ul className=\"ph-popup-list\">\n\t                            <li className=\"ph-popup-item\" onClick={::this.onClose}>首页</li>\n\t                            <li className=\"ph-popup-item\" onClick={::this.onClose}>项目</li>\n\t                            <li className=\"ph-popup-item\" onClick={::this.onClose}>作品</li>\n\t                            <li className=\"ph-popup-item\" onClick={::this.onClose}>关于</li>\n\t                        </ul>\n\t                    </Menu.Body>\n\t                </Menu>\n\t\n\t                <h2 className=\"comp-title\">Menu</h2>\n\t                <h3 className=\"comp-type\">Menu属性</h3>\n\t                <h3 className=\"comp-type\">visible(默认false) 初始可见值</h3>\n\t                <div className=\"content\">\n\t                    <Button onClick={::this.switchVisible}>切换visible值:默认false</Button>\n\t                </div>\n\t                <Code target=\"menu-visible\" />\n\t\n\t                <h3 className=\"comp-type\">scrollCeiling 滚动吸顶的距离，默认不吸顶</h3>\n\t                <h3 className=\"comp-tip\">当前设置为100</h3>\n\t                <Code target=\"menu-scrollceiling\" />\n\t\n\t                <h3 className=\"comp-type\">onChange 菜单展开收起的回调函数</h3>\n\t                <Code target=\"menu-onchange\" />\n\t\n\t                <h3 className=\"comp-type\">MenuHeader属性</h3>\n\t                <h3 className=\"comp-type\">align(默认left) 菜单按钮的位置</h3>\n\t                <div className=\"content\">\n\t                    <Button onClick={::this.switchAlign}>切换align值:默认left</Button>\n\t                </div>\n\t                <Code target=\"menu-header-align\" />\n\t\n\t                <h3 className=\"comp-type\">MenuBody属性</h3>\n\t                <h3 className=\"comp-type\">placement(默认top) 菜单的位置</h3>\n\t                <div className=\"content\">\n\t                    <Button onClick={::this.switchPlacement}>改变placement值:top->left</Button>\n\t                </div>\n\t                <Code target=\"menu-body-placement\" />\n\t\n\t                <h3 className=\"comp-type\">width 侧边菜单的宽度</h3>\n\t                <div className=\"content\">\n\t                    <Button onClick={::this.switchWidth}>改变width值:40->50</Button>\n\t                </div>\n\t                <Code target=\"menu-body-width\" />\n\t\n\t                <h3 className=\"comp-type\">closeButton 菜单主体的关闭按钮是否显示</h3>\n\t                <div className=\"content\">\n\t                    <Button onClick={::this.switchCloseButton}>切换closeButton值:默认false</Button>\n\t                </div>\n\t                <Code target=\"menu-body-closebutton\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
+            ],
+            "exampleTitles": [
+                "展示"
+            ],
+            "exampleUrls": [
+                "http://future-team.github.io/phoenix-ui/examples/index.html#/menu"
+            ],
+            "isApp": true,
+            "show": true
+        },
+        "MenuBody": {
+            "name": "MenuBody",
+            "shortname": "MenuBody",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "操作类组件",
+            "namespace": "",
+            "file": "src/Menu/MenuBody.js",
+            "line": 10,
+            "description": "菜单内容组件<br/>\n- 通过placement设置菜单出现的位置和类型, 可选 [top,left,right,left-full,right-full,full-screen]。\n- 可通过width设置侧边菜单的宽度, 当前placement为top和full-screen不生效。\n- 可通过closeButton来配置菜单主体右上角X按钮是否显示。\n\n主要属性和接口：\n- placement:菜单出现的位置和类型, 默认top。\n- width:侧边菜单的宽度, 当前placement为top和full-screen不生效。\n- closeButton:菜单主体右上角X按钮是否显示, 默认不显示。<br/>\n如：\n```code\n    <Menu scrollCeiling={100} visible={true} onChange={(visible)=>{console.log(visible);}}>\n        <Menu.Header>\n            标题一\n        </Menu.Header>\n        <Menu.Body width={60} placement={this.state.placement} closeButton>\n            ...\n        </Menu.Body>\n    </Menu>\n```",
+            "extends": "Component",
+            "is_constructor": 1,
+            "example": [
+                "\timport React, { Component } from \"react\";\n\timport classnames from \"classnames\";\n\timport {Menu, Button} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class menu extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            visible: false,\n\t            placement: 'top',\n\t            align: 'left',\n\t            width: 40,\n\t            closeButton: false\n\t        }\n\t    }\n\t\n\t    onChange(visible){\n\t        console.log(visible);\n\t    }\n\t\n\t    onClose(){\n\t        this.setState({\n\t            visible: false\n\t        });\n\t    }\n\t\n\t    switchAlign(){\n\t        let newAlign = \"left\";\n\t\n\t        if(this.state.align == \"left\") newAlign=\"right\";\n\t\n\t        this.setState({\n\t            align: newAlign\n\t        });\n\t    }\n\t\n\t    switchVisible(){\n\t        this.setState({\n\t            visible: !this.state.visible\n\t        });\n\t    }\n\t\n\t    switchPlacement(){\n\t        this.setState({\n\t            placement: \"left\"\n\t        });\n\t    }\n\t\n\t    switchWidth(){\n\t        this.setState({\n\t            width: 50\n\t        });\n\t    }\n\t\n\t    switchCloseButton(){\n\t        this.setState({\n\t            closeButton: !this.state.closeButton\n\t        });\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Menu visible={this.state.visible} scrollCeiling={100} onChange={::this.onChange}>\n\t                    <Menu.Header align={this.state.align}>Phoenix</Menu.Header>\n\t                    <Menu.Body width={this.state.width} placement={this.state.placement} closeButton={this.state.closeButton}>\n\t                        <ul className=\"ph-popup-list\">\n\t                            <li className=\"ph-popup-item\" onClick={::this.onClose}>首页</li>\n\t                            <li className=\"ph-popup-item\" onClick={::this.onClose}>项目</li>\n\t                            <li className=\"ph-popup-item\" onClick={::this.onClose}>作品</li>\n\t                            <li className=\"ph-popup-item\" onClick={::this.onClose}>关于</li>\n\t                        </ul>\n\t                    </Menu.Body>\n\t                </Menu>\n\t\n\t                <h2 className=\"comp-title\">Menu</h2>\n\t                <h3 className=\"comp-type\">Menu属性</h3>\n\t                <h3 className=\"comp-type\">visible(默认false) 初始可见值</h3>\n\t                <div className=\"content\">\n\t                    <Button onClick={::this.switchVisible}>切换visible值:默认false</Button>\n\t                </div>\n\t                <Code target=\"menu-visible\" />\n\t\n\t                <h3 className=\"comp-type\">scrollCeiling 滚动吸顶的距离，默认不吸顶</h3>\n\t                <h3 className=\"comp-tip\">当前设置为100</h3>\n\t                <Code target=\"menu-scrollceiling\" />\n\t\n\t                <h3 className=\"comp-type\">onChange 菜单展开收起的回调函数</h3>\n\t                <Code target=\"menu-onchange\" />\n\t\n\t                <h3 className=\"comp-type\">MenuHeader属性</h3>\n\t                <h3 className=\"comp-type\">align(默认left) 菜单按钮的位置</h3>\n\t                <div className=\"content\">\n\t                    <Button onClick={::this.switchAlign}>切换align值:默认left</Button>\n\t                </div>\n\t                <Code target=\"menu-header-align\" />\n\t\n\t                <h3 className=\"comp-type\">MenuBody属性</h3>\n\t                <h3 className=\"comp-type\">placement(默认top) 菜单的位置</h3>\n\t                <div className=\"content\">\n\t                    <Button onClick={::this.switchPlacement}>改变placement值:top->left</Button>\n\t                </div>\n\t                <Code target=\"menu-body-placement\" />\n\t\n\t                <h3 className=\"comp-type\">width 侧边菜单的宽度</h3>\n\t                <div className=\"content\">\n\t                    <Button onClick={::this.switchWidth}>改变width值:40->50</Button>\n\t                </div>\n\t                <Code target=\"menu-body-width\" />\n\t\n\t                <h3 className=\"comp-type\">closeButton 菜单主体的关闭按钮是否显示</h3>\n\t                <div className=\"content\">\n\t                    <Button onClick={::this.switchCloseButton}>切换closeButton值:默认false</Button>\n\t                </div>\n\t                <Code target=\"menu-body-closebutton\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
+            ],
+            "exampleTitles": [
+                "展示"
+            ],
+            "exampleUrls": [
+                "http://future-team.github.io/phoenix-ui/examples/index.html#/menu"
+            ],
+            "isApp": true,
+            "show": true
+        },
+        "MenuHeader": {
+            "name": "MenuHeader",
+            "shortname": "MenuHeader",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "操作类组件",
+            "namespace": "",
+            "file": "src/Menu/MenuHeader.js",
+            "line": 8,
+            "description": "菜单头部组件<br/>\n- 通过align设置菜单按钮的位置, 可选[left, right]。\n\n主要属性和接口：\n- align:设置菜单按钮的位置,默认left。 <br/>\n如：\n```code\n    <Menu scrollCeiling={100} visible={true} onChange={(visible)=>{console.log(visible);}}>\n        <Menu.Header align=\"right\">\n            标题一\n        </Menu.Header>\n        <Menu.Body width={60} placement={this.state.placement} closeButton>\n            ...\n        </Menu.Body>\n    </Menu>\n```",
+            "extends": "Component",
+            "is_constructor": 1,
+            "example": [
+                "\timport React, { Component } from \"react\";\n\timport classnames from \"classnames\";\n\timport {Menu, Button} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class menu extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            visible: false,\n\t            placement: 'top',\n\t            align: 'left',\n\t            width: 40,\n\t            closeButton: false\n\t        }\n\t    }\n\t\n\t    onChange(visible){\n\t        console.log(visible);\n\t    }\n\t\n\t    onClose(){\n\t        this.setState({\n\t            visible: false\n\t        });\n\t    }\n\t\n\t    switchAlign(){\n\t        let newAlign = \"left\";\n\t\n\t        if(this.state.align == \"left\") newAlign=\"right\";\n\t\n\t        this.setState({\n\t            align: newAlign\n\t        });\n\t    }\n\t\n\t    switchVisible(){\n\t        this.setState({\n\t            visible: !this.state.visible\n\t        });\n\t    }\n\t\n\t    switchPlacement(){\n\t        this.setState({\n\t            placement: \"left\"\n\t        });\n\t    }\n\t\n\t    switchWidth(){\n\t        this.setState({\n\t            width: 50\n\t        });\n\t    }\n\t\n\t    switchCloseButton(){\n\t        this.setState({\n\t            closeButton: !this.state.closeButton\n\t        });\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <Menu visible={this.state.visible} scrollCeiling={100} onChange={::this.onChange}>\n\t                    <Menu.Header align={this.state.align}>Phoenix</Menu.Header>\n\t                    <Menu.Body width={this.state.width} placement={this.state.placement} closeButton={this.state.closeButton}>\n\t                        <ul className=\"ph-popup-list\">\n\t                            <li className=\"ph-popup-item\" onClick={::this.onClose}>首页</li>\n\t                            <li className=\"ph-popup-item\" onClick={::this.onClose}>项目</li>\n\t                            <li className=\"ph-popup-item\" onClick={::this.onClose}>作品</li>\n\t                            <li className=\"ph-popup-item\" onClick={::this.onClose}>关于</li>\n\t                        </ul>\n\t                    </Menu.Body>\n\t                </Menu>\n\t\n\t                <h2 className=\"comp-title\">Menu</h2>\n\t                <h3 className=\"comp-type\">Menu属性</h3>\n\t                <h3 className=\"comp-type\">visible(默认false) 初始可见值</h3>\n\t                <div className=\"content\">\n\t                    <Button onClick={::this.switchVisible}>切换visible值:默认false</Button>\n\t                </div>\n\t                <Code target=\"menu-visible\" />\n\t\n\t                <h3 className=\"comp-type\">scrollCeiling 滚动吸顶的距离，默认不吸顶</h3>\n\t                <h3 className=\"comp-tip\">当前设置为100</h3>\n\t                <Code target=\"menu-scrollceiling\" />\n\t\n\t                <h3 className=\"comp-type\">onChange 菜单展开收起的回调函数</h3>\n\t                <Code target=\"menu-onchange\" />\n\t\n\t                <h3 className=\"comp-type\">MenuHeader属性</h3>\n\t                <h3 className=\"comp-type\">align(默认left) 菜单按钮的位置</h3>\n\t                <div className=\"content\">\n\t                    <Button onClick={::this.switchAlign}>切换align值:默认left</Button>\n\t                </div>\n\t                <Code target=\"menu-header-align\" />\n\t\n\t                <h3 className=\"comp-type\">MenuBody属性</h3>\n\t                <h3 className=\"comp-type\">placement(默认top) 菜单的位置</h3>\n\t                <div className=\"content\">\n\t                    <Button onClick={::this.switchPlacement}>改变placement值:top->left</Button>\n\t                </div>\n\t                <Code target=\"menu-body-placement\" />\n\t\n\t                <h3 className=\"comp-type\">width 侧边菜单的宽度</h3>\n\t                <div className=\"content\">\n\t                    <Button onClick={::this.switchWidth}>改变width值:40->50</Button>\n\t                </div>\n\t                <Code target=\"menu-body-width\" />\n\t\n\t                <h3 className=\"comp-type\">closeButton 菜单主体的关闭按钮是否显示</h3>\n\t                <div className=\"content\">\n\t                    <Button onClick={::this.switchCloseButton}>切换closeButton值:默认false</Button>\n\t                </div>\n\t                <Code target=\"menu-body-closebutton\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
+            ],
+            "exampleTitles": [
+                "展示"
+            ],
+            "exampleUrls": [
+                "http://future-team.github.io/phoenix-ui/examples/index.html#/menu"
+            ],
+            "isApp": true,
+            "show": true
+        },
         "Accordion": {
             "name": "Accordion",
             "shortname": "Accordion",
@@ -4722,7 +4832,7 @@
             "module": "操作类组件",
             "namespace": "",
             "file": "src/Accordion.js",
-            "line": 19,
+            "line": 20,
             "description": "手风琴组件<br/>\n- 通过visible设置初始展开或收起的状态, 可选true/false。\n- 可通过onChange设置展开收起时额外的回调函数。\n\n主要属性和接口：\n- visible:初始展开或收起的状态, 默认false收起 <br/>\n如：\n```code\n    <Accordion visible={true}>\n        <Accordion.Header>\n            标题一\n        </Accordion.Header>\n        <Accordion.Body>\n            ...\n        </Accordion.Body>\n    </Accordion>\n```\n- onChange:点击收起展开的额外的回调执行函数 <br/>\n如：\n```code\n    <Accordion onChange={(visible)=>{console.log(visible);}}>\n        <Accordion.Header>\n            标题一\n        </Accordion.Header>\n        <Accordion.Body>\n            ...\n        </Accordion.Body>\n    </Accordion>\n```",
             "extends": "Component",
             "is_constructor": 1,
@@ -5001,7 +5111,7 @@
             "is_constructor": 1,
             "since": "0.1.0",
             "example": [
-                "\timport React, { Component } from \"react\";\n\timport {Icon} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class icon extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t            \t<h2 className=\"comp-title\">Icon</h2>\n\t                <h3 className=\"comp-type\">phIcon 符号类型(对应icon的名称)</h3>\n\t                <a className=\"code-mark\" href=\"http://future-team.github.io/gfs-icons/index.html\">查看所有icon类型</a>\n\t                <div className=\"content\">\n\t                    <h3 className=\"comp-tip\">通过phIcon设定</h3>\n\t\t                <Icon phIcon=\"search\" />\n\t                    <h3 className=\"comp-tip\">设置className</h3>\n\t                    <Icon className=\"icon-more\" />\n\t                    <h3 className=\"comp-tip\">不用Icon组件的方式</h3>\n\t                    <span className=\"gfs-icon icon-chevron-left\"></span>\n\t                </div>\n\t                <Code target=\"icon-phicon\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
+                "\timport React, { Component } from \"react\";\n\timport {Icon} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class icon extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t            \t<h2 className=\"comp-title\">Icon</h2>\n\t                <h3 className=\"comp-type\">phIcon 符号类型(对应icon的名称)</h3>\n\t                <a className=\"code-mark ph-button-link\" href=\"http://future-team.github.io/gfs-icons/index.html\">查看所有icon类型</a>\n\t                <div className=\"content\">\n\t                    <h3 className=\"comp-tip\">通过phIcon设定</h3>\n\t\t                <Icon phIcon=\"search\" />\n\t                    <h3 className=\"comp-tip\">设置className</h3>\n\t                    <Icon className=\"icon-more\" />\n\t                    <h3 className=\"comp-tip\">不用Icon组件的方式</h3>\n\t                    <span className=\"gfs-icon icon-chevron-left\"></span>\n\t                </div>\n\t                <Code target=\"icon-phicon\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
                 "展示"
@@ -5424,58 +5534,184 @@
     },
     "classitems": [
         {
+            "file": "src/Menu/Menu.js",
+            "line": 42,
+            "description": "样式前缀",
+            "itemtype": "property",
+            "name": "classPrefix",
+            "type": "String",
+            "default": "'menu'",
+            "class": "Menu",
+            "module": "操作类组件"
+        },
+        {
+            "file": "src/Menu/Menu.js",
+            "line": 49,
+            "description": "标签tagName",
+            "itemtype": "property",
+            "name": "componentTag",
+            "type": "String",
+            "class": "Menu",
+            "module": "操作类组件"
+        },
+        {
+            "file": "src/Menu/Menu.js",
+            "line": 55,
+            "description": "是否可见标识",
+            "itemtype": "property",
+            "name": "visible",
+            "type": "Boolean",
+            "default": "false",
+            "class": "Menu",
+            "module": "操作类组件"
+        },
+        {
+            "file": "src/Menu/Menu.js",
+            "line": 62,
+            "description": "点击收起展开的回调函数",
+            "itemtype": "method",
+            "name": "onChange",
+            "type": "Function",
+            "class": "Menu",
+            "module": "操作类组件"
+        },
+        {
+            "file": "src/Menu/Menu.js",
+            "line": 68,
+            "description": "是否滚动吸顶, 默认不吸顶(false); 设置确定的数字从当前距离开始吸顶",
+            "itemtype": "property",
+            "name": "scrollCeiling",
+            "type": "Number",
+            "default": "不设置",
+            "class": "Menu",
+            "module": "操作类组件"
+        },
+        {
+            "file": "src/Menu/MenuBody.js",
+            "line": 46,
+            "description": "样式前缀",
+            "itemtype": "property",
+            "name": "classPrefix",
+            "type": "String",
+            "default": "'menu-body'",
+            "class": "MenuBody",
+            "module": "操作类组件"
+        },
+        {
+            "file": "src/Menu/MenuBody.js",
+            "line": 53,
+            "description": "菜单位置, 可选[top,left,right,left-full,right-full,full-screen], 默认top",
+            "itemtype": "property",
+            "name": "placement",
+            "type": "String",
+            "default": "'top'",
+            "class": "MenuBody",
+            "module": "操作类组件"
+        },
+        {
+            "file": "src/Menu/MenuBody.js",
+            "line": 60,
+            "description": "自定义菜单宽度百分比（限左右）",
+            "itemtype": "property",
+            "name": "width",
+            "type": "Number",
+            "class": "MenuBody",
+            "module": "操作类组件"
+        },
+        {
+            "file": "src/Menu/MenuBody.js",
+            "line": 67,
+            "description": "右上角按钮是否可见, 默认不可见",
+            "itemtype": "property",
+            "name": "closeButton",
+            "type": "Boolean",
+            "class": "MenuBody",
+            "module": "操作类组件"
+        },
+        {
+            "file": "src/Menu/MenuHeader.js",
+            "line": 39,
+            "description": "样式前缀",
+            "itemtype": "property",
+            "name": "classPrefix",
+            "type": "String",
+            "default": "'menu-header'",
+            "class": "MenuHeader",
+            "module": "操作类组件"
+        },
+        {
+            "file": "src/Menu/MenuHeader.js",
+            "line": 46,
+            "description": "菜单按钮位置, 可选[left,right], left",
+            "itemtype": "property",
+            "name": "align",
+            "type": "String",
+            "default": "'left'",
+            "class": "MenuHeader",
+            "module": "操作类组件"
+        },
+        {
             "file": "src/utils/ClassNameMixin.js",
             "line": 1,
             "description": "Created by mac on 15/9/7.",
-            "class": "Accordion"
+            "class": "Accordion",
+            "module": "操作类组件"
         },
         {
             "file": "src/utils/MethodMixin.js",
             "line": 1,
             "description": "Created by mac on 16/1/3.",
-            "class": "Accordion"
+            "class": "Accordion",
+            "module": "操作类组件"
         },
         {
             "file": "src/utils/PropertyMixin.js",
             "line": 1,
             "description": "Created by mac on 16/1/3.",
-            "class": "Accordion"
+            "class": "Accordion",
+            "module": "操作类组件"
         },
         {
             "file": "src/utils/Tool.js",
             "line": 1,
             "description": "Created by mac on 16/11/28.",
-            "class": "Accordion"
+            "class": "Accordion",
+            "module": "操作类组件"
         },
         {
             "file": "src/utils/constants.js",
             "line": 1,
             "description": "Created by mac on 15/9/7.",
-            "class": "Accordion"
+            "class": "Accordion",
+            "module": "操作类组件"
         },
         {
             "file": "src/utils/constants.js",
             "line": 11,
             "description": "状态",
-            "class": "Accordion"
+            "class": "Accordion",
+            "module": "操作类组件"
         },
         {
             "file": "src/utils/constants.js",
             "line": 62,
             "description": "颜色",
-            "class": "Accordion"
+            "class": "Accordion",
+            "module": "操作类组件"
         },
         {
             "file": "src/utils/constants.js",
             "line": 76,
             "description": "form列表相关",
-            "class": "Accordion"
+            "class": "Accordion",
+            "module": "操作类组件"
         },
         {
             "file": "src/utils/constants.js",
             "line": 86,
             "description": "tab",
-            "class": "Accordion"
+            "class": "Accordion",
+            "module": "操作类组件"
         },
         {
             "file": "src/utils/extend.js",
@@ -5491,22 +5727,23 @@
                     "description": "- an object containing properties to be overwritten. It\n                  should have the same structure as the object object."
                 }
             ],
-            "class": "Accordion"
-        },
-        {
-            "file": "src/Accordion.js",
-            "line": 61,
-            "description": "样式前缀",
-            "itemtype": "property",
-            "name": "classPrefix",
-            "type": "String",
-            "default": "'badge'",
             "class": "Accordion",
             "module": "操作类组件"
         },
         {
             "file": "src/Accordion.js",
-            "line": 68,
+            "line": 62,
+            "description": "样式前缀",
+            "itemtype": "property",
+            "name": "classPrefix",
+            "type": "String",
+            "default": "'accordion'",
+            "class": "Accordion",
+            "module": "操作类组件"
+        },
+        {
+            "file": "src/Accordion.js",
+            "line": 69,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
@@ -5516,7 +5753,7 @@
         },
         {
             "file": "src/Accordion.js",
-            "line": 74,
+            "line": 75,
             "description": "是否可见标识",
             "itemtype": "property",
             "name": "visible",
@@ -5527,7 +5764,7 @@
         },
         {
             "file": "src/Accordion.js",
-            "line": 81,
+            "line": 82,
             "description": "点击收起展开的回调函数",
             "itemtype": "method",
             "name": "onChange",
@@ -6468,11 +6705,35 @@
     "warnings": [
         {
             "message": "unknown tag: demo",
-            "line": " src/Accordion.js:19"
+            "line": " src/Menu/Menu.js:9"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/Accordion.js:19"
+            "line": " src/Menu/Menu.js:9"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/Menu/MenuBody.js:10"
+        },
+        {
+            "message": "unknown tag: show",
+            "line": " src/Menu/MenuBody.js:10"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/Menu/MenuHeader.js:8"
+        },
+        {
+            "message": "unknown tag: show",
+            "line": " src/Menu/MenuHeader.js:8"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/Accordion.js:20"
+        },
+        {
+            "message": "unknown tag: show",
+            "line": " src/Accordion.js:20"
         },
         {
             "message": "unknown tag: demo",

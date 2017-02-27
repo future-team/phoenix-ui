@@ -227,6 +227,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.Icon = _Icon3['default'];
 
+	var _MenuMenu = __webpack_require__(209);
+
+	var _MenuMenu2 = _interopRequireDefault(_MenuMenu);
+
+	exports.Menu = _MenuMenu2['default'];
+
 	//接入cat－browser
 	_utilsCatBrowserJs2['default']({
 	    moduleName: 'phoenix-ui',
@@ -1546,7 +1552,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return getVal(['center', 'left', 'middle', 'auto', 'top', 'right', 'bottom'], val);
 	        },
 	        placement: function placement(val) {
-	            return getVal(['top', 'bottom', 'right', 'left', 'top left', 'top right', 'bottom left', 'bottom right'], val);
+	            return getVal(['top', 'bottom', 'right', 'left', 'top left', 'top right', 'bottom left', 'bottom right', 'left-full', 'right-full', 'full-screen'], val);
 	        },
 	        /*以下属性没有取值，需要的时候添加对应的属性即可*/
 	        disabled: true,
@@ -25565,6 +25571,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * <strong><a href='../classes/Popup.html'>Popup 弹层</a></strong><br>
 	 * <strong><a href='../classes/Slider.html'>Slider 滑动输入条</a></strong><br>
 	 * <strong><a href='../classes/Swipe.html'>Swipe 左滑动</a></strong><br>
+	 * <strong><a href='../classes/Menu.html'>Menu 菜单</a></strong><br>
 	 * <h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>
 	 * @module 操作类组件
 	 * @main 操作类组件
@@ -25619,7 +25626,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * 样式前缀
 	             * @property classPrefix
 	             * @type String
-	             * @default 'badge'
+	             * @default 'accordion'
 	             * */
 	            classPrefix: _react.PropTypes.string,
 	            /**
@@ -26553,6 +26560,593 @@ return /******/ (function(modules) { // webpackBootstrap
 	})(_utilsComponent2['default']);
 
 	exports['default'] = Icon;
+	module.exports = exports['default'];
+
+/***/ },
+/* 209 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(10);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utilsComponent = __webpack_require__(11);
+
+	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
+
+	var _classnames = __webpack_require__(12);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _utilsTool = __webpack_require__(21);
+
+	var _MenuHeader = __webpack_require__(210);
+
+	var _MenuHeader2 = _interopRequireDefault(_MenuHeader);
+
+	var _MenuBody = __webpack_require__(211);
+
+	var _MenuBody2 = _interopRequireDefault(_MenuBody);
+
+	/**
+	 * 菜单组件<br/>
+	 - 可通过visible设置菜单初始是否可见，默认不可见。
+	 - 不设置scrollCeiling时默认菜单不吸顶，设置scrollCeiling为具体数值时表示从当前距离开始吸顶，设置0表示至始至终吸顶。
+	 - 可通过onChange函数设置菜单打开收起的回调函数。
+	 *
+	 * 主要属性和接口：
+	 * - visible:初始展开或收起的状态, 默认false收起。
+	 * - scrollCeiling:设置吸顶的距离, 默认不吸顶, 设置0表示始终吸顶。
+	 * - onChange:菜单打开关闭时的回调函数。 <br/>
+	 * 如：
+	 * ```code
+	 *     <Menu scrollCeiling={100} visible={true} onChange={(visible)=>{console.log(visible);}}>
+	 *         <Menu.Header>
+	 *             标题一
+	 *         </Menu.Header>
+	 *         <Menu.Body>
+	 *             ...
+	 *         </Menu.Body>
+	 *     </Menu>
+	 * ```
+	 *
+	 * @class Menu
+	 * @module 操作类组件
+	 * @extends Component
+	 * @constructor
+	 * @demo menu|menu.js {展示}
+	 * @show true
+	 * */
+
+	var Menu = (function (_Component) {
+	    _inherits(Menu, _Component);
+
+	    _createClass(Menu, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * @default 'menu'
+	             * */
+	            classPrefix: _react.PropTypes.string,
+	            /**
+	             * 标签tagName
+	             * @property componentTag
+	             * @type String
+	             * */
+	            componentTag: _react.PropTypes.string,
+	            /**
+	             * 是否可见标识
+	             * @property visible
+	             * @type Boolean
+	             * @default false
+	             * */
+	            visible: _react.PropTypes.bool,
+	            /**
+	             * 点击收起展开的回调函数
+	             * @method onChange
+	             * @type Function
+	             * */
+	            onChange: _react.PropTypes.func,
+	            /**
+	             * 是否滚动吸顶, 默认不吸顶(false); 设置确定的数字从当前距离开始吸顶 
+	             * @property scrollCeiling
+	             * @type Number
+	             * @default 不设置
+	             * */
+	            scrollCeiling: _react.PropTypes.number
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            visible: false,
+	            classPrefix: 'menu',
+	            componentTag: 'div',
+	            classMapping: {}
+	        },
+	        enumerable: true
+	    }]);
+
+	    function Menu(props, context) {
+	        var _this2 = this;
+
+	        _classCallCheck(this, Menu);
+
+	        _Component.call(this, props, context);
+
+	        this.state = {
+	            visible: props.visible,
+	            ceiling: !(props.scrollCeiling === undefined || props.scrollCeiling > 0)
+	        };
+
+	        document.addEventListener('click', this.handleDocumentClick.bind(this), false);
+
+	        // 是否滚动吸顶
+	        if (props.scrollCeiling === undefined || props.scrollCeiling === 0) return;
+
+	        window.addEventListener('scroll', function () {
+	            if (document.body.scrollTop >= props.scrollCeiling) {
+	                if (!_this2.state.ceiling) _this2.setState({ ceiling: true });
+	            } else {
+	                if (_this2.state.ceiling) _this2.setState({ ceiling: false });
+	            }
+	        });
+	    }
+
+	    Menu.prototype.handleDocumentClick = function handleDocumentClick(event) {
+	        var _this3 = this;
+
+	        if (!this.state.visible) return;
+	        var el = event.target;
+
+	        if (!_utilsTool.closest(el, '.ph-menu')) {
+	            this.setState({
+	                visible: false
+	            }, function () {
+	                if (_this3.props.onChange) _this3.props.onChange(_this3.state.visible);
+	            });
+	        }
+
+	        return false;
+	    };
+
+	    Menu.prototype.componentDidMount = function componentDidMount() {
+	        var _this4 = this;
+
+	        setTimeout(function () {
+	            _this4.menuPlaceholder.style.height = _this4.menuCeiling.offsetHeight + 'px';
+	        }, 0);
+	    };
+
+	    Menu.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+	        var _this5 = this;
+
+	        if (this.state.visible != nextProps.visible) {
+	            this.setState({
+	                visible: nextProps.visible
+	            }, function () {
+	                if (_this5.props.onChange) _this5.props.onChange(nextProps.visible);
+	            });
+	        }
+	    };
+
+	    Menu.prototype.changeVisible = function changeVisible(fn) {
+	        this.setState({
+	            visible: !this.state.visible
+	        }, fn);
+	    };
+
+	    Menu.prototype.renderChildren = function renderChildren() {
+	        var _this = this;
+	        var newChildren = [];
+	        var onChange = this.props.onChange;
+
+	        _react2['default'].Children.forEach(this.props.children, function (child, index) {
+	            newChildren.push(_react2['default'].cloneElement(child, {
+	                key: index,
+	                visible: _this.state.visible,
+	                onChange: onChange,
+	                changeVisible: _this.changeVisible.bind(_this)
+	            }));
+	        });
+
+	        return newChildren;
+	    };
+
+	    Menu.prototype.render = function render() {
+	        var _this6 = this;
+
+	        var _props = this.props;
+	        var Component = _props.componentTag;
+	        var className = _props.className;
+
+	        return _react2['default'].createElement(
+	            Component,
+	            _extends({}, this.props, { className: _classnames2['default'](this.getProperty(true), _utilsTool.setPhoenixPrefix('menu-placeholder'), className), ref: function (menuPlaceholder) {
+	                    _this6.menuPlaceholder = menuPlaceholder;
+	                } }),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: this.state.ceiling ? _utilsTool.setPhoenixPrefix('menu-ceiling') : '', ref: function (menuCeiling) {
+	                        _this6.menuCeiling = menuCeiling;
+	                    } },
+	                this.renderChildren()
+	            )
+	        );
+	    };
+
+	    return Menu;
+	})(_utilsComponent2['default']);
+
+	Menu.Header = _MenuHeader2['default'];
+	Menu.Body = _MenuBody2['default'];
+
+	exports['default'] = Menu;
+	module.exports = exports['default'];
+
+/***/ },
+/* 210 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(10);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utilsComponent = __webpack_require__(11);
+
+	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
+
+	var _classnames = __webpack_require__(12);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _utilsTool = __webpack_require__(21);
+
+	var _Icon = __webpack_require__(208);
+
+	var _Icon2 = _interopRequireDefault(_Icon);
+
+	/**
+	 * 菜单头部组件<br/>
+	 * - 通过align设置菜单按钮的位置, 可选[left, right]。
+	 *
+	 * 主要属性和接口：
+	 * - align:设置菜单按钮的位置,默认left。 <br/>
+	 * 如：
+	 * ```code
+	 *     <Menu scrollCeiling={100} visible={true} onChange={(visible)=>{console.log(visible);}}>
+	 *         <Menu.Header align="right">
+	 *             标题一
+	 *         </Menu.Header>
+	 *         <Menu.Body width={60} placement={this.state.placement} closeButton>
+	 *             ...
+	 *         </Menu.Body>
+	 *     </Menu>
+	 * ```
+	 *
+	 * @class MenuHeader
+	 * @module 操作类组件
+	 * @extends Component
+	 * @constructor
+	 * @demo menu|menu.js {展示}
+	 * @show true
+	 * */
+
+	var MenuHeader = (function (_Component) {
+	    _inherits(MenuHeader, _Component);
+
+	    function MenuHeader(props, context) {
+	        _classCallCheck(this, MenuHeader);
+
+	        _Component.call(this, props, context);
+	    }
+
+	    MenuHeader.prototype.onChange = function onChange() {
+	        var _this = this;
+
+	        this.props.changeVisible(function () {
+	            if (_this.props.onChange) _this.props.onChange(_this.props.visible);
+	        });
+	    };
+
+	    MenuHeader.prototype.render = function render() {
+	        var className = this.props.className;
+
+	        return _react2['default'].createElement(
+	            'div',
+	            _extends({ className: _classnames2['default'](this.getProperty(true), className)
+	            }, this.props),
+	            _react2['default'].createElement(_Icon2['default'], { phIcon: 'menu', onClick: this.onChange.bind(this) }),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: _utilsTool.setPhoenixPrefix('menu-header-content') },
+	                this.props.children
+	            )
+	        );
+	    };
+
+	    _createClass(MenuHeader, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * @default 'menu-header'
+	             * */
+	            classPrefix: _react.PropTypes.string,
+	            /**
+	             * 菜单按钮位置, 可选[left,right], left
+	             * @property align
+	             * @type String
+	             * @default 'left'
+	             * */
+	            align: _react.PropTypes.string
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            align: 'left',
+	            classPrefix: 'menu-header',
+	            classMapping: {
+	                'left': 'left',
+	                'right': 'right'
+	            }
+	        },
+	        enumerable: true
+	    }]);
+
+	    return MenuHeader;
+	})(_utilsComponent2['default']);
+
+	exports['default'] = MenuHeader;
+	;
+	module.exports = exports['default'];
+
+/***/ },
+/* 211 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(10);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(202);
+
+	var _utilsComponent = __webpack_require__(11);
+
+	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
+
+	var _classnames = __webpack_require__(12);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _utilsTool = __webpack_require__(21);
+
+	var _Animate = __webpack_require__(37);
+
+	var _Animate2 = _interopRequireDefault(_Animate);
+
+	var _Icon = __webpack_require__(208);
+
+	var _Icon2 = _interopRequireDefault(_Icon);
+
+	/**
+	 * 菜单内容组件<br/>
+	 * - 通过placement设置菜单出现的位置和类型, 可选 [top,left,right,left-full,right-full,full-screen]。
+	 * - 可通过width设置侧边菜单的宽度, 当前placement为top和full-screen不生效。
+	 * - 可通过closeButton来配置菜单主体右上角X按钮是否显示。
+	 *
+	 * 主要属性和接口：
+	 * - placement:菜单出现的位置和类型, 默认top。
+	 * - width:侧边菜单的宽度, 当前placement为top和full-screen不生效。
+	 * - closeButton:菜单主体右上角X按钮是否显示, 默认不显示。<br/>
+	 * 如：
+	 * ```code
+	 *     <Menu scrollCeiling={100} visible={true} onChange={(visible)=>{console.log(visible);}}>
+	 *         <Menu.Header>
+	 *             标题一
+	 *         </Menu.Header>
+	 *         <Menu.Body width={60} placement={this.state.placement} closeButton>
+	 *             ...
+	 *         </Menu.Body>
+	 *     </Menu>
+	 * ```
+	 *
+	 * @class MenuBody
+	 * @module 操作类组件
+	 * @extends Component
+	 * @constructor
+	 * @demo menu|menu.js {展示}
+	 * @show true
+	 * */
+
+	var MenuBody = (function (_Component) {
+	    _inherits(MenuBody, _Component);
+
+	    function MenuBody(props, context) {
+	        _classCallCheck(this, MenuBody);
+
+	        _Component.call(this, props, context);
+	    }
+
+	    MenuBody.prototype.componentDidMount = function componentDidMount() {
+	        this.setSize();
+	    };
+
+	    MenuBody.prototype.componentDidUpdate = function componentDidUpdate() {
+	        this.setSize();
+	    };
+
+	    MenuBody.prototype.setSize = function setSize() {
+	        var _props = this.props;
+	        var visible = _props.visible;
+	        var placement = _props.placement;
+	        var width = _props.width;
+
+	        // if(placement=="top") this.menuBodyParent.style.height = visible? this.menuBody.offsetHeight+'px' : 0;
+
+	        if (this.props.visible && width) {
+	            if (placement == "top") return;
+	            if (placement == "full-screen") width = 100;
+	            this.menuBodyParent.style.width = width + '%';
+	        }
+	    };
+
+	    MenuBody.prototype.renderChildren = function renderChildren() {
+	        var _this = this;
+
+	        var _props2 = this.props;
+	        var visible = _props2.visible;
+	        var children = _props2.children;
+	        var className = _props2.className;
+
+	        if (visible) {
+	            return _react2['default'].createElement(
+	                'div',
+	                _extends({}, this.props, { className: _classnames2['default'](this.getProperty(true), className, 'animated'),
+	                    ref: function (menuBodyParent) {
+	                        _this.menuBodyParent = menuBodyParent;
+	                    } }),
+	                this.renderCloseButton(),
+	                children
+	            );
+	        } else {
+	            return '';
+	        }
+	    };
+
+	    MenuBody.prototype.renderCloseButton = function renderCloseButton() {
+	        var closeButton = this.props.closeButton;
+
+	        if (closeButton) {
+	            return _react2['default'].createElement(_Icon2['default'], { phIcon: 'close', className: _classnames2['default'](_utilsTool.setPhoenixPrefix('menu-close-button')), onClick: this.onChange.bind(this) });
+	        } else {
+	            return '';
+	        }
+	    };
+
+	    MenuBody.prototype.onChange = function onChange() {
+	        var _this2 = this;
+
+	        this.props.changeVisible(function () {
+	            if (_this2.props.onChange) _this2.props.onChange(_this2.props.visible);
+	        });
+	    };
+
+	    MenuBody.prototype.render = function render() {
+	        var placement = this.props.placement;
+
+	        var animateName = 'slide-' + this.props.placement;
+
+	        if (placement == "full-screen") animateName = "fade";
+
+	        return _react2['default'].createElement(
+	            _Animate2['default'],
+	            { transitionName: animateName },
+	            this.renderChildren()
+	        );
+	    };
+
+	    _createClass(MenuBody, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * @default 'menu-body'
+	             * */
+	            classPrefix: _react.PropTypes.string,
+	            /**
+	             * 菜单位置, 可选[top,left,right,left-full,right-full,full-screen], 默认top
+	             * @property placement
+	             * @type String
+	             * @default 'top'
+	             * */
+	            placement: _react.PropTypes.string,
+	            /**
+	             * 自定义菜单宽度百分比（限左右）
+	             * @property width
+	             * @type Number
+	             * */
+	            width: _react.PropTypes.number,
+	            // closeMode: PropTypes.string,
+	            /**
+	             * 右上角按钮是否可见, 默认不可见
+	             * @property closeButton
+	             * @type Boolean
+	             * */
+	            closeButton: _react.PropTypes.bool
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            classPrefix: 'menu-body',
+	            placement: 'top',
+	            classMapping: {
+	                'top': 'top',
+	                'left': 'left',
+	                'right': 'right',
+	                'left-full': 'left-full',
+	                'right-full': 'right-full',
+	                'full-screen': 'full-screen'
+	            }
+	        },
+	        enumerable: true
+	    }]);
+
+	    return MenuBody;
+	})(_utilsComponent2['default']);
+
+	exports['default'] = MenuBody;
 	module.exports = exports['default'];
 
 /***/ }

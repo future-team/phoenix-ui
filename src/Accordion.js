@@ -11,6 +11,7 @@ import {setPhoenixPrefix} from './utils/Tool';
  * <strong><a href='../classes/Popup.html'>Popup 弹层</a></strong><br>
  * <strong><a href='../classes/Slider.html'>Slider 滑动输入条</a></strong><br>
  * <strong><a href='../classes/Swipe.html'>Swipe 左滑动</a></strong><br>
+ * <strong><a href='../classes/Menu.html'>Menu 菜单</a></strong><br>
  * <h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>
  * @module 操作类组件
  * @main 操作类组件
@@ -62,7 +63,7 @@ class Accordion extends Component{
          * 样式前缀
          * @property classPrefix
          * @type String
-         * @default 'badge'
+         * @default 'accordion'
          * */
         classPrefix: PropTypes.string,
         /**
