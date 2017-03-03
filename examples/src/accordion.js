@@ -13,7 +13,7 @@ export default class accordion extends Component{
         }
     }
 
-    onChange(visible){
+    onAccordionChange(visible){
         alert(visible);
     }
 
@@ -60,8 +60,8 @@ export default class accordion extends Component{
                 <br/>
                 <Code target="accordion-hideicon" />
                 
-                <h3 className="comp-type">onChange 展开收起的回调函数</h3>
-                <Accordion visible={this.state.visible} onChange={::this.onChange}>
+                <h3 className="comp-type">onAccordionChange 展开收起的回调函数</h3>
+                <Accordion visible={this.state.visible} onAccordionChange={::this.onAccordionChange}>
                     <Accordion.Header>
                         标题一
                     </Accordion.Header>
@@ -73,7 +73,7 @@ export default class accordion extends Component{
                     </Accordion.Body>
                 </Accordion>
                 <br/>
-                <Code target="accordion-onchange" />
+                <Code target="accordion-onaccordionchange" />
             </div>
         );
     }

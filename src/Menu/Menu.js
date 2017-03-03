@@ -26,15 +26,15 @@ import MenuItem from './MenuItem';
  * 菜单组件<br/>
  - 可通过visible设置菜单初始是否可见，默认不可见。
  - 不设置scrollCeiling时默认菜单不吸顶，设置scrollCeiling为具体数值时表示从当前距离开始吸顶，设置0表示至始至终吸顶。
- - 可通过onChange函数设置菜单打开收起的回调函数。
+ - 可通过onMenuChange函数设置菜单打开收起的回调函数。
  *
  * 主要属性和接口：
  * - visible:初始展开或收起的状态, 默认false收起。
  * - scrollCeiling:设置吸顶的距离, 默认不吸顶, 设置0表示始终吸顶。
- * - onChange:菜单打开关闭时的回调函数。 <br/>
+ * - onMenuChange:菜单打开关闭时的回调函数。 <br/>
  * 如：
  * ```code
- *     <Menu scrollCeiling={100} visible={true} onChange={(visible)=>{console.log(visible);}}>
+ *     <Menu scrollCeiling={100} visible={true} onMenuChange={(visible)=>{console.log(visible);}}>
  *         <Menu.Header>
  *             标题一
  *         </Menu.Header>
@@ -78,10 +78,10 @@ class Menu extends Component{
         visible: PropTypes.bool,
         /**
          * 点击收起展开的回调函数
-         * @method onChange
+         * @method onMenuChange
          * @type Function
          * */
-        onChange: PropTypes.func,
+        onMenuChange: PropTypes.func,
         /**
          * 是否滚动吸顶, 默认不吸顶(false); 设置确定的数字从当前距离开始吸顶 
          * @property scrollCeiling
@@ -126,7 +126,7 @@ class Menu extends Component{
             this.setState({
                 visible: false
             }, ()=>{
-                if(this.props.onChange) this.props.onChange(this.state.visible);
+                if(this.props.onMenuChange) this.props.onMenuChange(this.state.visible);
             });
         }
 
@@ -148,32 +148,32 @@ class Menu extends Component{
         },0);
     }
 
-    componentWillReceiveProps(nextProps){
-        if(this.state.visible != nextProps.visible){
-            this.setState({
-                visible: nextProps.visible
-            }, ()=>{
-            if(this.props.onChange) this.props.onChange(nextProps.visible);
-        });
-        }
-    }
+    // componentWillReceiveProps(nextProps){
+    //     if(this.state.visible != nextProps.visible){
+    //         this.setState({
+    //             visible: nextProps.visible
+    //         }, ()=>{
+    //         if(this.props.onMenuChange) this.props.onMenuChange(nextProps.visible);
+    //     });
+    //     }
+    // }
 
-    changeVisible(fn){
+    changeVisible(){
         this.setState({
             visible: !this.state.visible
-        }, fn);
+        }, ()=>{
+            if(this.props.onMenuChange) this.props.onMenuChange(this.state.visible);
+        });
     }
 
     renderChildren(){
         let _this = this;
         let newChildren = [];
-        let {onChange} = this.props;
 
         React.Children.forEach(this.props.children, function(child, index){
             newChildren.push(React.cloneElement(child, {
                 key: index,
                 visible: _this.state.visible,
-                onChange: onChange,
                 changeVisible: _this.changeVisible.bind(_this),
                 headerHeight: _this.state.headerHeight
             }));

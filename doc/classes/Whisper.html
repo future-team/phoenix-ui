@@ -411,14 +411,14 @@
 <li>配合提示组件使用, 通过target设置显示的目标。</li>
 <li>可通过placement设置目标物的显示位置, 可选top、bottom、left、right、top left、top right、bottom left、bottom right。</li>
 <li>可通过distance设置目标物到点击对象(倾听者)的位置。</li>
-<li>可通过onChange定义目标物显隐时额外的回调函数。</li>
+<li>可通过onTargetChange定义目标物显隐时额外的回调函数。</li>
 </ul>
 <p>主要属性和接口：</p>
 <ul>
 <li>target:目标物。</li>
 <li>placement:目标物的显示位置, 默认bottom。</li>
 <li>distance:目标物到点击对象(倾听者)的位置, 默认15。</li>
-<li>onChange:目标物显隐时额外的回调函数。</li>
+<li>onTargetChange:目标物显隐时额外的回调函数。</li>
 </ul>
 <p>示例:</p>
 <pre><code class="lang-code">    const popover = ( // 可以通过style自定义位置
@@ -429,7 +429,7 @@
             &lt;/ul&gt;
         &lt;/Popover&gt;
     );</code></pre>
-<pre><code class="lang-code">    &lt;Whisper placement="top" onChange={()=&gt;{console.log(&#39;气泡出现消失时额外的执行函数&#39;);}} target={popover} distance={10} &gt;Top&lt;/Whisper&gt;</code></pre>
+<pre><code class="lang-code">    &lt;Whisper placement="top" onTargetChange={()=&gt;{console.log(&#39;气泡出现消失时额外的执行函数&#39;);}} target={popover} distance={10} &gt;Top&lt;/Whisper&gt;</code></pre>
 </div>
  </div>
 
@@ -442,7 +442,7 @@
                     <ul class="index-list methods extends">
                         
                             <li class="index-item method">
-                                <a href="#" data-tabid="#method" data-anchor="#method_onChange" data-tablink="onChange">onChange</a>
+                                <a href="#" data-tabid="#method" data-anchor="#method_onTargetChange" data-tablink="onTargetChange">onTargetChange</a>
 
                                 
                                 
@@ -621,7 +621,7 @@ export default class popover extends Component{
         super(props,context); 
     }
 
-    onChange(){
+    onTargetChange(){
         alert("气泡出现消失时额外的执行函数"); 
     }
 
@@ -661,11 +661,11 @@ export default class popover extends Component{
                 &lt;/div&gt;
                 &lt;Code target="popover-distance" /&gt;
 
-                &lt;h3 className="comp-type"&gt;onChange 气泡显隐时额外的回调函数&lt;/h3&gt;
+                &lt;h3 className="comp-type"&gt;onTargetChange 气泡显隐时额外的回调函数&lt;/h3&gt;
                 &lt;div className="content"&gt;
-                    &lt;Whisper onChange={this.onChange} target={popover}&gt;popover&lt;/Whisper&gt;
+                    &lt;Whisper onTargetChange={this.onTargetChange} target={popover}&gt;popover&lt;/Whisper&gt;
                 &lt;/div&gt;
-                &lt;Code target="popover-onchange" /&gt;
+                &lt;Code target="popover-ontargetchange" /&gt;
             &lt;/div&gt;
         );
     }
@@ -691,10 +691,10 @@ export default class popover extends Component{
                 <h2 class="off-left">方法</h2>
 
                 
-                    <div id="method_onChange" class="method item">
-    <h3 class="name">onChange</h3>
+                    <div id="method_onTargetChange" class="method item">
+    <h3 class="name">onTargetChange</h3>
     <code>
-    onChange
+    onTargetChange
     
         <span class="paren">()</span>
     

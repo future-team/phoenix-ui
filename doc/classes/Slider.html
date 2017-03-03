@@ -411,7 +411,7 @@
 <li>滑动进度条确定当前进度的百分比。</li>
 <li>可通过设置process确定初始进度百分比, 范围从0-100。</li>
 <li>可通过placement设置当前进度提示框的位置, 可选top/bottoom。</li>
-<li>可通过onChange设置拖拽进度条松开时的回调函数。</li>
+<li>可通过onSliderChange设置拖拽进度条松开时的回调函数。</li>
 <li>可通过disabled设置进度条只读。</li>
 </ul>
 <p>主要属性和接口：</p>
@@ -420,8 +420,8 @@
 如: <code>&lt;Slider progress={10}/&gt;</code></li>
 <li>placement:进度提示框的位置, 默认top <br/>
 如: <code>&lt;Slider placement="bottom" /&gt;</code></li>
-<li>onChange:拖拽进度条松开时的回调函数 <br/>
-如: <code>&lt;Slider onChange={(progress)=&gt;{console.log(progress);} /&gt;</code></li>
+<li>onSliderChange:拖拽进度条松开时的回调函数 <br/>
+如: <code>&lt;Slider onSliderChange={(progress)=&gt;{console.log(progress);} /&gt;</code></li>
 <li>disabled:进度条只读, 不可操作 <br/>
 如: <code>&lt;Slider disabled/&gt;</code></li>
 </ul>
@@ -437,7 +437,7 @@
                     <ul class="index-list methods extends">
                         
                             <li class="index-item method">
-                                <a href="#" data-tabid="#method" data-anchor="#method_onChange" data-tablink="onChange">onChange</a>
+                                <a href="#" data-tabid="#method" data-anchor="#method_onSliderChange" data-tablink="onSliderChange">onSliderChange</a>
 
                                 
                                 
@@ -613,7 +613,7 @@ export default class slider extends Component{
         }
     }
 
-    onChange(newProgress){ // progress百分比
+    onSliderChange(newProgress){ // progress百分比
         this.setState({
             progress: newProgress
         });
@@ -636,12 +636,12 @@ export default class slider extends Component{
                 &lt;/div&gt;
                 &lt;Code target="slider-placement" /&gt;
 
-                &lt;h3 className="comp-type"&gt;onChange 拖拽进度条松开时的回调函数&lt;/h3&gt;
+                &lt;h3 className="comp-type"&gt;onSliderChange 拖拽进度条松开时的回调函数&lt;/h3&gt;
                 &lt;div className="content"&gt;
-                    &lt;Slider progress={this.state.progress} onChange={::this.onChange} /&gt;
+                    &lt;Slider progress={this.state.progress} onSliderChange={::this.onSliderChange} /&gt;
                     &lt;div style={{textAlign:"center",padding:"1rem 0"}}&gt;Progress: {this.state.progress}&lt;/div&gt;
                 &lt;/div&gt;
-                &lt;Code target="slider-onchange" /&gt;
+                &lt;Code target="slider-onsliderchange" /&gt;
 
 
                 &lt;h3 className="comp-type"&gt;disabled 进度条只读&lt;/h3&gt;
@@ -674,10 +674,10 @@ export default class slider extends Component{
                 <h2 class="off-left">方法</h2>
 
                 
-                    <div id="method_onChange" class="method item">
-    <h3 class="name">onChange</h3>
+                    <div id="method_onSliderChange" class="method item">
+    <h3 class="name">onSliderChange</h3>
     <code>
-    onChange
+    onSliderChange
     
         <span class="paren">()</span>
     

@@ -411,7 +411,7 @@
 <li>通过activeIndex指定默认的选中tab的索引值。</li>
 <li>选项卡默认横排, 可通过vertical设置为竖排。</li>
 <li>当设置为vertical后, 可通过width设置tab标题部分的宽度占比。</li>
-<li>可通过onChange设置点击选项卡的回调函数。</li>
+<li>可通过onTabsetChange设置点击选项卡的回调函数。</li>
 <li>可自定义className等常用属性以及事件。</li>
 </ul>
 <p>具体属性和接口如下：</p>
@@ -419,11 +419,11 @@
 <li>activeIndex:默认选中的标签卡索引值，默认0第一个tab</li>
 <li>vertical:是否竖排，如需要直接添加改属性即可，默认不竖排</li>
 <li>width:选项卡头部的宽度，取值0-100之间, 只有设置vertical下生效, 默认20</li>
-<li>onChange:点击选项卡执行的回调函数</li>
+<li>onTabsetChange:点击选项卡执行的回调函数</li>
 </ul>
 <p>示例:</p>
 <ul>
-<li>横排<pre><code class="lang-code">  &lt;Tabset activeIndex ={this.state.index} onChange={(index)=&gt;{console.log(index);}&gt;
+<li>横排<pre><code class="lang-code">  &lt;Tabset activeIndex ={this.state.index} onTabsetChange={(index)=&gt;{console.log(index);}&gt;
       &lt;Tab heading=&#39;标题1&#39; className=&#39;tab-test&#39;&gt;
           横向内容1
       &lt;/Tab&gt;
@@ -432,7 +432,7 @@
       &lt;/Tab&gt;
   &lt;/Tabset&gt;</code></pre>
 </li>
-<li>竖排<pre><code class="lang-code">  &lt;Tabset vertical width={30} activeIndex ={this.state.index} onChange={(index)=&gt;{console.log(index);}&gt;
+<li>竖排<pre><code class="lang-code">  &lt;Tabset vertical width={30} activeIndex ={this.state.index} onTabsetChange={(index)=&gt;{console.log(index);}&gt;
       &lt;Tab heading=&#39;标题1&#39;&gt;
           竖向内容1
       &lt;/Tab&gt;
@@ -454,7 +454,7 @@
                     <ul class="index-list methods extends">
                         
                             <li class="index-item method">
-                                <a href="#" data-tabid="#method" data-anchor="#method_onChange" data-tablink="onChange">onChange</a>
+                                <a href="#" data-tabid="#method" data-anchor="#method_onTabsetChange" data-tablink="onTabsetChange">onTabsetChange</a>
 
                                 
                                 
@@ -619,16 +619,12 @@ export default class tab extends Component{
         super(props,context);
     }
 
-    onChange(index){
+    onTabsetChange(index){
         alert("测试tabset回调", "index: " + index);
     }
 
     onTabChange(index){
         alert("测试tab回调", "index: " + index);
-    }
-
-    onTabClickHandle(){
-        alert("测试自定义tab点击事件");
     }
 
     render(){
@@ -677,9 +673,9 @@ export default class tab extends Component{
                 &lt;br/&gt;
                 &lt;Code target="tabset-width" /&gt;
 
-                &lt;h3 className="comp-type"&gt;onChange 点击选项卡的回调函数&lt;/h3&gt;
+                &lt;h3 className="comp-type"&gt;onTabsetChange 点击选项卡的回调函数&lt;/h3&gt;
                 &lt;div className="content"&gt;
-                    &lt;Tabset onChange={::this.onChange}&gt;
+                    &lt;Tabset onTabsetChange={::this.onTabsetChange}&gt;
                         &lt;Tab heading="标题1"&gt;
                             横向内容1
                         &lt;/Tab&gt;
@@ -688,7 +684,7 @@ export default class tab extends Component{
                         &lt;/Tab&gt;
                     &lt;/Tabset&gt;
                 &lt;/div&gt;
-                &lt;Code target="tabset-onchange" /&gt;
+                &lt;Code target="tabset-ontabsetchange" /&gt;
 
                 &lt;h3 className="comp-type"&gt;&lt;strong&gt;Tab&lt;/strong&gt;&lt;/h3&gt;
                 &lt;h3 className="comp-type"&gt;heading(默认"tab") 选项卡的标题内容&lt;/h3&gt;
@@ -704,10 +700,10 @@ export default class tab extends Component{
                 &lt;/div&gt;
                 &lt;Code target="tab-heading" /&gt;
 
-                &lt;h3 className="comp-type"&gt;onChange 点击单个选项卡的回调函数&lt;/h3&gt;
+                &lt;h3 className="comp-type"&gt;onTabChange 点击单个选项卡的回调函数&lt;/h3&gt;
                 &lt;div className="content"&gt;
                     &lt;Tabset&gt;
-                        &lt;Tab heading="标题1" onChange={::this.onTabChange}&gt;
+                        &lt;Tab heading="标题1" onTabChange={::this.onTabChange}&gt;
                             横向内容1
                         &lt;/Tab&gt;
                         &lt;Tab heading="标题2"&gt;
@@ -715,7 +711,7 @@ export default class tab extends Component{
                         &lt;/Tab&gt;
                     &lt;/Tabset&gt;
                 &lt;/div&gt;
-                &lt;Code target="tab-onchange" /&gt;
+                &lt;Code target="tab-ontabchange" /&gt;
            &lt;/div&gt;
         );
     }
@@ -741,10 +737,10 @@ export default class tab extends Component{
                 <h2 class="off-left">方法</h2>
 
                 
-                    <div id="method_onChange" class="method item">
-    <h3 class="name">onChange</h3>
+                    <div id="method_onTabsetChange" class="method item">
+    <h3 class="name">onTabsetChange</h3>
     <code>
-    onChange
+    onTabsetChange
     
         <span class="paren">()</span>
     

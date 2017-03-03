@@ -429,13 +429,13 @@ import classnames from &#x27;classnames&#x27;;
  * - 配合提示组件使用, 通过target设置显示的目标。
  * - 可通过placement设置目标物的显示位置, 可选top、bottom、left、right、top left、top right、bottom left、bottom right。
  * - 可通过distance设置目标物到点击对象(倾听者)的位置。
- * - 可通过onChange定义目标物显隐时额外的回调函数。
+ * - 可通过onTargetChange定义目标物显隐时额外的回调函数。
  *
  * 主要属性和接口：
  * - target:目标物。
  * - placement:目标物的显示位置, 默认bottom。
  * - distance:目标物到点击对象(倾听者)的位置, 默认15。
- * - onChange:目标物显隐时额外的回调函数。
+ * - onTargetChange:目标物显隐时额外的回调函数。
  *
  * 示例:
  * &#x60;&#x60;&#x60;code
@@ -449,7 +449,7 @@ import classnames from &#x27;classnames&#x27;;
  *     );
  * &#x60;&#x60;&#x60;
  * &#x60;&#x60;&#x60;code
- *     &lt;Whisper placement=&quot;top&quot; onChange={()=&gt;{console.log(&#x27;气泡出现消失时额外的执行函数&#x27;);}} target={popover} distance={10} &gt;Top&lt;/Whisper&gt;
+ *     &lt;Whisper placement=&quot;top&quot; onTargetChange={()=&gt;{console.log(&#x27;气泡出现消失时额外的执行函数&#x27;);}} target={popover} distance={10} &gt;Top&lt;/Whisper&gt;
  * &#x60;&#x60;&#x60;
  *
  * @class Whisper
@@ -496,10 +496,10 @@ export default class Whisper extends Component{
         distance: PropTypes.number,
         /**
          * 气泡显隐时可执行的额外函数,自定义
-         * @method onChange
+         * @method onTargetChange
          * @type Function
          * */
-        onChange: PropTypes.func
+        onTargetChange: PropTypes.func
     };
 
     static defaultProps = {
@@ -584,8 +584,6 @@ export default class Whisper extends Component{
     }
 
     onToggle(){
-        if(this.props.onChange) this.props.onChange();
-
         this.visible = !this.visible;
 
         if(this.visible){
@@ -593,6 +591,8 @@ export default class Whisper extends Component{
         }else{
             this.removeTarget();
         }
+
+        if(this.props.onTargetChange) this.props.onTargetChange();
     }
 
     onClose(){

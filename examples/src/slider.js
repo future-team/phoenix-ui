@@ -12,7 +12,7 @@ export default class slider extends Component{
         }
     }
 
-    onChange(newProgress){ // progress百分比
+    onSliderChange(newProgress){ // progress百分比
         this.setState({
             progress: newProgress
         });
@@ -35,12 +35,12 @@ export default class slider extends Component{
                 </div>
                 <Code target="slider-placement" />
 
-                <h3 className="comp-type">onChange 拖拽进度条松开时的回调函数</h3>
+                <h3 className="comp-type">onSliderChange 拖拽进度条松开时的回调函数</h3>
                 <div className="content">
-                    <Slider progress={this.state.progress} onChange={::this.onChange} />
+                    <Slider progress={this.state.progress} onSliderChange={::this.onSliderChange} />
                     <div style={{textAlign:"center",padding:"1rem 0"}}>Progress: {this.state.progress}</div>
                 </div>
-                <Code target="slider-onchange" />
+                <Code target="slider-onsliderchange" />
 
 
                 <h3 className="comp-type">disabled 进度条只读</h3>

@@ -3031,12 +3031,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * tab选项卡组件<br/>
 	 * - 通过heading设置选项卡的显示内容。
-	 * - 可通过onChange设置点击选项卡的回调函数。
+	 * - 可通过onTabChange设置点击选项卡的回调函数。
 	 * - 可自定义className等常用属性以及事件。
 	 *
 	 * 具体属性和接口如下：
 	 * - heading:选项卡的显示内容, 默认'tab'
-	 * - onChange:点击事件的回调函数
+	 * - onTabChange:点击事件的回调函数
 	 *
 	 * 示例:
 	 * ```code
@@ -3044,7 +3044,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *         <Tab heading='标题1' className='tab-test'>
 	 *             横向内容1
 	 *         </Tab>
-	 *         <Tab heading='标题2' onChange={(index)=>{console.log(index);}>
+	 *         <Tab heading='标题2' onTabChange={(index)=>{console.log(index);}>
 	 *             横向内容2
 	 *         </Tab>
 	 *     </Tabset>
@@ -3074,11 +3074,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	            heading: _react.PropTypes.string,
 	            /**
 	             * 点击事件的回调函数
-	             * @method onChange
+	             * @method onTabChange
 	             * @type Function
 	             * @default null
 	             * */
-	            onChange: _react.PropTypes.func
+	            onTabChange: _react.PropTypes.func
 	        },
 	        enumerable: true
 	    }, {
@@ -3087,7 +3087,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            heading: 'tab',
 	            activeIndex: 0,
 	            vertical: false,
-	            onChange: null
+	            onTabChange: null
 	        },
 	        enumerable: true
 	    }]);
@@ -3100,7 +3100,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    Tab.prototype.handleClick = function handleClick() {
 	        this.props.changeActive(this.props.index);
-	        this.props.onChange && this.props.onChange(this.props.index);
+	        this.props.onTabChange && this.props.onTabChange(this.props.index);
 	    };
 
 	    Tab.prototype.isActive = function isActive() {
@@ -3186,19 +3186,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * - 通过activeIndex指定默认的选中tab的索引值。
 	 * - 选项卡默认横排, 可通过vertical设置为竖排。
 	 * - 当设置为vertical后, 可通过width设置tab标题部分的宽度占比。
-	 * - 可通过onChange设置点击选项卡的回调函数。
+	 * - 可通过onTabsetChange设置点击选项卡的回调函数。
 	 * - 可自定义className等常用属性以及事件。
 	 *
 	 * 具体属性和接口如下：
 	 * - activeIndex:默认选中的标签卡索引值，默认0第一个tab
 	 * - vertical:是否竖排，如需要直接添加改属性即可，默认不竖排
 	 * - width:选项卡头部的宽度，取值0-100之间, 只有设置vertical下生效, 默认20
-	 * - onChange:点击选项卡执行的回调函数
+	 * - onTabsetChange:点击选项卡执行的回调函数
 	 *
 	 * 示例:
 	 * - 横排
 	 * ```code
-	 *     <Tabset activeIndex ={this.state.index} onChange={(index)=>{console.log(index);}>
+	 *     <Tabset activeIndex ={this.state.index} onTabsetChange={(index)=>{console.log(index);}>
 	 *         <Tab heading='标题1' className='tab-test'>
 	 *             横向内容1
 	 *         </Tab>
@@ -3209,7 +3209,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * ```
 	 * - 竖排
 	 * ```code
-	 *     <Tabset vertical width={30} activeIndex ={this.state.index} onChange={(index)=>{console.log(index);}>
+	 *     <Tabset vertical width={30} activeIndex ={this.state.index} onTabsetChange={(index)=>{console.log(index);}>
 	 *         <Tab heading='标题1'>
 	 *             竖向内容1
 	 *         </Tab>
@@ -3257,11 +3257,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	            width: _react.PropTypes.number,
 	            /**
 	             * 点击事件的回调函数,返回当前选中项
-	             * @method onChange
+	             * @method onTabsetChange
 	             * @type Function
 	             * @default null
 	             * */
-	            onChange: _react.PropTypes.func
+	            onTabsetChange: _react.PropTypes.func
 	        },
 	        enumerable: true
 	    }, {
@@ -3270,7 +3270,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            activeIndex: 0,
 	            vertical: false,
 	            width: 20,
-	            onChange: null
+	            onTabsetChange: null
 	        },
 	        enumerable: true
 	    }]);
@@ -3285,7 +3285,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        /**
 	         * 首次进入获取active
 	         * */
-	        // this.props.onChange && this.props.onChange(this.props.activeIndex);
+	        // this.props.onTabsetChange && this.props.onTabsetChange(this.props.activeIndex);
 	    }
 
 	    /**
@@ -3324,9 +3324,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    Tabset.prototype.tabHandler = function tabHandler(index) {
-	        var onChange = this.props.onChange;
+	        var onTabsetChange = this.props.onTabsetChange;
 
-	        onChange && onChange(index);
+	        onTabsetChange && onTabsetChange(index);
 	    };
 
 	    Tabset.prototype.render = function render() {
@@ -25598,7 +25598,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 手风琴组件<br/>
 	 * - 通过visible设置初始展开或收起的状态, 可选true/false。
-	 * - 可通过onChange设置展开收起时额外的回调函数。
+	 * - 可通过onAccordionChange设置展开收起时额外的回调函数。
 	 * - 可通过hideIcon设置隐藏向下的箭头。
 	 *
 	 * 主要属性和接口：
@@ -25615,10 +25615,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *         </Accordion.Body>
 	 *     </Accordion>
 	 * ```
-	 * - onChange:点击收起展开的额外的回调执行函数。<br/>
+	 * - onAccordionChange:点击收起展开的额外的回调执行函数。<br/>
 	 * 如：
 	 * ```code
-	 *     <Accordion onChange={(visible)=>{console.log(visible);}}>
+	 *     <Accordion onAccordionChange={(visible)=>{console.log(visible);}}>
 	 *         <Accordion.Header>
 	 *             标题一
 	 *         </Accordion.Header>
@@ -25665,10 +25665,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	            visible: _react.PropTypes.bool,
 	            /**
 	             * 点击收起展开的回调函数
-	             * @method onChange
+	             * @method onAccordionChange
 	             * @type Function
 	             * */
-	            onChange: _react.PropTypes.func,
+	            onAccordionChange: _react.PropTypes.func,
 	            /**
 	             * 向下的箭头是否可见， 默认可见
 	             * @property hideIcon
@@ -25700,25 +25700,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	        };
 	    }
 
-	    Accordion.prototype.changeVisible = function changeVisible(fn) {
+	    Accordion.prototype.changeVisible = function changeVisible() {
+	        var _this2 = this;
+
 	        this.setState({
 	            visible: !this.state.visible
-	        }, fn);
+	        }, function () {
+	            if (_this2.props.onAccordionChange) _this2.props.onAccordionChange(_this2.state.visible);
+	        });
 	    };
 
 	    Accordion.prototype.renderChildren = function renderChildren() {
 	        var _this = this;
 	        var newChildren = [];
-	        var _props = this.props;
-	        var hideIcon = _props.hideIcon;
-	        var onChange = _props.onChange;
+	        var hideIcon = this.props.hideIcon;
 
 	        _react2['default'].Children.forEach(this.props.children, function (child, index) {
 	            newChildren.push(_react2['default'].cloneElement(child, {
 	                key: index,
 	                hideIcon: hideIcon,
 	                visible: _this.state.visible,
-	                onChange: onChange,
 	                changeVisible: _this.changeVisible.bind(_this)
 	            }));
 	        });
@@ -25727,9 +25728,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    Accordion.prototype.render = function render() {
-	        var _props2 = this.props;
-	        var Component = _props2.componentTag;
-	        var className = _props2.className;
+	        var _props = this.props;
+	        var Component = _props.componentTag;
+	        var className = _props.className;
 
 	        return _react2['default'].createElement(
 	            Component,
@@ -25750,18 +25751,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _Component2.call(this, props, context);
 	    }
 
-	    AccordionHeader.prototype.onChange = function onChange() {
-	        var _this2 = this;
-
-	        this.props.changeVisible(function () {
-	            if (_this2.props.onChange) _this2.props.onChange(_this2.props.visible);
-	        });
+	    AccordionHeader.prototype.onAccordionHeaderChange = function onAccordionHeaderChange() {
+	        this.props.changeVisible();
 	    };
 
 	    AccordionHeader.prototype.renderIcon = function renderIcon() {
-	        var _props3 = this.props;
-	        var visible = _props3.visible;
-	        var hideIcon = _props3.hideIcon;
+	        var _props2 = this.props;
+	        var visible = _props2.visible;
+	        var hideIcon = _props2.hideIcon;
 
 	        if (!hideIcon) {
 	            return _react2['default'].createElement(_Icon2['default'], { phIcon: 'expand-more', className: visible ? 'active' : '' });
@@ -25776,7 +25773,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return _react2['default'].createElement(
 	            'div',
 	            _extends({ className: _classnames2['default'](_utilsTool.setPhoenixPrefix('accordion-header'), className),
-	                onClick: this.onChange.bind(this)
+	                onClick: this.onAccordionHeaderChange.bind(this)
 	            }, this.props),
 	            this.props.children,
 	            this.renderIcon()
@@ -25819,10 +25816,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    AccordionBody.prototype.render = function render() {
 	        var _this4 = this;
 
-	        var _props4 = this.props;
-	        var visible = _props4.visible;
-	        var children = _props4.children;
-	        var className = _props4.className;
+	        var _props3 = this.props;
+	        var visible = _props3.visible;
+	        var children = _props3.children;
+	        var className = _props3.className;
 
 	        return _react2['default'].createElement(
 	            'div',
@@ -26011,7 +26008,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *     );
 	 * ```
 	 * ```code
-	 *     <Whisper placement="top" onChange={()=>{console.log('气泡出现消失时额外的执行函数');}} target={popover} distance={10} >Top</Whisper>
+	 *     <Whisper placement="top" onTargetChange={()=>{console.log('气泡出现消失时额外的执行函数');}} target={popover} distance={10} >Top</Whisper>
 	 * ```
 	 *
 	 * @class Popover
@@ -26166,13 +26163,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * - 配合提示组件使用, 通过target设置显示的目标。
 	 * - 可通过placement设置目标物的显示位置, 可选top、bottom、left、right、top left、top right、bottom left、bottom right。
 	 * - 可通过distance设置目标物到点击对象(倾听者)的位置。
-	 * - 可通过onChange定义目标物显隐时额外的回调函数。
+	 * - 可通过onTargetChange定义目标物显隐时额外的回调函数。
 	 *
 	 * 主要属性和接口：
 	 * - target:目标物。
 	 * - placement:目标物的显示位置, 默认bottom。
 	 * - distance:目标物到点击对象(倾听者)的位置, 默认15。
-	 * - onChange:目标物显隐时额外的回调函数。
+	 * - onTargetChange:目标物显隐时额外的回调函数。
 	 *
 	 * 示例:
 	 * ```code
@@ -26186,7 +26183,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *     );
 	 * ```
 	 * ```code
-	 *     <Whisper placement="top" onChange={()=>{console.log('气泡出现消失时额外的执行函数');}} target={popover} distance={10} >Top</Whisper>
+	 *     <Whisper placement="top" onTargetChange={()=>{console.log('气泡出现消失时额外的执行函数');}} target={popover} distance={10} >Top</Whisper>
 	 * ```
 	 *
 	 * @class Whisper
@@ -26237,10 +26234,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	            distance: _react.PropTypes.number,
 	            /**
 	             * 气泡显隐时可执行的额外函数,自定义
-	             * @method onChange
+	             * @method onTargetChange
 	             * @type Function
 	             * */
-	            onChange: _react.PropTypes.func
+	            onTargetChange: _react.PropTypes.func
 	        },
 	        enumerable: true
 	    }, {
@@ -26333,8 +26330,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    Whisper.prototype.onToggle = function onToggle() {
-	        if (this.props.onChange) this.props.onChange();
-
 	        this.visible = !this.visible;
 
 	        if (this.visible) {
@@ -26342,6 +26337,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        } else {
 	            this.removeTarget();
 	        }
+
+	        if (this.props.onTargetChange) this.props.onTargetChange();
 	    };
 
 	    Whisper.prototype.onClose = function onClose() {
@@ -26442,7 +26439,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * - 滑动进度条确定当前进度的百分比。
 	 * - 可通过设置process确定初始进度百分比, 范围从0-100。
 	 * - 可通过placement设置当前进度提示框的位置, 可选top/bottoom。
-	 * - 可通过onChange设置拖拽进度条松开时的回调函数。
+	 * - 可通过onSliderChange设置拖拽进度条松开时的回调函数。
 	 * - 可通过disabled设置进度条只读。
 	 *
 	 * 主要属性和接口：
@@ -26450,8 +26447,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * 如: `<Slider progress={10}/>`
 	 * - placement:进度提示框的位置, 默认top <br/>
 	 * 如: `<Slider placement="bottom" />`
-	 * - onChange:拖拽进度条松开时的回调函数 <br/>
-	 * 如: `<Slider onChange={(progress)=>{console.log(progress);} />`
+	 * - onSliderChange:拖拽进度条松开时的回调函数 <br/>
+	 * 如: `<Slider onSliderChange={(progress)=>{console.log(progress);} />`
 	 * - disabled:进度条只读, 不可操作 <br/>
 	 * 如: `<Slider disabled/>`
 	 *
@@ -26498,10 +26495,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	            placement: _react.PropTypes.string,
 	            /**
 	             * 改变进程时的回调函数
-	             * @method onChange
+	             * @method onSliderChange
 	             * @type Function
 	             * */
-	            onChange: _react.PropTypes.func
+	            onSliderChange: _react.PropTypes.func
 	        },
 	        enumerable: true
 	    }, {
@@ -26568,7 +26565,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        this.newProgressWidth = this.prevProgressWidth;
 
-	        if (this.props.onChange) this.props.onChange(this.state.newProgress);
+	        if (this.props.onSliderChange) this.props.onSliderChange(this.state.newProgress);
 	    };
 
 	    Slider.prototype.render = function render() {
@@ -26680,15 +26677,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * 菜单组件<br/>
 	 - 可通过visible设置菜单初始是否可见，默认不可见。
 	 - 不设置scrollCeiling时默认菜单不吸顶，设置scrollCeiling为具体数值时表示从当前距离开始吸顶，设置0表示至始至终吸顶。
-	 - 可通过onChange函数设置菜单打开收起的回调函数。
+	 - 可通过onMenuChange函数设置菜单打开收起的回调函数。
 	 *
 	 * 主要属性和接口：
 	 * - visible:初始展开或收起的状态, 默认false收起。
 	 * - scrollCeiling:设置吸顶的距离, 默认不吸顶, 设置0表示始终吸顶。
-	 * - onChange:菜单打开关闭时的回调函数。 <br/>
+	 * - onMenuChange:菜单打开关闭时的回调函数。 <br/>
 	 * 如：
 	 * ```code
-	 *     <Menu scrollCeiling={100} visible={true} onChange={(visible)=>{console.log(visible);}}>
+	 *     <Menu scrollCeiling={100} visible={true} onMenuChange={(visible)=>{console.log(visible);}}>
 	 *         <Menu.Header>
 	 *             标题一
 	 *         </Menu.Header>
@@ -26735,10 +26732,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	            visible: _react.PropTypes.bool,
 	            /**
 	             * 点击收起展开的回调函数
-	             * @method onChange
+	             * @method onMenuChange
 	             * @type Function
 	             * */
-	            onChange: _react.PropTypes.func,
+	            onMenuChange: _react.PropTypes.func,
 	            /**
 	             * 是否滚动吸顶, 默认不吸顶(false); 设置确定的数字从当前距离开始吸顶 
 	             * @property scrollCeiling
@@ -26791,7 +26788,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            this.setState({
 	                visible: false
 	            }, function () {
-	                if (_this2.props.onChange) _this2.props.onChange(_this2.state.visible);
+	                if (_this2.props.onMenuChange) _this2.props.onMenuChange(_this2.state.visible);
 	            });
 	        }
 
@@ -26815,34 +26812,34 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }, 0);
 	    };
 
-	    Menu.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+	    // componentWillReceiveProps(nextProps){
+	    //     if(this.state.visible != nextProps.visible){
+	    //         this.setState({
+	    //             visible: nextProps.visible
+	    //         }, ()=>{
+	    //         if(this.props.onMenuChange) this.props.onMenuChange(nextProps.visible);
+	    //     });
+	    //     }
+	    // }
+
+	    Menu.prototype.changeVisible = function changeVisible() {
 	        var _this4 = this;
 
-	        if (this.state.visible != nextProps.visible) {
-	            this.setState({
-	                visible: nextProps.visible
-	            }, function () {
-	                if (_this4.props.onChange) _this4.props.onChange(nextProps.visible);
-	            });
-	        }
-	    };
-
-	    Menu.prototype.changeVisible = function changeVisible(fn) {
 	        this.setState({
 	            visible: !this.state.visible
-	        }, fn);
+	        }, function () {
+	            if (_this4.props.onMenuChange) _this4.props.onMenuChange(_this4.state.visible);
+	        });
 	    };
 
 	    Menu.prototype.renderChildren = function renderChildren() {
 	        var _this = this;
 	        var newChildren = [];
-	        var onChange = this.props.onChange;
 
 	        _react2['default'].Children.forEach(this.props.children, function (child, index) {
 	            newChildren.push(_react2['default'].cloneElement(child, {
 	                key: index,
 	                visible: _this.state.visible,
-	                onChange: onChange,
 	                changeVisible: _this.changeVisible.bind(_this),
 	                headerHeight: _this.state.headerHeight
 	            }));
@@ -26963,11 +26960,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    MenuHeader.prototype.onChange = function onChange() {
-	        var _this = this;
-
-	        this.props.changeVisible(function () {
-	            if (_this.props.onChange) _this.props.onChange(_this.props.visible);
-	        });
+	        this.props.changeVisible();
 	    };
 
 	    MenuHeader.prototype.render = function render() {
@@ -27215,11 +27208,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    MenuBody.prototype.onChange = function onChange() {
-	        var _this2 = this;
-
-	        this.props.changeVisible(function () {
-	            if (_this2.props.onChange) _this2.props.onChange(_this2.props.visible);
-	        });
+	        this.props.changeVisible();
 	    };
 
 	    MenuBody.prototype.render = function render() {
@@ -27404,11 +27393,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 菜单导航列表组件<br/>
 	 * - 通过activeName设置当前导航选中的菜单项， 必需。
-	 * - 通过onChange函数设置点击菜单项时的回调，函数内必需手动更改activeName值，必需。
+	 * - 通过onMenulistChange函数设置点击菜单项时的回调，函数内必需手动更改activeName值，必需。
 	 *
 	 * 主要属性和接口：
 	 * - activeName:设置当前导航选中的菜单项,默认null。 
-	 * - onChange:点击菜单项时的回调。 <br/>
+	 * - onMenulistChange:点击菜单项时的回调。 <br/>
 	 * 如：
 	 * ```code
 	 *     <Menu>
@@ -27417,7 +27406,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *         </Menu.Header>
 	 *         <Menu.Body>
 	 *             <Menu.Nav>
-	 *                  <Menu.List activeName={this.state.activeName} onChange={(name)=>{this.setState({activeName:name})}}>
+	 *                  <Menu.List activeName={this.state.activeName} onMenulistChange={(name)=>{this.setState({activeName:name})}}>
 	 *                      ...
 	 *                  </Menu.List>
 	 *              </Menu.Nav>
@@ -27456,11 +27445,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	            activeName: _react.PropTypes.string,
 	            /**
 	             * 点击事件的回调函数
-	             * @method onChange
+	             * @method onMenulistChange
 	             * @type Function
 	             * @default null
 	             * */
-	            onChange: _react.PropTypes.func
+	            onMenulistChange: _react.PropTypes.func
 	        },
 	        enumerable: true
 	    }, {
@@ -27480,7 +27469,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    MenuList.prototype.changeActive = function changeActive(name) {
-	        if (this.props.onChange) this.props.onChange(name);
+	        if (this.props.onMenulistChange) this.props.onMenulistChange(name);
 	    };
 
 	    MenuList.prototype.renderChildren = function renderChildren() {
@@ -27557,15 +27546,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * 菜单导航列表项组件<br/>
 	 * - 可通过phIcon设置菜单项名称前符号的类型，具体可以参考[gfs-icons](https://future-team.github.io/gfs-icons/index.html)。 
-	 * - 可通过href设置菜单项的跳转地址，可不设置，自定义回调函数onChange。
+	 * - 可通过href设置菜单项的跳转地址，可不设置，自定义回调函数onMenuitemChange。
 	 * - 可通过name设置菜单项的唯一标识，对应MenuList的activeName。
-	 * - 通过onChange设置点击菜单项时的回调。
+	 * - 通过onMenuitemChange设置点击菜单项时的回调。
 	 *
 	 * 主要属性和接口：
 	 * - phIcon:菜单项名称前符号的类型，不设置时默认没有符号。 
 	 * - href:菜单项的跳转地址，默认null。
 	 * - name:菜单项的唯一标识。
-	 * - onChange:点击菜单项时的回调。<br/>
+	 * - onMenuitemChange:点击菜单项时的回调。<br/>
 	 * 如：
 	 * ```code
 	 *     <Menu>
@@ -27574,8 +27563,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *         </Menu.Header>
 	 *         <Menu.Body>
 	 *             <Menu.Nav>
-	 *                  <Menu.List activeName={this.state.activeName} onChange={(name)=>{this.setState({activeName:name})}}>
-	 *                      <Menu.Item name="home" href="#index" phIcon="home" onChange={(name)=>{console.log(name);}}>首页</Menu.Item>
+	 *                  <Menu.List activeName={this.state.activeName} onMenulistChange={(name)=>{this.setState({activeName:name})}}>
+	 *                      <Menu.Item name="home" href="#index" phIcon="home" onMenuitemChange={(name)=>{console.log(name);}}>首页</Menu.Item>
 	 *                  </Menu.List>
 	 *              </Menu.Nav>
 	 *         </Menu.Body>
@@ -27608,9 +27597,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return name === activeName ? 'active' : '';
 	    };
 
-	    MenuItem.prototype.onChange = function onChange() {
+	    MenuItem.prototype.onMenuitemChange = function onMenuitemChange() {
 	        this.props.changeActive(this.props.name);
-	        if (this.props.onChange) this.props.onChange(this.props.name);
+	        if (this.props.onMenuitemChange) this.props.onMenuitemChange(this.props.name);
 	    };
 
 	    MenuItem.prototype.renderIcon = function renderIcon() {
@@ -27635,7 +27624,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }),
 	            _react2['default'].createElement(
 	                'a',
-	                { href: href, onClick: this.onChange.bind(this) },
+	                { href: href, onClick: this.onMenuitemChange.bind(this) },
 	                this.renderIcon(),
 	                children
 	            )
@@ -27675,11 +27664,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	            name: _react.PropTypes.string,
 	            /**
 	             * 点击事件的回调函数
-	             * @method onChange
+	             * @method onMenuitemChange
 	             * @type Function
 	             * @default null
 	             * */
-	            onChange: _react.PropTypes.func
+	            onMenuitemChange: _react.PropTypes.func
 	        },
 	        enumerable: true
 	    }, {

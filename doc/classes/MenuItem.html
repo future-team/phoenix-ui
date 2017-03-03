@@ -409,24 +409,24 @@
       <div class="stdoc-code"><p>菜单导航列表项组件<br/></p>
 <ul>
 <li>可通过phIcon设置菜单项名称前符号的类型，具体可以参考<a href="https://future-team.github.io/gfs-icons/index.html">gfs-icons</a>。 </li>
-<li>可通过href设置菜单项的跳转地址，可不设置，自定义回调函数onChange。</li>
+<li>可通过href设置菜单项的跳转地址，可不设置，自定义回调函数onMenuitemChange。</li>
 <li>可通过name设置菜单项的唯一标识，对应MenuList的activeName。</li>
-<li>通过onChange设置点击菜单项时的回调。</li>
+<li>通过onMenuitemChange设置点击菜单项时的回调。</li>
 </ul>
 <p>主要属性和接口：</p>
 <ul>
 <li>phIcon:菜单项名称前符号的类型，不设置时默认没有符号。 </li>
 <li>href:菜单项的跳转地址，默认null。</li>
 <li>name:菜单项的唯一标识。</li>
-<li>onChange:点击菜单项时的回调。<br/>
+<li>onMenuitemChange:点击菜单项时的回调。<br/>
 如：<pre><code class="lang-code">  &lt;Menu&gt;
       &lt;Menu.Header&gt;
           标题一
       &lt;/Menu.Header&gt;
       &lt;Menu.Body&gt;
           &lt;Menu.Nav&gt;
-               &lt;Menu.List activeName={this.state.activeName} onChange={(name)=&gt;{this.setState({activeName:name})}}&gt;
-                   &lt;Menu.Item name="home" href="#index" phIcon="home" onChange={(name)=&gt;{console.log(name);}}&gt;首页&lt;/Menu.Item&gt;
+               &lt;Menu.List activeName={this.state.activeName} onMenulistChange={(name)=&gt;{this.setState({activeName:name})}}&gt;
+                   &lt;Menu.Item name="home" href="#index" phIcon="home" onMenuitemChange={(name)=&gt;{console.log(name);}}&gt;首页&lt;/Menu.Item&gt;
                &lt;/Menu.List&gt;
            &lt;/Menu.Nav&gt;
       &lt;/Menu.Body&gt;
@@ -445,7 +445,7 @@
                     <ul class="index-list methods extends">
                         
                             <li class="index-item method">
-                                <a href="#" data-tabid="#method" data-anchor="#method_onChange" data-tablink="onChange">onChange</a>
+                                <a href="#" data-tabid="#method" data-anchor="#method_onMenuitemChange" data-tablink="onMenuitemChange">onMenuitemChange</a>
 
                                 
                                 
@@ -624,11 +624,12 @@ export default class menu extends Component{
             width: 40,
             closeButton: false,
             navAlign: &#39;top&#39;,
-            activeName: &#39;index&#39;
+            activeName: &#39;index&#39;,
+            value: &#39;ha&#39;
         }
     }
 
-    onChange(visible){
+    onMenuChange(visible){
         console.log(visible);
     }
 
@@ -639,12 +640,6 @@ export default class menu extends Component{
 
         this.setState({
             align: newAlign
-        });
-    }
-
-    switchVisible(){
-        this.setState({
-            visible: !this.state.visible
         });
     }
 
@@ -682,7 +677,7 @@ export default class menu extends Component{
     setActiveName(name){
         this.setState({
             activeName: name,
-            visible: false // 如果需要点击之后关闭设为true，
+            visible: false // 如果需要点击之后关闭false
         });
     }
 
@@ -690,17 +685,23 @@ export default class menu extends Component{
         console.log(name);
     }
 
+    onInputChange(e){
+        this.setState({
+            value: e.target.value
+        });
+    }
+
     render(){
         return(
             &lt;div&gt;
-                &lt;Menu visible={this.state.visible} scrollCeiling={100} onChange={::this.onChange}&gt;
+                &lt;Menu visible={this.state.visible} scrollCeiling={100} onMenuChange={::this.onMenuChange}&gt;
                     &lt;Menu.Header align={this.state.align}&gt;Phoenix&lt;/Menu.Header&gt;
                     &lt;Menu.Body width={this.state.width} placement={this.state.placement} closeButton={this.state.closeButton}&gt;
                         &lt;Menu.Nav align={this.state.navAlign}&gt;
                             &lt;div&gt;
-                                &lt;Input placeholder="自定义部分" /&gt;
+                                &lt;Input placeholder="自定义部分" value={this.state.value} onChange={::this.onInputChange}/&gt;
                             &lt;/div&gt;
-                            &lt;Menu.List activeName={this.state.activeName} onChange={::this.setActiveName}&gt;
+                            &lt;Menu.List activeName={this.state.activeName} onMenulistChange={::this.setActiveName}&gt;
                                 &lt;Menu.Item name="index" phIcon="home"&gt;首页&lt;/Menu.Item&gt;
                                 &lt;Menu.Item name="menu" href="#menu" phIcon="menu" onChange={::this.onMenuItemChange}&gt;菜单&lt;/Menu.Item&gt;
                             &lt;/Menu.List&gt;
@@ -711,17 +712,14 @@ export default class menu extends Component{
                 &lt;h2 className="comp-title"&gt;Menu&lt;/h2&gt;
                 &lt;h3 className="comp-type"&gt;&lt;strong&gt;Menu属性&lt;/strong&gt;&lt;/h3&gt;
                 &lt;h3 className="comp-type"&gt;visible(默认false) 初始可见值&lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;Button onClick={::this.switchVisible}&gt;切换visible值:默认false&lt;/Button&gt;
-                &lt;/div&gt;
                 &lt;Code target="menu-visible" /&gt;
 
                 &lt;h3 className="comp-type"&gt;scrollCeiling 滚动吸顶的距离，默认不吸顶&lt;/h3&gt;
                 &lt;h3 className="comp-tip"&gt;当前设置为100&lt;/h3&gt;
                 &lt;Code target="menu-scrollceiling" /&gt;
 
-                &lt;h3 className="comp-type"&gt;onChange 菜单展开收起的回调函数&lt;/h3&gt;
-                &lt;Code target="menu-onchange" /&gt;
+                &lt;h3 className="comp-type"&gt;onMenuChange 菜单展开收起的回调函数&lt;/h3&gt;
+                &lt;Code target="menu-onmenuchange" /&gt;
 
 
                 &lt;h3 className="comp-type"&gt;&lt;strong&gt;MenuHeader属性&lt;/strong&gt;&lt;/h3&gt;
@@ -765,10 +763,10 @@ export default class menu extends Component{
                 &lt;div className="content"&gt;
                     &lt;Button onClick={::this.switchActiveName}&gt;改变activeName值:index-&gt;menu&lt;/Button&gt;
                 &lt;/div&gt;
-                &lt;Code target="menu-list-onchange" /&gt;
+                &lt;Code target="menu-list-onmenulistchange" /&gt;
 
-                &lt;h3 className="comp-type"&gt;onChange 点击菜单项时的回调，函数内必需手动更改activeName值&lt;/h3&gt;
-                &lt;Code target="menu-list-onchange" /&gt;
+                &lt;h3 className="comp-type"&gt;onMenulistChange 点击菜单项时的回调，函数内必需手动更改activeName值&lt;/h3&gt;
+                &lt;Code target="menu-list-onmenulistchange" /&gt;
 
 
                 &lt;h3 className="comp-type"&gt;&lt;strong&gt;MenuItem属性&lt;/strong&gt;&lt;/h3&gt;
@@ -781,8 +779,8 @@ export default class menu extends Component{
                 &lt;h3 className="comp-type"&gt;href(默认无) 菜单项的链接&lt;/h3&gt;
                 &lt;Code target="menu-item-href" /&gt;
 
-                &lt;h3 className="comp-type"&gt;onChange 点击菜单项时的回调&lt;/h3&gt;
-                &lt;Code target="menu-item-onchange" /&gt;
+                &lt;h3 className="comp-type"&gt;onMenuitemChange 点击菜单项时的回调&lt;/h3&gt;
+                &lt;Code target="menu-item-onmenuitemchange" /&gt;
 
             &lt;/div&gt;
         );
@@ -809,10 +807,10 @@ export default class menu extends Component{
                 <h2 class="off-left">方法</h2>
 
                 
-                    <div id="method_onChange" class="method item">
-    <h3 class="name">onChange</h3>
+                    <div id="method_onMenuitemChange" class="method item">
+    <h3 class="name">onMenuitemChange</h3>
     <code>
-    onChange
+    onMenuitemChange
     
         <span class="paren">()</span>
     

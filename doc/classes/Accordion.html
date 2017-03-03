@@ -409,7 +409,7 @@
       <div class="stdoc-code"><p>手风琴组件<br/></p>
 <ul>
 <li>通过visible设置初始展开或收起的状态, 可选true/false。</li>
-<li>可通过onChange设置展开收起时额外的回调函数。</li>
+<li>可通过onAccordionChange设置展开收起时额外的回调函数。</li>
 <li>可通过hideIcon设置隐藏向下的箭头。</li>
 </ul>
 <p>主要属性和接口：</p>
@@ -425,8 +425,8 @@
       &lt;/Accordion.Body&gt;
   &lt;/Accordion&gt;</code></pre>
 </li>
-<li>onChange:点击收起展开的额外的回调执行函数。<br/>
-如：<pre><code class="lang-code">  &lt;Accordion onChange={(visible)=&gt;{console.log(visible);}}&gt;
+<li>onAccordionChange:点击收起展开的额外的回调执行函数。<br/>
+如：<pre><code class="lang-code">  &lt;Accordion onAccordionChange={(visible)=&gt;{console.log(visible);}}&gt;
       &lt;Accordion.Header&gt;
           标题一
       &lt;/Accordion.Header&gt;
@@ -448,7 +448,7 @@
                     <ul class="index-list methods extends">
                         
                             <li class="index-item method">
-                                <a href="#" data-tabid="#method" data-anchor="#method_onChange" data-tablink="onChange">onChange</a>
+                                <a href="#" data-tabid="#method" data-anchor="#method_onAccordionChange" data-tablink="onAccordionChange">onAccordionChange</a>
 
                                 
                                 
@@ -625,7 +625,7 @@ export default class accordion extends Component{
         }
     }
 
-    onChange(visible){
+    onAccordionChange(visible){
         alert(visible);
     }
 
@@ -672,8 +672,8 @@ export default class accordion extends Component{
                 &lt;br/&gt;
                 &lt;Code target="accordion-hideicon" /&gt;
 
-                &lt;h3 className="comp-type"&gt;onChange 展开收起的回调函数&lt;/h3&gt;
-                &lt;Accordion visible={this.state.visible} onChange={::this.onChange}&gt;
+                &lt;h3 className="comp-type"&gt;onAccordionChange 展开收起的回调函数&lt;/h3&gt;
+                &lt;Accordion visible={this.state.visible} onAccordionChange={::this.onAccordionChange}&gt;
                     &lt;Accordion.Header&gt;
                         标题一
                     &lt;/Accordion.Header&gt;
@@ -685,7 +685,7 @@ export default class accordion extends Component{
                     &lt;/Accordion.Body&gt;
                 &lt;/Accordion&gt;
                 &lt;br/&gt;
-                &lt;Code target="accordion-onchange" /&gt;
+                &lt;Code target="accordion-onaccordionchange" /&gt;
             &lt;/div&gt;
         );
     }
@@ -711,10 +711,10 @@ export default class accordion extends Component{
                 <h2 class="off-left">方法</h2>
 
                 
-                    <div id="method_onChange" class="method item">
-    <h3 class="name">onChange</h3>
+                    <div id="method_onAccordionChange" class="method item">
+    <h3 class="name">onAccordionChange</h3>
     <code>
-    onChange
+    onAccordionChange
     
         <span class="paren">()</span>
     

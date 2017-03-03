@@ -432,7 +432,7 @@ import Icon from &#x27;./Icon&#x27;;
 /**
  * 手风琴组件&lt;br/&gt;
  * - 通过visible设置初始展开或收起的状态, 可选true/false。
- * - 可通过onChange设置展开收起时额外的回调函数。
+ * - 可通过onAccordionChange设置展开收起时额外的回调函数。
  * - 可通过hideIcon设置隐藏向下的箭头。
  *
  * 主要属性和接口：
@@ -449,10 +449,10 @@ import Icon from &#x27;./Icon&#x27;;
  *         &lt;/Accordion.Body&gt;
  *     &lt;/Accordion&gt;
  * &#x60;&#x60;&#x60;
- * - onChange:点击收起展开的额外的回调执行函数。&lt;br/&gt;
+ * - onAccordionChange:点击收起展开的额外的回调执行函数。&lt;br/&gt;
  * 如：
  * &#x60;&#x60;&#x60;code
- *     &lt;Accordion onChange={(visible)=&gt;{console.log(visible);}}&gt;
+ *     &lt;Accordion onAccordionChange={(visible)=&gt;{console.log(visible);}}&gt;
  *         &lt;Accordion.Header&gt;
  *             标题一
  *         &lt;/Accordion.Header&gt;
@@ -496,10 +496,10 @@ class Accordion extends Component{
         visible: PropTypes.bool,
         /**
          * 点击收起展开的回调函数
-         * @method onChange
+         * @method onAccordionChange
          * @type Function
          * */
-        onChange: PropTypes.func,
+        onAccordionChange: PropTypes.func,
         /**
          * 向下的箭头是否可见， 默认可见
          * @property hideIcon
@@ -525,23 +525,24 @@ class Accordion extends Component{
         }
     }
 
-    changeVisible(fn){
+    changeVisible(){
         this.setState({
             visible: !this.state.visible
-        }, fn);
+        }, ()=&gt;{
+            if(this.props.onAccordionChange) this.props.onAccordionChange(this.state.visible);
+        });
     }
 
     renderChildren(){
         let _this = this;
         let newChildren = [];
-        let {hideIcon, onChange} = this.props;
+        let {hideIcon} = this.props;
 
         React.Children.forEach(this.props.children, function(child, index){
             newChildren.push(React.cloneElement(child,{
                 key: index,
                 hideIcon: hideIcon,
                 visible: _this.state.visible,
-                onChange: onChange,
                 changeVisible: _this.changeVisible.bind(_this)
             }));
         });
@@ -568,10 +569,8 @@ class AccordionHeader extends Component {
         super(props, context);
     }
 
-    onChange(){
-        this.props.changeVisible(()=&gt;{
-            if(this.props.onChange) this.props.onChange(this.props.visible);
-        });
+    onAccordionHeaderChange(){
+        this.props.changeVisible();
     }
 
     renderIcon(){
@@ -592,7 +591,7 @@ class AccordionHeader extends Component {
                     setPhoenixPrefix(&#x27;accordion-header&#x27;),
                     className
                 )}
-                onClick={::this.onChange}
+                onClick={::this.onAccordionHeaderChange}
                 {...this.props}
             &gt;
                 {this.props.children}

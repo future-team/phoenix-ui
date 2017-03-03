@@ -63,9 +63,7 @@ export default class MenuHeader extends Component {
     };
 
     onChange(){
-        this.props.changeVisible(()=>{
-            if(this.props.onChange) this.props.onChange(this.props.visible);
-        });
+        this.props.changeVisible();
     }
 
     render(){
