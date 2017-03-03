@@ -22,6 +22,7 @@ import classnames from 'classnames';
  * @module 基础组件
  * @extends Component
  * @constructor
+ * @since 0.1.0
  * @demo button|button.js {展示}
  * @show true
  * */

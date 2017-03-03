@@ -197,19 +197,19 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.Accordion = _Accordion3['default'];
 
-	var _Popover2 = __webpack_require__(205);
+	var _Popover2 = __webpack_require__(206);
 
 	var _Popover3 = _interopRequireDefault(_Popover2);
 
 	exports.Popover = _Popover3['default'];
 
-	var _Whisper2 = __webpack_require__(206);
+	var _Whisper2 = __webpack_require__(207);
 
 	var _Whisper3 = _interopRequireDefault(_Whisper2);
 
 	exports.Whisper = _Whisper3['default'];
 
-	var _Slider2 = __webpack_require__(207);
+	var _Slider2 = __webpack_require__(208);
 
 	var _Slider3 = _interopRequireDefault(_Slider2);
 
@@ -221,7 +221,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.Animate = _Animate3['default'];
 
-	var _Icon2 = __webpack_require__(208);
+	var _Icon2 = __webpack_require__(205);
 
 	var _Icon3 = _interopRequireDefault(_Icon2);
 
@@ -813,6 +813,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 基础组件
 	 * @extends Component
 	 * @constructor
+	 * @since 0.1.0
 	 * @demo button|button.js {展示}
 	 * @show true
 	 * */
@@ -2008,6 +2009,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 表单组件
 	 * @extends Component
 	 * @constructor
+	 * @since 0.1.0
 	 * @demo input|input.js {展示}
 	 * @show true
 	 * */
@@ -2223,6 +2225,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 表单组件
 	 * @extends Component
 	 * @constructor
+	 * @since 0.3.0
 	 * @demo textarea|textarea.js {展示}
 	 * @show true
 	 * */
@@ -2384,6 +2387,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 表单组件
 	 * @extends Component
 	 * @constructor
+	 * @since 0.1.0
 	 * @demo switch|switch.js {展示}
 	 * @show true
 	 * */
@@ -2770,6 +2774,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 布局组件
 	 * @extends Component
 	 * @constructor
+	 * @since 0.1.0
 	 * @demo tableview|table-view.js {展示}
 	 * @show true
 	 * */
@@ -2916,6 +2921,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 表单组件
 	 * @extends Component
 	 * @constructor
+	 * @since 0.1.0
 	 * @demo formgroup|form-group.js {展示}
 	 * @show true
 	 * */
@@ -3664,6 +3670,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 基础组件
 	 * @extends Component
 	 * @constructor
+	 * @since 0.1.0
 	 * @demo star|star.js {展示}
 	 * @show true
 	 * */
@@ -3798,6 +3805,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 辅助组件
 	 * @extends Component
 	 * @constructor
+	 * @since 1.0.0
 	 * @demo drag|drag.js {展示}
 	 * @show true
 	 * */
@@ -4018,6 +4026,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 操作类组件
 	 * @extends Component
 	 * @constructor
+	 * @since 0.3.0
 	 * @demo swipe|swipe.js {展示}
 	 * @show true
 	 * */
@@ -4238,6 +4247,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 布局组件
 	 * @extends Component
 	 * @constructor
+	 * @since 0.1.0
 	 * @demo grid|grid.js {展示}
 	 * @show true
 	 * */
@@ -4366,6 +4376,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 操作类组件
 	 * @extends Component
 	 * @constructor
+	 * @since 0.4.0
 	 * @demo dialog|dialog.js {展示}
 	 * @show true
 	 * */
@@ -4641,6 +4652,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 辅助组件
 	 * @extends Component
 	 * @constructor
+	 * @since 1.0.0
 	 * @demo animate|animate.js {展示}
 	 * @show true
 	 * */
@@ -25232,6 +25244,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 操作类组件
 	 * @extends Component
 	 * @constructor
+	 * @since 0.3.0
 	 * @demo toast|toast.js
 	 * @show true
 	 * */
@@ -25411,6 +25424,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 操作类组件
 	 * @extends Component
 	 * @constructor
+	 * @since 0.4.0
 	 * @demo popup|popup.js {展示}
 	 * @show true
 	 * */
@@ -25563,6 +25577,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _utilsTool = __webpack_require__(21);
 
+	var _Icon = __webpack_require__(205);
+
+	var _Icon2 = _interopRequireDefault(_Icon);
+
 	/**
 	 * <h5>操作类组件，主要包括组件:</h5>
 	 * <strong><a href='../classes/Accordion.html'>Accordion 手风琴</a></strong><br/>
@@ -25581,12 +25599,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * 手风琴组件<br/>
 	 * - 通过visible设置初始展开或收起的状态, 可选true/false。
 	 * - 可通过onChange设置展开收起时额外的回调函数。
+	 * - 可通过hideIcon设置隐藏向下的箭头。
 	 *
 	 * 主要属性和接口：
-	 * - visible:初始展开或收起的状态, 默认false收起 <br/>
+	 * - visible:初始展开或收起的状态, 默认false收起。
+	 * = hideIcon:设置隐藏向下的箭头, 默认false可见。<br/>
 	 * 如：
 	 * ```code
-	 *     <Accordion visible={true}>
+	 *     <Accordion visible={true} hideIcon>
 	 *         <Accordion.Header>
 	 *             标题一
 	 *         </Accordion.Header>
@@ -25595,7 +25615,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *         </Accordion.Body>
 	 *     </Accordion>
 	 * ```
-	 * - onChange:点击收起展开的额外的回调执行函数 <br/>
+	 * - onChange:点击收起展开的额外的回调执行函数。<br/>
 	 * 如：
 	 * ```code
 	 *     <Accordion onChange={(visible)=>{console.log(visible);}}>
@@ -25612,6 +25632,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 操作类组件
 	 * @extends Component
 	 * @constructor
+	 * @since 0.4.0
 	 * @demo accordion|accordion.js {展示}
 	 * @show true
 	 * */
@@ -25647,13 +25668,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * @method onChange
 	             * @type Function
 	             * */
-	            onChange: _react.PropTypes.func
+	            onChange: _react.PropTypes.func,
+	            /**
+	             * 向下的箭头是否可见， 默认可见
+	             * @property hideIcon
+	             * @type Boolean
+	             * @default false
+	             * */
+	            hideIcon: _react.PropTypes.bool
 	        },
 	        enumerable: true
 	    }, {
 	        key: 'defaultProps',
 	        value: {
 	            visible: false,
+	            hideIcon: false,
 	            classPrefix: 'accordion',
 	            componentTag: 'div',
 	            classMapping: {}
@@ -25680,11 +25709,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Accordion.prototype.renderChildren = function renderChildren() {
 	        var _this = this;
 	        var newChildren = [];
-	        var onChange = this.props.onChange;
+	        var _props = this.props;
+	        var hideIcon = _props.hideIcon;
+	        var onChange = _props.onChange;
 
 	        _react2['default'].Children.forEach(this.props.children, function (child, index) {
 	            newChildren.push(_react2['default'].cloneElement(child, {
 	                key: index,
+	                hideIcon: hideIcon,
 	                visible: _this.state.visible,
 	                onChange: onChange,
 	                changeVisible: _this.changeVisible.bind(_this)
@@ -25695,9 +25727,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    Accordion.prototype.render = function render() {
-	        var _props = this.props;
-	        var Component = _props.componentTag;
-	        var className = _props.className;
+	        var _props2 = this.props;
+	        var Component = _props2.componentTag;
+	        var className = _props2.className;
 
 	        return _react2['default'].createElement(
 	            Component,
@@ -25726,6 +25758,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	        });
 	    };
 
+	    AccordionHeader.prototype.renderIcon = function renderIcon() {
+	        var _props3 = this.props;
+	        var visible = _props3.visible;
+	        var hideIcon = _props3.hideIcon;
+
+	        if (!hideIcon) {
+	            return _react2['default'].createElement(_Icon2['default'], { phIcon: 'expand-more', className: visible ? 'active' : '' });
+	        } else {
+	            return '';
+	        }
+	    };
+
 	    AccordionHeader.prototype.render = function render() {
 	        var className = this.props.className;
 
@@ -25734,7 +25778,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            _extends({ className: _classnames2['default'](_utilsTool.setPhoenixPrefix('accordion-header'), className),
 	                onClick: this.onChange.bind(this)
 	            }, this.props),
-	            this.props.children
+	            this.props.children,
+	            this.renderIcon()
 	        );
 	    };
 
@@ -25755,8 +25800,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    AccordionBody.prototype.componentDidMount = function componentDidMount() {
-	        this.height = this.accordionBody.offsetHeight + 'px';
-	        this.setHeight();
+	        var _this3 = this;
+
+	        setTimeout(function () {
+	            _this3.height = _this3.accordionBody.offsetHeight + 'px';
+	            _this3.setHeight();
+	        }, 0);
 	    };
 
 	    AccordionBody.prototype.componentDidUpdate = function componentDidUpdate() {
@@ -25768,22 +25817,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    AccordionBody.prototype.render = function render() {
-	        var _this3 = this;
+	        var _this4 = this;
 
-	        var _props2 = this.props;
-	        var visible = _props2.visible;
-	        var children = _props2.children;
-	        var className = _props2.className;
+	        var _props4 = this.props;
+	        var visible = _props4.visible;
+	        var children = _props4.children;
+	        var className = _props4.className;
 
 	        return _react2['default'].createElement(
 	            'div',
 	            _extends({}, this.props, { className: _classnames2['default'](_utilsTool.setPhoenixPrefix('accordion-body'), 'animated', className), ref: function (accordionBodyParent) {
-	                    _this3.accordionBodyParent = accordionBodyParent;
+	                    _this4.accordionBodyParent = accordionBodyParent;
 	                } }),
 	            _react2['default'].createElement(
 	                'div',
 	                { ref: function (accordionBody) {
-	                        _this3.accordionBody = accordionBody;
+	                        _this4.accordionBody = accordionBody;
 	                    } },
 	                children
 	            )
@@ -25801,6 +25850,119 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 205 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(10);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utilsComponent = __webpack_require__(11);
+
+	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
+
+	var _classnames = __webpack_require__(12);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	/**
+	 * Icon<br/>
+	 * - 可通过phIcon来配置不同类型的符号, 可选[查看所有icon类型](http://future-team.github.io/gfs-icons/index.html)。
+	 * - 支持自定义className，事件等操作。
+	 *
+	 * 主要属性和接口：
+	 * - phIcon:配置不同类型的符号 <br/>
+	 * 如：`<Icon phIcon="search" />`
+	 *
+	 * @class Icon
+	 * @module 标签组件
+	 * @extends Component
+	 * @constructor
+	 * @since 1.3.0
+	 * @demo icon|icon.js {展示}
+	 * @show true
+	 * */
+
+	var Icon = (function (_Component) {
+	    _inherits(Icon, _Component);
+
+	    _createClass(Icon, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * @default 'icon'
+	             * */
+	            classPrefix: _react.PropTypes.string,
+	            /**
+	             * 标签tagName
+	             * @property componentTag
+	             * @type String
+	             * @default 'span'
+	             * */
+	            componentTag: _react.PropTypes.string,
+	            /**
+	             * icon符号类型
+	             * @property phIcon
+	             * @type string
+	             * @default ''
+	             **/
+	            phIcon: _react.PropTypes.string
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            phIcon: '',
+	            classPrefix: 'icon',
+	            componentTag: 'span',
+	            classMapping: {}
+	        },
+	        enumerable: true
+	    }]);
+
+	    function Icon(props, context) {
+	        _classCallCheck(this, Icon);
+
+	        _Component.call(this, props, context);
+	    }
+
+	    Icon.prototype.render = function render() {
+	        var _props = this.props;
+	        var Component = _props.componentTag;
+	        var phIcon = _props.phIcon;
+	        var classPrefix = _props.classPrefix;
+
+	        return _react2['default'].createElement(
+	            Component,
+	            _extends({}, this.props, { className: _classnames2['default']('gfs-icon', this.props.className, phIcon ? classPrefix + '-' + phIcon : '') }),
+	            this.props.children
+	        );
+	    };
+
+	    return Icon;
+	})(_utilsComponent2['default']);
+
+	exports['default'] = Icon;
+	module.exports = exports['default'];
+
+/***/ },
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25856,6 +26018,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 提示组件
 	 * @extends Component
 	 * @constructor
+	 * @since 1.0.0
 	 * @demo popover|popover.js {展示}
 	 * @show true
 	 * */
@@ -25954,7 +26117,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 206 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26030,6 +26193,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 提示组件
 	 * @extends Component
 	 * @constructor
+	 * @since 1.0.0
 	 * @demo popover|popover.js {展示}
 	 * @show true
 	 * */
@@ -26092,26 +26256,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }]);
 
 	    function Whisper(props, context) {
-	        var _this = this;
-
 	        _classCallCheck(this, Whisper);
 
 	        _Component.call(this, props, context);
 
 	        this.visible = false;
 	        this._layer = document.createElement('div');
-
-	        window.addEventListener('hashchange', function () {
-	            // this指向当前组件
-	            if (_this.visible) _this.onClose();
-	        }, false);
 	    }
 
 	    Whisper.prototype.componentDidMount = function componentDidMount() {
-	        var _this2 = this;
+	        var _this = this;
 
 	        setTimeout(function () {
-	            _this2.getWhisperPosition();
+	            _this.getWhisperPosition();
 	        }, 0);
 	    };
 
@@ -26214,8 +26371,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        document.body.removeChild(this._layer);
 	    };
 
+	    Whisper.prototype.componentWillUnmount = function componentWillUnmount() {
+	        if (this.visible) this.onClose();
+	    };
+
 	    Whisper.prototype.render = function render() {
-	        var _this3 = this;
+	        var _this2 = this;
 
 	        var _props = this.props;
 	        var className = _props.className;
@@ -26227,7 +26388,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                className: _classnames2['default'](this.getProperty(true), className),
 	                onClick: this.onToggle.bind(this),
 	                ref: function (whisper) {
-	                    _this3.whisper = whisper;
+	                    _this2.whisper = whisper;
 	                }
 	            }),
 	            children
@@ -26241,7 +26402,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 207 */
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26298,6 +26459,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 操作类组件
 	 * @extends Component
 	 * @constructor
+	 * @since 1.0.0
 	 * @demo slider|slider.js {展示}
 	 * @show true
 	 * */
@@ -26450,119 +26612,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 208 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	exports.__esModule = true;
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _react = __webpack_require__(10);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _utilsComponent = __webpack_require__(11);
-
-	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
-
-	var _classnames = __webpack_require__(12);
-
-	var _classnames2 = _interopRequireDefault(_classnames);
-
-	/**
-	 * Icon<br/>
-	 * - 可通过phIcon来配置不同类型的符号, 可选[查看所有icon类型](http://future-team.github.io/gfs-icons/index.html)。
-	 * - 支持自定义className，事件等操作。
-	 *
-	 * 主要属性和接口：
-	 * - phIcon:配置不同类型的符号 <br/>
-	 * 如：`<Icon phIcon="search" />`
-	 *
-	 * @class Icon
-	 * @module 标签组件
-	 * @extends Component
-	 * @constructor
-	 * @since 0.1.0
-	 * @demo icon|icon.js {展示}
-	 * @show true
-	 * */
-
-	var Icon = (function (_Component) {
-	    _inherits(Icon, _Component);
-
-	    _createClass(Icon, null, [{
-	        key: 'propTypes',
-	        value: {
-	            /**
-	             * 样式前缀
-	             * @property classPrefix
-	             * @type String
-	             * @default 'icon'
-	             * */
-	            classPrefix: _react.PropTypes.string,
-	            /**
-	             * 标签tagName
-	             * @property componentTag
-	             * @type String
-	             * @default 'span'
-	             * */
-	            componentTag: _react.PropTypes.string,
-	            /**
-	             * icon符号类型
-	             * @property phIcon
-	             * @type string
-	             * @default ''
-	             **/
-	            phIcon: _react.PropTypes.string
-	        },
-	        enumerable: true
-	    }, {
-	        key: 'defaultProps',
-	        value: {
-	            phIcon: '',
-	            classPrefix: 'icon',
-	            componentTag: 'span',
-	            classMapping: {}
-	        },
-	        enumerable: true
-	    }]);
-
-	    function Icon(props, context) {
-	        _classCallCheck(this, Icon);
-
-	        _Component.call(this, props, context);
-	    }
-
-	    Icon.prototype.render = function render() {
-	        var _props = this.props;
-	        var Component = _props.componentTag;
-	        var phIcon = _props.phIcon;
-	        var classPrefix = _props.classPrefix;
-
-	        return _react2['default'].createElement(
-	            Component,
-	            _extends({}, this.props, { className: _classnames2['default']('gfs-icon', this.props.className, phIcon ? classPrefix + '-' + phIcon : '') }),
-	            this.props.children
-	        );
-	    };
-
-	    return Icon;
-	})(_utilsComponent2['default']);
-
-	exports['default'] = Icon;
-	module.exports = exports['default'];
-
-/***/ },
 /* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -26602,6 +26651,31 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _MenuBody2 = _interopRequireDefault(_MenuBody);
 
+	var _MenuNav = __webpack_require__(212);
+
+	var _MenuNav2 = _interopRequireDefault(_MenuNav);
+
+	var _MenuList = __webpack_require__(213);
+
+	var _MenuList2 = _interopRequireDefault(_MenuList);
+
+	var _MenuItem = __webpack_require__(214);
+
+	var _MenuItem2 = _interopRequireDefault(_MenuItem);
+
+	/**
+	 * <h5>菜单组件，主要包括组件:</h5>
+	 * <strong><a href='../classes/Menu.html'>Menu 菜单</a></strong><br/>
+	 * <strong><a href='../classes/MenuHeader.html'>MenuHeader 菜单头部</a></strong><br>
+	 * <strong><a href='../classes/MenuBody.html'>MenuBody 菜单主体</a></strong><br>
+	 * <strong><a href='../classes/MenuNav.html'>MenuNav 菜单导航</a></strong><br>
+	 * <strong><a href='../classes/MenuList.html'>MenuList 菜单导航列表</a></strong><br>
+	 * <strong><a href='../classes/MenuItem.html'>MenuItem 菜单导航列表项</a></strong><br>
+	 * <h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>
+	 * @module 菜单组件
+	 * @main 菜单组件
+	 * @static
+	 */
 	/**
 	 * 菜单组件<br/>
 	 - 可通过visible设置菜单初始是否可见，默认不可见。
@@ -26625,9 +26699,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * ```
 	 *
 	 * @class Menu
-	 * @module 操作类组件
+	 * @module 菜单组件
 	 * @extends Component
 	 * @constructor
+	 * @since 1.3.0
 	 * @demo menu|menu.js {展示}
 	 * @show true
 	 * */
@@ -26685,33 +26760,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }]);
 
 	    function Menu(props, context) {
-	        var _this2 = this;
-
 	        _classCallCheck(this, Menu);
 
 	        _Component.call(this, props, context);
 
+	        this.handleDocumentClick = this.handleDocumentClick.bind(this);
+	        this.handleWindowScroll = this.handleWindowScroll.bind(this);
+
 	        this.state = {
 	            visible: props.visible,
-	            ceiling: !(props.scrollCeiling === undefined || props.scrollCeiling > 0)
+	            ceiling: !(props.scrollCeiling === undefined || props.scrollCeiling > 0),
+	            headerHeight: 0
 	        };
 
-	        document.addEventListener('click', this.handleDocumentClick.bind(this), false);
+	        document.addEventListener('click', this.handleDocumentClick, false);
 
 	        // 是否滚动吸顶
 	        if (props.scrollCeiling === undefined || props.scrollCeiling === 0) return;
 
-	        window.addEventListener('scroll', function () {
-	            if (document.body.scrollTop >= props.scrollCeiling) {
-	                if (!_this2.state.ceiling) _this2.setState({ ceiling: true });
-	            } else {
-	                if (_this2.state.ceiling) _this2.setState({ ceiling: false });
-	            }
-	        });
+	        window.addEventListener('scroll', this.handleWindowScroll, false);
 	    }
 
 	    Menu.prototype.handleDocumentClick = function handleDocumentClick(event) {
-	        var _this3 = this;
+	        var _this2 = this;
 
 	        if (!this.state.visible) return;
 	        var el = event.target;
@@ -26720,29 +26791,38 @@ return /******/ (function(modules) { // webpackBootstrap
 	            this.setState({
 	                visible: false
 	            }, function () {
-	                if (_this3.props.onChange) _this3.props.onChange(_this3.state.visible);
+	                if (_this2.props.onChange) _this2.props.onChange(_this2.state.visible);
 	            });
 	        }
 
 	        return false;
 	    };
 
+	    Menu.prototype.handleWindowScroll = function handleWindowScroll() {
+	        if (document.body.scrollTop >= this.props.scrollCeiling) {
+	            if (!this.state.ceiling) this.setState({ ceiling: true });
+	        } else {
+	            if (this.state.ceiling) this.setState({ ceiling: false });
+	        }
+	    };
+
 	    Menu.prototype.componentDidMount = function componentDidMount() {
-	        var _this4 = this;
+	        var _this3 = this;
 
 	        setTimeout(function () {
-	            _this4.menuPlaceholder.style.height = _this4.menuCeiling.offsetHeight + 'px';
+	            _this3.menuPlaceholder.style.height = _this3.menuCeiling.offsetHeight + 'px';
+	            _this3.setState({ headerHeight: _this3.menuCeiling.offsetHeight });
 	        }, 0);
 	    };
 
 	    Menu.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
-	        var _this5 = this;
+	        var _this4 = this;
 
 	        if (this.state.visible != nextProps.visible) {
 	            this.setState({
 	                visible: nextProps.visible
 	            }, function () {
-	                if (_this5.props.onChange) _this5.props.onChange(nextProps.visible);
+	                if (_this4.props.onChange) _this4.props.onChange(nextProps.visible);
 	            });
 	        }
 	    };
@@ -26763,15 +26843,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	                key: index,
 	                visible: _this.state.visible,
 	                onChange: onChange,
-	                changeVisible: _this.changeVisible.bind(_this)
+	                changeVisible: _this.changeVisible.bind(_this),
+	                headerHeight: _this.state.headerHeight
 	            }));
 	        });
 
 	        return newChildren;
 	    };
 
+	    Menu.prototype.componentWillUnmount = function componentWillUnmount() {
+	        document.removeEventListener('click', this.handleDocumentClick, false);
+	        window.removeEventListener('scroll', this.handleWindowScroll, false);
+	    };
+
 	    Menu.prototype.render = function render() {
-	        var _this6 = this;
+	        var _this5 = this;
 
 	        var _props = this.props;
 	        var Component = _props.componentTag;
@@ -26780,12 +26866,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return _react2['default'].createElement(
 	            Component,
 	            _extends({}, this.props, { className: _classnames2['default'](this.getProperty(true), _utilsTool.setPhoenixPrefix('menu-placeholder'), className), ref: function (menuPlaceholder) {
-	                    _this6.menuPlaceholder = menuPlaceholder;
+	                    _this5.menuPlaceholder = menuPlaceholder;
 	                } }),
 	            _react2['default'].createElement(
 	                'div',
 	                { className: this.state.ceiling ? _utilsTool.setPhoenixPrefix('menu-ceiling') : '', ref: function (menuCeiling) {
-	                        _this6.menuCeiling = menuCeiling;
+	                        _this5.menuCeiling = menuCeiling;
 	                    } },
 	                this.renderChildren()
 	            )
@@ -26797,6 +26883,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	Menu.Header = _MenuHeader2['default'];
 	Menu.Body = _MenuBody2['default'];
+	Menu.Nav = _MenuNav2['default'];
+	Menu.List = _MenuList2['default'];
+	Menu.Item = _MenuItem2['default'];
 
 	exports['default'] = Menu;
 	module.exports = exports['default'];
@@ -26833,7 +26922,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _utilsTool = __webpack_require__(21);
 
-	var _Icon = __webpack_require__(208);
+	var _Icon = __webpack_require__(205);
 
 	var _Icon2 = _interopRequireDefault(_Icon);
 
@@ -26845,20 +26934,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * - align:设置菜单按钮的位置,默认left。 <br/>
 	 * 如：
 	 * ```code
-	 *     <Menu scrollCeiling={100} visible={true} onChange={(visible)=>{console.log(visible);}}>
+	 *     <Menu>
 	 *         <Menu.Header align="right">
 	 *             标题一
 	 *         </Menu.Header>
-	 *         <Menu.Body width={60} placement={this.state.placement} closeButton>
+	 *         <Menu.Body>
 	 *             ...
 	 *         </Menu.Body>
 	 *     </Menu>
 	 * ```
 	 *
 	 * @class MenuHeader
-	 * @module 操作类组件
+	 * @module 菜单组件
 	 * @extends Component
 	 * @constructor
+	 * @since 1.3.0
 	 * @demo menu|menu.js {展示}
 	 * @show true
 	 * */
@@ -26885,8 +26975,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            'div',
-	            _extends({ className: _classnames2['default'](this.getProperty(true), className)
-	            }, this.props),
+	            _extends({}, this.props, { className: _classnames2['default'](this.getProperty(true), className)
+	            }),
 	            _react2['default'].createElement(_Icon2['default'], { phIcon: 'menu', onClick: this.onChange.bind(this) }),
 	            _react2['default'].createElement(
 	                'div',
@@ -26973,7 +27063,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _Animate2 = _interopRequireDefault(_Animate);
 
-	var _Icon = __webpack_require__(208);
+	var _Icon = __webpack_require__(205);
 
 	var _Icon2 = _interopRequireDefault(_Icon);
 
@@ -26989,26 +27079,78 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * - closeButton:菜单主体右上角X按钮是否显示, 默认不显示。<br/>
 	 * 如：
 	 * ```code
-	 *     <Menu scrollCeiling={100} visible={true} onChange={(visible)=>{console.log(visible);}}>
+	 *     <Menu>
 	 *         <Menu.Header>
 	 *             标题一
 	 *         </Menu.Header>
-	 *         <Menu.Body width={60} placement={this.state.placement} closeButton>
+	 *         <Menu.Body width={60} placement="left" closeButton>
 	 *             ...
 	 *         </Menu.Body>
 	 *     </Menu>
 	 * ```
 	 *
 	 * @class MenuBody
-	 * @module 操作类组件
+	 * @module 菜单组件
 	 * @extends Component
 	 * @constructor
+	 * @since 1.3.0
 	 * @demo menu|menu.js {展示}
 	 * @show true
 	 * */
 
 	var MenuBody = (function (_Component) {
 	    _inherits(MenuBody, _Component);
+
+	    _createClass(MenuBody, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * @default 'menu-body'
+	             * */
+	            classPrefix: _react.PropTypes.string,
+	            /**
+	             * 菜单位置, 可选[top,left,right,left-full,right-full,full-screen], 默认top
+	             * @property placement
+	             * @type String
+	             * @default 'top'
+	             * */
+	            placement: _react.PropTypes.string,
+	            /**
+	             * 自定义菜单宽度百分比（限左右）
+	             * @property width
+	             * @type Number
+	             * @default 50
+	             * */
+	            width: _react.PropTypes.number,
+	            // closeMode: PropTypes.string,
+	            /**
+	             * 右上角按钮是否可见, 默认不可见
+	             * @property closeButton
+	             * @type Boolean
+	             * */
+	            closeButton: _react.PropTypes.bool
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            width: 50,
+	            classPrefix: 'menu-body',
+	            placement: 'top',
+	            classMapping: {
+	                'top': 'top',
+	                'left': 'left',
+	                'right': 'right',
+	                'left-full': 'left-full',
+	                'right-full': 'right-full',
+	                'full-screen': 'full-screen'
+	            }
+	        },
+	        enumerable: true
+	    }]);
 
 	    function MenuBody(props, context) {
 	        _classCallCheck(this, MenuBody);
@@ -27039,7 +27181,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    };
 
-	    MenuBody.prototype.renderChildren = function renderChildren() {
+	    MenuBody.prototype.renderAnimation = function renderAnimation() {
 	        var _this = this;
 
 	        var _props2 = this.props;
@@ -27090,63 +27232,472 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return _react2['default'].createElement(
 	            _Animate2['default'],
 	            { transitionName: animateName },
-	            this.renderChildren()
+	            this.renderAnimation()
 	        );
 	    };
 
-	    _createClass(MenuBody, null, [{
+	    return MenuBody;
+	})(_utilsComponent2['default']);
+
+	exports['default'] = MenuBody;
+	module.exports = exports['default'];
+
+/***/ },
+/* 212 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(10);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utilsComponent = __webpack_require__(11);
+
+	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
+
+	var _classnames = __webpack_require__(12);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _utilsTool = __webpack_require__(21);
+
+	/**
+	 * 菜单导航组件<br/>
+	 * - 通过align设置菜单导航部分的位置, 可选[top,center,bottom]。
+	 *
+	 * 主要属性和接口：
+	 * - align:设置菜单导航部分的位置,默认top。 <br/>
+	 * 如：
+	 * ```code
+	 *     <Menu>
+	 *         <Menu.Header>
+	 *             标题一
+	 *         </Menu.Header>
+	 *         <Menu.Body width={60}>
+	 *             <Menu.Nav align="center">
+	 *                  ...
+	 *              </Menu.Nav>
+	 *         </Menu.Body>
+	 *     </Menu>
+	 * ```
+	 *
+	 * @class MenuNav
+	 * @module 菜单组件
+	 * @extends Component
+	 * @constructor
+	 * @since 1.4.0
+	 * @demo menu|menu.js {展示}
+	 * @show true
+	 * */
+
+	var MenuNav = (function (_Component) {
+	    _inherits(MenuNav, _Component);
+
+	    function MenuNav(props, context) {
+	        _classCallCheck(this, MenuNav);
+
+	        _Component.call(this, props, context);
+	    }
+
+	    MenuNav.prototype.render = function render() {
+	        var _props = this.props;
+	        var className = _props.className;
+	        var children = _props.children;
+
+	        return _react2['default'].createElement(
+	            'nav',
+	            _extends({}, this.props, { className: _classnames2['default'](this.getProperty(true), className)
+	            }),
+	            children
+	        );
+	    };
+
+	    _createClass(MenuNav, null, [{
 	        key: 'propTypes',
 	        value: {
 	            /**
 	             * 样式前缀
 	             * @property classPrefix
 	             * @type String
-	             * @default 'menu-body'
+	             * @default 'menu-nav'
 	             * */
 	            classPrefix: _react.PropTypes.string,
 	            /**
-	             * 菜单位置, 可选[top,left,right,left-full,right-full,full-screen], 默认top
-	             * @property placement
+	             * 导航的位置, 可选[top,center,bottom], 默认top
+	             * @property align
 	             * @type String
 	             * @default 'top'
 	             * */
-	            placement: _react.PropTypes.string,
-	            /**
-	             * 自定义菜单宽度百分比（限左右）
-	             * @property width
-	             * @type Number
-	             * */
-	            width: _react.PropTypes.number,
-	            // closeMode: PropTypes.string,
-	            /**
-	             * 右上角按钮是否可见, 默认不可见
-	             * @property closeButton
-	             * @type Boolean
-	             * */
-	            closeButton: _react.PropTypes.bool
+	            align: _react.PropTypes.string
 	        },
 	        enumerable: true
 	    }, {
 	        key: 'defaultProps',
 	        value: {
-	            classPrefix: 'menu-body',
-	            placement: 'top',
+	            align: 'top',
+	            classPrefix: 'menu-nav',
 	            classMapping: {
 	                'top': 'top',
-	                'left': 'left',
-	                'right': 'right',
-	                'left-full': 'left-full',
-	                'right-full': 'right-full',
-	                'full-screen': 'full-screen'
+	                'center': 'center',
+	                'bottom': 'bottom'
 	            }
 	        },
 	        enumerable: true
 	    }]);
 
-	    return MenuBody;
+	    return MenuNav;
 	})(_utilsComponent2['default']);
 
-	exports['default'] = MenuBody;
+	exports['default'] = MenuNav;
+	;
+	module.exports = exports['default'];
+
+/***/ },
+/* 213 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(10);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utilsComponent = __webpack_require__(11);
+
+	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
+
+	var _classnames = __webpack_require__(12);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _utilsTool = __webpack_require__(21);
+
+	var _Icon = __webpack_require__(205);
+
+	var _Icon2 = _interopRequireDefault(_Icon);
+
+	/**
+	 * 菜单导航列表组件<br/>
+	 * - 通过activeName设置当前导航选中的菜单项， 必需。
+	 * - 通过onChange函数设置点击菜单项时的回调，函数内必需手动更改activeName值，必需。
+	 *
+	 * 主要属性和接口：
+	 * - activeName:设置当前导航选中的菜单项,默认null。 
+	 * - onChange:点击菜单项时的回调。 <br/>
+	 * 如：
+	 * ```code
+	 *     <Menu>
+	 *         <Menu.Header>
+	 *             标题一
+	 *         </Menu.Header>
+	 *         <Menu.Body>
+	 *             <Menu.Nav>
+	 *                  <Menu.List activeName={this.state.activeName} onChange={(name)=>{this.setState({activeName:name})}}>
+	 *                      ...
+	 *                  </Menu.List>
+	 *              </Menu.Nav>
+	 *         </Menu.Body>
+	 *     </Menu>
+	 * ```
+	 *
+	 * @class MenuList
+	 * @module 菜单组件
+	 * @extends Component
+	 * @constructor
+	 * @since 1.4.0
+	 * @demo menu|menu.js {展示}
+	 * @show true
+	 * */
+
+	var MenuList = (function (_Component) {
+	    _inherits(MenuList, _Component);
+
+	    _createClass(MenuList, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * @default 'menu-list'
+	             * */
+	            classPrefix: _react.PropTypes.string,
+	            /**
+	             * 当前选中的项目name，对应item的name属性
+	             * @property activeName
+	             * @type String
+	             * @default null
+	             * */
+	            activeName: _react.PropTypes.string,
+	            /**
+	             * 点击事件的回调函数
+	             * @method onChange
+	             * @type Function
+	             * @default null
+	             * */
+	            onChange: _react.PropTypes.func
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            activeName: null,
+	            classPrefix: 'menu-list',
+	            classMapping: {}
+	        },
+	        enumerable: true
+	    }]);
+
+	    function MenuList(props, context) {
+	        _classCallCheck(this, MenuList);
+
+	        _Component.call(this, props, context);
+	    }
+
+	    MenuList.prototype.changeActive = function changeActive(name) {
+	        if (this.props.onChange) this.props.onChange(name);
+	    };
+
+	    MenuList.prototype.renderChildren = function renderChildren() {
+	        var _this = this;
+	        var newChildren = [];
+
+	        _react2['default'].Children.forEach(this.props.children, function (child, index) {
+	            newChildren.push(_react2['default'].cloneElement(child, {
+	                key: index,
+	                activeName: _this.props.activeName,
+	                changeActive: _this.changeActive.bind(_this)
+	            }));
+	        });
+
+	        return newChildren;
+	    };
+
+	    MenuList.prototype.render = function render() {
+	        var _props = this.props;
+	        var className = _props.className;
+	        var children = _props.children;
+
+	        return _react2['default'].createElement(
+	            'ul',
+	            _extends({}, this.props, { className: _classnames2['default'](this.getProperty(true), className)
+	            }),
+	            this.renderChildren()
+	        );
+	    };
+
+	    return MenuList;
+	})(_utilsComponent2['default']);
+
+	exports['default'] = MenuList;
+	;
+	module.exports = exports['default'];
+
+/***/ },
+/* 214 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(10);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utilsComponent = __webpack_require__(11);
+
+	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
+
+	var _classnames = __webpack_require__(12);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _utilsTool = __webpack_require__(21);
+
+	var _Icon = __webpack_require__(205);
+
+	var _Icon2 = _interopRequireDefault(_Icon);
+
+	/**
+	 * 菜单导航列表项组件<br/>
+	 * - 可通过phIcon设置菜单项名称前符号的类型，具体可以参考[gfs-icons](https://future-team.github.io/gfs-icons/index.html)。 
+	 * - 可通过href设置菜单项的跳转地址，可不设置，自定义回调函数onChange。
+	 * - 可通过name设置菜单项的唯一标识，对应MenuList的activeName。
+	 * - 通过onChange设置点击菜单项时的回调。
+	 *
+	 * 主要属性和接口：
+	 * - phIcon:菜单项名称前符号的类型，不设置时默认没有符号。 
+	 * - href:菜单项的跳转地址，默认null。
+	 * - name:菜单项的唯一标识。
+	 * - onChange:点击菜单项时的回调。<br/>
+	 * 如：
+	 * ```code
+	 *     <Menu>
+	 *         <Menu.Header>
+	 *             标题一
+	 *         </Menu.Header>
+	 *         <Menu.Body>
+	 *             <Menu.Nav>
+	 *                  <Menu.List activeName={this.state.activeName} onChange={(name)=>{this.setState({activeName:name})}}>
+	 *                      <Menu.Item name="home" href="#index" phIcon="home" onChange={(name)=>{console.log(name);}}>首页</Menu.Item>
+	 *                  </Menu.List>
+	 *              </Menu.Nav>
+	 *         </Menu.Body>
+	 *     </Menu>
+	 * ```
+	 *
+	 * @class MenuItem
+	 * @module 菜单组件
+	 * @extends Component
+	 * @constructor
+	 * @since 1.4.0
+	 * @demo menu|menu.js {展示}
+	 * @show true
+	 * */
+
+	var MenuItem = (function (_Component) {
+	    _inherits(MenuItem, _Component);
+
+	    function MenuItem(props, context) {
+	        _classCallCheck(this, MenuItem);
+
+	        _Component.call(this, props, context);
+	    }
+
+	    MenuItem.prototype.isActive = function isActive() {
+	        var _props = this.props;
+	        var name = _props.name;
+	        var activeName = _props.activeName;
+
+	        return name === activeName ? 'active' : '';
+	    };
+
+	    MenuItem.prototype.onChange = function onChange() {
+	        this.props.changeActive(this.props.name);
+	        if (this.props.onChange) this.props.onChange(this.props.name);
+	    };
+
+	    MenuItem.prototype.renderIcon = function renderIcon() {
+	        var phIcon = this.props.phIcon;
+
+	        if (phIcon) {
+	            return _react2['default'].createElement(_Icon2['default'], { phIcon: phIcon });
+	        } else {
+	            return '';
+	        }
+	    };
+
+	    MenuItem.prototype.render = function render() {
+	        var _props2 = this.props;
+	        var className = _props2.className;
+	        var href = _props2.href;
+	        var children = _props2.children;
+
+	        return _react2['default'].createElement(
+	            'li',
+	            _extends({}, this.props, { className: _classnames2['default'](this.getProperty(true), this.isActive(), className)
+	            }),
+	            _react2['default'].createElement(
+	                'a',
+	                { href: href, onClick: this.onChange.bind(this) },
+	                this.renderIcon(),
+	                children
+	            )
+	        );
+	    };
+
+	    _createClass(MenuItem, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * @default 'menu-item'
+	             * */
+	            classPrefix: _react.PropTypes.string,
+	            /**
+	             * icon符号类型
+	             * @property phIcon
+	             * @type string
+	             * @default ''
+	             **/
+	            phIcon: _react.PropTypes.string,
+	            /**
+	             * 跳转地址
+	             * @property href
+	             * @type string
+	             * @default ''
+	             **/
+	            href: _react.PropTypes.string,
+	            /**
+	            * 当前项目的唯一标志
+	            * @property name
+	            * @type String
+	            * @default null
+	            * */
+	            name: _react.PropTypes.string,
+	            /**
+	             * 点击事件的回调函数
+	             * @method onChange
+	             * @type Function
+	             * @default null
+	             * */
+	            onChange: _react.PropTypes.func
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            name: null,
+	            href: 'javascript:;',
+	            classPrefix: 'menu-item',
+	            classMapping: {}
+	        },
+	        enumerable: true
+	    }]);
+
+	    return MenuItem;
+	})(_utilsComponent2['default']);
+
+	exports['default'] = MenuItem;
+	;
 	module.exports = exports['default'];
 
 /***/ }

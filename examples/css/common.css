@@ -19,8 +19,8 @@ body{
     min-height: 100%;
     // max-width: 414px;
     margin: 0 auto;
-    border-right: 1px solid #ddd;
-    border-left: 1px solid #ddd;
+    // border-right: 1px solid #ddd;
+    // border-left: 1px solid #ddd;
 }
 
 ::-webkit-scrollbar{  

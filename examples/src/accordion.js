@@ -14,9 +14,7 @@ export default class accordion extends Component{
     }
 
     onChange(visible){
-        this.setState({
-            visible: visible
-        });
+        alert(visible);
     }
 
     render(){
@@ -26,7 +24,7 @@ export default class accordion extends Component{
                 <h3 className="comp-type">visible(默认false) 初始可见值</h3>
                 <Accordion>
                     <Accordion.Header>
-                        标题一-收起<Icon phIcon="expand-more" style={{float:"right"}} />
+                        标题一-收起
                     </Accordion.Header>
                     <Accordion.Body>
                         <ul className="ph-accordion-list">
@@ -36,7 +34,7 @@ export default class accordion extends Component{
                 </Accordion>
                 <Accordion visible={true}>
                     <Accordion.Header>
-                        标题二-展开<span className={classnames("ph-iconfont icon-chevron-more")} style={{float:"right"}}></span>
+                        标题二-展开
                     </Accordion.Header>
                     <Accordion.Body>
                         <ul className="ph-accordion-list">
@@ -47,11 +45,25 @@ export default class accordion extends Component{
                 </Accordion>
                 <br/>
                 <Code target="accordion-visible" />
+
+                <h3 className="comp-type">hideIcon(默认false) 向下的按钮是否可见</h3>
+                <Accordion hideIcon>
+                    <Accordion.Header>
+                        标题一
+                    </Accordion.Header>
+                    <Accordion.Body>
+                        <ul className="ph-accordion-list">
+                            <li className="ph-accordion-item">内容一</li>
+                        </ul>
+                    </Accordion.Body>
+                </Accordion>
+                <br/>
+                <Code target="accordion-hideicon" />
                 
                 <h3 className="comp-type">onChange 展开收起的回调函数</h3>
-                <Accordion visible={this.state.visible} onChange={(visible)=>{this.setState({visible: visible})}}>
+                <Accordion visible={this.state.visible} onChange={::this.onChange}>
                     <Accordion.Header>
-                        标题一<span className={classnames("ph-iconfont icon-chevron-more", this.state.visible?"active":"")} style={{float:"right"}}></span>
+                        标题一
                     </Accordion.Header>
                     <Accordion.Body>
                         <ul className="ph-accordion-list">

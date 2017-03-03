@@ -34,6 +34,7 @@ import {setPhoenixPrefix} from './utils/Tool';
  * @module 辅助组件
  * @extends Component
  * @constructor
+ * @since 1.0.0
  * @demo drag|drag.js {展示}
  * @show true
  * */

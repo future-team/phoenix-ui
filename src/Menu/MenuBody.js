@@ -19,29 +19,25 @@ import Icon from '../Icon';
  * - closeButton:菜单主体右上角X按钮是否显示, 默认不显示。<br/>
  * 如：
  * ```code
- *     <Menu scrollCeiling={100} visible={true} onChange={(visible)=>{console.log(visible);}}>
+ *     <Menu>
  *         <Menu.Header>
  *             标题一
  *         </Menu.Header>
- *         <Menu.Body width={60} placement={this.state.placement} closeButton>
+ *         <Menu.Body width={60} placement="left" closeButton>
  *             ...
  *         </Menu.Body>
  *     </Menu>
  * ```
  *
  * @class MenuBody
- * @module 操作类组件
+ * @module 菜单组件
  * @extends Component
  * @constructor
+ * @since 1.3.0
  * @demo menu|menu.js {展示}
  * @show true
  * */
 export default class MenuBody extends Component{
-
-    constructor(props, context) {
-        super(props, context);
-    }
-
     static propTypes = {
         /**
          * 样式前缀
@@ -61,6 +57,7 @@ export default class MenuBody extends Component{
          * 自定义菜单宽度百分比（限左右）
          * @property width
          * @type Number
+         * @default 50
          * */
         width: PropTypes.number,
         // closeMode: PropTypes.string,
@@ -73,6 +70,7 @@ export default class MenuBody extends Component{
     };
 
     static defaultProps = {
+        width: 50,
         classPrefix:'menu-body',
         placement: 'top',
         classMapping : {
@@ -83,6 +81,10 @@ export default class MenuBody extends Component{
             'right-full':'right-full',
             'full-screen':'full-screen'
         }
+    };
+
+    constructor(props, context) {
+        super(props, context);
     }
 
     componentDidMount(){
@@ -105,7 +107,7 @@ export default class MenuBody extends Component{
         }
     }
 
-    renderChildren(){
+    renderAnimation(){
         let {visible,children,className} = this.props;
 
         if(visible){
@@ -125,11 +127,10 @@ export default class MenuBody extends Component{
         let {closeButton} = this.props;
 
         if(closeButton){
-            return <Icon phIcon="close" className={classnames(setPhoenixPrefix('menu-close-button'))} onClick={::this.onChange}></Icon>;
+            return <Icon phIcon="close" className={classnames(setPhoenixPrefix('menu-close-button'))} onClick={::this.onChange} />;
         }else{
             return '';
         }
-
     }
 
     onChange(){
@@ -146,7 +147,7 @@ export default class MenuBody extends Component{
 
         return (
             <Animate transitionName={animateName}>
-                {this.renderChildren()}
+                {this.renderAnimation()}
             </Animate>
         );
     }

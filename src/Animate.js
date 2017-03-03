@@ -31,6 +31,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
  * @module 辅助组件
  * @extends Component
  * @constructor
+ * @since 1.0.0
  * @demo animate|animate.js {展示}
  * @show true
  * */

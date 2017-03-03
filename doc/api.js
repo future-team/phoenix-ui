@@ -17,6 +17,9 @@ YUI.add("yuidoc-meta", function(Y) {
         "Menu",
         "MenuBody",
         "MenuHeader",
+        "MenuItem",
+        "MenuList",
+        "MenuNav",
         "Popover",
         "Popup",
         "Row",
@@ -37,6 +40,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "提示组件",
         "操作类组件",
         "标签组件",
+        "菜单组件",
         "表单组件",
         "辅助组件",
         "选项卡"
@@ -111,15 +115,6 @@ YUI.add("yuidoc-meta", function(Y) {
                     "name": "Toast"
                 },
                 {
-                    "name": "Menu"
-                },
-                {
-                    "name": "MenuBody"
-                },
-                {
-                    "name": "MenuHeader"
-                },
-                {
                     "name": "Accordion"
                 }
             ]
@@ -137,6 +132,31 @@ YUI.add("yuidoc-meta", function(Y) {
                 },
                 {
                     "name": "Label"
+                }
+            ]
+        },
+        {
+            "displayName": "菜单组件",
+            "name": "菜单组件",
+            "description": "<h5>菜单组件，主要包括组件:</h5>\n<strong><a href='../classes/Menu.html'>Menu 菜单</a></strong><br/>\n<strong><a href='../classes/MenuHeader.html'>MenuHeader 菜单头部</a></strong><br>\n<strong><a href='../classes/MenuBody.html'>MenuBody 菜单主体</a></strong><br>\n<strong><a href='../classes/MenuNav.html'>MenuNav 菜单导航</a></strong><br>\n<strong><a href='../classes/MenuList.html'>MenuList 菜单导航列表</a></strong><br>\n<strong><a href='../classes/MenuItem.html'>MenuItem 菜单导航列表项</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
+            "classes": [
+                {
+                    "name": "Menu"
+                },
+                {
+                    "name": "MenuBody"
+                },
+                {
+                    "name": "MenuHeader"
+                },
+                {
+                    "name": "MenuItem"
+                },
+                {
+                    "name": "MenuList"
+                },
+                {
+                    "name": "MenuNav"
                 }
             ]
         },

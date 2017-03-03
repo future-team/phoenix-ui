@@ -13,20 +13,21 @@ import Icon from '../Icon';
  * - align:设置菜单按钮的位置,默认left。 <br/>
  * 如：
  * ```code
- *     <Menu scrollCeiling={100} visible={true} onChange={(visible)=>{console.log(visible);}}>
+ *     <Menu>
  *         <Menu.Header align="right">
  *             标题一
  *         </Menu.Header>
- *         <Menu.Body width={60} placement={this.state.placement} closeButton>
+ *         <Menu.Body>
  *             ...
  *         </Menu.Body>
  *     </Menu>
  * ```
  *
  * @class MenuHeader
- * @module 操作类组件
+ * @module 菜单组件
  * @extends Component
  * @constructor
+ * @since 1.3.0
  * @demo menu|menu.js {展示}
  * @show true
  * */
@@ -71,11 +72,10 @@ export default class MenuHeader extends Component {
         let {className} = this.props;
 
         return (
-            <div className={classnames(
+            <div {...this.props} className={classnames(
                     this.getProperty(true),
                     className
                 )}
-                {...this.props}
             >
                 <Icon phIcon="menu" onClick={::this.onChange}/>
                 <div className={setPhoenixPrefix('menu-header-content')}>{this.props.children}</div>

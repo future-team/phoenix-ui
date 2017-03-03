@@ -41,6 +41,7 @@ var code = {
 
 	'accordion-visible': '<Accordion visible={true}>\n\  <Accordion.Header>标题二-展开</Accordion.Header>\n\  <Accordion.Body>...</Accordion.Body>\n</Accordion>',
 	'accordion-onchange': '<Accordion visible={this.state.visible} onChange={(visible)=>{this.setState({visible: visible})}}>\n\  <Accordion.Header>...</Accordion.Header>\n\  <Accordion.Body>...</Accordion.Body>\n</Accordion>',
+	'accordion-hideicon':'<Accordion hideIcon>\n\  <Accordion.Header>标题一</Accordion.Header>\n\  <Accordion.Body>...</Accordion.Body>\n</Accordion>',
 
 	'dialog-onclose': '<Dialog visible={this.state.visible1} onClose={::this.onClose.bind(this,"visible1")}>\n\  <Dialog.Title>标题1</Dialog.Title>\n\  <Dialog.Body>可自定义表格内容</Dialog.Body>\n\  <Dialog.Footer>...</Dialog.Footer>\n</Dialog>',
 	'dialog-closebutton': '<Dialog visible={this.state.visible2} onClose={::this.onClose.bind(this,"visible2")} closeButton>\n\  <Dialog.Title>标题1</Dialog.Title>\n\  <Dialog.Body>可自定义表格内容</Dialog.Body>\n\  <Dialog.Footer>...</Dialog.Footer>\n</Dialog>',
@@ -91,6 +92,12 @@ var code = {
 	'menu-body-width': '<Menu>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body width={50}>...</Menu.Body>\n</Menu>',
 	'menu-body-closebutton': '<Menu>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body closeButton>...</Menu.Body>\n</Menu>\n or \n'+
 		'<Menu>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body closeButton={false}>...</Menu.Body>\n</Menu>',
+	'menu-nav-align': '<Menu>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body>\n\    <Menu.Nav align="center">...</Menu.Nav>\n\  </Menu.Body>\n</Menu>',
+	'menu-list-onchange': '<Menu>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body>\n\    <Menu.Nav>\n\      <Menu.List activeName={this.state.activeName} onChange={(name)=>{this.setState({activeName:name})}} >...<Menu.List>\n\    </Menu.Nav>\n\  </Menu.Body>\n</Menu>',
+	'menu-item-phicon': '...\n<Menu.List activeName={this.state.activeName} onChange={(name)=>{this.setState({activeName:name})}} >\n\  <Menu.Item phIcon="home">主页</Menu.Item>\n<Menu.List>\n...',
+	'menu-item-name': '...\n<Menu.List activeName={this.state.activeName} onChange={(name)=>{this.setState({activeName:name})}} >\n\  <Menu.Item name="home">主页</Menu.Item>\n<Menu.List>\n...',
+	'menu-item-href': '...\n<Menu.List activeName={this.state.activeName} onChange={(name)=>{this.setState({activeName:name})}} >\n\  <Menu.Item href="#home">主页</Menu.Item>\n<Menu.List>\n...',
+	'menu-item-onchange': '...\n<Menu.List activeName={this.state.activeName} onChange={(name)=>{this.setState({activeName:name})}} >\n\  <Menu.Item onChange={(name)=>{console.log(name);}}>主页</Menu.Item>\n<Menu.List>\n...',
 
 	'animate': '<Animate transitionName="fade">\n\  {this.renderList()}\n</Animate>\n'+
 		'this.state = {list: ["看一本书","睡8个小时"]}\nrenderList(){// 渲染todo list \n\  const items = this.state.list.map((item,index)=>{\n\    return <div key={index} className="animated" onClick={()=>{...}}>{item}</div>;\n\  });\n\  return items;\n}',

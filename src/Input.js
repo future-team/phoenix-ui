@@ -29,6 +29,7 @@ import {setPhoenixPrefix} from './utils/Tool';
  * @module 表单组件
  * @extends Component
  * @constructor
+ * @since 0.1.0
  * @demo input|input.js {展示}
  * @show true
  * */
