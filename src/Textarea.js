@@ -33,6 +33,7 @@ import {setPhoenixPrefix} from './utils/Tool';
  * @module 表单组件
  * @extends Component
  * @constructor
+ * @since 0.3.0
  * @demo textarea|textarea.js {展示}
  * @show true
  * */

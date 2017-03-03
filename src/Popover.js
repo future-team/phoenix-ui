@@ -26,6 +26,7 @@ import Tool from './utils/Tool'
  * @module 提示组件
  * @extends Component
  * @constructor
+ * @since 1.0.0
  * @demo popover|popover.js {展示}
  * @show true
  * */

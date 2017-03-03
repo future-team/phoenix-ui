@@ -3,6 +3,8 @@ import Component from './utils/Component';
 import classnames from 'classnames';
 import {setPhoenixPrefix} from './utils/Tool';
 
+import Icon from './Icon';
+
 /**
  * <h5>操作类组件，主要包括组件:</h5>
  * <strong><a href='../classes/Accordion.html'>Accordion 手风琴</a></strong><br/>
@@ -21,12 +23,14 @@ import {setPhoenixPrefix} from './utils/Tool';
  * 手风琴组件<br/>
  * - 通过visible设置初始展开或收起的状态, 可选true/false。
  * - 可通过onChange设置展开收起时额外的回调函数。
+ * - 可通过hideIcon设置隐藏向下的箭头。
  *
  * 主要属性和接口：
- * - visible:初始展开或收起的状态, 默认false收起 <br/>
+ * - visible:初始展开或收起的状态, 默认false收起。
+ * = hideIcon:设置隐藏向下的箭头, 默认false可见。<br/>
  * 如：
  * ```code
- *     <Accordion visible={true}>
+ *     <Accordion visible={true} hideIcon>
  *         <Accordion.Header>
  *             标题一
  *         </Accordion.Header>
@@ -35,7 +39,7 @@ import {setPhoenixPrefix} from './utils/Tool';
  *         </Accordion.Body>
  *     </Accordion>
  * ```
- * - onChange:点击收起展开的额外的回调执行函数 <br/>
+ * - onChange:点击收起展开的额外的回调执行函数。<br/>
  * 如：
  * ```code
  *     <Accordion onChange={(visible)=>{console.log(visible);}}>
@@ -52,6 +56,7 @@ import {setPhoenixPrefix} from './utils/Tool';
  * @module 操作类组件
  * @extends Component
  * @constructor
+ * @since 0.4.0
  * @demo accordion|accordion.js {展示}
  * @show true
  * */
@@ -84,11 +89,19 @@ class Accordion extends Component{
          * @method onChange
          * @type Function
          * */
-        onChange: PropTypes.func
+        onChange: PropTypes.func,
+        /**
+         * 向下的箭头是否可见， 默认可见
+         * @property hideIcon
+         * @type Boolean
+         * @default false
+         * */
+        hideIcon: PropTypes.bool
     };
 
     static defaultProps = {
         visible: false,
+        hideIcon: false,
         classPrefix:'accordion',
         componentTag:'div',
         classMapping : {}
@@ -111,11 +124,12 @@ class Accordion extends Component{
     renderChildren(){
         let _this = this;
         let newChildren = [];
-        let {onChange} = this.props;
+        let {hideIcon, onChange} = this.props;
 
         React.Children.forEach(this.props.children, function(child, index){
             newChildren.push(React.cloneElement(child,{
                 key: index,
+                hideIcon: hideIcon,
                 visible: _this.state.visible,
                 onChange: onChange,
                 changeVisible: _this.changeVisible.bind(_this)
@@ -150,6 +164,16 @@ class AccordionHeader extends Component {
         });
     }
 
+    renderIcon(){
+        let {visible, hideIcon} = this.props;
+
+        if(!hideIcon){
+            return <Icon phIcon="expand-more" className={visible? 'active':''} />;
+        }else{
+            return '';
+        }        
+    }
+
     render(){
         let {className} = this.props;
 
@@ -162,6 +186,7 @@ class AccordionHeader extends Component {
                 {...this.props}
             >
                 {this.props.children}
+                {this.renderIcon()}
             </div>
         );
     }
@@ -176,8 +201,10 @@ class AccordionBody extends Component{
     }
 
     componentDidMount(){
-        this.height =  this.accordionBody.offsetHeight+'px';
-        this.setHeight();
+        setTimeout(()=>{
+            this.height =  this.accordionBody.offsetHeight+'px';
+            this.setHeight();
+        },0);
     }
 
     componentDidUpdate(){
@@ -185,7 +212,7 @@ class AccordionBody extends Component{
     }
 
     setHeight(){
-        this.accordionBodyParent.style.height = this.props.visible? this.height : 0;
+        this.accordionBodyParent.style.height = this.props.visible ? this.height : 0;
     }
 
     render(){

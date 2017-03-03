@@ -15,7 +15,7 @@ import classnames from 'classnames';
  * @module 标签组件
  * @extends Component
  * @constructor
- * @since 0.1.0
+ * @since 1.3.0
  * @demo icon|icon.js {展示}
  * @show true
  * */

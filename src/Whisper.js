@@ -46,6 +46,7 @@ import classnames from 'classnames';
  * @module 提示组件
  * @extends Component
  * @constructor
+ * @since 1.0.0
  * @demo popover|popover.js {展示}
  * @show true
  * */
@@ -104,10 +105,6 @@ export default class Whisper extends Component{
 
         this.visible = false;
         this._layer = document.createElement('div');
-
-        window.addEventListener('hashchange', ()=>{ // this指向当前组件
-            if(this.visible) this.onClose();
-        }, false);
     }
 
     componentDidMount(){
@@ -213,6 +210,10 @@ export default class Whisper extends Component{
     removeTarget(){
         ReactDOM.unmountComponentAtNode(this._layer);
         document.body.removeChild(this._layer);
+    }
+
+    componentWillUnmount(){
+        if(this.visible) this.onClose();
     }
 
     render(){

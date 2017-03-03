@@ -199,30 +199,6 @@
                     
                        <li>
                             
-                           <a href="../classes/Menu.html">Menu</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
-                           <a href="../classes/MenuBody.html">MenuBody</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
-                           <a href="../classes/MenuHeader.html">MenuHeader</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
                            <a href="../classes/Accordion.html">Accordion</a>
                            <ul>
                                 
@@ -258,6 +234,64 @@
                        <li>
                             
                            <a href="../classes/Label.html">Label</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/菜单组件.html">菜单组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Menu.html">Menu</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuBody.html">MenuBody</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuHeader.html">MenuHeader</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuItem.html">MenuItem</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuList.html">MenuList</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuNav.html">MenuNav</a>
                            <ul>
                                 
                            </ul>
@@ -381,7 +415,23 @@ import {setPhoenixPrefix, closest} from &#x27;../utils/Tool&#x27;;
 
 import MenuHeader from &#x27;./MenuHeader&#x27;;
 import MenuBody from &#x27;./MenuBody&#x27;;
+import MenuNav from &#x27;./MenuNav&#x27;;
+import MenuList from &#x27;./MenuList&#x27;;
+import MenuItem from &#x27;./MenuItem&#x27;;
 
+/**
+ * &lt;h5&gt;菜单组件，主要包括组件:&lt;/h5&gt;
+ * &lt;strong&gt;&lt;a href=&#x27;../classes/Menu.html&#x27;&gt;Menu 菜单&lt;/a&gt;&lt;/strong&gt;&lt;br/&gt;
+ * &lt;strong&gt;&lt;a href=&#x27;../classes/MenuHeader.html&#x27;&gt;MenuHeader 菜单头部&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
+ * &lt;strong&gt;&lt;a href=&#x27;../classes/MenuBody.html&#x27;&gt;MenuBody 菜单主体&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
+ * &lt;strong&gt;&lt;a href=&#x27;../classes/MenuNav.html&#x27;&gt;MenuNav 菜单导航&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
+ * &lt;strong&gt;&lt;a href=&#x27;../classes/MenuList.html&#x27;&gt;MenuList 菜单导航列表&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
+ * &lt;strong&gt;&lt;a href=&#x27;../classes/MenuItem.html&#x27;&gt;MenuItem 菜单导航列表项&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
+ * &lt;h6&gt;点击以上链接或者左侧导航栏的组件名称链接进行查看&lt;/h6&gt;
+ * @module 菜单组件
+ * @main 菜单组件
+ * @static
+ */
 /**
  * 菜单组件&lt;br/&gt;
  - 可通过visible设置菜单初始是否可见，默认不可见。
@@ -405,9 +455,10 @@ import MenuBody from &#x27;./MenuBody&#x27;;
  * &#x60;&#x60;&#x60;
  *
  * @class Menu
- * @module 操作类组件
+ * @module 菜单组件
  * @extends Component
  * @constructor
+ * @since 1.3.0
  * @demo menu|menu.js {展示}
  * @show true
  * */
@@ -460,23 +511,21 @@ class Menu extends Component{
     constructor(props, context) {
         super(props, context);
 
+        this.handleDocumentClick = this.handleDocumentClick.bind(this);
+        this.handleWindowScroll = this.handleWindowScroll.bind(this);
+
         this.state = {
             visible: props.visible,
-            ceiling: !(props.scrollCeiling === undefined || props.scrollCeiling &gt; 0)
+            ceiling: !(props.scrollCeiling === undefined || props.scrollCeiling &gt; 0),
+            headerHeight: 0
         };
 
-        document.addEventListener(&#x27;click&#x27;, this.handleDocumentClick.bind(this), false);
+        document.addEventListener(&#x27;click&#x27;, this.handleDocumentClick, false);
 
         // 是否滚动吸顶
         if(props.scrollCeiling === undefined || props.scrollCeiling === 0) return;
         
-        window.addEventListener(&#x27;scroll&#x27;,()=&gt;{
-            if(document.body.scrollTop &gt;= props.scrollCeiling){
-                if(!this.state.ceiling) this.setState({ceiling: true});
-            }else{
-                if(this.state.ceiling) this.setState({ceiling: false});
-            }
-        });
+        window.addEventListener(&#x27;scroll&#x27;, this.handleWindowScroll, false);
     }
 
     handleDocumentClick(event){
@@ -494,9 +543,18 @@ class Menu extends Component{
         return false;
     }
 
+    handleWindowScroll(){
+        if(document.body.scrollTop &gt;= this.props.scrollCeiling){
+            if(!this.state.ceiling) this.setState({ceiling: true});
+        }else{
+            if(this.state.ceiling) this.setState({ceiling: false});
+        }
+    }
+
     componentDidMount(){
         setTimeout(()=&gt;{
             this.menuPlaceholder.style.height = this.menuCeiling.offsetHeight +&#x27;px&#x27;;
+            this.setState({headerHeight: this.menuCeiling.offsetHeight})
         },0);
     }
 
@@ -526,11 +584,17 @@ class Menu extends Component{
                 key: index,
                 visible: _this.state.visible,
                 onChange: onChange,
-                changeVisible: _this.changeVisible.bind(_this)
+                changeVisible: _this.changeVisible.bind(_this),
+                headerHeight: _this.state.headerHeight
             }));
         });
 
         return newChildren;
+    }
+
+    componentWillUnmount(){
+        document.removeEventListener(&#x27;click&#x27;, this.handleDocumentClick, false);
+        window.removeEventListener(&#x27;scroll&#x27;, this.handleWindowScroll, false);
     }
 
     render(){
@@ -552,6 +616,9 @@ class Menu extends Component{
 
 Menu.Header = MenuHeader;
 Menu.Body = MenuBody;
+Menu.Nav = MenuNav;
+Menu.List = MenuList;
+Menu.Item = MenuItem;
 
 export default Menu;
     </pre>

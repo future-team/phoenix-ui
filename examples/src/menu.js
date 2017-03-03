@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import classnames from "classnames";
-import {Menu, Button} from "phoenix-ui";
+import {Menu, Button, Icon, Input} from "phoenix-ui";
 import Code from "./code/code";
 
 export default class menu extends Component{
@@ -13,18 +13,14 @@ export default class menu extends Component{
             placement: 'top',
             align: 'left',
             width: 40,
-            closeButton: false
+            closeButton: false,
+            navAlign: 'top',
+            activeName: 'index'
         }
     }
 
     onChange(visible){
         console.log(visible);
-    }
-
-    onClose(){
-        this.setState({
-            visible: false
-        });
     }
 
     switchAlign(){
@@ -45,7 +41,7 @@ export default class menu extends Component{
 
     switchPlacement(){
         this.setState({
-            placement: "left"
+            placement: "left-full"
         });
     }
 
@@ -61,23 +57,50 @@ export default class menu extends Component{
         });
     }
 
+    switchNavAlign(){
+        this.setState({
+            navAlign: 'center'
+        });
+    }
+
+    switchActiveName(){
+        this.setState({
+            activeName: 'menu'
+        });
+    }
+
+    // 必需
+    setActiveName(name){
+        this.setState({
+            activeName: name,
+            visible: false // 如果需要点击之后关闭设为true，
+        });
+    }
+
+    onMenuItemChange(name){
+        console.log(name);
+    }
+
     render(){
         return(
             <div>
                 <Menu visible={this.state.visible} scrollCeiling={100} onChange={::this.onChange}>
                     <Menu.Header align={this.state.align}>Phoenix</Menu.Header>
                     <Menu.Body width={this.state.width} placement={this.state.placement} closeButton={this.state.closeButton}>
-                        <ul className="ph-popup-list">
-                            <li className="ph-popup-item" onClick={::this.onClose}>首页</li>
-                            <li className="ph-popup-item" onClick={::this.onClose}>项目</li>
-                            <li className="ph-popup-item" onClick={::this.onClose}>作品</li>
-                            <li className="ph-popup-item" onClick={::this.onClose}>关于</li>
-                        </ul>
+                        <Menu.Nav align={this.state.navAlign}>
+                            <div>
+                                <Input placeholder="自定义部分" />
+                            </div>
+                            <Menu.List activeName={this.state.activeName} onChange={::this.setActiveName}>
+                                <Menu.Item name="index" phIcon="home">首页</Menu.Item>
+                                <Menu.Item name="menu" href="#menu" phIcon="menu" onChange={::this.onMenuItemChange}>菜单</Menu.Item>
+                            </Menu.List>
+                        </Menu.Nav>
                     </Menu.Body>
                 </Menu>
 
                 <h2 className="comp-title">Menu</h2>
-                <h3 className="comp-type">Menu属性</h3>
+                <h3 className="comp-type"><strong>Menu属性</strong></h3>
                 <h3 className="comp-type">visible(默认false) 初始可见值</h3>
                 <div className="content">
                     <Button onClick={::this.switchVisible}>切换visible值:默认false</Button>
@@ -91,21 +114,23 @@ export default class menu extends Component{
                 <h3 className="comp-type">onChange 菜单展开收起的回调函数</h3>
                 <Code target="menu-onchange" />
 
-                <h3 className="comp-type">MenuHeader属性</h3>
+
+                <h3 className="comp-type"><strong>MenuHeader属性</strong></h3>
                 <h3 className="comp-type">align(默认left) 菜单按钮的位置</h3>
                 <div className="content">
                     <Button onClick={::this.switchAlign}>切换align值:默认left</Button>
                 </div>
                 <Code target="menu-header-align" />
 
-                <h3 className="comp-type">MenuBody属性</h3>
+
+                <h3 className="comp-type"><strong>MenuBody属性</strong></h3>
                 <h3 className="comp-type">placement(默认top) 菜单的位置</h3>
                 <div className="content">
-                    <Button onClick={::this.switchPlacement}>改变placement值:top->left</Button>
+                    <Button onClick={::this.switchPlacement}>改变placement值:top->left-full</Button>
                 </div>
                 <Code target="menu-body-placement" />
 
-                <h3 className="comp-type">width 侧边菜单的宽度</h3>
+                <h3 className="comp-type">width(默认50) 侧边菜单的宽度</h3>
                 <div className="content">
                     <Button onClick={::this.switchWidth}>改变width值:40->50</Button>
                 </div>
@@ -116,6 +141,40 @@ export default class menu extends Component{
                     <Button onClick={::this.switchCloseButton}>切换closeButton值:默认false</Button>
                 </div>
                 <Code target="menu-body-closebutton" />
+
+
+                <h3 className="comp-type"><strong>MenuNav属性</strong></h3>
+                <h3 className="comp-type">align(默认top) 导航的位置</h3>
+                <div className="content">
+                    <Button onClick={::this.switchNavAlign}>改变align值:top->center</Button>
+                </div>
+                <Code target="menu-nav-align" />
+
+
+                <h3 className="comp-type"><strong>MenuList属性</strong></h3>
+                <h3 className="comp-type">activeName(默认null) 当前导航选中的菜单项</h3>
+                <div className="content">
+                    <Button onClick={::this.switchActiveName}>改变activeName值:index->menu</Button>
+                </div>
+                <Code target="menu-list-onchange" />
+
+                <h3 className="comp-type">onChange 点击菜单项时的回调，函数内必需手动更改activeName值</h3>
+                <Code target="menu-list-onchange" />
+
+
+                <h3 className="comp-type"><strong>MenuItem属性</strong></h3>
+                <h3 className="comp-type">phIcon(默认无) 菜单项名称前面的符号️类型</h3>
+                <Code target="menu-item-phicon" />
+
+                <h3 className="comp-type">name(默认无) 当前导航选中的菜单项</h3>
+                <Code target="menu-item-name" />
+
+                <h3 className="comp-type">href(默认无) 菜单项的链接</h3>
+                <Code target="menu-item-href" />
+
+                <h3 className="comp-type">onChange 点击菜单项时的回调</h3>
+                <Code target="menu-item-onchange" />
+
             </div>
         );
     }
