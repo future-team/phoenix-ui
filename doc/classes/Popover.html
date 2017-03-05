@@ -199,30 +199,6 @@
                     
                        <li>
                             
-                           <a href="../classes/Menu.html">Menu</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
-                           <a href="../classes/MenuBody.html">MenuBody</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
-                           <a href="../classes/MenuHeader.html">MenuHeader</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
                            <a href="../classes/Accordion.html">Accordion</a>
                            <ul>
                                 
@@ -258,6 +234,64 @@
                        <li>
                             
                            <a href="../classes/Label.html">Label</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/菜单组件.html">菜单组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Menu.html">Menu</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuBody.html">MenuBody</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuHeader.html">MenuHeader</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuItem.html">MenuItem</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuList.html">MenuList</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuNav.html">MenuNav</a>
                            <ul>
                                 
                            </ul>
@@ -385,7 +419,7 @@
             &lt;/ul&gt;
         &lt;/Popover&gt;
     );</code></pre>
-<pre><code class="lang-code">    &lt;Whisper placement="top" onChange={()=&gt;{console.log(&#39;气泡出现消失时额外的执行函数&#39;);}} target={popover} distance={10} &gt;Top&lt;/Whisper&gt;</code></pre>
+<pre><code class="lang-code">    &lt;Whisper placement="top" onTargetChange={()=&gt;{console.log(&#39;气泡出现消失时额外的执行函数&#39;);}} target={popover} distance={10} &gt;Top&lt;/Whisper&gt;</code></pre>
 </div>
  </div>
 
@@ -462,6 +496,8 @@
             
 
             
+                <p>Available since 1.0.0</p>
+            
         </div>
 
         
@@ -510,6 +546,8 @@
         
 
         
+            <p>Available since 1.0.0</p>
+        
     </div>
 
     <div class="description well well-small sign-left3">
@@ -539,7 +577,7 @@ export default class popover extends Component{
         super(props,context); 
     }
 
-    onChange(){
+    onTargetChange(){
         alert("气泡出现消失时额外的执行函数"); 
     }
 
@@ -579,11 +617,11 @@ export default class popover extends Component{
                 &lt;/div&gt;
                 &lt;Code target="popover-distance" /&gt;
 
-                &lt;h3 className="comp-type"&gt;onChange 气泡显隐时额外的回调函数&lt;/h3&gt;
+                &lt;h3 className="comp-type"&gt;onTargetChange 气泡显隐时额外的回调函数&lt;/h3&gt;
                 &lt;div className="content"&gt;
-                    &lt;Whisper onChange={this.onChange} target={popover}&gt;popover&lt;/Whisper&gt;
+                    &lt;Whisper onTargetChange={this.onTargetChange} target={popover}&gt;popover&lt;/Whisper&gt;
                 &lt;/div&gt;
-                &lt;Code target="popover-onchange" /&gt;
+                &lt;Code target="popover-ontargetchange" /&gt;
             &lt;/div&gt;
         );
     }
@@ -634,7 +672,7 @@ export default class popover extends Component{
             
         
         
-        <a href="../files/src_Popover.js.html#l35"><code>src&#x2F;Popover.js:35</code></a>
+        <a href="../files/src_Popover.js.html#l36"><code>src&#x2F;Popover.js:36</code></a>
         
         </p>
 
@@ -682,7 +720,7 @@ export default class popover extends Component{
             
         
         
-        <a href="../files/src_Popover.js.html#l42"><code>src&#x2F;Popover.js:42</code></a>
+        <a href="../files/src_Popover.js.html#l43"><code>src&#x2F;Popover.js:43</code></a>
         
         </p>
 

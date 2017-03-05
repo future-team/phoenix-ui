@@ -199,30 +199,6 @@
                     
                        <li>
                             
-                           <a href="../classes/Menu.html">Menu</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
-                           <a href="../classes/MenuBody.html">MenuBody</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
-                           <a href="../classes/MenuHeader.html">MenuHeader</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
                            <a href="../classes/Accordion.html">Accordion</a>
                            <ul>
                                 
@@ -258,6 +234,64 @@
                        <li>
                             
                            <a href="../classes/Label.html">Label</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/菜单组件.html">菜单组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Menu.html">Menu</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuBody.html">MenuBody</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuHeader.html">MenuHeader</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuItem.html">MenuItem</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuList.html">MenuList</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuNav.html">MenuNav</a>
                            <ul>
                                 
                            </ul>
@@ -386,7 +420,7 @@ import Drag from &#x27;./Drag&#x27;;
  * - 滑动进度条确定当前进度的百分比。
  * - 可通过设置process确定初始进度百分比, 范围从0-100。
  * - 可通过placement设置当前进度提示框的位置, 可选top/bottoom。
- * - 可通过onChange设置拖拽进度条松开时的回调函数。
+ * - 可通过onSliderChange设置拖拽进度条松开时的回调函数。
  * - 可通过disabled设置进度条只读。
  *
  * 主要属性和接口：
@@ -394,8 +428,8 @@ import Drag from &#x27;./Drag&#x27;;
  * 如: &#x60;&lt;Slider progress={10}/&gt;&#x60;
  * - placement:进度提示框的位置, 默认top &lt;br/&gt;
  * 如: &#x60;&lt;Slider placement=&quot;bottom&quot; /&gt;&#x60;
- * - onChange:拖拽进度条松开时的回调函数 &lt;br/&gt;
- * 如: &#x60;&lt;Slider onChange={(progress)=&gt;{console.log(progress);} /&gt;&#x60;
+ * - onSliderChange:拖拽进度条松开时的回调函数 &lt;br/&gt;
+ * 如: &#x60;&lt;Slider onSliderChange={(progress)=&gt;{console.log(progress);} /&gt;&#x60;
  * - disabled:进度条只读, 不可操作 &lt;br/&gt;
  * 如: &#x60;&lt;Slider disabled/&gt;&#x60;
  *
@@ -403,6 +437,7 @@ import Drag from &#x27;./Drag&#x27;;
  * @module 操作类组件
  * @extends Component
  * @constructor
+ * @since 1.0.0
  * @demo slider|slider.js {展示}
  * @show true
  * */
@@ -438,10 +473,10 @@ export default class Slider extends Component{
         placement: PropTypes.string,
         /**
          * 改变进程时的回调函数
-         * @method onChange
+         * @method onSliderChange
          * @type Function
          * */
-        onChange: PropTypes.func
+        onSliderChange: PropTypes.func
     };
 
     static defaultProps = {
@@ -502,7 +537,7 @@ export default class Slider extends Component{
 
         this.newProgressWidth = this.prevProgressWidth;
 
-        if(this.props.onChange) this.props.onChange(this.state.newProgress);
+        if(this.props.onSliderChange) this.props.onSliderChange(this.state.newProgress);
     }
 
     render(){

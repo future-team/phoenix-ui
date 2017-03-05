@@ -19,19 +19,19 @@ import Tab from './Tab.js';
  * - 通过activeIndex指定默认的选中tab的索引值。
  * - 选项卡默认横排, 可通过vertical设置为竖排。
  * - 当设置为vertical后, 可通过width设置tab标题部分的宽度占比。
- * - 可通过onChange设置点击选项卡的回调函数。
+ * - 可通过onTabsetChange设置点击选项卡的回调函数。
  * - 可自定义className等常用属性以及事件。
  *
  * 具体属性和接口如下：
  * - activeIndex:默认选中的标签卡索引值，默认0第一个tab
  * - vertical:是否竖排，如需要直接添加改属性即可，默认不竖排
  * - width:选项卡头部的宽度，取值0-100之间, 只有设置vertical下生效, 默认20
- * - onChange:点击选项卡执行的回调函数
+ * - onTabsetChange:点击选项卡执行的回调函数
  *
  * 示例:
  * - 横排
  * ```code
- *     <Tabset activeIndex ={this.state.index} onChange={(index)=>{console.log(index);}>
+ *     <Tabset activeIndex ={this.state.index} onTabsetChange={(index)=>{console.log(index);}>
  *         <Tab heading='标题1' className='tab-test'>
  *             横向内容1
  *         </Tab>
@@ -42,7 +42,7 @@ import Tab from './Tab.js';
  * ```
  * - 竖排
  * ```code
- *     <Tabset vertical width={30} activeIndex ={this.state.index} onChange={(index)=>{console.log(index);}>
+ *     <Tabset vertical width={30} activeIndex ={this.state.index} onTabsetChange={(index)=>{console.log(index);}>
  *         <Tab heading='标题1'>
  *             竖向内容1
  *         </Tab>
@@ -88,18 +88,18 @@ class Tabset extends Component {
         width: PropTypes.number,
         /**
          * 点击事件的回调函数,返回当前选中项
-         * @method onChange
+         * @method onTabsetChange
          * @type Function
          * @default null
          * */
-        onChange: PropTypes.func
+        onTabsetChange: PropTypes.func
     };
 
     static defaultProps = {
         activeIndex: 0,
         vertical: false,
         width: 20,
-        onChange: null
+        onTabsetChange: null
     };
 
     constructor(props, context) {
@@ -110,7 +110,7 @@ class Tabset extends Component {
         /**
          * 首次进入获取active
          * */
-        // this.props.onChange && this.props.onChange(this.props.activeIndex);
+        // this.props.onTabsetChange && this.props.onTabsetChange(this.props.activeIndex);
     }
 
     /**
@@ -149,8 +149,8 @@ class Tabset extends Component {
     }
 
     tabHandler(index){
-        let {onChange} =this.props;
-        onChange && onChange(index);
+        let {onTabsetChange} =this.props;
+        onTabsetChange && onTabsetChange(index);
     }
 
     render() {

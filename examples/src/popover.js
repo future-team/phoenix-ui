@@ -8,7 +8,7 @@ export default class popover extends Component{
         super(props,context); 
     }
 
-    onChange(){
+    onTargetChange(){
         alert("气泡出现消失时额外的执行函数"); 
     }
 
@@ -48,11 +48,11 @@ export default class popover extends Component{
                 </div>
                 <Code target="popover-distance" />
 
-                <h3 className="comp-type">onChange 气泡显隐时额外的回调函数</h3>
+                <h3 className="comp-type">onTargetChange 气泡显隐时额外的回调函数</h3>
                 <div className="content">
-                    <Whisper onChange={this.onChange} target={popover}>popover</Whisper>
+                    <Whisper onTargetChange={this.onTargetChange} target={popover}>popover</Whisper>
                 </div>
-                <Code target="popover-onchange" />
+                <Code target="popover-ontargetchange" />
             </div>
         );
     }

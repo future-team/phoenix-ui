@@ -40,7 +40,8 @@ var code = {
 		'<Row>\n\    <Col>\n\      <label>喜欢的水果</label>\n\      <div style={{textAlign: "right"}}><Input type="radio" label="苹果" name="fruit" /><Input type="radio" label="香蕉" name="fruit" /></div>\n\    </Col>\n\  </Row>\n</FormGroup>',
 
 	'accordion-visible': '<Accordion visible={true}>\n\  <Accordion.Header>标题二-展开</Accordion.Header>\n\  <Accordion.Body>...</Accordion.Body>\n</Accordion>',
-	'accordion-onchange': '<Accordion visible={this.state.visible} onChange={(visible)=>{this.setState({visible: visible})}}>\n\  <Accordion.Header>...</Accordion.Header>\n\  <Accordion.Body>...</Accordion.Body>\n</Accordion>',
+	'accordion-onaccordionchange': '<Accordion visible={this.state.visible} onAccordionChange={(visible)=>{this.setState({visible: visible})}}>\n\  <Accordion.Header>...</Accordion.Header>\n\  <Accordion.Body>...</Accordion.Body>\n</Accordion>',
+	'accordion-hideicon':'<Accordion hideIcon>\n\  <Accordion.Header>标题一</Accordion.Header>\n\  <Accordion.Body>...</Accordion.Body>\n</Accordion>',
 
 	'dialog-onclose': '<Dialog visible={this.state.visible1} onClose={::this.onClose.bind(this,"visible1")}>\n\  <Dialog.Title>标题1</Dialog.Title>\n\  <Dialog.Body>可自定义表格内容</Dialog.Body>\n\  <Dialog.Footer>...</Dialog.Footer>\n</Dialog>',
 	'dialog-closebutton': '<Dialog visible={this.state.visible2} onClose={::this.onClose.bind(this,"visible2")} closeButton>\n\  <Dialog.Title>标题1</Dialog.Title>\n\  <Dialog.Body>可自定义表格内容</Dialog.Body>\n\  <Dialog.Footer>...</Dialog.Footer>\n</Dialog>',
@@ -55,19 +56,19 @@ var code = {
 		'<Whisper target={popover}>Bottom</Whisper>\n<Whisper placement="top" target={popover}>Top</Whisper>\n<Whisper placement="right" target={popover}>Right</Whisper>\n<Whisper placement="left" target={popover}>Left</Whisper>\n<Whisper placement="top right" target={popover}>Top Right</Whisper>\n<Whisper placement="top left" target={popover}>Top Left</Whisper>\n<Whisper placement="bottom right" target={popover}>Bottom Right</Whisper>\n<Whisper placement="bottom left" target={popover}>Bottom Left</Whisper>',
 	'popover-distance': 'const popover = (\n\  <Popover>\n\    // 气泡内容\n\  </Popover>\n);\n'+
 		'<Whisper target={popover} distance={10}>10</Whisper>\n<Whisper target={popover} distance={20}>20</Whisper>',
-	'popover-onchange': 'const popover = (\n\  <Popover>\n\    // 气泡内容\n\  </Popover>\n);\n'+
-		'<Whisper onChange={()=>{alert("气泡出现消失时额外的执行函数");}} target={popover}>popover</Whisper>',
+	'popover-ontargetchange': 'const popover = (\n\  <Popover>\n\    // 气泡内容\n\  </Popover>\n);\n'+
+		'<Whisper onTargetChange={()=>{alert("气泡出现消失时额外的执行函数");}} target={popover}>popover</Whisper>',
 
 	'tabset-activeindex': '<Tabset activeIndex={1}>\n\  <Tab heading="标题1">\n\    横向内容1\n\  </Tab>\n\  <Tab heading="标题2">\n\    横向内容2\n\  </Tab>\n</Tabset>',
 	'tabset-vertical': '<Tabset vertical>\n\  <Tab heading="标题1">\n\    竖向内容1\n\  </Tab>\n\  <Tab heading="标题2">\n\    竖向内容2\n\  </Tab>\n</Tabset>',
 	'tabset-width': '<Tabset vertical width={30}>\n\  <Tab heading="标题1">\n\    竖向内容1\n\  </Tab>\n\  <Tab heading="标题2">\n\    竖向内容2\n\  </Tab>\n</Tabset>',
-	'tabset-onchange': '<Tabset onChange={(index)=>{alert(index);}}>\n\  <Tab heading="标题1">\n\    横向内容1\n\  </Tab>\n\  <Tab heading="标题2">\n\    横向内容2\n\  </Tab>\n</Tabset>',
+	'tabset-ontabsetchange': '<Tabset onTabsetChange={(index)=>{alert(index);}}>\n\  <Tab heading="标题1">\n\    横向内容1\n\  </Tab>\n\  <Tab heading="标题2">\n\    横向内容2\n\  </Tab>\n</Tabset>',
 	'tab-heading': '<Tabset>\n\  <Tab heading="Tab heading 1">\n\    横向内容1\n\  </Tab>\n\  <Tab heading="Tab heading 2">\n\    横向内容2\n\  </Tab>\n</Tabset>',
-	'tab-onchange': '<Tabset>\n\  <Tab heading="标题1" onChange={(index)=>{alert(index);}}>\n\    横向内容1\n\  </Tab>\n\  <Tab heading="标题2">\n\    横向内容2\n\  </Tab>\n</Tabset>',
+	'tab-ontabchange': '<Tabset>\n\  <Tab heading="标题1" onTabChange={(index)=>{alert(index);}}>\n\    横向内容1\n\  </Tab>\n\  <Tab heading="标题2">\n\    横向内容2\n\  </Tab>\n</Tabset>',
 
 	'slider-progress': '<Slider progress={25} />',
 	'slider-placement': '<Slider />\n<Slider placement="bottom" />',
-	'slider-onchange': '<Slider progress={this.state.progress} onChange={(newProgress)=>{this.setState({progress:newProgress})}} />',
+	'slider-onsliderchange': '<Slider progress={this.state.progress} onSliderChange={(newProgress)=>{this.setState({progress:newProgress})}} />',
 	'slider-disabled': '<Slider disabled progress={10} />',
 
 	'swipe-phstyle': '<Swipe buttons={[\n\  {text: "删除", onHandle: this.onDelete}\n]}>\n  <div style={{padding: "1rem"}}>滑动块2</div>\n</Swipe>',
@@ -84,13 +85,19 @@ var code = {
 	'menu-visible': '<Menu visible={true}>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body>...</Menu.Body>\n</Menu>',
 	'menu-scrollceiling': '// 设置为0表示至始至终吸顶\n<Menu scrollCeiling={0}>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body>...</Menu.Body>\n</Menu>\n'+
 		'// 设置为100表示从滚动100开始吸顶\n<Menu scrollCeiling={100}>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body>...</Menu.Body>\n</Menu>',
-	'menu-onchange': '<Menu onChange={(visible)=>{console.log(visible);}}>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body>...</Menu.Body>\n</Menu>',
+	'menu-onmenuchange': '<Menu onMenuChange={(visible)=>{console.log(visible);}}>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body>...</Menu.Body>\n</Menu>',
 
 	'menu-header-align': '<Menu>\n\  <Menu.Header align="right">...</Menu.Header>\n\  <Menu.Body>...</Menu.Body>\n</Menu>',
 	'menu-body-placement': '<Menu>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body placement="left">...</Menu.Body>\n</Menu>',
 	'menu-body-width': '<Menu>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body width={50}>...</Menu.Body>\n</Menu>',
 	'menu-body-closebutton': '<Menu>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body closeButton>...</Menu.Body>\n</Menu>\n or \n'+
 		'<Menu>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body closeButton={false}>...</Menu.Body>\n</Menu>',
+	'menu-nav-align': '<Menu>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body>\n\    <Menu.Nav align="center">...</Menu.Nav>\n\  </Menu.Body>\n</Menu>',
+	'menu-list-onmenulistchange': '<Menu>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body>\n\    <Menu.Nav>\n\      <Menu.List activeName={this.state.activeName} onMenulistChange={(name)=>{this.setState({activeName:name})}} >...<Menu.List>\n\    </Menu.Nav>\n\  </Menu.Body>\n</Menu>',
+	'menu-item-phicon': '...\n<Menu.List activeName={this.state.activeName} onMenulistChange={(name)=>{this.setState({activeName:name})}} >\n\  <Menu.Item phIcon="home">主页</Menu.Item>\n<Menu.List>\n...',
+	'menu-item-name': '...\n<Menu.List activeName={this.state.activeName} onMenulistChange={(name)=>{this.setState({activeName:name})}} >\n\  <Menu.Item name="home">主页</Menu.Item>\n<Menu.List>\n...',
+	'menu-item-href': '...\n<Menu.List activeName={this.state.activeName} onMenulistChange={(name)=>{this.setState({activeName:name})}} >\n\  <Menu.Item href="#home">主页</Menu.Item>\n<Menu.List>\n...',
+	'menu-item-onmenuitemchange': '...\n<Menu.List activeName={this.state.activeName} onMenulistChange={(name)=>{this.setState({activeName:name})}} >\n\  <Menu.Item onMenuitemChange={(name)=>{console.log(name);}}>主页</Menu.Item>\n<Menu.List>\n...',
 
 	'animate': '<Animate transitionName="fade">\n\  {this.renderList()}\n</Animate>\n'+
 		'this.state = {list: ["看一本书","睡8个小时"]}\nrenderList(){// 渲染todo list \n\  const items = this.state.list.map((item,index)=>{\n\    return <div key={index} className="animated" onClick={()=>{...}}>{item}</div>;\n\  });\n\  return items;\n}',

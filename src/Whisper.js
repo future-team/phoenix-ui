@@ -19,13 +19,13 @@ import classnames from 'classnames';
  * - 配合提示组件使用, 通过target设置显示的目标。
  * - 可通过placement设置目标物的显示位置, 可选top、bottom、left、right、top left、top right、bottom left、bottom right。
  * - 可通过distance设置目标物到点击对象(倾听者)的位置。
- * - 可通过onChange定义目标物显隐时额外的回调函数。
+ * - 可通过onTargetChange定义目标物显隐时额外的回调函数。
  *
  * 主要属性和接口：
  * - target:目标物。
  * - placement:目标物的显示位置, 默认bottom。
  * - distance:目标物到点击对象(倾听者)的位置, 默认15。
- * - onChange:目标物显隐时额外的回调函数。
+ * - onTargetChange:目标物显隐时额外的回调函数。
  *
  * 示例:
  * ```code
@@ -39,13 +39,14 @@ import classnames from 'classnames';
  *     );
  * ```
  * ```code
- *     <Whisper placement="top" onChange={()=>{console.log('气泡出现消失时额外的执行函数');}} target={popover} distance={10} >Top</Whisper>
+ *     <Whisper placement="top" onTargetChange={()=>{console.log('气泡出现消失时额外的执行函数');}} target={popover} distance={10} >Top</Whisper>
  * ```
  *
  * @class Whisper
  * @module 提示组件
  * @extends Component
  * @constructor
+ * @since 1.0.0
  * @demo popover|popover.js {展示}
  * @show true
  * */
@@ -85,10 +86,10 @@ export default class Whisper extends Component{
         distance: PropTypes.number,
         /**
          * 气泡显隐时可执行的额外函数,自定义
-         * @method onChange
+         * @method onTargetChange
          * @type Function
          * */
-        onChange: PropTypes.func
+        onTargetChange: PropTypes.func
     };
 
     static defaultProps = {
@@ -104,10 +105,6 @@ export default class Whisper extends Component{
 
         this.visible = false;
         this._layer = document.createElement('div');
-
-        window.addEventListener('hashchange', ()=>{ // this指向当前组件
-            if(this.visible) this.onClose();
-        }, false);
     }
 
     componentDidMount(){
@@ -177,8 +174,6 @@ export default class Whisper extends Component{
     }
 
     onToggle(){
-        if(this.props.onChange) this.props.onChange();
-
         this.visible = !this.visible;
 
         if(this.visible){
@@ -186,6 +181,8 @@ export default class Whisper extends Component{
         }else{
             this.removeTarget();
         }
+
+        if(this.props.onTargetChange) this.props.onTargetChange();
     }
 
     onClose(){
@@ -213,6 +210,10 @@ export default class Whisper extends Component{
     removeTarget(){
         ReactDOM.unmountComponentAtNode(this._layer);
         document.body.removeChild(this._layer);
+    }
+
+    componentWillUnmount(){
+        if(this.visible) this.onClose();
     }
 
     render(){

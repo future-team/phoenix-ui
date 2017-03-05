@@ -199,30 +199,6 @@
                     
                        <li>
                             
-                           <a href="../classes/Menu.html">Menu</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
-                           <a href="../classes/MenuBody.html">MenuBody</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
-                           <a href="../classes/MenuHeader.html">MenuHeader</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
                            <a href="../classes/Accordion.html">Accordion</a>
                            <ul>
                                 
@@ -258,6 +234,64 @@
                        <li>
                             
                            <a href="../classes/Label.html">Label</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/菜单组件.html">菜单组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Menu.html">Menu</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuBody.html">MenuBody</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuHeader.html">MenuHeader</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuItem.html">MenuItem</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuList.html">MenuList</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuNav.html">MenuNav</a>
                            <ul>
                                 
                            </ul>
@@ -382,12 +416,12 @@ import classnames from &#x27;classnames&#x27;;
 /**
  * tab选项卡组件&lt;br/&gt;
  * - 通过heading设置选项卡的显示内容。
- * - 可通过onChange设置点击选项卡的回调函数。
+ * - 可通过onTabChange设置点击选项卡的回调函数。
  * - 可自定义className等常用属性以及事件。
  *
  * 具体属性和接口如下：
  * - heading:选项卡的显示内容, 默认&#x27;tab&#x27;
- * - onChange:点击事件的回调函数
+ * - onTabChange:点击事件的回调函数
  *
  * 示例:
  * &#x60;&#x60;&#x60;code
@@ -395,7 +429,7 @@ import classnames from &#x27;classnames&#x27;;
  *         &lt;Tab heading=&#x27;标题1&#x27; className=&#x27;tab-test&#x27;&gt;
  *             横向内容1
  *         &lt;/Tab&gt;
- *         &lt;Tab heading=&#x27;标题2&#x27; onChange={(index)=&gt;{console.log(index);}&gt;
+ *         &lt;Tab heading=&#x27;标题2&#x27; onTabChange={(index)=&gt;{console.log(index);}&gt;
  *             横向内容2
  *         &lt;/Tab&gt;
  *     &lt;/Tabset&gt;
@@ -422,18 +456,18 @@ export default class Tab extends Component {
         heading: PropTypes.string,
         /**
          * 点击事件的回调函数
-         * @method onChange
+         * @method onTabChange
          * @type Function
          * @default null
          * */
-        onChange: PropTypes.func
+        onTabChange: PropTypes.func
     };
 
     static defaultProps = {
         heading: &#x27;tab&#x27;,
         activeIndex:0,
         vertical:false,
-        onChange: null
+        onTabChange: null
     };
 
     constructor(props,context){
@@ -442,7 +476,7 @@ export default class Tab extends Component {
 
     handleClick(){
         this.props.changeActive(this.props.index);
-        this.props.onChange &amp;&amp; this.props.onChange(this.props.index);
+        this.props.onTabChange &amp;&amp; this.props.onTabChange(this.props.index);
     }
 
     isActive(){

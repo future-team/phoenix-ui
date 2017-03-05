@@ -6,12 +6,12 @@ import classnames from 'classnames';
 /**
  * tab选项卡组件<br/>
  * - 通过heading设置选项卡的显示内容。
- * - 可通过onChange设置点击选项卡的回调函数。
+ * - 可通过onTabChange设置点击选项卡的回调函数。
  * - 可自定义className等常用属性以及事件。
  *
  * 具体属性和接口如下：
  * - heading:选项卡的显示内容, 默认'tab'
- * - onChange:点击事件的回调函数
+ * - onTabChange:点击事件的回调函数
  *
  * 示例:
  * ```code
@@ -19,7 +19,7 @@ import classnames from 'classnames';
  *         <Tab heading='标题1' className='tab-test'>
  *             横向内容1
  *         </Tab>
- *         <Tab heading='标题2' onChange={(index)=>{console.log(index);}>
+ *         <Tab heading='标题2' onTabChange={(index)=>{console.log(index);}>
  *             横向内容2
  *         </Tab>
  *     </Tabset>
@@ -46,18 +46,18 @@ export default class Tab extends Component {
         heading: PropTypes.string,
         /**
          * 点击事件的回调函数
-         * @method onChange
+         * @method onTabChange
          * @type Function
          * @default null
          * */
-        onChange: PropTypes.func
+        onTabChange: PropTypes.func
     };
 
     static defaultProps = {
         heading: 'tab',
         activeIndex:0,
         vertical:false,
-        onChange: null
+        onTabChange: null
     };
 
     constructor(props,context){
@@ -66,7 +66,7 @@ export default class Tab extends Component {
 
     handleClick(){
         this.props.changeActive(this.props.index);
-        this.props.onChange && this.props.onChange(this.props.index);
+        this.props.onTabChange && this.props.onTabChange(this.props.index);
     }
 
     isActive(){

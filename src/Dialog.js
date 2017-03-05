@@ -47,6 +47,7 @@ import {setPhoenixPrefix} from './utils/Tool';
  * @module 操作类组件
  * @extends Component
  * @constructor
+ * @since 0.4.0
  * @demo dialog|dialog.js {展示}
  * @show true
  * */

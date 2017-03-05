@@ -21,6 +21,7 @@ import classnames from 'classnames';
  * @module 布局组件
  * @extends Component
  * @constructor
+ * @since 0.1.0
  * @demo tableview|table-view.js {展示}
  * @show true
  * */

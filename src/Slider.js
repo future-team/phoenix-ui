@@ -10,7 +10,7 @@ import Drag from './Drag';
  * - 滑动进度条确定当前进度的百分比。
  * - 可通过设置process确定初始进度百分比, 范围从0-100。
  * - 可通过placement设置当前进度提示框的位置, 可选top/bottoom。
- * - 可通过onChange设置拖拽进度条松开时的回调函数。
+ * - 可通过onSliderChange设置拖拽进度条松开时的回调函数。
  * - 可通过disabled设置进度条只读。
  *
  * 主要属性和接口：
@@ -18,8 +18,8 @@ import Drag from './Drag';
  * 如: `<Slider progress={10}/>`
  * - placement:进度提示框的位置, 默认top <br/>
  * 如: `<Slider placement="bottom" />`
- * - onChange:拖拽进度条松开时的回调函数 <br/>
- * 如: `<Slider onChange={(progress)=>{console.log(progress);} />`
+ * - onSliderChange:拖拽进度条松开时的回调函数 <br/>
+ * 如: `<Slider onSliderChange={(progress)=>{console.log(progress);} />`
  * - disabled:进度条只读, 不可操作 <br/>
  * 如: `<Slider disabled/>`
  *
@@ -27,6 +27,7 @@ import Drag from './Drag';
  * @module 操作类组件
  * @extends Component
  * @constructor
+ * @since 1.0.0
  * @demo slider|slider.js {展示}
  * @show true
  * */
@@ -62,10 +63,10 @@ export default class Slider extends Component{
         placement: PropTypes.string,
         /**
          * 改变进程时的回调函数
-         * @method onChange
+         * @method onSliderChange
          * @type Function
          * */
-        onChange: PropTypes.func
+        onSliderChange: PropTypes.func
     };
 
     static defaultProps = {
@@ -126,7 +127,7 @@ export default class Slider extends Component{
 
         this.newProgressWidth = this.prevProgressWidth;
 
-        if(this.props.onChange) this.props.onChange(this.state.newProgress);
+        if(this.props.onSliderChange) this.props.onSliderChange(this.state.newProgress);
     }
 
     render(){

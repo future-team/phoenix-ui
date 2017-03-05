@@ -199,30 +199,6 @@
                     
                        <li>
                             
-                           <a href="../classes/Menu.html">Menu</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
-                           <a href="../classes/MenuBody.html">MenuBody</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
-                           <a href="../classes/MenuHeader.html">MenuHeader</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
                            <a href="../classes/Accordion.html">Accordion</a>
                            <ul>
                                 
@@ -258,6 +234,64 @@
                        <li>
                             
                            <a href="../classes/Label.html">Label</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/菜单组件.html">菜单组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Menu.html">Menu</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuBody.html">MenuBody</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuHeader.html">MenuHeader</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuItem.html">MenuItem</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuList.html">MenuList</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuNav.html">MenuNav</a>
                            <ul>
                                 
                            </ul>
@@ -389,20 +423,21 @@ import Icon from &#x27;../Icon&#x27;;
  * - align:设置菜单按钮的位置,默认left。 &lt;br/&gt;
  * 如：
  * &#x60;&#x60;&#x60;code
- *     &lt;Menu scrollCeiling={100} visible={true} onChange={(visible)=&gt;{console.log(visible);}}&gt;
+ *     &lt;Menu&gt;
  *         &lt;Menu.Header align=&quot;right&quot;&gt;
  *             标题一
  *         &lt;/Menu.Header&gt;
- *         &lt;Menu.Body width={60} placement={this.state.placement} closeButton&gt;
+ *         &lt;Menu.Body&gt;
  *             ...
  *         &lt;/Menu.Body&gt;
  *     &lt;/Menu&gt;
  * &#x60;&#x60;&#x60;
  *
  * @class MenuHeader
- * @module 操作类组件
+ * @module 菜单组件
  * @extends Component
  * @constructor
+ * @since 1.3.0
  * @demo menu|menu.js {展示}
  * @show true
  * */
@@ -438,20 +473,17 @@ export default class MenuHeader extends Component {
     };
 
     onChange(){
-        this.props.changeVisible(()=&gt;{
-            if(this.props.onChange) this.props.onChange(this.props.visible);
-        });
+        this.props.changeVisible();
     }
 
     render(){
         let {className} = this.props;
 
         return (
-            &lt;div className={classnames(
+            &lt;div {...this.props} className={classnames(
                     this.getProperty(true),
                     className
                 )}
-                {...this.props}
             &gt;
                 &lt;Icon phIcon=&quot;menu&quot; onClick={::this.onChange}/&gt;
                 &lt;div className={setPhoenixPrefix(&#x27;menu-header-content&#x27;)}&gt;{this.props.children}&lt;/div&gt;

@@ -37,6 +37,7 @@ import {setPhoenixPrefix} from './utils/Tool';
  * @module 布局组件
  * @extends Component
  * @constructor
+ * @since 0.1.0
  * @demo grid|grid.js {展示}
  * @show true
  * */

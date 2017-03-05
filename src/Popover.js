@@ -19,13 +19,14 @@ import Tool from './utils/Tool'
  *     );
  * ```
  * ```code
- *     <Whisper placement="top" onChange={()=>{console.log('气泡出现消失时额外的执行函数');}} target={popover} distance={10} >Top</Whisper>
+ *     <Whisper placement="top" onTargetChange={()=>{console.log('气泡出现消失时额外的执行函数');}} target={popover} distance={10} >Top</Whisper>
  * ```
  *
  * @class Popover
  * @module 提示组件
  * @extends Component
  * @constructor
+ * @since 1.0.0
  * @demo popover|popover.js {展示}
  * @show true
  * */

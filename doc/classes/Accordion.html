@@ -199,30 +199,6 @@
                     
                        <li>
                             
-                           <a href="../classes/Menu.html">Menu</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
-                           <a href="../classes/MenuBody.html">MenuBody</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
-                           <a href="../classes/MenuHeader.html">MenuHeader</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
                            <a href="../classes/Accordion.html">Accordion</a>
                            <ul>
                                 
@@ -258,6 +234,64 @@
                        <li>
                             
                            <a href="../classes/Label.html">Label</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/菜单组件.html">菜单组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Menu.html">Menu</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuBody.html">MenuBody</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuHeader.html">MenuHeader</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuItem.html">MenuItem</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuList.html">MenuList</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuNav.html">MenuNav</a>
                            <ul>
                                 
                            </ul>
@@ -375,12 +409,14 @@
       <div class="stdoc-code"><p>手风琴组件<br/></p>
 <ul>
 <li>通过visible设置初始展开或收起的状态, 可选true/false。</li>
-<li>可通过onChange设置展开收起时额外的回调函数。</li>
+<li>可通过onAccordionChange设置展开收起时额外的回调函数。</li>
+<li>可通过hideIcon设置隐藏向下的箭头。</li>
 </ul>
 <p>主要属性和接口：</p>
 <ul>
-<li>visible:初始展开或收起的状态, 默认false收起 <br/>
-如：<pre><code class="lang-code">  &lt;Accordion visible={true}&gt;
+<li>visible:初始展开或收起的状态, 默认false收起。
+= hideIcon:设置隐藏向下的箭头, 默认false可见。<br/>
+如：<pre><code class="lang-code">  &lt;Accordion visible={true} hideIcon&gt;
       &lt;Accordion.Header&gt;
           标题一
       &lt;/Accordion.Header&gt;
@@ -389,8 +425,8 @@
       &lt;/Accordion.Body&gt;
   &lt;/Accordion&gt;</code></pre>
 </li>
-<li>onChange:点击收起展开的额外的回调执行函数 <br/>
-如：<pre><code class="lang-code">  &lt;Accordion onChange={(visible)=&gt;{console.log(visible);}}&gt;
+<li>onAccordionChange:点击收起展开的额外的回调执行函数。<br/>
+如：<pre><code class="lang-code">  &lt;Accordion onAccordionChange={(visible)=&gt;{console.log(visible);}}&gt;
       &lt;Accordion.Header&gt;
           标题一
       &lt;/Accordion.Header&gt;
@@ -412,7 +448,7 @@
                     <ul class="index-list methods extends">
                         
                             <li class="index-item method">
-                                <a href="#" data-tabid="#method" data-anchor="#method_onChange" data-tablink="onChange">onChange</a>
+                                <a href="#" data-tabid="#method" data-anchor="#method_onAccordionChange" data-tablink="onAccordionChange">onAccordionChange</a>
 
                                 
                                 
@@ -436,6 +472,13 @@
                         
                             <li class="index-item property">
                                 <a href="#" data-tabid="#property" data-anchor="#property_componentTag" data-tablink="componentTag">componentTag</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#" data-tabid="#property" data-anchor="#property_hideIcon" data-tablink="hideIcon">hideIcon</a>
 
                                 
                                 
@@ -485,7 +528,7 @@
 
             
                 <div class="foundat">
-                    Defined in: <a href="../files/src_Accordion.js.html#l20"><code>src&#x2F;Accordion.js:20</code></a>
+                    Defined in: <a href="../files/src_Accordion.js.html#l22"><code>src&#x2F;Accordion.js:22</code></a>
                 </div>
             
 
@@ -495,6 +538,8 @@
                 
             
 
+            
+                <p>Available since 0.4.0</p>
             
         </div>
 
@@ -536,13 +581,15 @@
             
         
         
-        <a href="../files/src_Accordion.js.html#l20"><code>src&#x2F;Accordion.js:20</code></a>
+        <a href="../files/src_Accordion.js.html#l22"><code>src&#x2F;Accordion.js:22</code></a>
         
         </p>
 
 
         
 
+        
+            <p>Available since 0.4.0</p>
         
     </div>
 
@@ -578,10 +625,8 @@ export default class accordion extends Component{
         }
     }
 
-    onChange(visible){
-        this.setState({
-            visible: visible
-        });
+    onAccordionChange(visible){
+        alert(visible);
     }
 
     render(){
@@ -591,7 +636,7 @@ export default class accordion extends Component{
                 &lt;h3 className="comp-type"&gt;visible(默认false) 初始可见值&lt;/h3&gt;
                 &lt;Accordion&gt;
                     &lt;Accordion.Header&gt;
-                        标题一-收起&lt;Icon phIcon="expand-more" style={{float:"right"}} /&gt;
+                        标题一-收起
                     &lt;/Accordion.Header&gt;
                     &lt;Accordion.Body&gt;
                         &lt;ul className="ph-accordion-list"&gt;
@@ -601,7 +646,7 @@ export default class accordion extends Component{
                 &lt;/Accordion&gt;
                 &lt;Accordion visible={true}&gt;
                     &lt;Accordion.Header&gt;
-                        标题二-展开&lt;span className={classnames("ph-iconfont icon-chevron-more")} style={{float:"right"}}&gt;&lt;/span&gt;
+                        标题二-展开
                     &lt;/Accordion.Header&gt;
                     &lt;Accordion.Body&gt;
                         &lt;ul className="ph-accordion-list"&gt;
@@ -613,10 +658,24 @@ export default class accordion extends Component{
                 &lt;br/&gt;
                 &lt;Code target="accordion-visible" /&gt;
 
-                &lt;h3 className="comp-type"&gt;onChange 展开收起的回调函数&lt;/h3&gt;
-                &lt;Accordion visible={this.state.visible} onChange={(visible)=&gt;{this.setState({visible: visible})}}&gt;
+                &lt;h3 className="comp-type"&gt;hideIcon(默认false) 向下的按钮是否可见&lt;/h3&gt;
+                &lt;Accordion hideIcon&gt;
                     &lt;Accordion.Header&gt;
-                        标题一&lt;span className={classnames("ph-iconfont icon-chevron-more", this.state.visible?"active":"")} style={{float:"right"}}&gt;&lt;/span&gt;
+                        标题一
+                    &lt;/Accordion.Header&gt;
+                    &lt;Accordion.Body&gt;
+                        &lt;ul className="ph-accordion-list"&gt;
+                            &lt;li className="ph-accordion-item"&gt;内容一&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/Accordion.Body&gt;
+                &lt;/Accordion&gt;
+                &lt;br/&gt;
+                &lt;Code target="accordion-hideicon" /&gt;
+
+                &lt;h3 className="comp-type"&gt;onAccordionChange 展开收起的回调函数&lt;/h3&gt;
+                &lt;Accordion visible={this.state.visible} onAccordionChange={::this.onAccordionChange}&gt;
+                    &lt;Accordion.Header&gt;
+                        标题一
                     &lt;/Accordion.Header&gt;
                     &lt;Accordion.Body&gt;
                         &lt;ul className="ph-accordion-list"&gt;
@@ -626,7 +685,7 @@ export default class accordion extends Component{
                     &lt;/Accordion.Body&gt;
                 &lt;/Accordion&gt;
                 &lt;br/&gt;
-                &lt;Code target="accordion-onchange" /&gt;
+                &lt;Code target="accordion-onaccordionchange" /&gt;
             &lt;/div&gt;
         );
     }
@@ -652,10 +711,10 @@ export default class accordion extends Component{
                 <h2 class="off-left">方法</h2>
 
                 
-                    <div id="method_onChange" class="method item">
-    <h3 class="name">onChange</h3>
+                    <div id="method_onAccordionChange" class="method item">
+    <h3 class="name">onAccordionChange</h3>
     <code>
-    onChange
+    onAccordionChange
     
         <span class="paren">()</span>
     
@@ -686,7 +745,7 @@ export default class accordion extends Component{
             
         
         
-        <a href="../files/src_Accordion.js.html#l82"><code>src&#x2F;Accordion.js:82</code></a>
+        <a href="../files/src_Accordion.js.html#l87"><code>src&#x2F;Accordion.js:87</code></a>
         
         </p>
 
@@ -740,7 +799,7 @@ export default class accordion extends Component{
             
         
         
-        <a href="../files/src_Accordion.js.html#l62"><code>src&#x2F;Accordion.js:62</code></a>
+        <a href="../files/src_Accordion.js.html#l67"><code>src&#x2F;Accordion.js:67</code></a>
         
         </p>
 
@@ -788,7 +847,7 @@ export default class accordion extends Component{
             
         
         
-        <a href="../files/src_Accordion.js.html#l69"><code>src&#x2F;Accordion.js:69</code></a>
+        <a href="../files/src_Accordion.js.html#l74"><code>src&#x2F;Accordion.js:74</code></a>
         
         </p>
 
@@ -802,6 +861,54 @@ export default class accordion extends Component{
 </div>
     </div>
 
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_hideIcon" class="property item">
+    <h3 class="name"><code>hideIcon</code></h3>
+    <span class="type">Boolean</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_Accordion.js.html#l93"><code>src&#x2F;Accordion.js:93</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>向下的箭头是否可见， 默认可见</p>
+</div>
+    </div>
+
+    
+        <p><strong>Default:</strong></p>
+         <code> false</code>
     
 
     
@@ -833,7 +940,7 @@ export default class accordion extends Component{
             
         
         
-        <a href="../files/src_Accordion.js.html#l75"><code>src&#x2F;Accordion.js:75</code></a>
+        <a href="../files/src_Accordion.js.html#l80"><code>src&#x2F;Accordion.js:80</code></a>
         
         </p>
 

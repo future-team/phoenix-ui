@@ -28,6 +28,7 @@ import Button from './Button';
  * @module 操作类组件
  * @extends Component
  * @constructor
+ * @since 0.3.0
  * @demo swipe|swipe.js {展示}
  * @show true
  * */
