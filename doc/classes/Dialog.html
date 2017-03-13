@@ -126,6 +126,40 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/弹出框组件.html">弹出框组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Alert.html">Alert</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Dialog.html">Dialog</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Prompt.html">Prompt</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
                     <a href="../modules/提示组件.html">提示组件</a>
                 </dt>
                 <dd>
@@ -157,14 +191,6 @@
                 <dd>
                     <ul>
                    
-                       <li>
-                            
-                           <a href="../classes/Dialog.html">Dialog</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
                        <li>
                             
                            <a href="../classes/Popup.html">Popup</a>
@@ -408,7 +434,7 @@
  <div class="well well-small sign-left3">
       <div class="stdoc-code"><p>弹框组件<br/></p>
 <ul>
-<li>由于弹框的显示操作在组件以外, 所以需要在使用时自定义visible、onShow、onClose函数。</li>
+<li>由于弹框的显示操作在组件以外, 所以需要在使用时自定义<code>visible</code>、<code>onClose</code>函数。</li>
 <li>通过visible设置弹框是否显示, 可选true/false, 必需。</li>
 <li>可通过onClose配置点击弹框阴影部分以及弹框右上角X按钮来关闭弹框。</li>
 <li>可通过closeButton来配置弹框右上角X按钮是否显示, 默认不显示。</li>
@@ -540,13 +566,13 @@
 
             
                 <div class="foundat">
-                    Defined in: <a href="../files/src_Dialog.js.html#l7"><code>src&#x2F;Dialog.js:7</code></a>
+                    Defined in: <a href="../files/src_Modal_Dialog.js.html#l18"><code>src&#x2F;Modal&#x2F;Dialog.js:18</code></a>
                 </div>
             
 
             
                 
-                    Module: <a href="../modules/操作类组件.html">操作类组件</a>
+                    Module: <a href="../modules/弹出框组件.html">弹出框组件</a>
                 
             
 
@@ -593,7 +619,7 @@
             
         
         
-        <a href="../files/src_Dialog.js.html#l7"><code>src&#x2F;Dialog.js:7</code></a>
+        <a href="../files/src_Modal_Dialog.js.html#l18"><code>src&#x2F;Modal&#x2F;Dialog.js:18</code></a>
         
         </p>
 
@@ -623,7 +649,7 @@
             </ul>
             <div class="example-content  showdemo ">
                 <div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from "react";
-import {Button, Dialog} from "phoenix-ui";
+import {ButtonGroup, Button, Dialog} from "phoenix-ui";
 import Code from "./code/code";
 
 export default class dialog extends Component{
@@ -656,48 +682,54 @@ export default class dialog extends Component{
                 &lt;h2 className="comp-title"&gt;Dialog&lt;/h2&gt;
                 &lt;h3 className="comp-type"&gt;visible(默认false) 弹框是否可见，必需&lt;br/&gt;onClose 关闭弹框的执行函数&lt;/h3&gt;
                 &lt;div className="content"&gt;
-                    &lt;Button radius phSize="lg" phStyle="info" onClick={::this.onShow.bind(this,"visible1")}&gt;dialog1&lt;/Button&gt;
+                    &lt;Button radius phSize="lg" onClick={::this.onShow.bind(this,"visible1")}&gt;dialog1&lt;/Button&gt;
                 &lt;/div&gt;
                 &lt;Dialog visible={this.state.visible1} onClose={::this.onClose.bind(this,"visible1")}&gt;
                     &lt;Dialog.Title&gt;标题1&lt;/Dialog.Title&gt;
                     &lt;Dialog.Body&gt;
                         &lt;p&gt;可自定义表格内容&lt;/p&gt;
                     &lt;/Dialog.Body&gt;
-                    &lt;Dialog.Footer&gt;                        
-                        &lt;Button hollow phSize="lg" phStyle="gray" onClick={::this.onClose.bind(this,"visible1")}&gt;取消&lt;/Button&gt;
-                        &lt;Button phSize="lg" onClick={::this.onClose.bind(this,"visible1")}&gt;确定&lt;/Button&gt;
+                    &lt;Dialog.Footer&gt;
+                        &lt;ButtonGroup&gt;
+                            &lt;Button hollow phSize="lg" phStyle="gray" onClick={::this.onClose.bind(this,"visible1")}&gt;取消&lt;/Button&gt;
+                            &lt;Button hollow phSize="lg" onClick={::this.onClose.bind(this,"visible1")}&gt;确定&lt;/Button&gt;
+                        &lt;/ButtonGroup&gt; 
                     &lt;/Dialog.Footer&gt;
                 &lt;/Dialog&gt;
                 &lt;Code target="dialog-onclose" /&gt;
 
                 &lt;h3 className="comp-type"&gt;closeButton(默认不显示) 是否显示弹框左上角关闭按钮&lt;/h3&gt;
                 &lt;div className="content"&gt;
-                    &lt;Button radius phSize="lg" phStyle="info" onClick={::this.onShow.bind(this,"visible2")}&gt;dialog2&lt;/Button&gt;
+                    &lt;Button radius phSize="lg" onClick={::this.onShow.bind(this,"visible2")}&gt;dialog2&lt;/Button&gt;
                 &lt;/div&gt;
                 &lt;Dialog visible={this.state.visible2} onClose={::this.onClose.bind(this,"visible2")} closeButton&gt;
                     &lt;Dialog.Title&gt;标题2&lt;/Dialog.Title&gt;
                     &lt;Dialog.Body&gt;
                         &lt;p&gt;可自定义表格内容&lt;/p&gt;
                     &lt;/Dialog.Body&gt;
-                    &lt;Dialog.Footer&gt;                        
-                        &lt;Button hollow phSize="lg" phStyle="gray" onClick={::this.onClose.bind(this,"visible2")}&gt;取消&lt;/Button&gt;
-                        &lt;Button phSize="lg" onClick={::this.onClose.bind(this,"visible2")}&gt;确定&lt;/Button&gt;
+                    &lt;Dialog.Footer&gt;
+                        &lt;ButtonGroup&gt;
+                            &lt;Button hollow phSize="lg" phStyle="gray" onClick={::this.onClose.bind(this,"visible2")}&gt;取消&lt;/Button&gt;
+                            &lt;Button phSize="lg" onClick={::this.onClose.bind(this,"visible2")}&gt;确定&lt;/Button&gt;
+                        &lt;/ButtonGroup&gt;
                     &lt;/Dialog.Footer&gt;
                 &lt;/Dialog&gt;
                 &lt;Code target="dialog-closebutton" /&gt;
 
                 &lt;h3 className="comp-type"&gt;shadowDisabled(默认可关闭) 阴影部分是否可点击关闭弹框&lt;/h3&gt;
                 &lt;div className="content"&gt;
-                    &lt;Button radius phSize="lg" phStyle="info" onClick={::this.onShow.bind(this,"visible3")}&gt;dialog3&lt;/Button&gt;
+                    &lt;Button radius phSize="lg" onClick={::this.onShow.bind(this,"visible3")}&gt;dialog3&lt;/Button&gt;
                 &lt;/div&gt;
                 &lt;Dialog visible={this.state.visible3} onClose={::this.onClose.bind(this,"visible3")} shadowDisabled&gt;
                     &lt;Dialog.Title&gt;标题3&lt;/Dialog.Title&gt;
                     &lt;Dialog.Body&gt;
                         &lt;p&gt;可自定义表格内容&lt;/p&gt;
                     &lt;/Dialog.Body&gt;
-                    &lt;Dialog.Footer&gt;                        
-                        &lt;Button hollow phSize="lg" phStyle="gray" onClick={::this.onClose.bind(this,"visible3")}&gt;取消&lt;/Button&gt;
-                        &lt;Button phSize="lg" onClick={::this.onClose.bind(this,"visible3")}&gt;确定&lt;/Button&gt;
+                    &lt;Dialog.Footer&gt; 
+                        &lt;ButtonGroup&gt;                       
+                            &lt;Button hollow phSize="lg" phStyle="gray" onClick={::this.onClose.bind(this,"visible3")}&gt;取消&lt;/Button&gt;
+                            &lt;Button phSize="lg" onClick={::this.onClose.bind(this,"visible3")}&gt;确定&lt;/Button&gt;
+                        &lt;/ButtonGroup&gt;
                     &lt;/Dialog.Footer&gt;
                 &lt;/Dialog&gt;
                 &lt;Code target="dialog-shadowdisabled" /&gt;
@@ -760,7 +792,7 @@ export default class dialog extends Component{
             
         
         
-        <a href="../files/src_Dialog.js.html#l77"><code>src&#x2F;Dialog.js:77</code></a>
+        <a href="../files/src_Modal_Dialog.js.html#l88"><code>src&#x2F;Modal&#x2F;Dialog.js:88</code></a>
         
         </p>
 
@@ -814,7 +846,7 @@ export default class dialog extends Component{
             
         
         
-        <a href="../files/src_Dialog.js.html#l58"><code>src&#x2F;Dialog.js:58</code></a>
+        <a href="../files/src_Modal_Dialog.js.html#l69"><code>src&#x2F;Modal&#x2F;Dialog.js:69</code></a>
         
         </p>
 
@@ -862,7 +894,7 @@ export default class dialog extends Component{
             
         
         
-        <a href="../files/src_Dialog.js.html#l83"><code>src&#x2F;Dialog.js:83</code></a>
+        <a href="../files/src_Modal_Dialog.js.html#l94"><code>src&#x2F;Modal&#x2F;Dialog.js:94</code></a>
         
         </p>
 
@@ -907,7 +939,7 @@ export default class dialog extends Component{
             
         
         
-        <a href="../files/src_Dialog.js.html#l65"><code>src&#x2F;Dialog.js:65</code></a>
+        <a href="../files/src_Modal_Dialog.js.html#l76"><code>src&#x2F;Modal&#x2F;Dialog.js:76</code></a>
         
         </p>
 
@@ -952,7 +984,7 @@ export default class dialog extends Component{
             
         
         
-        <a href="../files/src_Dialog.js.html#l89"><code>src&#x2F;Dialog.js:89</code></a>
+        <a href="../files/src_Modal_Dialog.js.html#l100"><code>src&#x2F;Modal&#x2F;Dialog.js:100</code></a>
         
         </p>
 
@@ -997,7 +1029,7 @@ export default class dialog extends Component{
             
         
         
-        <a href="../files/src_Dialog.js.html#l71"><code>src&#x2F;Dialog.js:71</code></a>
+        <a href="../files/src_Modal_Dialog.js.html#l82"><code>src&#x2F;Modal&#x2F;Dialog.js:82</code></a>
         
         </p>
 

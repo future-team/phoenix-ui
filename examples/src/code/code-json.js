@@ -9,7 +9,7 @@ var code = {
 
 	'button-group-phtype-justify': '<ButtonGroup>\n\  <Button>justify1</Button>\n\  <Button>justify2</Button>\n\  <Button>justify3</Button>\n</ButtonGroup>',
 	'button-group-phtype-tacked': '<ButtonGroup phType="tacked">\n\  <Button block>tacked1</Button>\n\  <Button block>tacked2</Button>\n\  <Button block>tacked3</Button>\n</ButtonGroup>',
-	'button-group-callback': '<ButtonGroup activeCallback={(target,html)=>{console.log(target);alert(html);}}>\n\  <Button>justify1</Button>\n\  <Button>justify2</Button>\n\  <Button>justify3</Button>\n</ButtonGroup>',
+	'button-group-callback': '<ButtonGroup onButtongroupChange={(target,html)=>{console.log(target);alert(html);}}>\n\  <Button>justify1</Button>\n\  <Button>justify2</Button>\n\  <Button>justify3</Button>\n</ButtonGroup>',
 	
 	'icon-phicon': '<Icon phIcon="search" />\n<Icon className="icon-home" />\n<span className="gfs-icon icon-chevron-left"></span>',
 
@@ -21,7 +21,7 @@ var code = {
 	'label-phstyle': '<Label>惠</Label>\n<Label phStyle="success">惠</Label>\n<Label phStyle="info">惠</Label>\n<Label phStyle="danger">惠</Label>\n<Label phStyle="error">惠</Label>\n<Label phStyle="warning">惠</Label>',
 	'label-phsize': '<Label>惠</Label>\n<Label phSize="md">惠</Label>\n<Label phSize="lg">惠</Label>',
 
-	'input-text': '<Input placeholder="默认text" />\n<Input maxLength={20} defaultValue="设置最大长度maxLength" placeholder="请输入" />\n<Input type="text" defaultValue="默认值defaultValue" placeholder="请输入" />\n<Input type="text" value={this.state.name} onChange={::this.setValue.bind(this,"name")} placeholder="请输入" />\n '+
+	'input-text': '<Input placeholder="默认text" />\n<Input type="text" defaultValue="默认值defaultValue" placeholder="请输入" />\n<Input type="text" value={this.state.name} onChange={::this.setValue.bind(this,"name")} placeholder="请输入" />\n '+
 		'// setValue是设置value的函数 \n setValue(key,e){\n\  let o ={}; \n\  o[key || e.target.name] = e.target.value;\n\  this.setState(o);\n }',
 	'input-radio': '<Input type="radio" label="男" name="sex" />\n<Input type="radio" label="女" name="sex" />',
 	'input-checkbox': '<Input type="checkbox" label="苹果" />\n<Input type="checkbox" label="香蕉" defaultChecked={true} />\n<Input type="checkbox" label="西瓜" checked={this.state.checked} onChange={::this.onChange} />',
@@ -29,7 +29,7 @@ var code = {
 	'switch': '<Switch />\n<Switch defaultChecked={true} />\n<Switch checked={this.state.checked} onChange={::this.onChange} />',
 
 	'textarea-count': '<Textarea placeholder="不计数..." />\n<Textarea count maxLength={this.state.MAX_LENGTH} placeholder="count配合maxLength计数..." />',
-	'textarea': '<Textarea defaultValue={this.state.name} placeholder="请输入..." />\n<Textarea defaultValue={this.state.words} placeholder="请输入..." onChange={this.setValue.bind(this,"words")} />\n'+
+	'textarea': '<Textarea defaultValue={this.state.name} placeholder="请输入..." />\n<Textarea value={this.state.words} onChange={this.setValue.bind(this,"words")} placeholder="请输入..."/>\n'+
 		'// setValue是设置value的函数 \n setValue(key,e){\n\  let o ={}; \n\  o[key || e.target.name] = e.target.value;\n\  this.setState(o);\n }',
 
 	'form-group-single': '<FormGroup>\n\  <Row single>\n\    <Col><Input type="text" placeholder="姓名" /></Col>\n\  </Row>\n</FormGroup>',
@@ -46,8 +46,22 @@ var code = {
 	'dialog-onclose': '<Dialog visible={this.state.visible1} onClose={::this.onClose.bind(this,"visible1")}>\n\  <Dialog.Title>标题1</Dialog.Title>\n\  <Dialog.Body>可自定义表格内容</Dialog.Body>\n\  <Dialog.Footer>...</Dialog.Footer>\n</Dialog>',
 	'dialog-closebutton': '<Dialog visible={this.state.visible2} onClose={::this.onClose.bind(this,"visible2")} closeButton>\n\  <Dialog.Title>标题1</Dialog.Title>\n\  <Dialog.Body>可自定义表格内容</Dialog.Body>\n\  <Dialog.Footer>...</Dialog.Footer>\n</Dialog>',
 	'dialog-shadowdisabled': '<Dialog visible={this.state.visible3} onClose={::this.onClose.bind(this,"visible3")} shadowDisabled>\n\  <Dialog.Title>标题1</Dialog.Title>\n\  <Dialog.Body>可自定义表格内容</Dialog.Body>\n\  <Dialog.Footer>...</Dialog.Footer>\n</Dialog>',
+	
+	'prompt':'<Prompt visible={this.state.visible} onClose={::this.onClose.bind(this,"visible")} \n title="这是标题" content="这里是弹出框的内容..." \n onConfirm={(inputValue)=>{ console.log(inputValue); this.onClose("visible"); }} />',
+	'prompt-buttons':'const buttons = [\n\  // text默认"确定", phStyle默认primary，onHandle默认onClose, otherProps传按钮的属性\n\  {text: "取消", phStyle: "gray", otherProps: {hollow: true}, onHandle: this.onConfirm.bind(this)}, \n\  {text: "提交", onHandle: this.onConfirm.bind(this)}\n];'+
+        '\n ... \n<Prompt buttons={buttons} visible={this.state.visible} onClose={::this.onClose.bind(this,"visible")} \n title="这是标题" content="这里是弹出框的内容..."/>',
+	'prompt-inputs':'const inputs = [\n\  // type默认text，其他属性可选，按照正常输入; \n\  {defaultValue: "hah", placeholder: "用户名", maxLength: 10, onChange: this.onUserNameChange.bind(this)},\n\  {type: "password", placeholder: "密码", onChange: this.onPasswordChange.bind(this)}\n];'+
+		'\n ... \n<Prompt inputs={inputs} visible={this.state.visible} onClose={::this.onClose.bind(this,"visible")} \n title="这是标题" content="这里是弹出框的内容..." \n onConfirm={(inputValue)=>{ console.log(inputValue); this.onClose("visible"); }} />',
+	'prompt-whole':'<Prompt visible={this.state.visible} onClose={::this.onClose.bind(this,"visible")} \n closeButton shadowDisabled title="这是标题" content="这里是弹出框的内容..." \n onConfirm={(inputValue)=>{ console.log(inputValue); this.onClose("visible"); }} />',
 
-	'toast-info': '<Button phSize="lg" onClick={::this.showToast}>Toast</Button>\nshowToast(){\n\  Toast.info("只显示信息的toast！！", 2000,()=>{\n\    console.log("额外的执行内容");\n\  });\n}',
+	'alert':'<Alert visible={this.state.visible} onClose={()=>{this.setState(visible:false)}} title="这是标题" content="这里是弹出框的内容..." />',
+	'alert-buttons':'const buttons = [\n\   // text默认"确定", phStyle默认primary，onHandle默认onClose\n\  {text: "取消", phStyle: "gray", otherProps: {hollow: true}},\n\  {onHandle: this.onConfirm.bind(this,"visible")}\n];\n...\n<Alert visible={this.state.visible} onClose={::this.onClose.bind(this,"visible")} title="这是标题" content="这里是弹出框的内容..." buttons={buttons} />',
+	'alert-whole':'const buttons = [\n\   // text默认"确定", phStyle默认primary，onHandle默认onClose\n\  {text: "取消", phStyle: "gray", otherProps: {hollow: true}},\n\  {onHandle: this.onConfirm.bind(this,"visible")}\n];\n...\n<Alert closeButton shadowDisabled visible={this.state.visible} onClose={::this.onClose.bind(this,"visible")} title="这是标题" content="这里是弹出框的内容..." buttons={buttons} />',
+
+	'toast-info': '<Button phSize="lg" onClick={::this.showToast}>Toast</Button>\n...\nshowToast(){\n\  Toast.info("只显示信息的toast！！", 2000,()=>{\n\    console.log("额外的执行内容");\n\  });\n}',
+	'toast-success': '<Button phSize="lg" onClick={::this.showToast}>Toast</Button>\n...\nshowToast(){\n\  Toast.success("操作成功", 2000,()=>{\n\    console.log("额外的执行内容");\n\  });\n}',
+	'toast-fail': '<Button phSize="lg" onClick={::this.showToast}>Toast</Button>\n...\nshowToast(){\n\  Toast.fail("操作失败", 2000,()=>{\n\    console.log("额外的执行内容");\n\  });\n}',
+	'toast-loading': '<Button phSize="lg" onClick={::this.showToast}>Toast</Button>\n...\nshowToast(){\n\  Toast.loading("加载中...", 2000,()=>{\n\    console.log("额外的执行内容");\n\  });\n}',
 
 	'popup-top': '<Popup visible={this.state.visible} onClose={()=>{this.setState({visible:false});}}>\n\  // 弹层内容\n\  </Popup>',
 	'popup-bottom': '<Popup align="bottom" visible={this.state.visible} onClose={()=>{this.setState({visible:false});}}>\n\  // 弹层内容\n\  </Popup>',

@@ -39,7 +39,7 @@ export default class toast extends Component{
                 <h2 className="comp-title">Drag</h2>
                 <h3 className="comp-type">Dragable Box demo</h3>
                 <Code target="drag" />
-                <div className="content content-drag">
+                <div className="content-drag">
                     <Drag onDrag={::this.onDrag} onDrop={::this.onDrop} style={{height:0}}>
                         <div className="box" ref={(box)=>{this.box = box}}>Drag</div>
                     </Drag>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui" />
-    <title>src/Dialog.js - phoenix-ui</title>
+    <title>src/Modal/Dialog.js - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css">
@@ -126,6 +126,40 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/弹出框组件.html">弹出框组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Alert.html">Alert</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Dialog.html">Dialog</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Prompt.html">Prompt</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
                     <a href="../modules/提示组件.html">提示组件</a>
                 </dt>
                 <dd>
@@ -157,14 +191,6 @@
                 <dd>
                     <ul>
                    
-                       <li>
-                            
-                           <a href="../classes/Dialog.html">Dialog</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
                        <li>
                             
                            <a href="../classes/Popup.html">Popup</a>
@@ -403,20 +429,31 @@
             <div id="docs-main">
                 <div class="content">
                     <div class="page-header">
-    <h1>src/Dialog.js <small>File</small></h1>
+    <h1>src/Modal/Dialog.js <small>File</small></h1>
 </div>
 
 <div class="file">
     <pre class="prettyprint linenums" id='src_code'>
 import React,{PropTypes} from &#x27;react&#x27;;
-import Component from &#x27;./utils/Component&#x27;;
+import Component from &#x27;../utils/Component&#x27;;
 import classnames from &#x27;classnames&#x27;;
-import Animate from &#x27;./Animate&#x27;;
-import {setPhoenixPrefix} from &#x27;./utils/Tool&#x27;;
+import {setPhoenixPrefix} from &#x27;../utils/Tool&#x27;;
+
+import Animate from &#x27;../Animate&#x27;;
 
 /**
+ * &lt;h5&gt;弹出框组件，主要包括组件:&lt;/h5&gt;
+ * &lt;strong&gt;&lt;a href=&#x27;../classes/Dialog.html&#x27;&gt;Dialog 基础弹框&lt;/a&gt;&lt;/strong&gt;&lt;br/&gt;
+ * &lt;strong&gt;&lt;a href=&#x27;../classes/Alert.html&#x27;&gt;Alert弹框&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
+ * &lt;strong&gt;&lt;a href=&#x27;../classes/Prompt.html&#x27;&gt;Prompt弹框&lt;/a&gt;&lt;/strong&gt;
+ * &lt;h6&gt;点击以上链接或者左侧导航栏的组件名称链接进行查看&lt;/h6&gt;
+ * @module 弹出框组件
+ * @main 弹出框组件
+ * @static
+ */
+/**
  * 弹框组件&lt;br/&gt;
- * - 由于弹框的显示操作在组件以外, 所以需要在使用时自定义visible、onShow、onClose函数。
+ * - 由于弹框的显示操作在组件以外, 所以需要在使用时自定义&#x60;visible&#x60;、&#x60;onClose&#x60;函数。
  * - 通过visible设置弹框是否显示, 可选true/false, 必需。
  * - 可通过onClose配置点击弹框阴影部分以及弹框右上角X按钮来关闭弹框。
  * - 可通过closeButton来配置弹框右上角X按钮是否显示, 默认不显示。
@@ -454,7 +491,7 @@ import {setPhoenixPrefix} from &#x27;./utils/Tool&#x27;;
  * &#x60;&#x60;&#x60;
  *
  * @class Dialog
- * @module 操作类组件
+ * @module 弹出框组件
  * @extends Component
  * @constructor
  * @since 0.4.0
@@ -542,7 +579,7 @@ class Dialog extends Component{
                         &lt;a href=&quot;javascript:;&quot; onClick={onClose} className={classnames(
                             setPhoenixPrefix(&quot;dialog-close&quot;),
                             closeButton ? &quot;show&quot;:&quot;hide&quot;,
-                            &quot;ph-iconfont iconfont icon-close&quot;
+                            &quot;gfs-icon icon-close&quot;
                         )}&gt;&lt;/a&gt;
                         {this.renderDialog()}
                     &lt;/div&gt;

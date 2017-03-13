@@ -1,12 +1,23 @@
 import React,{PropTypes} from 'react';
-import Component from './utils/Component';
+import Component from '../utils/Component';
 import classnames from 'classnames';
-import Animate from './Animate';
-import {setPhoenixPrefix} from './utils/Tool';
+import {setPhoenixPrefix} from '../utils/Tool';
+
+import Animate from '../Animate';
 
 /**
+ * <h5>弹出框组件，主要包括组件:</h5>
+ * <strong><a href='../classes/Dialog.html'>Dialog 基础弹框</a></strong><br/>
+ * <strong><a href='../classes/Alert.html'>Alert弹框</a></strong><br>
+ * <strong><a href='../classes/Prompt.html'>Prompt弹框</a></strong>
+ * <h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>
+ * @module 弹出框组件
+ * @main 弹出框组件
+ * @static
+ */
+/**
  * 弹框组件<br/>
- * - 由于弹框的显示操作在组件以外, 所以需要在使用时自定义visible、onShow、onClose函数。
+ * - 由于弹框的显示操作在组件以外, 所以需要在使用时自定义`visible`、`onClose`函数。
  * - 通过visible设置弹框是否显示, 可选true/false, 必需。
  * - 可通过onClose配置点击弹框阴影部分以及弹框右上角X按钮来关闭弹框。
  * - 可通过closeButton来配置弹框右上角X按钮是否显示, 默认不显示。
@@ -44,7 +55,7 @@ import {setPhoenixPrefix} from './utils/Tool';
  * ```
  *
  * @class Dialog
- * @module 操作类组件
+ * @module 弹出框组件
  * @extends Component
  * @constructor
  * @since 0.4.0
@@ -132,7 +143,7 @@ class Dialog extends Component{
                         <a href="javascript:;" onClick={onClose} className={classnames(
                             setPhoenixPrefix("dialog-close"),
                             closeButton ? "show":"hide",
-                            "ph-iconfont iconfont icon-close"
+                            "gfs-icon icon-close"
                         )}></a>
                         {this.renderDialog()}
                     </div>

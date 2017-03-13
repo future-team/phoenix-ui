@@ -1,6 +1,7 @@
 html, body{
     height: 100%;
     font-size: 16px;
+    font-family: 'Microsoft Yahei';
 }
 body{
     background: #efeff4;
@@ -31,31 +32,62 @@ body{
 .menu{
     background: #fff;
 }
-.menu h1{
-    padding: .6rem 1rem;
-    font-size: 125%;
+.menu header{
+    overflow: hidden;
+    height: 8rem;
+    margin-bottom: 1rem;
+    background: url(../img/phoenix.jpg) center center;
+    background-size: cover;
+    color: #fff;
 }
+.menu header>*{
+    padding: 2rem 1rem 1rem;
+    height: 100%;
+}
+.left-header{
+    float: left;
+    width: 60%;
+}
+.left-header h1{
+    margin-bottom: 2rem;
+    font-size: 150%;
+}
+.left-header p{
+    font-size: 87%;
+}
+.left-header a{
+    text-decoration: underline;
+    color: #fff;
+}
+.right-header{
+    float: right;
+    width: 40%;
+    background-color: rgba(0,0,0,.4);
+    text-align: center;
+}
+.right-header a{
+    display: block;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
 .menu h2{
     padding: .4rem 1rem;
     // background-color: #ff6633;
     // border: 1px solid #ee5511;
-    text-align: center;
-    font-size: 100%;
-    color: #fff;
+    font-size: 87%;
+    color: #999cad;
 }
 
 .list-card{
     display: block;
-    padding: .6rem 1rem;
+    position: relative;
+    margin: 0 1rem;
+    padding: .6rem 0 .6rem 1.5rem;
     border-bottom: 1px solid #ddd;
-    -webkit-transition: all .5s;
-    transition: all .5s;
 }
-.list-card:last-child{
-    border-bottom: none;
-}
-.list-card:hover{
-    padding-left: 3rem;
+.list-card:first-child{
+    border-top: 1px solid #ddd;
 }
 .menu-panel h3{
     margin-bottom: .3rem;
@@ -76,26 +108,39 @@ body{
 
 .switch-skin{
     display: inline-block;
-    margin: 0 0 1rem 1rem;
+    margin: 1rem;
 }
-
 
 /*** content common ***/
 .comp-title{
-    padding: 2rem 1rem;
+    padding: 1rem 1rem;
+    background: url(../img/phoenix.jpg) center center;
+    background-size: cover;
     text-align: center;
+    color: #fff;
 }
 .comp-type{
-    margin-bottom: 1rem;
-    padding: .3rem 1rem;
-    border-top: 1px solid #ddd;
+    padding: .4rem 1rem;
+    background-color: #fff;
     border-bottom: 1px solid #ddd;
     font-size: 92%;
-}
-.comp-tip{
-    padding: .3rem 1rem;
-    font-size: 87.5%;
     color: #777;
+}
+.comp-type:before{
+    content: "\e64a";
+    display: inline-block;
+    margin-right: .3rem;
+    font-family:"iconfont" !important;
+}
+.comp-type a{
+    text-decoration: underline;
+    color: blue;
+}
+
+.comp-tip{
+    padding-bottom: .4rem;
+    font-size: 87.5%;
+    color: #999cad;
 }
 
 .content-drag{
@@ -104,7 +149,7 @@ body{
 
 .code-mark{
     display: inline-block;
-    padding: 0 1rem 1rem;
+    padding: .5rem 1rem;
     background-color: transparent;
     border: none;
     text-decoration: underline;
@@ -123,6 +168,10 @@ body{
 }
 
 /*** content example ***/
+.content, .contents{
+    padding: 1rem 1rem .5rem;
+    background-color: rgba(255,255,255,.5);
+}
 .content .ph-button:not(.ph-button-block),
 .content .ph-badge,
 .content .ph-label,
@@ -130,10 +179,10 @@ body{
 .content .ph-multi-group,
 .content .ph-switch,
 .content .gfs-icon{
-    margin: 0 0 1rem 1rem;
+    margin: 0 .5rem .5rem 0;
 }
 
-.content .iconfont{
+.content .gfs-icon{
     display: inline-block;
 }
 
@@ -143,7 +192,7 @@ body{
 .contents .ph-form-group,
 .contents .ph-swipe,
 .content code{
-    margin: 0 0 1rem 0;
+    margin: 0 0 .5rem 0;
 }
 
 .content .ph-button-group .ph-button{
@@ -165,6 +214,7 @@ body{
 
 .todo-demo .ph-button.ph-button-lg{
     height: 40px;
+    border-radius: 0;
 }
 
 .animate-field>div{
@@ -173,7 +223,7 @@ body{
     border-bottom: 1px solid #ddd;
 }
 
-.content .box{
+.content-drag .box{
     width: 100px;
     height: 100px;
     background-color: #000;
@@ -187,7 +237,7 @@ body{
     width: 100%;
     border: 1px solid #ddd;
     border-radius: 2px;
-    background: #f7f7f7;
+    background: #f1f1f1;
     text-align: center
 }
 

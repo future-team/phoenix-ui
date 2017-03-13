@@ -113,7 +113,12 @@ export default class Button extends Component{
 
     constructor(props, context) {
         super(props, context);
-        this.setProperty('hollow','hollow');
+        // this.setProperty('hollow','hollow');
+    }
+
+    onButtonClickHandle(e){
+        if(this.props.clickHandle) this.props.clickHandle(e);
+        if(this.props.onClick) this.props.onClick(e);
     }
 
     render(){
@@ -125,7 +130,7 @@ export default class Button extends Component{
                     this.getProperty(true),
                     this.props.className
                 )}
-                style={this.getStyles(this.props.style)}>{this.props.children}</Component>
+                style={this.getStyles(this.props.style)} onClick={::this.onButtonClickHandle}>{this.props.children}</Component>
         );
     }
 

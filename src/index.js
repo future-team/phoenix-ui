@@ -1,4 +1,5 @@
 import catBrowser from './utils/CatBrowser.js';
+import 'phoenix-styles/less/phoenix-styles.less';
 
 export Button from './Button';
 export ButtonGroup from './ButtonGroup';
@@ -17,7 +18,9 @@ export Star from './Star';
 export Drag from './Drag';
 export Swipe from './Swipe';
 export Grid from './Grid';
-export Dialog from './Dialog';
+export Dialog from './Modal/Dialog';
+export Alert from './Modal/Alert';
+export Prompt from './Modal/Prompt';
 export Toast from './Toast';
 export Popup from './Popup';
 export Accordion from './Accordion';

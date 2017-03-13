@@ -126,6 +126,40 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/弹出框组件.html">弹出框组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Alert.html">Alert</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Dialog.html">Dialog</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Prompt.html">Prompt</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
                     <a href="../modules/提示组件.html">提示组件</a>
                 </dt>
                 <dd>
@@ -157,14 +191,6 @@
                 <dd>
                     <ul>
                    
-                       <li>
-                            
-                           <a href="../classes/Dialog.html">Dialog</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
                        <li>
                             
                            <a href="../classes/Popup.html">Popup</a>
@@ -417,11 +443,20 @@ import {setPhoenixPrefix} from &#x27;./utils/Tool&#x27;;
 /**
  * 飘字组件&lt;br/&gt;
  * - 由于飘字的使用范围可预估, 为方便使用在原组件的基础上更进一步改为函数式的使用方式。
- * - 使用: &#x60;Toast.info(message, duration, callback)&#x60;
+ * - 普通信息: &#x60;Toast.info(message, duration, callback)&#x60;
+ * - 成功信息: &#x60;Toast.success(message, duration, callback)&#x60;
+ * - 失败信息: &#x60;Toast.fail(message, duration, callback)&#x60;
+ * - 加载中: &#x60;Toast.loading(message, duration, callback)&#x60;
  *
  * 示例: &lt;br/&gt;
  * - 显示普通飘字, 如:&lt;br/&gt;
- * &#x60;Toast.info(&#x27;注册成功!&#x27;, 1000, ()=&gt;{console.log(&#x27;飘字消失时执行的回调函数&#x27;);})&#x60;
+ * &#x60;Toast.info(&#x27;只显示信息的toast！&#x27;, 1000, ()=&gt;{console.log(&#x27;飘字消失时执行的回调函数&#x27;);})&#x60;
+ * - 显示成功信息, 如:&lt;br/&gt;
+ * &#x60;Toast.success(&#x27;操作成功&#x27;, 1000, ()=&gt;{console.log(&#x27;飘字消失时执行的回调函数&#x27;);})&#x60;
+ * - 显示失败信息, 如:&lt;br/&gt;
+ * &#x60;Toast.fail(&#x27;操作失败&#x27;, 1000, ()=&gt;{console.log(&#x27;飘字消失时执行的回调函数&#x27;);})&#x60;
+ * - 显示加载中, 如:&lt;br/&gt;
+ * &#x60;Toast.loading(&#x27;加载中...&#x27;, 1000, ()=&gt;{console.log(&#x27;飘字消失时执行的回调函数&#x27;);})&#x60;
  *
  * @class Toast
  * @module 操作类组件
@@ -447,11 +482,12 @@ class Toast extends Component{
     }
 
     render(){
-        let {componentTag:Component} = this.props;
+        let {componentTag:Component, className} = this.props;
 
         return (
             &lt;Component {...this.props} className={classnames(
                 this.getProperty(true),
+                className
             )}&gt;
                 &lt;div className={setPhoenixPrefix(&quot;toast-shadow&quot;)}&gt;&lt;/div&gt;
                 &lt;div className={setPhoenixPrefix(&quot;toast-main&quot;)}&gt;
@@ -469,8 +505,8 @@ let _layer = document.createElement(&#x27;div&#x27;),
     timer  = null,
     visible = false;
 
-function renderLayer(content){
-    return &lt;Toast&gt;{content}&lt;/Toast&gt;;
+function renderLayer(content,className){
+    return &lt;Toast className={className}&gt;{content}&lt;/Toast&gt;;
 }
 
 function _renderLayer(layerElement, duration, callback){
@@ -500,6 +536,18 @@ function _unrenderLayer(){
 export default {
     info(content, duration, callback){
         let layerElement = renderLayer(content);
+        _renderLayer(layerElement, duration, callback);
+    },
+    success(content, duration, callback){
+        let layerElement = renderLayer(content, setPhoenixPrefix(&#x27;toast-success&#x27;));
+        _renderLayer(layerElement, duration, callback);
+    },
+    fail(content, duration, callback){
+        let layerElement = renderLayer(content, setPhoenixPrefix(&#x27;toast-fail&#x27;));
+        _renderLayer(layerElement, duration, callback);
+    },
+    loading(content, duration, callback){
+        let layerElement = renderLayer(content, setPhoenixPrefix(&#x27;toast-loading&#x27;));
         _renderLayer(layerElement, duration, callback);
     },
     remove(){
