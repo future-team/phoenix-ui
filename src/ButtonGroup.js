@@ -5,7 +5,7 @@ import classnames from 'classnames';
 /**
  * 按钮组组件<br/>
  * - 按钮组组件配合Button组件,提供了横、竖两种排列方式, 可选justify,tacked。
- * - 可通过activeCallback实现点击回调。
+ * - 可通过onButtongroupChange实现点击回调。
  *
  * 主要属性和接口：
  * - phType:是否自适应宽度或者垂直排列, 默认justify <br/>
@@ -16,9 +16,9 @@ import classnames from 'classnames';
  *         <Button block>tacked2</Button>
  *     </ButtonGroup>
  * ```
- * - activeCallback:点击按钮组的回调函数。<br/>
+ * - onButtongroupChange:点击按钮组的回调函数。<br/>
  * ```code
- *     <ButtonGroup activeCallback={function(target,html){console.log(target,html);}}>
+ *     <ButtonGroup onButtongroupChange={function(target,html){console.log(target,html);}}>
  *         <Button>tacked1</Button>
  *         <Button>tacked2</Button>
  *     </ButtonGroup>
@@ -51,10 +51,10 @@ export default class ButtonGroup extends Component{
         phType:PropTypes.string,
         /**
          * 按钮被按下后的回调
-         * @method activeCallback
+         * @method onButtongroupChange
          * @type Function
          * */
-        activeCallback:PropTypes.func
+        onButtongroupChange:PropTypes.func
     };
 
     static defaultProps = {
@@ -77,7 +77,7 @@ export default class ButtonGroup extends Component{
 
     clickHandler(e){
         let target = e.target;
-        this.props.activeCallback&&this.props.activeCallback(target,target.innerHTML);
+        this.props.onButtongroupChange&&this.props.onButtongroupChange(target,target.innerHTML);
         this.setState({
             active:target.innerHTML
         })
@@ -87,9 +87,9 @@ export default class ButtonGroup extends Component{
         const {componentTag:Component} = this.props;
 
         let options = React.Children.map(this.props.children,(option)=>{
-
+            
             let opt = React.cloneElement(option,{
-                onClick:this.clickHandler.bind(this),
+                clickHandle:this.clickHandler.bind(this),
                 active:this.state.active == option.props.children
             });
             return opt;

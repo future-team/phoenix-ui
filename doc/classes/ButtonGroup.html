@@ -126,6 +126,40 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/弹出框组件.html">弹出框组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Alert.html">Alert</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Dialog.html">Dialog</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Prompt.html">Prompt</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
                     <a href="../modules/提示组件.html">提示组件</a>
                 </dt>
                 <dd>
@@ -157,14 +191,6 @@
                 <dd>
                     <ul>
                    
-                       <li>
-                            
-                           <a href="../classes/Dialog.html">Dialog</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
                        <li>
                             
                            <a href="../classes/Popup.html">Popup</a>
@@ -409,7 +435,7 @@
       <div class="stdoc-code"><p>按钮组组件<br/></p>
 <ul>
 <li>按钮组组件配合Button组件,提供了横、竖两种排列方式, 可选justify,tacked。</li>
-<li>可通过activeCallback实现点击回调。</li>
+<li>可通过onButtongroupChange实现点击回调。</li>
 </ul>
 <p>主要属性和接口：</p>
 <ul>
@@ -419,7 +445,7 @@
       &lt;Button block&gt;tacked2&lt;/Button&gt;
   &lt;/ButtonGroup&gt;</code></pre>
 </li>
-<li>activeCallback:点击按钮组的回调函数。<br/><pre><code class="lang-code">  &lt;ButtonGroup activeCallback={function(target,html){console.log(target,html);}}&gt;
+<li>onButtongroupChange:点击按钮组的回调函数。<br/><pre><code class="lang-code">  &lt;ButtonGroup onButtongroupChange={function(target,html){console.log(target,html);}}&gt;
       &lt;Button&gt;tacked1&lt;/Button&gt;
       &lt;Button&gt;tacked2&lt;/Button&gt;
   &lt;/ButtonGroup&gt;</code></pre>
@@ -437,7 +463,7 @@
                     <ul class="index-list methods extends">
                         
                             <li class="index-item method">
-                                <a href="#" data-tabid="#method" data-anchor="#method_activeCallback" data-tablink="activeCallback">activeCallback</a>
+                                <a href="#" data-tabid="#method" data-anchor="#method_onButtongroupChange" data-tablink="onButtongroupChange">onButtongroupChange</a>
 
                                 
                                 
@@ -591,9 +617,8 @@ import Code from "./code/code";
 
 export default class input extends Component{
 
-    activeCallback(target,html){
+    onButtongroupChange(target,html){
         console.log(target);
-        alert(html);
     }
 
     render(){
@@ -618,12 +643,12 @@ export default class input extends Component{
                 &lt;/div&gt;
                 &lt;Code target="button-group-phtype-tacked" /&gt;
 
-                &lt;h3 className="comp-type"&gt;activeCallback 点击按钮组回调函数&lt;/h3&gt;
+                &lt;h3 className="comp-type"&gt;onButtongroupChange 点击按钮组回调函数&lt;/h3&gt;
                 &lt;div className="content"&gt;
-                    &lt;ButtonGroup activeCallback={this.activeCallback}&gt;
+                    &lt;ButtonGroup onButtongroupChange={this.onButtongroupChange}&gt;
                         &lt;Button&gt;justify1&lt;/Button&gt;
                         &lt;Button&gt;justify2&lt;/Button&gt;
-                        &lt;Button&gt;justify3&lt;/Button&gt;
+                        &lt;Button onClick={()=&gt;{console.log(1234455);}}&gt;justify3&lt;/Button&gt;
                     &lt;/ButtonGroup&gt;
                 &lt;/div&gt;
                 &lt;Code target="button-group-callback" /&gt;
@@ -652,10 +677,10 @@ export default class input extends Component{
                 <h2 class="off-left">方法</h2>
 
                 
-                    <div id="method_activeCallback" class="method item">
-    <h3 class="name">activeCallback</h3>
+                    <div id="method_onButtongroupChange" class="method item">
+    <h3 class="name">onButtongroupChange</h3>
     <code>
-    activeCallback
+    onButtongroupChange
     
         <span class="paren">()</span>
     

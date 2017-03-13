@@ -4,9 +4,8 @@ import Code from "./code/code";
 
 export default class input extends Component{
     
-    activeCallback(target,html){
+    onButtongroupChange(target,html){
         console.log(target);
-        alert(html);
     }
 
     render(){
@@ -31,12 +30,12 @@ export default class input extends Component{
                 </div>
                 <Code target="button-group-phtype-tacked" />
 
-                <h3 className="comp-type">activeCallback 点击按钮组回调函数</h3>
+                <h3 className="comp-type">onButtongroupChange 点击按钮组回调函数</h3>
                 <div className="content">
-                    <ButtonGroup activeCallback={this.activeCallback}>
+                    <ButtonGroup onButtongroupChange={this.onButtongroupChange}>
                         <Button>justify1</Button>
                         <Button>justify2</Button>
-                        <Button>justify3</Button>
+                        <Button onClick={()=>{console.log(1234455);}}>justify3</Button>
                     </ButtonGroup>
                 </div>
                 <Code target="button-group-callback" />

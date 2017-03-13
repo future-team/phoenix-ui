@@ -126,6 +126,40 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/弹出框组件.html">弹出框组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Alert.html">Alert</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Dialog.html">Dialog</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Prompt.html">Prompt</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
                     <a href="../modules/提示组件.html">提示组件</a>
                 </dt>
                 <dd>
@@ -157,14 +191,6 @@
                 <dd>
                     <ul>
                    
-                       <li>
-                            
-                           <a href="../classes/Dialog.html">Dialog</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
                        <li>
                             
                            <a href="../classes/Popup.html">Popup</a>
@@ -632,8 +658,10 @@ export default class textarea extends Component{
                 &lt;h2 className="comp-title"&gt;Textarea&lt;/h2&gt;
                 &lt;h3 className="comp-type"&gt;count(默认false) 是否计字数&lt;/h3&gt;
                 &lt;div className="content"&gt;
-                    &lt;Textarea placeholder="不计数..." /&gt;
-                    &lt;Textarea count maxLength={this.state.MAX_LENGTH} placeholder="count配合maxLength计数..." /&gt;
+                    &lt;h3 className="comp-tip"&gt;默认不计数&lt;/h3&gt;
+                    &lt;Textarea placeholder="请输入..." /&gt;
+                    &lt;h3 className="comp-tip"&gt;count配合maxLength计数&lt;/h3&gt;
+                    &lt;Textarea count maxLength={this.state.MAX_LENGTH} placeholder="请输入..." /&gt;
                 &lt;/div&gt;
                 &lt;Code target="textarea-count" /&gt;
 
@@ -641,7 +669,7 @@ export default class textarea extends Component{
                     &lt;h3 className="comp-tip"&gt;defaultValue 默认值&lt;/h3&gt;
                     &lt;Textarea defaultValue={this.state.name} placeholder="请输入..." /&gt;
                     &lt;h3 className="comp-tip"&gt;value和onChange配合使用&lt;/h3&gt;
-                    &lt;Textarea defaultValue={this.state.words} placeholder="请输入..." onChange={this.setValue.bind(this,"words")} /&gt;
+                    &lt;Textarea value={this.state.words} onChange={this.setValue.bind(this,"words")} placeholder="请输入..." /&gt;
                 &lt;/div&gt;
                 &lt;Code target="textarea" /&gt;
             &lt;/div&gt;

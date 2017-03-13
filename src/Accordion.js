@@ -8,7 +8,6 @@ import Icon from './Icon';
 /**
  * <h5>操作类组件，主要包括组件:</h5>
  * <strong><a href='../classes/Accordion.html'>Accordion 手风琴</a></strong><br/>
- * <strong><a href='../classes/Dialog.html'>Dialog 弹框</a></strong><br>
  * <strong><a href='../classes/Toast.html'>Toast 飘字</a></strong><br>
  * <strong><a href='../classes/Popup.html'>Popup 弹层</a></strong><br>
  * <strong><a href='../classes/Slider.html'>Slider 滑动输入条</a></strong><br>

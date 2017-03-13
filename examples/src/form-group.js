@@ -24,77 +24,73 @@ export default class formgroup extends Component{
             <div>
                 <h2 className="comp-title">FormGroup</h2>
                 <h3 className="comp-type">单列</h3>
-                <div className="contents">
-                    <FormGroup>
-                        <Row single>
-                            <Col>
-                                <Input type="text" placeholder="姓名" />
-                            </Col>
-                        </Row>
-                        <Row single>
-                            <Col>
-                                <Input type="text" placeholder="用户名" />
-                            </Col>
-                        </Row>
-                    </FormGroup>
-                </div>
+                <FormGroup>
+                    <Row single>
+                        <Col>
+                            <Input type="text" placeholder="姓名" />
+                        </Col>
+                    </Row>
+                    <Row single>
+                        <Col>
+                            <Input type="text" placeholder="用户名" />
+                        </Col>
+                    </Row>
+                </FormGroup>
                 <Code target="form-group-single" />
 
                 <h3 className="comp-type">多列</h3>
-                <div className="contents">
-                    <FormGroup>
-                        <Row>
-                            <Col>
-                                <label>地址</label>
-                                <Input type="text" placeholder="地址" />
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col>
-                                <label>省</label>
-                                <Input type="text" placeholder="省" />
-                            </Col>
-                            <Col>
-                                <label>市</label>
-                                <Input type="text" placeholder="市" />
-                            </Col>
-                        </Row>
-                    </FormGroup>
-                    <Code target="form-group-multiple" />
+                <FormGroup>
+                    <Row>
+                        <Col>
+                            <label>地址</label>
+                            <Input type="text" placeholder="地址" />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <label>省</label>
+                            <Input type="text" placeholder="省" />
+                        </Col>
+                        <Col>
+                            <label>市</label>
+                            <Input type="text" placeholder="市" />
+                        </Col>
+                    </Row>
+                </FormGroup>
+                <Code target="form-group-multiple" />
 
-                    <FormGroup>
-                        <Row>
-                            <Col>
-                                <a href="javascript:;" className="ph-navigate-right">
-                                    <label><span className="color-error">*</span>性别</label>
-                                    <input type="text" placeholder="男/女" disabled/>
-                                </a>
-                            </Col>
-                        </Row>
-                    </FormGroup>
-                    <Code target="form-group-a" />
+                <FormGroup>
+                    <Row>
+                        <Col>
+                            <a href="javascript:;" className="ph-navigate-right">
+                                <label><span className="color-error">*</span>性别</label>
+                                <input type="text" placeholder="男/女" disabled/>
+                            </a>
+                        </Col>
+                    </Row>
+                </FormGroup>
+                <Code target="form-group-a" />
                     
-                    <FormGroup>
-                        <Row>
-                            <Col>
-                                <label>兴趣爱好</label>
-                                <Input type="checkbox" label="篮球" />
-                                <Input type="checkbox" label="足球" />
-                                <Input type="checkbox" label="乒乓球" />
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col>
-                                <label>喜欢的水果</label>
-                                <div style={{textAlign: "right"}}>
-                                    <Input type="radio" label="苹果" name="fruit" />
-                                    <Input type="radio" label="香蕉" name="fruit" />
-                                </div>
-                            </Col>
-                        </Row>
-                    </FormGroup>
-                    <Code target="form-group-input" />
-                </div>
+                <FormGroup>
+                    <Row>
+                        <Col>
+                            <label>兴趣爱好</label>
+                            <Input type="checkbox" label="篮球" />
+                            <Input type="checkbox" label="足球" />
+                            <Input type="checkbox" label="乒乓球" />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <label>喜欢的水果</label>
+                            <div style={{textAlign: "right"}}>
+                                <Input type="radio" label="苹果" name="fruit" />
+                                <Input type="radio" label="香蕉" name="fruit" />
+                            </div>
+                        </Col>
+                    </Row>
+                </FormGroup>
+                <Code target="form-group-input" />
             </div>
         );
     }

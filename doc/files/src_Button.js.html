@@ -126,6 +126,40 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/弹出框组件.html">弹出框组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Alert.html">Alert</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Dialog.html">Dialog</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Prompt.html">Prompt</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
                     <a href="../modules/提示组件.html">提示组件</a>
                 </dt>
                 <dd>
@@ -157,14 +191,6 @@
                 <dd>
                     <ul>
                    
-                       <li>
-                            
-                           <a href="../classes/Dialog.html">Dialog</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
                        <li>
                             
                            <a href="../classes/Popup.html">Popup</a>
@@ -523,7 +549,12 @@ export default class Button extends Component{
 
     constructor(props, context) {
         super(props, context);
-        this.setProperty(&#x27;hollow&#x27;,&#x27;hollow&#x27;);
+        // this.setProperty(&#x27;hollow&#x27;,&#x27;hollow&#x27;);
+    }
+
+    onButtonClickHandle(e){
+        if(this.props.clickHandle) this.props.clickHandle(e);
+        if(this.props.onClick) this.props.onClick(e);
     }
 
     render(){
@@ -535,7 +566,7 @@ export default class Button extends Component{
                     this.getProperty(true),
                     this.props.className
                 )}
-                style={this.getStyles(this.props.style)}&gt;{this.props.children}&lt;/Component&gt;
+                style={this.getStyles(this.props.style)} onClick={::this.onButtonClickHandle}&gt;{this.props.children}&lt;/Component&gt;
         );
     }
 

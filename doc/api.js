@@ -2,6 +2,7 @@ YUI.add("yuidoc-meta", function(Y) {
    Y.YUIDoc = { meta: {
     "classes": [
         "Accordion",
+        "Alert",
         "Animate",
         "Badge",
         "Button",
@@ -22,6 +23,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "MenuNav",
         "Popover",
         "Popup",
+        "Prompt",
         "Row",
         "Slider",
         "Star",
@@ -37,6 +39,7 @@ YUI.add("yuidoc-meta", function(Y) {
     "modules": [
         "基础组件",
         "布局组件",
+        "弹出框组件",
         "提示组件",
         "操作类组件",
         "标签组件",
@@ -82,6 +85,22 @@ YUI.add("yuidoc-meta", function(Y) {
             ]
         },
         {
+            "displayName": "弹出框组件",
+            "name": "弹出框组件",
+            "description": "<h5>弹出框组件，主要包括组件:</h5>\n<strong><a href='../classes/Dialog.html'>Dialog 基础弹框</a></strong><br/>\n<strong><a href='../classes/Alert.html'>Alert弹框</a></strong><br>\n<strong><a href='../classes/Prompt.html'>Prompt弹框</a></strong>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
+            "classes": [
+                {
+                    "name": "Alert"
+                },
+                {
+                    "name": "Dialog"
+                },
+                {
+                    "name": "Prompt"
+                }
+            ]
+        },
+        {
             "displayName": "提示组件",
             "name": "提示组件",
             "description": "<h5>提示模块，主要包括一下两个组件:</h5>\n<strong><a href='../classes/Whisper.html'>Whisper</a></strong><br/>\n<strong><a href='../classes/Popover.html'>Popover</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
@@ -97,11 +116,8 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "操作类组件",
             "name": "操作类组件",
-            "description": "<h5>操作类组件，主要包括组件:</h5>\n<strong><a href='../classes/Accordion.html'>Accordion 手风琴</a></strong><br/>\n<strong><a href='../classes/Dialog.html'>Dialog 弹框</a></strong><br>\n<strong><a href='../classes/Toast.html'>Toast 飘字</a></strong><br>\n<strong><a href='../classes/Popup.html'>Popup 弹层</a></strong><br>\n<strong><a href='../classes/Slider.html'>Slider 滑动输入条</a></strong><br>\n<strong><a href='../classes/Swipe.html'>Swipe 左滑动</a></strong><br>\n<strong><a href='../classes/Menu.html'>Menu 菜单</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
+            "description": "<h5>操作类组件，主要包括组件:</h5>\n<strong><a href='../classes/Accordion.html'>Accordion 手风琴</a></strong><br/>\n<strong><a href='../classes/Toast.html'>Toast 飘字</a></strong><br>\n<strong><a href='../classes/Popup.html'>Popup 弹层</a></strong><br>\n<strong><a href='../classes/Slider.html'>Slider 滑动输入条</a></strong><br>\n<strong><a href='../classes/Swipe.html'>Swipe 左滑动</a></strong><br>\n<strong><a href='../classes/Menu.html'>Menu 菜单</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
             "classes": [
-                {
-                    "name": "Dialog"
-                },
                 {
                     "name": "Popup"
                 },

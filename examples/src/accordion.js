@@ -43,7 +43,6 @@ export default class accordion extends Component{
                         </ul>
                     </Accordion.Body>
                 </Accordion>
-                <br/>
                 <Code target="accordion-visible" />
 
                 <h3 className="comp-type">hideIcon(默认false) 向下的按钮是否可见</h3>
@@ -57,7 +56,6 @@ export default class accordion extends Component{
                         </ul>
                     </Accordion.Body>
                 </Accordion>
-                <br/>
                 <Code target="accordion-hideicon" />
                 
                 <h3 className="comp-type">onAccordionChange 展开收起的回调函数</h3>
@@ -72,7 +70,6 @@ export default class accordion extends Component{
                         </ul>
                     </Accordion.Body>
                 </Accordion>
-                <br/>
                 <Code target="accordion-onaccordionchange" />
             </div>
         );

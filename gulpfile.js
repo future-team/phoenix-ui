@@ -9,6 +9,7 @@ var gulp = require('gulp'),
     webpackConfig = require('./webpack/webpack.config.js'),
     exampleConfig = require('./webpack/example.config.js'),
     WebpackDevServer = require("webpack-dev-server"),
+    ExtractTextPlugin = require('extract-text-webpack-plugin'),
     projectName = require("./package.json").name,
     devPort = 3005;
 
@@ -33,7 +34,8 @@ gulp.task('demoBuild', function (done) {
     ];
     wbpk.plugins = [
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
+        new webpack.NoErrorsPlugin(),
+        new ExtractTextPlugin('phoenix-styles.css')
     ];
     wbpk.module.loaders = [
         {
@@ -47,7 +49,7 @@ gulp.task('demoBuild', function (done) {
         },
         {
             test: /\.less$/,
-            loader: "style-loader!css-loader!less-loader"
+            loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
         },
         {
             test: /\.png$/,
@@ -56,7 +58,7 @@ gulp.task('demoBuild', function (done) {
         },
         {
             test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-            loader: 'file-loader'
+            loader: 'file-loader?name=./iconfont/[name].[ext]'
         }
     ];
 
@@ -92,12 +94,10 @@ gulp.task('exampleWebpack', function (done) {
     });
 });
 
-gulp.task('min-webpack', function (done) {
+gulp.task('min-webpack', ['webpack'], function (done) {
     var wbpk = Object.create(webpackConfig);
     wbpk.output.filename = projectName+'.min.js';
-    wbpk.plugins = [
-        new webpack.optimize.UglifyJsPlugin()
-    ];
+    wbpk.plugins.push(new webpack.optimize.UglifyJsPlugin());
     webpack(wbpk).run(function (err, stats) {
         if (err) throw new gutil.PluginError("min-webpack", err);
         gutil.log("[min-webpack]", stats.toString({
@@ -114,7 +114,12 @@ gulp.task('karma', function (done) {
     }, done).start();
 });
 
-gulp.task('default', ['babel', 'webpack', 'exampleWebpack']);
+gulp.task('skin', function () {
+  gulp.src(['node_modules/phoenix-styles/dist/ios-skin.css']) //多个文件以数组形式传入
+      .pipe(gulp.dest('dist'));
+});
+
+gulp.task('default', ['babel', 'min-webpack', 'exampleWebpack','skin']);
 gulp.task('demo', ['demoBuild', 'open']);
 gulp.task('min', ['min-webpack']);
 gulp.task('test',['karma']);

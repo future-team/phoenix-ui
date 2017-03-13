@@ -21,6 +21,8 @@ import StarDemo from './star.js';
 import Swipe from './swipe.js';
 import Slider from './slider.js';
 import Dialog from './dialog.js';
+import Alert from './alert.js';
+import Prompt from './prompt.js';
 import Toast from './toast.js';
 import Popup from './popup.js';
 import Popover from './popover.js';
@@ -53,12 +55,17 @@ let Index = class index extends Component {
     render() {
         return (
             <div className="menu">
-                <h1>Phoenix-UI<a href="http://future-team.github.io/phoenix-ui/doc/index.html" style={{float:'right'}}>Doc</a></h1>
-                <h2 className="ph-button-error">样式引入</h2>
-                <div className="menu-panel">
-                    <Card href="#/phoenix-styles" title="phoenix-styles" desp="phoenix-ui的最佳样式搭档" />
-                </div>
-                <h2 className="ph-button-primary">基础组件</h2>
+                <header>
+                    <div className="left-header">
+                        <h1>Phoenix-UI</h1>
+                        <p><i className="gfs-icon icon-tip"></i> <a href="#/phoenix-styles">如何引入phoenix-styles？</a></p> 
+                    </div>
+                    <div className="right-header">
+                        <a href="https://github.com/future-team/phoenix-ui"><i className="gfs-icon icon-alert"></i> Github</a>
+                        <a href="http://future-team.github.io/phoenix-ui/doc/index.html"><i className="gfs-icon icon-help"></i> Document</a>
+                    </div>
+                </header>
+                <h2>Basic</h2>
                 <div className="menu-panel">
                     <Card href="#/button" title="Button" desp="按钮" />
                     <Card href="#/buttongroup" title="ButtonGroup" desp="按钮组" />
@@ -67,22 +74,27 @@ let Index = class index extends Component {
                     <Card href="#/star" title="Star" desp="星星" />
                     <Card href="#/icon" title="Icon" desp="符号" />
                 </div>
-                <h2 className="ph-button-primary">表单</h2>
+                <h2>Form</h2>
                 <div className="menu-panel">
                     <Card href="#/formgroup" title="FormGroup" desp="表单组" />
                     <Card href="#/input" title="Input" desp="文本框，单选框，多选框" />
                     <Card href="#/textarea" title="Textarea" desp="多行文本" />
                     <Card href="#/switch" title="Switch" desp="开关" />
                 </div>
-                <h2 className="ph-button-primary">布局</h2>
+                <h2>Layout</h2>
                 <div className="menu-panel">
                     <Card href="#/grid" title="Grid/Row/Col" desp="布局" />
                     <Card href="#/tableview" title="TableView" desp="表格" />
                 </div>
-                <h2 className="ph-button-primary">功能组件</h2>
+                <h2>Modal</h2>
+                <div className="menu-panel">
+                    <Card href="#/dialog" title="Dialog" desp="基础弹框" />
+                    <Card href="#/alert" title="Alert" desp="alert弹框" />
+                    <Card href="#/prompt" title="Prompt" desp="prompt弹框" />
+                </div>
+                <h2>FeedBack</h2>
                 <div className="menu-panel">
                     <Card href="#/accordion" title="Accordion" desp="手风琴" />
-                    <Card href="#/dialog" title="Dialog" desp="弹框" />
                     <Card href="#/toast" title="Toast" desp="飘字" />
                     <Card href="#/popup" title="Popup" desp="弹层" />
                     <Card href="#/popover" title="Whisper/Popover" desp="气泡" />
@@ -91,15 +103,15 @@ let Index = class index extends Component {
                     <Card href="#/swipe" title="Swipe" desp="左滑动" />
                     <Card href="#/menu" title="Menu" desp="菜单" />
                 </div>
-                <h2 className="ph-button-primary">辅助</h2>
+                <h2>Assist</h2>
                 <div className="menu-panel">
                     <Card href="#/animate" title="Animate" desp="动画" />
                     <Card href="#/drag" title="Drag" desp="拖拽" />
                 </div>
-                <h2 className="ph-button-primary">示例</h2>
+                <h2>Demo</h2>
                 <div className="menu-panel">
-                    <Card href="#/list-demo" title="列表页示例" desp="" />
-                    <Card href="#/detail" title="详情页示例" desp="" />
+                    <Card href="#/list-demo" title="列表页示例" desp="列表页示例" />
+                    <Card href="#/detail" title="详情页示例" desp="详情页示例" />
                 </div>
             </div>
         );
@@ -134,6 +146,8 @@ let AppRouter = class AppRouter extends Component {
                 <Route path="/swipe" name="swipe" component={Swipe} />
                 <Route path="/slider" name="slider" component={Slider} />
                 <Route path="/dialog" name="dialog" component={Dialog} />
+                <Route path="/alert" name="alert" component={Alert} />
+                <Route path="/prompt" name="prompt" component={Prompt} />
                 <Route path="/toast" name="toast" component={Toast} />
                 <Route path="/popup" name="popup" component={Popup} />
                 <Route path="/popover" name="popover" component={Popover} />

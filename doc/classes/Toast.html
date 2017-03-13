@@ -126,6 +126,40 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/弹出框组件.html">弹出框组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Alert.html">Alert</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Dialog.html">Dialog</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Prompt.html">Prompt</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
                     <a href="../modules/提示组件.html">提示组件</a>
                 </dt>
                 <dd>
@@ -157,14 +191,6 @@
                 <dd>
                     <ul>
                    
-                       <li>
-                            
-                           <a href="../classes/Dialog.html">Dialog</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
                        <li>
                             
                            <a href="../classes/Popup.html">Popup</a>
@@ -409,12 +435,21 @@
       <div class="stdoc-code"><p>飘字组件<br/></p>
 <ul>
 <li>由于飘字的使用范围可预估, 为方便使用在原组件的基础上更进一步改为函数式的使用方式。</li>
-<li>使用: <code>Toast.info(message, duration, callback)</code></li>
+<li>普通信息: <code>Toast.info(message, duration, callback)</code></li>
+<li>成功信息: <code>Toast.success(message, duration, callback)</code></li>
+<li>失败信息: <code>Toast.fail(message, duration, callback)</code></li>
+<li>加载中: <code>Toast.loading(message, duration, callback)</code></li>
 </ul>
 <p>示例: <br/></p>
 <ul>
 <li>显示普通飘字, 如:<br/>
-<code>Toast.info(&#39;注册成功!&#39;, 1000, ()=&gt;{console.log(&#39;飘字消失时执行的回调函数&#39;);})</code></li>
+<code>Toast.info(&#39;只显示信息的toast！&#39;, 1000, ()=&gt;{console.log(&#39;飘字消失时执行的回调函数&#39;);})</code></li>
+<li>显示成功信息, 如:<br/>
+<code>Toast.success(&#39;操作成功&#39;, 1000, ()=&gt;{console.log(&#39;飘字消失时执行的回调函数&#39;);})</code></li>
+<li>显示失败信息, 如:<br/>
+<code>Toast.fail(&#39;操作失败&#39;, 1000, ()=&gt;{console.log(&#39;飘字消失时执行的回调函数&#39;);})</code></li>
+<li>显示加载中, 如:<br/>
+<code>Toast.loading(&#39;加载中...&#39;, 1000, ()=&gt;{console.log(&#39;飘字消失时执行的回调函数&#39;);})</code></li>
 </ul>
 </div>
  </div>
@@ -553,8 +588,26 @@ export default class toast extends Component{
         super(props,context);
     }
 
-    showToast(){
-         Toast.info("只显示信息的toast！！", 2000, ()=&gt;{
+    showToastInfo(){
+        Toast.info("只显示信息的toast！", 2000, ()=&gt;{
+            console.log("额外的执行内容");
+        });
+    }
+
+    showToastSuccess(){
+        Toast.success("操作成功", 2000, ()=&gt;{
+            console.log("额外的执行内容");
+        });
+    }
+
+    showToastFail(){
+        Toast.fail("操作失败", 2000, ()=&gt;{
+            console.log("额外的执行内容");
+        });
+    }
+
+    showToastLoading(){
+        Toast.loading("加载中...", 2000, ()=&gt;{
             console.log("额外的执行内容");
         });
     }
@@ -565,9 +618,27 @@ export default class toast extends Component{
                 &lt;h2 className="comp-title"&gt;Toast&lt;/h2&gt;
                 &lt;h3 className="comp-type"&gt;Toast.info(message, duration, callback)&lt;/h3&gt;
                 &lt;div className="content"&gt;
-                    &lt;Button phSize="lg" onClick={::this.showToast}&gt;Toast&lt;/Button&gt;
+                    &lt;Button phSize="lg" onClick={::this.showToastInfo}&gt;info&lt;/Button&gt;
                 &lt;/div&gt;
                 &lt;Code target="toast-info" /&gt;
+
+                &lt;h3 className="comp-type"&gt;Toast.success(message, duration, callback)&lt;/h3&gt;
+                &lt;div className="content"&gt;
+                    &lt;Button phSize="lg" onClick={::this.showToastSuccess}&gt;success&lt;/Button&gt;
+                &lt;/div&gt;
+                &lt;Code target="toast-success" /&gt;
+
+                &lt;h3 className="comp-type"&gt;Toast.fail(message, duration, callback)&lt;/h3&gt;
+                &lt;div className="content"&gt;
+                    &lt;Button phSize="lg" onClick={::this.showToastFail}&gt;fail&lt;/Button&gt;
+                &lt;/div&gt;
+                &lt;Code target="toast-fail" /&gt;
+
+                &lt;h3 className="comp-type"&gt;Toast.loading(message, duration, callback)&lt;/h3&gt;
+                &lt;div className="content"&gt;
+                    &lt;Button phSize="lg" onClick={::this.showToastLoading}&gt;loading&lt;/Button&gt;
+                &lt;/div&gt;
+                &lt;Code target="toast-loading" /&gt;
             &lt;/div&gt;
         );
     }

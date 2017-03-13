@@ -126,6 +126,40 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/弹出框组件.html">弹出框组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Alert.html">Alert</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Dialog.html">Dialog</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Prompt.html">Prompt</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
                     <a href="../modules/提示组件.html">提示组件</a>
                 </dt>
                 <dd>
@@ -157,14 +191,6 @@
                 <dd>
                     <ul>
                    
-                       <li>
-                            
-                           <a href="../classes/Dialog.html">Dialog</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
                        <li>
                             
                            <a href="../classes/Popup.html">Popup</a>
@@ -439,7 +465,7 @@ export default obj=&gt;{
             getVal([&#x27;diabled&#x27;,&#x27;active&#x27;,&#x27;enable&#x27;],val)
         },
         align:function(val){
-            return getVal([&#x27;center&#x27;,&#x27;left&#x27;,&#x27;middle&#x27;,&#x27;auto&#x27;,&#x27;top&#x27;,&#x27;right&#x27;,&#x27;bottom&#x27;],val);
+            return getVal([&#x27;center&#x27;,&#x27;left&#x27;,&#x27;middle&#x27;,&#x27;auto&#x27;,&#x27;top&#x27;,&#x27;right&#x27;,&#x27;bottom&#x27;,&#x27;stretch&#x27;,&#x27;baseline&#x27;],val);
         },
         placement:function(val){
             return getVal([&#x27;top&#x27;,&#x27;bottom&#x27;,&#x27;right&#x27;,&#x27;left&#x27;,&#x27;top left&#x27;,&#x27;top right&#x27;,&#x27;bottom left&#x27;,&#x27;bottom right&#x27;,&#x27;left-full&#x27;,&#x27;right-full&#x27;,&#x27;full-screen&#x27;],val);
@@ -455,6 +481,7 @@ export default obj=&gt;{
         show:true,
         hide:true,
         block:true,
+        hollow: true,
 
 
         /*以下属性相当于css属性的快速赋值，比如设置zIndex=&quot;2&quot;,则会被merge进style里，如果只有属性zIndex没有设置取值，则会被放入props列表中*/

@@ -126,6 +126,40 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/弹出框组件.html">弹出框组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Alert.html">Alert</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Dialog.html">Dialog</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Prompt.html">Prompt</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
                     <a href="../modules/提示组件.html">提示组件</a>
                 </dt>
                 <dd>
@@ -157,14 +191,6 @@
                 <dd>
                     <ul>
                    
-                       <li>
-                            
-                           <a href="../classes/Dialog.html">Dialog</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
                        <li>
                             
                            <a href="../classes/Popup.html">Popup</a>
@@ -604,77 +630,73 @@ export default class formgroup extends Component{
             &lt;div&gt;
                 &lt;h2 className="comp-title"&gt;FormGroup&lt;/h2&gt;
                 &lt;h3 className="comp-type"&gt;单列&lt;/h3&gt;
-                &lt;div className="contents"&gt;
-                    &lt;FormGroup&gt;
-                        &lt;Row single&gt;
-                            &lt;Col&gt;
-                                &lt;Input type="text" placeholder="姓名" /&gt;
-                            &lt;/Col&gt;
-                        &lt;/Row&gt;
-                        &lt;Row single&gt;
-                            &lt;Col&gt;
-                                &lt;Input type="text" placeholder="用户名" /&gt;
-                            &lt;/Col&gt;
-                        &lt;/Row&gt;
-                    &lt;/FormGroup&gt;
-                &lt;/div&gt;
+                &lt;FormGroup&gt;
+                    &lt;Row single&gt;
+                        &lt;Col&gt;
+                            &lt;Input type="text" placeholder="姓名" /&gt;
+                        &lt;/Col&gt;
+                    &lt;/Row&gt;
+                    &lt;Row single&gt;
+                        &lt;Col&gt;
+                            &lt;Input type="text" placeholder="用户名" /&gt;
+                        &lt;/Col&gt;
+                    &lt;/Row&gt;
+                &lt;/FormGroup&gt;
                 &lt;Code target="form-group-single" /&gt;
 
                 &lt;h3 className="comp-type"&gt;多列&lt;/h3&gt;
-                &lt;div className="contents"&gt;
-                    &lt;FormGroup&gt;
-                        &lt;Row&gt;
-                            &lt;Col&gt;
-                                &lt;label&gt;地址&lt;/label&gt;
-                                &lt;Input type="text" placeholder="地址" /&gt;
-                            &lt;/Col&gt;
-                        &lt;/Row&gt;
-                        &lt;Row&gt;
-                            &lt;Col&gt;
-                                &lt;label&gt;省&lt;/label&gt;
-                                &lt;Input type="text" placeholder="省" /&gt;
-                            &lt;/Col&gt;
-                            &lt;Col&gt;
-                                &lt;label&gt;市&lt;/label&gt;
-                                &lt;Input type="text" placeholder="市" /&gt;
-                            &lt;/Col&gt;
-                        &lt;/Row&gt;
-                    &lt;/FormGroup&gt;
-                    &lt;Code target="form-group-multiple" /&gt;
+                &lt;FormGroup&gt;
+                    &lt;Row&gt;
+                        &lt;Col&gt;
+                            &lt;label&gt;地址&lt;/label&gt;
+                            &lt;Input type="text" placeholder="地址" /&gt;
+                        &lt;/Col&gt;
+                    &lt;/Row&gt;
+                    &lt;Row&gt;
+                        &lt;Col&gt;
+                            &lt;label&gt;省&lt;/label&gt;
+                            &lt;Input type="text" placeholder="省" /&gt;
+                        &lt;/Col&gt;
+                        &lt;Col&gt;
+                            &lt;label&gt;市&lt;/label&gt;
+                            &lt;Input type="text" placeholder="市" /&gt;
+                        &lt;/Col&gt;
+                    &lt;/Row&gt;
+                &lt;/FormGroup&gt;
+                &lt;Code target="form-group-multiple" /&gt;
 
-                    &lt;FormGroup&gt;
-                        &lt;Row&gt;
-                            &lt;Col&gt;
-                                &lt;a href="javascript:;" className="ph-navigate-right"&gt;
-                                    &lt;label&gt;&lt;span className="color-error"&gt;*&lt;/span&gt;性别&lt;/label&gt;
-                                    &lt;input type="text" placeholder="男/女" disabled/&gt;
-                                &lt;/a&gt;
-                            &lt;/Col&gt;
-                        &lt;/Row&gt;
-                    &lt;/FormGroup&gt;
-                    &lt;Code target="form-group-a" /&gt;
+                &lt;FormGroup&gt;
+                    &lt;Row&gt;
+                        &lt;Col&gt;
+                            &lt;a href="javascript:;" className="ph-navigate-right"&gt;
+                                &lt;label&gt;&lt;span className="color-error"&gt;*&lt;/span&gt;性别&lt;/label&gt;
+                                &lt;input type="text" placeholder="男/女" disabled/&gt;
+                            &lt;/a&gt;
+                        &lt;/Col&gt;
+                    &lt;/Row&gt;
+                &lt;/FormGroup&gt;
+                &lt;Code target="form-group-a" /&gt;
 
-                    &lt;FormGroup&gt;
-                        &lt;Row&gt;
-                            &lt;Col&gt;
-                                &lt;label&gt;兴趣爱好&lt;/label&gt;
-                                &lt;Input type="checkbox" label="篮球" /&gt;
-                                &lt;Input type="checkbox" label="足球" /&gt;
-                                &lt;Input type="checkbox" label="乒乓球" /&gt;
-                            &lt;/Col&gt;
-                        &lt;/Row&gt;
-                        &lt;Row&gt;
-                            &lt;Col&gt;
-                                &lt;label&gt;喜欢的水果&lt;/label&gt;
-                                &lt;div style={{textAlign: "right"}}&gt;
-                                    &lt;Input type="radio" label="苹果" name="fruit" /&gt;
-                                    &lt;Input type="radio" label="香蕉" name="fruit" /&gt;
-                                &lt;/div&gt;
-                            &lt;/Col&gt;
-                        &lt;/Row&gt;
-                    &lt;/FormGroup&gt;
-                    &lt;Code target="form-group-input" /&gt;
-                &lt;/div&gt;
+                &lt;FormGroup&gt;
+                    &lt;Row&gt;
+                        &lt;Col&gt;
+                            &lt;label&gt;兴趣爱好&lt;/label&gt;
+                            &lt;Input type="checkbox" label="篮球" /&gt;
+                            &lt;Input type="checkbox" label="足球" /&gt;
+                            &lt;Input type="checkbox" label="乒乓球" /&gt;
+                        &lt;/Col&gt;
+                    &lt;/Row&gt;
+                    &lt;Row&gt;
+                        &lt;Col&gt;
+                            &lt;label&gt;喜欢的水果&lt;/label&gt;
+                            &lt;div style={{textAlign: "right"}}&gt;
+                                &lt;Input type="radio" label="苹果" name="fruit" /&gt;
+                                &lt;Input type="radio" label="香蕉" name="fruit" /&gt;
+                            &lt;/div&gt;
+                        &lt;/Col&gt;
+                    &lt;/Row&gt;
+                &lt;/FormGroup&gt;
+                &lt;Code target="form-group-input" /&gt;
             &lt;/div&gt;
         );
     }

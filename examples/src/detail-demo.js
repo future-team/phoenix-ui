@@ -17,7 +17,7 @@ export default class Detail extends Component {
             <Grid className="detail-demo">
                 <Row align="top">
                     <Col width="40" style={{padding:"10px"}}>
-                        <img src="./img/meinv.jpg" style={{width:"100%",height:"auto"}}/>
+                        <img src="./img/phoenix.jpg" style={{width:"100%",height:"auto"}}/>
                     </Col>
                     <Col>
                         <Row>

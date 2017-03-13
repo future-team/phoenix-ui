@@ -8,7 +8,6 @@ export default class icon extends Component{
             <div>
             	<h2 className="comp-title">Icon</h2>
                 <h3 className="comp-type">phIcon 符号类型(对应icon的名称)</h3>
-                <a className="code-mark ph-button-link" href="http://future-team.github.io/gfs-icons/index.html">查看所有icon类型</a>
                 <div className="content">
                     <h3 className="comp-tip">通过phIcon设定</h3>
 	                <Icon phIcon="search" />
@@ -18,6 +17,7 @@ export default class icon extends Component{
                     <span className="gfs-icon icon-chevron-left"></span>
                 </div>
                 <Code target="icon-phicon" />
+                <a className="code-mark ph-button-link" href="http://future-team.github.io/gfs-icons/index.html">查看所有icon类型</a>
             </div>
         );
     }

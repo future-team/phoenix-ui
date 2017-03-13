@@ -126,6 +126,40 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/弹出框组件.html">弹出框组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Alert.html">Alert</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Dialog.html">Dialog</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Prompt.html">Prompt</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
                     <a href="../modules/提示组件.html">提示组件</a>
                 </dt>
                 <dd>
@@ -157,14 +191,6 @@
                 <dd>
                     <ul>
                    
-                       <li>
-                            
-                           <a href="../classes/Dialog.html">Dialog</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
                        <li>
                             
                            <a href="../classes/Popup.html">Popup</a>
@@ -415,7 +441,7 @@ import classnames from &#x27;classnames&#x27;;
 /**
  * 按钮组组件&lt;br/&gt;
  * - 按钮组组件配合Button组件,提供了横、竖两种排列方式, 可选justify,tacked。
- * - 可通过activeCallback实现点击回调。
+ * - 可通过onButtongroupChange实现点击回调。
  *
  * 主要属性和接口：
  * - phType:是否自适应宽度或者垂直排列, 默认justify &lt;br/&gt;
@@ -426,9 +452,9 @@ import classnames from &#x27;classnames&#x27;;
  *         &lt;Button block&gt;tacked2&lt;/Button&gt;
  *     &lt;/ButtonGroup&gt;
  * &#x60;&#x60;&#x60;
- * - activeCallback:点击按钮组的回调函数。&lt;br/&gt;
+ * - onButtongroupChange:点击按钮组的回调函数。&lt;br/&gt;
  * &#x60;&#x60;&#x60;code
- *     &lt;ButtonGroup activeCallback={function(target,html){console.log(target,html);}}&gt;
+ *     &lt;ButtonGroup onButtongroupChange={function(target,html){console.log(target,html);}}&gt;
  *         &lt;Button&gt;tacked1&lt;/Button&gt;
  *         &lt;Button&gt;tacked2&lt;/Button&gt;
  *     &lt;/ButtonGroup&gt;
@@ -461,10 +487,10 @@ export default class ButtonGroup extends Component{
         phType:PropTypes.string,
         /**
          * 按钮被按下后的回调
-         * @method activeCallback
+         * @method onButtongroupChange
          * @type Function
          * */
-        activeCallback:PropTypes.func
+        onButtongroupChange:PropTypes.func
     };
 
     static defaultProps = {
@@ -487,7 +513,7 @@ export default class ButtonGroup extends Component{
 
     clickHandler(e){
         let target = e.target;
-        this.props.activeCallback&amp;&amp;this.props.activeCallback(target,target.innerHTML);
+        this.props.onButtongroupChange&amp;&amp;this.props.onButtongroupChange(target,target.innerHTML);
         this.setState({
             active:target.innerHTML
         })
@@ -497,9 +523,9 @@ export default class ButtonGroup extends Component{
         const {componentTag:Component} = this.props;
 
         let options = React.Children.map(this.props.children,(option)=&gt;{
-
+            
             let opt = React.cloneElement(option,{
-                onClick:this.clickHandler.bind(this),
+                clickHandle:this.clickHandler.bind(this),
                 active:this.state.active == option.props.children
             });
             return opt;

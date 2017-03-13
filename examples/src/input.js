@@ -34,7 +34,6 @@ export default class input extends Component{
                 <h3 className="comp-type">text 文本框</h3>
                 <div className="content">
                     <Input placeholder="默认text" />
-                    <Input maxLength={20} defaultValue="设置最大长度maxLength" placeholder="请输入" />
                     <Input type="text" defaultValue="默认值defaultValue" placeholder="请输入" />
                     <Input type="text" value={this.state.name} onChange={::this.setValue.bind(this,"name")} placeholder="请输入" />
                 </div>
