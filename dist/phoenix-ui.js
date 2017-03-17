@@ -2368,7 +2368,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        };
 	    }
 
-	    Textarea.prototype.onChange = function onChange(event) {
+	    Textarea.prototype.onTextareaChange = function onTextareaChange(event) {
 	        this.setState({
 	            inputLength: event.target.value.length
 	        });
@@ -2388,7 +2388,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            'div',
 	            { className: _utilsTool.setPhoenixPrefix('textarea-field') },
 	            _react2['default'].createElement('textarea', _extends({}, this.props, { className: _classnames2['default'](this.getProperty(true), this.props.className), onChange: function (event) {
-	                    _this.onChange(event);
+	                    _this.onTextareaChange(event);
 	                } })),
 	            _react2['default'].createElement(
 	                'span',

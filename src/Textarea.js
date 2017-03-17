@@ -93,7 +93,7 @@ export default class Textarea extends Component{
         }
     }
 
-    onChange(event){
+    onTextareaChange(event){
         this.setState({
             inputLength: event.target.value.length
         });
@@ -110,11 +110,11 @@ export default class Textarea extends Component{
                 <textarea {...this.props} className={classnames(
                     this.getProperty(true),
                     this.props.className
-                )} onChange={(event)=>{this.onChange(event)}}></textarea>
+                )} onChange={(event)=>{this.onTextareaChange(event)}}></textarea>
                 <span className={classnames(
                     setPhoenixPrefix('textarea-count'),
                     count? 'show':'hide'
-                )}>
+                )}> 
                     <b className={setPhoenixPrefix('textarea-length')}>{this.state.inputLength}</b>/<b>{maxLength}</b>
                 </span>
             </div>
