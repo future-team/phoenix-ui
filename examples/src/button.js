@@ -5,7 +5,7 @@ import Code from "./code/code";
 export default class button extends Component{
     render(){
         return(
-            <div>
+            <div className="ph-transition-item">
                 <h2 className="comp-title">Button</h2>
                 <h3 className="comp-type">phSize(默认sm) 按钮大小</h3>
                 <div className="content">

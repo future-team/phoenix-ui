@@ -30,6 +30,9 @@ export Slider from './Slider';
 export Animate from './Animate';
 export Icon from './Icon';
 export Menu from './Menu/Menu';
+export LoadingList from './LoadingList';
+export PageTransition from './PageTransition';
+
 //接入cat－browser
 catBrowser({
     moduleName:'phoenix-ui',

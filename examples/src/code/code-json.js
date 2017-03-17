@@ -112,6 +112,9 @@ var code = {
 	'menu-item-name': '...\n<Menu.List activeName={this.state.activeName} onMenulistChange={(name)=>{this.setState({activeName:name})}} >\n\  <Menu.Item name="home">主页</Menu.Item>\n<Menu.List>\n...',
 	'menu-item-href': '...\n<Menu.List activeName={this.state.activeName} onMenulistChange={(name)=>{this.setState({activeName:name})}} >\n\  <Menu.Item href="#home">主页</Menu.Item>\n<Menu.List>\n...',
 	'menu-item-onmenuitemchange': '...\n<Menu.List activeName={this.state.activeName} onMenulistChange={(name)=>{this.setState({activeName:name})}} >\n\  <Menu.Item onMenuitemChange={(name)=>{console.log(name);}}>主页</Menu.Item>\n<Menu.List>\n...',
+	
+	'loadinglist':'<LoadingList phMode="auto" loadingStatus={this.state.loadingStatus} \nloadTips={["点击加载更多","加载中...","加载成功！","加载失败！","没有更多"]} \nbuttonStyles={["primary","gray","success","danger","gray"]} \nonLoading={::this.onLoading} onLoadingEnd={::this.onLoadingEnd}>\n\  '+
+		'<ul>\n\    {\n\      this.state.loadingData.map((data,index)=>{\n\        return (\n\          <li key={index}>...</li>\n\        );\n\      })\n\    }\n\  </ul>\n</LoadingList>',
 
 	'animate': '<Animate transitionName="fade">\n\  {this.renderList()}\n</Animate>\n'+
 		'this.state = {list: ["看一本书","睡8个小时"]}\nrenderList(){// 渲染todo list \n\  const items = this.state.list.map((item,index)=>{\n\    return <div key={index} className="animated" onClick={()=>{...}}>{item}</div>;\n\  });\n\  return items;\n}',

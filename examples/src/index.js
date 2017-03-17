@@ -5,6 +5,8 @@ import React, { Component ,PropTypes} from 'react';
 import ReactDOM,{findDOMNode} from 'react-dom';
 import { Redirect, Router, Route } from 'react-router';
 import History from 'history/lib/createHashHistory';
+import {PageTransition} from 'phoenix-ui';
+import {RouterTransition} from 'react-router-transition';
 
 import Tab from './tab.js';
 import Button from './button.js';
@@ -31,6 +33,7 @@ import Menu from './menu.js';
 import Animate from './animate.js';
 import Drag from './drag.js';
 import Icon from './icon.js';
+import LoadingList from './loading-list.js';
 import ListDemo from './list-demo.js';
 import Detail from './detail-demo.js';
 import PhoenixStyle from './phoenix-styles.js';
@@ -54,7 +57,7 @@ let Card = class Card extends Component {
 let Index = class index extends Component {
     render() {
         return (
-            <div className="menu">
+            <div className="menu ph-transition-item">
                 <header>
                     <div className="left-header">
                         <h1>Phoenix-UI</h1>
@@ -102,6 +105,7 @@ let Index = class index extends Component {
                     <Card href="#/slider" title="Slider" desp="滑动输入条" />
                     <Card href="#/swipe" title="Swipe" desp="左滑动" />
                     <Card href="#/menu" title="Menu" desp="菜单" />
+                    <Card href="#/loadinglist" title="LoadingList" desp="加载更多" />
                 </div>
                 <h2>Assist</h2>
                 <div className="menu-panel">
@@ -118,6 +122,14 @@ let Index = class index extends Component {
     }
 };
 
+let Page = class Page extends Component{
+    render(){
+        return (
+            <RouterTransition ></RouterTransition>
+        );
+    }
+}
+
 let AppRouter = class AppRouter extends Component {
     constructor(props, context) {
         super(props, context);
@@ -129,36 +141,39 @@ let AppRouter = class AppRouter extends Component {
     render() {
         return (
             <Router history={this.history}>
-                <Route path="/index" name="index" component={Index} />
-                <Route path="/phoenix-styles" name="PhoenixStyle" component={PhoenixStyle} />
-                <Route path="/tableview" name="TableView" component={TableView} />
-                <Route path="/formgroup" name="FormGroup" component={FormGroup} />
-                <Route path="/button" name="button" component={Button} />
-                <Route path="/buttongroup" name="buttongroup" component={ButtonGroup} />
-                <Route path="/input" name="input" component={Input} />
-                <Route path="/textarea" name="textarea" component={Textarea} />
-                <Route path="/switch" name="switch" component={Switch} />
-                <Route path="/grid" name="grid" component={Grid} />
-                <Route path="/tab" name="tab" component={Tab} />
-                <Route path="/label" name="label" component={Label} />
-                <Route path="/badge" name="badge" component={Badge} />
-                <Route path="/star" name="star" component={StarDemo} />
-                <Route path="/swipe" name="swipe" component={Swipe} />
-                <Route path="/slider" name="slider" component={Slider} />
-                <Route path="/dialog" name="dialog" component={Dialog} />
-                <Route path="/alert" name="alert" component={Alert} />
-                <Route path="/prompt" name="prompt" component={Prompt} />
-                <Route path="/toast" name="toast" component={Toast} />
-                <Route path="/popup" name="popup" component={Popup} />
-                <Route path="/popover" name="popover" component={Popover} />
-                <Route path="/accordion" name="accordion" component={Accordion} />
-                <Route path="/menu" name="menu" component={Menu} />
-                <Route path="/animate" name="animate" component={Animate} />
-                <Route path="/drag" name="drag" component={Drag} />
-                <Route path="/icon" name="icon" component={Icon} />
-                <Route path="/detail" name="detail" component={Detail} />
-                <Route path="/list-demo" name="list-demo" component={ListDemo} />
-                <Redirect from="/" to="/index" />
+                <Route path="/" component={PageTransition}>
+                    <Route path="/index" name="index" component={Index} />
+                    <Route path="/phoenix-styles" name="PhoenixStyle" component={PhoenixStyle} />
+                    <Route path="/tableview" name="TableView" component={TableView} />
+                    <Route path="/formgroup" name="FormGroup" component={FormGroup} />
+                    <Route path="/button" name="button" component={Button} />
+                    <Route path="/buttongroup" name="buttongroup" component={ButtonGroup} />
+                    <Route path="/input" name="input" component={Input} />
+                    <Route path="/textarea" name="textarea" component={Textarea} />
+                    <Route path="/switch" name="switch" component={Switch} />
+                    <Route path="/grid" name="grid" component={Grid} />
+                    <Route path="/tab" name="tab" component={Tab} />
+                    <Route path="/label" name="label" component={Label} />
+                    <Route path="/badge" name="badge" component={Badge} />
+                    <Route path="/star" name="star" component={StarDemo} />
+                    <Route path="/swipe" name="swipe" component={Swipe} />
+                    <Route path="/slider" name="slider" component={Slider} />
+                    <Route path="/dialog" name="dialog" component={Dialog} />
+                    <Route path="/alert" name="alert" component={Alert} />
+                    <Route path="/prompt" name="prompt" component={Prompt} />
+                    <Route path="/toast" name="toast" component={Toast} />
+                    <Route path="/popup" name="popup" component={Popup} />
+                    <Route path="/popover" name="popover" component={Popover} />
+                    <Route path="/accordion" name="accordion" component={Accordion} />
+                    <Route path="/menu" name="menu" component={Menu} />
+                    <Route path="/loadinglist" name="loadinglist" component={LoadingList} />
+                    <Route path="/animate" name="animate" component={Animate} />
+                    <Route path="/drag" name="drag" component={Drag} />
+                    <Route path="/icon" name="icon" component={Icon} />
+                    <Route path="/detail" name="detail" component={Detail} />
+                    <Route path="/list-demo" name="list-demo" component={ListDemo} />
+                    <Redirect from="/" to="/index" />
+                </Route>
             </Router>
         );
     }
