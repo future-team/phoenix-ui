@@ -41,7 +41,7 @@ import Dialog from './Dialog';
  * @module 弹出框组件
  * @extends Component
  * @constructor
- * @since 0.4.0
+ * @since 1.5.0
  * @demo alert|alert.js {展示}
  * @show true
  * */

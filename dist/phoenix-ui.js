@@ -288,6 +288,18 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.Menu = _MenuMenu2['default'];
 
+	var _LoadingList2 = __webpack_require__(266);
+
+	var _LoadingList3 = _interopRequireDefault(_LoadingList2);
+
+	exports.LoadingList = _LoadingList3['default'];
+
+	var _PageTransition2 = __webpack_require__(267);
+
+	var _PageTransition3 = _interopRequireDefault(_PageTransition2);
+
+	exports.PageTransition = _PageTransition3['default'];
+
 	//接入cat－browser
 	_utilsCatBrowserJs2['default']({
 	    moduleName: 'phoenix-ui',
@@ -2368,7 +2380,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        };
 	    }
 
-	    Textarea.prototype.onChange = function onChange(event) {
+	    Textarea.prototype.onTextareaChange = function onTextareaChange(event) {
 	        this.setState({
 	            inputLength: event.target.value.length
 	        });
@@ -2388,7 +2400,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            'div',
 	            { className: _utilsTool.setPhoenixPrefix('textarea-field') },
 	            _react2['default'].createElement('textarea', _extends({}, this.props, { className: _classnames2['default'](this.getProperty(true), this.props.className), onChange: function (event) {
-	                    _this.onChange(event);
+	                    _this.onTextareaChange(event);
 	                } })),
 	            _react2['default'].createElement(
 	                'span',
@@ -3925,37 +3937,47 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    Drag.prototype.onTouchStart = function onTouchStart(event) {
+	        var _props = this.props;
+	        var onDrag = _props.onDrag;
+	        var onDragStart = _props.onDragStart;
+
 	        event.stopPropagation();
-	        event.preventDefault();
+	        // event.preventDefault();
 
 	        this.state.position.start = { x: event.touches[0].pageX, y: event.touches[0].pageY };
 	        this.state.position.move = this.state.position.start;
 
-	        this.props.onDrag(event, this.state.position);
+	        if (onDrag) onDrag(event, this.state.position);
+	        if (onDragStart) onDragStart(event, this.state.position);
 
 	        return false;
 	    };
 
 	    Drag.prototype.onMouseStart = function onMouseStart(event) {
+	        var _props2 = this.props;
+	        var onDrag = _props2.onDrag;
+	        var onDragStart = _props2.onDragStart;
+
 	        this.isMouseDown = true;
 	        event.stopPropagation();
-	        event.preventDefault();
+	        // event.preventDefault();
 
 	        this.state.position.start = { x: event.pageX, y: event.pageY };
 	        this.state.position.move = this.state.position.start;
 
-	        this.props.onDrag(event, this.state.position);
+	        if (onDrag) onDrag(event, this.state.position);
+	        if (onDragStart) onDragStart(event, this.state.position);
 
 	        return false;
 	    };
 
 	    Drag.prototype.onTouchMove = function onTouchMove(event) {
 	        event.stopPropagation();
-	        event.preventDefault();
+	        // event.preventDefault();
 
 	        this.state.position.move = { x: event.touches[0].pageX, y: event.touches[0].pageY };
 
-	        this.props.onDrag(event, this.state.position);
+	        if (this.props.onDrag) this.props.onDrag(event, this.state.position);
 
 	        return false;
 	    };
@@ -3963,35 +3985,35 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Drag.prototype.onMouseMove = function onMouseMove(event) {
 	        if (!this.isMouseDown) return;
 	        event.stopPropagation();
-	        event.preventDefault();
+	        // event.preventDefault();
 
 	        this.state.position.move = { x: event.pageX, y: event.pageY };
 
-	        this.props.onDrag(event, this.state.position);
+	        if (this.props.onDrag) this.props.onDrag(event, this.state.position);
 
 	        return false;
 	    };
 
 	    Drag.prototype.onTouchEnd = function onTouchEnd(event) {
 	        event.stopPropagation();
-	        event.preventDefault();
+	        // event.preventDefault();
 
 	        this.state.position.end = { x: event.changedTouches[0].pageX, y: event.changedTouches[0].pageY };
 	        this.state.position.start = this.state.position.move;
 
-	        this.props.onDrop(event, this.state.position);
+	        if (this.props.onDrop) this.props.onDrop(event, this.state.position);
 
 	        return false;
 	    };
 
 	    Drag.prototype.onMouseEnd = function onMouseEnd(event) {
 	        event.stopPropagation();
-	        event.preventDefault();
+	        // event.preventDefault();
 
 	        this.state.position.end = { x: event.pageX, y: event.pageY };
 	        this.state.position.start = this.state.position.move;
 
-	        this.props.onDrop(event, this.state.position);
+	        if (this.props.onDrop) this.props.onDrop(event, this.state.position);
 	        this.isMouseDown = false;
 
 	        return false;
@@ -4028,6 +4050,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	                },
 	                onMouseUp: function (event) {
 	                    _this.onMouseEnd(event);
+	                },
+
+	                ref: function (dragAction) {
+	                    _this.dragAction = dragAction;
 	                }
 	            }),
 	            this.props.children
@@ -4709,7 +4735,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/**
 	 * 动画外层组件<br/>
-	 * - 用`react-addons-css-transition-group`实现, 所以使用时需要额外安装该模块。
 	 * - 使用时需要在子元素增加animated类名实现动画效果, animated定义的是过渡的duration和fill-mode, 默认300ms, 完全可以自定义。
 	 * - 可通过transitionName设置动画名称, 可选fade、slide-top、slide-bottom(还将补充), 默认fade。
 	 * - 可通过transitionEnterTimeout设置进入延迟时间。
@@ -4789,7 +4814,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var transitionName = _props.transitionName;
 	        var transitionEnterTimeout = _props.transitionEnterTimeout;
 	        var transitionLeaveTimeout = _props.transitionLeaveTimeout;
-	        var className = _props.className;
 	        var children = _props.children;
 
 	        return _react2['default'].createElement(
@@ -25357,7 +25381,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 弹出框组件
 	 * @extends Component
 	 * @constructor
-	 * @since 0.4.0
+	 * @since 1.5.0
 	 * @demo alert|alert.js {展示}
 	 * @show true
 	 * */
@@ -25569,7 +25593,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @module 弹出框组件
 	 * @extends Component
 	 * @constructor
-	 * @since 0.4.0
+	 * @since 1.5.0
 	 * @demo prompt|prompt.js {展示}
 	 * @show true
 	 * */
@@ -26179,6 +26203,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * <strong><a href='../classes/Slider.html'>Slider 滑动输入条</a></strong><br>
 	 * <strong><a href='../classes/Swipe.html'>Swipe 左滑动</a></strong><br>
 	 * <strong><a href='../classes/Menu.html'>Menu 菜单</a></strong><br>
+	 * <strong><a href='../classes/LoadingList.html'>LoadingList 加载更多</a></strong><br>
 	 * <h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>
 	 * @module 操作类组件
 	 * @main 操作类组件
@@ -28277,6 +28302,799 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = MenuItem;
 	;
 	module.exports = exports['default'];
+
+/***/ },
+/* 266 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(59);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utilsComponent = __webpack_require__(60);
+
+	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
+
+	var _classnames = __webpack_require__(61);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _utilsTool = __webpack_require__(70);
+
+	var _Drag = __webpack_require__(82);
+
+	var _Drag2 = _interopRequireDefault(_Drag);
+
+	var _Button = __webpack_require__(58);
+
+	var _Button2 = _interopRequireDefault(_Button);
+
+	var _Icon = __webpack_require__(256);
+
+	var _Icon2 = _interopRequireDefault(_Icon);
+
+	/**
+	 * 加载更多组件<br/>
+	 * - 通过phMode设置加载更多的模式，有点击按钮加载更多，以及滑到最底端自动加载，可选 [button,auto] 2种参数。
+	 * - 通过loadingStatus设置当前状态，包括 0加载更多, 1加载中, 2数据加载成功, 3数据加载失败, 4没有更多。
+	 * - 可通过loadTips设置按钮文字和状态提示语，默认["加载更多","加载中","加载成功","加载失败","没有更多"]，分别对应loadingStatus的状态。
+	 * - 可通过buttonStyles设置按钮的样式，如果当前phMode为auto设置是看不到效果的，默认["primary","info","success","error","gray"]，分别对应loadingStatus的状态。
+	 * - 可通过onLoading设置点击按钮加载或滑到底部自动加载的回调函数。
+	 * - 可通过onLoadingEnd设置每次加载结束的回调函数。
+	 *
+	 * 主要属性和接口：
+	 * - phMode:加载更多的模式，默认auto。
+	 * - loadingStatus:当前状态:0加载更多, 1加载中, 2数据加载成功, 3数据加载失败, 4没有更多，默认1。
+	 * - loadTips:按钮文字和状态提示语，默认["加载更多","加载中","加载成功","加载失败","没有更多"]。
+	 * - buttonStyles:按钮的样式，默认["primary","info","success","error","gray"]。
+	 * - onLoading:点击按钮加载或滑到底部自动加载的回调函数。
+	 * - onLoadingEnd:每次加载结束的回调函数。
+	 * 
+	 * 示例：
+	 * ```code
+	 *  <LoadingList phMode="auto" loadingStatus={this.state.loadingStatus} 
+	 *      loadTips={["点击加载更多","加载中...","加载成功！","加载失败！","没有更多"]} 
+	 *      buttonStyles={["primary","gray","success","danger","gray"]} 
+	 *      onLoading={::this.onLoading} onLoadingEnd={::this.onLoadingEnd}>
+	 *          ...
+	 *  </LoadingList>
+	 * ```
+	 * 
+	 * @class LoadingList
+	 * @module 操作类组件
+	 * @extends Component
+	 * @constructor
+	 * @since 1.6.0
+	 * @demo LoadingList|loading-list.js {展示}
+	 * @show true
+	 * */
+
+	var LoadingList = (function (_Component) {
+	    _inherits(LoadingList, _Component);
+
+	    _createClass(LoadingList, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * @default 'loading-list'
+	             * */
+	            classPrefix: _react.PropTypes.string,
+	            /**
+	             * 加载更多的模式，可选[button,auto], 默认auto
+	             * @property phStyle
+	             * @type String
+	             * @default 'auto'
+	             **/
+	            phMode: _react.PropTypes.string,
+	            /**
+	             * 加载状态：0加载更多, 1加载中, 2数据加载成功, 3数据加载失败, 4没有更多
+	             * @property loadingStatus
+	             * @type Number
+	             * @default 1
+	             **/
+	            loadingStatus: _react.PropTypes.number,
+	            /**
+	             * 加载5个状态的文字描述，默认["加载更多","加载中","加载成功","加载失败","没有更多"]
+	             * @property loadTips
+	             * @type Array
+	             * @default ["加载更多","加载中","加载成功","加载失败","没有更多"]
+	             **/
+	            loadTips: _react.PropTypes.array,
+	            /**
+	             * 加载5个状态的style，默认["primary","info","success","error","gray"]
+	             * @property buttonStyles
+	             * @type Array
+	             * @default ["primary","info","success","error","gray"]
+	             **/
+	            buttonStyles: _react.PropTypes.array,
+	            /**
+	             * 点击按钮加载或滑到底部自动加载的回调函数，用户在该函数内自定义请求
+	             * @method onLoading
+	             * @type Function
+	             * @default null
+	             **/
+	            onLoading: _react.PropTypes.func,
+	            /**
+	             * 每次加载结束的回调函数
+	             * @method onLoadingEnd
+	             * @type Function
+	             * @default null
+	             **/
+	            onLoadingEnd: _react.PropTypes.func
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            phMode: 'auto',
+	            loadingStatus: 1, // 0加载更多, 1加载中, 2数据加载成功, 3数据加载失败, 4没有更多
+	            loadTips: ["加载更多", "加载中", "加载成功", "加载失败", "没有更多"],
+	            buttonStyles: ["primary", "info", "success", "error", "gray"],
+	            classPrefix: 'loading-list',
+	            classMapping: {}
+	        },
+	        enumerable: true
+	    }]);
+
+	    function LoadingList(props, context) {
+	        _classCallCheck(this, LoadingList);
+
+	        _Component.call(this, props, context);
+
+	        this.count = 0;
+	        this.handleWindowScroll = this.handleWindowScroll.bind(this);
+
+	        if (props.phMode == "auto") window.addEventListener('scroll', this.handleWindowScroll, false);
+	    }
+
+	    LoadingList.prototype.handleWindowScroll = function handleWindowScroll() {
+	        if (document.body.scrollTop >= this.loadingPage.offsetHeight + this.loadingPage.offsetTop - window.screen.height) {
+	            if (this.props.loadingStatus == 0) this.onLoading();
+	        }
+	    };
+
+	    LoadingList.prototype.renderButton = function renderButton() {
+	        var _props = this.props;
+	        var phMode = _props.phMode;
+	        var loadTips = _props.loadTips;
+	        var buttonStyles = _props.buttonStyles;
+	        var loadingStatus = _props.loadingStatus;
+
+	        if (phMode == "button") {
+	            return _react2['default'].createElement(
+	                _Button2['default'],
+	                { phStyle: buttonStyles[loadingStatus], block: true, disabled: loadingStatus == 4,
+	                    onClick: this.onLoading.bind(this) },
+	                this.renderIcon(),
+	                loadTips[loadingStatus]
+	            );
+	        } else {
+	            return _react2['default'].createElement(
+	                'div',
+	                { className: _utilsTool.setPhoenixPrefix('loading-page-tip') },
+	                this.renderIcon(),
+	                loadTips[loadingStatus]
+	            );
+	        }
+	    };
+
+	    LoadingList.prototype.renderIcon = function renderIcon() {
+	        if (this.props.loadingStatus == 1) {
+	            return _react2['default'].createElement(_Icon2['default'], { phIcon: 'loading' });
+	        } else {
+	            return '';
+	        }
+	    };
+
+	    LoadingList.prototype.onLoading = function onLoading() {
+	        if (this.props.onLoading) this.props.onLoading();
+	    };
+
+	    LoadingList.prototype.onDrag = function onDrag(event, position) {
+	        var _props2 = this.props;
+	        var phMode = _props2.phMode;
+	        var loadingStatus = _props2.loadingStatus;
+
+	        if (phMode == "button") return;
+
+	        var startY = position.start.y,
+	            moveY = position.move.y;
+	        var distanceY = moveY - startY;
+	        if (distanceY > 0) return; //只可以上拉
+
+	        if (Math.abs(distanceY) > 30) {
+	            // 拖拽过程中只执行一次
+	            if (this.count == 0) {
+	                // 初始状态和错误状态可以上拉重新请求
+	                if (loadingStatus == 0 || loadingStatus == 3) this.onLoading();
+	                this.count++;
+	            }
+	        }
+
+	        if (Math.abs(distanceY) >= 200) distanceY = -200;
+
+	        this.loadingPageMain.style.transform = "translateY(" + distanceY + "px)";
+	    };
+
+	    LoadingList.prototype.onDrop = function onDrop(event, position) {
+	        if (this.props.phMode == "button") return;
+	        this.count = 0;
+	        this.loadingPageMain.style.transform = "translateY(0px)";
+	    };
+
+	    LoadingList.prototype.componentDidMount = function componentDidMount() {
+	        // let {loadingStatus, onLoadingEnd} = this.props;
+	        // if(loadingStatus==2 && onLoadingEnd) onLoadingEnd();
+	    };
+
+	    LoadingList.prototype.componentDidUpdate = function componentDidUpdate() {
+	        var _props3 = this.props;
+	        var loadingStatus = _props3.loadingStatus;
+	        var onLoadingEnd = _props3.onLoadingEnd;
+
+	        if (loadingStatus == 2 && onLoadingEnd) onLoadingEnd();
+	    };
+
+	    LoadingList.prototype.componentWillUnmount = function componentWillUnmount() {
+	        window.removeEventListener('scroll', this.handleWindowScroll, false);
+	    };
+
+	    LoadingList.prototype.render = function render() {
+	        var _this = this;
+
+	        var _props4 = this.props;
+	        var className = _props4.className;
+	        var children = _props4.children;
+
+	        return _react2['default'].createElement(
+	            _Drag2['default'],
+	            _extends({}, this.props, { className: _classnames2['default'](this.getProperty(true), className, 'animated'),
+	                onDrag: this.onDrag.bind(this), onDrop: this.onDrop.bind(this) }),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: _utilsTool.setPhoenixPrefix('loading-page-main'), ref: function (loadingPageMain) {
+	                        _this.loadingPageMain = loadingPageMain;
+	                    } },
+	                _react2['default'].createElement(
+	                    'div',
+	                    { className: _utilsTool.setPhoenixPrefix('loading-page-content'), ref: function (loadingPage) {
+	                            _this.loadingPage = loadingPage;
+	                        } },
+	                    children
+	                ),
+	                this.renderButton()
+	            )
+	        );
+	    };
+
+	    return LoadingList;
+	})(_utilsComponent2['default']);
+
+	exports['default'] = LoadingList;
+	module.exports = exports['default'];
+
+/***/ },
+/* 267 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(59);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(253);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _utilsComponent = __webpack_require__(60);
+
+	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
+
+	var _classnames = __webpack_require__(61);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _promiseQueue = __webpack_require__(268);
+
+	var _promiseQueue2 = _interopRequireDefault(_promiseQueue);
+
+	var _utilsTool = __webpack_require__(70);
+
+	var PageTransition = (function (_Component) {
+	    _inherits(PageTransition, _Component);
+
+	    _createClass(PageTransition, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 间隔时间
+	             * @property timeout
+	             * @type Number
+	             * @default 500
+	             * */
+	            timeout: _react.PropTypes.number,
+	            /**
+	             * 动画名称，可选[fade, slide-top, slide-bottom, slide-left, slide-right]
+	             * @property transitionName
+	             * @type String
+	             * @default 'fade'
+	             * */
+	            transitionName: _react.PropTypes.string,
+	            animateOnInit: _react.PropTypes.bool,
+	            data: _react.PropTypes.object,
+	            onLoad: _react.PropTypes.func
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            timeout: 500,
+	            transitionName: 'slide-left',
+	            animateOnInit: true,
+	            classMapping: {}
+	        },
+	        enumerable: true
+	    }]);
+
+	    function PageTransition(props, context) {
+	        _classCallCheck(this, PageTransition);
+
+	        _Component.call(this, props, context);
+
+	        if (this.props.animateOnInit) {
+	            this.state = {
+	                child1: null,
+	                child2: null,
+	                nextChild: 1
+	            };
+	        } else {
+	            this.state = {
+	                child1: this.props.children,
+	                child2: null,
+	                nextChild: 2
+	            };
+	        }
+
+	        this.transite = this.transite.bind(this);
+	        this.gerRef = this.getRef.bind(this);
+
+	        this.queue = new _promiseQueue2['default'](1, Infinity);
+
+	        this.itemClass = _utilsTool.setPhoenixPrefix('transition-item');
+	    }
+
+	    PageTransition.prototype.componentDidMount = function componentDidMount() {
+	        var _props = this.props;
+	        var animateOnInit = _props.animateOnInit;
+	        var data = _props.data;
+	        var children = _props.children;
+
+	        if (!animateOnInit) {
+	            var child = this.getRef('child1');
+	            if (child) {
+	                var dom = _reactDom2['default'].findDOMNode(child);
+	                child.onTransitionDidEnd && child.onTransitionDidEnd(data);
+	                dom.classList.remove(this.itemClass);
+	            }
+	        } else {
+	            this.transite(children);
+	        }
+	    };
+
+	    PageTransition.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+	        var _this = this;
+
+	        var transitNewChild = function transitNewChild() {
+	            _this.queue.add(function () {
+	                return _this.transite(nextProps.children);
+	            });
+	        };
+	        var updateChild = function updateChild() {
+	            var currentChild = _this.state.nextChild === 1 ? 2 : 1;
+	            _this.state['child' + currentChild] = nextProps.children;
+	            _this.forceUpdate();
+	        };
+
+	        if (this.props.children && this.props.children.props && this.props.children.props['data-transition-id'] && nextProps.children.props['data-transition-id']) {
+
+	            if (this.props.children.props['data-transition-id'] !== nextProps.children.props['data-transition-id']) {
+	                transitNewChild();
+	            } else {
+	                updateChild();
+	            }
+	        } else {
+	            if (this.props.children !== nextProps.children) {
+	                transitNewChild();
+	            } else {
+	                updateChild();
+	            }
+	        }
+	    };
+
+	    PageTransition.prototype.getRef = function getRef(ref) {
+	        var child = this.refs[ref];
+	        if (child && child.getWrappedInstance) {
+	            child = child.getWrappedInstance();
+	        }
+	        return child;
+	    };
+
+	    PageTransition.prototype.transite = function transite(nextChild) {
+	        var _this2 = this;
+
+	        return new Promise(function (transiteDone, transiteFailed) {
+	            _this2.state['child' + _this2.state.nextChild] = nextChild;
+	            _this2.forceUpdate(function () {
+	                var prevChild = _this2.getRef('child' + (_this2.state.nextChild === 1 ? 2 : 1));
+	                var newChild = _this2.getRef('child' + _this2.state.nextChild);
+	                var prevChildDom = _reactDom2['default'].findDOMNode(prevChild);
+	                var newChildDom = _reactDom2['default'].findDOMNode(newChild);
+	                var timeout = 0;
+
+	                var willStart = function willStart() {
+	                    if (newChild.onTransitionWillStart) {
+	                        return newChild.onTransitionWillStart(_this2.props.data) || Promise.resolve();
+	                    }
+	                    if (prevChild && prevChild.onTransitionLeaveWillStart) {
+	                        return prevChild.onTransitionLeaveWillStart(_this2.props.data) || Promise.resolve();
+	                    }
+	                    return Promise.resolve();
+	                };
+
+	                var start = function start() {
+	                    if (newChildDom.classList.contains(_this2.itemClass)) {
+	                        timeout = _this2.props.timeout || DEFAULT_TIMEOUT;
+	                        newChildDom.classList.add(_this2.props.transitionName + "-enter");
+	                        newChildDom.offsetHeight; // Trigger layout to make sure transition happen
+
+	                        if (newChild.transitionManuallyStart) {
+	                            return newChild.transitionManuallyStart(_this2.props.data, start) || Promise.resolve();
+	                        }
+	                        newChildDom.classList.add(_this2.props.transitionName + "-enter-active");
+	                    }
+
+	                    if (prevChildDom) {
+	                        prevChildDom.classList.add(_this2.props.transitionName + "-leave");
+	                        prevChildDom.classList.add(_this2.itemClass);
+	                        timeout = _this2.props.timeout || DEFAULT_TIMEOUT;
+	                        prevChildDom.offsetHeight; // Trigger layout to make sure transition happen
+
+	                        if (prevChild.transitionLeaveManuallyStart) {
+	                            return prevChild.transitionLeaveManuallyStart(_this2.props.data, start) || Promise.resolve();
+	                        }
+	                        prevChildDom.classList.add(_this2.props.transitionName + "-leave-active");
+	                    }
+	                    return Promise.resolve();
+	                };
+
+	                var didStart = function didStart() {
+	                    if (newChild.onTransitionDidStart) {
+	                        return newChild.onTransitionDidStart(_this2.props.data) || Promise.resolve();
+	                    }
+	                    if (prevChild && prevChild.onTransitionDidStartLeave) {
+	                        return prevChild.onTransitionLeaveDidStart(_this2.props.data) || Promise.resolve();
+	                    }
+	                    return Promise.resolve();
+	                };
+
+	                // Wait for transition
+	                var waitForTransition = function waitForTransition() {
+	                    return new Promise(function (resolve) {
+	                        setTimeout(function () {
+	                            // Swap child and remove the old child
+	                            _this2.state.nextChild = _this2.state.nextChild === 1 ? 2 : 1;
+	                            _this2.state['child' + _this2.state.nextChild] = null;
+	                            _this2.forceUpdate(resolve);
+	                        }, timeout);
+	                    });
+	                };
+
+	                // Before remove classes
+	                var willEnd = function willEnd() {
+	                    if (newChild.onTransitionWillEnd) {
+	                        return newChild.onTransitionWillEnd(_this2.props.data) || Promise.resolve();
+	                    }
+	                    if (prevChild && prevChild.onTransitionLeaveWillEnd) {
+	                        return prevChild.onTransitionLeaveWillEnd(_this2.props.data) || Promise.resolve();
+	                    }
+	                    return Promise.resolve();
+	                };
+
+	                // Remove appear and active class (or trigger manual end)
+	                var end = function end() {
+	                    if (newChildDom.classList.contains(_this2.itemClass)) {
+	                        newChildDom.classList.remove(_this2.props.transitionName + "-enter");
+	                        newChildDom.classList.remove(_this2.itemClass);
+
+	                        if (newChild.transitionManuallyStop) {
+	                            return newChild.transitionManuallyStop(_this2.props.data) || Promise.resolve();
+	                        }
+	                        newChildDom.classList.remove(_this2.props.transitionName + "-enter-active");
+	                    }
+
+	                    if (prevChildDom && prevChildDom.classList.contains(_this2.itemClass)) {
+	                        prevChildDom.classList.remove(_this2.props.transitionName + "-leave");
+	                        prevChildDom.classList.remove(_this2.itemClass);
+
+	                        if (prevChild.transitionLeaveManuallyStop) {
+	                            return prevChild.transitionLeaveManuallyStop(_this2.props.data) || Promise.resolve();
+	                        }
+	                        prevChildDom.classList.remove(_this2.props.transitionName + "-leave-active");
+	                    }
+	                    return Promise.resolve();
+	                };
+
+	                // After remove classes
+	                var didEnd = function didEnd() {
+	                    if (newChild.onTransitionDidEnd) {
+	                        return newChild.onTransitionDidEnd(_this2.props.data) || Promise.resolve();
+	                    }
+	                    if (prevChild && prevChild.onTransitionLeaveDidEnd) {
+	                        return prevChild.onTransitionLeaveDidEnd(_this2.props.data) || Promise.resolve();
+	                    }
+	                    return Promise.resolve();
+	                };
+
+	                Promise.resolve().then(willStart).then(start).then(didStart).then(waitForTransition).then(willEnd).then(end).then(didEnd).then(function () {
+	                    _this2.props.onLoad && _this2.props.onLoad();
+	                    transiteDone();
+	                })['catch'](transiteFailed);
+	            });
+	        });
+	    };
+
+	    PageTransition.prototype.render = function render() {
+	        var _props2 = this.props;
+	        var className = _props2.className;
+	        var children = _props2.children;
+
+	        return _react2['default'].createElement(
+	            'div',
+	            _extends({}, this.props, { className: _classnames2['default'](_utilsTool.setPhoenixPrefix('transition-wrapper'), className) }),
+	            _react2['default'].Children.map(this.state.child1, function (element) {
+	                return _react2['default'].cloneElement(element, { ref: 'child1' });
+	            }),
+	            _react2['default'].Children.map(this.state.child2, function (element) {
+	                return _react2['default'].cloneElement(element, { ref: 'child2' });
+	            })
+	        );
+	    };
+
+	    return PageTransition;
+	})(_utilsComponent2['default']);
+
+	exports['default'] = PageTransition;
+	module.exports = exports['default'];
+
+/***/ },
+/* 268 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {module.exports = process.env.PROMISE_QUEUE_COVERAGE ?
+	    __webpack_require__(269) :
+	    __webpack_require__(270);
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(91)))
+
+/***/ },
+/* 269 */
+/***/ function(module, exports) {
+
+	
+
+/***/ },
+/* 270 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/* global define, Promise */
+	(function (root, factory) {
+	    'use strict';
+	    if (typeof module === 'object' && module.exports && "function" === 'function') {
+	        // CommonJS
+	        module.exports = factory();
+	    } else if (true) {
+	        // AMD. Register as an anonymous module.
+	        !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	    } else {
+	        // Browser globals
+	        root.Queue = factory();
+	    }
+	})
+	(this, function () {
+	    'use strict';
+
+	    /**
+	     * @return {Object}
+	     */
+	    var LocalPromise = typeof Promise !== 'undefined' ? Promise : function () {
+	        return {
+	            then: function () {
+	                throw new Error('Queue.configure() before use Queue');
+	            }
+	        };
+	    };
+
+	    var noop = function () {};
+
+	    /**
+	     * @param {*} value
+	     * @returns {LocalPromise}
+	     */
+	    var resolveWith = function (value) {
+	        if (value && typeof value.then === 'function') {
+	            return value;
+	        }
+
+	        return new LocalPromise(function (resolve) {
+	            resolve(value);
+	        });
+	    };
+
+	    /**
+	     * It limits concurrently executed promises
+	     *
+	     * @param {Number} [maxPendingPromises=Infinity] max number of concurrently executed promises
+	     * @param {Number} [maxQueuedPromises=Infinity]  max number of queued promises
+	     * @constructor
+	     *
+	     * @example
+	     *
+	     * var queue = new Queue(1);
+	     *
+	     * queue.add(function () {
+	     *     // resolve of this promise will resume next request
+	     *     return downloadTarballFromGithub(url, file);
+	     * })
+	     * .then(function (file) {
+	     *     doStuffWith(file);
+	     * });
+	     *
+	     * queue.add(function () {
+	     *     return downloadTarballFromGithub(url, file);
+	     * })
+	     * // This request will be paused
+	     * .then(function (file) {
+	     *     doStuffWith(file);
+	     * });
+	     */
+	    function Queue(maxPendingPromises, maxQueuedPromises) {
+	        this.pendingPromises = 0;
+	        this.maxPendingPromises = typeof maxPendingPromises !== 'undefined' ? maxPendingPromises : Infinity;
+	        this.maxQueuedPromises = typeof maxQueuedPromises !== 'undefined' ? maxQueuedPromises : Infinity;
+	        this.queue = [];
+	    }
+
+	    /**
+	     * Defines promise promiseFactory
+	     * @param {Function} GlobalPromise
+	     */
+	    Queue.configure = function (GlobalPromise) {
+	        LocalPromise = GlobalPromise;
+	    };
+
+	    /**
+	     * @param {Function} promiseGenerator
+	     * @return {LocalPromise}
+	     */
+	    Queue.prototype.add = function (promiseGenerator) {
+	        var self = this;
+	        return new LocalPromise(function (resolve, reject, notify) {
+	            // Do not queue to much promises
+	            if (self.queue.length >= self.maxQueuedPromises) {
+	                reject(new Error('Queue limit reached'));
+	                return;
+	            }
+
+	            // Add to queue
+	            self.queue.push({
+	                promiseGenerator: promiseGenerator,
+	                resolve: resolve,
+	                reject: reject,
+	                notify: notify || noop
+	            });
+
+	            self._dequeue();
+	        });
+	    };
+
+	    /**
+	     * Number of simultaneously running promises (which are resolving)
+	     *
+	     * @return {number}
+	     */
+	    Queue.prototype.getPendingLength = function () {
+	        return this.pendingPromises;
+	    };
+
+	    /**
+	     * Number of queued promises (which are waiting)
+	     *
+	     * @return {number}
+	     */
+	    Queue.prototype.getQueueLength = function () {
+	        return this.queue.length;
+	    };
+
+	    /**
+	     * @returns {boolean} true if first item removed from queue
+	     * @private
+	     */
+	    Queue.prototype._dequeue = function () {
+	        var self = this;
+	        if (this.pendingPromises >= this.maxPendingPromises) {
+	            return false;
+	        }
+
+	        // Remove from queue
+	        var item = this.queue.shift();
+	        if (!item) {
+	            return false;
+	        }
+
+	        try {
+	            this.pendingPromises++;
+
+	            resolveWith(item.promiseGenerator())
+	            // Forward all stuff
+	                .then(function (value) {
+	                    // It is not pending now
+	                    self.pendingPromises--;
+	                    // It should pass values
+	                    item.resolve(value);
+	                    self._dequeue();
+	                }, function (err) {
+	                    // It is not pending now
+	                    self.pendingPromises--;
+	                    // It should not mask errors
+	                    item.reject(err);
+	                    self._dequeue();
+	                }, function (message) {
+	                    // It should pass notifications
+	                    item.notify(message);
+	                });
+	        } catch (err) {
+	            self.pendingPromises--;
+	            item.reject(err);
+	            self._dequeue();
+
+	        }
+
+	        return true;
+	    };
+
+	    return Queue;
+	});
+
 
 /***/ }
 /******/ ])

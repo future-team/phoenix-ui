@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui" />
+    <title>src/LoadingList.js - phoenix-ui</title>
+  
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+</head>
+<body class="yui3-smart" _assetsPath="../assets">
+ <nav class="navbar navbar-inverse navbar-fixed-top custom-navbar" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+               <a class="navbar-brand mainlogo" href="">
+             
+            <img alt="phoenix-ui" src="../assets/css/logo.png" title="phoenix-ui">
+            
+                phoenix-ui
+          </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                 <ul class="nav navbar-nav">
+                    
+                    <li><a href="index.html">主页</a>
+                    </li>
+                    
+                </ul>
+               <div class="navbar-form navbar-right filterAPi" autocomplete="off">
+                <input type="text" id='txtSearchAPI' class="form-control search-query" placeholder="Search for API" />
+                 <ul id="filterList" class="filterItems dropdown-menu" role="menu"></ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div id="sidebar">
+    <h3>模块/类</h3>
+        <div id="api-tabview-filter">
+            <input id='txtSearch' type="search" class="form-control" placeholder="Type to filter Modules/Classes">
+        </div>
+        <dl id="sidebar_list">
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/基础组件.html">基础组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Button.html">Button</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/ButtonGroup.html">ButtonGroup</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Star.html">Star</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/布局组件.html">布局组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Row.html">Row</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/TableView.html">TableView</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Col.html">Col</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Grid.html">Grid</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/弹出框组件.html">弹出框组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Alert.html">Alert</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Dialog.html">Dialog</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Prompt.html">Prompt</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/提示组件.html">提示组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Popover.html">Popover</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Whisper.html">Whisper</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/操作类组件.html">操作类组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/LoadingList.html">LoadingList</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Popup.html">Popup</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Slider.html">Slider</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Swipe.html">Swipe</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Toast.html">Toast</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Accordion.html">Accordion</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/标签组件.html">标签组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Icon.html">Icon</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Badge.html">Badge</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Label.html">Label</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/菜单组件.html">菜单组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Menu.html">Menu</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuBody.html">MenuBody</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuHeader.html">MenuHeader</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuItem.html">MenuItem</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuList.html">MenuList</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuNav.html">MenuNav</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/表单组件.html">表单组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Input.html">Input</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Switch.html">Switch</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FormGroup.html">FormGroup</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/TextArea.html">TextArea</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/辅助组件.html">辅助组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Drag.html">Drag</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Animate.html">Animate</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/选项卡.html">选项卡</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Tab.html">Tab</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Tabset.html">Tabset</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+        </dl>
+    <div class="icon-sidebar-btn icon-sidebar-btn-open"><span class="glyphicon glyphicon-chevron-left"></span>收起</div>
+</div>
+   
+    <div class="stdoc-content">
+        <div class="apidocs">
+            <div id="docs-main">
+                <div class="content">
+                    <div class="page-header">
+    <h1>src/LoadingList.js <small>File</small></h1>
+</div>
+
+<div class="file">
+    <pre class="prettyprint linenums" id='src_code'>
+import React,{PropTypes} from &#x27;react&#x27;;
+import Component from &#x27;./utils/Component&#x27;;
+import classnames from &#x27;classnames&#x27;;
+import {setPhoenixPrefix} from &#x27;./utils/Tool&#x27;;
+
+import Drag from &#x27;./Drag&#x27;;
+import Button from &#x27;./Button&#x27;;
+import Icon from &#x27;./Icon&#x27;;
+
+/**
+ * 加载更多组件&lt;br/&gt;
+ * - 通过phMode设置加载更多的模式，有点击按钮加载更多，以及滑到最底端自动加载，可选 [button,auto] 2种参数。
+ * - 通过loadingStatus设置当前状态，包括 0加载更多, 1加载中, 2数据加载成功, 3数据加载失败, 4没有更多。
+ * - 可通过loadTips设置按钮文字和状态提示语，默认[&quot;加载更多&quot;,&quot;加载中&quot;,&quot;加载成功&quot;,&quot;加载失败&quot;,&quot;没有更多&quot;]，分别对应loadingStatus的状态。
+ * - 可通过buttonStyles设置按钮的样式，如果当前phMode为auto设置是看不到效果的，默认[&quot;primary&quot;,&quot;info&quot;,&quot;success&quot;,&quot;error&quot;,&quot;gray&quot;]，分别对应loadingStatus的状态。
+ * - 可通过onLoading设置点击按钮加载或滑到底部自动加载的回调函数。
+ * - 可通过onLoadingEnd设置每次加载结束的回调函数。
+ *
+ * 主要属性和接口：
+ * - phMode:加载更多的模式，默认auto。
+ * - loadingStatus:当前状态:0加载更多, 1加载中, 2数据加载成功, 3数据加载失败, 4没有更多，默认1。
+ * - loadTips:按钮文字和状态提示语，默认[&quot;加载更多&quot;,&quot;加载中&quot;,&quot;加载成功&quot;,&quot;加载失败&quot;,&quot;没有更多&quot;]。
+ * - buttonStyles:按钮的样式，默认[&quot;primary&quot;,&quot;info&quot;,&quot;success&quot;,&quot;error&quot;,&quot;gray&quot;]。
+ * - onLoading:点击按钮加载或滑到底部自动加载的回调函数。
+ * - onLoadingEnd:设置每次加载结束的回调函数。
+ * 
+ * 示例：
+ * &#x60;&#x60;&#x60;code
+ *  &lt;LoadingList phMode=&quot;auto&quot; loadingStatus={this.state.loadingStatus} 
+ *      loadTips={[&quot;点击加载更多&quot;,&quot;加载中...&quot;,&quot;加载成功！&quot;,&quot;加载失败！&quot;,&quot;没有更多&quot;]} 
+ *      buttonStyles={[&quot;primary&quot;,&quot;gray&quot;,&quot;success&quot;,&quot;danger&quot;,&quot;gray&quot;]} 
+ *      onLoading={::this.onLoading} onLoadingEnd={::this.onLoadingEnd}&gt;
+ *          ...
+ *  &lt;/LoadingList&gt;
+ * &#x60;&#x60;&#x60;
+ * 
+ * @class LoadingList
+ * @module 操作类组件
+ * @extends Component
+ * @constructor
+ * @since 0.1.0
+ * @demo LoadingList|loading-list.js {展示}
+ * @show true
+ * */
+
+export default class LoadingList extends Component{
+    static propTypes = {
+        /**
+         * 样式前缀
+         * @property classPrefix
+         * @type String
+         * @default &#x27;loading-list&#x27;
+         * */
+        classPrefix: PropTypes.string,
+        /**
+         * 加载更多的模式，可选[button,auto], 默认auto
+         * @property phStyle
+         * @type String
+         * @default &#x27;auto&#x27;
+         **/
+        phMode:PropTypes.string,
+        /**
+         * 加载状态：0加载更多, 1加载中, 2数据加载成功, 3数据加载失败, 4没有更多
+         * @property loadingStatus
+         * @type Number
+         * @default 1
+         **/
+        loadingStatus: PropTypes.number,
+        /**
+         * 加载5个状态的文字描述，默认[&quot;加载更多&quot;,&quot;加载中&quot;,&quot;加载成功&quot;,&quot;加载失败&quot;,&quot;没有更多&quot;]
+         * @property loadTips
+         * @type Array
+         * @default [&quot;加载更多&quot;,&quot;加载中&quot;,&quot;加载成功&quot;,&quot;加载失败&quot;,&quot;没有更多&quot;]
+         **/
+        loadTips: PropTypes.array,
+        /**
+         * 加载5个状态的style，默认[&quot;primary&quot;,&quot;info&quot;,&quot;success&quot;,&quot;error&quot;,&quot;gray&quot;]
+         * @property buttonStyles
+         * @type Array
+         * @default [&quot;primary&quot;,&quot;info&quot;,&quot;success&quot;,&quot;error&quot;,&quot;gray&quot;]
+         **/
+        buttonStyles: PropTypes.array,
+        /**
+         * 点击按钮加载或滑到底部自动加载的回调函数，用户在该函数内自定义请求
+         * @method onLoading
+         * @type Function
+         * @default null
+         **/
+        onLoading: PropTypes.func,
+        /**
+         * 每次加载结束的回调函数
+         * @method onLoadingEnd
+         * @type Function
+         * @default null
+         **/
+        onLoadingEnd: PropTypes.func
+    };
+
+    static defaultProps ={
+        phMode: &#x27;auto&#x27;,
+        loadingStatus: 1, // 0加载更多, 1加载中, 2数据加载成功, 3数据加载失败, 4没有更多
+        loadTips : [&quot;加载更多&quot;,&quot;加载中&quot;,&quot;加载成功&quot;,&quot;加载失败&quot;,&quot;没有更多&quot;],
+        buttonStyles: [&quot;primary&quot;,&quot;info&quot;,&quot;success&quot;,&quot;error&quot;,&quot;gray&quot;],
+        classPrefix:&#x27;loading-list&#x27;,
+        classMapping : {}
+    };
+
+    constructor(props,context){
+        super(props,context);
+
+        this.count = 0;
+        this.handleWindowScroll = this.handleWindowScroll.bind(this);
+
+        if(props.phMode==&quot;auto&quot;) window.addEventListener(&#x27;scroll&#x27;, this.handleWindowScroll, false);
+    }
+
+    handleWindowScroll(){
+        if(document.body.scrollTop &gt;= this.loadingPage.offsetHeight + this.loadingPage.offsetTop - window.screen.height){
+            if(this.props.loadingStatus==0) this.onLoading();
+        }
+    }
+
+    renderButton(){
+        let {phMode, loadTips, buttonStyles, loadingStatus} = this.props;
+        if(phMode==&quot;button&quot;){
+            return (
+                &lt;Button phStyle={buttonStyles[loadingStatus]} block disabled={loadingStatus==4} 
+                    onClick={::this.onLoading}&gt;
+                    {this.renderIcon()}
+                    {loadTips[loadingStatus]}
+                &lt;/Button&gt;
+            );
+        }else{
+            return (
+                &lt;div className={setPhoenixPrefix(&#x27;loading-page-tip&#x27;)}&gt;
+                    {this.renderIcon()}
+                    {loadTips[loadingStatus]}
+                &lt;/div&gt;
+            );
+        }
+    }
+
+    renderIcon(){
+        if(this.props.loadingStatus==1){
+            return &lt;Icon phIcon=&quot;loading&quot; /&gt;;
+        }else{
+            return &#x27;&#x27;;
+        }        
+    }
+
+    onLoading(){
+        if(this.props.onLoading) this.props.onLoading();
+    }
+
+    onDrag(event, position){
+        let {phMode, loadingStatus} = this.props;
+        if(phMode==&quot;button&quot;) return;
+
+        let startY = position.start.y, moveY = position.move.y;
+        let distanceY = moveY-startY;
+        if(distanceY&gt;0) return; //只可以上拉
+        
+        if(Math.abs(distanceY)&gt;30){
+            // 拖拽过程中只执行一次
+            if(this.count==0){
+                // 初始状态和错误状态可以上拉重新请求
+                if(loadingStatus==0 || loadingStatus==3) this.onLoading();
+                this.count++;
+            }            
+        }
+
+        if(Math.abs(distanceY)&gt;=200) distanceY = -200;
+        
+        this.loadingPageMain.style.transform = &quot;translateY(&quot;+distanceY+&quot;px)&quot;;
+    }
+
+    onDrop(event, position){
+        if(this.props.phMode==&quot;button&quot;) return;
+        this.count = 0;
+        this.loadingPageMain.style.transform = &quot;translateY(0px)&quot;;
+    }
+
+    componentDidMount(){
+        // let {loadingStatus, onLoadingEnd} = this.props;
+        // if(loadingStatus==2 &amp;&amp; onLoadingEnd) onLoadingEnd();
+    }
+
+    componentDidUpdate(){
+        let {loadingStatus, onLoadingEnd} = this.props;
+        if(loadingStatus==2 &amp;&amp; onLoadingEnd) onLoadingEnd();
+    }
+
+    componentWillUnmount(){
+        window.removeEventListener(&#x27;scroll&#x27;, this.handleWindowScroll, false);
+    }
+
+    render(){
+        let {className, children} = this.props;
+
+        return(
+            &lt;Drag {...this.props} className={classnames(this.getProperty(true),className,&#x27;animated&#x27;)}
+                onDrag={::this.onDrag} onDrop={::this.onDrop}&gt;
+                &lt;div className={setPhoenixPrefix(&#x27;loading-page-main&#x27;)} ref={(loadingPageMain)=&gt;{this.loadingPageMain=loadingPageMain;}}&gt;
+                    &lt;div className={setPhoenixPrefix(&#x27;loading-page-content&#x27;)} ref={(loadingPage)=&gt;{this.loadingPage=loadingPage;}}&gt;
+                        {children}
+                    &lt;/div&gt;
+                    {this.renderButton()}
+                &lt;/div&gt;
+            &lt;/Drag&gt;
+        )
+    }
+}
+    </pre>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+<a id="gotoTop" class='well well-small' href='#'>
+</a>
+<script src="../assets/vendor/jquery/jquery-1.8.2.js"></script>
+<script src="../assets/vendor/bootstrap/js/bootstrap.js"></script>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/doc.js"></script>
+
+</body>
+</html>

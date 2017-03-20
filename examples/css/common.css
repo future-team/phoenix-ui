@@ -30,6 +30,8 @@ body{
 
 /*** List ***/
 .menu{
+    position: relative;
+    z-index:10;
     background: #fff;
 }
 .menu header{
@@ -53,7 +55,8 @@ body{
     font-size: 150%;
 }
 .left-header p{
-    font-size: 87%;
+    font-size: 80%;
+    white-space: nowrap;
 }
 .left-header a{
     text-decoration: underline;
@@ -68,6 +71,7 @@ body{
 .right-header a{
     display: block;
     margin-bottom: 1rem;
+    font-size: 87%;
     color: #fff;
 }
 
@@ -250,6 +254,15 @@ body{
     font-size: 67%;
 }
 
+.ph-loading-list li{
+    padding: 1rem;
+    margin-top: 1rem;
+    background-color: #fff;
+}
+.ph-loading-list li img{
+    width: 100%;
+}
+
 ::-webkit-scrollbar{
     height: 0;
 }
@@ -274,7 +287,3 @@ body{
 .detail-demo{
     background-color: #fff;
 }
-
-
-
-

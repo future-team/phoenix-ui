@@ -11,8 +11,6 @@ export default class icon extends Component{
                 <div className="content">
                     <h3 className="comp-tip">通过phIcon设定</h3>
 	                <Icon phIcon="search" />
-                    <h3 className="comp-tip">设置className</h3>
-                    <Icon className="icon-more" />
                     <h3 className="comp-tip">不用Icon组件的方式</h3>
                     <span className="gfs-icon icon-chevron-left"></span>
                 </div>

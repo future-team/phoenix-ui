@@ -34,12 +34,6 @@ export default class button extends Component{
                 </div>
                 <Code target="button-phstyle" />
 
-                <h3 className="comp-type">radius属性</h3>
-                <div className="content">
-                    <Button radius>radius</Button>
-                </div>
-                <Code target="button-radius" />
-
                 <h3 className="comp-type">block属性</h3>
                 <div className="content">
                     <Button block>block</Button>

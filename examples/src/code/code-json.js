@@ -112,11 +112,19 @@ var code = {
 	'menu-item-name': '...\n<Menu.List activeName={this.state.activeName} onMenulistChange={(name)=>{this.setState({activeName:name})}} >\n\  <Menu.Item name="home">主页</Menu.Item>\n<Menu.List>\n...',
 	'menu-item-href': '...\n<Menu.List activeName={this.state.activeName} onMenulistChange={(name)=>{this.setState({activeName:name})}} >\n\  <Menu.Item href="#home">主页</Menu.Item>\n<Menu.List>\n...',
 	'menu-item-onmenuitemchange': '...\n<Menu.List activeName={this.state.activeName} onMenulistChange={(name)=>{this.setState({activeName:name})}} >\n\  <Menu.Item onMenuitemChange={(name)=>{console.log(name);}}>主页</Menu.Item>\n<Menu.List>\n...',
+	
+	'loadinglist':'<LoadingList phMode="auto" loadingStatus={this.state.loadingStatus} \nloadTips={["点击加载更多","加载中...","加载成功！","加载失败！","没有更多"]} \nbuttonStyles={["primary","gray","success","danger","gray"]} \nonLoading={::this.onLoading} onLoadingEnd={::this.onLoadingEnd}>\n\  '+
+		'<ul>\n\    {\n\      this.state.loadingData.map((data,index)=>{\n\        return (\n\          <li key={index}>...</li>\n\        );\n\      })\n\    }\n\  </ul>\n</LoadingList>',
 
 	'animate': '<Animate transitionName="fade">\n\  {this.renderList()}\n</Animate>\n'+
 		'this.state = {list: ["看一本书","睡8个小时"]}\nrenderList(){// 渲染todo list \n\  const items = this.state.list.map((item,index)=>{\n\    return <div key={index} className="animated" onClick={()=>{...}}>{item}</div>;\n\  });\n\  return items;\n}',
 	'drag': '<Drag onDrag={::this.onDrag} onDrop={::this.onDrop} style={{height:0}}>\n\  <div className="box" ref={(box)=>{this.box = box}}>Drag</div>\n</Drag>\n'+
-		'onDrag(event,position){\n\  // ...\n}\nonDrop(event,position){\n\  // ...\n}\n'
+		'onDrag(event,position){\n\  // ...\n}\nonDrop(event,position){\n\  // ...\n}\n',
+
+	'page-transition': 'let {PageTransition} from "phoenix-ui"; \n\n const RouteTransition = (props)=>(\n\  <PageTransition {...props} transitionName="slide-left" onLoad={()=>{console.log("end!!!");}}>{props.children}</PageTransition>\n);\n\n'+
+		'let Index = class index extends Component {\n\  render() {\n\    return (\n\      <div className="menu ph-transition-index">...</div>\n\    );\n\  }\n};\n\n'+
+		'<Router history={this.history}>\n\  <Route path="/" component={RouteTransition}>\n\    <Route path="/index" name="index" component={Index} />\n\    <Route path="/button" name="button" component={Button} />\n\    ...\n\    <Redirect from="/" to="/index" />\n\  </Route>\n</Router>'
+
 };
 
 export default code;
