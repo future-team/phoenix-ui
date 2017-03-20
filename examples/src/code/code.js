@@ -29,7 +29,7 @@ export default class code extends Component{
         return(
             <div>
                 <a className="code-mark ph-button-link" onClick={::this.onShow}>查看源码</a>
-                <Dialog className="code-dialog" visible={this.state.visible} onClose={::this.onClose}>
+                <Dialog className="code-dialog" closeButton visible={this.state.visible} onClose={::this.onClose}>
                     <Dialog.Body className="code-body">
                         {codeJson[this.props.target]}
                     </Dialog.Body>

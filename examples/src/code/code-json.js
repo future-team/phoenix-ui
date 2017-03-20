@@ -119,7 +119,12 @@ var code = {
 	'animate': '<Animate transitionName="fade">\n\  {this.renderList()}\n</Animate>\n'+
 		'this.state = {list: ["看一本书","睡8个小时"]}\nrenderList(){// 渲染todo list \n\  const items = this.state.list.map((item,index)=>{\n\    return <div key={index} className="animated" onClick={()=>{...}}>{item}</div>;\n\  });\n\  return items;\n}',
 	'drag': '<Drag onDrag={::this.onDrag} onDrop={::this.onDrop} style={{height:0}}>\n\  <div className="box" ref={(box)=>{this.box = box}}>Drag</div>\n</Drag>\n'+
-		'onDrag(event,position){\n\  // ...\n}\nonDrop(event,position){\n\  // ...\n}\n'
+		'onDrag(event,position){\n\  // ...\n}\nonDrop(event,position){\n\  // ...\n}\n',
+
+	'page-transition': 'let {PageTransition} from "phoenix-ui"; \n\n const RouteTransition = (props)=>(\n\  <PageTransition {...props} transitionName="slide-left" onLoad={()=>{console.log("end!!!");}}>{props.children}</PageTransition>\n);\n\n'+
+		'let Index = class index extends Component {\n\  render() {\n\    return (\n\      <div className="menu ph-transition-index">...</div>\n\    );\n\  }\n};\n\n'+
+		'<Router history={this.history}>\n\  <Route path="/" component={RouteTransition}>\n\    <Route path="/index" name="index" component={Index} />\n\    <Route path="/button" name="button" component={Button} />\n\    ...\n\    <Redirect from="/" to="/index" />\n\  </Route>\n</Router>'
+
 };
 
 export default code;

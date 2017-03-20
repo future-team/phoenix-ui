@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {ButtonGroup, Button} from "phoenix-ui";
 import Code from "./code/code";
 
-export default class input extends Component{
+export default class buttongroup extends Component{
     
     onButtongroupChange(target,html){
         console.log(target);

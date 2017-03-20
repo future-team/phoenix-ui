@@ -1,20 +1,61 @@
 import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
-import Component from './utils/Component';
 import classnames from 'classnames';
 import Queue from 'promise-queue';
 import {setPhoenixPrefix} from './utils/Tool';
 
-export default class PageTransition extends Component{
+/**
+ * 路由切换组件<br/>
+ * - 通过transitionName设置动画类型，可选[fade, slide-top, slide-bottom, slide-left, slide-right]。
+ * - 通过onLoad函数设置动画完成的回调。
+ * - 在列表页的最外层元素加`ph-transition-index`类，其他页面跳转到列表页都是回退的效果，到另一个新页面都是前进的效果。
+ *
+ * 主要属性和接口：
+ * - transitionName:动画类型／动画名称，默认fade。
+ * - onLoad:动画完成的回调函数。
+ * 
+ * 示例：
+ * ```code
+ *  let {PageTransition} from 'phoenix-ui';
+ * 
+ *  const RouteTransition = (props)=>(
+ *      <PageTransition {...props} transitionName="slide-left" onLoad={()=>{console.log('end!!!');}}>{props.children}</PageTransition>
+ *  );
+ * ```
+ * ```code
+ *  let Index = class index extends Component {
+ *      render() {
+ *          return (
+ *              <div className="menu ph-transition-index">
+ *                  ...
+ *               </div>
+ *          );
+ *      }
+ *  };
+ * ```
+ * ```code
+ *  <Router history={this.history}>
+ *      <Route path="/" component={RouteTransition}>
+ *          <Route path="/index" name="index" component={Index} />
+ *          <Route path="/button" name="button" component={Button} />
+ *          ...
+ *          <Redirect from="/" to="/index" />
+ *      </Route>
+ *  </Router>
+ * ```
+ * 
+ * @class PageTransition
+ * @module 路由动画
+ * @extends Component
+ * @constructor
+ * @since 1.6.0
+ * @demo pagetransition|page-transition.js {展示}
+ * @show true
+ * */
+
+export default class PageTransition extends React.Component{
 
     static propTypes={
-        /**
-         * 间隔时间
-         * @property timeout
-         * @type Number
-         * @default 500
-         * */
-        timeout: PropTypes.number,
         /**
          * 动画名称，可选[fade, slide-top, slide-bottom, slide-left, slide-right]
          * @property transitionName
@@ -22,13 +63,20 @@ export default class PageTransition extends Component{
          * @default 'fade'
          * */
         transitionName: PropTypes.string,
+        /**
+         * 动画结束执行的回调
+         * @method onLoad
+         * @type Function
+         * @default null
+         * */
+        onLoad: PropTypes.func,
+        timeout: PropTypes.number,
         animateOnInit: PropTypes.bool,
         data: PropTypes.object,
-        onLoad: PropTypes.func
     };
 
     static defaultProps = {
-        timeout: 500,
+        timeout: 300,
         transitionName: 'slide-left',
         animateOnInit: true,
         classMapping : {}
@@ -57,6 +105,9 @@ export default class PageTransition extends Component{
         this.queue = new Queue(1, Infinity);
 
         this.itemClass = setPhoenixPrefix('transition-item');
+        
+        this.routeRecord = [props.location.pathname];
+        this.forward = true;
     }
 
     componentDidMount(){
@@ -75,6 +126,9 @@ export default class PageTransition extends Component{
     }
 
     componentWillReceiveProps(nextProps){
+        // 判断当前是往前还是后退
+        this.forward = this.routeForward(nextProps.location.pathname);
+
         const transitNewChild = () => {
             this.queue.add(()=> this.transite(nextProps.children));
         };
@@ -101,6 +155,26 @@ export default class PageTransition extends Component{
         }
     }
 
+    routeForward(nextPathName){
+        let routeLen = this.routeRecord.length;
+
+        if(routeLen>1 && this.routeRecord[routeLen-2]===nextPathName){// back
+            this.routeRecord.pop();
+            return false;
+        }else{
+            this.routeRecord.push(nextPathName);
+            return true;
+        }
+    }
+
+    getClass(mode){
+        if(mode&&this.forward || !mode&&!this.forward){
+            return setPhoenixPrefix('transition-from');
+        }else{
+            return setPhoenixPrefix('transition-to');
+        }
+    }
+
     getRef(ref){
         let child = this.refs[ref];
         if(child && child.getWrappedInstance){
@@ -118,7 +192,7 @@ export default class PageTransition extends Component{
                 const prevChildDom = ReactDOM.findDOMNode(prevChild);
                 const newChildDom = ReactDOM.findDOMNode(newChild);
                 let timeout = 0;
-
+                
                 const willStart = () => {
                     if (newChild.onTransitionWillStart) {
                         return newChild.onTransitionWillStart(this.props.data) || Promise.resolve();
@@ -130,9 +204,18 @@ export default class PageTransition extends Component{
                 };
 
                 const start = () => {
-                    if (newChildDom.classList.contains(this.itemClass)) {
-                        timeout = this.props.timeout || DEFAULT_TIMEOUT;
+                    if(newChildDom.classList.contains(setPhoenixPrefix('transition-index'))){ //  如果新页面包含'transition-index'强制为后退
+                        this.forward = false;
+                    }else if(prevChildDom && prevChildDom.classList.contains(setPhoenixPrefix('transition-index'))){//  如果新页面包含'transition-index'强制为前进
+                        this.forward = true;
+                    }
+
+                    if (newChildDom) {
+                        timeout = this.props.timeout;
                         newChildDom.classList.add(this.props.transitionName + "-enter");
+                        if(prevChildDom) newChildDom.classList.add(this.itemClass);
+                        newChildDom.classList.add(this.getClass(true));
+
                         newChildDom.offsetHeight; // Trigger layout to make sure transition happen
                         
                         if (newChild.transitionManuallyStart) {
@@ -144,7 +227,9 @@ export default class PageTransition extends Component{
                     if (prevChildDom) {
                         prevChildDom.classList.add(this.props.transitionName + "-leave");
                         prevChildDom.classList.add(this.itemClass);
-                        timeout = this.props.timeout || DEFAULT_TIMEOUT;
+                        prevChildDom.classList.add(this.getClass(false));
+                        
+                        timeout = this.props.timeout;
                         prevChildDom.offsetHeight; // Trigger layout to make sure transition happen
 
                         if (prevChild.transitionLeaveManuallyStart) {
@@ -188,8 +273,9 @@ export default class PageTransition extends Component{
 
                 // Remove appear and active class (or trigger manual end)
                 const end = () => {
-                    if (newChildDom.classList.contains(this.itemClass)) {
+                    if (newChildDom) {
                         newChildDom.classList.remove(this.props.transitionName + "-enter");
+                        newChildDom.classList.remove(this.getClass(true));
                         newChildDom.classList.remove(this.itemClass);
 
                         if (newChild.transitionManuallyStop) {
@@ -198,8 +284,9 @@ export default class PageTransition extends Component{
                         newChildDom.classList.remove(this.props.transitionName + "-enter-active");
                     }
 
-                    if (prevChildDom && prevChildDom.classList.contains(this.itemClass)) {
+                    if (prevChildDom) {
                         prevChildDom.classList.remove(this.props.transitionName + "-leave");
+                        prevChildDom.classList.remove(this.getClass(false));
                         prevChildDom.classList.remove(this.itemClass);
 
                         if (prevChild.transitionLeaveManuallyStop) {

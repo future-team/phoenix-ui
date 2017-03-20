@@ -5,7 +5,7 @@ import Code from "./code/code";
 export default class button extends Component{
     render(){
         return(
-            <div className="ph-transition-item">
+            <div>
                 <h2 className="comp-title">Button</h2>
                 <h3 className="comp-type">phSize(默认sm) 按钮大小</h3>
                 <div className="content">
@@ -33,12 +33,6 @@ export default class button extends Component{
                     <Button hollow>hollow</Button>
                 </div>
                 <Code target="button-phstyle" />
-
-                <h3 className="comp-type">radius属性</h3>
-                <div className="content">
-                    <Button radius>radius</Button>
-                </div>
-                <Code target="button-radius" />
 
                 <h3 className="comp-type">block属性</h3>
                 <div className="content">

@@ -6,7 +6,6 @@ import ReactDOM,{findDOMNode} from 'react-dom';
 import { Redirect, Router, Route } from 'react-router';
 import History from 'history/lib/createHashHistory';
 import {PageTransition} from 'phoenix-ui';
-import {RouterTransition} from 'react-router-transition';
 
 import Tab from './tab.js';
 import Button from './button.js';
@@ -37,6 +36,7 @@ import LoadingList from './loading-list.js';
 import ListDemo from './list-demo.js';
 import Detail from './detail-demo.js';
 import PhoenixStyle from './phoenix-styles.js';
+import PageTransite from './page-transition.js';
 
 let Card = class Card extends Component {
     constructor(props, context){
@@ -57,7 +57,7 @@ let Card = class Card extends Component {
 let Index = class index extends Component {
     render() {
         return (
-            <div className="menu ph-transition-item">
+            <div className="menu ph-transition-index">
                 <header>
                     <div className="left-header">
                         <h1>Phoenix-UI</h1>
@@ -107,6 +107,10 @@ let Index = class index extends Component {
                     <Card href="#/menu" title="Menu" desp="菜单" />
                     <Card href="#/loadinglist" title="LoadingList" desp="加载更多" />
                 </div>
+                <h2>Route Animate</h2>
+                <div className="menu-panel">
+                    <Card href="#/pagetransition" title="PageTransition" desp="路由切换动画组件" />
+                </div>
                 <h2>Assist</h2>
                 <div className="menu-panel">
                     <Card href="#/animate" title="Animate" desp="动画" />
@@ -122,13 +126,9 @@ let Index = class index extends Component {
     }
 };
 
-let Page = class Page extends Component{
-    render(){
-        return (
-            <RouterTransition ></RouterTransition>
-        );
-    }
-}
+const RouteTransition = (props)=>(
+    <PageTransition {...props} transitionName="slide-left" onLoad={()=>{console.log('end!!!');}}>{props.children}</PageTransition>
+);
 
 let AppRouter = class AppRouter extends Component {
     constructor(props, context) {
@@ -141,7 +141,7 @@ let AppRouter = class AppRouter extends Component {
     render() {
         return (
             <Router history={this.history}>
-                <Route path="/" component={PageTransition}>
+                <Route path="/" component={RouteTransition}>
                     <Route path="/index" name="index" component={Index} />
                     <Route path="/phoenix-styles" name="PhoenixStyle" component={PhoenixStyle} />
                     <Route path="/tableview" name="TableView" component={TableView} />
@@ -167,6 +167,7 @@ let AppRouter = class AppRouter extends Component {
                     <Route path="/accordion" name="accordion" component={Accordion} />
                     <Route path="/menu" name="menu" component={Menu} />
                     <Route path="/loadinglist" name="loadinglist" component={LoadingList} />
+                    <Route path="/pagetransition" name="pagetransition" component={PageTransite} />
                     <Route path="/animate" name="animate" component={Animate} />
                     <Route path="/drag" name="drag" component={Drag} />
                     <Route path="/icon" name="icon" component={Icon} />
