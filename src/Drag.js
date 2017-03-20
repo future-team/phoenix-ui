@@ -71,37 +71,41 @@ export default class Drag extends Component{
     }
 
     onTouchStart(event){
+        let {onDrag, onDragStart} = this.props;
         event.stopPropagation();
-        event.preventDefault();
+        // event.preventDefault();
 
         this.state.position.start = {x:event.touches[0].pageX, y: event.touches[0].pageY};
         this.state.position.move = this.state.position.start;
 
-        this.props.onDrag(event, this.state.position);
+        if(onDrag) onDrag(event, this.state.position);
+        if(onDragStart) onDragStart(event, this.state.position);
 
         return false;
     }
 
     onMouseStart(event){
+        let {onDrag, onDragStart} = this.props;
         this.isMouseDown = true;
         event.stopPropagation();
-        event.preventDefault();
+        // event.preventDefault();
 
         this.state.position.start = {x:event.pageX, y: event.pageY};
         this.state.position.move = this.state.position.start;
 
-        this.props.onDrag(event, this.state.position);
+        if(onDrag) onDrag(event, this.state.position);
+        if(onDragStart) onDragStart(event, this.state.position);
 
         return false;
     }
 
     onTouchMove(event){
         event.stopPropagation();
-        event.preventDefault();
+        // event.preventDefault();
 
         this.state.position.move = {x:event.touches[0].pageX, y: event.touches[0].pageY};
 
-        this.props.onDrag(event, this.state.position);
+        if(this.props.onDrag) this.props.onDrag(event, this.state.position);
 
         return false;
     }
@@ -109,35 +113,35 @@ export default class Drag extends Component{
     onMouseMove(event){
         if(!this.isMouseDown) return;
         event.stopPropagation();
-        event.preventDefault();
+        // event.preventDefault();
 
         this.state.position.move = {x:event.pageX, y: event.pageY};
 
-        this.props.onDrag(event, this.state.position);
+        if(this.props.onDrag) this.props.onDrag(event, this.state.position);
 
         return false;
     }
 
     onTouchEnd(event){
         event.stopPropagation();
-        event.preventDefault();
+        // event.preventDefault();
 
         this.state.position.end = {x:event.changedTouches[0].pageX, y: event.changedTouches[0].pageY};
         this.state.position.start = this.state.position.move;
 
-        this.props.onDrop(event, this.state.position);
+        if(this.props.onDrop) this.props.onDrop(event, this.state.position);
 
         return false;
     }
 
     onMouseEnd(event){
         event.stopPropagation();
-        event.preventDefault();
+        // event.preventDefault();
 
         this.state.position.end = {x:event.pageX, y: event.pageY};
         this.state.position.start = this.state.position.move;
 
-        this.props.onDrop(event, this.state.position);
+        if(this.props.onDrop) this.props.onDrop(event, this.state.position);
         this.isMouseDown = false;
 
         return false;
@@ -158,6 +162,8 @@ export default class Drag extends Component{
                 onMouseDown={(event)=>{this.onMouseStart(event)}}
                 onMouseMove={(event)=>{this.onMouseMove(event)}}
                 onMouseUp={(event)=>{this.onMouseEnd(event)}}
+
+                ref={(dragAction)=>{this.dragAction = dragAction;}}
             >
                 {this.props.children}
             </div>

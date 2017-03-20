@@ -193,6 +193,14 @@
                    
                        <li>
                             
+                           <a href="../classes/LoadingList.html">LoadingList</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
                            <a href="../classes/Popup.html">Popup</a>
                            <ul>
                                 
@@ -360,6 +368,24 @@
                        <li>
                             
                            <a href="../classes/TextArea.html">TextArea</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/路由动画.html">路由动画</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/PageTransition.html">PageTransition</a>
                            <ul>
                                 
                            </ul>
@@ -641,7 +667,8 @@ export default class input extends Component{
 
         this.state = {
             name: "value和onChange配合使用",
-            checked: true
+            checkboxChecked: true,
+            radioChecked: true
         };
     }
 
@@ -651,9 +678,15 @@ export default class input extends Component{
         this.setState(o);
     }
 
-    onChange(){
+    onCheckboxChange(){
         this.setState({
-            checked: !this.state.checked
+            checkboxChecked: !this.state.checkboxChecked
+        });
+    }
+
+    onRadioChange(){
+        this.setState({
+            radioChecked: !this.state.radioChecked
         });
     }
 
@@ -677,15 +710,26 @@ export default class input extends Component{
                     &lt;h3 className="comp-tip"&gt;defaultChecked 初始传值&lt;/h3&gt;
                     &lt;Input type="checkbox" label="香蕉" defaultChecked={true} /&gt;
                     &lt;h3 className="comp-tip"&gt;checked和onChange配合使用&lt;/h3&gt;
-                    &lt;Input type="checkbox" label="西瓜" checked={this.state.checked} onChange={::this.onChange} /&gt;
+                    &lt;Input type="checkbox" label="西瓜" checked={this.state.checkboxChecked} onChange={::this.onCheckboxChange} /&gt;
+                    &lt;h3 className="comp-tip"&gt;disabled&lt;/h3&gt;
+                    &lt;Input type="checkbox" label="西瓜" disabled/&gt;
                 &lt;/div&gt;
                 &lt;Code target="input-checkbox" /&gt;
 
                 &lt;h3 className="comp-type"&gt;radio 单选框&lt;/h3&gt;
                 &lt;div className="content"&gt;
                     &lt;h3 className="comp-tip"&gt;默认&lt;/h3&gt;
-                    &lt;Input type="radio" label="男" name="sex" /&gt;
-                    &lt;Input type="radio" label="女" name="sex" /&gt;
+                    &lt;Input type="radio" label="男" name="sex1" /&gt;
+                    &lt;Input type="radio" label="女" name="sex1" /&gt;
+                    &lt;h3 className="comp-tip"&gt;defaultChecked 初始传值&lt;/h3&gt;
+                    &lt;Input type="radio" label="男" name="sex2" defaultChecked={true}/&gt;
+                    &lt;Input type="radio" label="女" name="sex2"/&gt;
+                    &lt;h3 className="comp-tip"&gt;checked和onChange配合使用&lt;/h3&gt;
+                    &lt;Input type="radio" label="男" name="sex3" checked={this.state.radioChecked} onChange={::this.onRadioChange}/&gt;
+                    &lt;Input type="radio" label="女" name="sex3" checked={!this.state.radioChecked} onChange={::this.onRadioChange}/&gt;
+                    &lt;h3 className="comp-tip"&gt;disabled&lt;/h3&gt;
+                    &lt;Input type="radio" label="男" name="sex4" disabled /&gt;
+                    &lt;Input type="radio" label="女" name="sex4" disabled /&gt;
                 &lt;/div&gt;
                 &lt;Code target="input-radio" /&gt;
             &lt;/div&gt;

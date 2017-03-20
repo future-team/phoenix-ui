@@ -10,7 +10,8 @@ export default class input extends Component{
 
         this.state = {
             name: "value和onChange配合使用",
-            checked: true
+            checkboxChecked: true,
+            radioChecked: true
         };
     }
 
@@ -20,9 +21,15 @@ export default class input extends Component{
         this.setState(o);
     }
 
-    onChange(){
+    onCheckboxChange(){
         this.setState({
-            checked: !this.state.checked
+            checkboxChecked: !this.state.checkboxChecked
+        });
+    }
+
+    onRadioChange(){
+        this.setState({
+            radioChecked: !this.state.radioChecked
         });
     }
 
@@ -46,15 +53,26 @@ export default class input extends Component{
                     <h3 className="comp-tip">defaultChecked 初始传值</h3>
                     <Input type="checkbox" label="香蕉" defaultChecked={true} />
                     <h3 className="comp-tip">checked和onChange配合使用</h3>
-                    <Input type="checkbox" label="西瓜" checked={this.state.checked} onChange={::this.onChange} />
+                    <Input type="checkbox" label="西瓜" checked={this.state.checkboxChecked} onChange={::this.onCheckboxChange} />
+                    <h3 className="comp-tip">disabled</h3>
+                    <Input type="checkbox" label="西瓜" disabled/>
                 </div>
                 <Code target="input-checkbox" />
 
                 <h3 className="comp-type">radio 单选框</h3>
                 <div className="content">
                     <h3 className="comp-tip">默认</h3>
-                    <Input type="radio" label="男" name="sex" />
-                    <Input type="radio" label="女" name="sex" />
+                    <Input type="radio" label="男" name="sex1" />
+                    <Input type="radio" label="女" name="sex1" />
+                    <h3 className="comp-tip">defaultChecked 初始传值</h3>
+                    <Input type="radio" label="男" name="sex2" defaultChecked={true}/>
+                    <Input type="radio" label="女" name="sex2"/>
+                    <h3 className="comp-tip">checked和onChange配合使用</h3>
+                    <Input type="radio" label="男" name="sex3" checked={this.state.radioChecked} onChange={::this.onRadioChange}/>
+                    <Input type="radio" label="女" name="sex3" checked={!this.state.radioChecked} onChange={::this.onRadioChange}/>
+                    <h3 className="comp-tip">disabled</h3>
+                    <Input type="radio" label="男" name="sex4" disabled />
+                    <Input type="radio" label="女" name="sex4" disabled />
                 </div>
                 <Code target="input-radio" />
             </div>

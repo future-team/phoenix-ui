@@ -193,6 +193,14 @@
                    
                        <li>
                             
+                           <a href="../classes/LoadingList.html">LoadingList</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
                            <a href="../classes/Popup.html">Popup</a>
                            <ul>
                                 
@@ -370,6 +378,24 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/路由动画.html">路由动画</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/PageTransition.html">PageTransition</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
                     <a href="../modules/辅助组件.html">辅助组件</a>
                 </dt>
                 <dd>
@@ -529,7 +555,7 @@ export default class Textarea extends Component{
         }
     }
 
-    onChange(event){
+    onTextareaChange(event){
         this.setState({
             inputLength: event.target.value.length
         });
@@ -546,11 +572,11 @@ export default class Textarea extends Component{
                 &lt;textarea {...this.props} className={classnames(
                     this.getProperty(true),
                     this.props.className
-                )} onChange={(event)=&gt;{this.onChange(event)}}&gt;&lt;/textarea&gt;
+                )} onChange={(event)=&gt;{this.onTextareaChange(event)}}&gt;&lt;/textarea&gt;
                 &lt;span className={classnames(
                     setPhoenixPrefix(&#x27;textarea-count&#x27;),
                     count? &#x27;show&#x27;:&#x27;hide&#x27;
-                )}&gt;
+                )}&gt; 
                     &lt;b className={setPhoenixPrefix(&#x27;textarea-length&#x27;)}&gt;{this.state.inputLength}&lt;/b&gt;/&lt;b&gt;{maxLength}&lt;/b&gt;
                 &lt;/span&gt;
             &lt;/div&gt;

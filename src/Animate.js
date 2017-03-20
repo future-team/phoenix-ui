@@ -4,7 +4,6 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 /**
  * 动画外层组件<br/>
- * - 用`react-addons-css-transition-group`实现, 所以使用时需要额外安装该模块。
  * - 使用时需要在子元素增加animated类名实现动画效果, animated定义的是过渡的duration和fill-mode, 默认300ms, 完全可以自定义。
  * - 可通过transitionName设置动画名称, 可选fade、slide-top、slide-bottom(还将补充), 默认fade。
  * - 可通过transitionEnterTimeout设置进入延迟时间。
@@ -71,7 +70,7 @@ export default class Animate extends Component{
     }
 
     render(){
-        let {transitionName, transitionEnterTimeout, transitionLeaveTimeout, className, children} = this.props;
+        let {transitionName, transitionEnterTimeout, transitionLeaveTimeout, children} = this.props;
         return (
             <ReactCSSTransitionGroup {...this.props}
                 transitionName={transitionName}
