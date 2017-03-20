@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui" />
-    <title>MenuList - phoenix-ui</title>
+    <title>PageTransition - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css">
@@ -455,32 +455,43 @@
             <div id="docs-main">
                 <div class="content">
                     <div class="page-header">
-    <h1>MenuList</h1>
+    <h1>PageTransition</h1>
 </div>
  <div class="well well-small sign-left3">
-      <div class="stdoc-code"><p>菜单导航列表组件<br/></p>
+      <div class="stdoc-code"><p>路由切换组件<br/></p>
 <ul>
-<li>通过activeName设置当前导航选中的菜单项， 必需。</li>
-<li>通过onMenulistChange函数设置点击菜单项时的回调，函数内必需手动更改activeName值，必需。</li>
+<li>通过transitionName设置动画类型，可选[fade, slide-top, slide-bottom, slide-left, slide-right]。</li>
+<li>通过onLoad函数设置动画完成的回调。</li>
+<li>在列表页的最外层元素加<code>ph-transition-index</code>类，其他页面跳转到列表页都是回退的效果，到另一个新页面都是前进的效果。</li>
 </ul>
 <p>主要属性和接口：</p>
 <ul>
-<li>activeName:设置当前导航选中的菜单项,默认null。 </li>
-<li>onMenulistChange:点击菜单项时的回调。 <br/>
-如：<pre><code class="lang-code">  &lt;Menu&gt;
-      &lt;Menu.Header&gt;
-          标题一
-      &lt;/Menu.Header&gt;
-      &lt;Menu.Body&gt;
-          &lt;Menu.Nav&gt;
-               &lt;Menu.List activeName={this.state.activeName} onMenulistChange={(name)=&gt;{this.setState({activeName:name})}}&gt;
-                   ...
-               &lt;/Menu.List&gt;
-           &lt;/Menu.Nav&gt;
-      &lt;/Menu.Body&gt;
-  &lt;/Menu&gt;</code></pre>
-</li>
+<li>transitionName:动画类型／动画名称，默认fade。</li>
+<li>onLoad:动画完成的回调函数。</li>
 </ul>
+<p>示例：</p>
+<pre><code class="lang-code"> let {PageTransition} from &#39;phoenix-ui&#39;;
+
+ const RouteTransition = (props)=&gt;(
+     &lt;PageTransition {...props} transitionName="slide-left" onLoad={()=&gt;{console.log(&#39;end!!!&#39;);}}&gt;{props.children}&lt;/PageTransition&gt;
+ );</code></pre>
+<pre><code class="lang-code"> let Index = class index extends Component {
+     render() {
+         return (
+             &lt;div className="menu ph-transition-index"&gt;
+                 ...
+              &lt;/div&gt;
+         );
+     }
+ };</code></pre>
+<pre><code class="lang-code"> &lt;Router history={this.history}&gt;
+     &lt;Route path="/" component={RouteTransition}&gt;
+         &lt;Route path="/index" name="index" component={Index} /&gt;
+         &lt;Route path="/button" name="button" component={Button} /&gt;
+         ...
+         &lt;Redirect from="/" to="/index" /&gt;
+     &lt;/Route&gt;
+ &lt;/Router&gt;</code></pre>
 </div>
  </div>
 
@@ -493,7 +504,7 @@
                     <ul class="index-list methods extends">
                         
                             <li class="index-item method">
-                                <a href="#" data-tabid="#method" data-anchor="#method_onMenulistChange" data-tablink="onMenulistChange">onMenulistChange</a>
+                                <a href="#" data-tabid="#method" data-anchor="#method_onLoad" data-tablink="onLoad">onLoad</a>
 
                                 
                                 
@@ -509,14 +520,7 @@
                     <ul class="index-list properties extends">
                         
                             <li class="index-item property">
-                                <a href="#" data-tabid="#property" data-anchor="#property_activeName" data-tablink="activeName">activeName</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property">
-                                <a href="#" data-tabid="#property" data-anchor="#property_classPrefix" data-tablink="classPrefix">classPrefix</a>
+                                <a href="#" data-tabid="#property" data-anchor="#property_transitionName" data-tablink="transitionName">transitionName</a>
 
                                 
                                 
@@ -559,18 +563,18 @@
 
             
                 <div class="foundat">
-                    Defined in: <a href="../files/src_Menu_MenuList.js.html#l8"><code>src&#x2F;Menu&#x2F;MenuList.js:8</code></a>
+                    Defined in: <a href="../files/src_PageTransition.js.html#l7"><code>src&#x2F;PageTransition.js:7</code></a>
                 </div>
             
 
             
                 
-                    Module: <a href="../modules/菜单组件.html">菜单组件</a>
+                    Module: <a href="../modules/路由动画.html">路由动画</a>
                 
             
 
             
-                <p>Available since 1.4.0</p>
+                <p>Available since 1.6.0</p>
             
         </div>
 
@@ -578,10 +582,10 @@
             
                 <div class="constructor">
                     <h2>Constructor</h2>
-                    <div id="method_MenuList" class="method item">
-    <h3 class="name">MenuList</h3>
+                    <div id="method_PageTransition" class="method item">
+    <h3 class="name">PageTransition</h3>
     <code>
-    MenuList
+    PageTransition
     
         <span class="paren">()</span>
     
@@ -612,7 +616,7 @@
             
         
         
-        <a href="../files/src_Menu_MenuList.js.html#l8"><code>src&#x2F;Menu&#x2F;MenuList.js:8</code></a>
+        <a href="../files/src_PageTransition.js.html#l7"><code>src&#x2F;PageTransition.js:7</code></a>
         
         </p>
 
@@ -620,7 +624,7 @@
         
 
         
-            <p>Available since 1.4.0</p>
+            <p>Available since 1.6.0</p>
         
     </div>
 
@@ -637,185 +641,21 @@
             <h4>Example:</h4>
             <ul class="nav nav-tabs example-list">
                 
-                <li role="presentation"  class="active"  data-demo="http://future-team.github.io/phoenix-ui/examples/index.html#/menu"  _no='0'> <a>展示</a></li>
+                <li role="presentation"  class="active"  data-demo="http://future-team.github.io/phoenix-ui/examples/index.html#/pagetransition"  _no='0'> <a>展示</a></li>
                 
             </ul>
             <div class="example-content  showdemo ">
                 <div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from "react";
-import classnames from "classnames";
-import {Menu, Button, Icon, Input} from "phoenix-ui";
 import Code from "./code/code";
 
-export default class menu extends Component{
-
-    constructor(props,context){
-        super(props,context);
-
-        this.state = {
-            visible: false,
-            placement: &#39;top&#39;,
-            align: &#39;left&#39;,
-            width: 40,
-            closeButton: false,
-            navAlign: &#39;top&#39;,
-            activeName: &#39;index&#39;,
-            value: &#39;ha&#39;
-        }
-    }
-
-    onMenuChange(visible){
-        console.log(visible);
-    }
-
-    switchAlign(){
-        let newAlign = "left";
-
-        if(this.state.align == "left") newAlign="right";
-
-        this.setState({
-            align: newAlign
-        });
-    }
-
-    switchPlacement(){
-        this.setState({
-            placement: "left-full"
-        });
-    }
-
-    switchWidth(){
-        this.setState({
-            width: 50
-        });
-    }
-
-    switchCloseButton(){
-        this.setState({
-            closeButton: !this.state.closeButton
-        });
-    }
-
-    switchNavAlign(){
-        this.setState({
-            navAlign: &#39;center&#39;
-        });
-    }
-
-    switchActiveName(){
-        this.setState({
-            activeName: &#39;menu&#39;
-        });
-    }
-
-    // 必需
-    setActiveName(name){
-        this.setState({
-            activeName: name,
-            visible: false // 如果需要点击之后关闭false
-        });
-    }
-
-    onMenuItemChange(name){
-        console.log(name);
-    }
-
-    onInputChange(e){
-        this.setState({
-            value: e.target.value
-        });
-    }
-
+export default class pagetransite extends Component{
     render(){
         return(
             &lt;div&gt;
-                &lt;Menu visible={this.state.visible} scrollCeiling={100} onMenuChange={::this.onMenuChange}&gt;
-                    &lt;Menu.Header align={this.state.align}&gt;Phoenix&lt;/Menu.Header&gt;
-                    &lt;Menu.Body width={this.state.width} placement={this.state.placement} closeButton={this.state.closeButton}&gt;
-                        &lt;Menu.Nav align={this.state.navAlign}&gt;
-                            &lt;div&gt;
-                                &lt;Input placeholder="自定义部分" value={this.state.value} onChange={::this.onInputChange}/&gt;
-                            &lt;/div&gt;
-                            &lt;Menu.List activeName={this.state.activeName} onMenulistChange={::this.setActiveName}&gt;
-                                &lt;Menu.Item name="index" phIcon="home"&gt;首页&lt;/Menu.Item&gt;
-                                &lt;Menu.Item name="menu" href="#menu" phIcon="menu" onChange={::this.onMenuItemChange}&gt;菜单&lt;/Menu.Item&gt;
-                            &lt;/Menu.List&gt;
-                        &lt;/Menu.Nav&gt;
-                    &lt;/Menu.Body&gt;
-                &lt;/Menu&gt;
-
-                &lt;h2 className="comp-title"&gt;Menu&lt;/h2&gt;
-                &lt;h3 className="comp-type"&gt;&lt;strong&gt;Menu属性&lt;/strong&gt;&lt;/h3&gt;
-                &lt;h3 className="comp-type"&gt;visible(默认false) 初始可见值&lt;/h3&gt;
-                &lt;Code target="menu-visible" /&gt;
-
-                &lt;h3 className="comp-type"&gt;scrollCeiling 滚动吸顶的距离，默认不吸顶&lt;/h3&gt;
-                &lt;h3 className="comp-tip"&gt;当前设置为100&lt;/h3&gt;
-                &lt;Code target="menu-scrollceiling" /&gt;
-
-                &lt;h3 className="comp-type"&gt;onMenuChange 菜单展开收起的回调函数&lt;/h3&gt;
-                &lt;Code target="menu-onmenuchange" /&gt;
-
-
-                &lt;h3 className="comp-type"&gt;&lt;strong&gt;MenuHeader属性&lt;/strong&gt;&lt;/h3&gt;
-                &lt;h3 className="comp-type"&gt;align(默认left) 菜单按钮的位置&lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;Button onClick={::this.switchAlign}&gt;切换align值:默认left&lt;/Button&gt;
-                &lt;/div&gt;
-                &lt;Code target="menu-header-align" /&gt;
-
-
-                &lt;h3 className="comp-type"&gt;&lt;strong&gt;MenuBody属性&lt;/strong&gt;&lt;/h3&gt;
-                &lt;h3 className="comp-type"&gt;placement(默认top) 菜单的位置&lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;Button onClick={::this.switchPlacement}&gt;改变placement值:top-&gt;left-full&lt;/Button&gt;
-                &lt;/div&gt;
-                &lt;Code target="menu-body-placement" /&gt;
-
-                &lt;h3 className="comp-type"&gt;width(默认50) 侧边菜单的宽度&lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;Button onClick={::this.switchWidth}&gt;改变width值:40-&gt;50&lt;/Button&gt;
-                &lt;/div&gt;
-                &lt;Code target="menu-body-width" /&gt;
-
-                &lt;h3 className="comp-type"&gt;closeButton 菜单主体的关闭按钮是否显示&lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;Button onClick={::this.switchCloseButton}&gt;切换closeButton值:默认false&lt;/Button&gt;
-                &lt;/div&gt;
-                &lt;Code target="menu-body-closebutton" /&gt;
-
-
-                &lt;h3 className="comp-type"&gt;&lt;strong&gt;MenuNav属性&lt;/strong&gt;&lt;/h3&gt;
-                &lt;h3 className="comp-type"&gt;align(默认top) 导航的位置&lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;Button onClick={::this.switchNavAlign}&gt;改变align值:top-&gt;center&lt;/Button&gt;
-                &lt;/div&gt;
-                &lt;Code target="menu-nav-align" /&gt;
-
-
-                &lt;h3 className="comp-type"&gt;&lt;strong&gt;MenuList属性&lt;/strong&gt;&lt;/h3&gt;
-                &lt;h3 className="comp-type"&gt;activeName(默认null) 当前导航选中的菜单项&lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;Button onClick={::this.switchActiveName}&gt;改变activeName值:index-&gt;menu&lt;/Button&gt;
-                &lt;/div&gt;
-                &lt;Code target="menu-list-onmenulistchange" /&gt;
-
-                &lt;h3 className="comp-type"&gt;onMenulistChange 点击菜单项时的回调，函数内必需手动更改activeName值&lt;/h3&gt;
-                &lt;Code target="menu-list-onmenulistchange" /&gt;
-
-
-                &lt;h3 className="comp-type"&gt;&lt;strong&gt;MenuItem属性&lt;/strong&gt;&lt;/h3&gt;
-                &lt;h3 className="comp-type"&gt;phIcon(默认无) 菜单项名称前面的符号️类型&lt;/h3&gt;
-                &lt;Code target="menu-item-phicon" /&gt;
-
-                &lt;h3 className="comp-type"&gt;name(默认无) 当前导航选中的菜单项&lt;/h3&gt;
-                &lt;Code target="menu-item-name" /&gt;
-
-                &lt;h3 className="comp-type"&gt;href(默认无) 菜单项的链接&lt;/h3&gt;
-                &lt;Code target="menu-item-href" /&gt;
-
-                &lt;h3 className="comp-type"&gt;onMenuitemChange 点击菜单项时的回调&lt;/h3&gt;
-                &lt;Code target="menu-item-onmenuitemchange" /&gt;
-
+                &lt;h2 className="comp-title"&gt;PageTransition&lt;/h2&gt;
+                &lt;h3 className="comp-type"&gt;transitionName 动画类型&lt;/h3&gt;
+                &lt;h3 className="comp-type"&gt;onLoad 动画完成的回调函数&lt;/h3&gt;
+                &lt;Code target="page-transition" /&gt;
             &lt;/div&gt;
         );
     }
@@ -841,10 +681,10 @@ export default class menu extends Component{
                 <h2 class="off-left">方法</h2>
 
                 
-                    <div id="method_onMenulistChange" class="method item">
-    <h3 class="name">onMenulistChange</h3>
+                    <div id="method_onLoad" class="method item">
+    <h3 class="name">onLoad</h3>
     <code>
-    onMenulistChange
+    onLoad
     
         <span class="paren">()</span>
     
@@ -875,7 +715,7 @@ export default class menu extends Component{
             
         
         
-        <a href="../files/src_Menu_MenuList.js.html#l56"><code>src&#x2F;Menu&#x2F;MenuList.js:56</code></a>
+        <a href="../files/src_PageTransition.js.html#l66"><code>src&#x2F;PageTransition.js:66</code></a>
         
         </p>
 
@@ -886,7 +726,7 @@ export default class menu extends Component{
     </div>
 
     <div class="description well well-small sign-left3">
-        <div class="stdoc-code"><p>点击事件的回调函数</p>
+        <div class="stdoc-code"><p>动画结束执行的回调</p>
 </div>
     </div>
 
@@ -906,8 +746,8 @@ export default class menu extends Component{
                 <h2 class="off-left">属性</h2>
 
                 
-                    <div id="property_activeName" class="property item">
-    <h3 class="name"><code>activeName</code></h3>
+                    <div id="property_transitionName" class="property item">
+    <h3 class="name"><code>transitionName</code></h3>
     <span class="type">String</span>
 
     
@@ -929,7 +769,7 @@ export default class menu extends Component{
             
         
         
-        <a href="../files/src_Menu_MenuList.js.html#l49"><code>src&#x2F;Menu&#x2F;MenuList.js:49</code></a>
+        <a href="../files/src_PageTransition.js.html#l59"><code>src&#x2F;PageTransition.js:59</code></a>
         
         </p>
 
@@ -939,61 +779,13 @@ export default class menu extends Component{
     </div>
 
     <div class="description">
-        <div class="stdoc-code"><p>当前选中的项目name，对应item的name属性</p>
+        <div class="stdoc-code"><p>动画名称，可选[fade, slide-top, slide-bottom, slide-left, slide-right]</p>
 </div>
     </div>
 
     
         <p><strong>Default:</strong></p>
-         <code> null</code>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_classPrefix" class="property item">
-    <h3 class="name"><code>classPrefix</code></h3>
-    <span class="type">String</span>
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p class="foundat">
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_Menu_MenuList.js.html#l42"><code>src&#x2F;Menu&#x2F;MenuList.js:42</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <div class="stdoc-code"><p>样式前缀</p>
-</div>
-    </div>
-
-    
-        <p><strong>Default:</strong></p>
-         <code> &#x27;menu-list&#x27;</code>
+         <code> &#x27;fade&#x27;</code>
     
 
     

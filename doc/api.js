@@ -15,12 +15,14 @@ YUI.add("yuidoc-meta", function(Y) {
         "Icon",
         "Input",
         "Label",
+        "LoadingList",
         "Menu",
         "MenuBody",
         "MenuHeader",
         "MenuItem",
         "MenuList",
         "MenuNav",
+        "PageTransition",
         "Popover",
         "Popup",
         "Prompt",
@@ -45,6 +47,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "标签组件",
         "菜单组件",
         "表单组件",
+        "路由动画",
         "辅助组件",
         "选项卡"
     ],
@@ -116,8 +119,11 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "操作类组件",
             "name": "操作类组件",
-            "description": "<h5>操作类组件，主要包括组件:</h5>\n<strong><a href='../classes/Accordion.html'>Accordion 手风琴</a></strong><br/>\n<strong><a href='../classes/Toast.html'>Toast 飘字</a></strong><br>\n<strong><a href='../classes/Popup.html'>Popup 弹层</a></strong><br>\n<strong><a href='../classes/Slider.html'>Slider 滑动输入条</a></strong><br>\n<strong><a href='../classes/Swipe.html'>Swipe 左滑动</a></strong><br>\n<strong><a href='../classes/Menu.html'>Menu 菜单</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
+            "description": "<h5>操作类组件，主要包括组件:</h5>\n<strong><a href='../classes/Accordion.html'>Accordion 手风琴</a></strong><br/>\n<strong><a href='../classes/Toast.html'>Toast 飘字</a></strong><br>\n<strong><a href='../classes/Popup.html'>Popup 弹层</a></strong><br>\n<strong><a href='../classes/Slider.html'>Slider 滑动输入条</a></strong><br>\n<strong><a href='../classes/Swipe.html'>Swipe 左滑动</a></strong><br>\n<strong><a href='../classes/Menu.html'>Menu 菜单</a></strong><br>\n<strong><a href='../classes/LoadingList.html'>LoadingList 加载更多</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
             "classes": [
+                {
+                    "name": "LoadingList"
+                },
                 {
                     "name": "Popup"
                 },
@@ -192,6 +198,16 @@ YUI.add("yuidoc-meta", function(Y) {
                 },
                 {
                     "name": "TextArea"
+                }
+            ]
+        },
+        {
+            "displayName": "路由动画",
+            "name": "路由动画",
+            "description": "路由切换组件<br/>\n- 通过transitionName设置动画类型，可选[fade, slide-top, slide-bottom, slide-left, slide-right]。\n- 通过onLoad函数设置动画完成的回调。\n- 在列表页的最外层元素加`ph-transition-index`类，其他页面跳转到列表页都是回退的效果，到另一个新页面都是前进的效果。\n\n主要属性和接口：\n- transitionName:动画类型／动画名称，默认fade。\n- onLoad:动画完成的回调函数。\n\n示例：\n```code\n let {PageTransition} from 'phoenix-ui';\n\n const RouteTransition = (props)=>(\n     <PageTransition {...props} transitionName=\"slide-left\" onLoad={()=>{console.log('end!!!');}}>{props.children}</PageTransition>\n );\n```\n```code\n let Index = class index extends Component {\n     render() {\n         return (\n             <div className=\"menu ph-transition-index\">\n                 ...\n              </div>\n         );\n     }\n };\n```\n```code\n <Router history={this.history}>\n     <Route path=\"/\" component={RouteTransition}>\n         <Route path=\"/index\" name=\"index\" component={Index} />\n         <Route path=\"/button\" name=\"button\" component={Button} />\n         ...\n         <Redirect from=\"/\" to=\"/index\" />\n     </Route>\n </Router>\n```",
+            "classes": [
+                {
+                    "name": "PageTransition"
                 }
             ]
         },
