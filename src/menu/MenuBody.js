@@ -1,5 +1,4 @@
 import React,{PropTypes} from 'react';
-import {findDOMNode} from 'react-dom';
 import Component from '../utils/Component';
 import classnames from 'classnames';
 import {setPhoenixPrefix} from '../utils/Tool';
