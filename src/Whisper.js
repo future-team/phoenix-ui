@@ -1,5 +1,5 @@
 import React,{PropTypes, cloneElement} from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react/lib/ReactDOM';
 import Component from './utils/Component';
 import classnames from 'classnames';
 
