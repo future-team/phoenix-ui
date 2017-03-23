@@ -18,9 +18,9 @@ export Star from './Star';
 export Drag from './Drag';
 export Swipe from './Swipe';
 export Grid from './Grid';
-export Dialog from './Modal/Dialog';
-export Alert from './Modal/Alert';
-export Prompt from './Modal/Prompt';
+export Dialog from './modal/Dialog';
+export Alert from './modal/Alert';
+export Prompt from './modal/Prompt';
 export Toast from './Toast';
 export Popup from './Popup';
 export Accordion from './Accordion';
@@ -29,9 +29,8 @@ export Whisper from './Whisper';
 export Slider from './Slider';
 export Animate from './Animate';
 export Icon from './Icon';
-export Menu from './Menu/Menu';
+export Menu from './menu/Menu';
 export LoadingList from './LoadingList';
-export PageTransition from './PageTransition';
 
 //接入cat－browser
 catBrowser({
