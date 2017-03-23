@@ -31,7 +31,6 @@ export Animate from './Animate';
 export Icon from './Icon';
 export Menu from './menu/Menu';
 export LoadingList from './LoadingList';
-export PageTransition from './PageTransition';
 
 //接入cat－browser
 catBrowser({
