@@ -39,5 +39,6 @@ thumbs.db
 .svn
 .CVS
 .idea
+.vscode
 node_modules/
 examples/lib/
