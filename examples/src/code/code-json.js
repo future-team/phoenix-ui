@@ -84,6 +84,10 @@ var code = {
 	'slider-placement': '<Slider />\n<Slider placement="bottom" />',
 	'slider-onsliderchange': '<Slider progress={this.state.progress} onSliderChange={(newProgress)=>{this.setState({progress:newProgress})}} />',
 	'slider-disabled': '<Slider disabled progress={10} />',
+	'slider-tipstay': '<Slider tipStay />',
+	'slider-range':'<Slider range={[50,200]} showRange />',
+	'slider-showrange':'<Slider range={[25,65]} showRange />',
+	'slider-duration':'<Slider duration={20} />',
 
 	'swipe-phstyle': '<Swipe buttons={[\n\  {text: "删除", onHandle: this.onDelete}\n]}>\n  <div style={{padding: "1rem"}}>滑动块2</div>\n</Swipe>',
 	'swipe-buttons': '<Swipe buttons={[\n\  {text: "删除", onHandle: this.onDelete, phStyle: "error"},\n\  {text: "取消", onHandle: this.onCancle, phStyle: "info"}\n]}>\n  <div style={{padding: "1rem"}}>滑动块2</div>\n</Swipe>',

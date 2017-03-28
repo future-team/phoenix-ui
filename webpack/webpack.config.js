@@ -28,16 +28,10 @@ module.exports = {
             amd: 'react'
         },
         'react/lib/ReactDOM': {
-            root: 'React',
-            commonjs2: 'react',
-            commonjs: 'react',
-            amd: 'react'
-        },
-        'react-dom':{
             root: 'ReactDOM',
-            commonjs2: 'react-dom',
-            commonjs: 'react-dom',
-            amd: 'react-dom'
+            commonjs2: 'react/lib/ReactDOM',
+            commonjs: 'react/lib/ReactDOM',
+            amd: 'react/lib/ReactDOM'
         },
         'react-addons-css-transition-group': 'ReactCSSTransitionGroup'
     }],
