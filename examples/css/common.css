@@ -199,6 +199,10 @@ body{
     margin: 0 0 .5rem 0;
 }
 
+.content .ph-steps{
+    margin-bottom: .5rem;
+}
+
 .content .ph-button-group .ph-button{
     margin: 0;
 }

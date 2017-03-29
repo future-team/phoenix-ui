@@ -25,11 +25,11 @@ import Drag from './Drag';
  * 如: `<Slider placement="bottom" />`
  * - tipStay:初始和松开按钮时提示是否消失，默认false <br/>
  * 如: `<Slider tipStay />`
- * - range:范围，默认[0,100]。
+ * - range:范围，默认[0,100]。 <br/>
  * 如: `<Slider range={[20,50]} />`
- * - showRange:是否在进度条前后显示范围，默认不显示。
+ * - showRange:是否在进度条前后显示范围，默认不显示。 <br/>
  * 如: `<Slider showRange />`
- * - duration:固定移动的距离，默认1。
+ * - duration:固定移动的距离，默认1。 <br/>
  * 如: `<Slider duration={20} />`
  * - onSliderChange:拖拽进度条松开时的回调函数 <br/>
  * 如: `<Slider onSliderChange={(progress)=>{console.log(progress);} />`
