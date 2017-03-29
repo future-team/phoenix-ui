@@ -90,6 +90,12 @@ export default class Slider extends Component{
         }
     }
 
+    componentWillReceiveProps(nextProps){
+        this.setState({
+            newProgress: nextProps.progress
+        });
+    }
+
     componentDidMount(){
         this.sliderLength = parseInt(this.sliderLine.offsetWidth);
         this.newProgressWidth = this.sliderLength * this.props.progress / 100;
