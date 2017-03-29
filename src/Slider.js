@@ -142,6 +142,12 @@ export default class Slider extends Component{
         
     }
 
+    componentWillReceiveProps(nextProps){
+        this.setState({
+            newProgress: nextProps.progress
+        });
+    }
+
     validateRange(){
         let {range} = this.props, defaultRange = [0,100];
         if(!range instanceof Array) return defaultRange;

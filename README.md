@@ -54,7 +54,7 @@
 
 ## Repair
 
-`version 1.7.0` Slider组件功能拓展; <br/>
+`version 1.7.0` Slider组件功能拓展，新增Steps、ImageList组件; <br/>
 `version 1.6.2` 新增LoadingList组件; <br/>
 `version 1.4.2` Toast拓展; ButtonGroup回调函数名称修改; <br/>
 `version 1.4.1` onChange方法统一改名，避免子组件包含Input组件引发的问题；menu组件bug修改。 <br/>

@@ -32,7 +32,7 @@ export default class imagelist extends Component{
             <div>
             	<h2 className="comp-title">ImageList</h2>
                 <h3 className="comp-type"></h3>
-                <ImageList imageData={this.state.imageData} column={1}></ImageList>
+                <ImageList imageData={this.state.imageData} column={2}></ImageList>
                 
                 <Code target="loadinglist" />
             </div>
