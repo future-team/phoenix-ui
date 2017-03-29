@@ -78,8 +78,8 @@ export default class loadinglist extends Component{
                             this.state.loadingData.map((data,index)=>{
                                 return (
                                     <li key={index}>
-                                        <img src={data.image} alt={data.name} />
-                                        <p>{data.name}</p>
+                                        <img src={data.image} alt={data.title} />
+                                        <p>{data.title}</p>
                                         <p>{data.desp}</p>
                                     </li>
                                 );

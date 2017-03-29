@@ -8,7 +8,7 @@ export default class imagelist extends Component{
         super(props,context); 
 
         this.state = {
-            imageData: []
+            images: []
         }
 
         this.getData("./data/post1.json",0);
@@ -19,7 +19,7 @@ export default class imagelist extends Component{
             let data = json.data;
 
             this.setState({
-                imageData: data
+                images: data
             }); 
 
         }, (error)=>{// 加载失败
@@ -31,40 +31,40 @@ export default class imagelist extends Component{
         return(
             <div>
             	<h2 className="comp-title">ImageList</h2>
-                <h3 className="comp-type">imageData(默认[]) 图片数据<br/>默认地址的字段是image，名称的字段是name，描述的字段是desp</h3>
-                <ImageList imageData={this.state.imageData} column={4} />
-                <Code target="imagelist-imagedata" />               
+                <h3 className="comp-type">images(默认[]) 图片数据<br/>默认地址的字段是image，名称的字段是title，描述的字段是desp</h3>
+                <ImageList images={this.state.images} column={4} />
+                <Code target="imagelist-images" />               
 
                 <h3 className="comp-type">column(默认1) 图片列数</h3>
-                <ImageList column={2}  imageData={this.state.imageData} />
+                <ImageList column={2}  images={this.state.images} />
                 <Code target="imagelist-column" /> 
 
-                <h3 className="comp-type">nameFormat(默认#) 姓名格式更改，#代表数值；<br/>despFormat(默认#) 描述格式更改，#代表数值</h3>
-                <ImageList imageData={this.state.imageData} column={4} nameFormat={"姓名: #"} despFormat={"描述: #"} />
+                <h3 className="comp-type">titleField(默认#) 姓名格式更改，#代表数值；<br/>despField(默认#) 描述格式更改，#代表数值</h3>
+                <ImageList images={this.state.images} column={4} titleField={"姓名: #"} despField={"描述: #"} />
                 <h3 className="comp-tip"> 如果name或desp中有不要的字段，传空字符"" </h3>
-                <ImageList imageData={this.state.imageData} column={4} nameFormat={"姓名: #"} despFormat={""} />
+                <ImageList images={this.state.images} column={4} titleField={"姓名: #"} despField={""} />
                 <Code target="imagelist-format" /> 
                 
                 <h3 className="comp-type">otherParams(默认{}) 其他增加项</h3>
-                <ImageList imageData={this.state.imageData} column={4} otherParams={{"score":"分数: #"}} />
+                <ImageList images={this.state.images} column={4} otherParams={{"score":"分数: #"}} />
                 <Code target="imagelist-otherparams" /> 
 
                 <h3 className="comp-type">clickCallback(默认null) 点击单个图片块的回调函数</h3>
-                <ImageList imageData={this.state.imageData} column={4} clickCallback={(data)=>{console.log(data);}} />
+                <ImageList images={this.state.images} column={4} clickCallback={(data)=>{console.log(data);}} />
                 <Code target="imagelist-clickcallback" /> 
 
                 <h3 className="comp-type">children(默认无) 内容完全自定义</h3>
                 <ImageList column={4}>
                     {
-                        this.state.imageData.map((data,index)=>{
+                        this.state.images.map((data,index)=>{
                             return (
                                 <dl key={index}>
                                     <dd>
-                                        <p className="ph-image-name">{data.name}</p>
+                                        <p className="ph-image-title">{data.title}</p>
                                         <p className="ph-image-desp">{data.desp}</p>
                                     </dd>
                                     <dt>
-                                        <img src={data.image} alt={data.name} />
+                                        <img src={data.image} alt={data.title} />
                                     </dt>
                                 </dl>
                             )

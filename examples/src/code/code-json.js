@@ -120,12 +120,12 @@ var code = {
 	'loadinglist':'<LoadingList phMode="auto" loadingStatus={this.state.loadingStatus} \nloadTips={["点击加载更多","加载中...","加载成功！","加载失败！","没有更多"]} \nbuttonStyles={["primary","gray","success","danger","gray"]} \nonLoading={::this.onLoading} onLoadingEnd={::this.onLoadingEnd}>\n\  '+
 		'<ul>\n\    {\n\      this.state.loadingData.map((data,index)=>{\n\        return (\n\          <li key={index}>...</li>\n\        );\n\      })\n\    }\n\  </ul>\n</LoadingList>',
 
-	'imagelist-imagedata':'json:\n {"data": [\n\  {\n\    "image": "...",\n\    "name": "图1",\n\    "desp": "关于图是一个...",\n\    "score": 1\n\  },\n\    ...\n]}\n...\n<ImageList imageData={this.state.imageData} column={4} />',
-	'imagelist-column':'<ImageList column={2}  imageData={this.state.imageData} />',
-	'imagelist-format':'<ImageList nameFormat={"姓名: #"} despFormat={"描述: #"} imageData={this.state.imageData} column={4} />\n\n<ImageList nameFormat={"姓名: #"} despFormat={""} imageData={this.state.imageData} column={4} />',
-	'imagelist-otherparams':'<ImageList imageData={this.state.imageData} column={4} otherParams={{"score":"分数: #"}} />',
-	'imagelist-clickcallback':'<ImageList imageData={this.state.imageData} column={4} clickCallback={(data)=>{console.log(data);}} />',
-	'imagelist-custom':'<ImageList column={4}>\n\  {this.state.imageData.map((data,index)=>{\n\    return (\n\      <dl key={index}>\n\        <dd>\n\          <p>{data.name}</p>\n\          <p>{data.desp}</p>\n\        </dd>\n\        <dt><img src={data.image} alt={data.name} /></dt>\n\      </dl>\n\    )\n\  })}\n</ImageList>',
+	'imagelist-images':'json:\n {"data": [\n\  {\n\    "image": "...",\n\    "title": "图1",\n\    "desp": "关于图是一个...",\n\    "score": 1\n\  },\n\    ...\n]}\n...\n<ImageList images={this.state.images} column={4} />',
+	'imagelist-column':'<ImageList column={2}  images={this.state.images} />',
+	'imagelist-format':'<ImageList titleField={"姓名: #"} despField={"描述: #"} images={this.state.images} column={4} />\n\n<ImageList titleField={"姓名: #"} despField={""} images={this.state.images} column={4} />',
+	'imagelist-otherparams':'<ImageList images={this.state.images} column={4} otherParams={{"score":"分数: #"}} />',
+	'imagelist-clickcallback':'<ImageList images={this.state.images} column={4} clickCallback={(data)=>{console.log(data);}} />',
+	'imagelist-custom':'<ImageList column={4}>\n\  {this.state.images.map((data,index)=>{\n\    return (\n\      <dl key={index}>\n\        <dd>\n\          <p>{data.name}</p>\n\          <p>{data.desp}</p>\n\        </dd>\n\        <dt><img src={data.image} alt={data.name} /></dt>\n\      </dl>\n\    )\n\  })}\n</ImageList>',
 
 	'steps-list':'<Steps list={["合作信息","公司信息","资质信息"]} />',
 	'steps-currentstep':'<Steps currentStep={2} list={["合作信息","公司信息","资质信息","资质信息"]} />',
