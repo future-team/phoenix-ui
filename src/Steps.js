@@ -85,6 +85,10 @@ export default class Steps extends Component{
         }
     }
 
+    componentWillReceiveProps(nextProps){
+         if(this.state.currentStep != nextProps.currentStep) this.setState({currentStep: nextProps.currentStep});
+    }
+
     clickCallback(str, index, e){
         let {readOnly, clickCallback} = this.props, thisElemnt = e.currentTarget;
         if(readOnly) return;

@@ -115,6 +115,10 @@ class Accordion extends Component{
         }
     }
 
+    componentWillReceiveProps(nextProps){
+         if(this.state.visible != nextProps.visible) this.setState({visible: nextProps.visible});
+    }
+
     changeVisible(){
         this.setState({
             visible: !this.state.visible

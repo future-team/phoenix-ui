@@ -2,33 +2,27 @@
 	"data": [
 		{
 			"image": "http://img5.duitang.com/uploads/item/201602/11/20160211214958_RhdCY.jpeg",
-			"name": "图1",
-			"desp": "关于图是一个..."
+			"name": "踏青必住酒店",
+			"desp": "关于图是...",
+			"score": 1
 		},
 		{
 			"image": "http://img5.duitang.com/uploads/item/201602/11/20160211214958_RhdCY.jpeg",
-			"name": "图2",
-			"desp": "关于图是一个..."
+			"name": "都市放松首选",
+			"desp": "关于图是...",
+			"score": 2
 		},
 		{
 			"image": "http://img5.duitang.com/uploads/item/201602/11/20160211214958_RhdCY.jpeg",
-			"name": "图3",
-			"desp": "关于图是一个..."
+			"name": "城市景观餐厅",
+			"desp": "关于图是...",
+			"score": 3
 		},
 		{
 			"image": "http://img5.duitang.com/uploads/item/201602/11/20160211214958_RhdCY.jpeg",
-			"name": "图4",
-			"desp": "关于图是一个..."
-		},
-		{
-			"image": "http://img5.duitang.com/uploads/item/201602/11/20160211214958_RhdCY.jpeg",
-			"name": "图5",
-			"desp": "关于图是一个..."
-		},
-		{
-			"image": "http://img5.duitang.com/uploads/item/201602/11/20160211214958_RhdCY.jpeg",
-			"name": "图6",
-			"desp": "关于图是一个..."
+			"name": "14.9元抢",
+			"desp": "关于图是...",
+			"score": 3
 		}
 	],
 	"final": true

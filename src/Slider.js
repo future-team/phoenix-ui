@@ -170,12 +170,14 @@ export default class Slider extends Component{
     }
 
     componentWillReceiveProps(nextProps){
-        this.setState({
-            newProgress: nextProps.progress
-        },()=>{
-            this.newProgressWidth = this.sliderLength * this.state.newProgress / 100;
-            this.setSliderPosition(this.newProgressWidth + 'px');
-        });        
+        if(this.state.newProgress != nextProps.progress){
+            this.setState({
+                newProgress: nextProps.progress
+            },()=>{
+                this.newProgressWidth = this.sliderLength * this.state.newProgress / 100;
+                this.setSliderPosition(this.newProgressWidth + 'px');
+            });
+        }        
     }
 
     componentDidMount(){
