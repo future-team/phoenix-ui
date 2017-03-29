@@ -142,12 +142,6 @@ export default class Slider extends Component{
         
     }
 
-    componentWillReceiveProps(nextProps){
-        this.setState({
-            newProgress: nextProps.progress
-        });
-    }
-
     validateRange(){
         let {range} = this.props, defaultRange = [0,100];
         if(!range instanceof Array) return defaultRange;
@@ -173,6 +167,15 @@ export default class Slider extends Component{
             return defaultDuration;
         }
         return duration;
+    }
+
+    componentWillReceiveProps(nextProps){
+        this.setState({
+            newProgress: nextProps.progress
+        },()=>{
+            this.newProgressWidth = this.sliderLength * this.state.newProgress / 100;
+            this.setSliderPosition(this.newProgressWidth + 'px');
+        });        
     }
 
     componentDidMount(){

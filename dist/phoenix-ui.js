@@ -27129,6 +27129,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	        };
 	    }
 
+	    Slider.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+	        var _this = this;
+
+	        console.log('1111111 slider: ' + nextProps.progress);
+	        this.setState({
+	            newProgress: nextProps.progress
+	        }, function () {
+	            _this.newProgressWidth = _this.sliderLength * _this.state.newProgress / 100;
+	            _this.setSliderPosition(_this.newProgressWidth + 'px');
+	        });
+	    };
+
 	    Slider.prototype.componentDidMount = function componentDidMount() {
 	        this.sliderLength = parseInt(this.sliderLine.offsetWidth);
 	        this.newProgressWidth = this.sliderLength * this.props.progress / 100;
@@ -27170,7 +27182,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    Slider.prototype.render = function render() {
-	        var _this = this;
+	        var _this2 = this;
 
 	        var _props = this.props;
 	        var Component = _props.componentTag;
@@ -27182,15 +27194,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	            _react2['default'].createElement(
 	                'div',
 	                { className: _utilsTool.setPhoenixPrefix("slider-line"), ref: function (sliderLine) {
-	                        _this.sliderLine = sliderLine;
+	                        _this2.sliderLine = sliderLine;
 	                    } },
 	                _react2['default'].createElement('div', { className: _utilsTool.setPhoenixPrefix("slider-progress"), ref: function (sliderProgress) {
-	                        _this.sliderProgress = sliderProgress;
+	                        _this2.sliderProgress = sliderProgress;
 	                    } }),
 	                _react2['default'].createElement(
 	                    'div',
 	                    { className: _utilsTool.setPhoenixPrefix("slider-content"), ref: function (sliderBtn) {
-	                            _this.sliderBtn = sliderBtn;
+	                            _this2.sliderBtn = sliderBtn;
 	                        } },
 	                    _react2['default'].createElement(
 	                        'div',
