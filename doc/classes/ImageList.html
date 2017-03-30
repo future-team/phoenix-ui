@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui" />
-    <title>PageTransition - phoenix-ui</title>
+    <title>ImageList - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css">
@@ -193,6 +193,14 @@
                    
                        <li>
                             
+                           <a href="../classes/ImageList.html">ImageList</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
                            <a href="../classes/LoadingList.html">LoadingList</a>
                            <ul>
                                 
@@ -217,7 +225,7 @@
                     
                        <li>
                             
-                           <a href="../classes/Swipe.html">Swipe</a>
+                           <a href="../classes/Steps.html">Steps</a>
                            <ul>
                                 
                            </ul>
@@ -234,6 +242,14 @@
                        <li>
                             
                            <a href="../classes/Accordion.html">Accordion</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Swipe.html">Swipe</a>
                            <ul>
                                 
                            </ul>
@@ -378,24 +394,6 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
-                    <a href="../modules/路由动画.html">路由动画</a>
-                </dt>
-                <dd>
-                    <ul>
-                   
-                       <li>
-                            
-                           <a href="../classes/PageTransition.html">PageTransition</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                    </ul>
-                </dd>
-             
-                <dt>
-                    <span class="glyphicon glyphicon-minus"></span>
                     <a href="../modules/辅助组件.html">辅助组件</a>
                 </dt>
                 <dd>
@@ -455,43 +453,62 @@
             <div id="docs-main">
                 <div class="content">
                     <div class="page-header">
-    <h1>PageTransition</h1>
+    <h1>ImageList</h1>
 </div>
  <div class="well well-small sign-left3">
-      <div class="stdoc-code"><p>路由切换组件<br/></p>
+      <div class="stdoc-code"><p>图片列表组件<br/></p>
 <ul>
-<li>通过transitionName设置动画类型，可选[fade, slide-top, slide-bottom, slide-left, slide-right]。</li>
-<li>通过onLoad函数设置动画完成的回调。</li>
-<li>在列表页的最外层元素加<code>ph-transition-index</code>类，其他页面跳转到列表页都是回退的效果，到另一个新页面都是前进的效果。</li>
+<li>通过images配置图片列表数据，数组格式，其中图片地址对应<code>image</code>字段，名称对应<code>title</code>字段，描述对应<code>desp</code>字段。</li>
+<li>通过column设置图片列表的列数，1-8列。</li>
+<li>通过titleField设置名称的格式，以<code>#</code>代表名称；通过despField设置描述的格式，以<code>#</code>代表描述。</li>
+<li>通过otherParams设置额外的字段和格式。</li>
+<li>通过clickCallback设置点击单个图片块的回调函数，返回当前图片的所有数据。</li>
+<li>可以自定义内容children，当有内容时除了column其他属性不起作用。</li>
 </ul>
 <p>主要属性和接口：</p>
 <ul>
-<li>transitionName:动画类型／动画名称，默认fade。</li>
-<li>onLoad:动画完成的回调函数。</li>
+<li>images:图片列表数据，默认[]。<br><pre><code class="lang-code">json:
+{
+"data": [
+   {
+       "image": "http://img5.duitang.com/uploads/item/201602/11/20160211214958_RhdCY.jpeg",
+       "title": "图1",
+       "desp": "关于图是一个...",
+       "score": 1
+   },
+   ...
+]
+}
+...
+&lt;ImageList images={this.state.images} /&gt;</code></pre>
+</li>
+<li>column:列表的列数，默认1。<br>
+如: <code>&lt;ImageList column={2}  images={this.state.images} /&gt;</code></li>
+<li>titleField:名称的格式，以<code>#</code>代表名称，默认"#"despField:描述的格式，以<code>#</code>代表描述，默认"#"。<br>
+如: <code>&lt;ImageList images={this.state.images} titleField={"姓名: #"} despField={"描述: #"} /&gt;</code></li>
+<li>otherParams:额外的字段和格式，默认{}。<br>
+如: <code>&lt;ImageList images={this.state.images} otherParams={{"score":"分数: #"}} /&gt;</code></li>
+<li>clickCallback:点击单个图片块的回调函数。<br>
+如: <code>&lt;ImageList images={this.state.images} clickCallback={(data)=&gt;{console.log(data);}} /&gt;</code></li>
+<li>自定义内容:children，当有内容时除了column其他属性不起作用。<pre><code class="lang-code">&lt;ImageList column={4}&gt;
+{
+   this.state.images.map((data,index)=&gt;{
+       return (
+           &lt;dl key={index}&gt;
+               &lt;dd&gt;
+                   &lt;p&gt;{data.title}&lt;/p&gt;
+                   &lt;p&gt;{data.desp}&lt;/p&gt;
+               &lt;/dd&gt;
+               &lt;dt&gt;
+                   &lt;img src={data.image} alt={data.title} /&gt;
+               &lt;/dt&gt;
+           &lt;/dl&gt;
+       )
+   })
+}
+&lt;/ImageList&gt;</code></pre>
+</li>
 </ul>
-<p>示例：</p>
-<pre><code class="lang-code"> let {PageTransition} from &#39;phoenix-ui&#39;;
-
- const RouteTransition = (props)=&gt;(
-     &lt;PageTransition {...props} transitionName="slide-left" onLoad={()=&gt;{console.log(&#39;end!!!&#39;);}}&gt;{props.children}&lt;/PageTransition&gt;
- );</code></pre>
-<pre><code class="lang-code"> let Index = class index extends Component {
-     render() {
-         return (
-             &lt;div className="menu ph-transition-index"&gt;
-                 ...
-              &lt;/div&gt;
-         );
-     }
- };</code></pre>
-<pre><code class="lang-code"> &lt;Router history={this.history}&gt;
-     &lt;Route path="/" component={RouteTransition}&gt;
-         &lt;Route path="/index" name="index" component={Index} /&gt;
-         &lt;Route path="/button" name="button" component={Button} /&gt;
-         ...
-         &lt;Redirect from="/" to="/index" /&gt;
-     &lt;/Route&gt;
- &lt;/Router&gt;</code></pre>
 </div>
  </div>
 
@@ -504,7 +521,7 @@
                     <ul class="index-list methods extends">
                         
                             <li class="index-item method">
-                                <a href="#" data-tabid="#method" data-anchor="#method_onLoad" data-tablink="onLoad">onLoad</a>
+                                <a href="#" data-tabid="#method" data-anchor="#method_clickCallback" data-tablink="clickCallback">clickCallback</a>
 
                                 
                                 
@@ -520,7 +537,42 @@
                     <ul class="index-list properties extends">
                         
                             <li class="index-item property">
-                                <a href="#" data-tabid="#property" data-anchor="#property_transitionName" data-tablink="transitionName">transitionName</a>
+                                <a href="#" data-tabid="#property" data-anchor="#property_classPrefix" data-tablink="classPrefix">classPrefix</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#" data-tabid="#property" data-anchor="#property_column" data-tablink="column">column</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#" data-tabid="#property" data-anchor="#property_despField" data-tablink="despField">despField</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#" data-tabid="#property" data-anchor="#property_images" data-tablink="images">images</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#" data-tabid="#property" data-anchor="#property_otherParams" data-tablink="otherParams">otherParams</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#" data-tabid="#property" data-anchor="#property_titleField" data-tablink="titleField">titleField</a>
 
                                 
                                 
@@ -563,18 +615,18 @@
 
             
                 <div class="foundat">
-                    Defined in: <a href="../files/src_PageTransition.js.html#l7"><code>src&#x2F;PageTransition.js:7</code></a>
+                    Defined in: <a href="../files/src_ImageList.js.html#l6"><code>src&#x2F;ImageList.js:6</code></a>
                 </div>
             
 
             
                 
-                    Module: <a href="../modules/路由动画.html">路由动画</a>
+                    Module: <a href="../modules/操作类组件.html">操作类组件</a>
                 
             
 
             
-                <p>Available since 1.6.0</p>
+                <p>Available since 1.7.0</p>
             
         </div>
 
@@ -582,10 +634,10 @@
             
                 <div class="constructor">
                     <h2>Constructor</h2>
-                    <div id="method_PageTransition" class="method item">
-    <h3 class="name">PageTransition</h3>
+                    <div id="method_ImageList" class="method item">
+    <h3 class="name">ImageList</h3>
     <code>
-    PageTransition
+    ImageList
     
         <span class="paren">()</span>
     
@@ -616,7 +668,7 @@
             
         
         
-        <a href="../files/src_PageTransition.js.html#l7"><code>src&#x2F;PageTransition.js:7</code></a>
+        <a href="../files/src_ImageList.js.html#l6"><code>src&#x2F;ImageList.js:6</code></a>
         
         </p>
 
@@ -624,7 +676,7 @@
         
 
         
-            <p>Available since 1.6.0</p>
+            <p>Available since 1.7.0</p>
         
     </div>
 
@@ -641,21 +693,84 @@
             <h4>Example:</h4>
             <ul class="nav nav-tabs example-list">
                 
-                <li role="presentation"  class="active"  data-demo="http://future-team.github.io/phoenix-ui/examples/index.html#/pagetransition"  _no='0'> <a>展示</a></li>
+                <li role="presentation"  class="active"  data-demo="https://future-team.github.io/phoenix-ui/examples/index.html#/imagelist"  _no='0'> <a>展示</a></li>
                 
             </ul>
             <div class="example-content  showdemo ">
                 <div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from "react";
+import {ImageList} from "phoenix-ui";
 import Code from "./code/code";
+import {ajax} from "./utils/tool.js";
 
-export default class pagetransite extends Component{
+export default class imagelist extends Component{
+    constructor(props,context){
+        super(props,context); 
+
+        this.state = {
+            images: []
+        }
+
+        this.getData("./data/post1.json",0);
+    }
+
+    getData(fileName){ // 获取数据方法，ajax方法在下面定义了
+        ajax(fileName).then((json)=&gt;{
+            let data = json.data;
+
+            this.setState({
+                images: data
+            }); 
+
+        }, (error)=&gt;{// 加载失败
+            console.error("出错了", error)
+        });
+    }
+
     render(){
         return(
             &lt;div&gt;
-                &lt;h2 className="comp-title"&gt;PageTransition&lt;/h2&gt;
-                &lt;h3 className="comp-type"&gt;transitionName 动画类型&lt;/h3&gt;
-                &lt;h3 className="comp-type"&gt;onLoad 动画完成的回调函数&lt;/h3&gt;
-                &lt;Code target="page-transition" /&gt;
+                &lt;h2 className="comp-title"&gt;ImageList&lt;/h2&gt;
+                &lt;h3 className="comp-type"&gt;images(默认[]) 图片数据&lt;br/&gt;默认地址的字段是image，名称的字段是title，描述的字段是desp&lt;/h3&gt;
+                &lt;ImageList images={this.state.images} column={4} /&gt;
+                &lt;Code target="imagelist-images" /&gt;               
+
+                &lt;h3 className="comp-type"&gt;column(默认1) 图片列数&lt;/h3&gt;
+                &lt;ImageList column={2}  images={this.state.images} /&gt;
+                &lt;Code target="imagelist-column" /&gt; 
+
+                &lt;h3 className="comp-type"&gt;titleField(默认#) 姓名格式更改，#代表数值；&lt;br/&gt;despField(默认#) 描述格式更改，#代表数值&lt;/h3&gt;
+                &lt;ImageList images={this.state.images} column={4} titleField={"姓名: #"} despField={"描述: #"} /&gt;
+                &lt;h3 className="comp-tip"&gt; 如果name或desp中有不要的字段，传空字符"" &lt;/h3&gt;
+                &lt;ImageList images={this.state.images} column={4} titleField={"姓名: #"} despField={""} /&gt;
+                &lt;Code target="imagelist-format" /&gt; 
+
+                &lt;h3 className="comp-type"&gt;otherParams(默认{}) 其他增加项&lt;/h3&gt;
+                &lt;ImageList images={this.state.images} column={4} otherParams={{"score":"分数: #"}} /&gt;
+                &lt;Code target="imagelist-otherparams" /&gt; 
+
+                &lt;h3 className="comp-type"&gt;clickCallback(默认null) 点击单个图片块的回调函数&lt;/h3&gt;
+                &lt;ImageList images={this.state.images} column={4} clickCallback={(data)=&gt;{console.log(data);}} /&gt;
+                &lt;Code target="imagelist-clickcallback" /&gt; 
+
+                &lt;h3 className="comp-type"&gt;children(默认无) 内容完全自定义&lt;/h3&gt;
+                &lt;ImageList column={4}&gt;
+                    {
+                        this.state.images.map((data,index)=&gt;{
+                            return (
+                                &lt;dl key={index}&gt;
+                                    &lt;dd&gt;
+                                        &lt;p className="ph-image-title"&gt;{data.title}&lt;/p&gt;
+                                        &lt;p className="ph-image-desp"&gt;{data.desp}&lt;/p&gt;
+                                    &lt;/dd&gt;
+                                    &lt;dt&gt;
+                                        &lt;img src={data.image} alt={data.title} /&gt;
+                                    &lt;/dt&gt;
+                                &lt;/dl&gt;
+                            )
+                        })
+                    }
+                &lt;/ImageList&gt;
+                &lt;Code target="imagelist-custom" /&gt; 
             &lt;/div&gt;
         );
     }
@@ -681,10 +796,10 @@ export default class pagetransite extends Component{
                 <h2 class="off-left">方法</h2>
 
                 
-                    <div id="method_onLoad" class="method item">
-    <h3 class="name">onLoad</h3>
+                    <div id="method_clickCallback" class="method item">
+    <h3 class="name">clickCallback</h3>
     <code>
-    onLoad
+    clickCallback
     
         <span class="paren">()</span>
     
@@ -715,7 +830,7 @@ export default class pagetransite extends Component{
             
         
         
-        <a href="../files/src_PageTransition.js.html#l66"><code>src&#x2F;PageTransition.js:66</code></a>
+        <a href="../files/src_ImageList.js.html#l115"><code>src&#x2F;ImageList.js:115</code></a>
         
         </p>
 
@@ -726,7 +841,7 @@ export default class pagetransite extends Component{
     </div>
 
     <div class="description well well-small sign-left3">
-        <div class="stdoc-code"><p>动画结束执行的回调</p>
+        <div class="stdoc-code"><p>点击单个图片块的回调函数,返回当前图片的所有信息</p>
 </div>
     </div>
 
@@ -746,8 +861,8 @@ export default class pagetransite extends Component{
                 <h2 class="off-left">属性</h2>
 
                 
-                    <div id="property_transitionName" class="property item">
-    <h3 class="name"><code>transitionName</code></h3>
+                    <div id="property_classPrefix" class="property item">
+    <h3 class="name"><code>classPrefix</code></h3>
     <span class="type">String</span>
 
     
@@ -769,7 +884,7 @@ export default class pagetransite extends Component{
             
         
         
-        <a href="../files/src_PageTransition.js.html#l59"><code>src&#x2F;PageTransition.js:59</code></a>
+        <a href="../files/src_ImageList.js.html#l73"><code>src&#x2F;ImageList.js:73</code></a>
         
         </p>
 
@@ -779,13 +894,253 @@ export default class pagetransite extends Component{
     </div>
 
     <div class="description">
-        <div class="stdoc-code"><p>动画名称，可选[fade, slide-top, slide-bottom, slide-left, slide-right]</p>
+        <div class="stdoc-code"><p>样式前缀</p>
 </div>
     </div>
 
     
         <p><strong>Default:</strong></p>
-         <code> &#x27;fade&#x27;</code>
+         <code> &#x27;image-list&#x27;</code>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_column" class="property item">
+    <h3 class="name"><code>column</code></h3>
+    <span class="type">Number</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_ImageList.js.html#l87"><code>src&#x2F;ImageList.js:87</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>图片列数</p>
+</div>
+    </div>
+
+    
+        <p><strong>Default:</strong></p>
+         <code> 1</code>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_despField" class="property item">
+    <h3 class="name"><code>despField</code></h3>
+    <span class="type">String</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_ImageList.js.html#l101"><code>src&#x2F;ImageList.js:101</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>描述格式</p>
+</div>
+    </div>
+
+    
+        <p><strong>Default:</strong></p>
+         <code> &quot;#&quot;</code>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_images" class="property item">
+    <h3 class="name"><code>images</code></h3>
+    <span class="type">Array</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_ImageList.js.html#l80"><code>src&#x2F;ImageList.js:80</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>图片列表数据</p>
+</div>
+    </div>
+
+    
+        <p><strong>Default:</strong></p>
+         <code> []</code>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_otherParams" class="property item">
+    <h3 class="name"><code>otherParams</code></h3>
+    <span class="type">Object</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_ImageList.js.html#l108"><code>src&#x2F;ImageList.js:108</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>其他参数，额外增加的可自定义的字段</p>
+</div>
+    </div>
+
+    
+        <p><strong>Default:</strong></p>
+         <code> {}</code>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_titleField" class="property item">
+    <h3 class="name"><code>titleField</code></h3>
+    <span class="type">String</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_ImageList.js.html#l94"><code>src&#x2F;ImageList.js:94</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>名称格式</p>
+</div>
+    </div>
+
+    
+        <p><strong>Default:</strong></p>
+         <code> &quot;#&quot;</code>
     
 
     

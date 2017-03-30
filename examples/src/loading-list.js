@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {LoadingList} from "phoenix-ui";
 import Code from "./code/code";
+import {ajax} from "./utils/tool.js";
 
 export default class loadinglist extends Component{
     constructor(props,context){
@@ -77,8 +78,8 @@ export default class loadinglist extends Component{
                             this.state.loadingData.map((data,index)=>{
                                 return (
                                     <li key={index}>
-                                        <img src={data.image} alt={data.name} />
-                                        <p>{data.name}</p>
+                                        <img src={data.image} alt={data.title} />
+                                        <p>{data.title}</p>
                                         <p>{data.desp}</p>
                                     </li>
                                 );
@@ -90,27 +91,4 @@ export default class loadinglist extends Component{
             </div>
         );
     }
-}
-
-let ajax = url => {
-  return new Promise((resolve, reject)=>{
-    let xhr = new XMLHttpRequest();
-    xhr.open("get", url, true);
-    xhr.responseType = "json";
-    xhr.onreadystatechange = readyStateHandle;
-    xhr.send();
-
-    function readyStateHandle(){
-      if(this.readyState !== 4) return;
-      if(this.status === 200){
-        setTimeout(()=>{ // 虚拟请求时间1s
-            resolve(this.response);
-        }, 1000);
-      }else{
-        setTimeout(()=>{  // 虚拟请求时间1s
-            reject(new Error(this.statusText));
-        }, 1000); 
-      }
-    }
-  });
 }

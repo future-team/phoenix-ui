@@ -31,6 +31,8 @@ export Animate from './Animate';
 export Icon from './Icon';
 export Menu from './menu/Menu';
 export LoadingList from './LoadingList';
+export ImageList from './ImageList';
+export Steps from './Steps';
 
 //接入cat－browser
 catBrowser({

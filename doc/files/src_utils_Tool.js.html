@@ -193,6 +193,14 @@
                    
                        <li>
                             
+                           <a href="../classes/ImageList.html">ImageList</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
                            <a href="../classes/LoadingList.html">LoadingList</a>
                            <ul>
                                 
@@ -217,7 +225,7 @@
                     
                        <li>
                             
-                           <a href="../classes/Swipe.html">Swipe</a>
+                           <a href="../classes/Steps.html">Steps</a>
                            <ul>
                                 
                            </ul>
@@ -234,6 +242,14 @@
                        <li>
                             
                            <a href="../classes/Accordion.html">Accordion</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Swipe.html">Swipe</a>
                            <ul>
                                 
                            </ul>
@@ -378,24 +394,6 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
-                    <a href="../modules/路由动画.html">路由动画</a>
-                </dt>
-                <dd>
-                    <ul>
-                   
-                       <li>
-                            
-                           <a href="../classes/PageTransition.html">PageTransition</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                    </ul>
-                </dd>
-             
-                <dt>
-                    <span class="glyphicon glyphicon-minus"></span>
                     <a href="../modules/辅助组件.html">辅助组件</a>
                 </dt>
                 <dd>
@@ -494,6 +492,24 @@ let Tool = {
 
     setPhoenixPrefix: (val)=&gt;{
         return &#x27;ph-&#x27; + val;
+    },
+
+    getDeviceInfo(type){
+        let u = navigator.userAgent;
+        let typeList = {
+            trident: u.indexOf(&#x27;Trident&#x27;) &gt; -1, //IE内核  
+            presto: u.indexOf(&#x27;Presto&#x27;) &gt; -1, //opera内核  
+            webKit: u.indexOf(&#x27;AppleWebKit&#x27;) &gt; -1, //苹果、谷歌内核  
+            gecko: u.indexOf(&#x27;Gecko&#x27;) &gt; -1 &amp;&amp; u.indexOf(&#x27;KHTML&#x27;) == -1, //火狐内核  
+            mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端  
+            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端  
+            android: u.indexOf(&#x27;Android&#x27;) &gt; -1 || u.indexOf(&#x27;Linux&#x27;) &gt; -1, //android终端或者uc浏览器  
+            iPhone: u.indexOf(&#x27;iPhone&#x27;) &gt; -1 , //是否为iPhone或者QQHD浏览器  
+            iPad: u.indexOf(&#x27;iPad&#x27;) &gt; -1, //是否iPad    
+            webApp: u.indexOf(&#x27;Safari&#x27;) == -1 //是否web应该程序，没有头部与底部
+        };
+
+        return typeList[type];
     }
 }
 

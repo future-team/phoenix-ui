@@ -13,7 +13,7 @@
     <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
     <script src="./../dist/phoenix-ui.min.js"></script>
 
-    <link rel="stylesheet" href="http://future-team.github.io/phoenix-styles/dist/phoenix-styles.min.css">
+    <link rel="stylesheet" href="./../dist/phoenix-styles.css">
     <link rel="stylesheet" href="./css/common.css">
 </head>
 <body>
@@ -26,6 +26,8 @@
                 <div>
                     <Phoenix.Badge>惠</Phoenix.Badge>
                     <Phoenix.Textarea defaultValue="hahahah"count maxLength={150}/>
+
+                    <Phoenix.Slider range={[10,25]} duration={5} showRange/>
                 </div>
             );
         }

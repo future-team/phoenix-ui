@@ -32,6 +32,8 @@ import Animate from './animate.js';
 import Drag from './drag.js';
 import Icon from './icon.js';
 import LoadingList from './loading-list.js';
+import ImageList from './image-list.js';
+import Steps from './steps.js';
 import ListDemo from './list-demo.js';
 import Detail from './detail-demo.js';
 import PhoenixStyle from './phoenix-styles.js';
@@ -101,9 +103,11 @@ let Index = class index extends Component {
                     <Card href="#/popover" title="Whisper/Popover" desp="气泡" />
                     <Card href="#/tab" title="Tabset/Tab" desp="选项卡" />
                     <Card href="#/slider" title="Slider" desp="滑动输入条" />
+                    <Card href="#/steps" title="Steps" desp="步骤" />
                     <Card href="#/swipe" title="Swipe" desp="左滑动" />
                     <Card href="#/menu" title="Menu" desp="菜单" />
                     <Card href="#/loadinglist" title="LoadingList" desp="加载更多" />
+                    <Card href="#/imagelist" title="ImageList" desp="图片列表" />
                 </div>
                 <h2>Assist</h2>
                 <div className="menu-panel">
@@ -151,6 +155,7 @@ let AppRouter = class AppRouter extends Component {
                 <Route path="/star" name="star" component={StarDemo} />
                 <Route path="/swipe" name="swipe" component={Swipe} />
                 <Route path="/slider" name="slider" component={Slider} />
+                <Route path="/steps" name="steps" component={Steps} />
                 <Route path="/dialog" name="dialog" component={Dialog} />
                 <Route path="/alert" name="alert" component={Alert} />
                 <Route path="/prompt" name="prompt" component={Prompt} />
@@ -160,6 +165,7 @@ let AppRouter = class AppRouter extends Component {
                 <Route path="/accordion" name="accordion" component={Accordion} />
                 <Route path="/menu" name="menu" component={Menu} />
                 <Route path="/loadinglist" name="loadinglist" component={LoadingList} />
+                <Route path="/imagelist" name="imagelist" component={ImageList} />
                 <Route path="/animate" name="animate" component={Animate} />
                 <Route path="/drag" name="drag" component={Drag} />
                 <Route path="/icon" name="icon" component={Icon} />
