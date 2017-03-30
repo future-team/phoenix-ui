@@ -84,6 +84,10 @@ var code = {
 	'slider-placement': '<Slider />\n<Slider placement="bottom" />',
 	'slider-onsliderchange': '<Slider progress={this.state.progress} onSliderChange={(newProgress)=>{this.setState({progress:newProgress})}} />',
 	'slider-disabled': '<Slider disabled progress={10} />',
+	'slider-tipstay': '<Slider tipStay />',
+	'slider-range':'<Slider range={[50,200]} showRange />',
+	'slider-showrange':'<Slider range={[25,65]} showRange />',
+	'slider-duration':'<Slider duration={20} />',
 
 	'swipe-phstyle': '<Swipe buttons={[\n\  {text: "删除", onHandle: this.onDelete}\n]}>\n  <div style={{padding: "1rem"}}>滑动块2</div>\n</Swipe>',
 	'swipe-buttons': '<Swipe buttons={[\n\  {text: "删除", onHandle: this.onDelete, phStyle: "error"},\n\  {text: "取消", onHandle: this.onCancle, phStyle: "info"}\n]}>\n  <div style={{padding: "1rem"}}>滑动块2</div>\n</Swipe>',
@@ -115,6 +119,18 @@ var code = {
 	
 	'loadinglist':'<LoadingList phMode="auto" loadingStatus={this.state.loadingStatus} \nloadTips={["点击加载更多","加载中...","加载成功！","加载失败！","没有更多"]} \nbuttonStyles={["primary","gray","success","danger","gray"]} \nonLoading={::this.onLoading} onLoadingEnd={::this.onLoadingEnd}>\n\  '+
 		'<ul>\n\    {\n\      this.state.loadingData.map((data,index)=>{\n\        return (\n\          <li key={index}>...</li>\n\        );\n\      })\n\    }\n\  </ul>\n</LoadingList>',
+
+	'imagelist-images':'json:\n {"data": [\n\  {\n\    "image": "...",\n\    "title": "图1",\n\    "desp": "关于图是一个...",\n\    "score": 1\n\  },\n\    ...\n]}\n...\n<ImageList images={this.state.images} column={4} />',
+	'imagelist-column':'<ImageList column={2}  images={this.state.images} />',
+	'imagelist-format':'<ImageList titleField={"姓名: #"} despField={"描述: #"} images={this.state.images} column={4} />\n\n<ImageList titleField={"姓名: #"} despField={""} images={this.state.images} column={4} />',
+	'imagelist-otherparams':'<ImageList images={this.state.images} column={4} otherParams={{"score":"分数: #"}} />',
+	'imagelist-clickcallback':'<ImageList images={this.state.images} column={4} clickCallback={(data)=>{console.log(data);}} />',
+	'imagelist-custom':'<ImageList column={4}>\n\  {this.state.images.map((data,index)=>{\n\    return (\n\      <dl key={index}>\n\        <dd>\n\          <p>{data.name}</p>\n\          <p>{data.desp}</p>\n\        </dd>\n\        <dt><img src={data.image} alt={data.name} /></dt>\n\      </dl>\n\    )\n\  })}\n</ImageList>',
+
+	'steps-list':'<Steps list={["合作信息","公司信息","资质信息"]} />',
+	'steps-currentstep':'<Steps currentStep={2} list={["合作信息","公司信息","资质信息","资质信息"]} />',
+	'steps-clickcallback':'<Steps clickCallback={::this.clickCallback} list={["合作信息","公司信息","资质信息","资质信息"]}/>\nclickCallback(str, index){\n\  ...\n}',
+	'steps-readonly':'<Steps readOnly list={["合作信息","公司信息","资质信息","公司信息","资质信息","公司信息"]} />',
 
 	'animate': '<Animate transitionName="fade">\n\  {this.renderList()}\n</Animate>\n'+
 		'this.state = {list: ["看一本书","睡8个小时"]}\nrenderList(){// 渲染todo list \n\  const items = this.state.list.map((item,index)=>{\n\    return <div key={index} className="animated" onClick={()=>{...}}>{item}</div>;\n\  });\n\  return items;\n}',

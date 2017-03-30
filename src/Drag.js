@@ -1,7 +1,7 @@
 import React,{PropTypes} from 'react';
 import Component from './utils/Component';
 import classnames from 'classnames';
-import {setPhoenixPrefix} from './utils/Tool';
+import {setPhoenixPrefix,getDeviceInfo} from './utils/Tool';
 
 /**
  * 拖拽组件<br/>
@@ -63,9 +63,14 @@ export default class Drag extends Component{
     constructor(props, context) {
         super(props, context);
 
+        this.mobile = getDeviceInfo('mobile');
+
         this.state = {
             position: {}
         };
+
+        this.onMouseMoveHandle = this.onMouseMove.bind(this);
+        this.onMouseEndHandle = this.onMouseEnd.bind(this);   
 
         this.isMouseDown = false;
     }
@@ -96,6 +101,11 @@ export default class Drag extends Component{
         if(onDrag) onDrag(event, this.state.position);
         if(onDragStart) onDragStart(event, this.state.position);
 
+        if(!this.mobile){
+            document.addEventListener('mousemove',this.onMouseMoveHandle,false);
+            document.addEventListener('mouseup',this.onMouseEndHandle,false);
+        } 
+
         return false;
     }
 
@@ -118,7 +128,7 @@ export default class Drag extends Component{
         this.state.position.move = {x:event.pageX, y: event.pageY};
 
         if(this.props.onDrag) this.props.onDrag(event, this.state.position);
-
+        
         return false;
     }
 
@@ -143,12 +153,23 @@ export default class Drag extends Component{
 
         if(this.props.onDrop) this.props.onDrop(event, this.state.position);
         this.isMouseDown = false;
-
+        
+        if(!this.mobile){
+            document.removeEventListener('mousemove',this.onMouseMoveHandle,false);
+            document.removeEventListener('mouseup',this.onMouseEndHandle,false);
+        }
         return false;
     }
 
     onTouchCancel(event){
         // 触屏取消:忽然来电话等情况
+    }
+
+    componentWillUnmount(){
+        if(!this.mobile){
+            document.removeEventListener('mousemove',this.onMouseMoveHandle,false);
+            document.removeEventListener('mouseup',this.onMouseEndHandle,false);
+        }
     }
 
     render(){
@@ -160,8 +181,6 @@ export default class Drag extends Component{
                 onTouchCancel={(event)=>{this.onTouchCancel(event)}}
 
                 onMouseDown={(event)=>{this.onMouseStart(event)}}
-                onMouseMove={(event)=>{this.onMouseMove(event)}}
-                onMouseUp={(event)=>{this.onMouseEnd(event)}}
 
                 ref={(dragAction)=>{this.dragAction = dragAction;}}
             >
