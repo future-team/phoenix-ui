@@ -187,12 +187,6 @@
                 45,
                 117,
                 105,
-                64,
-                49,
-                46,
-                53,
-                46,
-                48,
                 60,
                 47,
                 104,
@@ -633,103 +627,6 @@
                 10,
                 60,
                 112,
-                62,
-                228,
-                189,
-                191,
-                231,
-                148,
-                168,
-                231,
-                187,
-                132,
-                228,
-                187,
-                182,
-                233,
-                156,
-                128,
-                232,
-                166,
-                129,
-                233,
-                162,
-                157,
-                229,
-                164,
-                150,
-                229,
-                174,
-                137,
-                232,
-                163,
-                133,
-                32,
-                60,
-                101,
-                109,
-                62,
-                114,
-                101,
-                97,
-                99,
-                116,
-                45,
-                97,
-                100,
-                100,
-                111,
-                110,
-                115,
-                45,
-                99,
-                115,
-                115,
-                45,
-                116,
-                114,
-                97,
-                110,
-                115,
-                105,
-                116,
-                105,
-                111,
-                110,
-                45,
-                103,
-                114,
-                111,
-                117,
-                112,
-                60,
-                47,
-                101,
-                109,
-                62,
-                32,
-                230,
-                157,
-                165,
-                230,
-                148,
-                175,
-                230,
-                140,
-                129,
-                229,
-                138,
-                168,
-                231,
-                148,
-                187,
-                60,
-                47,
-                112,
-                62,
-                10,
-                60,
-                112,
                 114,
                 101,
                 32,
@@ -793,61 +690,6 @@
                 45,
                 117,
                 105,
-                32,
-                45,
-                45,
-                115,
-                97,
-                118,
-                101,
-                10,
-                36,
-                32,
-                110,
-                112,
-                109,
-                32,
-                105,
-                110,
-                115,
-                116,
-                97,
-                108,
-                108,
-                32,
-                114,
-                101,
-                97,
-                99,
-                116,
-                45,
-                97,
-                100,
-                100,
-                111,
-                110,
-                115,
-                45,
-                99,
-                115,
-                115,
-                45,
-                116,
-                114,
-                97,
-                110,
-                115,
-                105,
-                116,
-                105,
-                111,
-                110,
-                45,
-                103,
-                114,
-                111,
-                117,
-                112,
                 32,
                 45,
                 45,
@@ -4568,8 +4410,8 @@
         "isApp": true
     },
     "files": {
-        "src/Menu/Menu.js": {
-            "name": "src/Menu/Menu.js",
+        "src/menu/Menu.js": {
+            "name": "src/menu/Menu.js",
             "modules": {
                 "菜单组件": 1
             },
@@ -4579,8 +4421,8 @@
             "fors": {},
             "namespaces": {}
         },
-        "src/Menu/MenuBody.js": {
-            "name": "src/Menu/MenuBody.js",
+        "src/menu/MenuBody.js": {
+            "name": "src/menu/MenuBody.js",
             "modules": {},
             "classes": {
                 "MenuBody": 1
@@ -4588,8 +4430,8 @@
             "fors": {},
             "namespaces": {}
         },
-        "src/Menu/MenuHeader.js": {
-            "name": "src/Menu/MenuHeader.js",
+        "src/menu/MenuHeader.js": {
+            "name": "src/menu/MenuHeader.js",
             "modules": {},
             "classes": {
                 "MenuHeader": 1
@@ -4597,8 +4439,8 @@
             "fors": {},
             "namespaces": {}
         },
-        "src/Menu/MenuItem.js": {
-            "name": "src/Menu/MenuItem.js",
+        "src/menu/MenuItem.js": {
+            "name": "src/menu/MenuItem.js",
             "modules": {},
             "classes": {
                 "MenuItem": 1
@@ -4606,8 +4448,8 @@
             "fors": {},
             "namespaces": {}
         },
-        "src/Menu/MenuList.js": {
-            "name": "src/Menu/MenuList.js",
+        "src/menu/MenuList.js": {
+            "name": "src/menu/MenuList.js",
             "modules": {},
             "classes": {
                 "MenuList": 1
@@ -4615,8 +4457,8 @@
             "fors": {},
             "namespaces": {}
         },
-        "src/Menu/MenuNav.js": {
-            "name": "src/Menu/MenuNav.js",
+        "src/menu/MenuNav.js": {
+            "name": "src/menu/MenuNav.js",
             "modules": {},
             "classes": {
                 "MenuNav": 1
@@ -4624,8 +4466,8 @@
             "fors": {},
             "namespaces": {}
         },
-        "src/Modal/Alert.js": {
-            "name": "src/Modal/Alert.js",
+        "src/modal/Alert.js": {
+            "name": "src/modal/Alert.js",
             "modules": {},
             "classes": {
                 "Alert": 1
@@ -4633,8 +4475,8 @@
             "fors": {},
             "namespaces": {}
         },
-        "src/Modal/Dialog.js": {
-            "name": "src/Modal/Dialog.js",
+        "src/modal/Dialog.js": {
+            "name": "src/modal/Dialog.js",
             "modules": {
                 "弹出框组件": 1
             },
@@ -4644,8 +4486,8 @@
             "fors": {},
             "namespaces": {}
         },
-        "src/Modal/Prompt.js": {
-            "name": "src/Modal/Prompt.js",
+        "src/modal/Prompt.js": {
+            "name": "src/modal/Prompt.js",
             "modules": {},
             "classes": {
                 "Prompt": 1
@@ -4791,6 +4633,15 @@
             "fors": {},
             "namespaces": {}
         },
+        "src/ImageList.js": {
+            "name": "src/ImageList.js",
+            "modules": {},
+            "classes": {
+                "ImageList": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src/Input.js": {
             "name": "src/Input.js",
             "modules": {},
@@ -4816,17 +4667,6 @@
             "modules": {},
             "classes": {
                 "LoadingList": 1
-            },
-            "fors": {},
-            "namespaces": {}
-        },
-        "src/PageTransition.js": {
-            "name": "src/PageTransition.js",
-            "modules": {
-                "路由动画": 1
-            },
-            "classes": {
-                "PageTransition": 1
             },
             "fors": {},
             "namespaces": {}
@@ -4874,6 +4714,15 @@
             },
             "classes": {
                 "Star": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Steps.js": {
+            "name": "src/Steps.js",
+            "modules": {},
+            "classes": {
+                "Steps": 1
             },
             "fors": {},
             "namespaces": {}
@@ -4972,7 +4821,7 @@
             "fors": {},
             "namespaces": {},
             "tag": "main",
-            "file": "src/Menu/MenuNav.js",
+            "file": "src/menu/MenuNav.js",
             "line": 6,
             "description": "<h5>菜单组件，主要包括组件:</h5>\n<strong><a href='../classes/Menu.html'>Menu 菜单</a></strong><br/>\n<strong><a href='../classes/MenuHeader.html'>MenuHeader 菜单头部</a></strong><br>\n<strong><a href='../classes/MenuBody.html'>MenuBody 菜单主体</a></strong><br>\n<strong><a href='../classes/MenuNav.html'>MenuNav 菜单导航</a></strong><br>\n<strong><a href='../classes/MenuList.html'>MenuList 菜单导航列表</a></strong><br>\n<strong><a href='../classes/MenuItem.html'>MenuItem 菜单导航列表项</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
             "itemtype": "main"
@@ -4988,7 +4837,7 @@
             "fors": {},
             "namespaces": {},
             "tag": "main",
-            "file": "src/Modal/Prompt.js",
+            "file": "src/modal/Prompt.js",
             "line": 11,
             "description": "<h5>弹出框组件，主要包括组件:</h5>\n<strong><a href='../classes/Dialog.html'>Dialog 基础弹框</a></strong><br/>\n<strong><a href='../classes/Alert.html'>Alert弹框</a></strong><br>\n<strong><a href='../classes/Prompt.html'>Prompt弹框</a></strong>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
             "itemtype": "main"
@@ -4999,12 +4848,14 @@
                 "undefined": 1
             },
             "classes": {
+                "ImageList": 1,
                 "LoadingList": 1,
                 "Popup": 1,
                 "Slider": 1,
-                "Swipe": 1,
+                "Steps": 1,
                 "Toast": 1,
-                "Accordion": 1
+                "Accordion": 1,
+                "Swipe": 1
             },
             "fors": {},
             "namespaces": {},
@@ -5096,19 +4947,6 @@
             "description": "<h5>表单组件，主要包括组件:</h5>\n<strong><a href='../classes/Input.html'>Input 文本框/单选框/多选框</a></strong><br/>\n<strong><a href='../classes/Textarea.html'>Textarea 多行文本框</a></strong><br>\n<strong><a href='../classes/FormGroup.html'>FormGroup 表单组</a></strong><br/>\n<strong><a href='../classes/Switch.html'>Switch 开关</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
             "itemtype": "main"
         },
-        "路由动画": {
-            "name": "路由动画",
-            "submodules": {},
-            "classes": {
-                "PageTransition": 1
-            },
-            "fors": {},
-            "namespaces": {},
-            "tag": "module",
-            "file": "src/PageTransition.js",
-            "line": 7,
-            "description": "路由切换组件<br/>\n- 通过transitionName设置动画类型，可选[fade, slide-top, slide-bottom, slide-left, slide-right]。\n- 通过onLoad函数设置动画完成的回调。\n- 在列表页的最外层元素加`ph-transition-index`类，其他页面跳转到列表页都是回退的效果，到另一个新页面都是前进的效果。\n\n主要属性和接口：\n- transitionName:动画类型／动画名称，默认fade。\n- onLoad:动画完成的回调函数。\n\n示例：\n```code\n let {PageTransition} from 'phoenix-ui';\n\n const RouteTransition = (props)=>(\n     <PageTransition {...props} transitionName=\"slide-left\" onLoad={()=>{console.log('end!!!');}}>{props.children}</PageTransition>\n );\n```\n```code\n let Index = class index extends Component {\n     render() {\n         return (\n             <div className=\"menu ph-transition-index\">\n                 ...\n              </div>\n         );\n     }\n };\n```\n```code\n <Router history={this.history}>\n     <Route path=\"/\" component={RouteTransition}>\n         <Route path=\"/index\" name=\"index\" component={Index} />\n         <Route path=\"/button\" name=\"button\" component={Button} />\n         ...\n         <Redirect from=\"/\" to=\"/index\" />\n     </Route>\n </Router>\n```"
-        },
         "提示组件": {
             "name": "提示组件",
             "submodules": {},
@@ -5151,7 +4989,7 @@
             "extension_for": [],
             "module": "菜单组件",
             "namespace": "",
-            "file": "src/Menu/Menu.js",
+            "file": "src/menu/Menu.js",
             "line": 25,
             "description": "菜单组件<br/>\n- 可通过visible设置菜单初始是否可见，默认不可见。\n- 不设置scrollCeiling时默认菜单不吸顶，设置scrollCeiling为具体数值时表示从当前距离开始吸顶，设置0表示至始至终吸顶。\n- 可通过onMenuChange函数设置菜单打开收起的回调函数。\n\n主要属性和接口：\n- visible:初始展开或收起的状态, 默认false收起。\n- scrollCeiling:设置吸顶的距离, 默认不吸顶, 设置0表示始终吸顶。\n- onMenuChange:菜单打开关闭时的回调函数。 <br/>\n如：\n```code\n    <Menu scrollCeiling={100} visible={true} onMenuChange={(visible)=>{console.log(visible);}}>\n        <Menu.Header>\n            标题一\n        </Menu.Header>\n        <Menu.Body>\n            ...\n        </Menu.Body>\n    </Menu>\n```",
             "extends": "Component",
@@ -5164,7 +5002,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/menu"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/menu"
             ],
             "isApp": true,
             "show": true
@@ -5179,8 +5017,8 @@
             "extension_for": [],
             "module": "菜单组件",
             "namespace": "",
-            "file": "src/Menu/MenuBody.js",
-            "line": 10,
+            "file": "src/menu/MenuBody.js",
+            "line": 9,
             "description": "菜单内容组件<br/>\n- 通过placement设置菜单出现的位置和类型, 可选 [top,left,right,left-full,right-full,full-screen]。\n- 可通过width设置侧边菜单的宽度, 当前placement为top和full-screen不生效。\n- 可通过closeButton来配置菜单主体右上角X按钮是否显示。\n\n主要属性和接口：\n- placement:菜单出现的位置和类型, 默认top。\n- width:侧边菜单的宽度, 当前placement为top和full-screen不生效。\n- closeButton:菜单主体右上角X按钮是否显示, 默认不显示。<br/>\n如：\n```code\n    <Menu>\n        <Menu.Header>\n            标题一\n        </Menu.Header>\n        <Menu.Body width={60} placement=\"left\" closeButton>\n            ...\n        </Menu.Body>\n    </Menu>\n```",
             "extends": "Component",
             "is_constructor": 1,
@@ -5192,7 +5030,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/menu"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/menu"
             ],
             "isApp": true,
             "show": true
@@ -5207,7 +5045,7 @@
             "extension_for": [],
             "module": "菜单组件",
             "namespace": "",
-            "file": "src/Menu/MenuHeader.js",
+            "file": "src/menu/MenuHeader.js",
             "line": 8,
             "description": "菜单头部组件<br/>\n- 通过align设置菜单按钮的位置, 可选[left, right]。\n\n主要属性和接口：\n- align:设置菜单按钮的位置,默认left。 <br/>\n如：\n```code\n    <Menu>\n        <Menu.Header align=\"right\">\n            标题一\n        </Menu.Header>\n        <Menu.Body>\n            ...\n        </Menu.Body>\n    </Menu>\n```",
             "extends": "Component",
@@ -5220,7 +5058,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/menu"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/menu"
             ],
             "isApp": true,
             "show": true
@@ -5235,7 +5073,7 @@
             "extension_for": [],
             "module": "菜单组件",
             "namespace": "",
-            "file": "src/Menu/MenuItem.js",
+            "file": "src/menu/MenuItem.js",
             "line": 8,
             "description": "菜单导航列表项组件<br/>\n- 可通过phIcon设置菜单项名称前符号的类型，具体可以参考[gfs-icons](https://future-team.github.io/gfs-icons/index.html)。 \n- 可通过href设置菜单项的跳转地址，可不设置，自定义回调函数onMenuitemChange。\n- 可通过name设置菜单项的唯一标识，对应MenuList的activeName。\n- 通过onMenuitemChange设置点击菜单项时的回调。\n\n主要属性和接口：\n- phIcon:菜单项名称前符号的类型，不设置时默认没有符号。 \n- href:菜单项的跳转地址，默认null。\n- name:菜单项的唯一标识。\n- onMenuitemChange:点击菜单项时的回调。<br/>\n如：\n```code\n    <Menu>\n        <Menu.Header>\n            标题一\n        </Menu.Header>\n        <Menu.Body>\n            <Menu.Nav>\n                 <Menu.List activeName={this.state.activeName} onMenulistChange={(name)=>{this.setState({activeName:name})}}>\n                     <Menu.Item name=\"home\" href=\"#index\" phIcon=\"home\" onMenuitemChange={(name)=>{console.log(name);}}>首页</Menu.Item>\n                 </Menu.List>\n             </Menu.Nav>\n        </Menu.Body>\n    </Menu>\n```",
             "extends": "Component",
@@ -5248,7 +5086,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/menu"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/menu"
             ],
             "isApp": true,
             "show": true
@@ -5263,7 +5101,7 @@
             "extension_for": [],
             "module": "菜单组件",
             "namespace": "",
-            "file": "src/Menu/MenuList.js",
+            "file": "src/menu/MenuList.js",
             "line": 8,
             "description": "菜单导航列表组件<br/>\n- 通过activeName设置当前导航选中的菜单项， 必需。\n- 通过onMenulistChange函数设置点击菜单项时的回调，函数内必需手动更改activeName值，必需。\n\n主要属性和接口：\n- activeName:设置当前导航选中的菜单项,默认null。 \n- onMenulistChange:点击菜单项时的回调。 <br/>\n如：\n```code\n    <Menu>\n        <Menu.Header>\n            标题一\n        </Menu.Header>\n        <Menu.Body>\n            <Menu.Nav>\n                 <Menu.List activeName={this.state.activeName} onMenulistChange={(name)=>{this.setState({activeName:name})}}>\n                     ...\n                 </Menu.List>\n             </Menu.Nav>\n        </Menu.Body>\n    </Menu>\n```",
             "extends": "Component",
@@ -5276,7 +5114,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/menu"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/menu"
             ],
             "isApp": true,
             "show": true
@@ -5291,7 +5129,7 @@
             "extension_for": [],
             "module": "菜单组件",
             "namespace": "",
-            "file": "src/Menu/MenuNav.js",
+            "file": "src/menu/MenuNav.js",
             "line": 6,
             "description": "菜单导航组件<br/>\n- 通过align设置菜单导航部分的位置, 可选[top,center,bottom]。\n\n主要属性和接口：\n- align:设置菜单导航部分的位置,默认top。 <br/>\n如：\n```code\n    <Menu>\n        <Menu.Header>\n            标题一\n        </Menu.Header>\n        <Menu.Body width={60}>\n            <Menu.Nav align=\"center\">\n                 ...\n             </Menu.Nav>\n        </Menu.Body>\n    </Menu>\n```",
             "extends": "Component",
@@ -5304,7 +5142,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/menu"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/menu"
             ],
             "isApp": true,
             "show": true
@@ -5319,7 +5157,7 @@
             "extension_for": [],
             "module": "弹出框组件",
             "namespace": "",
-            "file": "src/Modal/Alert.js",
+            "file": "src/modal/Alert.js",
             "line": 10,
             "description": "Alert组件<br/>\n- 由于弹框的显示操作在组件以外, 所以需要在使用时自定义`visible`、`onClose`函数。\n- 可通过title设置弹出框标题，content设置内容，buttons设置尾部按钮。(相对Dialog新增参数)\n- 默认有[确定]1个按钮，点击[确定]默认的执行函数是onClose直接关闭。\n- 通过visible设置弹框是否显示, 可选true/false, 必需。\n- 可通过onClose配置点击弹框阴影部分以及弹框右上角X按钮来关闭弹框。\n- 可通过closeButton来配置弹框右上角X按钮是否显示, 默认不显示。\n- 默认传了onClose之后阴影部分就具备点击关闭弹框的按钮, 如果需要去掉该功能需要额外传shadowDisabled作为标识。\n\n主要属性和接口：\n- title:弹框的标题，必需。\n- content:弹框的内容，必需。\n- buttons:尾部按钮的内容，必需是数组的形式，text标识填充的问题，phStyle表示主题，onHandle表示点击的回调，otherProps传递按钮的其他属性，如{active:true, block:true, hollow: true}。\n- visible:弹框是否显示标识, 默认false不可见。\n- onClose:关闭弹框的功能函数。\n- closeButton:右上角关闭按钮是否显示的标识, 默认不显示。\n- shadowDisabled:阴影部分是否可点击关闭按钮, 默认传了onClose函数就可以关闭。\n\n示例:\n```code\n     const buttons = [\n           {text: \"取消\", phStyle: \"gray\", otherProps: {hollow: true}}, // text默认\"确定\", phStyle默认primary，onHandle默认onClose\n           {text: \"确定\", onHandle: this.onConfirm}\n       ];\n       ...\n     <Alert closeButton shadowDisabled visible={this.state.visible} onClose={::this.onClose.bind(this,'visible')} \n         title=\"这是标题\" content=\"这里是弹出框的内容...\" buttons={buttons} />\n```",
             "extends": "Component",
@@ -5332,7 +5170,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/alert"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/alert"
             ],
             "isApp": true,
             "show": true
@@ -5347,7 +5185,7 @@
             "extension_for": [],
             "module": "弹出框组件",
             "namespace": "",
-            "file": "src/Modal/Dialog.js",
+            "file": "src/modal/Dialog.js",
             "line": 18,
             "description": "弹框组件<br/>\n- 由于弹框的显示操作在组件以外, 所以需要在使用时自定义`visible`、`onClose`函数。\n- 通过visible设置弹框是否显示, 可选true/false, 必需。\n- 可通过onClose配置点击弹框阴影部分以及弹框右上角X按钮来关闭弹框。\n- 可通过closeButton来配置弹框右上角X按钮是否显示, 默认不显示。\n- 默认传了onClose之后阴影部分就具备点击关闭弹框的按钮, 如果需要去掉该功能需要额外传shadowDisabled作为标识。\n\n主要属性和接口：\n- visible:弹框是否显示标识, 默认false不可见<br/>\n- onClose:关闭弹框的功能函数<br/>\n- closeButton:右上角关闭按钮是否显示的标识, 默认不显示<br/>\n- shadowDisabled:阴影部分是否可点击关闭按钮, 默认传了onClose函数就可以关闭<br/>\n\n示例:\n```code\n    <Dialog visible={this.state.visible} onClose={::this.onClose} closeButton shadowDisabled>\n        <Dialog.Title>标题标题</Dialog.Title>\n        <Dialog.Body>\n            <p>可自定义表格内容</p>\n        </Dialog.Body>\n        <Dialog.Footer>\n            <Button hollow phSize=\"lg\" phStyle=\"gray\" onClick={::this.onClose}>取消</Button>\n        </Dialog.Footer>\n    </Dialog>\n```\n```code\n    onShow(){\n        this.setState({\n            visible: true\n        });\n    }\n    onClose(){\n        this.setState({\n            visible: false\n        });\n    }\n```",
             "extends": "Component",
@@ -5360,7 +5198,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/dialog"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/dialog"
             ],
             "isApp": true,
             "show": true
@@ -5375,7 +5213,7 @@
             "extension_for": [],
             "module": "弹出框组件",
             "namespace": "",
-            "file": "src/Modal/Prompt.js",
+            "file": "src/modal/Prompt.js",
             "line": 11,
             "description": "Prompt组件<br/>\n- 由于弹框的显示操作在组件以外, 所以需要在使用时自定义`visible`、`onClose`函数。\n- 可通过title设置弹出框标题，content设置内容，buttons设置尾部按钮。(相对Dialog新增参数)\n- 按钮默认有[取消, 确定]2个按钮，点击[取消]默认的执行函数是直接关闭，点击[确定]通过传入的onConfirm函数可获取input的value数组，可自行添加回调。。\n- 通过visible设置弹框是否显示, 可选true/false, 必需。\n- 可通过onClose配置点击弹框阴影部分以及弹框右上角X按钮来关闭弹框。\n- 可通过closeButton来配置弹框右上角X按钮是否显示, 默认不显示。\n- 默认传了onClose之后阴影部分就具备点击关闭弹框的按钮, 如果需要去掉该功能需要额外传shadowDisabled作为标识。\n\n主要属性和接口：\n- title:弹框的标题，必需。\n- content:弹框的内容，必需。\n- buttons:尾部按钮的内容，必需是数组的形式，text标识填充的问题，phStyle表示主题，onHandle表示点击按钮的回调，otherProps传递按钮的其他属性，如{active:true, block:true, hollow: true}。\n- onConfirm:点击确定按钮的回调，返回input的value。\n- visible:弹框是否显示标识, 默认false不可见。\n- onClose:关闭弹框的功能函数。\n- closeButton:右上角关闭按钮是否显示的标识, 默认不显示。\n- shadowDisabled:阴影部分是否可点击关闭按钮, 默认传了onClose函数就可以关闭。\n\n示例:\n```code\n     const buttons = [\n           {text: \"取消\", phStyle: \"gray\", otherProps: {hollow: true}}, // text默认\"确定\", phStyle默认primary，onHandle默认onClose\n           {text: \"确定\", onHandle: this.onConfirm}\n       ];\n       ...\n     <Prompt closeButton shadowDisabled visible={this.state.visible} onClose={::this.onClose.bind(this,'visible')} \n         title=\"这是标题\" content=\"这里是弹出框的内容...\" buttons={buttons} />\n```",
             "extends": "Component",
@@ -5388,7 +5226,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/prompt"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/prompt"
             ],
             "isApp": true,
             "show": true
@@ -5416,7 +5254,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/accordion"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/accordion"
             ],
             "isApp": true,
             "show": true
@@ -5444,7 +5282,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/animate"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/animate"
             ],
             "isApp": true,
             "show": true
@@ -5472,7 +5310,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/badge"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/badge"
             ],
             "isApp": true,
             "show": true
@@ -5500,7 +5338,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/button"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/button"
             ],
             "isApp": true,
             "show": true
@@ -5528,7 +5366,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/buttongroup"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/buttongroup"
             ],
             "isApp": true,
             "show": true
@@ -5555,7 +5393,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/grid"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/grid"
             ],
             "isApp": true,
             "since": "0.1.0",
@@ -5584,7 +5422,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/drag"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/drag"
             ],
             "isApp": true,
             "show": true
@@ -5612,7 +5450,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/formgroup"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/formgroup"
             ],
             "isApp": true,
             "show": true
@@ -5640,7 +5478,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/grid"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/grid"
             ],
             "isApp": true,
             "show": true
@@ -5668,7 +5506,35 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/icon"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/icon"
+            ],
+            "isApp": true,
+            "show": true
+        },
+        "ImageList": {
+            "name": "ImageList",
+            "shortname": "ImageList",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "操作类组件",
+            "namespace": "",
+            "file": "src/ImageList.js",
+            "line": 6,
+            "description": "图片列表组件<br/>\n- 通过images配置图片列表数据，数组格式，其中图片地址对应`image`字段，名称对应`title`字段，描述对应`desp`字段。\n- 通过column设置图片列表的列数，1-8列。\n- 通过titleField设置名称的格式，以`#`代表名称；通过despField设置描述的格式，以`#`代表描述。\n- 通过otherParams设置额外的字段和格式。\n- 通过clickCallback设置点击单个图片块的回调函数，返回当前图片的所有数据。\n- 可以自定义内容children，当有内容时除了column其他属性不起作用。\n\n主要属性和接口：\n- images:图片列表数据，默认[]。<br>\n```code\njson:\n{\n \"data\": [\n     {\n         \"image\": \"http://img5.duitang.com/uploads/item/201602/11/20160211214958_RhdCY.jpeg\",\n         \"title\": \"图1\",\n         \"desp\": \"关于图是一个...\",\n         \"score\": 1\n     },\n     ...\n ]\n}\n...\n<ImageList images={this.state.images} />\n```\n- column:列表的列数，默认1。<br>\n如: `<ImageList column={2}  images={this.state.images} />`\n- titleField:名称的格式，以`#`代表名称，默认\"#\"despField:描述的格式，以`#`代表描述，默认\"#\"。<br>\n如: `<ImageList images={this.state.images} titleField={\"姓名: #\"} despField={\"描述: #\"} />`\n- otherParams:额外的字段和格式，默认{}。<br>\n如: `<ImageList images={this.state.images} otherParams={{\"score\":\"分数: #\"}} />`\n- clickCallback:点击单个图片块的回调函数。<br>\n如: `<ImageList images={this.state.images} clickCallback={(data)=>{console.log(data);}} />`\n- 自定义内容:children，当有内容时除了column其他属性不起作用。\n```code\n<ImageList column={4}>\n {\n     this.state.images.map((data,index)=>{\n         return (\n             <dl key={index}>\n                 <dd>\n                     <p>{data.title}</p>\n                     <p>{data.desp}</p>\n                 </dd>\n                 <dt>\n                     <img src={data.image} alt={data.title} />\n                 </dt>\n             </dl>\n         )\n     })\n }\n</ImageList>\n```",
+            "extends": "Component",
+            "is_constructor": 1,
+            "since": "1.7.0",
+            "example": [
+                "\timport React, { Component } from \"react\";\n\timport {ImageList} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\timport {ajax} from \"./utils/tool.js\";\n\t\n\texport default class imagelist extends Component{\n\t    constructor(props,context){\n\t        super(props,context); \n\t\n\t        this.state = {\n\t            images: []\n\t        }\n\t\n\t        this.getData(\"./data/post1.json\",0);\n\t    }\n\t\n\t    getData(fileName){ // 获取数据方法，ajax方法在下面定义了\n\t        ajax(fileName).then((json)=>{\n\t            let data = json.data;\n\t\n\t            this.setState({\n\t                images: data\n\t            }); \n\t\n\t        }, (error)=>{// 加载失败\n\t            console.error(\"出错了\", error)\n\t        });\n\t    }\n\t                \n\t    render(){\n\t        return(\n\t            <div>\n\t            \t<h2 className=\"comp-title\">ImageList</h2>\n\t                <h3 className=\"comp-type\">images(默认[]) 图片数据<br/>默认地址的字段是image，名称的字段是title，描述的字段是desp</h3>\n\t                <ImageList images={this.state.images} column={4} />\n\t                <Code target=\"imagelist-images\" />               \n\t\n\t                <h3 className=\"comp-type\">column(默认1) 图片列数</h3>\n\t                <ImageList column={2}  images={this.state.images} />\n\t                <Code target=\"imagelist-column\" /> \n\t\n\t                <h3 className=\"comp-type\">titleField(默认#) 姓名格式更改，#代表数值；<br/>despField(默认#) 描述格式更改，#代表数值</h3>\n\t                <ImageList images={this.state.images} column={4} titleField={\"姓名: #\"} despField={\"描述: #\"} />\n\t                <h3 className=\"comp-tip\"> 如果name或desp中有不要的字段，传空字符\"\" </h3>\n\t                <ImageList images={this.state.images} column={4} titleField={\"姓名: #\"} despField={\"\"} />\n\t                <Code target=\"imagelist-format\" /> \n\t                \n\t                <h3 className=\"comp-type\">otherParams(默认{}) 其他增加项</h3>\n\t                <ImageList images={this.state.images} column={4} otherParams={{\"score\":\"分数: #\"}} />\n\t                <Code target=\"imagelist-otherparams\" /> \n\t\n\t                <h3 className=\"comp-type\">clickCallback(默认null) 点击单个图片块的回调函数</h3>\n\t                <ImageList images={this.state.images} column={4} clickCallback={(data)=>{console.log(data);}} />\n\t                <Code target=\"imagelist-clickcallback\" /> \n\t\n\t                <h3 className=\"comp-type\">children(默认无) 内容完全自定义</h3>\n\t                <ImageList column={4}>\n\t                    {\n\t                        this.state.images.map((data,index)=>{\n\t                            return (\n\t                                <dl key={index}>\n\t                                    <dd>\n\t                                        <p className=\"ph-image-title\">{data.title}</p>\n\t                                        <p className=\"ph-image-desp\">{data.desp}</p>\n\t                                    </dd>\n\t                                    <dt>\n\t                                        <img src={data.image} alt={data.title} />\n\t                                    </dt>\n\t                                </dl>\n\t                            )\n\t                        })\n\t                    }\n\t                </ImageList>\n\t                <Code target=\"imagelist-custom\" /> \n\t            </div>\n\t        );\n\t    }\n\t}"
+            ],
+            "exampleTitles": [
+                "展示"
+            ],
+            "exampleUrls": [
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/imagelist"
             ],
             "isApp": true,
             "show": true
@@ -5696,7 +5562,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/input"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/input"
             ],
             "isApp": true,
             "show": true
@@ -5724,7 +5590,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/label"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/label"
             ],
             "isApp": true,
             "show": true
@@ -5746,41 +5612,13 @@
             "is_constructor": 1,
             "since": "1.6.0",
             "example": [
-                "\timport React, { Component } from \"react\";\n\timport {LoadingList} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class loadinglist extends Component{\n\t    constructor(props,context){\n\t        super(props,context); \n\t\n\t        this.count = 0;\n\t\n\t        this.state = {\n\t            loadingData : [],\n\t            loadingStatus: 1 // 状态：0\"加载更多\",1\"加载中\",2\"加载成功\",3\"加载失败\",4\"没有更多\"\n\t        }\n\t\n\t        this.getData(\"./data/post.json\");\n\t    }\n\t\n\t    getData(fileName){ // 获取数据方法，ajax方法在下面定义了\n\t        ajax(fileName).then((json)=>{\n\t            let data = json.data;\n\t            let loadingData = this.state.loadingData.slice(0);\n\t            for(let i in data){\n\t                loadingData.push(data[i]);\n\t            }\n\t            this.setState({\n\t                loadingData: loadingData,\n\t                loadingStatus: json.final? 4:2\n\t            }); \n\t\n\t        }, (error)=>{// 加载失败\n\t            this.setState({\n\t                loadingStatus: 3\n\t            }); \n\t            console.error(\"出错了\", error)\n\t        });\n\t    }\n\t\n\t    onLoading(){ // 加载更多的执行回调(点击按钮刷新或滑倒屏幕最下方自动刷新)\n\t\n\t        // 如果已经没有更多，不再执行请求数据的操作\n\t        if(this.state.loadingStatus==4) return;\n\t        \n\t        // 点击之后显示加载中的状态\n\t        this.setState({\n\t            loadingStatus: 1\n\t        }); \n\t\n\t        if(this.state.loadingStatus!=3) this.count++; // 请求失败继续请求当前json\n\t        this.getData(\"./data/post\"+this.count+\".json\"); // 开始请求数据\n\t    }\n\t\n\t    onLoadingEnd(){ //  DOM加载完成执行的回调\n\t        if(this.state.loadingStatus==3) return;\n\t\n\t        this.setState({\n\t            loadingStatus: 0\n\t        }); \n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t            \t<h2 className=\"comp-title\">LoadingList</h2>\n\t                <h3 className=\"comp-type\">phMode(默认auto) 加载更多的模式，可选[auto,button]</h3>\n\t                <h3 className=\"comp-type\">loadingStatus(默认1) 0－加载更多, 1－加载中, 2－数据加载成功, 3－数据加载失败, 4－没有更多</h3>\n\t                <h3 className=\"comp-type\">buttonStyles 按钮的样式，默认[\"primary\",\"info\",\"success\",\"error\",\"gray\"]</h3>\n\t                <h3 className=\"comp-type\">loadTips 按钮文字和状态提示语，默认[\"加载更多\",\"加载中\",\"加载成功\",\"加载失败\",\"没有更多\"]</h3>\n\t                <h3 className=\"comp-type\">onLoading函数 点击按钮加载或滑到底部自动加载的回调函数</h3>\n\t                <h3 className=\"comp-type\">onLoadingEnd函数 每次加载结束的回调函数</h3>\n\t                <LoadingList phMode=\"auto\" loadingStatus={this.state.loadingStatus} \n\t                    loadTips={[\"点击加载更多\",\"加载中...\",\"加载成功！\",\"加载失败！\",\"没有更多\"]} \n\t                    buttonStyles={[\"primary\",\"gray\",\"success\",\"danger\",\"gray\"]} \n\t                    onLoading={::this.onLoading} onLoadingEnd={::this.onLoadingEnd}>\n\t                    <ul>\n\t                        {\n\t                            this.state.loadingData.map((data,index)=>{\n\t                                return (\n\t                                    <li key={index}>\n\t                                        <img src={data.image} alt={data.name} />\n\t                                        <p>{data.name}</p>\n\t                                        <p>{data.desp}</p>\n\t                                    </li>\n\t                                );\n\t                            })\n\t                        }\n\t                    </ul>\n\t                </LoadingList>\n\t                <Code target=\"loadinglist\" />\n\t            </div>\n\t        );\n\t    }\n\t}\n\t\n\tlet ajax = url => {\n\t  return new Promise((resolve, reject)=>{\n\t    let xhr = new XMLHttpRequest();\n\t    xhr.open(\"get\", url, true);\n\t    xhr.responseType = \"json\";\n\t    xhr.onreadystatechange = readyStateHandle;\n\t    xhr.send();\n\t\n\t    function readyStateHandle(){\n\t      if(this.readyState !== 4) return;\n\t      if(this.status === 200){\n\t        setTimeout(()=>{ // 虚拟请求时间1s\n\t            resolve(this.response);\n\t        }, 1000);\n\t      }else{\n\t        setTimeout(()=>{  // 虚拟请求时间1s\n\t            reject(new Error(this.statusText));\n\t        }, 1000); \n\t      }\n\t    }\n\t  });\n\t}"
+                "\timport React, { Component } from \"react\";\n\timport {LoadingList} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\timport {ajax} from \"./utils/tool.js\";\n\t\n\texport default class loadinglist extends Component{\n\t    constructor(props,context){\n\t        super(props,context); \n\t\n\t        this.count = 0;\n\t\n\t        this.state = {\n\t            loadingData : [],\n\t            loadingStatus: 1 // 状态：0\"加载更多\",1\"加载中\",2\"加载成功\",3\"加载失败\",4\"没有更多\"\n\t        }\n\t\n\t        this.getData(\"./data/post.json\");\n\t    }\n\t\n\t    getData(fileName){ // 获取数据方法，ajax方法在下面定义了\n\t        ajax(fileName).then((json)=>{\n\t            let data = json.data;\n\t            let loadingData = this.state.loadingData.slice(0);\n\t            for(let i in data){\n\t                loadingData.push(data[i]);\n\t            }\n\t            this.setState({\n\t                loadingData: loadingData,\n\t                loadingStatus: json.final? 4:2\n\t            }); \n\t\n\t        }, (error)=>{// 加载失败\n\t            this.setState({\n\t                loadingStatus: 3\n\t            }); \n\t            console.error(\"出错了\", error)\n\t        });\n\t    }\n\t\n\t    onLoading(){ // 加载更多的执行回调(点击按钮刷新或滑倒屏幕最下方自动刷新)\n\t\n\t        // 如果已经没有更多，不再执行请求数据的操作\n\t        if(this.state.loadingStatus==4) return;\n\t        \n\t        // 点击之后显示加载中的状态\n\t        this.setState({\n\t            loadingStatus: 1\n\t        }); \n\t\n\t        if(this.state.loadingStatus!=3) this.count++; // 请求失败继续请求当前json\n\t        this.getData(\"./data/post\"+this.count+\".json\"); // 开始请求数据\n\t    }\n\t\n\t    onLoadingEnd(){ //  DOM加载完成执行的回调\n\t        if(this.state.loadingStatus==3) return;\n\t\n\t        this.setState({\n\t            loadingStatus: 0\n\t        }); \n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t            \t<h2 className=\"comp-title\">LoadingList</h2>\n\t                <h3 className=\"comp-type\">phMode(默认auto) 加载更多的模式，可选[auto,button]</h3>\n\t                <h3 className=\"comp-type\">loadingStatus(默认1) 0－加载更多, 1－加载中, 2－数据加载成功, 3－数据加载失败, 4－没有更多</h3>\n\t                <h3 className=\"comp-type\">buttonStyles 按钮的样式，默认[\"primary\",\"info\",\"success\",\"error\",\"gray\"]</h3>\n\t                <h3 className=\"comp-type\">loadTips 按钮文字和状态提示语，默认[\"加载更多\",\"加载中\",\"加载成功\",\"加载失败\",\"没有更多\"]</h3>\n\t                <h3 className=\"comp-type\">onLoading函数 点击按钮加载或滑到底部自动加载的回调函数</h3>\n\t                <h3 className=\"comp-type\">onLoadingEnd函数 每次加载结束的回调函数</h3>\n\t                <LoadingList phMode=\"auto\" loadingStatus={this.state.loadingStatus} \n\t                    loadTips={[\"点击加载更多\",\"加载中...\",\"加载成功！\",\"加载失败！\",\"没有更多\"]} \n\t                    buttonStyles={[\"primary\",\"gray\",\"success\",\"danger\",\"gray\"]} \n\t                    onLoading={::this.onLoading} onLoadingEnd={::this.onLoadingEnd}>\n\t                    <ul>\n\t                        {\n\t                            this.state.loadingData.map((data,index)=>{\n\t                                return (\n\t                                    <li key={index}>\n\t                                        <img src={data.image} alt={data.title} />\n\t                                        <p>{data.title}</p>\n\t                                        <p>{data.desp}</p>\n\t                                    </li>\n\t                                );\n\t                            })\n\t                        }\n\t                    </ul>\n\t                </LoadingList>\n\t                <Code target=\"loadinglist\" />\n\t            </div>\n\t        );\n\t    }\n\t}\n\t"
             ],
             "exampleTitles": [
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/LoadingList"
-            ],
-            "isApp": true,
-            "show": true
-        },
-        "PageTransition": {
-            "name": "PageTransition",
-            "shortname": "PageTransition",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "路由动画",
-            "namespace": "",
-            "file": "src/PageTransition.js",
-            "line": 7,
-            "description": "路由切换组件<br/>\n- 通过transitionName设置动画类型，可选[fade, slide-top, slide-bottom, slide-left, slide-right]。\n- 通过onLoad函数设置动画完成的回调。\n- 在列表页的最外层元素加`ph-transition-index`类，其他页面跳转到列表页都是回退的效果，到另一个新页面都是前进的效果。\n\n主要属性和接口：\n- transitionName:动画类型／动画名称，默认fade。\n- onLoad:动画完成的回调函数。\n\n示例：\n```code\n let {PageTransition} from 'phoenix-ui';\n\n const RouteTransition = (props)=>(\n     <PageTransition {...props} transitionName=\"slide-left\" onLoad={()=>{console.log('end!!!');}}>{props.children}</PageTransition>\n );\n```\n```code\n let Index = class index extends Component {\n     render() {\n         return (\n             <div className=\"menu ph-transition-index\">\n                 ...\n              </div>\n         );\n     }\n };\n```\n```code\n <Router history={this.history}>\n     <Route path=\"/\" component={RouteTransition}>\n         <Route path=\"/index\" name=\"index\" component={Index} />\n         <Route path=\"/button\" name=\"button\" component={Button} />\n         ...\n         <Redirect from=\"/\" to=\"/index\" />\n     </Route>\n </Router>\n```",
-            "extends": "Component",
-            "is_constructor": 1,
-            "since": "1.6.0",
-            "example": [
-                "\timport React, { Component } from \"react\";\n\timport Code from \"./code/code\";\n\t\n\texport default class pagetransite extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">PageTransition</h2>\n\t                <h3 className=\"comp-type\">transitionName 动画类型</h3>\n\t                <h3 className=\"comp-type\">onLoad 动画完成的回调函数</h3>\n\t                <Code target=\"page-transition\" />\n\t            </div>\n\t        );\n\t    }\n\t}\n\t"
-            ],
-            "exampleTitles": [
-                "展示"
-            ],
-            "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/pagetransition"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/LoadingList"
             ],
             "isApp": true,
             "show": true
@@ -5808,7 +5646,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/popover"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/popover"
             ],
             "isApp": true,
             "show": true
@@ -5836,7 +5674,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/popup"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/popup"
             ],
             "isApp": true,
             "show": true
@@ -5863,7 +5701,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/grid"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/grid"
             ],
             "isApp": true,
             "since": "0.1.0",
@@ -5881,18 +5719,18 @@
             "namespace": "",
             "file": "src/Slider.js",
             "line": 8,
-            "description": "滑动输入条组件<br/>\n- 滑动进度条确定当前进度的百分比。\n- 可通过设置process确定初始进度百分比, 范围从0-100。\n- 可通过placement设置当前进度提示框的位置, 可选top/bottoom。\n- 可通过onSliderChange设置拖拽进度条松开时的回调函数。\n- 可通过disabled设置进度条只读。\n\n主要属性和接口：\n- process:初始进度百分比, 默认0 <br/>\n如: `<Slider progress={10}/>`\n- placement:进度提示框的位置, 默认top <br/>\n如: `<Slider placement=\"bottom\" />`\n- onSliderChange:拖拽进度条松开时的回调函数 <br/>\n如: `<Slider onSliderChange={(progress)=>{console.log(progress);} />`\n- disabled:进度条只读, 不可操作 <br/>\n如: `<Slider disabled/>`",
+            "description": "滑动输入条组件<br/>\n- 滑动进度条确定当前进度的百分比。\n- 可通过设置process确定初始进度百分比, 范围从0-100。\n- 可通过placement设置当前进度提示框的位置, 可选top/bottoom。\n- 可通过tipStay设置初始和松开按钮时提示是否消失，默认false不显示。\n- 可通过range制定范围，默认0-100，必需是长度为2的数组，第一个数字表示初始，第二个数字表示终点。\n- 可通过showRange判断是否在进度条前后显示范围，默认不显示。\n- 可通过duration设置固定移动的距离，默认1。\n- 可通过onSliderChange设置拖拽进度条松开时的回调函数。\n- 可通过disabled设置进度条只读。\n- 使用Slider前确保父级是有宽度的元素；使用flex需要加一层宽度100%的外壳。\n\n主要属性和接口：\n- process:初始进度百分比, 默认0 <br/>\n如: `<Slider progress={10}/>`\n- placement:进度提示框的位置, 默认top <br/>\n如: `<Slider placement=\"bottom\" />`\n- tipStay:初始和松开按钮时提示是否消失，默认false <br/>\n如: `<Slider tipStay />`\n- range:范围，默认[0,100]。 <br/>\n如: `<Slider range={[20,50]} />`\n- showRange:是否在进度条前后显示范围，默认不显示。 <br/>\n如: `<Slider showRange />`\n- duration:固定移动的距离，默认1。 <br/>\n如: `<Slider duration={20} />`\n- onSliderChange:拖拽进度条松开时的回调函数 <br/>\n如: `<Slider onSliderChange={(progress)=>{console.log(progress);} />`\n- disabled:进度条只读, 不可操作 <br/>\n如: `<Slider disabled/>`",
             "extends": "Component",
             "is_constructor": 1,
             "since": "1.0.0",
             "example": [
-                "\timport React, { Component } from \"react\";\n\timport {Slider} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class slider extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t\n\t        this.state = {\n\t            progress: 50\n\t        }\n\t    }\n\t\n\t    onSliderChange(newProgress){ // progress百分比\n\t        this.setState({\n\t            progress: newProgress\n\t        });\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Slider</h2>\n\t                <h3 className=\"comp-type\">progress(默认0) 初始进度百分比</h3>\n\t                <div className=\"content\">\n\t                    <Slider progress={25} />\n\t                </div>\n\t                <Code target=\"slider-progress\" />\n\t\n\t                <h3 className=\"comp-type\">placement(默认top) 进度条提示框的位置</h3>\n\t                <div className=\"content\">\n\t                    <Slider />\n\t                    <Slider placement=\"bottom\" />\n\t                </div>\n\t                <Code target=\"slider-placement\" />\n\t\n\t                <h3 className=\"comp-type\">onSliderChange 拖拽进度条松开时的回调函数</h3>\n\t                <div className=\"content\">\n\t                    <Slider progress={this.state.progress} onSliderChange={::this.onSliderChange} />\n\t                    <div style={{textAlign:\"center\",padding:\"1rem 0\"}}>Progress: {this.state.progress}</div>\n\t                </div>\n\t                <Code target=\"slider-onsliderchange\" />\n\t\n\t\n\t                <h3 className=\"comp-type\">disabled 进度条只读</h3>\n\t                <div className=\"content\">\n\t                    <Slider disabled progress={10} />\n\t                </div>\n\t                <Code target=\"slider-disabled\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
+                "\timport React, { Component } from \"react\";\n\timport {Slider} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class slider extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t\n\t        this.state = {\n\t            progress: 50\n\t        }\n\t    }\n\t\n\t    onSliderChange(newProgress){ // progress百分比\n\t        this.setState({\n\t            progress: newProgress\n\t        });\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Slider</h2>\n\t                <h3 className=\"comp-type\">progress(默认0) 初始进度百分比</h3>\n\t                <div className=\"content\">\n\t                    <Slider progress={25} />\n\t                </div>\n\t                <Code target=\"slider-progress\" />\n\t\n\t                <h3 className=\"comp-type\">placement(默认top) 进度条提示框的位置</h3>\n\t                <div className=\"content\">\n\t                    <Slider />\n\t                    <Slider placement=\"bottom\" />\n\t                </div>\n\t                <Code target=\"slider-placement\" />\n\t\n\t                <h3 className=\"comp-type\">tipStay(默认false) 松开进度条时是否要隐藏提示</h3>\n\t                <div className=\"content\">\n\t                    <Slider tipStay />\n\t                </div>\n\t                <Code target=\"slider-tipstay\" />\n\t\n\t                <h3 className=\"comp-type\">range(默认[0,100]) 范围</h3>\n\t                <div className=\"content\">\n\t                    <Slider range={[50,200]} showRange />\n\t                </div>\n\t                <Code target=\"slider-range\" />\n\t\n\t                <h3 className=\"comp-type\">showRange(默认false) 范围</h3>\n\t                <div className=\"content\">\n\t                    <Slider range={[25,65]} showRange />\n\t                </div>\n\t                <Code target=\"slider-showrange\" />\n\t\n\t                <h3 className=\"comp-type\">duration(默认1) 每次滑动的距离</h3>\n\t                <div className=\"content\">\n\t                    <Slider duration={20} />\n\t                </div>\n\t                <Code target=\"slider-duration\" />\n\t\n\t                <h3 className=\"comp-type\">onSliderChange 拖拽进度条松开时的回调函数</h3>\n\t                <div className=\"content\">\n\t                    <Slider progress={this.state.progress} onSliderChange={::this.onSliderChange} />\n\t                    <div style={{textAlign:\"center\",padding:\"1rem 0\"}}>Progress: {this.state.progress}</div>\n\t                </div>\n\t                <Code target=\"slider-onsliderchange\" />\n\t\n\t\n\t                <h3 className=\"comp-type\">disabled 进度条只读</h3>\n\t                <div className=\"content\">\n\t                    <Slider disabled progress={10} />\n\t                </div>\n\t                <Code target=\"slider-disabled\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/slider"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/slider"
             ],
             "isApp": true,
             "show": true
@@ -5920,7 +5758,35 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/star"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/star"
+            ],
+            "isApp": true,
+            "show": true
+        },
+        "Steps": {
+            "name": "Steps",
+            "shortname": "Steps",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "操作类组件",
+            "namespace": "",
+            "file": "src/Steps.js",
+            "line": 7,
+            "description": "步骤组件<br/>\n- 通过list设置步骤过程名称数组，如[\"合作信息\",\"公司信息\",\"资质信息\"]，必需。\n- 可通过currentStep设置当前步骤，从0开始计算。\n- 可通过clickCallback设置点击步骤的回调，函数返回步骤名称和索引。\n- 可通过readOnly设置步骤是否只读不可点击，默认可点击。\n\n主要属性和接口：\n- list:初始进度百分比, 默认0。 <br/>\n如: `<Steps list={[\"合作信息\",\"公司信息\",\"资质信息\"]} />`\n- currentStep:当前步骤，从0开始计算，默认0。 <br/>\n如: `<Steps currentStep={1} list={[\"合作信息\",\"公司信息\",\"资质信息\"]} />`\n- clickCallback:点击步骤的回调，函数返回步骤名称和索引。 <br/>\n如: `<Steps clickCallback={(str,index)=>{console.log(index);}} list={[\"合作信息\",\"公司信息\",\"资质信息\"]}/>`\n- readOnly:只读不可点击，默认false。<br/>\n如: `<Steps readOnly list={[\"合作信息\",\"公司信息\",\"资质信息\"]} />`",
+            "extends": "Component",
+            "is_constructor": 1,
+            "since": "1.7.0",
+            "example": [
+                "\timport React, { Component } from \"react\";\n\timport {Steps} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class steps extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            index: 2,\n\t            list1: [\"合作信息\",\"公司信息\",\"资质信息\",\"资质信息\"],\n\t            list2: [\"合作信息\",\"公司信息\",\"资质信息\",\"公司信息\",\"资质信息\",\"公司信息\"]\n\t        };\n\t    }\n\t\n\t    clickCallback(str, index){\n\t        alert(\"name: \"+str+\", index: \"+index);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t            \t<h2 className=\"comp-title\">Steps</h2>\n\t                <h3 className=\"comp-type\">list(默认[],必需) 步骤名称列表，根据顺序排列</h3>\n\t                <div className=\"content\">\n\t                    <Steps list={[\"合作信息\",\"公司信息\",\"资质信息\"]} />\n\t                </div>\n\t                <Code target=\"steps-list\" />\n\t\n\t                <h3 className=\"comp-type\">currentStep(默认0) 当前步骤(从0开始)</h3>\n\t                <div className=\"content\">\n\t                    <Steps currentStep={2} list={this.state.list1} />\n\t                </div>\n\t                <Code target=\"steps-currentstep\" />\n\t\n\t                <h3 className=\"comp-type\">clickCallback(默认null) 选择步骤的回调函数</h3>\n\t                <div className=\"content\">\n\t                    <Steps clickCallback={::this.clickCallback} list={this.state.list1}/>\n\t                </div>\n\t                <Code target=\"steps-clickcallback\" />\n\t\n\t                <h3 className=\"comp-type\">readOnly(默认false) 是否只读，只读时不可点击选择步骤</h3>\n\t                <div className=\"content\">\n\t\t                <Steps readOnly list={this.state.list2} />\n\t                </div>\n\t                <Code target=\"steps-readonly\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
+            ],
+            "exampleTitles": [
+                "展示"
+            ],
+            "exampleUrls": [
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/steps"
             ],
             "isApp": true,
             "show": true
@@ -5948,7 +5814,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/swipe"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/swipe"
             ],
             "isApp": true,
             "show": true
@@ -5976,7 +5842,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/switch"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/switch"
             ],
             "isApp": true,
             "show": true
@@ -6004,7 +5870,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/tab"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/tab"
             ],
             "isApp": true,
             "show": true
@@ -6032,7 +5898,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/tableview"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/tableview"
             ],
             "isApp": true,
             "show": true
@@ -6060,7 +5926,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/tab"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/tab"
             ],
             "isApp": true,
             "show": true
@@ -6088,7 +5954,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/textarea"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/textarea"
             ],
             "isApp": true,
             "show": true
@@ -6116,7 +5982,7 @@
                 "toast"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/toast"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/toast"
             ],
             "isApp": true,
             "show": true
@@ -6144,7 +6010,7 @@
                 "展示"
             ],
             "exampleUrls": [
-                "http://future-team.github.io/phoenix-ui/examples/index.html#/popover"
+                "https://future-team.github.io/phoenix-ui/examples/index.html#/popover"
             ],
             "isApp": true,
             "show": true
@@ -6152,7 +6018,7 @@
     },
     "classitems": [
         {
-            "file": "src/Menu/Menu.js",
+            "file": "src/menu/Menu.js",
             "line": 59,
             "description": "样式前缀",
             "itemtype": "property",
@@ -6163,7 +6029,7 @@
             "module": "菜单组件"
         },
         {
-            "file": "src/Menu/Menu.js",
+            "file": "src/menu/Menu.js",
             "line": 66,
             "description": "标签tagName",
             "itemtype": "property",
@@ -6173,7 +6039,7 @@
             "module": "菜单组件"
         },
         {
-            "file": "src/Menu/Menu.js",
+            "file": "src/menu/Menu.js",
             "line": 72,
             "description": "是否可见标识",
             "itemtype": "property",
@@ -6184,7 +6050,7 @@
             "module": "菜单组件"
         },
         {
-            "file": "src/Menu/Menu.js",
+            "file": "src/menu/Menu.js",
             "line": 79,
             "description": "点击收起展开的回调函数",
             "itemtype": "method",
@@ -6194,7 +6060,7 @@
             "module": "菜单组件"
         },
         {
-            "file": "src/Menu/Menu.js",
+            "file": "src/menu/Menu.js",
             "line": 85,
             "description": "是否滚动吸顶, 默认不吸顶(false); 设置确定的数字从当前距离开始吸顶",
             "itemtype": "property",
@@ -6205,8 +6071,8 @@
             "module": "菜单组件"
         },
         {
-            "file": "src/Menu/MenuBody.js",
-            "line": 42,
+            "file": "src/menu/MenuBody.js",
+            "line": 41,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -6216,8 +6082,8 @@
             "module": "菜单组件"
         },
         {
-            "file": "src/Menu/MenuBody.js",
-            "line": 49,
+            "file": "src/menu/MenuBody.js",
+            "line": 48,
             "description": "菜单位置, 可选[top,left,right,left-full,right-full,full-screen], 默认top",
             "itemtype": "property",
             "name": "placement",
@@ -6227,8 +6093,8 @@
             "module": "菜单组件"
         },
         {
-            "file": "src/Menu/MenuBody.js",
-            "line": 56,
+            "file": "src/menu/MenuBody.js",
+            "line": 55,
             "description": "自定义菜单宽度百分比（限左右）",
             "itemtype": "property",
             "name": "width",
@@ -6238,8 +6104,8 @@
             "module": "菜单组件"
         },
         {
-            "file": "src/Menu/MenuBody.js",
-            "line": 64,
+            "file": "src/menu/MenuBody.js",
+            "line": 63,
             "description": "右上角按钮是否可见, 默认不可见",
             "itemtype": "property",
             "name": "closeButton",
@@ -6248,7 +6114,7 @@
             "module": "菜单组件"
         },
         {
-            "file": "src/Menu/MenuHeader.js",
+            "file": "src/menu/MenuHeader.js",
             "line": 40,
             "description": "样式前缀",
             "itemtype": "property",
@@ -6259,7 +6125,7 @@
             "module": "菜单组件"
         },
         {
-            "file": "src/Menu/MenuHeader.js",
+            "file": "src/menu/MenuHeader.js",
             "line": 47,
             "description": "菜单按钮位置, 可选[left,right], left",
             "itemtype": "property",
@@ -6270,7 +6136,7 @@
             "module": "菜单组件"
         },
         {
-            "file": "src/Menu/MenuItem.js",
+            "file": "src/menu/MenuItem.js",
             "line": 50,
             "description": "样式前缀",
             "itemtype": "property",
@@ -6281,7 +6147,7 @@
             "module": "菜单组件"
         },
         {
-            "file": "src/Menu/MenuItem.js",
+            "file": "src/menu/MenuItem.js",
             "line": 57,
             "description": "icon符号类型",
             "itemtype": "property",
@@ -6292,7 +6158,7 @@
             "module": "菜单组件"
         },
         {
-            "file": "src/Menu/MenuItem.js",
+            "file": "src/menu/MenuItem.js",
             "line": 64,
             "description": "跳转地址",
             "itemtype": "property",
@@ -6303,7 +6169,7 @@
             "module": "菜单组件"
         },
         {
-            "file": "src/Menu/MenuItem.js",
+            "file": "src/menu/MenuItem.js",
             "line": 71,
             "description": "当前项目的唯一标志",
             "itemtype": "property",
@@ -6314,7 +6180,7 @@
             "module": "菜单组件"
         },
         {
-            "file": "src/Menu/MenuItem.js",
+            "file": "src/menu/MenuItem.js",
             "line": 78,
             "description": "点击事件的回调函数",
             "itemtype": "method",
@@ -6325,7 +6191,7 @@
             "module": "菜单组件"
         },
         {
-            "file": "src/Menu/MenuList.js",
+            "file": "src/menu/MenuList.js",
             "line": 42,
             "description": "样式前缀",
             "itemtype": "property",
@@ -6336,7 +6202,7 @@
             "module": "菜单组件"
         },
         {
-            "file": "src/Menu/MenuList.js",
+            "file": "src/menu/MenuList.js",
             "line": 49,
             "description": "当前选中的项目name，对应item的name属性",
             "itemtype": "property",
@@ -6347,7 +6213,7 @@
             "module": "菜单组件"
         },
         {
-            "file": "src/Menu/MenuList.js",
+            "file": "src/menu/MenuList.js",
             "line": 56,
             "description": "点击事件的回调函数",
             "itemtype": "method",
@@ -6358,7 +6224,7 @@
             "module": "菜单组件"
         },
         {
-            "file": "src/Menu/MenuNav.js",
+            "file": "src/menu/MenuNav.js",
             "line": 40,
             "description": "样式前缀",
             "itemtype": "property",
@@ -6369,7 +6235,7 @@
             "module": "菜单组件"
         },
         {
-            "file": "src/Menu/MenuNav.js",
+            "file": "src/menu/MenuNav.js",
             "line": 47,
             "description": "导航的位置, 可选[top,center,bottom], 默认top",
             "itemtype": "property",
@@ -6380,7 +6246,7 @@
             "module": "菜单组件"
         },
         {
-            "file": "src/Modal/Alert.js",
+            "file": "src/modal/Alert.js",
             "line": 52,
             "description": "标题",
             "itemtype": "property",
@@ -6390,7 +6256,7 @@
             "module": "弹出框组件"
         },
         {
-            "file": "src/Modal/Alert.js",
+            "file": "src/modal/Alert.js",
             "line": 58,
             "description": "内容",
             "itemtype": "property",
@@ -6400,7 +6266,7 @@
             "module": "弹出框组件"
         },
         {
-            "file": "src/Modal/Alert.js",
+            "file": "src/modal/Alert.js",
             "line": 64,
             "description": "尾部按钮",
             "itemtype": "property",
@@ -6410,7 +6276,7 @@
             "module": "弹出框组件"
         },
         {
-            "file": "src/Modal/Alert.js",
+            "file": "src/modal/Alert.js",
             "line": 70,
             "description": "是否可见标识",
             "itemtype": "property",
@@ -6420,7 +6286,7 @@
             "module": "弹出框组件"
         },
         {
-            "file": "src/Modal/Alert.js",
+            "file": "src/modal/Alert.js",
             "line": 76,
             "description": "关闭弹框的执行函数",
             "itemtype": "method",
@@ -6430,7 +6296,7 @@
             "module": "弹出框组件"
         },
         {
-            "file": "src/Modal/Alert.js",
+            "file": "src/modal/Alert.js",
             "line": 82,
             "description": "右上角按钮是否可见, 默认不可见",
             "itemtype": "property",
@@ -6440,7 +6306,7 @@
             "module": "弹出框组件"
         },
         {
-            "file": "src/Modal/Alert.js",
+            "file": "src/modal/Alert.js",
             "line": 88,
             "description": "阴影部分是否点击可关闭弹框, 默认传了onClose之后可关闭",
             "itemtype": "property",
@@ -6450,7 +6316,7 @@
             "module": "弹出框组件"
         },
         {
-            "file": "src/Modal/Dialog.js",
+            "file": "src/modal/Dialog.js",
             "line": 69,
             "description": "样式前缀",
             "itemtype": "property",
@@ -6461,7 +6327,7 @@
             "module": "弹出框组件"
         },
         {
-            "file": "src/Modal/Dialog.js",
+            "file": "src/modal/Dialog.js",
             "line": 76,
             "description": "标签tagName",
             "itemtype": "property",
@@ -6471,7 +6337,7 @@
             "module": "弹出框组件"
         },
         {
-            "file": "src/Modal/Dialog.js",
+            "file": "src/modal/Dialog.js",
             "line": 82,
             "description": "是否可见标识",
             "itemtype": "property",
@@ -6481,7 +6347,7 @@
             "module": "弹出框组件"
         },
         {
-            "file": "src/Modal/Dialog.js",
+            "file": "src/modal/Dialog.js",
             "line": 88,
             "description": "关闭弹框的执行函数",
             "itemtype": "method",
@@ -6491,7 +6357,7 @@
             "module": "弹出框组件"
         },
         {
-            "file": "src/Modal/Dialog.js",
+            "file": "src/modal/Dialog.js",
             "line": 94,
             "description": "右上角按钮是否可见, 默认不可见",
             "itemtype": "property",
@@ -6501,7 +6367,7 @@
             "module": "弹出框组件"
         },
         {
-            "file": "src/Modal/Dialog.js",
+            "file": "src/modal/Dialog.js",
             "line": 100,
             "description": "阴影部分是否点击可关闭弹框, 默认传了onClose之后可关闭",
             "itemtype": "property",
@@ -6511,7 +6377,7 @@
             "module": "弹出框组件"
         },
         {
-            "file": "src/Modal/Prompt.js",
+            "file": "src/modal/Prompt.js",
             "line": 54,
             "description": "标题",
             "itemtype": "property",
@@ -6521,7 +6387,7 @@
             "module": "弹出框组件"
         },
         {
-            "file": "src/Modal/Prompt.js",
+            "file": "src/modal/Prompt.js",
             "line": 60,
             "description": "内容",
             "itemtype": "property",
@@ -6531,7 +6397,7 @@
             "module": "弹出框组件"
         },
         {
-            "file": "src/Modal/Prompt.js",
+            "file": "src/modal/Prompt.js",
             "line": 66,
             "description": "尾部按钮",
             "itemtype": "property",
@@ -6541,7 +6407,7 @@
             "module": "弹出框组件"
         },
         {
-            "file": "src/Modal/Prompt.js",
+            "file": "src/modal/Prompt.js",
             "line": 72,
             "description": "内容区域文本框",
             "itemtype": "property",
@@ -6551,7 +6417,7 @@
             "module": "弹出框组件"
         },
         {
-            "file": "src/Modal/Prompt.js",
+            "file": "src/modal/Prompt.js",
             "line": 78,
             "description": "是否可见标识",
             "itemtype": "property",
@@ -6561,7 +6427,7 @@
             "module": "弹出框组件"
         },
         {
-            "file": "src/Modal/Prompt.js",
+            "file": "src/modal/Prompt.js",
             "line": 84,
             "description": "关闭弹框的执行函数",
             "itemtype": "method",
@@ -6571,7 +6437,7 @@
             "module": "弹出框组件"
         },
         {
-            "file": "src/Modal/Prompt.js",
+            "file": "src/modal/Prompt.js",
             "line": 90,
             "description": "点击确定的回调函数",
             "itemtype": "method",
@@ -6581,7 +6447,7 @@
             "module": "弹出框组件"
         },
         {
-            "file": "src/Modal/Prompt.js",
+            "file": "src/modal/Prompt.js",
             "line": 96,
             "description": "右上角按钮是否可见, 默认不可见",
             "itemtype": "property",
@@ -6591,7 +6457,7 @@
             "module": "弹出框组件"
         },
         {
-            "file": "src/Modal/Prompt.js",
+            "file": "src/modal/Prompt.js",
             "line": 102,
             "description": "阴影部分是否点击可关闭弹框, 默认传了onClose之后可关闭",
             "itemtype": "property",
@@ -7043,6 +6909,83 @@
             "module": "标签组件"
         },
         {
+            "file": "src/ImageList.js",
+            "line": 73,
+            "description": "样式前缀",
+            "itemtype": "property",
+            "name": "classPrefix",
+            "type": "String",
+            "default": "'image-list'",
+            "class": "ImageList",
+            "module": "操作类组件"
+        },
+        {
+            "file": "src/ImageList.js",
+            "line": 80,
+            "description": "图片列表数据",
+            "itemtype": "property",
+            "name": "images",
+            "type": "Array",
+            "default": "[]",
+            "class": "ImageList",
+            "module": "操作类组件"
+        },
+        {
+            "file": "src/ImageList.js",
+            "line": 87,
+            "description": "图片列数",
+            "itemtype": "property",
+            "name": "column",
+            "type": "Number",
+            "default": "1",
+            "class": "ImageList",
+            "module": "操作类组件"
+        },
+        {
+            "file": "src/ImageList.js",
+            "line": 94,
+            "description": "名称格式",
+            "itemtype": "property",
+            "name": "titleField",
+            "type": "String",
+            "default": "\"#\"",
+            "class": "ImageList",
+            "module": "操作类组件"
+        },
+        {
+            "file": "src/ImageList.js",
+            "line": 101,
+            "description": "描述格式",
+            "itemtype": "property",
+            "name": "despField",
+            "type": "String",
+            "default": "\"#\"",
+            "class": "ImageList",
+            "module": "操作类组件"
+        },
+        {
+            "file": "src/ImageList.js",
+            "line": 108,
+            "description": "其他参数，额外增加的可自定义的字段",
+            "itemtype": "property",
+            "name": "otherParams",
+            "type": "Object",
+            "default": "{}",
+            "class": "ImageList",
+            "module": "操作类组件"
+        },
+        {
+            "file": "src/ImageList.js",
+            "line": 115,
+            "description": "点击单个图片块的回调函数,返回当前图片的所有信息",
+            "itemtype": "method",
+            "name": "clickCallback",
+            "type": "Function",
+            "default": "null",
+            "class": "ImageList",
+            "module": "操作类组件"
+        },
+        {
             "file": "src/Input.js",
             "line": 40,
             "description": "input类型, 可选[text,checkbox,radio], 默认text",
@@ -7206,28 +7149,6 @@
             "module": "操作类组件"
         },
         {
-            "file": "src/PageTransition.js",
-            "line": 59,
-            "description": "动画名称，可选[fade, slide-top, slide-bottom, slide-left, slide-right]",
-            "itemtype": "property",
-            "name": "transitionName",
-            "type": "String",
-            "default": "'fade'",
-            "class": "PageTransition",
-            "module": "路由动画"
-        },
-        {
-            "file": "src/PageTransition.js",
-            "line": 66,
-            "description": "动画结束执行的回调",
-            "itemtype": "method",
-            "name": "onLoad",
-            "type": "Function",
-            "default": "null",
-            "class": "PageTransition",
-            "module": "路由动画"
-        },
-        {
             "file": "src/Popover.js",
             "line": 36,
             "description": "样式前缀",
@@ -7322,7 +7243,7 @@
         },
         {
             "file": "src/Slider.js",
-            "line": 38,
+            "line": 51,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -7333,7 +7254,7 @@
         },
         {
             "file": "src/Slider.js",
-            "line": 45,
+            "line": 58,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
@@ -7343,7 +7264,7 @@
         },
         {
             "file": "src/Slider.js",
-            "line": 51,
+            "line": 64,
             "description": "初始进程,默认0",
             "itemtype": "property",
             "name": "progress",
@@ -7353,7 +7274,7 @@
         },
         {
             "file": "src/Slider.js",
-            "line": 57,
+            "line": 70,
             "description": "进程提示的位置,默认top",
             "itemtype": "property",
             "name": "placement",
@@ -7364,7 +7285,51 @@
         },
         {
             "file": "src/Slider.js",
-            "line": 64,
+            "line": 77,
+            "description": "范围，默认0-100，可传固定范围的数组如：[25,50]",
+            "itemtype": "property",
+            "name": "range",
+            "type": "Array",
+            "default": "[0,100]",
+            "class": "Slider",
+            "module": "操作类组件"
+        },
+        {
+            "file": "src/Slider.js",
+            "line": 84,
+            "description": "是否在进度条前后显示范围",
+            "itemtype": "property",
+            "name": "showRange",
+            "type": "Boolean",
+            "default": "false",
+            "class": "Slider",
+            "module": "操作类组件"
+        },
+        {
+            "file": "src/Slider.js",
+            "line": 91,
+            "description": "每次移动的固定距离，默认1",
+            "itemtype": "property",
+            "name": "duration",
+            "type": "Number",
+            "default": "1",
+            "class": "Slider",
+            "module": "操作类组件"
+        },
+        {
+            "file": "src/Slider.js",
+            "line": 98,
+            "description": "初始及松开按钮时是否显示进度",
+            "itemtype": "property",
+            "name": "tipStay",
+            "type": "Boolean",
+            "default": "false",
+            "class": "Slider",
+            "module": "操作类组件"
+        },
+        {
+            "file": "src/Slider.js",
+            "line": 105,
             "description": "改变进程时的回调函数",
             "itemtype": "method",
             "name": "onSliderChange",
@@ -7404,6 +7369,61 @@
             "default": "'star'",
             "class": "Star",
             "module": "基础组件"
+        },
+        {
+            "file": "src/Steps.js",
+            "line": 35,
+            "description": "样式前缀",
+            "itemtype": "property",
+            "name": "classPrefix",
+            "type": "String",
+            "default": "'badge'",
+            "class": "Steps",
+            "module": "操作类组件"
+        },
+        {
+            "file": "src/Steps.js",
+            "line": 42,
+            "description": "是否为只读模式（只读模式不会触发点击回调），默认为false",
+            "itemtype": "property",
+            "name": "readOnly",
+            "type": "Boolean",
+            "default": "false",
+            "class": "Steps",
+            "module": "操作类组件"
+        },
+        {
+            "file": "src/Steps.js",
+            "line": 49,
+            "description": "steps内容数组，把每一步的文案放入数组中作为list的值",
+            "itemtype": "property",
+            "name": "list",
+            "type": "Array",
+            "default": "[]",
+            "class": "Steps",
+            "module": "操作类组件"
+        },
+        {
+            "file": "src/Steps.js",
+            "line": 56,
+            "description": "当前处于第几步，默认为0，也就是说所有的步骤都没有开始，如果到第一步的话将currentStep设置为1即可，注意currentStep不可以超过list数组长度",
+            "itemtype": "property",
+            "name": "currentStep",
+            "type": "Number",
+            "default": "0",
+            "class": "Steps",
+            "module": "操作类组件"
+        },
+        {
+            "file": "src/Steps.js",
+            "line": 63,
+            "description": "点击每一步的回调，function(str,index){} str为步骤名称，index为第几步（从1开始计数）",
+            "itemtype": "method",
+            "name": "clickCallback",
+            "type": "Function",
+            "default": "null",
+            "class": "Steps",
+            "module": "操作类组件"
         },
         {
             "file": "src/Swipe.js",
@@ -7704,75 +7724,75 @@
     "warnings": [
         {
             "message": "unknown tag: demo",
-            "line": " src/Menu/Menu.js:25"
+            "line": " src/menu/Menu.js:25"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/Menu/Menu.js:25"
+            "line": " src/menu/Menu.js:25"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/Menu/MenuBody.js:10"
+            "line": " src/menu/MenuBody.js:9"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/Menu/MenuBody.js:10"
+            "line": " src/menu/MenuBody.js:9"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/Menu/MenuHeader.js:8"
+            "line": " src/menu/MenuHeader.js:8"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/Menu/MenuHeader.js:8"
+            "line": " src/menu/MenuHeader.js:8"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/Menu/MenuItem.js:8"
+            "line": " src/menu/MenuItem.js:8"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/Menu/MenuItem.js:8"
+            "line": " src/menu/MenuItem.js:8"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/Menu/MenuList.js:8"
+            "line": " src/menu/MenuList.js:8"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/Menu/MenuList.js:8"
+            "line": " src/menu/MenuList.js:8"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/Menu/MenuNav.js:6"
+            "line": " src/menu/MenuNav.js:6"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/Menu/MenuNav.js:6"
+            "line": " src/menu/MenuNav.js:6"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/Modal/Alert.js:10"
+            "line": " src/modal/Alert.js:10"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/Modal/Alert.js:10"
+            "line": " src/modal/Alert.js:10"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/Modal/Dialog.js:18"
+            "line": " src/modal/Dialog.js:18"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/Modal/Dialog.js:18"
+            "line": " src/modal/Dialog.js:18"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/Modal/Prompt.js:11"
+            "line": " src/modal/Prompt.js:11"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/Modal/Prompt.js:11"
+            "line": " src/modal/Prompt.js:11"
         },
         {
             "message": "unknown tag: demo",
@@ -7856,6 +7876,14 @@
         },
         {
             "message": "unknown tag: demo",
+            "line": " src/ImageList.js:6"
+        },
+        {
+            "message": "unknown tag: show",
+            "line": " src/ImageList.js:6"
+        },
+        {
+            "message": "unknown tag: demo",
             "line": " src/Input.js:6"
         },
         {
@@ -7877,14 +7905,6 @@
         {
             "message": "unknown tag: show",
             "line": " src/LoadingList.js:10"
-        },
-        {
-            "message": "unknown tag: demo",
-            "line": " src/PageTransition.js:7"
-        },
-        {
-            "message": "unknown tag: show",
-            "line": " src/PageTransition.js:7"
         },
         {
             "message": "unknown tag: demo",
@@ -7925,6 +7945,14 @@
         {
             "message": "unknown tag: show",
             "line": " src/Star.js:16"
+        },
+        {
+            "message": "unknown tag: demo",
+            "line": " src/Steps.js:7"
+        },
+        {
+            "message": "unknown tag: show",
+            "line": " src/Steps.js:7"
         },
         {
             "message": "unknown tag: demo",

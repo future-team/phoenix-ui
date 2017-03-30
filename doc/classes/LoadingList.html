@@ -193,6 +193,14 @@
                    
                        <li>
                             
+                           <a href="../classes/ImageList.html">ImageList</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
                            <a href="../classes/LoadingList.html">LoadingList</a>
                            <ul>
                                 
@@ -217,7 +225,7 @@
                     
                        <li>
                             
-                           <a href="../classes/Swipe.html">Swipe</a>
+                           <a href="../classes/Steps.html">Steps</a>
                            <ul>
                                 
                            </ul>
@@ -234,6 +242,14 @@
                        <li>
                             
                            <a href="../classes/Accordion.html">Accordion</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Swipe.html">Swipe</a>
                            <ul>
                                 
                            </ul>
@@ -368,24 +384,6 @@
                        <li>
                             
                            <a href="../classes/TextArea.html">TextArea</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                    </ul>
-                </dd>
-             
-                <dt>
-                    <span class="glyphicon glyphicon-minus"></span>
-                    <a href="../modules/路由动画.html">路由动画</a>
-                </dt>
-                <dd>
-                    <ul>
-                   
-                       <li>
-                            
-                           <a href="../classes/PageTransition.html">PageTransition</a>
                            <ul>
                                 
                            </ul>
@@ -667,13 +665,14 @@
             <h4>Example:</h4>
             <ul class="nav nav-tabs example-list">
                 
-                <li role="presentation"  class="active"  data-demo="http://future-team.github.io/phoenix-ui/examples/index.html#/LoadingList"  _no='0'> <a>展示</a></li>
+                <li role="presentation"  class="active"  data-demo="https://future-team.github.io/phoenix-ui/examples/index.html#/LoadingList"  _no='0'> <a>展示</a></li>
                 
             </ul>
             <div class="example-content  showdemo ">
                 <div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from "react";
 import {LoadingList} from "phoenix-ui";
 import Code from "./code/code";
+import {ajax} from "./utils/tool.js";
 
 export default class loadinglist extends Component{
     constructor(props,context){
@@ -750,8 +749,8 @@ export default class loadinglist extends Component{
                             this.state.loadingData.map((data,index)=&gt;{
                                 return (
                                     &lt;li key={index}&gt;
-                                        &lt;img src={data.image} alt={data.name} /&gt;
-                                        &lt;p&gt;{data.name}&lt;/p&gt;
+                                        &lt;img src={data.image} alt={data.title} /&gt;
+                                        &lt;p&gt;{data.title}&lt;/p&gt;
                                         &lt;p&gt;{data.desp}&lt;/p&gt;
                                     &lt;/li&gt;
                                 );
@@ -763,29 +762,6 @@ export default class loadinglist extends Component{
             &lt;/div&gt;
         );
     }
-}
-
-let ajax = url =&gt; {
-  return new Promise((resolve, reject)=&gt;{
-    let xhr = new XMLHttpRequest();
-    xhr.open("get", url, true);
-    xhr.responseType = "json";
-    xhr.onreadystatechange = readyStateHandle;
-    xhr.send();
-
-    function readyStateHandle(){
-      if(this.readyState !== 4) return;
-      if(this.status === 200){
-        setTimeout(()=&gt;{ // 虚拟请求时间1s
-            resolve(this.response);
-        }, 1000);
-      }else{
-        setTimeout(()=&gt;{  // 虚拟请求时间1s
-            reject(new Error(this.statusText));
-        }, 1000); 
-      }
-    }
-  });
 }</code></pre>
 </div>
             </div>

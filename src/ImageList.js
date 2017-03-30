@@ -32,11 +32,11 @@ import {setPhoenixPrefix} from './utils/Tool';
  * ```
  * - column:列表的列数，默认1。<br>
  * 如: `<ImageList column={2}  images={this.state.images} />`
- * - titleField:名称的格式，以`#`代表名称，默认"#"despField:描述的格式，以`#`代表描述，默认"#"。
+ * - titleField:名称的格式，以`#`代表名称，默认"#"despField:描述的格式，以`#`代表描述，默认"#"。<br>
  * 如: `<ImageList images={this.state.images} titleField={"姓名: #"} despField={"描述: #"} />`
- * - otherParams:额外的字段和格式，默认{}。
+ * - otherParams:额外的字段和格式，默认{}。<br>
  * 如: `<ImageList images={this.state.images} otherParams={{"score":"分数: #"}} />`
- * - clickCallback:点击单个图片块的回调函数。
+ * - clickCallback:点击单个图片块的回调函数。<br>
  * 如: `<ImageList images={this.state.images} clickCallback={(data)=>{console.log(data);}} />`
  * - 自定义内容:children，当有内容时除了column其他属性不起作用。
  * ```code

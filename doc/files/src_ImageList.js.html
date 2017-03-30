@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui" />
-    <title>src/Input.js - phoenix-ui</title>
+    <title>src/ImageList.js - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css">
@@ -453,7 +453,7 @@
             <div id="docs-main">
                 <div class="content">
                     <div class="page-header">
-    <h1>src/Input.js <small>File</small></h1>
+    <h1>src/ImageList.js <small>File</small></h1>
 </div>
 
 <div class="file">
@@ -464,120 +464,190 @@ import classnames from &#x27;classnames&#x27;;
 import {setPhoenixPrefix} from &#x27;./utils/Tool&#x27;;
 
 /**
- * input框组件&lt;br/&gt;
- * - 使用方式跟原生一致, 支持disabled。
- * - 通过type设置input的类型, 可选text,checkbox,radio。
- * - 当类型为text时, 可通过defaultValue设置默认值; 可通过value和onChange事件配合使用手动设置输入值。
- * - 当类型为checkbox&amp;radio时, 可通过label设置展示的文字。
- * - 当类型为checkbox&amp;radio时, 可通过defaultChecked设置默认值; 可通过checked和onChange事件配合使用手动设置输入值。
+ * 图片列表组件&lt;br/&gt;
+ * - 通过images配置图片列表数据，数组格式，其中图片地址对应&#x60;image&#x60;字段，名称对应&#x60;title&#x60;字段，描述对应&#x60;desp&#x60;字段。
+ * - 通过column设置图片列表的列数，1-8列。
+ * - 通过titleField设置名称的格式，以&#x60;#&#x60;代表名称；通过despField设置描述的格式，以&#x60;#&#x60;代表描述。
+ * - 通过otherParams设置额外的字段和格式。
+ * - 通过clickCallback设置点击单个图片块的回调函数，返回当前图片的所有数据。
+ * - 可以自定义内容children，当有内容时除了column其他属性不起作用。
  *
  * 主要属性和接口：
- * - type:input类型, 默认text &lt;br/&gt;
- * 如：&#x60;&lt;Input type=&quot;checkbox&quot; /&gt;&#x60;
- * - defaultValue:默认值(text) &lt;br/&gt;
- * 如：&#x60;&lt;Input type=&quot;text&quot; defaultValue=&quot;测试&quot; /&gt;&#x60;
- * - value&amp;onChange:(text)&lt;br/&gt;
- * 如：&#x60;&lt;Input type=&quot;text&quot; value={this.state.value} onChange={()=&gt;{this.setState({value:&quot;测试&quot;})}} /&gt;&#x60;
- * - label:展示的文字信息(checkbox&amp;radio), 默认空&lt;br/&gt;
- * 如：&#x60;&lt;Input type=&quot;checkbox&quot; label=&quot;测试&quot; /&gt;&#x60;
- * - defaultChecked:默认值(checkbox&amp;radio)&lt;br/&gt;
- * 如：&#x60;&lt;Input type=&quot;checkbox&quot; defaultChecked={true} /&gt;&#x60;
- * - checked&amp;onChange:(checkbox&amp;radio)&lt;br/&gt;
- * 如：&#x60;&lt;Input type=&quot;checkbox&quot; checked={this.state.checked} onChange={()=&gt;{this.setState({checked:false})}} /&gt;&#x60;
- *
- * @class Input
- * @module 表单组件
+ * - images:图片列表数据，默认[]。&lt;br&gt;
+ * &#x60;&#x60;&#x60;code
+ * json:
+ * {
+ *  &quot;data&quot;: [
+ *      {
+ *          &quot;image&quot;: &quot;http://img5.duitang.com/uploads/item/201602/11/20160211214958_RhdCY.jpeg&quot;,
+ *          &quot;title&quot;: &quot;图1&quot;,
+ *          &quot;desp&quot;: &quot;关于图是一个...&quot;,
+ *          &quot;score&quot;: 1
+ *      },
+ *      ...
+ *  ]
+ * }
+ * ...
+ * &lt;ImageList images={this.state.images} /&gt;
+ * &#x60;&#x60;&#x60;
+ * - column:列表的列数，默认1。&lt;br&gt;
+ * 如: &#x60;&lt;ImageList column={2}  images={this.state.images} /&gt;&#x60;
+ * - titleField:名称的格式，以&#x60;#&#x60;代表名称，默认&quot;#&quot;despField:描述的格式，以&#x60;#&#x60;代表描述，默认&quot;#&quot;。&lt;br&gt;
+ * 如: &#x60;&lt;ImageList images={this.state.images} titleField={&quot;姓名: #&quot;} despField={&quot;描述: #&quot;} /&gt;&#x60;
+ * - otherParams:额外的字段和格式，默认{}。&lt;br&gt;
+ * 如: &#x60;&lt;ImageList images={this.state.images} otherParams={{&quot;score&quot;:&quot;分数: #&quot;}} /&gt;&#x60;
+ * - clickCallback:点击单个图片块的回调函数。&lt;br&gt;
+ * 如: &#x60;&lt;ImageList images={this.state.images} clickCallback={(data)=&gt;{console.log(data);}} /&gt;&#x60;
+ * - 自定义内容:children，当有内容时除了column其他属性不起作用。
+ * &#x60;&#x60;&#x60;code
+ * &lt;ImageList column={4}&gt;
+ *  {
+ *      this.state.images.map((data,index)=&gt;{
+ *          return (
+ *              &lt;dl key={index}&gt;
+ *                  &lt;dd&gt;
+ *                      &lt;p&gt;{data.title}&lt;/p&gt;
+ *                      &lt;p&gt;{data.desp}&lt;/p&gt;
+ *                  &lt;/dd&gt;
+ *                  &lt;dt&gt;
+ *                      &lt;img src={data.image} alt={data.title} /&gt;
+ *                  &lt;/dt&gt;
+ *              &lt;/dl&gt;
+ *          )
+ *      })
+ *  }
+ * &lt;/ImageList&gt;
+ * &#x60;&#x60;&#x60;
+ * 
+ * @class ImageList
+ * @module 操作类组件
  * @extends Component
  * @constructor
- * @since 0.1.0
- * @demo input|input.js {展示}
+ * @since 1.7.0
+ * @demo imagelist|image-list.js {展示}
  * @show true
  * */
 
-export default class Input extends Component{
-
+export default class ImageList extends Component{
     static propTypes = {
-        /**
-         * input类型, 可选[text,checkbox,radio], 默认text
-         * @property type
-         * @type String
-         * @default &#x27;text&#x27;
-         * */
-        type: PropTypes.string,
-        /**
-         * 类型为checkbox&amp;radio时, 展示的文字信息
-         * @property label
-         * @type String
-         * @default &#x27;&#x27;
-         * */
-        label: PropTypes.string,
         /**
          * 样式前缀
          * @property classPrefix
          * @type String
-         * @default &#x27;input&#x27;
+         * @default &#x27;image-list&#x27;
          * */
-        classPrefix:PropTypes.string,
+        classPrefix: PropTypes.string,
+         /**
+         * 图片列表数据
+         * @property images
+         * @type Array
+         * @default []
+         * */
+        images: PropTypes.array,
         /**
-         * 标签tagName
-         * @property componentTag
+         * 图片列数
+         * @property column
+         * @type Number
+         * @default 1
+         * */
+        column: PropTypes.number,
+        /**
+         * 名称格式
+         * @property titleField
          * @type String
+         * @default &quot;#&quot;
          * */
-        componentTag:PropTypes.string,
+        titleField: PropTypes.string,
         /**
-         * 更改值时触发的回调
-         * @event onChange
-         * @type Function
+         * 描述格式
+         * @property despField
+         * @type String
+         * @default &quot;#&quot;
          * */
-        onChange: PropTypes.func
+        despField: PropTypes.string,
+         /**
+         * 其他参数，额外增加的可自定义的字段
+         * @property otherParams
+         * @type Object
+         * @default {}
+         * */
+        otherParams: PropTypes.object,
+        /**
+         * 点击单个图片块的回调函数,返回当前图片的所有信息
+         * @method clickCallback
+         * @type Function
+         * @default null
+         **/
+        clickCallback: PropTypes.func
     };
 
-    static defaultProps = {
-        type: &#x27;text&#x27;,
-        classPrefix:&#x27;input&#x27;,
-        componentTag:&#x27;div&#x27;,
+    static defaultProps ={
+        images: [],
+        column: 1,
+        titleField: &quot;#&quot;,
+        despField: &quot;#&quot;,
+        otherParams: {},
+        classPrefix:&#x27;image-list&#x27;,
         classMapping : {}
     };
 
-    constructor(props, context) {
-        super(props, context);
+    constructor(props,context){
+        super(props,context);
     }
 
-    otherView(type){
-        return (
-            &lt;label className={setPhoenixPrefix(&quot;multi-group&quot;)}&gt;
-                &lt;div className={setPhoenixPrefix(type)}&gt;
-                    &lt;input {...this.props} /&gt;
-                    &lt;i&gt;&lt;/i&gt;
-                &lt;/div&gt;
-                &lt;span&gt;{this.props.label ||&#x27;&#x27;}&lt;/span&gt;
-            &lt;/label&gt;
-        );
+    formatParams(format, param){
+        if(param &amp;&amp; format.indexOf(&#x27;#&#x27;)!=-1){
+            return format.replace(&#x27;#&#x27;,param);
+        }
     }
 
-    renderInput(type){
-        let html = &lt;div&gt;&lt;/div&gt;;
+    clickCallback(data){
+        let {clickCallback} = this.props;
+        if(clickCallback) clickCallback(data);
+    }
 
-        if(type ==&#x27;checkbox&#x27; || type==&#x27;radio&#x27;){
-            html=this.otherView(type);
+    renderImageList(){
+        let {images, column, titleField, despField, otherParams, className, children} = this.props;
+
+        if(children){
+            return &lt;div className={classnames(this.getProperty(true), className, setPhoenixPrefix(&quot;column-&quot;+column))}&gt;{children}&lt;/div&gt;
         }else{
-            html = (&lt;input {...this.props} className={
-                classnames(
-                    this.getProperty(true),
-                    this.props.className
-                )
-                }/&gt;);
+            return (
+                &lt;div className={classnames(this.getProperty(true), className, setPhoenixPrefix(&quot;column-&quot;+column))}&gt;
+                    {
+                        images.map((data,index)=&gt;{
+                            return (
+                                &lt;dl key={index} onClick={::this.clickCallback.bind(this,data)}&gt;
+                                    &lt;dt&gt;
+                                        &lt;img src={data.image} alt={data.title} /&gt;
+                                    &lt;/dt&gt;
+                                    &lt;dd&gt;
+                                        &lt;p className={setPhoenixPrefix(&#x27;image-title&#x27;)}&gt;{this.formatParams(titleField, data.title)}&lt;/p&gt;
+                                        &lt;p className={setPhoenixPrefix(&#x27;image-desp&#x27;)}&gt;{this.formatParams(despField, data.desp)}&lt;/p&gt;
+                                        {this.renderRest(otherParams, data)}
+                                    &lt;/dd&gt;
+                                &lt;/dl&gt;
+                            )
+                        })
+                    }
+                &lt;/div&gt;
+            );
+        }
+    }
+
+    renderRest(otherParams, data){
+        var newRest = [];
+
+        for(let i in otherParams){
+            newRest.push(&lt;p key={i}&gt;{this.formatParams(otherParams[i], data[i])}&lt;/p&gt;);
         }
 
-        return html;
+        return newRest;
     }
-
 
     render(){
-        let {componentTag:Component,type} = this.props;
-        return this.renderInput(type ? type:&#x27;text&#x27;);
+        return this.renderImageList();
     }
-
 }
     </pre>
 </div>

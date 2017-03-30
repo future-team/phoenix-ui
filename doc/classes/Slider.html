@@ -193,6 +193,14 @@
                    
                        <li>
                             
+                           <a href="../classes/ImageList.html">ImageList</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
                            <a href="../classes/LoadingList.html">LoadingList</a>
                            <ul>
                                 
@@ -217,7 +225,7 @@
                     
                        <li>
                             
-                           <a href="../classes/Swipe.html">Swipe</a>
+                           <a href="../classes/Steps.html">Steps</a>
                            <ul>
                                 
                            </ul>
@@ -234,6 +242,14 @@
                        <li>
                             
                            <a href="../classes/Accordion.html">Accordion</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Swipe.html">Swipe</a>
                            <ul>
                                 
                            </ul>
@@ -378,24 +394,6 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
-                    <a href="../modules/路由动画.html">路由动画</a>
-                </dt>
-                <dd>
-                    <ul>
-                   
-                       <li>
-                            
-                           <a href="../classes/PageTransition.html">PageTransition</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                    </ul>
-                </dd>
-             
-                <dt>
-                    <span class="glyphicon glyphicon-minus"></span>
                     <a href="../modules/辅助组件.html">辅助组件</a>
                 </dt>
                 <dd>
@@ -463,8 +461,13 @@
 <li>滑动进度条确定当前进度的百分比。</li>
 <li>可通过设置process确定初始进度百分比, 范围从0-100。</li>
 <li>可通过placement设置当前进度提示框的位置, 可选top/bottoom。</li>
+<li>可通过tipStay设置初始和松开按钮时提示是否消失，默认false不显示。</li>
+<li>可通过range制定范围，默认0-100，必需是长度为2的数组，第一个数字表示初始，第二个数字表示终点。</li>
+<li>可通过showRange判断是否在进度条前后显示范围，默认不显示。</li>
+<li>可通过duration设置固定移动的距离，默认1。</li>
 <li>可通过onSliderChange设置拖拽进度条松开时的回调函数。</li>
 <li>可通过disabled设置进度条只读。</li>
+<li>使用Slider前确保父级是有宽度的元素；使用flex需要加一层宽度100%的外壳。</li>
 </ul>
 <p>主要属性和接口：</p>
 <ul>
@@ -472,6 +475,14 @@
 如: <code>&lt;Slider progress={10}/&gt;</code></li>
 <li>placement:进度提示框的位置, 默认top <br/>
 如: <code>&lt;Slider placement="bottom" /&gt;</code></li>
+<li>tipStay:初始和松开按钮时提示是否消失，默认false <br/>
+如: <code>&lt;Slider tipStay /&gt;</code></li>
+<li>range:范围，默认[0,100]。 <br/>
+如: <code>&lt;Slider range={[20,50]} /&gt;</code></li>
+<li>showRange:是否在进度条前后显示范围，默认不显示。 <br/>
+如: <code>&lt;Slider showRange /&gt;</code></li>
+<li>duration:固定移动的距离，默认1。 <br/>
+如: <code>&lt;Slider duration={20} /&gt;</code></li>
 <li>onSliderChange:拖拽进度条松开时的回调函数 <br/>
 如: <code>&lt;Slider onSliderChange={(progress)=&gt;{console.log(progress);} /&gt;</code></li>
 <li>disabled:进度条只读, 不可操作 <br/>
@@ -519,6 +530,13 @@
                             </li>
                         
                             <li class="index-item property">
+                                <a href="#" data-tabid="#property" data-anchor="#property_duration" data-tablink="duration">duration</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
                                 <a href="#" data-tabid="#property" data-anchor="#property_placement" data-tablink="placement">placement</a>
 
                                 
@@ -527,6 +545,27 @@
                         
                             <li class="index-item property">
                                 <a href="#" data-tabid="#property" data-anchor="#property_progress" data-tablink="progress">progress</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#" data-tabid="#property" data-anchor="#property_range" data-tablink="range">range</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#" data-tabid="#property" data-anchor="#property_showRange" data-tablink="showRange">showRange</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#" data-tabid="#property" data-anchor="#property_tipStay" data-tablink="tipStay">tipStay</a>
 
                                 
                                 
@@ -647,7 +686,7 @@
             <h4>Example:</h4>
             <ul class="nav nav-tabs example-list">
                 
-                <li role="presentation"  class="active"  data-demo="http://future-team.github.io/phoenix-ui/examples/index.html#/slider"  _no='0'> <a>展示</a></li>
+                <li role="presentation"  class="active"  data-demo="https://future-team.github.io/phoenix-ui/examples/index.html#/slider"  _no='0'> <a>展示</a></li>
                 
             </ul>
             <div class="example-content  showdemo ">
@@ -687,6 +726,30 @@ export default class slider extends Component{
                     &lt;Slider placement="bottom" /&gt;
                 &lt;/div&gt;
                 &lt;Code target="slider-placement" /&gt;
+
+                &lt;h3 className="comp-type"&gt;tipStay(默认false) 松开进度条时是否要隐藏提示&lt;/h3&gt;
+                &lt;div className="content"&gt;
+                    &lt;Slider tipStay /&gt;
+                &lt;/div&gt;
+                &lt;Code target="slider-tipstay" /&gt;
+
+                &lt;h3 className="comp-type"&gt;range(默认[0,100]) 范围&lt;/h3&gt;
+                &lt;div className="content"&gt;
+                    &lt;Slider range={[50,200]} showRange /&gt;
+                &lt;/div&gt;
+                &lt;Code target="slider-range" /&gt;
+
+                &lt;h3 className="comp-type"&gt;showRange(默认false) 范围&lt;/h3&gt;
+                &lt;div className="content"&gt;
+                    &lt;Slider range={[25,65]} showRange /&gt;
+                &lt;/div&gt;
+                &lt;Code target="slider-showrange" /&gt;
+
+                &lt;h3 className="comp-type"&gt;duration(默认1) 每次滑动的距离&lt;/h3&gt;
+                &lt;div className="content"&gt;
+                    &lt;Slider duration={20} /&gt;
+                &lt;/div&gt;
+                &lt;Code target="slider-duration" /&gt;
 
                 &lt;h3 className="comp-type"&gt;onSliderChange 拖拽进度条松开时的回调函数&lt;/h3&gt;
                 &lt;div className="content"&gt;
@@ -760,7 +823,7 @@ export default class slider extends Component{
             
         
         
-        <a href="../files/src_Slider.js.html#l64"><code>src&#x2F;Slider.js:64</code></a>
+        <a href="../files/src_Slider.js.html#l105"><code>src&#x2F;Slider.js:105</code></a>
         
         </p>
 
@@ -814,7 +877,7 @@ export default class slider extends Component{
             
         
         
-        <a href="../files/src_Slider.js.html#l38"><code>src&#x2F;Slider.js:38</code></a>
+        <a href="../files/src_Slider.js.html#l51"><code>src&#x2F;Slider.js:51</code></a>
         
         </p>
 
@@ -862,7 +925,7 @@ export default class slider extends Component{
             
         
         
-        <a href="../files/src_Slider.js.html#l45"><code>src&#x2F;Slider.js:45</code></a>
+        <a href="../files/src_Slider.js.html#l58"><code>src&#x2F;Slider.js:58</code></a>
         
         </p>
 
@@ -876,6 +939,54 @@ export default class slider extends Component{
 </div>
     </div>
 
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_duration" class="property item">
+    <h3 class="name"><code>duration</code></h3>
+    <span class="type">Number</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_Slider.js.html#l91"><code>src&#x2F;Slider.js:91</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>每次移动的固定距离，默认1</p>
+</div>
+    </div>
+
+    
+        <p><strong>Default:</strong></p>
+         <code> 1</code>
     
 
     
@@ -907,7 +1018,7 @@ export default class slider extends Component{
             
         
         
-        <a href="../files/src_Slider.js.html#l57"><code>src&#x2F;Slider.js:57</code></a>
+        <a href="../files/src_Slider.js.html#l70"><code>src&#x2F;Slider.js:70</code></a>
         
         </p>
 
@@ -955,7 +1066,7 @@ export default class slider extends Component{
             
         
         
-        <a href="../files/src_Slider.js.html#l51"><code>src&#x2F;Slider.js:51</code></a>
+        <a href="../files/src_Slider.js.html#l64"><code>src&#x2F;Slider.js:64</code></a>
         
         </p>
 
@@ -969,6 +1080,150 @@ export default class slider extends Component{
 </div>
     </div>
 
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_range" class="property item">
+    <h3 class="name"><code>range</code></h3>
+    <span class="type">Array</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_Slider.js.html#l77"><code>src&#x2F;Slider.js:77</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>范围，默认0-100，可传固定范围的数组如：[25,50]</p>
+</div>
+    </div>
+
+    
+        <p><strong>Default:</strong></p>
+         <code> [0,100]</code>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_showRange" class="property item">
+    <h3 class="name"><code>showRange</code></h3>
+    <span class="type">Boolean</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_Slider.js.html#l84"><code>src&#x2F;Slider.js:84</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>是否在进度条前后显示范围</p>
+</div>
+    </div>
+
+    
+        <p><strong>Default:</strong></p>
+         <code> false</code>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_tipStay" class="property item">
+    <h3 class="name"><code>tipStay</code></h3>
+    <span class="type">Boolean</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_Slider.js.html#l98"><code>src&#x2F;Slider.js:98</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>初始及松开按钮时是否显示进度</p>
+</div>
+    </div>
+
+    
+        <p><strong>Default:</strong></p>
+         <code> false</code>
     
 
     

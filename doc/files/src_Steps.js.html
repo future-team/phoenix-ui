@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui" />
-    <title>src/PageTransition.js - phoenix-ui</title>
+    <title>src/Steps.js - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css">
@@ -193,6 +193,14 @@
                    
                        <li>
                             
+                           <a href="../classes/ImageList.html">ImageList</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
                            <a href="../classes/LoadingList.html">LoadingList</a>
                            <ul>
                                 
@@ -217,7 +225,7 @@
                     
                        <li>
                             
-                           <a href="../classes/Swipe.html">Swipe</a>
+                           <a href="../classes/Steps.html">Steps</a>
                            <ul>
                                 
                            </ul>
@@ -234,6 +242,14 @@
                        <li>
                             
                            <a href="../classes/Accordion.html">Accordion</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Swipe.html">Swipe</a>
                            <ul>
                                 
                            </ul>
@@ -378,24 +394,6 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
-                    <a href="../modules/路由动画.html">路由动画</a>
-                </dt>
-                <dd>
-                    <ul>
-                   
-                       <li>
-                            
-                           <a href="../classes/PageTransition.html">PageTransition</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                    </ul>
-                </dd>
-             
-                <dt>
-                    <span class="glyphicon glyphicon-minus"></span>
                     <a href="../modules/辅助组件.html">辅助组件</a>
                 </dt>
                 <dd>
@@ -455,350 +453,142 @@
             <div id="docs-main">
                 <div class="content">
                     <div class="page-header">
-    <h1>src/PageTransition.js <small>File</small></h1>
+    <h1>src/Steps.js <small>File</small></h1>
 </div>
 
 <div class="file">
     <pre class="prettyprint linenums" id='src_code'>
-import React, { PropTypes } from &#x27;react&#x27;;
-import ReactDOM from &#x27;react-dom&#x27;;
+import React,{PropTypes} from &#x27;react&#x27;;
+import ReactDOM,{findDOMNode} from &#x27;react/lib/ReactDOM&#x27;;
+import Component from &#x27;./utils/Component&#x27;;
 import classnames from &#x27;classnames&#x27;;
-import Queue from &#x27;promise-queue&#x27;;
 import {setPhoenixPrefix} from &#x27;./utils/Tool&#x27;;
 
 /**
- * 路由切换组件&lt;br/&gt;
- * - 通过transitionName设置动画类型，可选[fade, slide-top, slide-bottom, slide-left, slide-right]。
- * - 通过onLoad函数设置动画完成的回调。
- * - 在列表页的最外层元素加&#x60;ph-transition-index&#x60;类，其他页面跳转到列表页都是回退的效果，到另一个新页面都是前进的效果。
- *
+ * 步骤组件&lt;br/&gt;
+ * - 通过list设置步骤过程名称数组，如[&quot;合作信息&quot;,&quot;公司信息&quot;,&quot;资质信息&quot;]，必需。
+ * - 可通过currentStep设置当前步骤，从0开始计算。
+ * - 可通过clickCallback设置点击步骤的回调，函数返回步骤名称和索引。
+ * - 可通过readOnly设置步骤是否只读不可点击，默认可点击。
+ * 
  * 主要属性和接口：
- * - transitionName:动画类型／动画名称，默认fade。
- * - onLoad:动画完成的回调函数。
- * 
- * 示例：
- * &#x60;&#x60;&#x60;code
- *  let {PageTransition} from &#x27;phoenix-ui&#x27;;
- * 
- *  const RouteTransition = (props)=&gt;(
- *      &lt;PageTransition {...props} transitionName=&quot;slide-left&quot; onLoad={()=&gt;{console.log(&#x27;end!!!&#x27;);}}&gt;{props.children}&lt;/PageTransition&gt;
- *  );
- * &#x60;&#x60;&#x60;
- * &#x60;&#x60;&#x60;code
- *  let Index = class index extends Component {
- *      render() {
- *          return (
- *              &lt;div className=&quot;menu ph-transition-index&quot;&gt;
- *                  ...
- *               &lt;/div&gt;
- *          );
- *      }
- *  };
- * &#x60;&#x60;&#x60;
- * &#x60;&#x60;&#x60;code
- *  &lt;Router history={this.history}&gt;
- *      &lt;Route path=&quot;/&quot; component={RouteTransition}&gt;
- *          &lt;Route path=&quot;/index&quot; name=&quot;index&quot; component={Index} /&gt;
- *          &lt;Route path=&quot;/button&quot; name=&quot;button&quot; component={Button} /&gt;
- *          ...
- *          &lt;Redirect from=&quot;/&quot; to=&quot;/index&quot; /&gt;
- *      &lt;/Route&gt;
- *  &lt;/Router&gt;
- * &#x60;&#x60;&#x60;
- * 
- * @class PageTransition
- * @module 路由动画
+ * - list:初始进度百分比, 默认0。 &lt;br/&gt;
+ * 如: &#x60;&lt;Steps list={[&quot;合作信息&quot;,&quot;公司信息&quot;,&quot;资质信息&quot;]} /&gt;&#x60;
+ * - currentStep:当前步骤，从0开始计算，默认0。 &lt;br/&gt;
+ * 如: &#x60;&lt;Steps currentStep={1} list={[&quot;合作信息&quot;,&quot;公司信息&quot;,&quot;资质信息&quot;]} /&gt;&#x60;
+ * - clickCallback:点击步骤的回调，函数返回步骤名称和索引。 &lt;br/&gt;
+ * 如: &#x60;&lt;Steps clickCallback={(str,index)=&gt;{console.log(index);}} list={[&quot;合作信息&quot;,&quot;公司信息&quot;,&quot;资质信息&quot;]}/&gt;&#x60;
+ * - readOnly:只读不可点击，默认false。&lt;br/&gt;
+ * 如: &#x60;&lt;Steps readOnly list={[&quot;合作信息&quot;,&quot;公司信息&quot;,&quot;资质信息&quot;]} /&gt;&#x60;
+ *
+ * @class Steps
+ * @module 操作类组件
  * @extends Component
  * @constructor
- * @since 1.6.0
- * @demo pagetransition|page-transition.js {展示}
+ * @since 1.7.0
+ * @demo steps|steps.js {展示}
  * @show true
  * */
 
-export default class PageTransition extends React.Component{
-
-    static propTypes={
+export default class Steps extends Component{
+    static propTypes = {
         /**
-         * 动画名称，可选[fade, slide-top, slide-bottom, slide-left, slide-right]
-         * @property transitionName
+         * 样式前缀
+         * @property classPrefix
          * @type String
-         * @default &#x27;fade&#x27;
+         * @default &#x27;badge&#x27;
          * */
-        transitionName: PropTypes.string,
+        classPrefix: PropTypes.string,
         /**
-         * 动画结束执行的回调
-         * @method onLoad
+         * 是否为只读模式（只读模式不会触发点击回调），默认为false
+         * @property readOnly
+         * @type Boolean
+         * @default false
+         **/
+        readOnly: PropTypes.bool,
+        /**
+         * steps内容数组，把每一步的文案放入数组中作为list的值
+         * @property list
+         * @type Array
+         * @default []
+         **/
+        list: PropTypes.arrayOf(PropTypes.string),
+        /**
+         * 当前处于第几步，默认为0，也就是说所有的步骤都没有开始，如果到第一步的话将currentStep设置为1即可，注意currentStep不可以超过list数组长度
+         * @property currentStep
+         * @type Number
+         * @default 0
+         **/
+        currentStep: PropTypes.number,
+        /**
+         * 点击每一步的回调，function(str,index){} str为步骤名称，index为第几步（从1开始计数）
+         * @method clickCallback
          * @type Function
          * @default null
-         * */
-        onLoad: PropTypes.func,
-        timeout: PropTypes.number,
-        animateOnInit: PropTypes.bool,
-        data: PropTypes.object,
+         **/
+        clickCallback: PropTypes.func
     };
 
     static defaultProps = {
-        timeout: 300,
-        transitionName: &#x27;slide-left&#x27;,
-        animateOnInit: true,
+        readOnly: false,
+        list: [],
+        currentStep: 0,
+        classPrefix:&#x27;steps&#x27;,
         classMapping : {}
     };
 
     constructor(props,context){
         super(props,context);
 
-        if(this.props.animateOnInit){
-            this.state = {
-                child1: null,
-                child2: null,
-                nextChild: 1
-            }
-        }else{
-            this.state = {
-                child1: this.props.children,
-                child2: null, 
-                nextChild: 2
-            }
-        }
-
-        this.transite = this.transite.bind(this);
-        this.gerRef = this.getRef.bind(this);
-
-        this.queue = new Queue(1, Infinity);
-
-        this.itemClass = setPhoenixPrefix(&#x27;transition-item&#x27;);
-        
-        this.routeRecord = [props.location.pathname];
-        this.forward = true;
-    }
-
-    componentDidMount(){
-        let {animateOnInit, data, children} = this.props;
-
-        if(!animateOnInit){
-            const child = this.getRef(&#x27;child1&#x27;);
-            if(child){
-                const dom = ReactDOM.findDOMNode(child);
-                child.onTransitionDidEnd &amp;&amp; child.onTransitionDidEnd(data);
-                dom.classList.remove(this.itemClass);
-            }
-        }else{
-            this.transite(children);
+        this.state = {
+            currentStep: props.currentStep
         }
     }
 
     componentWillReceiveProps(nextProps){
-        // 判断当前是往前还是后退
-        this.forward = this.routeForward(nextProps.location.pathname);
-
-        const transitNewChild = () =&gt; {
-            this.queue.add(()=&gt; this.transite(nextProps.children));
-        };
-        const updateChild = () =&gt; {
-            const currentChild = this.state.nextChild === 1? 2:1;
-            this.state[&#x60;child${currentChild}&#x60;] = nextProps.children;
-            this.forceUpdate();
-        }
-
-        if(this.props.children &amp;&amp; this.props.children.props &amp;&amp; this.props.children.props[&#x27;data-transition-id&#x27;] 
-            &amp;&amp; nextProps.children.props[&#x27;data-transition-id&#x27;]) {
-
-            if (this.props.children.props[&#x27;data-transition-id&#x27;] !== nextProps.children.props[&#x27;data-transition-id&#x27;]) {
-                transitNewChild();
-            } else {
-                updateChild();
-            }
-        } else {
-            if (this.props.children !== nextProps.children) {
-                transitNewChild();
-            } else {
-                updateChild();
-            }
-        }
+         if(this.state.currentStep != nextProps.currentStep) this.setState({currentStep: nextProps.currentStep});
     }
 
-    routeForward(nextPathName){
-        let routeLen = this.routeRecord.length;
+    clickCallback(str, index, e){
+        let {readOnly, clickCallback} = this.props, thisElemnt = e.currentTarget;
+        if(readOnly) return;
 
-        if(routeLen&gt;1 &amp;&amp; this.routeRecord[routeLen-2]===nextPathName){// back
-            this.routeRecord.pop();
-            return false;
-        }else{
-            this.routeRecord.push(nextPathName);
-            return true;
-        }
-    }
-
-    getClass(mode){
-        if(mode&amp;&amp;this.forward || !mode&amp;&amp;!this.forward){
-            return setPhoenixPrefix(&#x27;transition-from&#x27;);
-        }else{
-            return setPhoenixPrefix(&#x27;transition-to&#x27;);
-        }
-    }
-
-    getRef(ref){
-        let child = this.refs[ref];
-        if(child &amp;&amp; child.getWrappedInstance){
-            child = child.getWrappedInstance();
-        }
-        return child;
-    }
-
-    transite(nextChild){
-        return new Promise((transiteDone, transiteFailed)=&gt;{
-            this.state[&#x60;child${this.state.nextChild}&#x60;] = nextChild;
-            this.forceUpdate(() =&gt; {
-                const prevChild = this.getRef(&#x60;child${this.state.nextChild === 1 ? 2 : 1}&#x60;);
-                const newChild = this.getRef(&#x60;child${this.state.nextChild}&#x60;);
-                const prevChildDom = ReactDOM.findDOMNode(prevChild);
-                const newChildDom = ReactDOM.findDOMNode(newChild);
-                let timeout = 0;
-                
-                const willStart = () =&gt; {
-                    if (newChild.onTransitionWillStart) {
-                        return newChild.onTransitionWillStart(this.props.data) || Promise.resolve();
-                    }
-                    if (prevChild &amp;&amp; prevChild.onTransitionLeaveWillStart) {
-                        return prevChild.onTransitionLeaveWillStart(this.props.data) || Promise.resolve();
-                    }
-                    return Promise.resolve();
-                };
-
-                const start = () =&gt; {
-                    if(newChildDom.classList.contains(setPhoenixPrefix(&#x27;transition-index&#x27;))){ //  如果新页面包含&#x27;transition-index&#x27;强制为后退
-                        this.forward = false;
-                    }else if(prevChildDom &amp;&amp; prevChildDom.classList.contains(setPhoenixPrefix(&#x27;transition-index&#x27;))){//  如果新页面包含&#x27;transition-index&#x27;强制为前进
-                        this.forward = true;
-                    }
-
-                    if (newChildDom) {
-                        timeout = this.props.timeout;
-                        newChildDom.classList.add(this.props.transitionName + &quot;-enter&quot;);
-                        if(prevChildDom) newChildDom.classList.add(this.itemClass);
-                        newChildDom.classList.add(this.getClass(true));
-
-                        newChildDom.offsetHeight; // Trigger layout to make sure transition happen
-                        
-                        if (newChild.transitionManuallyStart) {
-                            return newChild.transitionManuallyStart(this.props.data, start) || Promise.resolve();
-                        }
-                        newChildDom.classList.add(this.props.transitionName + &quot;-enter-active&quot;);
-                    }
-
-                    if (prevChildDom) {
-                        prevChildDom.classList.add(this.props.transitionName + &quot;-leave&quot;);
-                        prevChildDom.classList.add(this.itemClass);
-                        prevChildDom.classList.add(this.getClass(false));
-                        
-                        timeout = this.props.timeout;
-                        prevChildDom.offsetHeight; // Trigger layout to make sure transition happen
-
-                        if (prevChild.transitionLeaveManuallyStart) {
-                            return prevChild.transitionLeaveManuallyStart(this.props.data, start) || Promise.resolve();
-                        }
-                        prevChildDom.classList.add(this.props.transitionName + &quot;-leave-active&quot;);
-                    }
-                    return Promise.resolve();
-                };
-
-                const didStart = () =&gt; {
-                    if (newChild.onTransitionDidStart) {
-                        return newChild.onTransitionDidStart(this.props.data) || Promise.resolve();
-                    }
-                    if (prevChild &amp;&amp; prevChild.onTransitionDidStartLeave) {
-                        return prevChild.onTransitionLeaveDidStart(this.props.data) || Promise.resolve();
-                    }
-                    return Promise.resolve();
-                };
-
-                // Wait for transition
-                const waitForTransition = () =&gt; new Promise(resolve =&gt; {
-                    setTimeout(() =&gt; {
-                        // Swap child and remove the old child
-                        this.state.nextChild = this.state.nextChild === 1 ? 2 : 1;
-                        this.state[&#x60;child${this.state.nextChild}&#x60;] = null;
-                        this.forceUpdate(resolve);
-                    }, timeout);
-                });
-
-                // Before remove classes
-                const willEnd = () =&gt; {
-                    if (newChild.onTransitionWillEnd) {
-                        return newChild.onTransitionWillEnd(this.props.data) || Promise.resolve();
-                    }
-                    if (prevChild &amp;&amp; prevChild.onTransitionLeaveWillEnd) {
-                        return prevChild.onTransitionLeaveWillEnd(this.props.data) || Promise.resolve();
-                    }
-                    return Promise.resolve();
-                };
-
-                // Remove appear and active class (or trigger manual end)
-                const end = () =&gt; {
-                    if (newChildDom) {
-                        newChildDom.classList.remove(this.props.transitionName + &quot;-enter&quot;);
-                        newChildDom.classList.remove(this.getClass(true));
-                        newChildDom.classList.remove(this.itemClass);
-
-                        if (newChild.transitionManuallyStop) {
-                            return newChild.transitionManuallyStop(this.props.data) || Promise.resolve();
-                        }
-                        newChildDom.classList.remove(this.props.transitionName + &quot;-enter-active&quot;);
-                    }
-
-                    if (prevChildDom) {
-                        prevChildDom.classList.remove(this.props.transitionName + &quot;-leave&quot;);
-                        prevChildDom.classList.remove(this.getClass(false));
-                        prevChildDom.classList.remove(this.itemClass);
-
-                        if (prevChild.transitionLeaveManuallyStop) {
-                            return prevChild.transitionLeaveManuallyStop(this.props.data) || Promise.resolve();
-                        }
-                        prevChildDom.classList.remove(this.props.transitionName + &quot;-leave-active&quot;);
-                    }
-                    return Promise.resolve();
-                };
-
-                // After remove classes
-                const didEnd = () =&gt; {
-                    if (newChild.onTransitionDidEnd) {
-                        return newChild.onTransitionDidEnd(this.props.data) || Promise.resolve();
-                    }
-                    if (prevChild &amp;&amp; prevChild.onTransitionLeaveDidEnd) {
-                        return prevChild.onTransitionLeaveDidEnd(this.props.data) || Promise.resolve();
-                    }
-                    return Promise.resolve();
-                };
-
-                Promise.resolve()
-                    .then(willStart)
-                    .then(start)
-                    .then(didStart)
-                    .then(waitForTransition)
-                    .then(willEnd)
-                    .then(end)
-                    .then(didEnd)
-                    .then(()=&gt;{
-                        this.props.onLoad &amp;&amp; this.props.onLoad();
-                        transiteDone();
-                    })
-                    .catch(transiteFailed);
-            });
+        this.setState({
+            currentStep: index
         });
+
+        if(clickCallback) clickCallback(str,index);
+    }
+
+    renderSteps(){
+        let {list} = this.props;
+        let _this = this, listLen = list.length;
+
+        return (
+            &lt;ul&gt;
+                {
+                    list.map((item, index)=&gt;{
+                        return (
+                            &lt;li key={index} className={classnames(setPhoenixPrefix(&#x27;steps-list&#x27;), index==this.state.currentStep? &#x27;active&#x27;:index&lt;this.state.currentStep? &#x27;done&#x27;:&#x27;&#x27;)}
+                                style={{left: index/(listLen-1)*100+&#x27;%&#x27; }}
+                                onClick={_this.clickCallback.bind(_this,item,index)}
+                            &gt;
+                                &lt;span className={setPhoenixPrefix(&#x27;steps-dot&#x27;)}&gt;&lt;/span&gt;
+                                &lt;p&gt;{item}&lt;/p&gt;
+                            &lt;/li&gt;
+                        )
+                    })
+                }
+            &lt;/ul&gt;
+        );
     }
 
     render(){
-        let {className, children} = this.props;
-        return (
-            &lt;div {...this.props} className={classnames(setPhoenixPrefix(&#x27;transition-wrapper&#x27;), className)} &gt;
-                {
-                    React.Children.map(this.state.child1, element =&gt; React.cloneElement(element, {ref: &#x27;child1&#x27;}))
-                }
-                {
-                    React.Children.map(this.state.child2, element =&gt; React.cloneElement(element, {ref: &#x27;child2&#x27;}))
-                }
-            &lt;/div&gt;
-        );
+        return(
+            &lt;div className={classnames(this.getProperty(true),this.props.className)}&gt;
+                {this.renderSteps()}
+           &lt;/div&gt;
+        )
     }
 }
     </pre>

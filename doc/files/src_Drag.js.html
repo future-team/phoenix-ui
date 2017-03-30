@@ -193,6 +193,14 @@
                    
                        <li>
                             
+                           <a href="../classes/ImageList.html">ImageList</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
                            <a href="../classes/LoadingList.html">LoadingList</a>
                            <ul>
                                 
@@ -217,7 +225,7 @@
                     
                        <li>
                             
-                           <a href="../classes/Swipe.html">Swipe</a>
+                           <a href="../classes/Steps.html">Steps</a>
                            <ul>
                                 
                            </ul>
@@ -234,6 +242,14 @@
                        <li>
                             
                            <a href="../classes/Accordion.html">Accordion</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Swipe.html">Swipe</a>
                            <ul>
                                 
                            </ul>
@@ -378,24 +394,6 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
-                    <a href="../modules/路由动画.html">路由动画</a>
-                </dt>
-                <dd>
-                    <ul>
-                   
-                       <li>
-                            
-                           <a href="../classes/PageTransition.html">PageTransition</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                    </ul>
-                </dd>
-             
-                <dt>
-                    <span class="glyphicon glyphicon-minus"></span>
                     <a href="../modules/辅助组件.html">辅助组件</a>
                 </dt>
                 <dd>
@@ -463,7 +461,7 @@
 import React,{PropTypes} from &#x27;react&#x27;;
 import Component from &#x27;./utils/Component&#x27;;
 import classnames from &#x27;classnames&#x27;;
-import {setPhoenixPrefix} from &#x27;./utils/Tool&#x27;;
+import {setPhoenixPrefix,getDeviceInfo} from &#x27;./utils/Tool&#x27;;
 
 /**
  * 拖拽组件&lt;br/&gt;
@@ -525,9 +523,14 @@ export default class Drag extends Component{
     constructor(props, context) {
         super(props, context);
 
+        this.mobile = getDeviceInfo(&#x27;mobile&#x27;);
+
         this.state = {
             position: {}
         };
+
+        this.onMouseMoveHandle = this.onMouseMove.bind(this);
+        this.onMouseEndHandle = this.onMouseEnd.bind(this);   
 
         this.isMouseDown = false;
     }
@@ -558,6 +561,11 @@ export default class Drag extends Component{
         if(onDrag) onDrag(event, this.state.position);
         if(onDragStart) onDragStart(event, this.state.position);
 
+        if(!this.mobile){
+            document.addEventListener(&#x27;mousemove&#x27;,this.onMouseMoveHandle,false);
+            document.addEventListener(&#x27;mouseup&#x27;,this.onMouseEndHandle,false);
+        } 
+
         return false;
     }
 
@@ -580,7 +588,7 @@ export default class Drag extends Component{
         this.state.position.move = {x:event.pageX, y: event.pageY};
 
         if(this.props.onDrag) this.props.onDrag(event, this.state.position);
-
+        
         return false;
     }
 
@@ -605,12 +613,23 @@ export default class Drag extends Component{
 
         if(this.props.onDrop) this.props.onDrop(event, this.state.position);
         this.isMouseDown = false;
-
+        
+        if(!this.mobile){
+            document.removeEventListener(&#x27;mousemove&#x27;,this.onMouseMoveHandle,false);
+            document.removeEventListener(&#x27;mouseup&#x27;,this.onMouseEndHandle,false);
+        }
         return false;
     }
 
     onTouchCancel(event){
         // 触屏取消:忽然来电话等情况
+    }
+
+    componentWillUnmount(){
+        if(!this.mobile){
+            document.removeEventListener(&#x27;mousemove&#x27;,this.onMouseMoveHandle,false);
+            document.removeEventListener(&#x27;mouseup&#x27;,this.onMouseEndHandle,false);
+        }
     }
 
     render(){
@@ -622,8 +641,6 @@ export default class Drag extends Component{
                 onTouchCancel={(event)=&gt;{this.onTouchCancel(event)}}
 
                 onMouseDown={(event)=&gt;{this.onMouseStart(event)}}
-                onMouseMove={(event)=&gt;{this.onMouseMove(event)}}
-                onMouseUp={(event)=&gt;{this.onMouseEnd(event)}}
 
                 ref={(dragAction)=&gt;{this.dragAction = dragAction;}}
             &gt;

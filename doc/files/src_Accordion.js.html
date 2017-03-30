@@ -193,6 +193,14 @@
                    
                        <li>
                             
+                           <a href="../classes/ImageList.html">ImageList</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
                            <a href="../classes/LoadingList.html">LoadingList</a>
                            <ul>
                                 
@@ -217,7 +225,7 @@
                     
                        <li>
                             
-                           <a href="../classes/Swipe.html">Swipe</a>
+                           <a href="../classes/Steps.html">Steps</a>
                            <ul>
                                 
                            </ul>
@@ -234,6 +242,14 @@
                        <li>
                             
                            <a href="../classes/Accordion.html">Accordion</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Swipe.html">Swipe</a>
                            <ul>
                                 
                            </ul>
@@ -368,24 +384,6 @@
                        <li>
                             
                            <a href="../classes/TextArea.html">TextArea</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                    </ul>
-                </dd>
-             
-                <dt>
-                    <span class="glyphicon glyphicon-minus"></span>
-                    <a href="../modules/路由动画.html">路由动画</a>
-                </dt>
-                <dd>
-                    <ul>
-                   
-                       <li>
-                            
-                           <a href="../classes/PageTransition.html">PageTransition</a>
                            <ul>
                                 
                            </ul>
@@ -575,6 +573,10 @@ class Accordion extends Component{
         this.state = {
             visible: props.visible
         }
+    }
+
+    componentWillReceiveProps(nextProps){
+         if(this.state.visible != nextProps.visible) this.setState({visible: nextProps.visible});
     }
 
     changeVisible(){
