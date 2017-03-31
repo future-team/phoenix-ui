@@ -54,11 +54,8 @@ export default class Switch extends Component{
     };
 
     static defaultProps = {
-        egSize:'',
         classPrefix:'switch',
-        classMapping : {
-
-        }
+        classMapping : {}
     };
 
     constructor(props, context) {
