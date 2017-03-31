@@ -477,7 +477,8 @@ import {setPhoenixPrefix} from &#x27;./utils/Tool&#x27;;
 /**
  * 多行文本框组件&lt;br/&gt;
  * - 使用方式跟原生一致。
- * - 可通过defaultValue设置默认值; 可通过value和onChange事件配合使用手动设置输入值。
+ * - 可通过defaultValue设置默认值,如果是通过请求获得的数据请使用value，defaultValue只有初始赋值有效。 
+ * - 可通过value和onChange事件配合使用手动设置输入值。
  * - 可通过设置count判断是否显示当前输入字数。
  * - 可通过设置maxLength配置最大输入字数。
  *
@@ -549,8 +550,22 @@ export default class Textarea extends Component{
         super(props, context);
 
         this.state = {
-            inputLength: props.value? props.value.length: props.defaultValue? props.defaultValue.length:0
+            inputLength: this.getInputLength(props)
         }
+    }
+
+    getInputLength(props){
+        return props.value? props.value.length: props.defaultValue? props.defaultValue.length:0;
+    }
+
+    componentWillReceiveProps(nextProps){
+        let {defaultValue, value} = this.props;
+
+        if(defaultValue != nextProps.defaultValue || value != nextProps.value){
+            this.setState({
+                inputLength: this.getInputLength(nextProps)
+            });
+        }        
     }
 
     onTextareaChange(event){

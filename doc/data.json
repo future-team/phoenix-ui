@@ -5943,7 +5943,7 @@
             "namespace": "",
             "file": "src/Textarea.js",
             "line": 17,
-            "description": "多行文本框组件<br/>\n- 使用方式跟原生一致。\n- 可通过defaultValue设置默认值; 可通过value和onChange事件配合使用手动设置输入值。\n- 可通过设置count判断是否显示当前输入字数。\n- 可通过设置maxLength配置最大输入字数。\n\n主要属性和接口：\n- defaultValue:默认值 <br/>\n如：`<Textarea defaultValue=\"测试\" />`\n- value&onChange:<br/>\n如：`<Textarea value={this.state.value} onChange={()=>{this.setState({value:\"测试\"})}} />`\n- count:是否显示当前输入字数, 默认false不显示, 配合maxLength使用<br/>\n如：`<Textarea count maxLength={150} />`",
+            "description": "多行文本框组件<br/>\n- 使用方式跟原生一致。\n- 可通过defaultValue设置默认值,如果是通过请求获得的数据请使用value，defaultValue只有初始赋值有效。 \n- 可通过value和onChange事件配合使用手动设置输入值。\n- 可通过设置count判断是否显示当前输入字数。\n- 可通过设置maxLength配置最大输入字数。\n\n主要属性和接口：\n- defaultValue:默认值 <br/>\n如：`<Textarea defaultValue=\"测试\" />`\n- value&onChange:<br/>\n如：`<Textarea value={this.state.value} onChange={()=>{this.setState({value:\"测试\"})}} />`\n- count:是否显示当前输入字数, 默认false不显示, 配合maxLength使用<br/>\n如：`<Textarea count maxLength={150} />`",
             "extends": "Component",
             "is_constructor": 1,
             "since": "0.3.0",
@@ -7600,7 +7600,7 @@
         },
         {
             "file": "src/Textarea.js",
-            "line": 44,
+            "line": 45,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -7611,7 +7611,7 @@
         },
         {
             "file": "src/Textarea.js",
-            "line": 51,
+            "line": 52,
             "description": "默认值",
             "itemtype": "property",
             "name": "defaultValue",
@@ -7621,7 +7621,7 @@
         },
         {
             "file": "src/Textarea.js",
-            "line": 57,
+            "line": 58,
             "description": "值",
             "itemtype": "property",
             "name": "value",
@@ -7631,7 +7631,7 @@
         },
         {
             "file": "src/Textarea.js",
-            "line": 63,
+            "line": 64,
             "description": "输入时执行的回调",
             "itemtype": "event",
             "name": "onChange",
@@ -7641,7 +7641,7 @@
         },
         {
             "file": "src/Textarea.js",
-            "line": 69,
+            "line": 70,
             "description": "是否显示输入计数",
             "itemtype": "property",
             "name": "count",
@@ -7651,7 +7651,7 @@
         },
         {
             "file": "src/Textarea.js",
-            "line": 75,
+            "line": 76,
             "description": "可输入的总长度",
             "itemtype": "property",
             "name": "maxLength",
