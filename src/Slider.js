@@ -129,15 +129,14 @@ export default class Slider extends Component{
         super(props, context);
         
         this.range = this.validateRange();
-        this.eachPer = (this.range[1]-this.range[0])/100;
+        this.rangeDiff = this.range[1]-this.range[0];
 
         this.duration = this.validateDuration();
-        this.eachDur = this.duration/(this.range[1]-this.range[0]);
+        this.eachDur = (this.range[1]-this.range[0])/this.duration;
         
         this.state = {
-            newProgress: props.progress,
-            tipVisible: props.tipStay || false,
-            tipProgress: parseInt(props.progress * this.eachPer + this.range[0])
+            realProgress: props.progress || this.range[0],
+            tipVisible: props.tipStay || false
         }
         
     }
@@ -169,22 +168,28 @@ export default class Slider extends Component{
         return duration;
     }
 
-    componentWillReceiveProps(nextProps){
-        if(this.state.newProgress != nextProps.progress){
-            this.setState({
-                newProgress: nextProps.progress
-            },()=>{
-                this.newProgressWidth = this.sliderLength * this.state.newProgress / 100;
-                this.setSliderPosition(this.newProgressWidth + 'px');
-            });
-        }        
-    }
-
     componentDidMount(){
         this.sliderLength = parseInt(this.sliderLine.offsetWidth);
-        this.newProgressWidth = this.sliderLength * this.props.progress / 100;
+        this.eachSection = this.sliderLength/this.rangeDiff*this.duration;
+        // if(this.eachSection<1) this.eachSection = 1; // 最小1px
 
+        this.newProgressWidth = this.getNewProgressWidth(this.state.realProgress);
         this.setSliderPosition(this.newProgressWidth + 'px');
+    }
+
+    componentWillReceiveProps(nextProps){
+        if(this.state.realProgress != nextProps.progress){
+            this.setState({
+                realProgress: nextProps.progress
+            });
+
+            this.newProgressWidth = this.getNewProgressWidth(nextProps.progress);
+            this.setSliderPosition(this.newProgressWidth + 'px');
+        }
+    }
+
+    getNewProgressWidth(realProgress){ // 保留2位小数
+        return this.sliderLength * (Math.round((realProgress-this.range[0])/this.rangeDiff*100)/100);
     }
 
     setSliderPosition(distance){
@@ -193,7 +198,7 @@ export default class Slider extends Component{
     }
 
     onDrag(event, position){
-        let newProgress;
+        let newProgress, nowSec;
 
         this.preX = position.start.x;
         this.X = position.move.x;
@@ -201,23 +206,19 @@ export default class Slider extends Component{
 
         this.prevProgressWidth = this.newProgressWidth + this.distance;
 
-        if(this.newProgressWidth + this.distance <= 0) this.prevProgressWidth = 0;
-        if(this.newProgressWidth + this.distance >= this.sliderLength) this.prevProgressWidth = this.sliderLength;
+        if(this.prevProgressWidth <= 0) this.prevProgressWidth = 0;
+        if(this.prevProgressWidth >= this.sliderLength) this.prevProgressWidth = this.sliderLength;
 
-        if(this.duration != 1){
-            let eachSec = Math.round(this.prevProgressWidth / (this.sliderLength*this.eachDur),0);
-            this.prevProgressWidth = eachSec * (this.sliderLength*this.eachDur);
-            newProgress = eachSec * this.eachDur * 100;
-        }else{
-            newProgress = this.prevProgressWidth/this.sliderLength * 100;
-        }
+        nowSec = Math.round(this.prevProgressWidth/this.eachSection, 0);
+        this.prevProgressWidth = this.eachSection*nowSec;
+
+        newProgress = this.prevProgressWidth/this.sliderLength * this.rangeDiff + this.range[0];
 
         this.setSliderPosition(this.prevProgressWidth + 'px');
 
         this.setState({
             tipVisible: true,
-            newProgress: newProgress,
-            tipProgress: parseInt(newProgress * this.eachPer + this.range[0])
+            realProgress: parseInt(newProgress)
         });
     }
 
@@ -230,7 +231,7 @@ export default class Slider extends Component{
 
         this.newProgressWidth = this.prevProgressWidth;
 
-        if(this.props.onSliderChange) this.props.onSliderChange(this.state.tipProgress);
+        if(this.props.onSliderChange) this.props.onSliderChange(this.state.realProgress);
     }
 
     renderSliderRange(){
@@ -259,7 +260,7 @@ export default class Slider extends Component{
                 <div className={setPhoenixPrefix("slider-line")} ref={(sliderLine)=>{this.sliderLine=sliderLine}}>
                     <div className={setPhoenixPrefix("slider-progress")} ref={(sliderProgress)=>{this.sliderProgress=sliderProgress}}></div>
                     <div className={setPhoenixPrefix("slider-content")} ref={(sliderBtn)=>{this.sliderBtn=sliderBtn}}>
-                        <div className={classnames(setPhoenixPrefix("slider-tip"), this.state.tipVisible?'show':'hide')}>{this.state.tipProgress}</div>
+                        <div className={classnames(setPhoenixPrefix("slider-tip"), this.state.tipVisible?'show':'hide')}>{this.state.realProgress}</div>
                         <Drag className={setPhoenixPrefix("slider-btn")} onDrag={::this.onDrag} onDrop={::this.onDrop}></Drag>
                     </div>
                 </div>
