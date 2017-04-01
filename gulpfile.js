@@ -44,7 +44,7 @@ gulp.task('demoBuild', function (done) {
         },
         {
             test: /\.jsx?$/,
-            loaders: ['react-hot', 'babel'],
+            loaders: ['react-hot', 'babel-loader?cacheDirectory'],
             exclude: /node_modules/
         },
         {

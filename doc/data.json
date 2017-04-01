@@ -5724,7 +5724,7 @@
             "is_constructor": 1,
             "since": "1.0.0",
             "example": [
-                "\timport React, { Component } from \"react\";\n\timport {Slider} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class slider extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t\n\t        this.state = {\n\t            progress: 50\n\t        }\n\t    }\n\t\n\t    onSliderChange(newProgress){ // progress百分比\n\t        this.setState({\n\t            progress: newProgress\n\t        });\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Slider</h2>\n\t                <h3 className=\"comp-type\">progress(默认0) 初始进度百分比</h3>\n\t                <div className=\"content\">\n\t                    <Slider progress={25} />\n\t                </div>\n\t                <Code target=\"slider-progress\" />\n\t\n\t                <h3 className=\"comp-type\">placement(默认top) 进度条提示框的位置</h3>\n\t                <div className=\"content\">\n\t                    <Slider />\n\t                    <Slider placement=\"bottom\" />\n\t                </div>\n\t                <Code target=\"slider-placement\" />\n\t\n\t                <h3 className=\"comp-type\">tipStay(默认false) 松开进度条时是否要隐藏提示</h3>\n\t                <div className=\"content\">\n\t                    <Slider tipStay />\n\t                </div>\n\t                <Code target=\"slider-tipstay\" />\n\t\n\t                <h3 className=\"comp-type\">range(默认[0,100]) 范围</h3>\n\t                <div className=\"content\">\n\t                    <Slider range={[50,200]} showRange />\n\t                </div>\n\t                <Code target=\"slider-range\" />\n\t\n\t                <h3 className=\"comp-type\">showRange(默认false) 范围</h3>\n\t                <div className=\"content\">\n\t                    <Slider range={[25,65]} showRange />\n\t                </div>\n\t                <Code target=\"slider-showrange\" />\n\t\n\t                <h3 className=\"comp-type\">duration(默认1) 每次滑动的距离</h3>\n\t                <div className=\"content\">\n\t                    <Slider duration={20} />\n\t                </div>\n\t                <Code target=\"slider-duration\" />\n\t\n\t                <h3 className=\"comp-type\">onSliderChange 拖拽进度条松开时的回调函数</h3>\n\t                <div className=\"content\">\n\t                    <Slider progress={this.state.progress} onSliderChange={::this.onSliderChange} />\n\t                    <div style={{textAlign:\"center\",padding:\"1rem 0\"}}>Progress: {this.state.progress}</div>\n\t                </div>\n\t                <Code target=\"slider-onsliderchange\" />\n\t\n\t\n\t                <h3 className=\"comp-type\">disabled 进度条只读</h3>\n\t                <div className=\"content\">\n\t                    <Slider disabled progress={10} />\n\t                </div>\n\t                <Code target=\"slider-disabled\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
+                "\timport React, { Component } from \"react\";\n\timport {Slider} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class slider extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context); \n\t\n\t        this.state = {\n\t            progress: 50,\n\t            progress1: 20\n\t        }\n\t    }\n\t\n\t    onSliderChange(key, newProgress){ // progress百分比\n\t        let o = {};\n\t        o[key] = newProgress;\n\t        this.setState(o);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Slider</h2>\n\t                <h3 className=\"comp-type\">progress(默认0) 初始进度百分比</h3>\n\t                <div className=\"content\">\n\t                    <Slider progress={25} />\n\t                </div>\n\t                <Code target=\"slider-progress\" />\n\t\n\t                <h3 className=\"comp-type\">placement(默认top) 进度条提示框的位置</h3>\n\t                <div className=\"content\">\n\t                    <Slider />\n\t                    <Slider placement=\"bottom\" />\n\t                </div>\n\t                <Code target=\"slider-placement\" />\n\t\n\t                <h3 className=\"comp-type\">tipStay(默认false) 松开进度条时是否要隐藏提示</h3>\n\t                <div className=\"content\">\n\t                    <Slider tipStay />\n\t                </div>\n\t                <Code target=\"slider-tipstay\" />\n\t\n\t                <h3 className=\"comp-type\">range(默认[0,100]) 范围</h3>\n\t                <div className=\"content\">\n\t                    <Slider range={[50,200]} showRange />\n\t                </div>\n\t                <Code target=\"slider-range\" />\n\t\n\t                <h3 className=\"comp-type\">showRange(默认false) 范围</h3>\n\t                <div className=\"content\">\n\t                    <Slider range={[25,65]} showRange />\n\t                </div>\n\t                <Code target=\"slider-showrange\" />\n\t\n\t                <h3 className=\"comp-type\">duration(默认1) 每次滑动的距离</h3>\n\t                <div className=\"content\">\n\t                    <Slider duration={20} />\n\t                </div>\n\t                <Code target=\"slider-duration\" />\n\t\n\t                <h3 className=\"comp-type\">onSliderChange 拖拽进度条松开时的回调函数</h3>\n\t                <div className=\"content\">\n\t                    <Slider progress={this.state.progress} onSliderChange={(newProgress)=>{this.onSliderChange('progress',newProgress);}} />\n\t                    <div style={{textAlign:\"center\",padding:\"1rem 0\"}}>Progress: {this.state.progress}</div>\n\t                </div>\n\t                <Code target=\"slider-onsliderchange\" />\n\t\n\t\n\t                <h3 className=\"comp-type\">disabled 进度条只读</h3>\n\t                <div className=\"content\">\n\t                    <Slider disabled progress={10} />\n\t                </div>\n\t                <Code target=\"slider-disabled\" />\n\t\n\t                <h3 className=\"comp-type\">整合</h3>\n\t                <div className=\"content\">\n\t                    <Slider progress={this.state.progress1} onSliderChange={(newProgress)=>{this.onSliderChange('progress1',newProgress);}} \n\t                        range={[10,50]} duration={5} showRange tipStay />\n\t                </div>\n\t                <Code target=\"slider-disabled\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
                 "展示"
@@ -5943,7 +5943,7 @@
             "namespace": "",
             "file": "src/Textarea.js",
             "line": 17,
-            "description": "多行文本框组件<br/>\n- 使用方式跟原生一致。\n- 可通过defaultValue设置默认值; 可通过value和onChange事件配合使用手动设置输入值。\n- 可通过设置count判断是否显示当前输入字数。\n- 可通过设置maxLength配置最大输入字数。\n\n主要属性和接口：\n- defaultValue:默认值 <br/>\n如：`<Textarea defaultValue=\"测试\" />`\n- value&onChange:<br/>\n如：`<Textarea value={this.state.value} onChange={()=>{this.setState({value:\"测试\"})}} />`\n- count:是否显示当前输入字数, 默认false不显示, 配合maxLength使用<br/>\n如：`<Textarea count maxLength={150} />`",
+            "description": "多行文本框组件<br/>\n- 使用方式跟原生一致。\n- 可通过defaultValue设置默认值,如果是通过请求获得的数据请使用value，defaultValue只有初始赋值有效。 \n- 可通过value和onChange事件配合使用手动设置输入值。\n- 可通过设置count判断是否显示当前输入字数。\n- 可通过设置maxLength配置最大输入字数。\n\n主要属性和接口：\n- defaultValue:默认值 <br/>\n如：`<Textarea defaultValue=\"测试\" />`\n- value&onChange:<br/>\n如：`<Textarea value={this.state.value} onChange={()=>{this.setState({value:\"测试\"})}} />`\n- count:是否显示当前输入字数, 默认false不显示, 配合maxLength使用<br/>\n如：`<Textarea count maxLength={150} />`",
             "extends": "Component",
             "is_constructor": 1,
             "since": "0.3.0",
@@ -7600,7 +7600,7 @@
         },
         {
             "file": "src/Textarea.js",
-            "line": 44,
+            "line": 45,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -7611,7 +7611,7 @@
         },
         {
             "file": "src/Textarea.js",
-            "line": 51,
+            "line": 52,
             "description": "默认值",
             "itemtype": "property",
             "name": "defaultValue",
@@ -7621,7 +7621,7 @@
         },
         {
             "file": "src/Textarea.js",
-            "line": 57,
+            "line": 58,
             "description": "值",
             "itemtype": "property",
             "name": "value",
@@ -7631,7 +7631,7 @@
         },
         {
             "file": "src/Textarea.js",
-            "line": 63,
+            "line": 64,
             "description": "输入时执行的回调",
             "itemtype": "event",
             "name": "onChange",
@@ -7641,7 +7641,7 @@
         },
         {
             "file": "src/Textarea.js",
-            "line": 69,
+            "line": 70,
             "description": "是否显示输入计数",
             "itemtype": "property",
             "name": "count",
@@ -7651,7 +7651,7 @@
         },
         {
             "file": "src/Textarea.js",
-            "line": 75,
+            "line": 76,
             "description": "可输入的总长度",
             "itemtype": "property",
             "name": "maxLength",
