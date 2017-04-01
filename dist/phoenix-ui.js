@@ -6776,15 +6776,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _Component.call(this, props, context);
 
 	        this.range = this.validateRange();
-	        this.eachPer = (this.range[1] - this.range[0]) / 100;
+	        this.rangeDiff = this.range[1] - this.range[0];
 
 	        this.duration = this.validateDuration();
-	        this.eachDur = this.duration / (this.range[1] - this.range[0]);
+	        this.eachDur = (this.range[1] - this.range[0]) / this.duration;
 
 	        this.state = {
-	            newProgress: props.progress,
-	            tipVisible: props.tipStay || false,
-	            tipProgress: parseInt(props.progress * this.eachPer + this.range[0])
+	            realProgress: props.progress || this.range[0],
+	            tipVisible: props.tipStay || false
 	        };
 	    }
 
@@ -6816,24 +6815,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return duration;
 	    };
 
-	    Slider.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
-	        var _this = this;
+	    Slider.prototype.componentDidMount = function componentDidMount() {
+	        this.sliderLength = parseInt(this.sliderLine.offsetWidth);
+	        this.eachSection = this.sliderLength / this.rangeDiff * this.duration;
+	        // if(this.eachSection<1) this.eachSection = 1; // 最小1px
 
-	        if (this.state.newProgress != nextProps.progress) {
+	        this.newProgressWidth = this.getNewProgressWidth(this.state.realProgress);
+	        this.setSliderPosition(this.newProgressWidth + 'px');
+	    };
+
+	    Slider.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+	        if (this.state.realProgress != nextProps.progress) {
 	            this.setState({
-	                newProgress: nextProps.progress
-	            }, function () {
-	                _this.newProgressWidth = _this.sliderLength * _this.state.newProgress / 100;
-	                _this.setSliderPosition(_this.newProgressWidth + 'px');
+	                realProgress: nextProps.progress
 	            });
+
+	            this.newProgressWidth = this.getNewProgressWidth(nextProps.progress);
+	            this.setSliderPosition(this.newProgressWidth + 'px');
 	        }
 	    };
 
-	    Slider.prototype.componentDidMount = function componentDidMount() {
-	        this.sliderLength = parseInt(this.sliderLine.offsetWidth);
-	        this.newProgressWidth = this.sliderLength * this.props.progress / 100;
-
-	        this.setSliderPosition(this.newProgressWidth + 'px');
+	    Slider.prototype.getNewProgressWidth = function getNewProgressWidth(realProgress) {
+	        // 保留2位小数
+	        return this.sliderLength * (Math.round((realProgress - this.range[0]) / this.rangeDiff * 100) / 100);
 	    };
 
 	    Slider.prototype.setSliderPosition = function setSliderPosition(distance) {
@@ -6842,7 +6846,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    Slider.prototype.onDrag = function onDrag(event, position) {
-	        var newProgress = undefined;
+	        var newProgress = undefined,
+	            nowSec = undefined;
 
 	        this.preX = position.start.x;
 	        this.X = position.move.x;
@@ -6850,23 +6855,19 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        this.prevProgressWidth = this.newProgressWidth + this.distance;
 
-	        if (this.newProgressWidth + this.distance <= 0) this.prevProgressWidth = 0;
-	        if (this.newProgressWidth + this.distance >= this.sliderLength) this.prevProgressWidth = this.sliderLength;
+	        if (this.prevProgressWidth <= 0) this.prevProgressWidth = 0;
+	        if (this.prevProgressWidth >= this.sliderLength) this.prevProgressWidth = this.sliderLength;
 
-	        if (this.duration != 1) {
-	            var eachSec = Math.round(this.prevProgressWidth / (this.sliderLength * this.eachDur), 0);
-	            this.prevProgressWidth = eachSec * (this.sliderLength * this.eachDur);
-	            newProgress = eachSec * this.eachDur * 100;
-	        } else {
-	            newProgress = this.prevProgressWidth / this.sliderLength * 100;
-	        }
+	        nowSec = Math.round(this.prevProgressWidth / this.eachSection, 0);
+	        this.prevProgressWidth = this.eachSection * nowSec;
+
+	        newProgress = this.prevProgressWidth / this.sliderLength * this.rangeDiff + this.range[0];
 
 	        this.setSliderPosition(this.prevProgressWidth + 'px');
 
 	        this.setState({
 	            tipVisible: true,
-	            newProgress: newProgress,
-	            tipProgress: parseInt(newProgress * this.eachPer + this.range[0])
+	            realProgress: parseInt(newProgress)
 	        });
 	    };
 
@@ -6879,7 +6880,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        this.newProgressWidth = this.prevProgressWidth;
 
-	        if (this.props.onSliderChange) this.props.onSliderChange(this.state.tipProgress);
+	        if (this.props.onSliderChange) this.props.onSliderChange(this.state.realProgress);
 	    };
 
 	    Slider.prototype.renderSliderRange = function renderSliderRange() {
@@ -6904,7 +6905,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    Slider.prototype.render = function render() {
-	        var _this2 = this;
+	        var _this = this;
 
 	        var _props = this.props;
 	        var Component = _props.componentTag;
@@ -6918,20 +6919,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	            _react2['default'].createElement(
 	                'div',
 	                { className: _utilsTool.setPhoenixPrefix("slider-line"), ref: function (sliderLine) {
-	                        _this2.sliderLine = sliderLine;
+	                        _this.sliderLine = sliderLine;
 	                    } },
 	                _react2['default'].createElement('div', { className: _utilsTool.setPhoenixPrefix("slider-progress"), ref: function (sliderProgress) {
-	                        _this2.sliderProgress = sliderProgress;
+	                        _this.sliderProgress = sliderProgress;
 	                    } }),
 	                _react2['default'].createElement(
 	                    'div',
 	                    { className: _utilsTool.setPhoenixPrefix("slider-content"), ref: function (sliderBtn) {
-	                            _this2.sliderBtn = sliderBtn;
+	                            _this.sliderBtn = sliderBtn;
 	                        } },
 	                    _react2['default'].createElement(
 	                        'div',
 	                        { className: _classnames2['default'](_utilsTool.setPhoenixPrefix("slider-tip"), this.state.tipVisible ? 'show' : 'hide') },
-	                        this.state.tipProgress
+	                        this.state.realProgress
 	                    ),
 	                    _react2['default'].createElement(_Drag2['default'], { className: _utilsTool.setPhoenixPrefix("slider-btn"), onDrag: this.onDrag.bind(this), onDrop: this.onDrop.bind(this) })
 	                )

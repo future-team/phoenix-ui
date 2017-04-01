@@ -700,14 +700,15 @@ export default class slider extends Component{
         super(props,context); 
 
         this.state = {
-            progress: 50
+            progress: 50,
+            progress1: 20
         }
     }
 
-    onSliderChange(newProgress){ // progress百分比
-        this.setState({
-            progress: newProgress
-        });
+    onSliderChange(key, newProgress){ // progress百分比
+        let o = {};
+        o[key] = newProgress;
+        this.setState(o);
     }
 
     render(){
@@ -753,7 +754,7 @@ export default class slider extends Component{
 
                 &lt;h3 className="comp-type"&gt;onSliderChange 拖拽进度条松开时的回调函数&lt;/h3&gt;
                 &lt;div className="content"&gt;
-                    &lt;Slider progress={this.state.progress} onSliderChange={::this.onSliderChange} /&gt;
+                    &lt;Slider progress={this.state.progress} onSliderChange={(newProgress)=&gt;{this.onSliderChange(&#39;progress&#39;,newProgress);}} /&gt;
                     &lt;div style={{textAlign:"center",padding:"1rem 0"}}&gt;Progress: {this.state.progress}&lt;/div&gt;
                 &lt;/div&gt;
                 &lt;Code target="slider-onsliderchange" /&gt;
@@ -762,6 +763,13 @@ export default class slider extends Component{
                 &lt;h3 className="comp-type"&gt;disabled 进度条只读&lt;/h3&gt;
                 &lt;div className="content"&gt;
                     &lt;Slider disabled progress={10} /&gt;
+                &lt;/div&gt;
+                &lt;Code target="slider-disabled" /&gt;
+
+                &lt;h3 className="comp-type"&gt;整合&lt;/h3&gt;
+                &lt;div className="content"&gt;
+                    &lt;Slider progress={this.state.progress1} onSliderChange={(newProgress)=&gt;{this.onSliderChange(&#39;progress1&#39;,newProgress);}} 
+                        range={[10,50]} duration={5} showRange tipStay /&gt;
                 &lt;/div&gt;
                 &lt;Code target="slider-disabled" /&gt;
             &lt;/div&gt;
