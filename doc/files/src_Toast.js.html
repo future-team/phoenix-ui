@@ -471,6 +471,8 @@ import {setPhoenixPrefix} from &#x27;./utils/Tool&#x27;;
  * - 成功信息: &#x60;Toast.success(message, duration, callback)&#x60;
  * - 失败信息: &#x60;Toast.fail(message, duration, callback)&#x60;
  * - 加载中: &#x60;Toast.loading(message, duration, callback)&#x60;
+ * - 移除: &#x60;Toast.remove()&#x60;
+ * - 如果不根据设置的时间移除飘字，&#x60;duration&#x60;设置为false，&#x60;Toast.remove()&#x60;移除飘字。
  *
  * 示例: &lt;br/&gt;
  * - 显示普通飘字, 如:&lt;br/&gt;
@@ -481,6 +483,8 @@ import {setPhoenixPrefix} from &#x27;./utils/Tool&#x27;;
  * &#x60;Toast.fail(&#x27;操作失败&#x27;, 1000, ()=&gt;{console.log(&#x27;飘字消失时执行的回调函数&#x27;);})&#x60;
  * - 显示加载中, 如:&lt;br/&gt;
  * &#x60;Toast.loading(&#x27;加载中...&#x27;, 1000, ()=&gt;{console.log(&#x27;飘字消失时执行的回调函数&#x27;);})&#x60;
+ * - 移除飘字, 如:&lt;br/&gt;
+ * &#x60;Toast.remove()&#x60;
  *
  * @class Toast
  * @module 操作类组件
@@ -541,12 +545,14 @@ function _renderLayer(layerElement, duration, callback){
 
     window.addEventListener(&#x27;hashchange&#x27;, _unrenderLayer, false);
 
-    timer = setTimeout(function(){
-        visible = false;
+    if(duration){
+        timer = setTimeout(function(){
+            visible = false;
 
-        _unrenderLayer();
-        callback();
-    }, duration);
+            _unrenderLayer();
+            callback();
+        }, duration);
+    }    
 }
 
 function _unrenderLayer(){

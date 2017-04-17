@@ -1,6 +1,6 @@
 {
   "name": "phoenix-ui",
-  "version": "1.7.3",
+  "version": "1.7.4",
   "description": "future team ui for app with react",
   "main": "lib/",
   "scripts": {
@@ -71,7 +71,7 @@
   "dependencies": {
     "cat-browser": "^0.1.1",
     "extend": "^3.0.0",
-    "phoenix-styles": "^1.5.1",
+    "phoenix-styles": "^1.5.2",
     "react-addons-css-transition-group": "^0.14.2"
   }
 }

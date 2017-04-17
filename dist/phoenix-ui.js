@@ -7,7 +7,7 @@
 		exports["Phoenix"] = factory(require("react"), require("ReactCSSTransitionGroup"), require("react/lib/ReactDOM"));
 	else
 		root["Phoenix"] = factory(root["React"], root["ReactCSSTransitionGroup"], root["ReactDOM"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_62__, __WEBPACK_EXTERNAL_MODULE_90__, __WEBPACK_EXTERNAL_MODULE_94__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_62__, __WEBPACK_EXTERNAL_MODULE_91__, __WEBPACK_EXTERNAL_MODULE_95__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -123,133 +123,133 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.Button = _Button3['default'];
 
-	var _ButtonGroup2 = __webpack_require__(71);
+	var _ButtonGroup2 = __webpack_require__(72);
 
 	var _ButtonGroup3 = _interopRequireDefault(_ButtonGroup2);
 
 	exports.ButtonGroup = _ButtonGroup3['default'];
 
-	var _Input2 = __webpack_require__(72);
+	var _Input2 = __webpack_require__(73);
 
 	var _Input3 = _interopRequireDefault(_Input2);
 
 	exports.Input = _Input3['default'];
 
-	var _Textarea2 = __webpack_require__(74);
+	var _Textarea2 = __webpack_require__(75);
 
 	var _Textarea3 = _interopRequireDefault(_Textarea2);
 
 	exports.Textarea = _Textarea3['default'];
 
-	var _Switch2 = __webpack_require__(75);
+	var _Switch2 = __webpack_require__(76);
 
 	var _Switch3 = _interopRequireDefault(_Switch2);
 
 	exports.Switch = _Switch3['default'];
 
-	var _Row2 = __webpack_require__(76);
+	var _Row2 = __webpack_require__(77);
 
 	var _Row3 = _interopRequireDefault(_Row2);
 
 	exports.Row = _Row3['default'];
 
-	var _Col2 = __webpack_require__(77);
+	var _Col2 = __webpack_require__(78);
 
 	var _Col3 = _interopRequireDefault(_Col2);
 
 	exports.Col = _Col3['default'];
 
-	var _TableView2 = __webpack_require__(78);
+	var _TableView2 = __webpack_require__(79);
 
 	var _TableView3 = _interopRequireDefault(_TableView2);
 
 	exports.TableView = _TableView3['default'];
 
-	var _FormGroup2 = __webpack_require__(79);
+	var _FormGroup2 = __webpack_require__(80);
 
 	var _FormGroup3 = _interopRequireDefault(_FormGroup2);
 
 	exports.FormGroup = _FormGroup3['default'];
 
-	var _Tab2 = __webpack_require__(80);
+	var _Tab2 = __webpack_require__(81);
 
 	var _Tab3 = _interopRequireDefault(_Tab2);
 
 	exports.Tab = _Tab3['default'];
 
-	var _Tabset2 = __webpack_require__(81);
+	var _Tabset2 = __webpack_require__(82);
 
 	var _Tabset3 = _interopRequireDefault(_Tabset2);
 
 	exports.Tabset = _Tabset3['default'];
 
-	var _Label2 = __webpack_require__(82);
+	var _Label2 = __webpack_require__(83);
 
 	var _Label3 = _interopRequireDefault(_Label2);
 
 	exports.Label = _Label3['default'];
 
-	var _Badge2 = __webpack_require__(83);
+	var _Badge2 = __webpack_require__(84);
 
 	var _Badge3 = _interopRequireDefault(_Badge2);
 
 	exports.Badge = _Badge3['default'];
 
-	var _Star2 = __webpack_require__(84);
+	var _Star2 = __webpack_require__(85);
 
 	var _Star3 = _interopRequireDefault(_Star2);
 
 	exports.Star = _Star3['default'];
 
-	var _Drag2 = __webpack_require__(85);
+	var _Drag2 = __webpack_require__(86);
 
 	var _Drag3 = _interopRequireDefault(_Drag2);
 
 	exports.Drag = _Drag3['default'];
 
-	var _Swipe2 = __webpack_require__(86);
+	var _Swipe2 = __webpack_require__(87);
 
 	var _Swipe3 = _interopRequireDefault(_Swipe2);
 
 	exports.Swipe = _Swipe3['default'];
 
-	var _Grid2 = __webpack_require__(87);
+	var _Grid2 = __webpack_require__(88);
 
 	var _Grid3 = _interopRequireDefault(_Grid2);
 
 	exports.Grid = _Grid3['default'];
 
-	var _modalDialog = __webpack_require__(88);
+	var _modalDialog = __webpack_require__(89);
 
 	var _modalDialog2 = _interopRequireDefault(_modalDialog);
 
 	exports.Dialog = _modalDialog2['default'];
 
-	var _modalAlert = __webpack_require__(91);
+	var _modalAlert = __webpack_require__(92);
 
 	var _modalAlert2 = _interopRequireDefault(_modalAlert);
 
 	exports.Alert = _modalAlert2['default'];
 
-	var _modalPrompt = __webpack_require__(92);
+	var _modalPrompt = __webpack_require__(93);
 
 	var _modalPrompt2 = _interopRequireDefault(_modalPrompt);
 
 	exports.Prompt = _modalPrompt2['default'];
 
-	var _Toast2 = __webpack_require__(93);
+	var _Toast2 = __webpack_require__(94);
 
 	var _Toast3 = _interopRequireDefault(_Toast2);
 
 	exports.Toast = _Toast3['default'];
 
-	var _Popup2 = __webpack_require__(95);
+	var _Popup2 = __webpack_require__(96);
 
 	var _Popup3 = _interopRequireDefault(_Popup2);
 
 	exports.Popup = _Popup3['default'];
 
-	var _Accordion2 = __webpack_require__(96);
+	var _Accordion2 = __webpack_require__(97);
 
 	var _Accordion3 = _interopRequireDefault(_Accordion2);
 
@@ -273,13 +273,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.Slider = _Slider3['default'];
 
-	var _Animate2 = __webpack_require__(89);
+	var _Animate2 = __webpack_require__(90);
 
 	var _Animate3 = _interopRequireDefault(_Animate2);
 
 	exports.Animate = _Animate3['default'];
 
-	var _Icon2 = __webpack_require__(97);
+	var _Icon2 = __webpack_require__(71);
 
 	var _Icon3 = _interopRequireDefault(_Icon2);
 
@@ -882,6 +882,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
+	var _Icon = __webpack_require__(71);
+
+	var _Icon2 = _interopRequireDefault(_Icon);
+
 	/**
 	 * 按钮组件<br/>
 	 * - 按钮组件提供所有properties中内置的颜色及字体大小样式供选择。
@@ -908,121 +912,132 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * */
 
 	var Button = (function (_Component) {
-	  _inherits(Button, _Component);
+	    _inherits(Button, _Component);
 
-	  _createClass(Button, null, [{
-	    key: 'propTypes',
-	    value: {
-	      /**
-	       * 按钮尺寸[sm、md、lg], 默认为sm
-	       * @property phSize
-	       * @type String
-	       * @default 'sm'
-	       * */
-	      phSize: _react.PropTypes.string,
-	      /**
-	       * 按钮颜色[primary、warning、danger、info、error、success、link、gray], 默认primary
-	       * @property phStyle
-	       * @type Boolean
-	       * @default 'primary'
-	       * */
-	      phStyle: _react.PropTypes.string,
-	      /**
-	       * 样式前缀
-	       * @property classPrefix
-	       * @type String
-	       * @default 'button'
-	       * */
-	      classPrefix: _react.PropTypes.string,
-	      /**
-	       * 标签tagName
-	       * @property componentTag
-	       * @type String
-	       * */
-	      componentTag: _react.PropTypes.string,
-	      /**
-	       * 块级显示
-	       * @property block
-	       * @type Boolean
-	       * @default false
-	       * */
-	      block: _react.PropTypes.bool,
-	      /**
-	       * 圆角
-	       * @property radius
-	       * @type Boolean
-	       * @default false
-	       * */
-	      radius: _react.PropTypes.bool,
-	      /**
-	       * 空背景
-	       * @property hollow
-	       * @type Boolean
-	       * @default false
-	       * */
-	      hollow: _react.PropTypes.bool,
-	      /**
-	       * 不可点状态
-	       * @property disabled
-	       * @type Boolean
-	       * @default false
-	       * */
-	      disabled: _react.PropTypes.bool,
-	      /**
-	       * 激活状态
-	       * @property active
-	       * @type Boolean
-	       * @default false
-	       * */
-	      active: _react.PropTypes.bool
-	    },
-	    enumerable: true
-	  }, {
-	    key: 'defaultProps',
-	    value: {
-	      phSize: 'sm',
-	      phStyle: 'primary',
-	      classPrefix: 'button',
-	      componentTag: 'button',
-	      classMapping: {
-	        'block': 'block',
-	        'primary': 'primary',
-	        'info': 'info',
-	        'success': 'success',
-	        'error': 'error',
-	        'warning': 'warning',
-	        'danger': 'danger',
-	        'link': 'link',
-	        'gray': 'gray'
-	      }
-	    },
-	    enumerable: true
-	  }]);
+	    _createClass(Button, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 按钮尺寸[sm、md、lg], 默认为sm
+	             * @property phSize
+	             * @type String
+	             * @default 'sm'
+	             * */
+	            phSize: _react.PropTypes.string,
+	            /**
+	             * 按钮颜色[primary、warning、danger、info、error、success、link、gray], 默认primary
+	             * @property phStyle
+	             * @type Boolean
+	             * @default 'primary'
+	             * */
+	            phStyle: _react.PropTypes.string,
+	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * @default 'button'
+	             * */
+	            classPrefix: _react.PropTypes.string,
+	            /**
+	             * 标签tagName
+	             * @property componentTag
+	             * @type String
+	             * */
+	            componentTag: _react.PropTypes.string,
+	            /**
+	             * 块级显示
+	             * @property block
+	             * @type Boolean
+	             * @default false
+	             * */
+	            block: _react.PropTypes.bool,
+	            /**
+	             * 圆角
+	             * @property radius
+	             * @type Boolean
+	             * @default false
+	             * */
+	            radius: _react.PropTypes.bool,
+	            /**
+	             * 空背景
+	             * @property hollow
+	             * @type Boolean
+	             * @default false
+	             * */
+	            hollow: _react.PropTypes.bool,
+	            /**
+	             * 不可点状态
+	             * @property disabled
+	             * @type Boolean
+	             * @default false
+	             * */
+	            disabled: _react.PropTypes.bool,
+	            /**
+	             * 激活状态
+	             * @property active
+	             * @type Boolean
+	             * @default false
+	             * */
+	            active: _react.PropTypes.bool
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            phSize: 'sm',
+	            phStyle: 'primary',
+	            classPrefix: 'button',
+	            componentTag: 'button',
+	            classMapping: {
+	                'block': 'block',
+	                'primary': 'primary',
+	                'info': 'info',
+	                'success': 'success',
+	                'error': 'error',
+	                'warning': 'warning',
+	                'danger': 'danger',
+	                'link': 'link',
+	                'gray': 'gray'
+	            }
+	        },
+	        enumerable: true
+	    }]);
 
-	  function Button(props, context) {
-	    _classCallCheck(this, Button);
+	    function Button(props, context) {
+	        _classCallCheck(this, Button);
 
-	    _Component.call(this, props, context);
-	    // this.setProperty('hollow','hollow');
-	  }
+	        _Component.call(this, props, context);
+	        // this.setProperty('hollow','hollow');
+	    }
 
-	  Button.prototype.onButtonClickHandle = function onButtonClickHandle(e) {
-	    if (this.props.clickHandle) this.props.clickHandle(e);
-	    if (this.props.onClick) this.props.onClick(e);
-	  };
+	    Button.prototype.onButtonClickHandle = function onButtonClickHandle(e) {
+	        if (this.props.clickHandle) this.props.clickHandle(e);
+	        if (this.props.onClick) this.props.onClick(e);
+	    };
 
-	  Button.prototype.render = function render() {
-	    var Component = this.props.componentTag;
+	    Button.prototype.renderIcon = function renderIcon() {
+	        var phIcon = this.props.phIcon;
 
-	    return _react2['default'].createElement(
-	      Component,
-	      _extends({}, this.otherProps, { className: _classnames2['default'](this.getProperty(true), this.props.className),
-	        style: this.getStyles(this.props.style), onClick: this.onButtonClickHandle.bind(this) }),
-	      this.props.children
-	    );
-	  };
+	        if (phIcon) {
+	            return _react2['default'].createElement(_Icon2['default'], { phIcon: phIcon });
+	        } else {
+	            return '';
+	        }
+	    };
 
-	  return Button;
+	    Button.prototype.render = function render() {
+	        var Component = this.props.componentTag;
+
+	        return _react2['default'].createElement(
+	            Component,
+	            _extends({}, this.otherProps, { className: _classnames2['default'](this.getProperty(true), this.props.className),
+	                style: this.getStyles(this.props.style), onClick: this.onButtonClickHandle.bind(this) }),
+	            this.renderIcon(),
+	            this.props.children
+	        );
+	    };
+
+	    return Button;
 	})(_utilsComponent2['default']);
 
 	exports['default'] = Button;
@@ -1929,6 +1944,119 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _classnames2 = _interopRequireDefault(_classnames);
 
 	/**
+	 * Icon<br/>
+	 * - 可通过phIcon来配置不同类型的符号, 可选[查看所有icon类型](http://future-team.github.io/gfs-icons/index.html)。
+	 * - 支持自定义className，事件等操作。
+	 *
+	 * 主要属性和接口：
+	 * - phIcon:配置不同类型的符号 <br/>
+	 * 如：`<Icon phIcon="search" />`
+	 *
+	 * @class Icon
+	 * @module 标签组件
+	 * @extends Component
+	 * @constructor
+	 * @since 1.3.0
+	 * @demo icon|icon.js {展示}
+	 * @show true
+	 * */
+
+	var Icon = (function (_Component) {
+	    _inherits(Icon, _Component);
+
+	    _createClass(Icon, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * @default 'icon'
+	             * */
+	            classPrefix: _react.PropTypes.string,
+	            /**
+	             * 标签tagName
+	             * @property componentTag
+	             * @type String
+	             * @default 'span'
+	             * */
+	            componentTag: _react.PropTypes.string,
+	            /**
+	             * icon符号类型
+	             * @property phIcon
+	             * @type string
+	             * @default ''
+	             **/
+	            phIcon: _react.PropTypes.string
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            phIcon: '',
+	            classPrefix: 'icon',
+	            componentTag: 'span',
+	            classMapping: {}
+	        },
+	        enumerable: true
+	    }]);
+
+	    function Icon(props, context) {
+	        _classCallCheck(this, Icon);
+
+	        _Component.call(this, props, context);
+	    }
+
+	    Icon.prototype.render = function render() {
+	        var _props = this.props;
+	        var Component = _props.componentTag;
+	        var phIcon = _props.phIcon;
+	        var classPrefix = _props.classPrefix;
+
+	        return _react2['default'].createElement(
+	            Component,
+	            _extends({}, this.props, { className: _classnames2['default']('gfs-icon', this.props.className, phIcon ? classPrefix + '-' + phIcon : '') }),
+	            this.props.children
+	        );
+	    };
+
+	    return Icon;
+	})(_utilsComponent2['default']);
+
+	exports['default'] = Icon;
+	module.exports = exports['default'];
+
+/***/ },
+/* 72 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(62);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utilsComponent = __webpack_require__(63);
+
+	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
+
+	var _classnames = __webpack_require__(64);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	/**
 	 * 按钮组组件<br/>
 	 * - 按钮组组件配合Button组件,提供了横、竖两种排列方式, 可选justify,tacked。
 	 * - 可通过onButtongroupChange实现点击回调。
@@ -2047,7 +2175,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 72 */
+/* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2076,7 +2204,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(73);
+	var _utilsTool = __webpack_require__(74);
 
 	/**
 	 * input框组件<br/>
@@ -2212,7 +2340,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 73 */
+/* 74 */
 /***/ function(module, exports) {
 
 	/**
@@ -2277,7 +2405,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 74 */
+/* 75 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2306,7 +2434,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(73);
+	var _utilsTool = __webpack_require__(74);
 
 	/**
 	 * <h5>表单组件，主要包括组件:</h5>
@@ -2471,7 +2599,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 75 */
+/* 76 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2500,7 +2628,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(73);
+	var _utilsTool = __webpack_require__(74);
 
 	/**
 	 * 开关切换组件，仿真ios的开关控件<br/>
@@ -2587,7 +2715,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 76 */
+/* 77 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2704,7 +2832,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 77 */
+/* 78 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2852,7 +2980,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 78 */
+/* 79 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2879,7 +3007,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
 
-	var _utilsTool = __webpack_require__(73);
+	var _utilsTool = __webpack_require__(74);
 
 	var _classnames = __webpack_require__(64);
 
@@ -2983,7 +3111,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 79 */
+/* 80 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3014,7 +3142,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(73);
+	var _utilsTool = __webpack_require__(74);
 
 	/**
 	 * 表单元素布局方式，整齐的排列一组表单元素<br/>
@@ -3124,7 +3252,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 80 */
+/* 81 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3151,7 +3279,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _utilsClassNameMixin2 = _interopRequireDefault(_utilsClassNameMixin);
 
-	var _utilsTool = __webpack_require__(73);
+	var _utilsTool = __webpack_require__(74);
 
 	var _classnames = __webpack_require__(64);
 
@@ -3263,7 +3391,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 81 */
+/* 82 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3294,9 +3422,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(73);
+	var _utilsTool = __webpack_require__(74);
 
-	var _TabJs = __webpack_require__(80);
+	var _TabJs = __webpack_require__(81);
 
 	var _TabJs2 = _interopRequireDefault(_TabJs);
 
@@ -3515,7 +3643,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 82 */
+/* 83 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3640,7 +3768,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 83 */
+/* 84 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3745,7 +3873,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 84 */
+/* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3772,7 +3900,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(73);
+	var _utilsTool = __webpack_require__(74);
 
 	/**
 	 * <h5>基础组件，主要包括:</h5>
@@ -3872,7 +4000,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 85 */
+/* 86 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3901,7 +4029,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(73);
+	var _utilsTool = __webpack_require__(74);
 
 	/**
 	 * 拖拽组件<br/>
@@ -4125,7 +4253,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 86 */
+/* 87 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4152,9 +4280,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(73);
+	var _utilsTool = __webpack_require__(74);
 
-	var _Drag = __webpack_require__(85);
+	var _Drag = __webpack_require__(86);
 
 	var _Drag2 = _interopRequireDefault(_Drag);
 
@@ -4340,7 +4468,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 87 */
+/* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4369,7 +4497,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(73);
+	var _utilsTool = __webpack_require__(74);
 
 	/**
 	 * <h5>主要栅格化布局组件</h5>
@@ -4456,7 +4584,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 88 */
+/* 89 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4485,9 +4613,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(73);
+	var _utilsTool = __webpack_require__(74);
 
-	var _Animate = __webpack_require__(89);
+	var _Animate = __webpack_require__(90);
 
 	var _Animate2 = _interopRequireDefault(_Animate);
 
@@ -4762,7 +4890,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 89 */
+/* 90 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4787,7 +4915,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _reactAddonsCssTransitionGroup = __webpack_require__(90);
+	var _reactAddonsCssTransitionGroup = __webpack_require__(91);
 
 	var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 
@@ -4892,13 +5020,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 90 */
+/* 91 */
 /***/ function(module, exports) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_90__;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_91__;
 
 /***/ },
-/* 91 */
+/* 92 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4927,9 +5055,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(73);
+	var _utilsTool = __webpack_require__(74);
 
-	var _ButtonGroup = __webpack_require__(71);
+	var _ButtonGroup = __webpack_require__(72);
 
 	var _ButtonGroup2 = _interopRequireDefault(_ButtonGroup);
 
@@ -4937,7 +5065,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _Button2 = _interopRequireDefault(_Button);
 
-	var _Dialog = __webpack_require__(88);
+	var _Dialog = __webpack_require__(89);
 
 	var _Dialog2 = _interopRequireDefault(_Dialog);
 
@@ -5105,7 +5233,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 92 */
+/* 93 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5134,9 +5262,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(73);
+	var _utilsTool = __webpack_require__(74);
 
-	var _ButtonGroup = __webpack_require__(71);
+	var _ButtonGroup = __webpack_require__(72);
 
 	var _ButtonGroup2 = _interopRequireDefault(_ButtonGroup);
 
@@ -5144,11 +5272,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _Button2 = _interopRequireDefault(_Button);
 
-	var _Input = __webpack_require__(72);
+	var _Input = __webpack_require__(73);
 
 	var _Input2 = _interopRequireDefault(_Input);
 
-	var _Dialog = __webpack_require__(88);
+	var _Dialog = __webpack_require__(89);
 
 	var _Dialog2 = _interopRequireDefault(_Dialog);
 
@@ -5381,7 +5509,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 93 */
+/* 94 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5402,7 +5530,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactLibReactDOM = __webpack_require__(94);
+	var _reactLibReactDOM = __webpack_require__(95);
 
 	var _reactLibReactDOM2 = _interopRequireDefault(_reactLibReactDOM);
 
@@ -5414,7 +5542,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(73);
+	var _utilsTool = __webpack_require__(74);
 
 	/**
 	 * 飘字组件<br/>
@@ -5423,6 +5551,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * - 成功信息: `Toast.success(message, duration, callback)`
 	 * - 失败信息: `Toast.fail(message, duration, callback)`
 	 * - 加载中: `Toast.loading(message, duration, callback)`
+	 * - 移除: `Toast.remove()`
+	 * - 如果不根据设置的时间移除飘字，`duration`设置为false，`Toast.remove()`移除飘字。
 	 *
 	 * 示例: <br/>
 	 * - 显示普通飘字, 如:<br/>
@@ -5433,6 +5563,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * `Toast.fail('操作失败', 1000, ()=>{console.log('飘字消失时执行的回调函数');})`
 	 * - 显示加载中, 如:<br/>
 	 * `Toast.loading('加载中...', 1000, ()=>{console.log('飘字消失时执行的回调函数');})`
+	 * - 移除飘字, 如:<br/>
+	 * `Toast.remove()`
 	 *
 	 * @class Toast
 	 * @module 操作类组件
@@ -5510,12 +5642,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    window.addEventListener('hashchange', _unrenderLayer, false);
 
-	    timer = setTimeout(function () {
-	        visible = false;
+	    if (duration) {
+	        timer = setTimeout(function () {
+	            visible = false;
 
-	        _unrenderLayer();
-	        callback();
-	    }, duration);
+	            _unrenderLayer();
+	            callback();
+	        }, duration);
+	    }
 	}
 
 	function _unrenderLayer() {
@@ -5551,13 +5685,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 94 */
+/* 95 */
 /***/ function(module, exports) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_94__;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_95__;
 
 /***/ },
-/* 95 */
+/* 96 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5586,9 +5720,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(73);
+	var _utilsTool = __webpack_require__(74);
 
-	var _Animate = __webpack_require__(89);
+	var _Animate = __webpack_require__(90);
 
 	var _Animate2 = _interopRequireDefault(_Animate);
 
@@ -5751,7 +5885,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 96 */
+/* 97 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5780,9 +5914,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(73);
+	var _utilsTool = __webpack_require__(74);
 
-	var _Icon = __webpack_require__(97);
+	var _Icon = __webpack_require__(71);
 
 	var _Icon2 = _interopRequireDefault(_Icon);
 
@@ -6055,119 +6189,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 97 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	exports.__esModule = true;
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _react = __webpack_require__(62);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _utilsComponent = __webpack_require__(63);
-
-	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
-
-	var _classnames = __webpack_require__(64);
-
-	var _classnames2 = _interopRequireDefault(_classnames);
-
-	/**
-	 * Icon<br/>
-	 * - 可通过phIcon来配置不同类型的符号, 可选[查看所有icon类型](http://future-team.github.io/gfs-icons/index.html)。
-	 * - 支持自定义className，事件等操作。
-	 *
-	 * 主要属性和接口：
-	 * - phIcon:配置不同类型的符号 <br/>
-	 * 如：`<Icon phIcon="search" />`
-	 *
-	 * @class Icon
-	 * @module 标签组件
-	 * @extends Component
-	 * @constructor
-	 * @since 1.3.0
-	 * @demo icon|icon.js {展示}
-	 * @show true
-	 * */
-
-	var Icon = (function (_Component) {
-	    _inherits(Icon, _Component);
-
-	    _createClass(Icon, null, [{
-	        key: 'propTypes',
-	        value: {
-	            /**
-	             * 样式前缀
-	             * @property classPrefix
-	             * @type String
-	             * @default 'icon'
-	             * */
-	            classPrefix: _react.PropTypes.string,
-	            /**
-	             * 标签tagName
-	             * @property componentTag
-	             * @type String
-	             * @default 'span'
-	             * */
-	            componentTag: _react.PropTypes.string,
-	            /**
-	             * icon符号类型
-	             * @property phIcon
-	             * @type string
-	             * @default ''
-	             **/
-	            phIcon: _react.PropTypes.string
-	        },
-	        enumerable: true
-	    }, {
-	        key: 'defaultProps',
-	        value: {
-	            phIcon: '',
-	            classPrefix: 'icon',
-	            componentTag: 'span',
-	            classMapping: {}
-	        },
-	        enumerable: true
-	    }]);
-
-	    function Icon(props, context) {
-	        _classCallCheck(this, Icon);
-
-	        _Component.call(this, props, context);
-	    }
-
-	    Icon.prototype.render = function render() {
-	        var _props = this.props;
-	        var Component = _props.componentTag;
-	        var phIcon = _props.phIcon;
-	        var classPrefix = _props.classPrefix;
-
-	        return _react2['default'].createElement(
-	            Component,
-	            _extends({}, this.props, { className: _classnames2['default']('gfs-icon', this.props.className, phIcon ? classPrefix + '-' + phIcon : '') }),
-	            this.props.children
-	        );
-	    };
-
-	    return Icon;
-	})(_utilsComponent2['default']);
-
-	exports['default'] = Icon;
-	module.exports = exports['default'];
-
-/***/ },
 /* 98 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -6197,7 +6218,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(73);
+	var _utilsTool = __webpack_require__(74);
 
 	var _utilsTool2 = _interopRequireDefault(_utilsTool);
 
@@ -6344,7 +6365,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactLibReactDOM = __webpack_require__(94);
+	var _reactLibReactDOM = __webpack_require__(95);
 
 	var _reactLibReactDOM2 = _interopRequireDefault(_reactLibReactDOM);
 
@@ -6637,9 +6658,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(73);
+	var _utilsTool = __webpack_require__(74);
 
-	var _Drag = __webpack_require__(85);
+	var _Drag = __webpack_require__(86);
 
 	var _Drag2 = _interopRequireDefault(_Drag);
 
@@ -6976,7 +6997,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(73);
+	var _utilsTool = __webpack_require__(74);
 
 	var _MenuHeader = __webpack_require__(102);
 
@@ -7255,9 +7276,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(73);
+	var _utilsTool = __webpack_require__(74);
 
-	var _Icon = __webpack_require__(97);
+	var _Icon = __webpack_require__(71);
 
 	var _Icon2 = _interopRequireDefault(_Icon);
 
@@ -7386,13 +7407,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(73);
+	var _utilsTool = __webpack_require__(74);
 
-	var _Animate = __webpack_require__(89);
+	var _Animate = __webpack_require__(90);
 
 	var _Animate2 = _interopRequireDefault(_Animate);
 
-	var _Icon = __webpack_require__(97);
+	var _Icon = __webpack_require__(71);
 
 	var _Icon2 = _interopRequireDefault(_Icon);
 
@@ -7597,7 +7618,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(73);
+	var _utilsTool = __webpack_require__(74);
 
 	/**
 	 * 菜单导航组件<br/>
@@ -7720,9 +7741,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(73);
+	var _utilsTool = __webpack_require__(74);
 
-	var _Icon = __webpack_require__(97);
+	var _Icon = __webpack_require__(71);
 
 	var _Icon2 = _interopRequireDefault(_Icon);
 
@@ -7873,9 +7894,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(73);
+	var _utilsTool = __webpack_require__(74);
 
-	var _Icon = __webpack_require__(97);
+	var _Icon = __webpack_require__(71);
 
 	var _Icon2 = _interopRequireDefault(_Icon);
 
@@ -8055,9 +8076,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(73);
+	var _utilsTool = __webpack_require__(74);
 
-	var _Drag = __webpack_require__(85);
+	var _Drag = __webpack_require__(86);
 
 	var _Drag2 = _interopRequireDefault(_Drag);
 
@@ -8065,7 +8086,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _Button2 = _interopRequireDefault(_Button);
 
-	var _Icon = __webpack_require__(97);
+	var _Icon = __webpack_require__(71);
 
 	var _Icon2 = _interopRequireDefault(_Icon);
 
@@ -8340,7 +8361,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(73);
+	var _utilsTool = __webpack_require__(74);
 
 	/**
 	 * 图片列表组件<br/>
@@ -8594,7 +8615,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactLibReactDOM = __webpack_require__(94);
+	var _reactLibReactDOM = __webpack_require__(95);
 
 	var _reactLibReactDOM2 = _interopRequireDefault(_reactLibReactDOM);
 
@@ -8606,7 +8627,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(73);
+	var _utilsTool = __webpack_require__(74);
 
 	/**
 	 * 步骤组件<br/>

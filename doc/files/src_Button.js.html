@@ -461,6 +461,7 @@
 import React,{PropTypes} from &#x27;react&#x27;;
 import Component from &#x27;./utils/Component&#x27;;
 import classnames from &#x27;classnames&#x27;;
+import Icon from &#x27;./Icon&#x27;;
 
 /**
  * 按钮组件&lt;br/&gt;
@@ -581,6 +582,16 @@ export default class Button extends Component{
         if(this.props.onClick) this.props.onClick(e);
     }
 
+    renderIcon(){
+        let {phIcon} = this.props;
+
+        if(phIcon){
+            return &lt;Icon phIcon={phIcon} /&gt;;
+        }else{
+            return &#x27;&#x27;;
+        }
+    }
+
     render(){
         let {componentTag:Component} = this.props;
 
@@ -590,7 +601,10 @@ export default class Button extends Component{
                     this.getProperty(true),
                     this.props.className
                 )}
-                style={this.getStyles(this.props.style)} onClick={::this.onButtonClickHandle}&gt;{this.props.children}&lt;/Component&gt;
+                style={this.getStyles(this.props.style)} onClick={::this.onButtonClickHandle}&gt;
+                {this.renderIcon()}
+                {this.props.children}
+            &lt;/Component&gt;
         );
     }
 

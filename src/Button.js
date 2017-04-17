@@ -1,6 +1,7 @@
 import React,{PropTypes} from 'react';
 import Component from './utils/Component';
 import classnames from 'classnames';
+import Icon from './Icon';
 
 /**
  * 按钮组件<br/>
@@ -121,6 +122,16 @@ export default class Button extends Component{
         if(this.props.onClick) this.props.onClick(e);
     }
 
+    renderIcon(){
+        let {phIcon} = this.props;
+
+        if(phIcon){
+            return <Icon phIcon={phIcon} />;
+        }else{
+            return '';
+        }
+    }
+
     render(){
         let {componentTag:Component} = this.props;
 
@@ -130,7 +141,10 @@ export default class Button extends Component{
                     this.getProperty(true),
                     this.props.className
                 )}
-                style={this.getStyles(this.props.style)} onClick={::this.onButtonClickHandle}>{this.props.children}</Component>
+                style={this.getStyles(this.props.style)} onClick={::this.onButtonClickHandle}>
+                {this.renderIcon()}
+                {this.props.children}
+            </Component>
         );
     }
 
