@@ -463,6 +463,8 @@
 <li>成功信息: <code>Toast.success(message, duration, callback)</code></li>
 <li>失败信息: <code>Toast.fail(message, duration, callback)</code></li>
 <li>加载中: <code>Toast.loading(message, duration, callback)</code></li>
+<li>移除: <code>Toast.remove()</code></li>
+<li>如果不根据设置的时间移除飘字，<code>duration</code>设置为false，<code>Toast.remove()</code>移除飘字。</li>
 </ul>
 <p>示例: <br/></p>
 <ul>
@@ -474,6 +476,8 @@
 <code>Toast.fail(&#39;操作失败&#39;, 1000, ()=&gt;{console.log(&#39;飘字消失时执行的回调函数&#39;);})</code></li>
 <li>显示加载中, 如:<br/>
 <code>Toast.loading(&#39;加载中...&#39;, 1000, ()=&gt;{console.log(&#39;飘字消失时执行的回调函数&#39;);})</code></li>
+<li>移除飘字, 如:<br/>
+<code>Toast.remove()</code></li>
 </ul>
 </div>
  </div>
@@ -636,6 +640,10 @@ export default class toast extends Component{
         });
     }
 
+    removeToastLoading(){
+        Toast.remove();
+    }
+
     render(){
         return(
             &lt;div&gt;
@@ -663,6 +671,12 @@ export default class toast extends Component{
                     &lt;Button phSize="lg" onClick={::this.showToastLoading}&gt;loading&lt;/Button&gt;
                 &lt;/div&gt;
                 &lt;Code target="toast-loading" /&gt;
+
+                &lt;h3 className="comp-type"&gt;Toast.remove()&lt;br/&gt;自定义消失的情况：Toast出现函数设置duration为false&lt;/h3&gt;
+                &lt;div className="content"&gt;
+                    &lt;Button phSize="lg" onClick={::this.removeToastLoading}&gt;remove&lt;/Button&gt;
+                &lt;/div&gt;
+                &lt;Code target="toast-remove" /&gt;     
             &lt;/div&gt;
         );
     }

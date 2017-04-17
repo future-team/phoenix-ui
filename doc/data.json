@@ -5326,13 +5326,13 @@
             "module": "基础组件",
             "namespace": "",
             "file": "src/Button.js",
-            "line": 5,
+            "line": 6,
             "description": "按钮组件<br/>\n- 按钮组件提供所有properties中内置的颜色及字体大小样式供选择。\n- 也可以自定义行内样式和className名字定义UI展示。\n- 通过phSize设置大小, 可选sm、md、lg。\n- 通过phStyle选择按钮颜色，可选primary、info、error、warning、danger、link、gray、success。\n- 支持disabled, active属性定义。\n\n主要属性和接口：\n- phSize:按钮大小, 默认sm <br/>\n如: `<Button phSize=\"lg\">button</Button>`\n- phStyle:按钮颜色, 默认primary <br/>\n如: `<Button phStyle=\"info\">button</Button>`\n- block:是否块级显示，默认false <br/>\n如: `<Button block>button</Button>`",
             "extends": "Component",
             "is_constructor": 1,
             "since": "0.1.0",
             "example": [
-                "\timport React, { Component } from \"react\";\n\timport {Button} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class button extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Button</h2>\n\t                <h3 className=\"comp-type\">phSize(默认sm) 按钮大小</h3>\n\t                <div className=\"content\">\n\t                    <Button>默认sm</Button>\n\t                    <Button phSize=\"md\">md</Button>\n\t                    <Button phSize=\"lg\">lg</Button>\n\t                </div>\n\t                <Code target=\"button-phsize\" />\n\t\n\t                <h3 className=\"comp-type\">phStyle(默认primary) 按钮颜色</h3>\n\t                <div className=\"content\">\n\t                    <Button>默认Primary</Button>\n\t                    <Button phStyle=\"info\">Info</Button>\n\t                    <Button phStyle=\"success\">Success</Button>\n\t                    <Button phStyle=\"error\">Error</Button>\n\t                    <Button phStyle=\"danger\">Danger</Button>\n\t                    <Button phStyle=\"warning\">Warning</Button>\n\t                    <Button phStyle=\"gray\">Gray</Button>\n\t                    <Button phStyle=\"link\">Link</Button>\n\t                </div>\n\t                <Code target=\"button-phstyle\" />\n\t\n\t                <h3 className=\"comp-type\">hollow属性</h3>\n\t                <div className=\"content\">\n\t                    <Button hollow>hollow</Button>\n\t                </div>\n\t                <Code target=\"button-phstyle\" />\n\t\n\t                <h3 className=\"comp-type\">block属性</h3>\n\t                <div className=\"content\">\n\t                    <Button block>block</Button>\n\t                </div>\n\t                <Code target=\"button-block\" />\n\t\n\t                <h3 className=\"comp-type\">disabled属性</h3>\n\t                <div className=\"content\">\n\t                    <Button disabled>disabled</Button>\n\t                </div>\n\t                <Code target=\"button-disabled\" />\n\t\n\t                <h3 className=\"comp-type\">active属性</h3>\n\t                <div className=\"content\">\n\t                    <Button active>active</Button>\n\t                </div>\n\t                <Code target=\"button-active\" />\n\t            </div>\n\t        );\n\t    }\n\t}\n\t"
+                "\timport React, { Component } from \"react\";\n\timport {Button} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class button extends Component{\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Button</h2>\n\t                <h3 className=\"comp-type\">phSize(默认sm) 按钮大小</h3>\n\t                <div className=\"content\">\n\t                    <Button>默认sm</Button>\n\t                    <Button phSize=\"md\">md</Button>\n\t                    <Button phSize=\"lg\">lg</Button>\n\t                </div>\n\t                <Code target=\"button-phsize\" />\n\t\n\t                <h3 className=\"comp-type\">phStyle(默认primary) 按钮颜色</h3>\n\t                <div className=\"content\">\n\t                    <Button>默认Primary</Button>\n\t                    <Button phStyle=\"info\">Info</Button>\n\t                    <Button phStyle=\"success\">Success</Button>\n\t                    <Button phStyle=\"error\">Error</Button>\n\t                    <Button phStyle=\"danger\">Danger</Button>\n\t                    <Button phStyle=\"warning\">Warning</Button>\n\t                    <Button phStyle=\"gray\">Gray</Button>\n\t                    <Button phStyle=\"link\">Link</Button>\n\t                </div>\n\t                <Code target=\"button-phstyle\" />\n\t\n\t                <h3 className=\"comp-type\">hollow属性</h3>\n\t                <div className=\"content\">\n\t                    <Button hollow>hollow</Button>\n\t                </div>\n\t                <Code target=\"button-phstyle\" />\n\t\n\t                <h3 className=\"comp-type\">block属性</h3>\n\t                <div className=\"content\">\n\t                    <Button block>block</Button>\n\t                </div>\n\t                <Code target=\"button-block\" />\n\t\n\t                <h3 className=\"comp-type\">disabled属性</h3>\n\t                <div className=\"content\">\n\t                    <Button disabled>disabled</Button>\n\t                </div>\n\t                <Code target=\"button-disabled\" />\n\t\n\t                <h3 className=\"comp-type\">active属性</h3>\n\t                <div className=\"content\">\n\t                    <Button active>active</Button>\n\t                </div>\n\t                <Code target=\"button-active\" />\n\t\n\t                <h3 className=\"comp-type\">phIcon属性</h3>\n\t                <div className=\"content\">\n\t                    <Button phIcon=\"search\">phIcon</Button>\n\t                </div>\n\t                <Code target=\"button-phicon\" />\n\t            </div>\n\t        );\n\t    }\n\t}\n\t"
             ],
             "exampleTitles": [
                 "展示"
@@ -5971,12 +5971,12 @@
             "namespace": "",
             "file": "src/Toast.js",
             "line": 7,
-            "description": "飘字组件<br/>\n- 由于飘字的使用范围可预估, 为方便使用在原组件的基础上更进一步改为函数式的使用方式。\n- 普通信息: `Toast.info(message, duration, callback)`\n- 成功信息: `Toast.success(message, duration, callback)`\n- 失败信息: `Toast.fail(message, duration, callback)`\n- 加载中: `Toast.loading(message, duration, callback)`\n\n示例: <br/>\n- 显示普通飘字, 如:<br/>\n`Toast.info('只显示信息的toast！', 1000, ()=>{console.log('飘字消失时执行的回调函数');})`\n- 显示成功信息, 如:<br/>\n`Toast.success('操作成功', 1000, ()=>{console.log('飘字消失时执行的回调函数');})`\n- 显示失败信息, 如:<br/>\n`Toast.fail('操作失败', 1000, ()=>{console.log('飘字消失时执行的回调函数');})`\n- 显示加载中, 如:<br/>\n`Toast.loading('加载中...', 1000, ()=>{console.log('飘字消失时执行的回调函数');})`",
+            "description": "飘字组件<br/>\n- 由于飘字的使用范围可预估, 为方便使用在原组件的基础上更进一步改为函数式的使用方式。\n- 普通信息: `Toast.info(message, duration, callback)`\n- 成功信息: `Toast.success(message, duration, callback)`\n- 失败信息: `Toast.fail(message, duration, callback)`\n- 加载中: `Toast.loading(message, duration, callback)`\n- 移除: `Toast.remove()`\n- 如果不根据设置的时间移除飘字，`duration`设置为false，`Toast.remove()`移除飘字。\n\n示例: <br/>\n- 显示普通飘字, 如:<br/>\n`Toast.info('只显示信息的toast！', 1000, ()=>{console.log('飘字消失时执行的回调函数');})`\n- 显示成功信息, 如:<br/>\n`Toast.success('操作成功', 1000, ()=>{console.log('飘字消失时执行的回调函数');})`\n- 显示失败信息, 如:<br/>\n`Toast.fail('操作失败', 1000, ()=>{console.log('飘字消失时执行的回调函数');})`\n- 显示加载中, 如:<br/>\n`Toast.loading('加载中...', 1000, ()=>{console.log('飘字消失时执行的回调函数');})`\n- 移除飘字, 如:<br/>\n`Toast.remove()`",
             "extends": "Component",
             "is_constructor": 1,
             "since": "0.3.0",
             "example": [
-                "\timport React, { Component } from \"react\";\n\timport {Button, Toast} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class toast extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context);\n\t    }\n\t\n\t    showToastInfo(){\n\t        Toast.info(\"只显示信息的toast！\", 2000, ()=>{\n\t            console.log(\"额外的执行内容\");\n\t        });\n\t    }\n\t\n\t    showToastSuccess(){\n\t        Toast.success(\"操作成功\", 2000, ()=>{\n\t            console.log(\"额外的执行内容\");\n\t        });\n\t    }\n\t\n\t    showToastFail(){\n\t        Toast.fail(\"操作失败\", 2000, ()=>{\n\t            console.log(\"额外的执行内容\");\n\t        });\n\t    }\n\t\n\t    showToastLoading(){\n\t        Toast.loading(\"加载中...\", 2000, ()=>{\n\t            console.log(\"额外的执行内容\");\n\t        });\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Toast</h2>\n\t                <h3 className=\"comp-type\">Toast.info(message, duration, callback)</h3>\n\t                <div className=\"content\">\n\t                    <Button phSize=\"lg\" onClick={::this.showToastInfo}>info</Button>\n\t                </div>\n\t                <Code target=\"toast-info\" />\n\t\n\t                <h3 className=\"comp-type\">Toast.success(message, duration, callback)</h3>\n\t                <div className=\"content\">\n\t                    <Button phSize=\"lg\" onClick={::this.showToastSuccess}>success</Button>\n\t                </div>\n\t                <Code target=\"toast-success\" />\n\t\n\t                <h3 className=\"comp-type\">Toast.fail(message, duration, callback)</h3>\n\t                <div className=\"content\">\n\t                    <Button phSize=\"lg\" onClick={::this.showToastFail}>fail</Button>\n\t                </div>\n\t                <Code target=\"toast-fail\" />\n\t\n\t                <h3 className=\"comp-type\">Toast.loading(message, duration, callback)</h3>\n\t                <div className=\"content\">\n\t                    <Button phSize=\"lg\" onClick={::this.showToastLoading}>loading</Button>\n\t                </div>\n\t                <Code target=\"toast-loading\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
+                "\timport React, { Component } from \"react\";\n\timport {Button, Toast} from \"phoenix-ui\";\n\timport Code from \"./code/code\";\n\t\n\texport default class toast extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context);\n\t    }\n\t\n\t    showToastInfo(){\n\t        Toast.info(\"只显示信息的toast！\", 2000, ()=>{\n\t            console.log(\"额外的执行内容\");\n\t        });\n\t    }\n\t\n\t    showToastSuccess(){\n\t        Toast.success(\"操作成功\", 2000, ()=>{\n\t            console.log(\"额外的执行内容\");\n\t        });\n\t    }\n\t\n\t    showToastFail(){\n\t        Toast.fail(\"操作失败\", 2000, ()=>{\n\t            console.log(\"额外的执行内容\");\n\t        });\n\t    }\n\t\n\t    showToastLoading(){\n\t        Toast.loading(\"加载中...\", 2000, ()=>{\n\t            console.log(\"额外的执行内容\");\n\t        });\n\t    }\n\t\n\t    removeToastLoading(){\n\t        Toast.remove();\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Toast</h2>\n\t                <h3 className=\"comp-type\">Toast.info(message, duration, callback)</h3>\n\t                <div className=\"content\">\n\t                    <Button phSize=\"lg\" onClick={::this.showToastInfo}>info</Button>\n\t                </div>\n\t                <Code target=\"toast-info\" />\n\t\n\t                <h3 className=\"comp-type\">Toast.success(message, duration, callback)</h3>\n\t                <div className=\"content\">\n\t                    <Button phSize=\"lg\" onClick={::this.showToastSuccess}>success</Button>\n\t                </div>\n\t                <Code target=\"toast-success\" />\n\t\n\t                <h3 className=\"comp-type\">Toast.fail(message, duration, callback)</h3>\n\t                <div className=\"content\">\n\t                    <Button phSize=\"lg\" onClick={::this.showToastFail}>fail</Button>\n\t                </div>\n\t                <Code target=\"toast-fail\" />\n\t\n\t                <h3 className=\"comp-type\">Toast.loading(message, duration, callback)</h3>\n\t                <div className=\"content\">\n\t                    <Button phSize=\"lg\" onClick={::this.showToastLoading}>loading</Button>\n\t                </div>\n\t                <Code target=\"toast-loading\" />\n\t\n\t                <h3 className=\"comp-type\">Toast.remove()<br/>自定义消失的情况：Toast出现函数设置duration为false</h3>\n\t                <div className=\"content\">\n\t                    <Button phSize=\"lg\" onClick={::this.removeToastLoading}>remove</Button>\n\t                </div>\n\t                <Code target=\"toast-remove\" />     \n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
                 "toast"
@@ -6654,7 +6654,7 @@
         },
         {
             "file": "src/Button.js",
-            "line": 32,
+            "line": 33,
             "description": "按钮尺寸[sm、md、lg], 默认为sm",
             "itemtype": "property",
             "name": "phSize",
@@ -6665,7 +6665,7 @@
         },
         {
             "file": "src/Button.js",
-            "line": 39,
+            "line": 40,
             "description": "按钮颜色[primary、warning、danger、info、error、success、link、gray], 默认primary",
             "itemtype": "property",
             "name": "phStyle",
@@ -6676,7 +6676,7 @@
         },
         {
             "file": "src/Button.js",
-            "line": 46,
+            "line": 47,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -6687,7 +6687,7 @@
         },
         {
             "file": "src/Button.js",
-            "line": 53,
+            "line": 54,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
@@ -6697,7 +6697,7 @@
         },
         {
             "file": "src/Button.js",
-            "line": 59,
+            "line": 60,
             "description": "块级显示",
             "itemtype": "property",
             "name": "block",
@@ -6708,7 +6708,7 @@
         },
         {
             "file": "src/Button.js",
-            "line": 66,
+            "line": 67,
             "description": "圆角",
             "itemtype": "property",
             "name": "radius",
@@ -6719,7 +6719,7 @@
         },
         {
             "file": "src/Button.js",
-            "line": 73,
+            "line": 74,
             "description": "空背景",
             "itemtype": "property",
             "name": "hollow",
@@ -6730,7 +6730,7 @@
         },
         {
             "file": "src/Button.js",
-            "line": 80,
+            "line": 81,
             "description": "不可点状态",
             "itemtype": "property",
             "name": "disabled",
@@ -6741,7 +6741,7 @@
         },
         {
             "file": "src/Button.js",
-            "line": 87,
+            "line": 88,
             "description": "激活状态",
             "itemtype": "property",
             "name": "active",
@@ -7820,11 +7820,11 @@
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/Button.js:5"
+            "line": " src/Button.js:6"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/Button.js:5"
+            "line": " src/Button.js:6"
         },
         {
             "message": "unknown tag: demo",
