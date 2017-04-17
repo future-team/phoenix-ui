@@ -6,6 +6,7 @@ var code = {
 	'button-block': '<Button block>block</Button>',
 	'button-disabled': '<Button disabled>disabled</Button>',
 	'button-active': '<Button active>active</Button>',
+	'button-phicon': '<Button phIcon="search">phIcon</Button>',
 
 	'button-group-phtype-justify': '<ButtonGroup>\n\  <Button>justify1</Button>\n\  <Button>justify2</Button>\n\  <Button>justify3</Button>\n</ButtonGroup>',
 	'button-group-phtype-tacked': '<ButtonGroup phType="tacked">\n\  <Button block>tacked1</Button>\n\  <Button block>tacked2</Button>\n\  <Button block>tacked3</Button>\n</ButtonGroup>',
@@ -62,6 +63,7 @@ var code = {
 	'toast-success': '<Button phSize="lg" onClick={::this.showToast}>Toast</Button>\n...\nshowToast(){\n\  Toast.success("操作成功", 2000,()=>{\n\    console.log("额外的执行内容");\n\  });\n}',
 	'toast-fail': '<Button phSize="lg" onClick={::this.showToast}>Toast</Button>\n...\nshowToast(){\n\  Toast.fail("操作失败", 2000,()=>{\n\    console.log("额外的执行内容");\n\  });\n}',
 	'toast-loading': '<Button phSize="lg" onClick={::this.showToast}>Toast</Button>\n...\nshowToast(){\n\  Toast.loading("加载中...", 2000,()=>{\n\    console.log("额外的执行内容");\n\  });\n}',
+	'toast-remove':'Toast.info("只显示信息的toast！", false, null);\n....\nToast.remove();',
 
 	'popup-top': '<Popup visible={this.state.visible} onClose={()=>{this.setState({visible:false});}}>\n\  // 弹层内容\n\  </Popup>',
 	'popup-bottom': '<Popup align="bottom" visible={this.state.visible} onClose={()=>{this.setState({visible:false});}}>\n\  // 弹层内容\n\  </Popup>',
