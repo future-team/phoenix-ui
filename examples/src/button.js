@@ -51,6 +51,12 @@ export default class button extends Component{
                     <Button active>active</Button>
                 </div>
                 <Code target="button-active" />
+
+                <h3 className="comp-type">phIcon属性</h3>
+                <div className="content">
+                    <Button phIcon="search">phIcon</Button>
+                </div>
+                <Code target="button-phicon" />
             </div>
         );
     }

@@ -32,6 +32,10 @@ export default class toast extends Component{
         });
     }
 
+    removeToastLoading(){
+        Toast.remove();
+    }
+
     render(){
         return(
             <div>
@@ -59,6 +63,12 @@ export default class toast extends Component{
                     <Button phSize="lg" onClick={::this.showToastLoading}>loading</Button>
                 </div>
                 <Code target="toast-loading" />
+
+                <h3 className="comp-type">Toast.remove()<br/>自定义消失的情况：Toast出现函数设置duration为false</h3>
+                <div className="content">
+                    <Button phSize="lg" onClick={::this.removeToastLoading}>remove</Button>
+                </div>
+                <Code target="toast-remove" />     
             </div>
         );
     }

@@ -54,6 +54,7 @@
 
 ## Repair
 
+`version 1.7.4` Toast增加duration的参数范围; Button增加phIcon属性。 <br/>
 `version 1.7.0` Slider组件功能拓展，新增Steps、ImageList组件; <br/>
 `version 1.6.2` 新增LoadingList组件; <br/>
 `version 1.4.2` Toast拓展; ButtonGroup回调函数名称修改; <br/>

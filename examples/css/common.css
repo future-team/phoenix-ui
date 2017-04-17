@@ -182,11 +182,11 @@ body{
 .content .ph-star,
 .content .ph-multi-group,
 .content .ph-switch,
-.content .gfs-icon{
+.content :not(.ph-button) .gfs-icon{
     margin: 0 .5rem .5rem 0;
 }
 
-.content .gfs-icon{
+.content :not(.ph-button) .gfs-icon{
     display: inline-block;
 }
 
