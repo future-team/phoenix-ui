@@ -18,6 +18,8 @@ import Icon from './Icon';
  * 如: `<Button phStyle="info">button</Button>`
  * - block:是否块级显示，默认false <br/>
  * 如: `<Button block>button</Button>`
+ * - phIcon:icon符号类型,默认没有符号 <br/>
+ * 如: `<Button phIcon="search">button</Button>`
  *
  * @class Button
  * @module 基础组件
@@ -91,7 +93,14 @@ export default class Button extends Component{
          * @type Boolean
          * @default false
          * */
-        active:PropTypes.bool
+        active:PropTypes.bool,
+         /**
+         * icon符号类型
+         * @property phIcon
+         * @type string
+         * @default ''
+         **/
+        phIcon:PropTypes.string
     };
 
     static defaultProps = {

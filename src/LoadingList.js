@@ -153,6 +153,8 @@ export default class LoadingList extends Component{
     }
 
     onDrag(event, position){
+        if(!position || !position.start) return; // 区别react的onDrag事件
+
         let {phMode, loadingStatus} = this.props;
         if(phMode=="button") return;
 
