@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Input} from "phoenix-ui";
+import {Input,Button} from "phoenix-ui";
 import Code from "./code/code";
 
 export default class input extends Component{
@@ -10,6 +10,7 @@ export default class input extends Component{
 
         this.state = {
             name: "value和onChange配合使用",
+            value: "",
             checkboxChecked: true,
             radioChecked: true
         };
@@ -33,23 +34,53 @@ export default class input extends Component{
         });
     }
 
+    onClear(key){
+        let o ={};
+        o[key] = '';
+        this.setState(o);
+    }
+
+    getValue(){
+        this.setState({
+            value: this.inputElem.getValueCallback()
+        });
+    }
+
     render(){
         return(
             <div>
                 <h2 className="comp-title">Input</h2>
-                <h3 className="comp-type">type(默认text) 类型</h3>
-                <h3 className="comp-type">text 文本框</h3>
+                <h3 className="comp-type">输入框(text/search/password)</h3>
                 <div className="content">
-                    <Input placeholder="默认text" />
-                    <Input type="text" defaultValue="默认值defaultValue" placeholder="请输入" />
-                    <Input type="text" value={this.state.name} onChange={::this.setValue.bind(this,"name")} placeholder="请输入" />
+                    <h3 className="comp-tip">text</h3>
+                    <Input placeholder="placeholder"/>
+                    <Input type="text" defaultValue="defaultValue" placeholder="placeholder" />
+                    <Input type="text" value="value" placeholder="placeholder" clear />
+                    <Input placeholder="placeholder-disabled" disabled/>
+                    <Input type="text" value="value-disabled" placeholder="请输入" disabled />
+                    <h3 className="comp-tip">search</h3>
+                    <Input type="search" placeholder="placeholder" clear />
+                    <Input type="search" placeholder="placeholder" phIcon="search" clear />
+                    <Input type="search" placeholder="placeholder" value="value" phIcon="search" clear />
+                    <Input type="search" placeholder="placeholder-disabled" phIcon="search" clear disabled />
+                    <Input type="search" placeholder="默认text" value="value-disabled" phIcon="search" clear disabled />
+                    <h3 className="comp-tip">password</h3>
+                    <Input type="password" defaultValue="123456" seePassword />
+                    <Input type="password" value='123456' placeholder="请输入" clear seePassword />
                 </div>
                 <Code target="input-text" />
 
-                <h3 className="comp-type">checkbox 多选框</h3>
+                <h3 className="comp-type">getValueCallback 获取数值</h3>
+                <div className="content">
+                    <Input placeholder="默认text" ref={(inputElem)=>{this.inputElem = inputElem}} />
+                    <div><Button onClick={this.getValue.bind(this)}>点击获取值</Button> <span style={{float:'right'}}>{this.state.value}</span></div>
+                </div>
+                <Code target="input-text" />
+
+                <h3 className="comp-type">复选框 checkbox</h3>
                 <div className="content">
                     <h3 className="comp-tip">默认</h3>
-                    <Input type="checkbox" label="苹果" />
+                    <Input type="checkbox" label="苹果"/>
                     <h3 className="comp-tip">defaultChecked 初始传值</h3>
                     <Input type="checkbox" label="香蕉" defaultChecked={true} />
                     <h3 className="comp-tip">checked和onChange配合使用</h3>
@@ -59,7 +90,7 @@ export default class input extends Component{
                 </div>
                 <Code target="input-checkbox" />
 
-                <h3 className="comp-type">radio 单选框</h3>
+                <h3 className="comp-type">单选框 radio</h3>
                 <div className="content">
                     <h3 className="comp-tip">默认</h3>
                     <Input type="radio" label="男" name="sex1" />

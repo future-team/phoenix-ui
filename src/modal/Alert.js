@@ -114,7 +114,7 @@ export default class Alert extends Component{
             <ButtonGroup phType={buttonsType ? "tacked":"justify"}>
                 {
                     this.buttons.map((button,index) => {
-                        return <Button key={index} {...button.otherProps} phSize="lg" phStyle={button.phStyle || 'primary'} block={buttonsType}
+                        return <Button hollow key={index} {...button.otherProps} phSize="lg" phStyle={button.phStyle || 'primary'} block={buttonsType}
                             onClick={button.onHandle || onClose}>{button.text || "确定"}</Button>
                     })
                 }
@@ -126,7 +126,7 @@ export default class Alert extends Component{
         let {visible, onClose, title, content, closeButton, shadowDisabled} = this.props;
 
         return (
-            <Dialog visible={visible} onClose={onClose} closeButton={closeButton} shadowDisabled={shadowDisabled}>
+            <Dialog className={setPhoenixPrefix('dialog-alert')} visible={visible} onClose={onClose} closeButton={closeButton} shadowDisabled={shadowDisabled}>
                 <Dialog.Title>{title}</Dialog.Title>
                 <Dialog.Body>{content}</Dialog.Body>
                 <Dialog.Footer>{this.renderButtons()}</Dialog.Footer>

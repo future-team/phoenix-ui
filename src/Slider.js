@@ -9,8 +9,9 @@ import Drag from './Drag';
  * 滑动输入条组件<br/>
  * - 滑动进度条确定当前进度的百分比。
  * - 可通过设置process确定初始进度百分比, 范围从0-100。
- * - 可通过placement设置当前进度提示框的位置, 可选top/bottoom。
- * - 可通过tipStay设置初始和松开按钮时提示是否消失，默认false不显示。
+ * - 可通过tipMode选择当前查看进度的方式，可选default和tooltip。
+ * - 可通过placement设置当前进度提示框的位置, 可选top/bottoom(tipMode为tooltip时生效)。
+ * - 可通过tipStay设置初始和松开按钮时提示是否消失，默认false不显示(tipMode为tooltip时生效)。
  * - 可通过range制定范围，默认0-100，必需是长度为2的数组，第一个数字表示初始，第二个数字表示终点。
  * - 可通过showRange判断是否在进度条前后显示范围，默认不显示。
  * - 可通过duration设置固定移动的距离，默认1。
@@ -88,6 +89,13 @@ export default class Slider extends Component{
          * @default false
          * */
         showRange: PropTypes.bool,
+        /**
+         * 显示提示的模式，可选[default,tooltip]
+         * @property tipMode
+         * @type String
+         * @default 'default'
+         * */
+        tipMode: PropTypes.string,
          /**
          * 每次移动的固定距离，默认1
          * @property duration
@@ -96,7 +104,7 @@ export default class Slider extends Component{
          * */
         duration: PropTypes.number,
         /**
-         * 初始及松开按钮时是否显示进度
+         * 初始及松开按钮时是否显示tooltip
          * @property tipStay
          * @type Boolean
          * @default false
@@ -116,6 +124,8 @@ export default class Slider extends Component{
         range: [0,100],
         showRange: false,
         duration: 1,
+        tipMode: 'default',
+        tipStay: false,
         classPrefix:'slider',
         componentTag:'div',
         classMapping : {
@@ -234,10 +244,16 @@ export default class Slider extends Component{
         if(this.props.onSliderChange) this.props.onSliderChange(this.state.realProgress);
     }
 
+    renderSliderText(showTipMode){
+        if(showTipMode){
+            return <div className={setPhoenixPrefix("slider-text")}>{this.state.realProgress}</div>
+        }        
+    }
+
     renderSliderRange(){
         if(this.props.showRange){
             return (
-                <div>
+                <div className={setPhoenixPrefix("slider-range")}>
                     <strong className={setPhoenixPrefix("slider-range-start")}>{this.range[0]}</strong>
                     <strong className={setPhoenixPrefix("slider-range-end")}>{this.range[1]}</strong>
                 </div>
@@ -248,7 +264,8 @@ export default class Slider extends Component{
     }
 
     render(){
-        let {componentTag:Component, className, showRange} = this.props;
+        let {componentTag:Component, className, showRange, tipMode} = this.props,
+            showTipMode = tipMode=='default';
 
         return (
             <Component {...this.props} className={classnames(
@@ -256,11 +273,12 @@ export default class Slider extends Component{
                 className,
                 showRange? setPhoenixPrefix('keep-range'):''
             )}>
+                {this.renderSliderText(showTipMode)}
                 {this.renderSliderRange()}
                 <div className={setPhoenixPrefix("slider-line")} ref={(sliderLine)=>{this.sliderLine=sliderLine}}>
                     <div className={setPhoenixPrefix("slider-progress")} ref={(sliderProgress)=>{this.sliderProgress=sliderProgress}}></div>
                     <div className={setPhoenixPrefix("slider-content")} ref={(sliderBtn)=>{this.sliderBtn=sliderBtn}}>
-                        <div className={classnames(setPhoenixPrefix("slider-tip"), this.state.tipVisible?'show':'hide')}>{this.state.realProgress}</div>
+                        <div className={classnames(setPhoenixPrefix("slider-tip"), this.state.tipVisible && !showTipMode?'show':'hide')}>{this.state.realProgress}</div>
                         <Drag className={setPhoenixPrefix("slider-btn")} onDrag={::this.onDrag} onDrop={::this.onDrop}></Drag>
                     </div>
                 </div>

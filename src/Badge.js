@@ -3,12 +3,12 @@ import Component from './utils/Component';
 import classnames from 'classnames';
 
 /**
- * Badge徽章标记<br/>
+ * Badge标记<br/>
  * - 主要是用来提供不同颜色的标识, 通过phStyle来改变颜色, 可选primary、warning、danger、info、error、success。
  * - 不提供默认回调, 但支持自定义className，事件等操作。
  *
  * 主要属性和接口：
- * - phStyle:徽章颜色, 默认primary <br/>
+ * - phStyle:颜色, 默认primary <br/>
  * 如：`<Badge phStyle="info">惠</Badge>`
  *
  * @class Badge
@@ -30,16 +30,16 @@ export default class Badge extends Component{
          * */
         classPrefix: PropTypes.string,
         /**
-         * badge徽章颜色[primary、warning、danger、info、error、success], 默认primary
+         * 标记颜色[primary、warning、danger、info、error、success], 默认primary
          * @property phStyle
          * @type string
-         * @default 'primary'
+         * @default 'default'
          **/
         phStyle:PropTypes.string
     };
 
     static defaultProps ={
-        phStyle: 'primary',
+        phStyle: 'default',
         classPrefix:'badge',
         classMapping : {
             'primary':'primary',

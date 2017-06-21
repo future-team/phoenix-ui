@@ -49,6 +49,16 @@ class Toast extends Component{
         super(props, context);
     }
 
+    renderChildren(){
+        let {className,children} = this.props;
+
+        if(className){
+            return <div className={setPhoenixPrefix("toast-body")}>{children}</div>
+        }else{
+            return children;
+        }
+    }
+
     render(){
         let {componentTag:Component, className} = this.props;
 
@@ -60,7 +70,7 @@ class Toast extends Component{
                 <div className={setPhoenixPrefix("toast-shadow")}></div>
                 <div className={setPhoenixPrefix("toast-main")}>
                     <div className={setPhoenixPrefix("toast-content")}>
-                        {this.props.children}
+                        {this.renderChildren(className)}
                     </div>
                 </div>
             </Component>

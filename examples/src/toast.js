@@ -9,7 +9,7 @@ export default class toast extends Component{
     }
 
     showToastInfo(){
-        Toast.info("只显示信息的toast！", 2000, ()=>{
+        Toast.info("只显示信息的toast！只显示信息的toast！只显示信息的toast！", 2000, ()=>{
             console.log("额外的执行内容");
         });
     }

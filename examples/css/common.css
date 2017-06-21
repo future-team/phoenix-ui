@@ -12,10 +12,10 @@ html, body{
 
 #root{
     min-height: 100%;
-    // max-width: 414px;
+    /*max-width: 414px;*/
     margin: 0 auto;
-    // border-right: 1px solid #ddd;
-    // border-left: 1px solid #ddd;
+    /*border-right: 1px solid #ddd;*/
+    /*border-left: 1px solid #ddd;*/
 }
 
 ::-webkit-scrollbar{  
@@ -69,10 +69,19 @@ html, body{
     color: #fff;
 }
 
-.menu h2{
+.menu>h2{
     padding: 16px 32px;
+    border-top: 1PX solid #e1e1e1;
+    border-bottom: 1PX solid #e1e1e1;
     font-size: 30px;
     color: #999cad;
+}
+
+.menu>h3{
+    padding: 8px 32px;
+    background-color: #ccc;
+    font-size: 28px;
+    color: #fff;
 }
 
 .list-card{
@@ -80,10 +89,10 @@ html, body{
     position: relative;
     margin: 0 32px;
     padding: 20px 0 20px 48px;
-    border-bottom: 1PX solid #ddd;
+    border-bottom: 1PX solid #e1e1e1;
 }
-.list-card:first-child{
-    border-top: 1px solid #ddd;
+.list-card:last-child{
+    border-bottom: none;
 }
 .menu-panel h3{
     margin-bottom: 28px;
@@ -109,15 +118,17 @@ html, body{
 
 /*** content common ***/
 .comp-title{
-    padding: 32px;
+    padding: 64px;
     background: url(../img/phoenix.jpg) center center;
     background-size: cover;
+    font-size: 48px;
     text-align: center;
     color: #fff;
 }
 .comp-type{
     padding: 20px 32px;
     background-color: #fff;
+    border-top: 1PX solid #ddd;
     border-bottom: 1PX solid #ddd;
     font-size: 30px;
     color: #777;
@@ -166,15 +177,15 @@ html, body{
 /*** content example ***/
 .content, .contents{
     padding: 32px 32px 16px;
-    background-color: rgba(255,255,255,.5);
+    background-color: #fff;
 }
-.content .ph-button:not(.ph-button-block),
+.content > .ph-button:not(.ph-button-block),
 .content .ph-badge,
 .content .ph-label,
 .content .ph-star,
 .content .ph-multi-group,
 .content .ph-switch,
-.content :not(.ph-button) .gfs-icon{
+.content > .gfs-icon{
     margin: 0 16px 16px 0;
 }
 
@@ -191,12 +202,9 @@ html, body{
     margin: 0 0 16px 0;
 }
 
-.content .ph-steps{
+.content .ph-steps,
+.content .ph-input{
     margin-bottom: 16px;
-}
-
-.content .ph-button-group .ph-button{
-    margin: 0;
 }
 
 .content .ph-whisper{

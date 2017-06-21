@@ -1,42 +1,46 @@
 /**
  * Created by panqianjin on 16/5/19.
  */
-import React, { Component ,PropTypes} from 'react';
-import ReactDOM,{findDOMNode} from 'react-dom';
-import { Redirect, Router, Route } from 'react-router';
-import History from 'history/lib/createHashHistory';
+import React, { Component ,PropTypes} from 'react'
+import ReactDOM,{findDOMNode} from 'react-dom'
+import { Redirect, Router, Route } from 'react-router'
+import History from 'history/lib/createHashHistory'
 
-import Tab from './tab.js';
-import Button from './button.js';
-import ButtonGroup from './button-group.js';
-import Input from './input.js';
-import Textarea from './textarea.js';
-import Switch from './switch.js';
-import Grid from './grid.js';
-import TableView from './table-view.js';
-import FormGroup from './form-group.js';
-import Label from './label.js';
-import Badge from './badge.js';
-import StarDemo from './star.js';
-import Swipe from './swipe.js';
-import Slider from './slider.js';
-import Dialog from './dialog.js';
-import Alert from './alert.js';
-import Prompt from './prompt.js';
-import Toast from './toast.js';
-import Popup from './popup.js';
-import Popover from './popover.js';
-import Accordion from './accordion.js';
-import Menu from './menu.js';
-import Animate from './animate.js';
-import Drag from './drag.js';
-import Icon from './icon.js';
-import LoadingList from './loading-list.js';
-import ImageList from './image-list.js';
-import Steps from './steps.js';
-import ListDemo from './list-demo.js';
-import Detail from './detail-demo.js';
-import PhoenixStyle from './phoenix-styles.js';
+import Tab from './tab.js'
+import Button from './button.js'
+import ButtonGroup from './button-group.js'
+import Input from './input.js'
+import Textarea from './textarea.js'
+import Switch from './switch.js'
+import Grid from './grid.js'
+import List from './list.js'
+// import FormGroup from './form-group.js';
+import Label from './label.js'
+import Badge from './badge.js'
+import StarDemo from './star.js'
+import Swipe from './swipe.js'
+import Slider from './slider.js'
+import Dialog from './dialog.js'
+import Alert from './alert.js'
+import Prompt from './prompt.js'
+import Toast from './toast.js'
+import Popup from './popup.js'
+import Popover from './popover.js'
+import Accordion from './accordion.js'
+import Menu from './menu.js'
+import Animate from './animate.js'
+import Drag from './drag.js'
+import Icon from './icon.js'
+import LoadingList from './loading-list.js'
+import ImageList from './image-list.js'
+import Steps from './steps.js'
+import SearchBar from './search-bar.js'
+
+import ListDemo from './list-demo.js'
+import Detail from './detail-demo.js'
+import PhoenixStyle from './phoenix-styles.js'
+
+import PhFilter from './ph-filter.js'
 
 let Card = class Card extends Component {
     constructor(props, context){
@@ -68,7 +72,8 @@ let Index = class index extends Component {
                         <a href="http://future-team.github.io/phoenix-ui/doc/index.html"><i className="gfs-icon icon-help"></i> Document</a>
                     </div>
                 </header>
-                <h2>Basic</h2>
+                <h2>组件</h2>
+                <h3>Basic</h3>
                 <div className="menu-panel">
                     <Card href="#/button" title="Button" desp="按钮" />
                     <Card href="#/buttongroup" title="ButtonGroup" desp="按钮组" />
@@ -77,43 +82,52 @@ let Index = class index extends Component {
                     <Card href="#/star" title="Star" desp="星星" />
                     <Card href="#/icon" title="Icon" desp="符号" />
                 </div>
-                <h2>Form</h2>
+                <h3>Form</h3>
                 <div className="menu-panel">
-                    <Card href="#/formgroup" title="FormGroup" desp="表单组" />
-                    <Card href="#/input" title="Input" desp="文本框，单选框，多选框" />
-                    <Card href="#/textarea" title="Textarea" desp="多行文本" />
+                    <Card href="#/input" title="Input" desp="输入框，单选框，复选框" />
+                    <Card href="#/textarea" title="Textarea" desp="多行输入框" />
                     <Card href="#/switch" title="Switch" desp="开关" />
                 </div>
-                <h2>Layout</h2>
+                <h3>Layout</h3>
                 <div className="menu-panel">
                     <Card href="#/grid" title="Grid/Row/Col" desp="布局" />
-                    <Card href="#/tableview" title="TableView" desp="表格" />
+                    <Card href="#/list" title="List" desp="列表" />
                 </div>
-                <h2>Modal</h2>
+                <h3>Modal</h3>
                 <div className="menu-panel">
                     <Card href="#/dialog" title="Dialog" desp="基础弹框" />
                     <Card href="#/alert" title="Alert" desp="alert弹框" />
                     <Card href="#/prompt" title="Prompt" desp="prompt弹框" />
-                </div>
-                <h2>FeedBack</h2>
-                <div className="menu-panel">
-                    <Card href="#/accordion" title="Accordion" desp="手风琴" />
                     <Card href="#/toast" title="Toast" desp="飘字" />
                     <Card href="#/popup" title="Popup" desp="弹层" />
-                    <Card href="#/popover" title="Whisper/Popover" desp="气泡" />
-                    <Card href="#/tab" title="Tabset/Tab" desp="选项卡" />
-                    <Card href="#/slider" title="Slider" desp="滑动输入条" />
+                    <Card href="#/popover" title="Popover" desp="气泡" />
+                </div>
+                <h3>FeedBack</h3>
+                <div className="menu-panel">
+                    <Card href="#/tab" title="Tab" desp="选项卡" />
                     <Card href="#/steps" title="Steps" desp="步骤" />
-                    <Card href="#/swipe" title="Swipe" desp="左滑动" />
-                    <Card href="#/menu" title="Menu" desp="菜单" />
+                    <Card href="#/accordion" title="Accordion" desp="手风琴" />
+                    <Card href="#/slider" title="Slider" desp="滑块" />
+                    <Card href="#/swipe" title="Swipe" desp="左刷操作" />
+                </div>
+                <h3>Combination</h3>
+                <div className="menu-panel">
+                    <Card href="#/search-bar" title="SearchBar" desp="搜索" />
                     <Card href="#/loadinglist" title="LoadingList" desp="加载更多" />
                     <Card href="#/imagelist" title="ImageList" desp="图片列表" />
+                    <Card href="#/menu" title="Menu" desp="菜单" />
                 </div>
-                <h2>Assist</h2>
+                <h3>辅助类</h3>
                 <div className="menu-panel">
                     <Card href="#/animate" title="Animate" desp="动画" />
                     <Card href="#/drag" title="Drag" desp="拖拽" />
                 </div>
+
+                <h2>控件</h2>
+                <div className="menu-panel">
+                    <Card href="#/ph-filter" title="PhFilter" desp="筛选" />
+                </div>
+
                 <h2>Demo</h2>
                 <div className="menu-panel">
                     <Card href="#/list-demo" title="列表页示例" desp="列表页示例" />
@@ -141,8 +155,7 @@ let AppRouter = class AppRouter extends Component {
             <Router history={this.history}>
                 <Route path="/index" name="index" component={Index} />
                 <Route path="/phoenix-styles" name="PhoenixStyle" component={PhoenixStyle} />
-                <Route path="/tableview" name="TableView" component={TableView} />
-                <Route path="/formgroup" name="FormGroup" component={FormGroup} />
+                <Route path="/list" name="List" component={List} />
                 <Route path="/button" name="button" component={Button} />
                 <Route path="/buttongroup" name="buttongroup" component={ButtonGroup} />
                 <Route path="/input" name="input" component={Input} />
@@ -164,11 +177,15 @@ let AppRouter = class AppRouter extends Component {
                 <Route path="/popover" name="popover" component={Popover} />
                 <Route path="/accordion" name="accordion" component={Accordion} />
                 <Route path="/menu" name="menu" component={Menu} />
+                <Route path="/search-bar" name="searchbar" component={SearchBar} />
                 <Route path="/loadinglist" name="loadinglist" component={LoadingList} />
                 <Route path="/imagelist" name="imagelist" component={ImageList} />
                 <Route path="/animate" name="animate" component={Animate} />
                 <Route path="/drag" name="drag" component={Drag} />
                 <Route path="/icon" name="icon" component={Icon} />
+
+                <Route path="/ph-filter" name="phfilter" component={PhFilter} />
+
                 <Route path="/detail" name="detail" component={Detail} />
                 <Route path="/list-demo" name="list-demo" component={ListDemo} />
                 <Redirect from="/" to="/index" />

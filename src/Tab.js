@@ -88,7 +88,7 @@ export default class Tab extends Component {
                     className
                 )
             } onClick={::this.handleClick} {...other}>
-                {this.props.heading}
+                <a href="javascript:;">{this.props.heading}</a>
             </li>
         )
     }

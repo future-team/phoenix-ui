@@ -100,12 +100,23 @@ export default class Steps extends Component{
         if(clickCallback) clickCallback(str,index);
     }
 
+    renderLine(){
+        let {list} = this.props,
+            listLen = list.length;
+
+        return (
+            <div className="ph-steps-line">
+                <div className="ph-steps-progress" style={{width:this.state.currentStep*(1/(listLen-1))*100+'%'}}></div>
+            </div>
+        )
+    }
+
     renderSteps(){
         let {list} = this.props;
         let _this = this, listLen = list.length;
 
         return (
-            <ul>
+            <ul className={setPhoenixPrefix('steps-content')}>
                 {
                     list.map((item, index)=>{
                         return (
@@ -126,6 +137,7 @@ export default class Steps extends Component{
     render(){
         return(
             <div className={classnames(this.getProperty(true),this.props.className)}>
+                {this.renderLine()}
                 {this.renderSteps()}
            </div>
         )

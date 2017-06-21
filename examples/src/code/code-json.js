@@ -17,7 +17,7 @@ var code = {
 	'star-rate': '<Star />\n<Star Rate={5} />\n<Star Rate={15} />\n<Star Rate={20} />\n<Star Rate={25} />\n<Star Rate={30} />\n<Star Rate={35} />',
 	'star-phsize': '<Star Rate={40} phSize="sm" />\n<Star Rate={45} phSize="md" />\n<Star Rate={50} phSize="lg" />',
 
-	'badge-phstyle': '<Badge>惠</Badge>\n<Badge phStyle="success">惠</Badge>\n<Badge phStyle="info">惠</Badge>\n<Badge phStyle="danger">惠</Badge>\n<Badge phStyle="error">惠</Badge>\n<Badge phStyle="warning">惠</Badge>',
+	'badge-phstyle': '<Badge>1</Badge>\n<Badge>10</Badge>\n<Badge>Hot</Badge>\n\n<Badge phStyle="primary">惠</Badge>\n<Badge phStyle="success">惠</Badge>\n<Badge phStyle="info">惠</Badge>\n<Badge phStyle="danger">惠</Badge>\n<Badge phStyle="error">惠</Badge>\n<Badge phStyle="warning">惠</Badge>',
 
 	'label-phstyle': '<Label>惠</Label>\n<Label phStyle="success">惠</Label>\n<Label phStyle="info">惠</Label>\n<Label phStyle="danger">惠</Label>\n<Label phStyle="error">惠</Label>\n<Label phStyle="warning">惠</Label>',
 	'label-phsize': '<Label>惠</Label>\n<Label phSize="md">惠</Label>\n<Label phSize="lg">惠</Label>',

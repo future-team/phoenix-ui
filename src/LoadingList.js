@@ -99,7 +99,7 @@ export default class LoadingList extends Component{
     static defaultProps ={
         phMode: 'auto',
         loadingStatus: 1, // 0加载更多, 1加载中, 2数据加载成功, 3数据加载失败, 4没有更多
-        loadTips : ["加载更多","加载中","加载成功","加载失败","没有更多"],
+        loadTips : ["加载更多","","加载成功","加载失败","没有更多"],
         buttonStyles: ["primary","info","success","error","gray"],
         classPrefix:'loading-list',
         classMapping : {}
@@ -142,7 +142,7 @@ export default class LoadingList extends Component{
 
     renderIcon(){
         if(this.props.loadingStatus==1){
-            return <Icon phIcon="loading" />;
+            return <Icon className="gfs-icon-loading" phIcon="loading" />;
         }else{
             return '';
         }        

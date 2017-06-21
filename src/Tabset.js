@@ -98,7 +98,7 @@ class Tabset extends Component {
     static defaultProps = {
         activeIndex: 0,
         vertical: false,
-        width: 20,
+        width: 33,
         onTabsetChange: null
     };
 
@@ -121,7 +121,7 @@ class Tabset extends Component {
     }
 
     isVertial() {
-        return !!this.props.vertical ? 'vertical '+setPhoenixPrefix('row') : '';
+        return !!this.props.vertical ? setPhoenixPrefix('tabs-vertical')+' '+setPhoenixPrefix('row') : '';
     }
 
     isActive(index) {
@@ -183,7 +183,7 @@ class Tabset extends Component {
                 this.isVertial(),
                 className
             )}  {...other}>
-                <ul className={this.getClass(true)}>
+                <ul className={classnames(this.getClass(true), setPhoenixPrefix('tab-navs'))}>
                     {headings}
                 </ul>
                 <div className={classnames(

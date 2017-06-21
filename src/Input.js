@@ -2,14 +2,16 @@ import React,{PropTypes} from 'react';
 import Component from './utils/Component';
 import classnames from 'classnames';
 import {setPhoenixPrefix} from './utils/Tool';
+import Icon from './Icon'
 
 /**
  * input框组件<br/>
  * - 使用方式跟原生一致, 支持disabled。
- * - 通过type设置input的类型, 可选text,checkbox,radio。
+ * - 通过type设置input的类型, 可选text,checkbox,radio,search,password。
  * - 当类型为text时, 可通过defaultValue设置默认值; 可通过value和onChange事件配合使用手动设置输入值。
  * - 当类型为checkbox&radio时, 可通过label设置展示的文字。
  * - 当类型为checkbox&radio时, 可通过defaultChecked设置默认值; 可通过checked和onChange事件配合使用手动设置输入值。
+ * - 可通过getValueCallback获取当前元素的value值，仅适用于text、search。
  *
  * 主要属性和接口：
  * - type:input类型, 默认text <br/>
@@ -24,6 +26,9 @@ import {setPhoenixPrefix} from './utils/Tool';
  * 如：`<Input type="checkbox" defaultChecked={true} />`
  * - checked&onChange:(checkbox&radio)<br/>
  * 如：`<Input type="checkbox" checked={this.state.checked} onChange={()=>{this.setState({checked:false})}} />`
+ * - getValueCallback: 获取当前input的value。<br/>
+ * 如：`<Input type="text" ref={(inputElem)=>{this.inputElem=inputElem}} />`<br/>
+ * `this.inputElem.getValueCallback();`
  *
  * @class Input
  * @module 表单组件
@@ -38,7 +43,7 @@ export default class Input extends Component{
 
     static propTypes = {
         /**
-         * input类型, 可选[text,checkbox,radio], 默认text
+         * input类型, 可选[text,checkbox,radio,search,password], 默认text
          * @property type
          * @type String
          * @default 'text'
@@ -69,11 +74,26 @@ export default class Input extends Component{
          * @event onChange
          * @type Function
          * */
-        onChange: PropTypes.func
+        onChange: PropTypes.func,
+        /**
+         * 是否显示[清除已经输入的内容按钮]，仅适用于text,search,password的类型
+         * @property clear
+         * @type Boolean
+         * */
+        clear: PropTypes.bool,
+        /**
+         * 是否显示[密码是否可见按钮]，仅适用于password的类型
+         * @property seePassword
+         * @type Boolean
+         * */
+        seePassword: PropTypes.bool
     };
 
     static defaultProps = {
         type: 'text',
+        clear: false,
+        seePassword: false,
+        phIcon: '',
         classPrefix:'input',
         componentTag:'div',
         classMapping : {}
@@ -81,9 +101,28 @@ export default class Input extends Component{
 
     constructor(props, context) {
         super(props, context);
+
+        this.setMethod('getValueCallback',this.getValue.bind(this))
+
+        this.seeIcon = ['camera-fill','camera']
+
+        this.state = {
+            type: props.type,
+            see: 0,
+            focus: false,
+            value: props.value || props.defaultValue || ''
+        }
     }
 
-    otherView(type){
+    componentWillReceiveProps(nextProps){
+        if(nextProps.value && nextProps.value !== this.state.value){
+            this.setState({
+                value: nextProps.value
+            })
+        }
+    }
+
+    otherView(type){ // checkbox & radio
         return (
             <label className={setPhoenixPrefix("multi-group")}>
                 <div className={setPhoenixPrefix(type)}>
@@ -95,27 +134,120 @@ export default class Input extends Component{
         );
     }
 
-    renderInput(type){
-        let html = <div></div>;
+    renderInput(){ // input: text/search/password
+        let {type, clear, seePassword, placeholder, phIcon} = this.props,
+            {value, focus} = this.state;
+        let clearStatus = clear && value && focus,
+            seeStatus = seePassword && type=='password',
+            placeholderShow = !focus && !value;
 
         if(type =='checkbox' || type=='radio'){
-            html=this.otherView(type);
+            return this.otherView(type)
         }else{
-            html = (<input {...this.props} className={
-                classnames(
+            return (
+                <div className={classnames(
                     this.getProperty(true),
-                    this.props.className
-                )
-                }/>);
+                    clearStatus ? setPhoenixPrefix('input-clear'):'',
+                    seeStatus ? setPhoenixPrefix('input-see'):'',
+                    phIcon ? setPhoenixPrefix('input-heading'):'',
+                )}>
+                    <input {...this.props} type={this.state.type} placeholder='' value={value}
+                        ref={(inputElem)=>{this.inputElem=inputElem}}
+                        onChange={this.onChange.bind(this)} 
+                        onFocus={this.onFocus.bind(this)} 
+                        onBlur={this.onBlur.bind(this)} />
+                    <label className={classnames(
+                        setPhoenixPrefix('input-placeholder'),
+                        !placeholderShow? setPhoenixPrefix('input-placeholder-hide'):''
+                    )}>
+                        {phIcon ? <Icon phIcon={phIcon} />: null}
+                        <span className={setPhoenixPrefix('input-placeholder-text')}>{placeholder}</span>
+                    </label>
+                    {this.renderClearButton(clearStatus)}
+                    {this.renderSeeButton(seeStatus)}
+                </div>
+            );
         }
-
-        return html;
     }
 
+    onChange(event){
+        let {onChange} = this.props,
+            value = event.target.value;
+
+        if(onChange) onChange(event,value);
+        
+        this.setState({
+            value: value,
+            focus: true
+        })
+    }
+
+    onFocus(e){
+        let {onFocus} = this.props
+        if(onFocus) onFocus()
+
+        this.setState({
+            focus: true
+        })
+    }
+
+    onBlur(e){
+        let {onBlur} = this.props
+        if(onBlur) onBlur()
+
+        this.timer = setTimeout(()=>{
+            this.setState({
+                focus: false
+            })
+        },0)            
+    }
+
+    renderClearButton(clear){
+        if(clear){
+            return <Icon className='gfs-icon-close' phIcon='fail-fill' onClick={this.clearButtonClickCallback.bind(this)} />
+        }
+    }
+
+    clearButtonClickCallback(e){
+        clearTimeout(this.timer)
+
+        this.setState({
+            value: ''
+        },()=>{
+            this.inputElem.focus()
+        })
+    }
+
+    renderSeeButton(see){
+        if(see){
+            return <Icon className={classnames('gfs-icon-see', !this.state.see? 'gfs-icon-active':'')} 
+                phIcon={this.seeIcon[this.state.see]} 
+                onClick={this.seeButtonClickCallback.bind(this)} />
+        }
+    }
+
+    seeButtonClickCallback(){
+        if(this.state.see){
+            this.setState({
+                type: 'password',
+                see: 0
+            })
+        }else{
+            this.setState({
+                type: 'text',
+                see: 1
+            })
+        }        
+    }
+
+    getValue(){
+        return this.state.value;
+    }
 
     render(){
-        let {componentTag:Component,type} = this.props;
-        return this.renderInput(type ? type:'text');
+        let {componentTag:Component} = this.props
+
+        return this.renderInput()
     }
 
 }

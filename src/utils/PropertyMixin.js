@@ -17,13 +17,13 @@ export default obj=>{
         /*以下属性都是数组里固定值*/
         //类型
         phType:function(val){
-            return getVal(['tacked','justify'],val);
+            return getVal(['default','tacked','justify','segmente'],val);
         },
         phSize:function(val){
-            return getVal(['lg','md','sm','default','xs'],val);
+            return getVal(['default','lg','md','sm','xs','cover','contain'],val);
         },
         phStyle:function(val){
-            return getVal(['primary','info','success','error','warning','danger','link','gray','light','positive','calm','balanced','energized','assertive','lightbrown','lightgray'],val);
+            return getVal(['default','primary','info','success','error','warning','danger','link','gray','light','positive','calm','balanced','energized','assertive','lightbrown','lightgray'],val);
         },
         status:val=>{
             getVal(['diabled','active','enable'],val)
@@ -46,7 +46,10 @@ export default obj=>{
         hide:true,
         block:true,
         hollow: true,
-
+        error: true,
+        heading: true,
+        tail: true,
+        required: true,
 
         /*以下属性相当于css属性的快速赋值，比如设置zIndex="2",则会被merge进style里，如果只有属性zIndex没有设置取值，则会被放入props列表中*/
         zIndex:val=>{

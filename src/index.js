@@ -33,6 +33,10 @@ export Menu from './menu/Menu';
 export LoadingList from './LoadingList';
 export ImageList from './ImageList';
 export Steps from './Steps';
+export List from './List';
+export SearchBar from './SearchBar';
+
+export PhFilter from './ph-filter/'
 
 //接入cat－browser
 catBrowser({

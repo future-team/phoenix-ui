@@ -901,6 +901,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * 如: `<Button phStyle="info">button</Button>`
 	 * - block:是否块级显示，默认false <br/>
 	 * 如: `<Button block>button</Button>`
+	 * - phIcon:icon符号类型,默认没有符号 <br/>
+	 * 如: `<Button phIcon="search">button</Button>`
 	 *
 	 * @class Button
 	 * @module 基础组件
@@ -978,7 +980,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * @type Boolean
 	             * @default false
 	             * */
-	            active: _react.PropTypes.bool
+	            active: _react.PropTypes.bool,
+	            /**
+	            * icon符号类型
+	            * @property phIcon
+	            * @type string
+	            * @default ''
+	            **/
+	            phIcon: _react.PropTypes.string
 	        },
 	        enumerable: true
 	    }, {
@@ -8251,6 +8260,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    LoadingList.prototype.onDrag = function onDrag(event, position) {
+	        if (!position || !position.start) return; // 区别react的onDrag事件
+
 	        var _props2 = this.props;
 	        var phMode = _props2.phMode;
 	        var loadingStatus = _props2.loadingStatus;

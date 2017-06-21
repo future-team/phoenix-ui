@@ -43,10 +43,10 @@ export default class ButtonGroup extends Component{
          * */
         classPrefix: PropTypes.string,
         /**
-         * 是否有自适应宽度，垂直排列等属性，取值为justify(水平排列)或者tacked(垂直排列)
+         * 是否有自适应宽度，垂直排列等属性，取值为justify(水平排列)、tacked(垂直排列)、segmente(分割排列)
          * @property phType
          * @type String
-         * @default 'justify'
+         * @default 'default'
          * */
         phType:PropTypes.string,
         /**
@@ -58,12 +58,15 @@ export default class ButtonGroup extends Component{
     };
 
     static defaultProps = {
+        activeIndex: 0,
+        phType:'default',
         classPrefix:'button-group',
-        phType:'justify',
         componentTag:'div',
         classMapping : {
+            'default':'default',
             'justify':'justify',
-            'tacked':'tacked'
+            'tacked':'tacked',
+            'segmente':'segmente'
         }
     };
 
@@ -71,26 +74,32 @@ export default class ButtonGroup extends Component{
         super(props, context);
 
         this.state = {
-            active:this.props.active
+            activeIndex:this.props.activeIndex
         };
     }
 
-    clickHandler(e){
-        let target = e.target;
-        this.props.onButtongroupChange&&this.props.onButtongroupChange(target,target.innerHTML);
+    componentWillReceiveProps(nextProps){
+         if(this.state.activeIndex != nextProps.activeIndex) this.setState({activeIndex: nextProps.activeIndex});
+    }
+
+    clickHandler(index){
+        if(this.props.phType == 'default') return;
+
+        this.props.onButtongroupChange&&this.props.onButtongroupChange(index);
+
         this.setState({
-            active:target.innerHTML
+            activeIndex: index
         })
     }
 
     render(){
-        const {componentTag:Component} = this.props;
+        const {componentTag:Component, children} = this.props;
 
-        let options = React.Children.map(this.props.children,(option)=>{
+        let options = React.Children.map(children,(option,index)=>{
             
             let opt = React.cloneElement(option,{
-                clickHandle:this.clickHandler.bind(this),
-                active:this.state.active == option.props.children
+                clickHandle: this.clickHandler.bind(this,index),
+                hollow: this.state.activeIndex != index
             });
             return opt;
 

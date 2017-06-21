@@ -60,7 +60,7 @@ export default class dialog extends Component{
                     <Dialog.Footer>
                         <ButtonGroup>
                             <Button hollow phSize="lg" phStyle="gray" onClick={::this.onClose.bind(this,"visible2")}>取消</Button>
-                            <Button phSize="lg" onClick={::this.onClose.bind(this,"visible2")}>确定</Button>
+                            <Button hollow phSize="lg" onClick={::this.onClose.bind(this,"visible2")}>确定</Button>
                         </ButtonGroup>
                     </Dialog.Footer>
                 </Dialog>
@@ -78,7 +78,7 @@ export default class dialog extends Component{
                     <Dialog.Footer> 
                         <ButtonGroup>                       
                             <Button hollow phSize="lg" phStyle="gray" onClick={::this.onClose.bind(this,"visible3")}>取消</Button>
-                            <Button phSize="lg" onClick={::this.onClose.bind(this,"visible3")}>确定</Button>
+                            <Button hollow phSize="lg" onClick={::this.onClose.bind(this,"visible3")}>确定</Button>
                         </ButtonGroup>
                     </Dialog.Footer>
                 </Dialog>

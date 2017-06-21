@@ -25,12 +25,12 @@ export default class formgroup extends Component{
                 <h2 className="comp-title">FormGroup</h2>
                 <h3 className="comp-type">单列</h3>
                 <FormGroup>
-                    <Row single>
+                    <Row>
                         <Col>
                             <Input type="text" placeholder="姓名" />
                         </Col>
                     </Row>
-                    <Row single>
+                    <Row>
                         <Col>
                             <Input type="text" placeholder="用户名" />
                         </Col>
@@ -41,18 +41,24 @@ export default class formgroup extends Component{
                 <h3 className="comp-type">多列</h3>
                 <FormGroup>
                     <Row>
-                        <Col>
+                        <Col title>
                             <label>地址</label>
+                        </Col>
+                        <Col>
                             <Input type="text" placeholder="地址" />
                         </Col>
                     </Row>
                     <Row>
-                        <Col>
+                        <Col title>
                             <label>省</label>
-                            <Input type="text" placeholder="省" />
                         </Col>
                         <Col>
+                            <Input type="text" placeholder="省" />
+                        </Col>
+                        <Col title>
                             <label>市</label>
+                        </Col>
+                        <Col>
                             <Input type="text" placeholder="市" />
                         </Col>
                     </Row>
@@ -60,12 +66,12 @@ export default class formgroup extends Component{
                 <Code target="form-group-multiple" />
 
                 <FormGroup>
-                    <Row>
-                        <Col>
-                            <a href="javascript:;" className="ph-navigate-right">
-                                <label><span className="color-error">*</span>性别</label>
-                                <input type="text" placeholder="男/女" disabled/>
-                            </a>
+                    <Row className="ph-navigate-right">
+                        <Col title>
+                            <label><span className="color-error">*</span>性别</label>
+                        </Col>
+                        <Col right>
+                            <input type="text" placeholder="男/女" disabled />
                         </Col>
                     </Row>
                 </FormGroup>
@@ -73,8 +79,10 @@ export default class formgroup extends Component{
                     
                 <FormGroup>
                     <Row>
-                        <Col>
+                        <Col title>
                             <label>兴趣爱好</label>
+                        </Col>
+                        <Col right>
                             <Input type="checkbox" label="篮球" />
                             <Input type="checkbox" label="足球" />
                             <Input type="checkbox" label="乒乓球" />
@@ -83,7 +91,9 @@ export default class formgroup extends Component{
                     <Row>
                         <Col>
                             <label>喜欢的水果</label>
-                            <div style={{textAlign: "right"}}>
+                        </Col>
+                        <Col right>
+                            <div>
                                 <Input type="radio" label="苹果" name="fruit" />
                                 <Input type="radio" label="香蕉" name="fruit" />
                             </div>

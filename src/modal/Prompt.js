@@ -172,7 +172,7 @@ export default class Prompt extends Component{
             <ButtonGroup phType={buttonsType ? "tacked":"justify"}>
                 {
                     this.buttons.map((button,index) => {
-                        return <Button key={index} {...button.otherProps} phSize="lg" phStyle={button.phStyle || 'primary'} block={buttonsType}
+                        return <Button hollow key={index} {...button.otherProps} phSize="lg" phStyle={button.phStyle || 'primary'} block={buttonsType}
                             onClick={()=>{
                                 if(button.onHandle){
                                     button.onHandle(this.state.inputValue);
@@ -190,7 +190,7 @@ export default class Prompt extends Component{
         let {visible, onClose, title, content, closeButton, shadowDisabled} = this.props;
 
         return (
-            <Dialog visible={visible} onClose={onClose} closeButton={closeButton} shadowDisabled={shadowDisabled}>
+            <Dialog className={setPhoenixPrefix('dialog-prompt')} visible={visible} onClose={onClose} closeButton={closeButton} shadowDisabled={shadowDisabled}>
                 <Dialog.Title>{title}</Dialog.Title>
                 <Dialog.Body>
                     {content}

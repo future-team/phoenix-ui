@@ -123,7 +123,6 @@ export default class Button extends Component{
 
     constructor(props, context) {
         super(props, context);
-        // this.setProperty('hollow','hollow');
     }
 
     onButtonClickHandle(e){

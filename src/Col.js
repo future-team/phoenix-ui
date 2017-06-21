@@ -1,5 +1,6 @@
 import React,{ PropTypes } from 'react';
 import Component from './utils/Component';
+import {setPhoenixPrefix} from './utils/Tool';
 import classnames from 'classnames';
 
 /**
@@ -77,7 +78,19 @@ export default class Col extends Component{
          * @property align
          * @type Integer
          * */
-        align: React.PropTypes.oneOf(['top', 'bottom','center'])
+        align: PropTypes.oneOf(['top', 'bottom','center']),
+        /**
+         * 是否为标题（配合List组件使用，表现为仿行内元素）
+         * @property heading
+         * @type Boolean
+         * */
+        heading: PropTypes.bool,
+        /**
+         * 是否为右边的项目（配合List组件使用，表现为内部的元素全部靠右）
+         * @property right
+         * @type Boolean
+         * */
+        tail: PropTypes.bool
     };
 
     static defaultProps = {
@@ -85,17 +98,20 @@ export default class Col extends Component{
         classMapping : {
             'top':'top',
             'bottom':'bottom',
-            'center':'center'
+            'center':'center',
+            'heading':'heading',
+            'tail':'tail'
         }
     };
 
     render(){
-        let  { ...others } = this.props;
+        let  {className} = this.props;
+
         return (
-            <div {...others} className={
+            <div {...this.props} className={
                 classnames(
                     this.getProperty(true),
-                    this.props.className
+                    className
                 )
             }>
                 {this.props.children}

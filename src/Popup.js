@@ -111,7 +111,7 @@ export default class Popup extends Component{
         let {visible,children,className} = this.props;
 
         if(visible){
-            return <div {...this.props} className={classnames(setPhoenixPrefix('popup-main'), 'animated', className)}>{children}</div>;
+            return <div {...this.props} className={classnames(setPhoenixPrefix('popup-content'), 'animated', className)}>{children}</div>;
         }else{
             return '';
         }
@@ -128,7 +128,7 @@ export default class Popup extends Component{
                 <Animate>
                     {this.renderShadow()}
                 </Animate>
-                <Animate className={setPhoenixPrefix('popup-content')} transitionName={`slide-${this.props.align}`}>
+                <Animate className={setPhoenixPrefix('popup-main')} transitionName={`slide-${this.props.align}`}>
                     {this.renderPopup()}
                 </Animate>
             </Component>

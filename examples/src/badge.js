@@ -7,14 +7,20 @@ export default class badge extends Component{
         return(
             <div>
             	<h2 className="comp-title">Badge</h2>
-                <h3 className="comp-type">phStyle(默认primary) 徽章颜色</h3>
+                <h3 className="comp-type">默认颜色</h3>
                 <div className="content">
-	                <Badge>惠</Badge>
-	                <Badge phStyle="success">惠</Badge>
-	                <Badge phStyle="info">惠</Badge>
-                    <Badge phStyle="danger">惠</Badge>
-                    <Badge phStyle="error">惠</Badge>
-                    <Badge phStyle="warning">惠</Badge>
+	                <Badge>1</Badge>
+	                <Badge>10</Badge>
+                    <Badge>Hot</Badge>
+                </div>
+                <h3 className="comp-type">phStyle 标记颜色</h3>
+                <div className="content">
+	                <Badge phStyle="primary">New</Badge>
+	                <Badge phStyle="success">New</Badge>
+	                <Badge phStyle="info">New</Badge>
+                    <Badge phStyle="danger">New</Badge>
+                    <Badge phStyle="error">New</Badge>
+                    <Badge phStyle="warning">New</Badge>
                 </div>
                 <Code target="badge-phstyle" />
             </div>

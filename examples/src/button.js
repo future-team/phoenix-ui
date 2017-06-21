@@ -30,31 +30,31 @@ export default class button extends Component{
 
                 <h3 className="comp-type">hollow属性</h3>
                 <div className="content">
-                    <Button hollow>hollow</Button>
+                    <Button hollow>按钮</Button>
                 </div>
                 <Code target="button-phstyle" />
 
                 <h3 className="comp-type">block属性</h3>
                 <div className="content">
-                    <Button block>block</Button>
+                    <Button block>按钮</Button>
                 </div>
                 <Code target="button-block" />
 
                 <h3 className="comp-type">disabled属性</h3>
                 <div className="content">
-                    <Button disabled>disabled</Button>
+                    <Button disabled>按钮</Button>
                 </div>
                 <Code target="button-disabled" />
 
                 <h3 className="comp-type">active属性</h3>
                 <div className="content">
-                    <Button active>active</Button>
+                    <Button active>按钮</Button>
                 </div>
                 <Code target="button-active" />
 
                 <h3 className="comp-type">phIcon属性</h3>
                 <div className="content">
-                    <Button phIcon="search">phIcon</Button>
+                    <Button phIcon="search" phSize="lg">按钮</Button>
                 </div>
                 <Code target="button-phicon" />
             </div>

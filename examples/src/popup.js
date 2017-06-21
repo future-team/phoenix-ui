@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button, Popup} from 'phoenix-ui';
+import {Button, Popup, List, Col} from 'phoenix-ui';
 import Code from "./code/code";
 
 export default class popup extends Component{
@@ -46,12 +46,20 @@ export default class popup extends Component{
                     <Button phSize="lg" onClick={::this.onShowTopPopup}>Top</Button>
                 </div>
                 <Popup visible={this.state.topVisible} onClose={::this.onCloseTopPopup}>
-                    <ul className="ph-popup-list">
-                        <li className="ph-popup-item" onClick={::this.onCloseTopPopup}>未上线单店</li>
-                        <li className="ph-popup-item" onClick={::this.onCloseTopPopup}>未上线连锁店</li>
-                        <li className="ph-popup-item" onClick={::this.onCloseTopPopup}>在线单店</li>
-                        <li className="ph-popup-item" onClick={::this.onCloseTopPopup}>在线连锁店</li>
-                    </ul>
+                    <List>
+                        <List.Item active>
+                            <Col>未上线单店</Col>
+                        </List.Item>
+                        <List.Item>
+                            <Col>未上线连锁店</Col>
+                        </List.Item>
+                        <List.Item>
+                            <Col>在线单店</Col>
+                        </List.Item>
+                        <List.Item>
+                            <Col>在线连锁店</Col>
+                        </List.Item>
+                    </List>
                 </Popup>
                 <Code target="popup-top" />
 
