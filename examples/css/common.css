@@ -4,8 +4,11 @@ html, body{
 
 #Back{
     display: none;
-    float: right;
-    padding: 20px 20px 20px 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    font-size: 48px;
     text-align: right;
     color: #fff;
 }
@@ -70,18 +73,18 @@ html, body{
 }
 
 .menu>h2{
-    padding: 16px 32px;
-    border-top: 1PX solid #e1e1e1;
-    border-bottom: 1PX solid #e1e1e1;
+    padding: 8px 32px;
+    background-color: #ccc;
     font-size: 30px;
-    color: #999cad;
+    color: #fff;
 }
 
 .menu>h3{
-    padding: 8px 32px;
-    background-color: #ccc;
+    padding: 16px 32px;
+    border-top: 1PX solid #e1e1e1;
+    border-bottom: 1PX solid #e1e1e1;
     font-size: 28px;
-    color: #fff;
+    color: #999cad;
 }
 
 .list-card{

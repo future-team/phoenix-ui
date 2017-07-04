@@ -1,6 +1,6 @@
 import React, { Component ,PropTypes} from 'react'
 import classnames from 'classnames'
-import Input from '../../Input'
+import Input from '../../input'
 
 export default class Item extends Component{
     static propTypes= {

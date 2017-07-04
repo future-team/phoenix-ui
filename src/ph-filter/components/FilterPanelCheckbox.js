@@ -1,6 +1,6 @@
-import React, { Component ,PropTypes} from 'react';
-import Item from './Item.js';
-import {transToArray} from '../../utils/Tool';
+import React, { Component ,PropTypes} from 'react'
+import Item from './Item'
+import {transToArray} from '../../utils/Tool'
 
 export default class FilterPanelCheckbox extends Component{
     

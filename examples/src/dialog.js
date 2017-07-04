@@ -1,6 +1,9 @@
-import React, { Component } from "react";
-import {ButtonGroup, Button, Dialog} from "phoenix-ui";
-import Code from "./code/code";
+import React, { Component } from "react"
+
+import ButtonGroup from "phoenix-ui/lib/button-group"
+import Button from "phoenix-ui/lib/button"
+import Dialog from "phoenix-ui/lib/modal/Dialog"
+import Code from "./code/code"
 
 export default class dialog extends Component{
 

@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import {Switch} from 'phoenix-ui';
-import Code from "./code/code";
+import React, { Component } from 'react'
+
+import Switch from 'phoenix-ui/lib/switch'
+import Code from "./code/code"
 
 export default class switchs extends Component{
 

@@ -1,9 +1,9 @@
-import React,{PropTypes} from 'react';
-import Component from '../utils/Component';
-import classnames from 'classnames';
-import {setPhoenixPrefix} from '../utils/Tool';
+import React,{PropTypes} from 'react'
+import Component from '../utils/Component'
+import classnames from 'classnames'
+import {setPhPrefix} from '../utils/Tool'
 
-import Icon from '../Icon';
+import Icon from '../icon'
 
 /**
  * 菜单导航列表组件<br/>

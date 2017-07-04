@@ -1,7 +1,10 @@
-import React, { Component } from "react";
-import classnames from "classnames";
-import {Accordion, List, Col} from "phoenix-ui";
-import Code from "./code/code";
+import React, { Component } from "react"
+import classnames from "classnames"
+
+import Accordion from "phoenix-ui/lib/accordion"
+import List from "phoenix-ui/lib/list"
+import Col from "phoenix-ui/lib/col"
+import Code from "./code/code"
 
 export default class accordion extends Component{
 
@@ -13,7 +16,7 @@ export default class accordion extends Component{
         }
     }
 
-    onAccordionChange(visible){
+    clickCallback(visible){
         alert(visible);
     }
 
@@ -35,7 +38,7 @@ export default class accordion extends Component{
                         </List>
                     </Accordion.Body>
                 </Accordion>
-                <Accordion visible={true}>
+                <Accordion visible>
                     <Accordion.Header>标题二(展开状态)</Accordion.Header>
                     <Accordion.Body>
                         <List>
@@ -68,8 +71,8 @@ export default class accordion extends Component{
                 </Accordion>
                 <Code target="accordion-hideicon" />
                 
-                <h3 className="comp-type">onAccordionChange 展开收起的回调函数</h3>
-                <Accordion visible={this.state.visible} onAccordionChange={this.onAccordionChange.bind(this)}>
+                <h3 className="comp-type">clickCallback 展开收起的回调函数</h3>
+                <Accordion visible={this.state.visible} clickCallback={this.clickCallback.bind(this)}>
                     <Accordion.Header>
                         标题一
                     </Accordion.Header>
@@ -84,7 +87,7 @@ export default class accordion extends Component{
                         </List>
                     </Accordion.Body>
                 </Accordion>
-                <Code target="accordion-onaccordionchange" />
+                <Code target="accordion-clickcallback" />
             </div>
         );
     }

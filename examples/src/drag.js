@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import {Drag} from 'phoenix-ui';
-import Code from "./code/code";
+import React, { Component } from "react"
+
+import Drag from "phoenix-ui/lib/drag"
+import Code from "./code/code"
 
 export default class toast extends Component{
 
@@ -29,8 +30,8 @@ export default class toast extends Component{
     }
 
     setBoxPosition(x,y){
-        this.box.style.webkitTransform = 'translate('+x+'px,'+y+'px)';
-        this.box.style.transform = 'translate('+x+'px,'+y+'px)';
+        this.box.style.webkitTransform = "translate("+x+"px,"+y+"px)";
+        this.box.style.transform = "translate("+x+"px,"+y+"px)";
     }
 
     render(){

@@ -1,6 +1,9 @@
 import React, { Component } from "react"
-import {PhFilter, Col} from "phoenix-ui"
+
+import PhFilter from "phoenix-ui/lib/ph-filter"
+import Col from "phoenix-ui/lib/col"
 // import Code from "./code/code";
+
 const FilterContainer = PhFilter.FilterContainer,
       PanelSimple = PhFilter.PanelSimple,
       Panel = PhFilter.Panel,

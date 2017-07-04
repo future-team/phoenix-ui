@@ -1,42 +1,45 @@
-import catBrowser from './utils/CatBrowser.js';
-import 'phoenix-styles/less/phoenix-styles.less';
+import viewport from './utils/Viewport'
+viewport();
 
-export Button from './Button';
-export ButtonGroup from './ButtonGroup';
-export Input from './Input';
-export Textarea from './Textarea';
-export Switch from './Switch';
-export Row from './Row';
-export Col from './Col';
-export TableView from './TableView';
-export FormGroup from './FormGroup';
-export Tab from './Tab';
-export Tabset from './Tabset';
-export Label from './Label';
-export Badge from './Badge';
-export Star from './Star';
-export Drag from './Drag';
-export Swipe from './Swipe';
-export Grid from './Grid';
+import catBrowser from './utils/CatBrowser';
+
+export Button from './button';
+export ButtonGroup from './button-group';
+export Input from './input';
+export Checkbox from './checkbox';
+export Radio from './radio';
+export Textarea from './textarea';
+export Switch from './switch';
+export Row from './row';
+export Col from './col';
+export Tab from './tab/Tab';
+export Tabset from './tab/Tabset';
+export Label from './label';
+export Badge from './badge';
+export Star from './star';
+export Drag from './drag';
+export Swipe from './swipe';
+export Grid from './grid';
 export Dialog from './modal/Dialog';
 export Alert from './modal/Alert';
 export Prompt from './modal/Prompt';
-export Toast from './Toast';
-export Popup from './Popup';
-export Accordion from './Accordion';
-export Popover from './Popover';
-export Whisper from './Whisper';
-export Slider from './Slider';
-export Animate from './Animate';
-export Icon from './Icon';
+export Toast from './toast';
+export Popup from './popup';
+export Accordion from './accordion';
+export Popover from './popover';
+export Slider from './slider';
+export Animate from './animate';
+export Icon from './icon';
 export Menu from './menu/Menu';
-export LoadingList from './LoadingList';
-export ImageList from './ImageList';
-export Steps from './Steps';
-export List from './List';
-export SearchBar from './SearchBar';
+export LoadingList from './loading-list';
+export ImageList from './image-list';
+export Steps from './steps';
+export List from './list';
+export SearchBar from './search-bar';
+export PullUp from './pullup';
 
-export PhFilter from './ph-filter/'
+// 控件
+export PhFilter from './ph-filter'
 
 //接入cat－browser
 catBrowser({

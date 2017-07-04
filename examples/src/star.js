@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import {Star} from "phoenix-ui";
-import Code from "./code/code";
+import React, { Component } from "react"
+
+import Star from "phoenix-ui/lib/star"
+import Code from "./code/code"
 
 export default class star extends Component{
     render(){

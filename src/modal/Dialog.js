@@ -1,9 +1,11 @@
-import React,{PropTypes} from 'react';
-import Component from '../utils/Component';
-import classnames from 'classnames';
-import {setPhoenixPrefix} from '../utils/Tool';
+import React,{PropTypes} from 'react'
+import Component from '../utils/Component'
+import classnames from 'classnames'
+import {setPhPrefix} from '../utils/Tool'
 
-import Animate from '../Animate';
+import Animate from '../animate/'
+
+import './modal.less'
 
 /**
  * <h5>弹出框组件，主要包括组件:</h5>
@@ -127,7 +129,7 @@ class Dialog extends Component{
         let {visible} = this.props;
 
         if(visible){
-            return <div className={classnames(setPhoenixPrefix("dialog-shadow"), "animated")} onClick={::this.onShadowClose}></div>;
+            return <div className={classnames(setPhPrefix("dialog-shadow"), "animated")} onClick={::this.onShadowClose}></div>;
         }else{
             return '';
         }
@@ -138,10 +140,10 @@ class Dialog extends Component{
 
         if(visible){
             return (
-                <div className={classnames(setPhoenixPrefix("dialog-main"), "animated")}>
-                    <div className={classnames(setPhoenixPrefix("dialog-content"), "animated")}>
+                <div className={classnames(setPhPrefix("dialog-main"), "animated")}>
+                    <div className={classnames(setPhPrefix("dialog-content"), "animated")}>
                         <a href="javascript:;" onClick={onClose} className={classnames(
-                            setPhoenixPrefix("dialog-close"),
+                            setPhPrefix("dialog-close"),
                             closeButton ? "show":"hide",
                             "gfs-icon icon-close"
                         )}></a>
@@ -195,10 +197,15 @@ class DialogTitle extends Component{
         super(props, context);
     }
 
+    static defaultProps = {
+        classPrefix:'dialog-title',
+        classMapping : {}
+    };
+
     render(){
         return (
             <h2 {...this.props} className={classnames(
-                setPhoenixPrefix('dialog-title'),
+                this.getProperty(true),
                 this.props.className
             )}>
                 {this.props.children}
@@ -213,10 +220,15 @@ class DialogBody extends Component{
         super(props, context);
     }
 
+    static defaultProps = {
+        classPrefix:'dialog-body',
+        classMapping : {}
+    };
+
     render(){
         return (
             <div {...this.props} className={classnames(
-                setPhoenixPrefix('dialog-body'),
+                this.getProperty(true),
                 this.props.className
             )}>
                 {this.props.children}
@@ -231,10 +243,15 @@ class DialogFooter extends Component{
         super(props, context);
     }
 
+    static defaultProps = {
+        classPrefix:'dialog-footer',
+        classMapping : {}
+    };
+
     render(){
         return (
             <div {...this.props} className={classnames(
-                setPhoenixPrefix('dialog-footer'),
+                this.getProperty(true),
                 this.props.className,
                 'clearfix'
             )}>

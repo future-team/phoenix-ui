@@ -1,7 +1,8 @@
-import React, { Component } from "react";
-import {ImageList} from "phoenix-ui";
-import Code from "./code/code";
-import {ajax} from "./utils/tool.js";
+import React, { Component } from "react"
+
+import ImageList from "phoenix-ui/lib/image-list"
+import Code from "./code/code"
+import {ajax} from "./utils/tool.js"
 
 export default class imagelist extends Component{
     constructor(props,context){

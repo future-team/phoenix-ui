@@ -1,6 +1,8 @@
-import React, { Component } from "react";
-import {Button, Toast} from "phoenix-ui";
-import Code from "./code/code";
+import React, { Component } from "react"
+
+import Button from "phoenix-ui/lib/button"
+import Toast from "phoenix-ui/lib/toast"
+import Code from "./code/code"
 
 export default class toast extends Component{
 

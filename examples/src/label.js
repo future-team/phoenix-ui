@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import {Label} from "phoenix-ui";
-import Code from "./code/code";
+import React, { Component } from "react"
+
+import Label from "phoenix-ui/lib/label"
+import Code from "./code/code"
 
 export default class Labels extends Component{
     render(){

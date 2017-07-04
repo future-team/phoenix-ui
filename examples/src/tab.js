@@ -1,6 +1,10 @@
 import React, { Component } from "react";
-import {Tabset,Tab,List,Col} from "phoenix-ui";
-import Code from "./code/code";
+
+import Tabset from "phoenix-ui/lib/tab/Tabset"
+import Tab from "phoenix-ui/lib/tab/Tab"
+import List from "phoenix-ui/lib/list"
+import Col from "phoenix-ui/lib/col"
+import Code from "./code/code"
 
 export default class tab extends Component{
 

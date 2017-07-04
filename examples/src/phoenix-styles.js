@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import Code from "./code/code";
+import React, { Component } from "react"
+import Code from "./code/code"
 
 export default class icon extends Component{
     constructor(props,context){

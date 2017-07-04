@@ -1,10 +1,10 @@
-import React,{PropTypes} from 'react';
-import Component from '../utils/Component';
-import classnames from 'classnames';
-import {setPhoenixPrefix} from '../utils/Tool';
+import React,{PropTypes} from 'react'
+import Component from '../utils/Component'
+import classnames from 'classnames'
+import {setPhPrefix} from '../utils/Tool'
 
-import Animate from '../Animate';
-import Icon from '../Icon';
+import Animate from '../animate'
+import Icon from '../icon'
 
 /**
  * 菜单内容组件<br/>
@@ -126,7 +126,7 @@ export default class MenuBody extends Component{
         let {closeButton} = this.props;
 
         if(closeButton){
-            return <Icon phIcon="close" className={classnames(setPhoenixPrefix('menu-close-button'))} onClick={::this.onChange} />;
+            return <Icon phIcon="close" className={classnames(setPhPrefix('menu-close-button'))} onClick={::this.onChange} />;
         }else{
             return '';
         }

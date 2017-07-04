@@ -1,11 +1,11 @@
 import React,{PropTypes} from 'react';
 import Component from '../utils/Component';
 import classnames from 'classnames';
-import {setPhoenixPrefix} from '../utils/Tool';
+import {setPhPrefix} from '../utils/Tool';
 
-import ButtonGroup from '../ButtonGroup';
-import Button from '../Button';
-import Input from '../Input';
+import ButtonGroup from '../button-group/';
+import Button from '../button/';
+import Input from '../input/';
 import Dialog from './Dialog';
 
 /**
@@ -190,7 +190,7 @@ export default class Prompt extends Component{
         let {visible, onClose, title, content, closeButton, shadowDisabled} = this.props;
 
         return (
-            <Dialog className={setPhoenixPrefix('dialog-prompt')} visible={visible} onClose={onClose} closeButton={closeButton} shadowDisabled={shadowDisabled}>
+            <Dialog className={setPhPrefix('dialog-prompt')} visible={visible} onClose={onClose} closeButton={closeButton} shadowDisabled={shadowDisabled}>
                 <Dialog.Title>{title}</Dialog.Title>
                 <Dialog.Body>
                     {content}

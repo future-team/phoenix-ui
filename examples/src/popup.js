@@ -1,6 +1,10 @@
-import React, { Component } from 'react';
-import {Button, Popup, List, Col} from 'phoenix-ui';
-import Code from "./code/code";
+import React, { Component } from 'react'
+
+import Button from 'phoenix-ui/lib/button'
+import Popup from 'phoenix-ui/lib/popup'
+import List from 'phoenix-ui/lib/list'
+import Col from 'phoenix-ui/lib/col'
+import Code from "./code/code"
 
 export default class popup extends Component{
 

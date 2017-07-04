@@ -1,7 +1,11 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 import classnames from "classnames";
-import {Menu, Button, Icon, Input} from "phoenix-ui";
-import Code from "./code/code";
+
+import Menu from "phoenix-ui/lib/menu/Menu"
+import Button from "phoenix-ui/lib/button"
+import Icon from "phoenix-ui/lib/icon"
+import Input from "phoenix-ui/lib/input"
+import Code from "./code/code"
 
 export default class menu extends Component{
 
@@ -85,16 +89,16 @@ export default class menu extends Component{
     render(){
         return(
             <div>
-                <Menu visible={this.state.visible} scrollCeiling={100} onMenuChange={::this.onMenuChange}>
+                <Menu visible={this.state.visible} scrollCeiling={100} onMenuChange={this.onMenuChange.bind(this)}>
                     <Menu.Header align={this.state.align}>Phoenix</Menu.Header>
                     <Menu.Body width={this.state.width} placement={this.state.placement} closeButton={this.state.closeButton}>
                         <Menu.Nav align={this.state.navAlign}>
                             <div>
-                                <Input placeholder="自定义部分" value={this.state.value} onChange={::this.onInputChange}/>
+                                <Input placeholder="自定义部分" value={this.state.value} onChange={this.onInputChange.bind(this)}/>
                             </div>
-                            <Menu.List activeName={this.state.activeName} onMenulistChange={::this.setActiveName}>
+                            <Menu.List activeName={this.state.activeName} onMenulistChange={this.setActiveName.bind(this)}>
                                 <Menu.Item name="index" phIcon="home">首页</Menu.Item>
-                                <Menu.Item name="menu" href="#menu" phIcon="menu" onChange={::this.onMenuItemChange}>菜单</Menu.Item>
+                                <Menu.Item name="menu" href="#menu" phIcon="menu" onChange={this.onMenuItemChange.bind(this)}>菜单</Menu.Item>
                             </Menu.List>
                         </Menu.Nav>
                     </Menu.Body>

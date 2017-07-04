@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import {Slider} from "phoenix-ui";
-import Code from "./code/code";
+import React, { Component } from "react"
+
+import Slider from "phoenix-ui/lib/slider"
+import Code from "./code/code"
 
 export default class slider extends Component{
 

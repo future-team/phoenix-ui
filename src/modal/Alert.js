@@ -1,10 +1,10 @@
 import React,{PropTypes} from 'react';
 import Component from '../utils/Component';
 import classnames from 'classnames';
-import {setPhoenixPrefix} from '../utils/Tool';
+import {setPhPrefix} from '../utils/Tool';
 
-import ButtonGroup from '../ButtonGroup';
-import Button from '../Button';
+import ButtonGroup from '../button-group/';
+import Button from '../button/';
 import Dialog from './Dialog';
 
 /**
@@ -126,7 +126,7 @@ export default class Alert extends Component{
         let {visible, onClose, title, content, closeButton, shadowDisabled} = this.props;
 
         return (
-            <Dialog className={setPhoenixPrefix('dialog-alert')} visible={visible} onClose={onClose} closeButton={closeButton} shadowDisabled={shadowDisabled}>
+            <Dialog className={setPhPrefix('dialog-alert')} visible={visible} onClose={onClose} closeButton={closeButton} shadowDisabled={shadowDisabled}>
                 <Dialog.Title>{title}</Dialog.Title>
                 <Dialog.Body>{content}</Dialog.Body>
                 <Dialog.Footer>{this.renderButtons()}</Dialog.Footer>

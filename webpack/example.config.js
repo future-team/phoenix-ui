@@ -1,6 +1,3 @@
-/**
- * Created by panqianjin on 16/5/19.
- */
 var webpack = require('webpack'),
     glob = require('glob'),
     path = require('path'),
@@ -29,7 +26,9 @@ module.exports = extend({},{
         }]
     },
     resolve: {
-        alias: { "phoenix-ui" : "../../src/index.js" }
+        alias: { 
+            "phoenix-ui/lib" : path.join(process.cwd(), 'src')
+        }
     },
     plugins:[
         new webpack.optimize.UglifyJsPlugin(),

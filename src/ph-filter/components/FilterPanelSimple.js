@@ -1,6 +1,6 @@
 import React, { Component ,PropTypes} from 'react'
 import classnames from 'classnames'
-import PanelBase from './FilterPanelBase.js'
+import PanelBase from './FilterPanelBase'
 
 export default class FilterPanelSimple extends PanelBase{
     constructor(props,context){

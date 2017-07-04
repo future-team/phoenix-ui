@@ -7,8 +7,11 @@ var code = {
 	'button-disabled': '<Button disabled>disabled</Button>',
 	'button-active': '<Button active>active</Button>',
 	'button-phicon': '<Button phIcon="search">phIcon</Button>',
+	'button-stable':'<Button phIcon="search" block stable>文字居中</Button>',
 
-	'button-group-phtype-justify': '<ButtonGroup>\n\  <Button>justify1</Button>\n\  <Button>justify2</Button>\n\  <Button>justify3</Button>\n</ButtonGroup>',
+	'button-group-phtype-default':'<ButtonGroup>\n\  <Button phSize="lg">确定</Button>\n\  <Button phSize="lg" phStyle="gray" hollow >取消</Button>\n</ButtonGroup>',
+	'button-group-phtype-justify': '<ButtonGroup phType="justify">\n\  <Button>justify1</Button>\n\  <Button>justify2</Button>\n\  <Button>justify3</Button>\n</ButtonGroup>',
+	'button-group-phtype-segmente':'<ButtonGroup phType="segmente">\n\  <Button>标签1</Button>\n\  <Button>标签2</Button>\n\  <Button>标签3</Button>\n</ButtonGroup>',
 	'button-group-phtype-tacked': '<ButtonGroup phType="tacked">\n\  <Button block>tacked1</Button>\n\  <Button block>tacked2</Button>\n\  <Button block>tacked3</Button>\n</ButtonGroup>',
 	'button-group-callback': '<ButtonGroup onButtongroupChange={(target,html)=>{console.log(target);alert(html);}}>\n\  <Button>justify1</Button>\n\  <Button>justify2</Button>\n\  <Button>justify3</Button>\n</ButtonGroup>',
 	
@@ -22,10 +25,18 @@ var code = {
 	'label-phstyle': '<Label>惠</Label>\n<Label phStyle="success">惠</Label>\n<Label phStyle="info">惠</Label>\n<Label phStyle="danger">惠</Label>\n<Label phStyle="error">惠</Label>\n<Label phStyle="warning">惠</Label>',
 	'label-phsize': '<Label>惠</Label>\n<Label phSize="md">惠</Label>\n<Label phSize="lg">惠</Label>',
 
-	'input-text': '<Input placeholder="默认text" />\n<Input type="text" defaultValue="默认值defaultValue" placeholder="请输入" />\n<Input type="text" value={this.state.name} onChange={::this.setValue.bind(this,"name")} placeholder="请输入" />\n '+
-		'// setValue是设置value的函数 \n setValue(key,e){\n\  let o ={}; \n\  o[key || e.target.name] = e.target.value;\n\  this.setState(o);\n }',
-	'input-radio': '<Input type="radio" label="男" name="sex" />\n<Input type="radio" label="女" name="sex" />',
-	'input-checkbox': '<Input type="checkbox" label="苹果" />\n<Input type="checkbox" label="香蕉" defaultChecked={true} />\n<Input type="checkbox" label="西瓜" checked={this.state.checked} onChange={::this.onChange} />',
+	'input-text': '<Input placeholder="placeholder"/>\n<Input type="text" value="默认值" placeholder="placeholder" clear />\n<Input placeholder="请输入" value="不可编辑的情况" disabled/>',
+	'input-search':'<Input type="search" placeholder="请输入" />\n<Input type="search" placeholder="请输入" phIcon="search" />\n<Input type="search" placeholder="请输入" value="可清空输入的文字" phIcon="search" clear />\n<Input type="search" placeholder="请输入" value="不可编辑的情况" phIcon="search" disabled />',
+	'input-password':'<Input type="password" defaultValue="123456" seePassword />\n<Input type="password" value="123456" placeholder="请输入" clear seePassword />',
+	'input-getvalue':'<Input placeholder="默认text" ref={(inputElem)=>{this.inputElem = inputElem}} />\n this.inputElem.getValueCallback()',
+
+	'checkbox-default':'<Checkbox label="香蕉" defaultChecked={true} />',
+	'checkbox-onchange':'onCheckboxChange(){\n\  this.setState({\n\    checkboxChecked: !this.state.checkboxChecked\n\  });\n}\n...\n<Checkbox label="西瓜" checked={this.state.checkboxChecked} onChange={::this.onCheckboxChange} />',
+	'checkbox-disabled':'<Checkbox label="西瓜" disabled/>',
+
+	'radio-default':'<Radio label="男" name="sex2" defaultChecked={true}/>\n<Radio label="女" name="sex2"/>',
+	'radio-onchange':'onRadioChange(){\n\  this.setState({\n\    radioChecked: !this.state.radioChecked\n\  });\n}\n...\n<Radio label="男" name="sex3" checked={this.state.radioChecked} onChange={::this.onRadioChange}/>\n<Radio label="女" name="sex3" checked={!this.state.radioChecked} onChange={::this.onRadioChange}/>',
+	'radio-disabled':'<Radio label="男" name="sex4" disabled />\n<Radio label="女" name="sex4" disabled />',
 
 	'switch': '<Switch />\n<Switch defaultChecked={true} />\n<Switch checked={this.state.checked} onChange={::this.onChange} />',
 
@@ -41,7 +52,7 @@ var code = {
 		'<Row>\n\    <Col>\n\      <label>喜欢的水果</label>\n\      <div style={{textAlign: "right"}}><Input type="radio" label="苹果" name="fruit" /><Input type="radio" label="香蕉" name="fruit" /></div>\n\    </Col>\n\  </Row>\n</FormGroup>',
 
 	'accordion-visible': '<Accordion visible={true}>\n\  <Accordion.Header>标题二-展开</Accordion.Header>\n\  <Accordion.Body>...</Accordion.Body>\n</Accordion>',
-	'accordion-onaccordionchange': '<Accordion visible={this.state.visible} onAccordionChange={(visible)=>{this.setState({visible: visible})}}>\n\  <Accordion.Header>...</Accordion.Header>\n\  <Accordion.Body>...</Accordion.Body>\n</Accordion>',
+	'accordion-clickcallback': '<Accordion visible={this.state.visible} clickCallback={(visible)=>{this.setState({visible: visible})}}>\n\  <Accordion.Header>...</Accordion.Header>\n\  <Accordion.Body>...</Accordion.Body>\n</Accordion>',
 	'accordion-hideicon':'<Accordion hideIcon>\n\  <Accordion.Header>标题一</Accordion.Header>\n\  <Accordion.Body>...</Accordion.Body>\n</Accordion>',
 
 	'dialog-onclose': '<Dialog visible={this.state.visible1} onClose={::this.onClose.bind(this,"visible1")}>\n\  <Dialog.Title>标题1</Dialog.Title>\n\  <Dialog.Body>可自定义表格内容</Dialog.Body>\n\  <Dialog.Footer>...</Dialog.Footer>\n</Dialog>',
@@ -68,12 +79,11 @@ var code = {
 	'popup-top': '<Popup visible={this.state.visible} onClose={()=>{this.setState({visible:false});}}>\n\  // 弹层内容\n\  </Popup>',
 	'popup-bottom': '<Popup align="bottom" visible={this.state.visible} onClose={()=>{this.setState({visible:false});}}>\n\  // 弹层内容\n\  </Popup>',
 
-	'popover-placement': 'const popover = (\n\  <Popover>\n\    // 气泡内容\n\  </Popover>\n);\n'+
-		'<Whisper target={popover}>Bottom</Whisper>\n<Whisper placement="top" target={popover}>Top</Whisper>\n<Whisper placement="right" target={popover}>Right</Whisper>\n<Whisper placement="left" target={popover}>Left</Whisper>\n<Whisper placement="top right" target={popover}>Top Right</Whisper>\n<Whisper placement="top left" target={popover}>Top Left</Whisper>\n<Whisper placement="bottom right" target={popover}>Bottom Right</Whisper>\n<Whisper placement="bottom left" target={popover}>Bottom Left</Whisper>',
-	'popover-distance': 'const popover = (\n\  <Popover>\n\    // 气泡内容\n\  </Popover>\n);\n'+
-		'<Whisper target={popover} distance={10}>10</Whisper>\n<Whisper target={popover} distance={20}>20</Whisper>',
-	'popover-ontargetchange': 'const popover = (\n\  <Popover>\n\    // 气泡内容\n\  </Popover>\n);\n'+
-		'<Whisper onTargetChange={()=>{alert("气泡出现消失时额外的执行函数");}} target={popover}>popover</Whisper>',
+	'popover-gettarget':'<Button phSize="lg" ref={(button)=>{this.button = button}}>纯文字气泡</Button>\n<Popover getTarget={()=>{return this.button}}>\n\  <div className="ph-popover-text">\n\    一条很长的很长的气泡提示语，为了占位存在的气泡提示语。一条很长的很长的气泡提示语，为了占位存在的气泡提示语。一条很长的很长的气泡提示语，为了占位存在的气泡提示语。一条很长的很长的气泡提示语，为了占位存在的气泡提示语。\n\  </div>\n</Popover>\n\n' + 
+		'<Button phSize="lg" ref={(button)=>{this.button1 = button}}>列表气泡</Button>\n<Popover getTarget={()=>{return this.button1}} placement="right">\n\  <ul className="ph-popover-list">\n\    <li className="ph-popover-item">未上线单店</li>\n\    <li className="ph-popover-item">未上线连锁店</li>\n\  </ul>\n</Popover>',
+	'popover-placement':'<Button phSize="lg" ref={(button)=>{this.button2 = button}}>按钮</Button>\n<Popover getTarget={()=>{return this.button2}} placement="top">\n\  <div className="ph-popover-text">\n\    为了占位存在的气泡提示语。\n\  </div>\n</Popover>',
+	'popover-distance':'<Button phSize="lg" ref={(button)=>{this.button3 = button}}>按钮</Button>\n<Popover getTarget={()=>{return this.button3}} distance={20}>\n\  <div className="ph-popover-text">\n\    为了占位存在的气泡提示语。\n\  </div>\n</Popover>',
+	'popover-clickcallback':'<Button phSize="lg" ref={(button)=>{this.button4 = button}}>按钮</Button>\n<Popover getTarget={()=>{return this.button4}} clickCallback={(bool)=>{alert(bool)}}>\n\  <div className="ph-popover-text">\n\    为了占位存在的气泡提示语。\n\  </div>\n</Popover>',
 
 	'tabset-activeindex': '<Tabset activeIndex={1}>\n\  <Tab heading="标题1">\n\    横向内容1\n\  </Tab>\n\  <Tab heading="标题2">\n\    横向内容2\n\  </Tab>\n</Tabset>',
 	'tabset-vertical': '<Tabset vertical>\n\  <Tab heading="标题1">\n\    竖向内容1\n\  </Tab>\n\  <Tab heading="标题2">\n\    竖向内容2\n\  </Tab>\n</Tabset>',
@@ -119,7 +129,7 @@ var code = {
 	'menu-item-href': '...\n<Menu.List activeName={this.state.activeName} onMenulistChange={(name)=>{this.setState({activeName:name})}} >\n\  <Menu.Item href="#home">主页</Menu.Item>\n<Menu.List>\n...',
 	'menu-item-onmenuitemchange': '...\n<Menu.List activeName={this.state.activeName} onMenulistChange={(name)=>{this.setState({activeName:name})}} >\n\  <Menu.Item onMenuitemChange={(name)=>{console.log(name);}}>主页</Menu.Item>\n<Menu.List>\n...',
 	
-	'loadinglist':'<LoadingList phMode="auto" loadingStatus={this.state.loadingStatus} \nloadTips={["点击加载更多","加载中...","加载成功！","加载失败！","没有更多"]} \nbuttonStyles={["primary","gray","success","danger","gray"]} \nonLoading={::this.onLoading} onLoadingEnd={::this.onLoadingEnd}>\n\  '+
+	'loadinglist':'<LoadingList phMode="auto" loadingStatus={this.state.loadingStatus} \nloadTips={["点击加载更多","加载中...","加载成功！","加载失败！","没有更多"]} \nbuttonStyles={["primary","gray","success","danger","gray"]} \nloadCallback={::this.nloadCallback} loadEndCallback={::this.loadEndCallback}>\n\  '+
 		'<ul>\n\    {\n\      this.state.loadingData.map((data,index)=>{\n\        return (\n\          <li key={index}>...</li>\n\        );\n\      })\n\    }\n\  </ul>\n</LoadingList>',
 
 	'imagelist-images':'json:\n {"data": [\n\  {\n\    "image": "...",\n\    "title": "图1",\n\    "desp": "关于图是一个...",\n\    "score": 1\n\  },\n\    ...\n]}\n...\n<ImageList images={this.state.images} column={4} />',

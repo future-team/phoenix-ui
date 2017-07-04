@@ -1,13 +1,15 @@
-import React,{PropTypes} from 'react';
-import Component from '../utils/Component';
-import classnames from 'classnames';
-import {setPhoenixPrefix, closest} from '../utils/Tool';
+import React,{PropTypes} from 'react'
+import Component from '../utils/Component'
+import classnames from 'classnames'
+import {setPhPrefix, closest} from '../utils/Tool'
 
-import MenuHeader from './MenuHeader';
-import MenuBody from './MenuBody';
-import MenuNav from './MenuNav';
-import MenuList from './MenuList';
-import MenuItem from './MenuItem';
+import MenuHeader from './MenuHeader'
+import MenuBody from './MenuBody'
+import MenuNav from './MenuNav'
+import MenuList from './MenuList'
+import MenuItem from './MenuItem'
+
+import './menu.less'
 
 /**
  * <h5>菜单组件，主要包括组件:</h5>
@@ -193,10 +195,10 @@ class Menu extends Component{
         return (
             <Component {...this.props} className={classnames(
                 this.getProperty(true),
-                setPhoenixPrefix('menu-placeholder'),
+                setPhPrefix('menu-placeholder'),
                 className
             )} ref={(menuPlaceholder)=>{this.menuPlaceholder=menuPlaceholder}}>
-                <div className={this.state.ceiling? setPhoenixPrefix('menu-ceiling'):''} ref={(menuCeiling)=>{this.menuCeiling=menuCeiling}}>
+                <div className={this.state.ceiling? setPhPrefix('menu-ceiling'):''} ref={(menuCeiling)=>{this.menuCeiling=menuCeiling}}>
                     {this.renderChildren()}
                 </div>
             </Component>

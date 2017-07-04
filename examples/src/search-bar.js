@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import {SearchBar} from "phoenix-ui";
-import Code from "./code/code";
+import React, { Component } from "react"
+
+import SearchBar from "phoenix-ui/lib/search-bar"
+import Code from "./code/code"
 
 export default class searchBar extends Component{
     queryCallback(value){

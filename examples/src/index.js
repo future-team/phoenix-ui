@@ -9,15 +9,18 @@ import History from 'history/lib/createHashHistory'
 import Tab from './tab.js'
 import Button from './button.js'
 import ButtonGroup from './button-group.js'
+
 import Input from './input.js'
+import Checkbox from './checkbox.js'
+import Radio from './radio.js'
 import Textarea from './textarea.js'
 import Switch from './switch.js'
+
 import Grid from './grid.js'
 import List from './list.js'
-// import FormGroup from './form-group.js';
-import Label from './label.js'
+// import Label from './label.js'
 import Badge from './badge.js'
-import StarDemo from './star.js'
+import Star from './star.js'
 import Swipe from './swipe.js'
 import Slider from './slider.js'
 import Dialog from './dialog.js'
@@ -35,9 +38,10 @@ import LoadingList from './loading-list.js'
 import ImageList from './image-list.js'
 import Steps from './steps.js'
 import SearchBar from './search-bar.js'
+import PullUp from './pullup.js'
 
-import ListDemo from './list-demo.js'
-import Detail from './detail-demo.js'
+// import ListDemo from './list-demo.js'
+// import Detail from './detail-demo.js'
 import PhoenixStyle from './phoenix-styles.js'
 
 import PhFilter from './ph-filter.js'
@@ -73,27 +77,28 @@ let Index = class index extends Component {
                     </div>
                 </header>
                 <h2>组件</h2>
-                <h3>Basic</h3>
+                <h3>基础类</h3>
                 <div className="menu-panel">
                     <Card href="#/button" title="Button" desp="按钮" />
                     <Card href="#/buttongroup" title="ButtonGroup" desp="按钮组" />
                     <Card href="#/badge" title="Badge" desp="徽章" />
-                    <Card href="#/label" title="Label" desp="标签" />
                     <Card href="#/star" title="Star" desp="星星" />
                     <Card href="#/icon" title="Icon" desp="符号" />
                 </div>
-                <h3>Form</h3>
+                <h3>表单类</h3>
                 <div className="menu-panel">
-                    <Card href="#/input" title="Input" desp="输入框，单选框，复选框" />
+                    <Card href="#/input" title="Input" desp="输入框" />
+                    <Card href="#/checkbox" title="Checkbox" desp="复选框" />
+                    <Card href="#/radio" title="Radio" desp="单选框" />
                     <Card href="#/textarea" title="Textarea" desp="多行输入框" />
                     <Card href="#/switch" title="Switch" desp="开关" />
                 </div>
-                <h3>Layout</h3>
+                <h3>布局类</h3>
                 <div className="menu-panel">
                     <Card href="#/grid" title="Grid/Row/Col" desp="布局" />
                     <Card href="#/list" title="List" desp="列表" />
                 </div>
-                <h3>Modal</h3>
+                <h3>弹出框类</h3>
                 <div className="menu-panel">
                     <Card href="#/dialog" title="Dialog" desp="基础弹框" />
                     <Card href="#/alert" title="Alert" desp="alert弹框" />
@@ -102,15 +107,16 @@ let Index = class index extends Component {
                     <Card href="#/popup" title="Popup" desp="弹层" />
                     <Card href="#/popover" title="Popover" desp="气泡" />
                 </div>
-                <h3>FeedBack</h3>
+                <h3>操作类</h3>
                 <div className="menu-panel">
                     <Card href="#/tab" title="Tab" desp="选项卡" />
                     <Card href="#/steps" title="Steps" desp="步骤" />
                     <Card href="#/accordion" title="Accordion" desp="手风琴" />
                     <Card href="#/slider" title="Slider" desp="滑块" />
                     <Card href="#/swipe" title="Swipe" desp="左刷操作" />
+                    <Card href="#/pullup" title="PullUp" desp="上拉刷新" />
                 </div>
-                <h3>Combination</h3>
+                <h3>组合类</h3>
                 <div className="menu-panel">
                     <Card href="#/search-bar" title="SearchBar" desp="搜索" />
                     <Card href="#/loadinglist" title="LoadingList" desp="加载更多" />
@@ -128,7 +134,7 @@ let Index = class index extends Component {
                     <Card href="#/ph-filter" title="PhFilter" desp="筛选" />
                 </div>
 
-                <h2>Demo</h2>
+                <h2>例子</h2>
                 <div className="menu-panel">
                     <Card href="#/list-demo" title="列表页示例" desp="列表页示例" />
                     <Card href="#/detail" title="详情页示例" desp="详情页示例" />
@@ -137,10 +143,6 @@ let Index = class index extends Component {
         );
     }
 };
-
-const RouteTransition = (props)=>(
-    <PageTransition {...props} transitionName="slide-left" onLoad={()=>{console.log('end!!!');}}>{props.children}</PageTransition>
-);
 
 let AppRouter = class AppRouter extends Component {
     constructor(props, context) {
@@ -159,14 +161,16 @@ let AppRouter = class AppRouter extends Component {
                 <Route path="/button" name="button" component={Button} />
                 <Route path="/buttongroup" name="buttongroup" component={ButtonGroup} />
                 <Route path="/input" name="input" component={Input} />
+                <Route path="/checkbox" name="checkbox" component={Checkbox} />
+                <Route path="/radio" name="radio" component={Radio} />
                 <Route path="/textarea" name="textarea" component={Textarea} />
                 <Route path="/switch" name="switch" component={Switch} />
                 <Route path="/grid" name="grid" component={Grid} />
                 <Route path="/tab" name="tab" component={Tab} />
-                <Route path="/label" name="label" component={Label} />
                 <Route path="/badge" name="badge" component={Badge} />
-                <Route path="/star" name="star" component={StarDemo} />
+                <Route path="/star" name="star" component={Star} />
                 <Route path="/swipe" name="swipe" component={Swipe} />
+                <Route path="/pullup" name="pullup" component={PullUp} />
                 <Route path="/slider" name="slider" component={Slider} />
                 <Route path="/steps" name="steps" component={Steps} />
                 <Route path="/dialog" name="dialog" component={Dialog} />
@@ -185,9 +189,7 @@ let AppRouter = class AppRouter extends Component {
                 <Route path="/icon" name="icon" component={Icon} />
 
                 <Route path="/ph-filter" name="phfilter" component={PhFilter} />
-
-                <Route path="/detail" name="detail" component={Detail} />
-                <Route path="/list-demo" name="list-demo" component={ListDemo} />
+                
                 <Redirect from="/" to="/index" />
             </Router>
         );
@@ -219,8 +221,8 @@ let App = class App extends Component {
     render() {
         return (
             <div>
+                <a href="#/index" id="Back" className="gfs-icon icon-chevron-left"></a>
                 <AppRouter />
-                <a href="#/index" id="Back" className="ph-button-primary">Back <i className="gfs-icon icon-chevron-right"></i></a>
             </div>
         )
     }

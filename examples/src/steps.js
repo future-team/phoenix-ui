@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import {Steps} from "phoenix-ui";
-import Code from "./code/code";
+import React, { Component } from "react"
+
+import Steps from "phoenix-ui/lib/steps"
+import Code from "./code/code"
 
 export default class steps extends Component{
 

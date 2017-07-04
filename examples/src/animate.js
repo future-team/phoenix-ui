@@ -1,6 +1,11 @@
-import React, { Component } from "react";
-import {Row,Col,Input,Button,Animate} from "phoenix-ui";
-import Code from "./code/code";
+import React, { Component } from "react"
+
+import Row from "phoenix-ui/lib/row"
+import Col from "phoenix-ui/lib/col"
+import Input from "phoenix-ui/lib/input"
+import Button from "phoenix-ui/lib/button"
+import Animate from "phoenix-ui/lib/animate"
+import Code from "./code/code"
 
 export default class animate extends Component{
 

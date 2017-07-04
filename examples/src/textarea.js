@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import {Textarea} from "phoenix-ui";
-import Code from "./code/code";
+import React, { Component } from "react"
+
+import Textarea from "phoenix-ui/lib/textarea"
+import Code from "./code/code"
 
 export default class textarea extends Component{
 

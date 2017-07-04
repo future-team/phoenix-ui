@@ -1,5 +1,7 @@
-import React, { Component } from "react";
-import {Alert, Button} from "phoenix-ui";
+import React, { Component } from "react"
+
+import Alert from "phoenix-ui/lib/modal/Alert"
+import Button from "phoenix-ui/lib/button"
 import Code from "./code/code";
 
 export default class alert extends Component{

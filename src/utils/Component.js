@@ -112,19 +112,21 @@ export default class BaseComponent extends Component{
             }
         }
     }
+
     filterClass(key){
         let value =typeof(key)=='string'?this.props.classMapping[key]:key;
 
         return value ? value : key;
     }
+    
     updateProperty(props,propList,styleList,otherProps){
         let propKey=props.key,
             propValue=props.value,
             propConfig = this.properties[propKey];
-
+        // console.log(propConfig)
         const type = 'property';
         if(propConfig ){
-            this.filterClass();
+            // this.filterClass();
             switch (typeof(propConfig)){
                 case 'boolean':
                     if(propValue){

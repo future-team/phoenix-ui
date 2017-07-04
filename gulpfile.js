@@ -19,6 +19,10 @@ gulp.task('babel', function () {
         .pipe(gulp.dest('lib'))
 });
 
+gulp.task('watch', function () {
+    return gulp.watch('src/**/*.js', ['babel'])
+});
+
 gulp.task('open', function () {
     gulp.src(__filename)
         .pipe(open({uri: 'http://127.0.0.1:' + devPort + '/examples/index.html'}));
@@ -29,7 +33,7 @@ gulp.task('demoBuild', function (done) {
     wbpk.devtool = 'eval';
     wbpk.entry = [
         'webpack-dev-server/client?http://127.0.0.1:' + devPort,
-        'webpack/hot/only-dev-server',
+        'webpack/hot/dev-server',
         './examples/src/index.js'
     ];
     wbpk.plugins = [
@@ -43,7 +47,7 @@ gulp.task('demoBuild', function (done) {
             loaders: ['babel']
         },
         {
-            test: /\.jsx?$/,
+            test: /\.js?$/,
             loaders: ['react-hot', 'babel-loader?cacheDirectory'],
             exclude: /node_modules/
         },
@@ -66,7 +70,9 @@ gulp.task('demoBuild', function (done) {
 
     new WebpackDevServer(compiler, {
         publicPath: '/examples/dist/',
+        disableHostCheck: true,
         hot: true,
+        inline:true,
         historyApiFallback: true,
         port: devPort,
         stats: {

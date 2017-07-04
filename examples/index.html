@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Examples - Phoenix-ui</title>
-    <script>
-        (function (baseFontSize, fontscale) {
+    <!--<script>
+        (function(baseFontSize,fontscale){
             var _baseFontSize = baseFontSize || 100;
             var _fontscale = fontscale || 1;
             var win = window;
@@ -30,10 +30,9 @@
             metaEl.setAttribute('content', 'width=device-width,user-scalable=no,initial-scale=' + scale + ',maximum-scale=' + scale + ',minimum-scale=' + scale);
             doc.documentElement.style.fontSize = _baseFontSize / 2 * dpr * _fontscale + 'px';
         })();
-    </script>
-    
+    </script>    -->
     <script>
-        // appendLink('./dist/phoenix-styles');
+        appendLink('./dist/phoenix-styles');
         // localStorage.skinTheme=="ios" && appendLink('../dist/ios-skin');
         
         function appendLink(filePath) {
@@ -46,7 +45,9 @@
         }
     </script> 
 
-    <link rel="stylesheet" href="./lib/phoenix-styles/dist/phoenix-styles.css">
+    
+
+    <!--<link rel="stylesheet" href="./lib/phoenix-styles/dist/phoenix-styles.css">-->
     <!-- <link rel="stylesheet" href="./lib/phoenix-styles/dist/ios-skin.css"> -->
 
     <link rel="stylesheet" href="./css/common.css">

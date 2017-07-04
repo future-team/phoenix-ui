@@ -1,6 +1,6 @@
 import React, { Component,PropTypes } from 'react'
-import Button from '../../Button'
-import Input from '../../Input'
+import Button from '../../button'
+import Input from '../../input'
 
 import FilterContainer from './FilterContainer.js'
 import CheckboxPanel from "./FilterPanelCheckbox.js"

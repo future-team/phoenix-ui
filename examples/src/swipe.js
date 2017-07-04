@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import {Swipe} from "phoenix-ui";
-import Code from "./code/code";
+import React, { Component } from "react"
+
+import Swipe from "phoenix-ui/lib/swipe"
+import Code from "./code/code"
 
 export default class swipe extends Component{
 

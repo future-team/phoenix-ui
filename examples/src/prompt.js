@@ -1,6 +1,8 @@
-import React, { Component } from "react";
-import {Prompt, Button} from "phoenix-ui";
-import Code from "./code/code";
+import React, { Component } from "react"
+
+import Prompt from "phoenix-ui/lib/modal/Prompt"
+import Button from "phoenix-ui/lib/button"
+import Code from "./code/code"
 
 export default class prompt extends Component{
 

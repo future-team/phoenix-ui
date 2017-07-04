@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import {Badge} from "phoenix-ui";
-import Code from "./code/code";
+import React, { Component } from "react"
+
+import Badge from "phoenix-ui/lib/badge"
+import Code from "./code/code"
 
 export default class badge extends Component{
     render(){

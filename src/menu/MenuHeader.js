@@ -1,9 +1,9 @@
-import React,{PropTypes} from 'react';
-import Component from '../utils/Component';
-import classnames from 'classnames';
-import {setPhoenixPrefix} from '../utils/Tool';
+import React,{PropTypes} from 'react'
+import Component from '../utils/Component'
+import classnames from 'classnames'
+import {setPhPrefix} from '../utils/Tool'
 
-import Icon from '../Icon';
+import Icon from '../icon'
 
 /**
  * 菜单头部组件<br/>
@@ -76,7 +76,7 @@ export default class MenuHeader extends Component {
                 )}
             >
                 <Icon phIcon="menu" onClick={::this.onChange}/>
-                <div className={setPhoenixPrefix('menu-header-content')}>{this.props.children}</div>
+                <div className={setPhPrefix('menu-header-content')}>{this.props.children}</div>
             </div>
         );
     }

@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import {Button} from "phoenix-ui";
-import Code from "./code/code";
+import React, { Component } from "react"
+
+import Button from "phoenix-ui/lib/button"
+import Code from "./code/code"
 
 export default class button extends Component{
     render(){
@@ -10,7 +11,9 @@ export default class button extends Component{
                 <h3 className="comp-type">phSize(默认sm) 按钮大小</h3>
                 <div className="content">
                     <Button>默认sm</Button>
+                    <br/>
                     <Button phSize="md">md</Button>
+                    <br/>
                     <Button phSize="lg">lg</Button>
                 </div>
                 <Code target="button-phsize" />
@@ -54,9 +57,15 @@ export default class button extends Component{
 
                 <h3 className="comp-type">phIcon属性</h3>
                 <div className="content">
-                    <Button phIcon="search" phSize="lg">按钮</Button>
+                    <Button phIcon="search" block>整体居中</Button>
                 </div>
                 <Code target="button-phicon" />
+
+                <h3 className="comp-type">stable属性</h3>
+                <div className="content">
+                    <Button phIcon="search" block stable>文字居中</Button>
+                </div>
+                <Code target="button-stable" />
             </div>
         );
     }
