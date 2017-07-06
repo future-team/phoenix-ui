@@ -2,7 +2,8 @@ import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import Checkbox from '../checkbox/'
 
-import './radio.less'
+import "phoenix-styles/less/modules/buttons.less"
+
 /**
  * 单选框组件<br/>
  * - 使用方式跟原生一致, 支持disabled等原生属性。

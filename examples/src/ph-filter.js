@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 
 import PhFilter from "phoenix-ui/lib/ph-filter"
-import Col from "phoenix-ui/lib/col"
+import Col from "phoenix-ui/lib/grid/Col"
 // import Code from "./code/code";
 
 const FilterContainer = PhFilter.FilterContainer,

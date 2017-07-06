@@ -2,7 +2,7 @@ import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
 
-import './badge.less'
+import "phoenix-styles/less/modules/badges.less"
 
 /**
  * Badge标记<br/>

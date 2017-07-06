@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import Tabset from "phoenix-ui/lib/tab/Tabset"
 import Tab from "phoenix-ui/lib/tab/Tab"
 import List from "phoenix-ui/lib/list"
-import Col from "phoenix-ui/lib/col"
 import Code from "./code/code"
 
 export default class tab extends Component{
@@ -12,11 +11,11 @@ export default class tab extends Component{
         super(props,context);
     }
 
-    onTabsetChange(index){
+    clickCallback(index){
         alert("测试tabset回调", "index: " + index);
     }
 
-    onTabChange(index){
+    clickCallback1(index){
         alert("测试tab回调", "index: " + index);
     }
 
@@ -41,10 +40,10 @@ export default class tab extends Component{
                     <Tab heading="标题1">
                         <List>
                             <List.Item>
-                                <Col>竖向内容1</Col>
+                                <List.Col>竖向内容1</List.Col>
                             </List.Item>
                             <List.Item>
-                                <Col>竖向内容1</Col>
+                                <List.Col>竖向内容1</List.Col>
                             </List.Item>
                         </List>
                     </Tab>
@@ -61,17 +60,25 @@ export default class tab extends Component{
                 <h3 className="comp-type">width(默认33) 设置vertical之后标题的占比</h3>
                 <Tabset vertical width={20}>
                     <Tab heading="标题1">
-                        竖向内容1
+                        <List>
+                            <List.Item>
+                                <List.Col>竖向内容1</List.Col>
+                            </List.Item>
+                        </List>
                     </Tab>
                     <Tab heading="标题2">
-                        竖向内容2
+                        <List>
+                            <List.Item>
+                                <List.Col>竖向内容2</List.Col>
+                            </List.Item>
+                        </List>
                     </Tab>
                 </Tabset>
                 <br/>
                 <Code target="tabset-width" />
 
-                <h3 className="comp-type">onTabsetChange 点击选项卡的回调函数</h3>
-                <Tabset onTabsetChange={::this.onTabsetChange}>
+                <h3 className="comp-type">clickCallback(Tabset) 点击选项卡的回调函数</h3>
+                <Tabset clickCallback={this.clickCallback.bind(this)}>
                     <Tab heading="标题1">
                         横向内容1
                     </Tab>
@@ -79,10 +86,10 @@ export default class tab extends Component{
                         横向内容2
                     </Tab>
                 </Tabset>
-                <Code target="tabset-ontabsetchange" />
+                <Code target="tabset-clickcallback" />
 
                 <h3 className="comp-type"><strong>Tab</strong></h3>
-                <h3 className="comp-type">heading(默认"tab") 选项卡的标题内容</h3>
+                <h3 className="comp-type">heading 标题</h3>
                 <Tabset>
                     <Tab heading="Tab heading 1">
                         横向内容1
@@ -93,16 +100,16 @@ export default class tab extends Component{
                 </Tabset>
                 <Code target="tab-heading" />
 
-                <h3 className="comp-type">onTabChange 点击单个选项卡的回调函数</h3>
+                <h3 className="comp-type">clickCallback(Tab) 点击单个选项卡的回调函数</h3>
                 <Tabset>
-                    <Tab heading="标题1" onTabChange={::this.onTabChange}>
+                    <Tab heading="标题1" clickCallback={this.clickCallback1.bind(this)}>
                         横向内容1
                     </Tab>
                     <Tab heading="标题2">
                         横向内容2
                     </Tab>
                 </Tabset>
-                <Code target="tab-ontabchange" />
+                <Code target="tab-clickcallback" />
            </div>
         );
     }

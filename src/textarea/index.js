@@ -3,7 +3,7 @@ import Component from '../utils/Component'
 import classnames from 'classnames'
 import {setPhPrefix} from '../utils/Tool'
 
-import './textarea.less'
+import "phoenix-styles/less/modules/buttons.less"
 
 /**
  * <h5>表单组件，主要包括组件:</h5>

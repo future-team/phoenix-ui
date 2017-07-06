@@ -5,7 +5,7 @@ import Component from '../utils/Component'
 import classnames from 'classnames'
 import Tool from '../utils/Tool'
 
-import './popover.less'
+import "phoenix-styles/less/modules/popover.less"
 
 const SHOW_CLASS = 'show'
 
@@ -122,7 +122,7 @@ export default class Popover extends Component{
             this.setState({
                 visible: nextProps.visible
             });
-        }        
+        }
     }
 
     componentDidMount(){
@@ -138,17 +138,19 @@ export default class Popover extends Component{
 
         this.bubble = findDOMNode(this.popoverMain)
 
-        this.getTargetPosition()
+        setTimeout(()=>{
+            this.getTargetPosition()
+        }, 0)
     }
 
     renderPortal() {
         this.node = document.createElement('div');
         document.body.appendChild(this.node);
 
-        let element = React.createElement('div', {
+        let element = React.createElement('div', Object.assign({...this.props}, {
             className: classnames(this.getProperty(true), this.props.className),
             ref: (popover)=>{this.popover = popover}
-        }, this.popoverArrow(), this.popoverMain())
+        }), this.popoverArrow(), this.popoverMain())
 
         ReactDOM.render(element, this.node);
     }
@@ -199,7 +201,7 @@ export default class Popover extends Component{
 
         this.position.x = parseInt(this.target.offsetLeft)
         this.position.y = parseInt(this.target.offsetTop)
-
+        
         this.size.width = parseInt(this.target.offsetWidth)
         this.size.height = parseInt(this.target.offsetHeight)
 

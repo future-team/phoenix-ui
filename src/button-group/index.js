@@ -2,7 +2,7 @@ import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
 
-import './button-group.less'
+import "phoenix-styles/less/modules/button-group.less"
 
 /**
  * 按钮组组件<br/>
@@ -56,10 +56,12 @@ export default class ButtonGroup extends Component{
          * @method clickCallback
          * @type Function
          * */
-        clickCallback:PropTypes.func
+        clickCallback:PropTypes.func,
+        clickable: PropTypes.bool
     };
 
     static defaultProps = {
+        clickable: true,
         activeIndex: 0,
         phType:'default',
         classPrefix:'button-group',
@@ -77,7 +79,10 @@ export default class ButtonGroup extends Component{
 
         this.state = {
             activeIndex:this.props.activeIndex
-        };
+        }
+
+        this.clickable = props.clickable
+        if(props.phType=='default') this.clickable = false
     }
 
     componentWillReceiveProps(nextProps){
@@ -85,9 +90,11 @@ export default class ButtonGroup extends Component{
     }
 
     clickHandler(index){
-        if(this.props.phType == 'default') return;
+        let {phType, clickCallback} = this.props
 
-        this.props.clickCallback && this.props.clickCallback(index);
+        if(!this.clickable) return;
+
+        clickCallback && clickCallback(index);
 
         this.setState({
             activeIndex: index
@@ -95,13 +102,13 @@ export default class ButtonGroup extends Component{
     }
 
     renderChildren(){
-        let {phType, children} = this.props;
+        let {phType, clickable, children} = this.props;
 
         return React.Children.map(children,(child,index)=>{
             let options = {};
 
             options.clickHandle = this.clickHandler.bind(this,index);
-            if(phType !== 'default') options.hollow = this.state.activeIndex != index;
+            if(this.clickable) options.hollow = this.state.activeIndex != index;
 
             let newChildren = React.cloneElement(child, options);
 

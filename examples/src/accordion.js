@@ -3,7 +3,7 @@ import classnames from "classnames"
 
 import Accordion from "phoenix-ui/lib/accordion"
 import List from "phoenix-ui/lib/list"
-import Col from "phoenix-ui/lib/col"
+import Col from "phoenix-ui/lib/grid/Col"
 import Code from "./code/code"
 
 export default class accordion extends Component{
@@ -30,10 +30,10 @@ export default class accordion extends Component{
                     <Accordion.Body>
                         <List>
                             <List.Item>
-                                <Col>未上线单店</Col>
+                                <List.Col>未上线单店</List.Col>
                             </List.Item>
                             <List.Item>
-                                <Col>未上线连锁店</Col>
+                                <List.Col>未上线连锁店</List.Col>
                             </List.Item>
                         </List>
                     </Accordion.Body>
@@ -43,10 +43,10 @@ export default class accordion extends Component{
                     <Accordion.Body>
                         <List>
                             <List.Item>
-                                <Col>未上线单店</Col>
+                                <List.Col>未上线单店</List.Col>
                             </List.Item>
                             <List.Item>
-                                <Col>未上线连锁店</Col>
+                                <List.Col>未上线连锁店</List.Col>
                             </List.Item>
                         </List>
                     </Accordion.Body>
@@ -61,10 +61,10 @@ export default class accordion extends Component{
                     <Accordion.Body>
                         <List>
                             <List.Item>
-                                <Col>未上线单店</Col>
+                                <List.Col>未上线单店</List.Col>
                             </List.Item>
                             <List.Item>
-                                <Col>未上线连锁店</Col>
+                                <List.Col>未上线连锁店</List.Col>
                             </List.Item>
                         </List>
                     </Accordion.Body>
@@ -79,10 +79,10 @@ export default class accordion extends Component{
                     <Accordion.Body>
                         <List>
                             <List.Item>
-                                <Col>未上线单店</Col>
+                                <List.Col>未上线单店</List.Col>
                             </List.Item>
                             <List.Item>
-                                <Col>未上线连锁店</Col>
+                                <List.Col>未上线连锁店</List.Col>
                             </List.Item>
                         </List>
                     </Accordion.Body>

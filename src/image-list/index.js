@@ -3,7 +3,7 @@ import Component from '../utils/Component'
 import classnames from 'classnames'
 import {setPhPrefix} from '../utils/Tool'
 
-import './image-list.less'
+import "phoenix-styles/less/modules/image-list.less"
 
 /**
  * 图片列表组件<br/>

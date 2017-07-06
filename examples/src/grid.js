@@ -1,8 +1,8 @@
 import React, { Component } from "react"
 
-import Grid from "phoenix-ui/lib/grid"
-import Row from "phoenix-ui/lib/row"
-import Col from "phoenix-ui/lib/col"
+import Grid from "phoenix-ui/lib/grid/Grid"
+import Row from "phoenix-ui/lib/grid/Row"
+import Col from "phoenix-ui/lib/grid/Col"
 import Code from "./code/code"
 
 export default class grid extends Component {

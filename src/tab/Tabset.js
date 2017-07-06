@@ -4,7 +4,7 @@ import classnames from 'classnames'
 import {setPhPrefix} from '../utils/Tool'
 import Tab from './Tab.js'
 
-import './tab.less'
+import "phoenix-styles/less/modules/tab.less"
 
 /**
  * <h5>tab选项卡，主要包括一下两个组件:</h5>
@@ -21,19 +21,19 @@ import './tab.less'
  * - 通过activeIndex指定默认的选中tab的索引值。
  * - 选项卡默认横排, 可通过vertical设置为竖排。
  * - 当设置为vertical后, 可通过width设置tab标题部分的宽度占比。
- * - 可通过onTabsetChange设置点击选项卡的回调函数。
+ * - 可通过clickCallback设置点击选项卡的回调函数。
  * - 可自定义className等常用属性以及事件。
  *
  * 具体属性和接口如下：
  * - activeIndex:默认选中的标签卡索引值，默认0第一个tab
  * - vertical:是否竖排，如需要直接添加改属性即可，默认不竖排
  * - width:选项卡头部的宽度，取值0-100之间, 只有设置vertical下生效, 默认20
- * - onTabsetChange:点击选项卡执行的回调函数
+ * - clickCallback:点击选项卡执行的回调函数
  *
  * 示例:
  * - 横排
  * ```code
- *     <Tabset activeIndex ={this.state.index} onTabsetChange={(index)=>{console.log(index);}>
+ *     <Tabset activeIndex ={this.state.index} clickCallback={(index)=>{console.log(index);}>
  *         <Tab heading='标题1' className='tab-test'>
  *             横向内容1
  *         </Tab>
@@ -44,7 +44,7 @@ import './tab.less'
  * ```
  * - 竖排
  * ```code
- *     <Tabset vertical width={30} activeIndex ={this.state.index} onTabsetChange={(index)=>{console.log(index);}>
+ *     <Tabset vertical width={30} activeIndex ={this.state.index} clickCallback={(index)=>{console.log(index);}>
  *         <Tab heading='标题1'>
  *             竖向内容1
  *         </Tab>
@@ -90,34 +90,28 @@ class Tabset extends Component {
         width: PropTypes.number,
         /**
          * 点击事件的回调函数,返回当前选中项
-         * @method onTabsetChange
+         * @method clickCallback
          * @type Function
          * @default null
          * */
-        onTabsetChange: PropTypes.func
+        clickCallback: PropTypes.func
     };
 
     static defaultProps = {
         activeIndex: 0,
         vertical: false,
         width: 33,
-        onTabsetChange: null
+        clickCallback: null
     };
 
     constructor(props, context) {
         super(props, context);
+
         this.state = {
             activeIndex: this.props.activeIndex
         };
-        /**
-         * 首次进入获取active
-         * */
-        // this.props.onTabsetChange && this.props.onTabsetChange(this.props.activeIndex);
     }
 
-    /**
-     * props再次改变，再次判断active
-     * */
     componentWillReceiveProps(nextProps){
         this.state.activeIndex != nextProps.activeIndex && this.changeActive(nextProps.activeIndex);
     }
@@ -151,8 +145,8 @@ class Tabset extends Component {
     }
 
     tabHandler(index){
-        let {onTabsetChange} =this.props;
-        onTabsetChange && onTabsetChange(index);
+        let {clickCallback} =this.props;
+        clickCallback && clickCallback(index);
     }
 
     render() {

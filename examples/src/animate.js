@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 
-import Row from "phoenix-ui/lib/row"
-import Col from "phoenix-ui/lib/col"
+import Row from "phoenix-ui/lib/grid/Row"
+import Col from "phoenix-ui/lib/grid/Col"
 import Input from "phoenix-ui/lib/input"
 import Button from "phoenix-ui/lib/button"
 import Animate from "phoenix-ui/lib/animate"

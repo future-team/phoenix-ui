@@ -14,7 +14,7 @@ export default class buttongroup extends Component{
         return(
             <div>
                 <h2 className="comp-title">ButtonGroup</h2>
-                <h3 className="comp-type">phType(默认default) 自适应宽度或垂直排列</h3>
+                <h3 className="comp-type">phType(默认default) 自适应宽度</h3>
                 <div className="content">
                     <div className="comp-tip">default</div>
                     <ButtonGroup>

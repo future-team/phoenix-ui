@@ -2,7 +2,8 @@ var webpack = require('webpack'),
     glob = require('glob'),
     path = require('path'),
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
-    extend = require('extend');
+    extend = require('extend'),
+    pxtorem = require('postcss-pxtorem');
 
 module.exports = extend({},{
     entry: [path.join(process.cwd(), 'examples/src/index.js')],
@@ -32,6 +33,7 @@ module.exports = extend({},{
     },
     plugins:[
         new webpack.optimize.UglifyJsPlugin(),
-        new ExtractTextPlugin('phoenix-styles.css')
+        new ExtractTextPlugin('phoenix-styles.css'),
+        new webpack.optimize.DedupePlugin()
     ]
 });

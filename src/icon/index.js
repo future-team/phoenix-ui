@@ -2,7 +2,7 @@ import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
 
-import './icon.less'
+import "phoenix-styles/less/modules/iconfont.less"
 
 /**
  * Icon<br/>

@@ -3,10 +3,10 @@ import Component from '../utils/Component'
 import classnames from 'classnames'
 import {setPhPrefix} from '../utils/Tool'
 
-import Row from '../row/'
-import Col from '../col/'
+import Row from '../grid/Row'
+import Col from '../grid/Col'
 
-import './list.less'
+import "phoenix-styles/less/modules/list.less"
 
 /**
  * List<br/>
@@ -53,7 +53,7 @@ class List extends Component{
 
     renderList(){
         return (
-            <ul className={classnames(
+            <ul {...this.props} className={classnames(
                 this.getProperty(true),
                 this.props.className
             )}>
@@ -89,7 +89,7 @@ class ListHeader extends Component{
 
     render(){
         return(
-            <li className={classnames(
+            <li {...this.props} className={classnames(
                this.getProperty(true),
                this.props.className
            )}>
@@ -159,7 +159,7 @@ class ListItem extends Component{
         let {className, navigate} = this.props;
 
         return(
-            <Row className={classnames(
+            <Row {...this.props} classPrefix='row' componentTag="li" className={classnames(
                this.getProperty(true),
                className,
                navigate? setPhPrefix('navigate-right'):''
@@ -206,7 +206,7 @@ class ListCol extends Component{
         let {className} = this.props;
 
         return(
-            <Col className={classnames(
+            <Col {...this.props} classPrefix='col' className={classnames(
                this.getProperty(true),
                className
            )}>

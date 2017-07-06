@@ -19,7 +19,7 @@ export default class code extends Component{
         });
     }
 
-    onClose(){
+    closeCallback(){
         this.setState({
           visible: false,
         });
@@ -28,8 +28,8 @@ export default class code extends Component{
     render(){
         return(
             <div>
-                <a className="code-mark ph-button-link" onClick={::this.onShow}>查看源码</a>
-                <Dialog className="code-dialog" closeButton visible={this.state.visible} onClose={::this.onClose}>
+                <a className="code-mark ph-button-link" onClick={this.onShow.bind(this)}>查看源码</a>
+                <Dialog className="code-dialog" closeButton visible={this.state.visible} closeCallback={this.closeCallback.bind(this)}>
                     <Dialog.Body className="code-body">
                         {codeJson[this.props.target]}
                     </Dialog.Body>

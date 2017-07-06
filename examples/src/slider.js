@@ -14,7 +14,7 @@ export default class slider extends Component{
         }
     }
 
-    onSliderChange(newProgress){ // progress百分比
+    slideCallback(newProgress){ // progress百分比
         alert(newProgress)
     }
 
@@ -51,9 +51,9 @@ export default class slider extends Component{
                 <Slider duration={20} />
                 <Code target="slider-duration" />
 
-                <h3 className="comp-type">onSliderChange 拖拽进度条松开时的回调函数</h3>
-                <Slider progress={this.state.progress} onSliderChange={(newProgress)=>{this.onSliderChange(newProgress);}} />
-                <Code target="slider-onsliderchange" />
+                <h3 className="comp-type">slideCallback 拖拽进度条松开时的回调函数</h3>
+                <Slider progress={this.state.progress} slideCallback={(newProgress)=>{this.slideCallback(newProgress);}} />
+                <Code target="slider-slidecallback" />
 
                 <h3 className="comp-type">disabled 进度条只读</h3>
                 <Slider disabled progress={10} />

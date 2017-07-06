@@ -4,25 +4,25 @@ import classnames from 'classnames'
 import {setPhPrefix} from '../utils/Tool'
 import Animate from '../animate/'
 
-import './popup.less'
+import "phoenix-styles/less/modules/popup.less"
 
 /**
  * 弹层组件<br/>
- * - 由于弹层的显示操作在组件以外, 所以需要在使用时自定义visible、onShow、onClose函数。
+ * - 由于弹层的显示操作在组件以外, 所以需要在使用时自定义visible、onShow、closeCallback函数。
  * - 通过align设置碳层弹出的位置, 可选top/bottom。
- * - 可通过onClose配置点击弹层阴影部分来关闭弹层。
+ * - 可通过closeCallback配置点击弹层阴影部分来关闭弹层。
  *
  * 主要属性和接口：
  * - visible:弹层是否显示标识, 默认false不可见
- * - onClose:关闭弹层的功能函数
+ * - closeCallback:关闭弹层的功能函数
  * - align:弹层的位置, 默认top
  *
  * 示例:
  * ```code
- *     <Popup align="top" visible={this.state.visible} onClose={::this.onClose}>
+ *     <Popup align="top" visible={this.state.visible} closeCallback={::this.closeCallback}>
  *         <ul className="ph-popup-list">
- *             <li className="ph-popup-item" onClick={::this.onClose}>未上线单店</li>
- *             <li className="ph-popup-item" onClick={::this.onClose}>未上线连锁店</li>
+ *             <li className="ph-popup-item">未上线单店</li>
+ *             <li className="ph-popup-item">未上线连锁店</li>
  *         </ul>
  *     </Popup>
  * ```
@@ -32,7 +32,7 @@ import './popup.less'
  *             visible: true
  *         });
  *     }
- *     onClose(){
+ *     closeCallback(){
  *         this.setState({
  *             visible: false
  *         });
@@ -78,10 +78,10 @@ export default class Popup extends Component{
         align: PropTypes.string,
         /**
          * 关闭的执行函数
-         * @method onClose
+         * @method closeCallback
          * @type Function
          * */
-        onClose: PropTypes.func
+        closeCallback: PropTypes.func
     };
 
     static defaultProps = {
@@ -100,10 +100,10 @@ export default class Popup extends Component{
     }
 
     renderShadow(){
-        let {visible, onClose} = this.props;
+        let {visible, closeCallback} = this.props;
 
         if(visible){
-            return <div className={classnames(setPhPrefix("popup-shadow"),"animated")} onClick={onClose}></div>;
+            return <div className={classnames(setPhPrefix("popup-shadow"),"animated")} onClick={closeCallback}></div>;
         }else{
             return '';
         }

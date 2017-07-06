@@ -4,7 +4,8 @@ import classnames from 'classnames'
 import {warning,setPhPrefix} from '../utils/Tool'
 import Icon from '../icon/'
 
-import './input.less'
+import "phoenix-styles/less/modules/buttons.less"
+
 /**
  * 输入框组件<br/>
  * - 使用方式跟原生一致, 支持disabled、maxLength等原生属性。

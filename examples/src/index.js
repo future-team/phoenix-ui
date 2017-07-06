@@ -34,7 +34,6 @@ import Menu from './menu.js'
 import Animate from './animate.js'
 import Drag from './drag.js'
 import Icon from './icon.js'
-import LoadingList from './loading-list.js'
 import ImageList from './image-list.js'
 import Steps from './steps.js'
 import SearchBar from './search-bar.js'
@@ -119,7 +118,6 @@ let Index = class index extends Component {
                 <h3>组合类</h3>
                 <div className="menu-panel">
                     <Card href="#/search-bar" title="SearchBar" desp="搜索" />
-                    <Card href="#/loadinglist" title="LoadingList" desp="加载更多" />
                     <Card href="#/imagelist" title="ImageList" desp="图片列表" />
                     <Card href="#/menu" title="Menu" desp="菜单" />
                 </div>
@@ -182,7 +180,6 @@ let AppRouter = class AppRouter extends Component {
                 <Route path="/accordion" name="accordion" component={Accordion} />
                 <Route path="/menu" name="menu" component={Menu} />
                 <Route path="/search-bar" name="searchbar" component={SearchBar} />
-                <Route path="/loadinglist" name="loadinglist" component={LoadingList} />
                 <Route path="/imagelist" name="imagelist" component={ImageList} />
                 <Route path="/animate" name="animate" component={Animate} />
                 <Route path="/drag" name="drag" component={Drag} />

@@ -17,8 +17,8 @@ var code = {
 	
 	'icon-phicon': '<Icon phIcon="search" />\n<Icon className="icon-home" />\n<span className="gfs-icon icon-chevron-left"></span>',
 
-	'star-rate': '<Star />\n<Star Rate={5} />\n<Star Rate={15} />\n<Star Rate={20} />\n<Star Rate={25} />\n<Star Rate={30} />\n<Star Rate={35} />',
-	'star-phsize': '<Star Rate={40} phSize="sm" />\n<Star Rate={45} phSize="md" />\n<Star Rate={50} phSize="lg" />',
+	'star-rate': '<Star />\n<Star rate={5} />\n<Star rate={15} />\n<Star rate={20} />\n<Star rate={25} />\n<Star rate={30} />\n<Star rate={35} />',
+	'star-phsize': '<Star rate={40} phSize="sm" />\n<Star rate={45} phSize="md" />\n<Star rate={50} phSize="lg" />',
 
 	'badge-phstyle': '<Badge>1</Badge>\n<Badge>10</Badge>\n<Badge>Hot</Badge>\n\n<Badge phStyle="primary">惠</Badge>\n<Badge phStyle="success">惠</Badge>\n<Badge phStyle="info">惠</Badge>\n<Badge phStyle="danger">惠</Badge>\n<Badge phStyle="error">惠</Badge>\n<Badge phStyle="warning">惠</Badge>',
 
@@ -55,20 +55,20 @@ var code = {
 	'accordion-clickcallback': '<Accordion visible={this.state.visible} clickCallback={(visible)=>{this.setState({visible: visible})}}>\n\  <Accordion.Header>...</Accordion.Header>\n\  <Accordion.Body>...</Accordion.Body>\n</Accordion>',
 	'accordion-hideicon':'<Accordion hideIcon>\n\  <Accordion.Header>标题一</Accordion.Header>\n\  <Accordion.Body>...</Accordion.Body>\n</Accordion>',
 
-	'dialog-onclose': '<Dialog visible={this.state.visible1} onClose={::this.onClose.bind(this,"visible1")}>\n\  <Dialog.Title>标题1</Dialog.Title>\n\  <Dialog.Body>可自定义表格内容</Dialog.Body>\n\  <Dialog.Footer>...</Dialog.Footer>\n</Dialog>',
-	'dialog-closebutton': '<Dialog visible={this.state.visible2} onClose={::this.onClose.bind(this,"visible2")} closeButton>\n\  <Dialog.Title>标题1</Dialog.Title>\n\  <Dialog.Body>可自定义表格内容</Dialog.Body>\n\  <Dialog.Footer>...</Dialog.Footer>\n</Dialog>',
-	'dialog-shadowdisabled': '<Dialog visible={this.state.visible3} onClose={::this.onClose.bind(this,"visible3")} shadowDisabled>\n\  <Dialog.Title>标题1</Dialog.Title>\n\  <Dialog.Body>可自定义表格内容</Dialog.Body>\n\  <Dialog.Footer>...</Dialog.Footer>\n</Dialog>',
+	'dialog-closecallback': '<Dialog visible={this.state.visible1} closeCallback={this.closeCallback.bind(this,"visible1")}>\n\  <Dialog.Title>标题1</Dialog.Title>\n\  <Dialog.Body>可自定义表格内容</Dialog.Body>\n\  <Dialog.Footer>...</Dialog.Footer>\n</Dialog>',
+	'dialog-closebutton': '<Dialog visible={this.state.visible2} closeCallback={this.closeCallback.bind(this,"visible2")} closeButton>\n\  <Dialog.Title>标题1</Dialog.Title>\n\  <Dialog.Body>可自定义表格内容</Dialog.Body>\n\  <Dialog.Footer>...</Dialog.Footer>\n</Dialog>',
+	'dialog-shadowdisabled': '<Dialog visible={this.state.visible3} closeCallback={this.closeCallback.bind(this,"visible3")} shadowDisabled>\n\  <Dialog.Title>标题1</Dialog.Title>\n\  <Dialog.Body>可自定义表格内容</Dialog.Body>\n\  <Dialog.Footer>...</Dialog.Footer>\n</Dialog>',
 	
-	'prompt':'<Prompt visible={this.state.visible} onClose={::this.onClose.bind(this,"visible")} \n title="这是标题" content="这里是弹出框的内容..." \n onConfirm={(inputValue)=>{ console.log(inputValue); this.onClose("visible"); }} />',
-	'prompt-buttons':'const buttons = [\n\  // text默认"确定", phStyle默认primary，onHandle默认onClose, otherProps传按钮的属性\n\  {text: "取消", phStyle: "gray", otherProps: {hollow: true}, onHandle: this.onConfirm.bind(this)}, \n\  {text: "提交", onHandle: this.onConfirm.bind(this)}\n];'+
+	'prompt':'<Prompt visible={this.state.visible} onClose={::this.onClose.bind(this,"visible")} \n title="这是标题" content="这里是弹出框的内容..." \n confirmCallback={(inputValue)=>{ console.log(inputValue); this.onClose("visible"); }} />',
+	'prompt-buttons':'const buttons = [\n\  // text默认"确定", phStyle默认primary，onHandle默认onClose, otherProps传按钮的属性\n\  {text: "取消", phStyle: "gray", otherProps: {hollow: true}, onHandle: this.confirmCallback.bind(this)}, \n\  {text: "提交", onHandle: this.confirmCallback.bind(this)}\n];'+
         '\n ... \n<Prompt buttons={buttons} visible={this.state.visible} onClose={::this.onClose.bind(this,"visible")} \n title="这是标题" content="这里是弹出框的内容..."/>',
 	'prompt-inputs':'const inputs = [\n\  // type默认text，其他属性可选，按照正常输入; \n\  {defaultValue: "hah", placeholder: "用户名", maxLength: 10, onChange: this.onUserNameChange.bind(this)},\n\  {type: "password", placeholder: "密码", onChange: this.onPasswordChange.bind(this)}\n];'+
-		'\n ... \n<Prompt inputs={inputs} visible={this.state.visible} onClose={::this.onClose.bind(this,"visible")} \n title="这是标题" content="这里是弹出框的内容..." \n onConfirm={(inputValue)=>{ console.log(inputValue); this.onClose("visible"); }} />',
-	'prompt-whole':'<Prompt visible={this.state.visible} onClose={::this.onClose.bind(this,"visible")} \n closeButton shadowDisabled title="这是标题" content="这里是弹出框的内容..." \n onConfirm={(inputValue)=>{ console.log(inputValue); this.onClose("visible"); }} />',
+		'\n ... \n<Prompt inputs={inputs} visible={this.state.visible} onClose={::this.onClose.bind(this,"visible")} \n title="这是标题" content="这里是弹出框的内容..." \n confirmCallback={(inputValue)=>{ console.log(inputValue); this.onClose("visible"); }} />',
+	'prompt-whole':'<Prompt visible={this.state.visible} onClose={::this.onClose.bind(this,"visible")} \n closeButton shadowDisabled title="这是标题" content="这里是弹出框的内容..." \n confirmCallback={(inputValue)=>{ console.log(inputValue); this.onClose("visible"); }} />',
 
-	'alert':'<Alert visible={this.state.visible} onClose={()=>{this.setState(visible:false)}} title="这是标题" content="这里是弹出框的内容..." />',
-	'alert-buttons':'const buttons = [\n\   // text默认"确定", phStyle默认primary，onHandle默认onClose\n\  {text: "取消", phStyle: "gray", otherProps: {hollow: true}},\n\  {onHandle: this.onConfirm.bind(this,"visible")}\n];\n...\n<Alert visible={this.state.visible} onClose={::this.onClose.bind(this,"visible")} title="这是标题" content="这里是弹出框的内容..." buttons={buttons} />',
-	'alert-whole':'const buttons = [\n\   // text默认"确定", phStyle默认primary，onHandle默认onClose\n\  {text: "取消", phStyle: "gray", otherProps: {hollow: true}},\n\  {onHandle: this.onConfirm.bind(this,"visible")}\n];\n...\n<Alert closeButton shadowDisabled visible={this.state.visible} onClose={::this.onClose.bind(this,"visible")} title="这是标题" content="这里是弹出框的内容..." buttons={buttons} />',
+	'alert':'<Alert visible={this.state.visible} closeCallback={()=>{this.setState(visible:false)}} title="这是标题" content="这里是弹出框的内容..." />',
+	'alert-buttons':'const buttons = [\n\   // text默认"确定", phStyle默认primary，onHandle默认closeCallback\n\  {text: "取消", phStyle: "gray", otherProps: {hollow: true}},\n\  {onHandle: this.confirmCallback.bind(this,"visible")}\n];\n...\n<Alert visible={this.state.visible} closeCallback={this.closeCallback.bind(this,"visible")} title="这是标题" content="这里是弹出框的内容..." buttons={buttons} />',
+	'alert-whole':'const buttons = [\n\   // text默认"确定", phStyle默认primary，onHandle默认closeCallback\n\  {text: "取消", phStyle: "gray", otherProps: {hollow: true}},\n\  {onHandle: this.confirmCallback.bind(this,"visible")}\n];\n...\n<Alert closeButton shadowDisabled visible={this.state.visible} closeCallback={this.closeCallback.bind(this,"visible")} title="这是标题" content="这里是弹出框的内容..." buttons={buttons} />',
 
 	'toast-info': '<Button phSize="lg" onClick={::this.showToast}>Toast</Button>\n...\nshowToast(){\n\  Toast.info("只显示信息的toast！！", 2000,()=>{\n\    console.log("额外的执行内容");\n\  });\n}',
 	'toast-success': '<Button phSize="lg" onClick={::this.showToast}>Toast</Button>\n...\nshowToast(){\n\  Toast.success("操作成功", 2000,()=>{\n\    console.log("额外的执行内容");\n\  });\n}',
@@ -76,8 +76,8 @@ var code = {
 	'toast-loading': '<Button phSize="lg" onClick={::this.showToast}>Toast</Button>\n...\nshowToast(){\n\  Toast.loading("加载中...", 2000,()=>{\n\    console.log("额外的执行内容");\n\  });\n}',
 	'toast-remove':'Toast.info("只显示信息的toast！", false, null);\n....\nToast.remove();',
 
-	'popup-top': '<Popup visible={this.state.visible} onClose={()=>{this.setState({visible:false});}}>\n\  // 弹层内容\n\  </Popup>',
-	'popup-bottom': '<Popup align="bottom" visible={this.state.visible} onClose={()=>{this.setState({visible:false});}}>\n\  // 弹层内容\n\  </Popup>',
+	'popup-top': '<Popup visible={this.state.visible} closeCallback={()=>{this.setState({visible:false});}}>\n\  // 弹层内容\n\  </Popup>',
+	'popup-bottom': '<Popup align="bottom" visible={this.state.visible} closeCallback={()=>{this.setState({visible:false});}}>\n\  // 弹层内容\n\  </Popup>',
 
 	'popover-gettarget':'<Button phSize="lg" ref={(button)=>{this.button = button}}>纯文字气泡</Button>\n<Popover getTarget={()=>{return this.button}}>\n\  <div className="ph-popover-text">\n\    一条很长的很长的气泡提示语，为了占位存在的气泡提示语。一条很长的很长的气泡提示语，为了占位存在的气泡提示语。一条很长的很长的气泡提示语，为了占位存在的气泡提示语。一条很长的很长的气泡提示语，为了占位存在的气泡提示语。\n\  </div>\n</Popover>\n\n' + 
 		'<Button phSize="lg" ref={(button)=>{this.button1 = button}}>列表气泡</Button>\n<Popover getTarget={()=>{return this.button1}} placement="right">\n\  <ul className="ph-popover-list">\n\    <li className="ph-popover-item">未上线单店</li>\n\    <li className="ph-popover-item">未上线连锁店</li>\n\  </ul>\n</Popover>',
@@ -88,13 +88,17 @@ var code = {
 	'tabset-activeindex': '<Tabset activeIndex={1}>\n\  <Tab heading="标题1">\n\    横向内容1\n\  </Tab>\n\  <Tab heading="标题2">\n\    横向内容2\n\  </Tab>\n</Tabset>',
 	'tabset-vertical': '<Tabset vertical>\n\  <Tab heading="标题1">\n\    竖向内容1\n\  </Tab>\n\  <Tab heading="标题2">\n\    竖向内容2\n\  </Tab>\n</Tabset>',
 	'tabset-width': '<Tabset vertical width={30}>\n\  <Tab heading="标题1">\n\    竖向内容1\n\  </Tab>\n\  <Tab heading="标题2">\n\    竖向内容2\n\  </Tab>\n</Tabset>',
-	'tabset-ontabsetchange': '<Tabset onTabsetChange={(index)=>{alert(index);}}>\n\  <Tab heading="标题1">\n\    横向内容1\n\  </Tab>\n\  <Tab heading="标题2">\n\    横向内容2\n\  </Tab>\n</Tabset>',
+	'tabset-clickcallback': '<Tabset clickCallback={(index)=>{alert(index);}}>\n\  <Tab heading="标题1">\n\    横向内容1\n\  </Tab>\n\  <Tab heading="标题2">\n\    横向内容2\n\  </Tab>\n</Tabset>',
 	'tab-heading': '<Tabset>\n\  <Tab heading="Tab heading 1">\n\    横向内容1\n\  </Tab>\n\  <Tab heading="Tab heading 2">\n\    横向内容2\n\  </Tab>\n</Tabset>',
-	'tab-ontabchange': '<Tabset>\n\  <Tab heading="标题1" onTabChange={(index)=>{alert(index);}}>\n\    横向内容1\n\  </Tab>\n\  <Tab heading="标题2">\n\    横向内容2\n\  </Tab>\n</Tabset>',
+	'tab-clickcallback': '<Tabset>\n\  <Tab heading="标题1" clickCallback={(index)=>{alert(index);}}>\n\    横向内容1\n\  </Tab>\n\  <Tab heading="标题2">\n\    横向内容2\n\  </Tab>\n</Tabset>',
+
+	'search-buttontext':'<SearchBar buttonText="no" />',
+	'search-clickcallback':'<SearchBar clickCallback={(query)=>{alert(query)}} />',
+	'search-querycallback':'<SearchBar queryCallback={(query)=>{alert(query)}} />',
 
 	'slider-progress': '<Slider progress={25} />',
 	'slider-placement': '<Slider />\n<Slider placement="bottom" />',
-	'slider-onsliderchange': '<Slider progress={this.state.progress} onSliderChange={(newProgress)=>{this.setState({progress:newProgress})}} />',
+	'slider-slidecallback': '<Slider progress={this.state.progress} slideCallback={(newProgress)=>{this.setState({progress:newProgress})}} />',
 	'slider-disabled': '<Slider disabled progress={10} />',
 	'slider-tipstay': '<Slider tipStay />',
 	'slider-range':'<Slider range={[50,200]} showRange />',

@@ -3,7 +3,7 @@ import Component from '../utils/Component'
 import classnames from 'classnames'
 import {setPhPrefix} from '../utils/Tool'
 
-import './switch.less'
+import "phoenix-styles/less/modules/form.less"
 
 /**
  * 开关切换组件，仿真ios的开关控件<br/>

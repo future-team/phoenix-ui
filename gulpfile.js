@@ -11,16 +11,21 @@ var gulp = require('gulp'),
     WebpackDevServer = require("webpack-dev-server"),
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
     projectName = require("./package.json").name,
+    postcss = require('gulp-postcss'),
+    pxtorem = require('postcss-pxtorem'),
     devPort = 3005;
+
+var processors = [
+    pxtorem({
+        rootValue: 100,
+        propWhiteList: []
+    })
+];
 
 gulp.task('babel', function () {
     return gulp.src('src/**/*.js')
         .pipe(babel())
         .pipe(gulp.dest('lib'))
-});
-
-gulp.task('watch', function () {
-    return gulp.watch('src/**/*.js', ['babel'])
 });
 
 gulp.task('open', function () {
@@ -100,6 +105,12 @@ gulp.task('exampleWebpack', function (done) {
     });
 });
 
+gulp.task('pxtorem', function(){
+  gulp.src(['./examples/dist/*.css','./examples/css/*.css'])
+  .pipe(postcss(processors))
+  .pipe(gulp.dest('./examples/dist/'))
+})
+
 gulp.task('min-webpack', ['webpack'], function (done) {
     var wbpk = Object.create(webpackConfig);
     wbpk.output.filename = projectName+'.min.js';
@@ -120,12 +131,7 @@ gulp.task('karma', function (done) {
     }, done).start();
 });
 
-gulp.task('skin', function () {
-  gulp.src(['node_modules/phoenix-styles/dist/ios-skin.css']) //多个文件以数组形式传入
-      .pipe(gulp.dest('dist'));
-});
-
-gulp.task('default', ['babel', 'min-webpack', 'exampleWebpack','skin']);
+gulp.task('default', ['babel', 'min-webpack', 'exampleWebpack', 'pxtorem']);
 gulp.task('demo', ['demoBuild', 'open']);
 gulp.task('min', ['min-webpack']);
 gulp.task('test',['karma']);

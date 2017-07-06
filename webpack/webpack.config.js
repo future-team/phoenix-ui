@@ -1,7 +1,6 @@
 var webpack = require('webpack'),
     path = require('path'),
     extend = require('extend'),
-    ExtractTextPlugin = require('extract-text-webpack-plugin'),
     projectName = require("../package.json").name;
 
 module.exports = {
@@ -42,14 +41,13 @@ module.exports = {
             exclude: /node_modules/
         },{
             test:/\.less$/,
-            // loader: "style-loader!css-loader!less-loader"
-            loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
+            loader: "style-loader!css-loader!less-loader"
         },{
             test:/\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
             loader: 'file-loader?name=./iconfont/[name].[ext]'
         }]
     },
     plugins: [
-        new ExtractTextPlugin('phoenix-styles.css')
+        
     ]
 };

@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 
 import Swipe from "phoenix-ui/lib/swipe"
+import List from "phoenix-ui/lib/list"
 import Code from "./code/code"
 
 export default class swipe extends Component{
@@ -21,30 +22,29 @@ export default class swipe extends Component{
         return(
             <div>
                 <h2 className="comp-title">Swipe</h2>
-                <h3 className="comp-type">buttons(默认空数组) 左滑后出现的操作按钮</h3>
-                <div className="contents">
-                    <h3 className="comp-tip">buttons的phStyle默认primary</h3>
-                    <Swipe buttons={[
-                        {text: "删除", onHandle: this.onDelete}
+                <h3 className="comp-type">buttons 左滑后出现的操作按钮</h3>
+                <List style={{backgroundColor:'transparent'}}>
+                    <Swipe style={{marginBottom:'16px'}} buttons={[
+                        {text: "删除", onHandle: this.onDelete, phStyle: "error"},
+                        {text: "取消", onHandle: this.onCancle, phStyle: "info"}
                     ]}>
-                        <div style={{padding: "1rem"}}>
-                            滑动块1
-                        </div>
+                        <List.Item>
+                            <List.Col>
+                                滑动块1
+                            </List.Col>
+                        </List.Item>
                     </Swipe>
-                </div>
-                <Code target="swipe-phstyle" />
-
-                <div className="contents">
-                    <h3 className="comp-tip">自定义buttons参数</h3>
                     <Swipe buttons={[
                         {text: "删除", onHandle: this.onDelete, phStyle: "error"},
                         {text: "取消", onHandle: this.onCancle, phStyle: "info"}
                     ]}>
-                        <div style={{padding: "1rem"}}>
-                            滑动块2
-                        </div>
+                        <List.Item>
+                            <List.Col>
+                                滑动块2
+                            </List.Col>
+                        </List.Item>
                     </Swipe>
-                </div>
+                </List>
                 <Code target="swipe-buttons" />
             </div>
         );

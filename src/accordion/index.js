@@ -4,7 +4,8 @@ import classnames from 'classnames'
 import {setPhPrefix} from '../utils/Tool'
 
 import Icon from '../icon/'
-import './accordion.less'
+
+import "phoenix-styles/less/modules/accordion.less"
 
 /**
  * <h5>操作类组件，主要包括组件:</h5>

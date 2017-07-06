@@ -6,11 +6,13 @@ import {setPhPrefix} from '../utils/Tool'
 import Input from '../input/'
 import Button from '../button/'
 
-import './search-bar.less'
+import "phoenix-styles/less/modules/search-bar.less"
 
 /**
  * SearchBar<br/>
- * - 
+ * - 可通过buttonText设置按钮的文字。
+ * - 可通过clickCallback设置点击按钮的回调。
+ * - 可通过queryCallback设置回车/搜索动作的回调函数。
  *
  * 主要属性和接口：
  * 
@@ -33,6 +35,12 @@ export default class SearchBar extends Component{
          * @default 'search-bar'
          * */
         classPrefix: PropTypes.string,
+        /**
+         * 按钮文案
+         * @property buttonText
+         * @type String
+         * @default '取消'
+         * */
         buttonText: PropTypes.string,
         /**
          * 搜索的回调
@@ -74,7 +82,7 @@ export default class SearchBar extends Component{
 
     buttonHandle(){
         let {clickCallback} = this.props
-        if(clickCallback) clickCallback()
+        if(clickCallback) clickCallback(this.searchElem.getValueCallback())
     }
 
     onFocus(){

@@ -9,7 +9,7 @@ import MenuNav from './MenuNav'
 import MenuList from './MenuList'
 import MenuItem from './MenuItem'
 
-import './menu.less'
+import "phoenix-styles/less/modules/menu.less"
 
 /**
  * <h5>菜单组件，主要包括组件:</h5>

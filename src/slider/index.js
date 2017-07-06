@@ -5,7 +5,7 @@ import {setPhPrefix} from '../utils/Tool'
 
 import Drag from '../drag/'
 
-import './slider.less'
+import "phoenix-styles/less/modules/slider.less"
 
 /**
  * 滑动输入条组件<br/>
@@ -17,7 +17,7 @@ import './slider.less'
  * - 可通过range制定范围，默认0-100，必需是长度为2的数组，第一个数字表示初始，第二个数字表示终点。
  * - 可通过showRange判断是否在进度条前后显示范围，默认不显示。
  * - 可通过duration设置固定移动的距离，默认1。
- * - 可通过onSliderChange设置拖拽进度条松开时的回调函数。
+ * - 可通过slideCallback设置拖拽进度条松开时的回调函数。
  * - 可通过disabled设置进度条只读。
  * - 使用Slider前确保父级是有宽度的元素；使用flex需要加一层宽度100%的外壳。
  *
@@ -34,8 +34,8 @@ import './slider.less'
  * 如: `<Slider showRange />`
  * - duration:固定移动的距离，默认1。 <br/>
  * 如: `<Slider duration={20} />`
- * - onSliderChange:拖拽进度条松开时的回调函数 <br/>
- * 如: `<Slider onSliderChange={(progress)=>{console.log(progress);} />`
+ * - slideCallback:拖拽进度条松开时的回调函数 <br/>
+ * 如: `<Slider slideCallback={(progress)=>{console.log(progress);} />`
  * - disabled:进度条只读, 不可操作 <br/>
  * 如: `<Slider disabled/>`
  *
@@ -114,10 +114,10 @@ export default class Slider extends Component{
         tipStay: PropTypes.bool,
         /**
          * 改变进程时的回调函数
-         * @method onSliderChange
+         * @method slideCallback
          * @type Function
          * */
-        onSliderChange: PropTypes.func
+        slideCallback: PropTypes.func
     };
 
     static defaultProps = {
@@ -235,7 +235,8 @@ export default class Slider extends Component{
     }
 
     onDrop(event, position){
-        if(!this.props.tipStay){
+        let {tipStay, slideCallback} = this.props
+        if(!tipStay){
             this.setState({
                 tipVisible: false
             });
@@ -243,7 +244,7 @@ export default class Slider extends Component{
 
         this.newProgressWidth = this.prevProgressWidth;
 
-        if(this.props.onSliderChange) this.props.onSliderChange(this.state.realProgress);
+        if(slideCallback) slideCallback(this.state.realProgress);
     }
 
     renderSliderText(showTipMode){
