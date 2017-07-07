@@ -65,7 +65,7 @@ export default class pullup extends Component{
                             this.state.loadingData.map((item,index)=>{
                                 return (
                                     <List.Item key={index}>
-                                        <List.Col>{item}</List.Col>
+                                        <List.Col>{item.title}</List.Col>
                                     </List.Item>
                                 )
                             })

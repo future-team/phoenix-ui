@@ -20,15 +20,22 @@ module.exports = extend({},{
         }, {
             test: /\.less$/,
             // loader: "style-loader!css-loader!less-loader"
-            loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
+            loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader!less-loader")
         }, {
             test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
             loader: 'file-loader?name=./iconfont/[name].[ext]'
         }]
     },
+    postcss: [
+        pxtorem({
+            rootValue: 100,
+            propWhiteList: []
+        })
+    ],
     resolve: {
         alias: { 
-            "phoenix-ui/lib" : path.join(process.cwd(), 'src')
+            "phoenix-ui/lib" : path.join(process.cwd(), 'src'),
+            "phoenix-styles" : path.join(process.cwd(), 'examples/lib/phoenix-styles')
         }
     },
     plugins:[

@@ -18,7 +18,7 @@ import Switch from './switch.js'
 
 import Grid from './grid.js'
 import List from './list.js'
-// import Label from './label.js'
+import Image from './image.js'
 import Badge from './badge.js'
 import Star from './star.js'
 import Swipe from './swipe.js'
@@ -83,6 +83,7 @@ let Index = class index extends Component {
                     <Card href="#/badge" title="Badge" desp="徽章" />
                     <Card href="#/star" title="Star" desp="星星" />
                     <Card href="#/icon" title="Icon" desp="符号" />
+                    <Card href="#/image" title="Image" desp="图片" />
                 </div>
                 <h3>表单类</h3>
                 <div className="menu-panel">
@@ -181,6 +182,7 @@ let AppRouter = class AppRouter extends Component {
                 <Route path="/menu" name="menu" component={Menu} />
                 <Route path="/search-bar" name="searchbar" component={SearchBar} />
                 <Route path="/imagelist" name="imagelist" component={ImageList} />
+                <Route path="/image" name="image" component={Image} />
                 <Route path="/animate" name="animate" component={Animate} />
                 <Route path="/drag" name="drag" component={Drag} />
                 <Route path="/icon" name="icon" component={Icon} />

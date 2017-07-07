@@ -52,12 +52,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(23);
 
 
-/***/ },
+/***/ }),
 /* 1 */,
 /* 2 */,
 /* 3 */,
@@ -81,7 +81,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 21 */,
 /* 22 */,
 /* 23 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -271,25 +271,31 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.ImageList = _imageList2["default"];
 
-	var _steps = __webpack_require__(179);
+	var _image = __webpack_require__(179);
+
+	var _image2 = _interopRequireDefault(_image);
+
+	exports.Image = _image2["default"];
+
+	var _steps = __webpack_require__(182);
 
 	var _steps2 = _interopRequireDefault(_steps);
 
 	exports.Steps = _steps2["default"];
 
-	var _list = __webpack_require__(182);
+	var _list = __webpack_require__(185);
 
 	var _list2 = _interopRequireDefault(_list);
 
 	exports.List = _list2["default"];
 
-	var _searchBar = __webpack_require__(185);
+	var _searchBar = __webpack_require__(188);
 
 	var _searchBar2 = _interopRequireDefault(_searchBar);
 
 	exports.SearchBar = _searchBar2["default"];
 
-	var _pullup = __webpack_require__(188);
+	var _pullup = __webpack_require__(191);
 
 	var _pullup2 = _interopRequireDefault(_pullup);
 
@@ -297,7 +303,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	// 控件
 
-	var _phFilter = __webpack_require__(191);
+	var _phFilter = __webpack_require__(194);
 
 	var _phFilter2 = _interopRequireDefault(_phFilter);
 
@@ -309,9 +315,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    isOnlyDp: false
 	});
 
-/***/ },
+/***/ }),
 /* 24 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
@@ -325,8 +331,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./reset.less", function() {
-				var newContent = require("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./reset.less");
+			module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./reset.less", function() {
+				var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./reset.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -335,9 +341,9 @@ return /******/ (function(modules) { // webpackBootstrap
 		module.hot.dispose(function() { update(); });
 	}
 
-/***/ },
+/***/ }),
 /* 25 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(26)();
 	// imports
@@ -349,9 +355,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	// exports
 
 
-/***/ },
+/***/ }),
 /* 26 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/*
 		MIT License http://www.opensource.org/licenses/mit-license.php
@@ -405,9 +411,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 
-/***/ },
+/***/ }),
 /* 27 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/*
 		MIT License http://www.opensource.org/licenses/mit-license.php
@@ -630,9 +636,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 
-/***/ },
+/***/ }),
 /* 28 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
@@ -646,8 +652,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./global.less", function() {
-				var newContent = require("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./global.less");
+			module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./global.less", function() {
+				var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./global.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -656,9 +662,9 @@ return /******/ (function(modules) { // webpackBootstrap
 		module.hot.dispose(function() { update(); });
 	}
 
-/***/ },
+/***/ }),
 /* 29 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(26)();
 	// imports
@@ -670,9 +676,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	// exports
 
 
-/***/ },
+/***/ }),
 /* 30 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -682,9 +688,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return new _catBrowser.CatBrowser(obj);
 	};
 
-/***/ },
+/***/ }),
 /* 31 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -702,9 +708,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    window.CatBrowser = exports['CatBrowser'];
 	}
 
-/***/ },
+/***/ }),
 /* 32 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -883,9 +889,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 33 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -922,12 +928,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Cookie;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 34 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * JavaScript Cookie v2.1.3
+	 * JavaScript Cookie v2.1.4
 	 * https://github.com/js-cookie/js-cookie
 	 *
 	 * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
@@ -984,6 +990,9 @@ return /******/ (function(modules) { // webpackBootstrap
 						attributes.expires = expires;
 					}
 
+					// We're using "expires" because "max-age" is not supported by IE
+					attributes.expires = attributes.expires ? attributes.expires.toUTCString() : '';
+
 					try {
 						result = JSON.stringify(value);
 						if (/^[\{\[]/.test(result)) {
@@ -1002,13 +1011,19 @@ return /******/ (function(modules) { // webpackBootstrap
 					key = key.replace(/%(23|24|26|2B|5E|60|7C)/g, decodeURIComponent);
 					key = key.replace(/[\(\)]/g, escape);
 
-					return (document.cookie = [
-						key, '=', value,
-						attributes.expires ? '; expires=' + attributes.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
-						attributes.path ? '; path=' + attributes.path : '',
-						attributes.domain ? '; domain=' + attributes.domain : '',
-						attributes.secure ? '; secure' : ''
-					].join(''));
+					var stringifiedAttributes = '';
+
+					for (var attributeName in attributes) {
+						if (!attributes[attributeName]) {
+							continue;
+						}
+						stringifiedAttributes += '; ' + attributeName;
+						if (attributes[attributeName] === true) {
+							continue;
+						}
+						stringifiedAttributes += '=' + attributes[attributeName];
+					}
+					return (document.cookie = key + '=' + value + stringifiedAttributes);
 				}
 
 				// Read
@@ -1084,9 +1099,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}));
 
 
-/***/ },
+/***/ }),
 /* 35 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	"use strict";
 
@@ -1154,9 +1169,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports["default"] = UserAgent;
 	module.exports = exports["default"];
 
-/***/ },
+/***/ }),
 /* 36 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -1194,9 +1209,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = options;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 37 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -1406,15 +1421,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Button;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 38 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_38__;
 
-/***/ },
+/***/ }),
 /* 39 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -1689,9 +1704,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = BaseComponent;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 40 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 	  Copyright (c) 2016 Jed Watson.
@@ -1743,9 +1758,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}());
 
 
-/***/ },
+/***/ }),
 /* 41 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Created by mac on 15/9/7.
@@ -1881,9 +1896,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 42 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Created by mac on 15/9/7.
@@ -1979,9 +1994,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 	exports.classConstants = classConstants;
 
-/***/ },
+/***/ }),
 /* 43 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Created by mac on 16/1/3.
@@ -2113,9 +2128,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 44 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Created by mac on 16/11/28.
@@ -2225,9 +2240,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Tool;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 45 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Created by mac on 16/1/3.
@@ -2264,9 +2279,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = exports["default"];
 
-/***/ },
+/***/ }),
 /* 46 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -2296,17 +2311,17 @@ return /******/ (function(modules) { // webpackBootstrap
 		// Own properties are enumerated firstly, so to speed up,
 		// if last one is own, then all properties are own.
 		var key;
-		for (key in obj) {/**/}
+		for (key in obj) { /**/ }
 
 		return typeof key === 'undefined' || hasOwn.call(obj, key);
 	};
 
 	module.exports = function extend() {
-		var options, name, src, copy, copyIsArray, clone,
-			target = arguments[0],
-			i = 1,
-			length = arguments.length,
-			deep = false;
+		var options, name, src, copy, copyIsArray, clone;
+		var target = arguments[0];
+		var i = 1;
+		var length = arguments.length;
+		var deep = false;
 
 		// Handle a deep copy situation
 		if (typeof target === 'boolean') {
@@ -2314,7 +2329,8 @@ return /******/ (function(modules) { // webpackBootstrap
 			target = arguments[1] || {};
 			// skip the boolean and the target
 			i = 2;
-		} else if ((typeof target !== 'object' && typeof target !== 'function') || target == null) {
+		}
+		if (target == null || (typeof target !== 'object' && typeof target !== 'function')) {
 			target = {};
 		}
 
@@ -2355,10 +2371,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 
-
-/***/ },
+/***/ }),
 /* 47 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -2494,9 +2509,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Icon;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 48 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
@@ -2510,8 +2525,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./iconfont.less", function() {
-				var newContent = require("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./iconfont.less");
+			module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./iconfont.less", function() {
+				var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./iconfont.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -2520,9 +2535,9 @@ return /******/ (function(modules) { // webpackBootstrap
 		module.hot.dispose(function() { update(); });
 	}
 
-/***/ },
+/***/ }),
 /* 49 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(26)();
 	// imports
@@ -2534,33 +2549,33 @@ return /******/ (function(modules) { // webpackBootstrap
 	// exports
 
 
-/***/ },
+/***/ }),
 /* 50 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "./iconfont/iconfont.eot";
 
-/***/ },
+/***/ }),
 /* 51 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "./iconfont/iconfont.woff";
 
-/***/ },
+/***/ }),
 /* 52 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "./iconfont/iconfont.ttf";
 
-/***/ },
+/***/ }),
 /* 53 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "./iconfont/iconfont.svg";
 
-/***/ },
+/***/ }),
 /* 54 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
@@ -2574,8 +2589,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./buttons.less", function() {
-				var newContent = require("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./buttons.less");
+			module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./buttons.less", function() {
+				var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./buttons.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -2584,9 +2599,9 @@ return /******/ (function(modules) { // webpackBootstrap
 		module.hot.dispose(function() { update(); });
 	}
 
-/***/ },
+/***/ }),
 /* 55 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(26)();
 	// imports
@@ -2598,9 +2613,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	// exports
 
 
-/***/ },
+/***/ }),
 /* 56 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -2777,9 +2792,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = ButtonGroup;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 57 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
@@ -2793,8 +2808,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./button-group.less", function() {
-				var newContent = require("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./button-group.less");
+			module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./button-group.less", function() {
+				var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./button-group.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -2803,9 +2818,9 @@ return /******/ (function(modules) { // webpackBootstrap
 		module.hot.dispose(function() { update(); });
 	}
 
-/***/ },
+/***/ }),
 /* 58 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(26)();
 	// imports
@@ -2817,9 +2832,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	// exports
 
 
-/***/ },
+/***/ }),
 /* 59 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -3120,9 +3135,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Input;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 60 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -3259,9 +3274,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Checkbox;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 61 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
@@ -3275,8 +3290,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./form.less", function() {
-				var newContent = require("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./form.less");
+			module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./form.less", function() {
+				var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./form.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -3285,9 +3300,9 @@ return /******/ (function(modules) { // webpackBootstrap
 		module.hot.dispose(function() { update(); });
 	}
 
-/***/ },
+/***/ }),
 /* 62 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(26)();
 	// imports
@@ -3299,9 +3314,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	// exports
 
 
-/***/ },
+/***/ }),
 /* 63 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -3408,9 +3423,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Radio;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 64 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -3604,9 +3619,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Textarea;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 65 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -3722,9 +3737,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Switch;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 66 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -3840,9 +3855,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Grid;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 67 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
@@ -3856,8 +3871,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./grid.less", function() {
-				var newContent = require("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./grid.less");
+			module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./grid.less", function() {
+				var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./grid.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -3866,9 +3881,9 @@ return /******/ (function(modules) { // webpackBootstrap
 		module.hot.dispose(function() { update(); });
 	}
 
-/***/ },
+/***/ }),
 /* 68 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(26)();
 	// imports
@@ -3880,9 +3895,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	// exports
 
 
-/***/ },
+/***/ }),
 /* 69 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -3998,9 +4013,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Row;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 70 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -4148,9 +4163,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Col;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 71 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -4185,12 +4200,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * tab选项卡组件<br/>
 	 * - 通过heading设置选项卡的显示内容。
-	 * - 可通过onTabChange设置点击选项卡的回调函数。
+	 * - 可通过clickCallback设置点击选项卡的回调函数。
 	 * - 可自定义className等常用属性以及事件。
 	 *
 	 * 具体属性和接口如下：
 	 * - heading:选项卡的显示内容, 默认'tab'
-	 * - onTabChange:点击事件的回调函数
+	 * - clickCallback:点击事件的回调函数
 	 *
 	 * 示例:
 	 * ```code
@@ -4198,7 +4213,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *         <Tab heading='标题1' className='tab-test'>
 	 *             横向内容1
 	 *         </Tab>
-	 *         <Tab heading='标题2' onTabChange={(index)=>{console.log(index);}>
+	 *         <Tab heading='标题2' clickCallback={(index)=>{console.log(index);}>
 	 *             横向内容2
 	 *         </Tab>
 	 *     </Tabset>
@@ -4228,11 +4243,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	            heading: _react.PropTypes.string,
 	            /**
 	             * 点击事件的回调函数
-	             * @method onTabChange
+	             * @method clickCallback
 	             * @type Function
 	             * @default null
 	             * */
-	            onTabChange: _react.PropTypes.func
+	            clickCallback: _react.PropTypes.func
 	        },
 	        enumerable: true
 	    }, {
@@ -4241,7 +4256,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            heading: 'tab',
 	            activeIndex: 0,
 	            vertical: false,
-	            onTabChange: null
+	            clickCallback: null
 	        },
 	        enumerable: true
 	    }]);
@@ -4254,7 +4269,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    Tab.prototype.handleClick = function handleClick() {
 	        this.props.changeActive(this.props.index);
-	        this.props.onTabChange && this.props.onTabChange(this.props.index);
+	        this.props.clickCallback && this.props.clickCallback(this.props.index);
 	    };
 
 	    Tab.prototype.isActive = function isActive() {
@@ -4291,9 +4306,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Tab;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 72 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -4346,19 +4361,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * - 通过activeIndex指定默认的选中tab的索引值。
 	 * - 选项卡默认横排, 可通过vertical设置为竖排。
 	 * - 当设置为vertical后, 可通过width设置tab标题部分的宽度占比。
-	 * - 可通过onTabsetChange设置点击选项卡的回调函数。
+	 * - 可通过clickCallback设置点击选项卡的回调函数。
 	 * - 可自定义className等常用属性以及事件。
 	 *
 	 * 具体属性和接口如下：
 	 * - activeIndex:默认选中的标签卡索引值，默认0第一个tab
 	 * - vertical:是否竖排，如需要直接添加改属性即可，默认不竖排
 	 * - width:选项卡头部的宽度，取值0-100之间, 只有设置vertical下生效, 默认20
-	 * - onTabsetChange:点击选项卡执行的回调函数
+	 * - clickCallback:点击选项卡执行的回调函数
 	 *
 	 * 示例:
 	 * - 横排
 	 * ```code
-	 *     <Tabset activeIndex ={this.state.index} onTabsetChange={(index)=>{console.log(index);}>
+	 *     <Tabset activeIndex ={this.state.index} clickCallback={(index)=>{console.log(index);}>
 	 *         <Tab heading='标题1' className='tab-test'>
 	 *             横向内容1
 	 *         </Tab>
@@ -4369,7 +4384,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * ```
 	 * - 竖排
 	 * ```code
-	 *     <Tabset vertical width={30} activeIndex ={this.state.index} onTabsetChange={(index)=>{console.log(index);}>
+	 *     <Tabset vertical width={30} activeIndex ={this.state.index} clickCallback={(index)=>{console.log(index);}>
 	 *         <Tab heading='标题1'>
 	 *             竖向内容1
 	 *         </Tab>
@@ -4417,11 +4432,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	            width: _react.PropTypes.number,
 	            /**
 	             * 点击事件的回调函数,返回当前选中项
-	             * @method onTabsetChange
+	             * @method clickCallback
 	             * @type Function
 	             * @default null
 	             * */
-	            onTabsetChange: _react.PropTypes.func
+	            clickCallback: _react.PropTypes.func
 	        },
 	        enumerable: true
 	    }, {
@@ -4430,7 +4445,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            activeIndex: 0,
 	            vertical: false,
 	            width: 33,
-	            onTabsetChange: null
+	            clickCallback: null
 	        },
 	        enumerable: true
 	    }]);
@@ -4439,18 +4454,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _classCallCheck(this, _Tabset);
 
 	        _Component.call(this, props, context);
+
 	        this.state = {
 	            activeIndex: this.props.activeIndex
 	        };
-	        /**
-	         * 首次进入获取active
-	         * */
-	        // this.props.onTabsetChange && this.props.onTabsetChange(this.props.activeIndex);
 	    }
-
-	    /**
-	     * props再次改变，再次判断active
-	     * */
 
 	    Tabset.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
 	        this.state.activeIndex != nextProps.activeIndex && this.changeActive(nextProps.activeIndex);
@@ -4484,9 +4492,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    Tabset.prototype.tabHandler = function tabHandler(index) {
-	        var onTabsetChange = this.props.onTabsetChange;
+	        var clickCallback = this.props.clickCallback;
 
-	        onTabsetChange && onTabsetChange(index);
+	        clickCallback && clickCallback(index);
 	    };
 
 	    Tabset.prototype.render = function render() {
@@ -4545,9 +4553,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Tabset;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 73 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
@@ -4561,8 +4569,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./tab.less", function() {
-				var newContent = require("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./tab.less");
+			module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./tab.less", function() {
+				var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./tab.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -4571,9 +4579,9 @@ return /******/ (function(modules) { // webpackBootstrap
 		module.hot.dispose(function() { update(); });
 	}
 
-/***/ },
+/***/ }),
 /* 74 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(26)();
 	// imports
@@ -4585,9 +4593,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	// exports
 
 
-/***/ },
+/***/ }),
 /* 75 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -4712,9 +4720,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Label;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 76 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
@@ -4728,8 +4736,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./label.less", function() {
-				var newContent = require("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./label.less");
+			module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./label.less", function() {
+				var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./label.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -4738,9 +4746,9 @@ return /******/ (function(modules) { // webpackBootstrap
 		module.hot.dispose(function() { update(); });
 	}
 
-/***/ },
+/***/ }),
 /* 77 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(26)();
 	// imports
@@ -4752,9 +4760,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	// exports
 
 
-/***/ },
+/***/ }),
 /* 78 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -4859,9 +4867,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Badge;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 79 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
@@ -4875,8 +4883,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./badges.less", function() {
-				var newContent = require("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./badges.less");
+			module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./badges.less", function() {
+				var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./badges.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -4885,9 +4893,9 @@ return /******/ (function(modules) { // webpackBootstrap
 		module.hot.dispose(function() { update(); });
 	}
 
-/***/ },
+/***/ }),
 /* 80 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(26)();
 	// imports
@@ -4899,9 +4907,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	// exports
 
 
-/***/ },
+/***/ }),
 /* 81 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -4943,14 +4951,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 	/**
 	 * 星级评价组件<br />
-	 * - 通过Rate设置星级评价的分数, 最低0, 最高50, 5的倍数。
+	 * - 通过rate设置星级评价的分数, 最低0, 最高50, 5的倍数。
 	 * - 通过phSize设置大小, 可选sm、md、lg。
 	 *
 	 * 主要属性和接口：
 	 * - phSize(v1.1.2以下用size):星星的大小。分别为sm、md、lg, 默认sm。 <br/>
 	 * 如：`<Star phSize="lg" />`
-	 * - Rate:星级评价的分数。最低0, 最高50, 5的倍数递增, 默认0。 <br/>
-	 * 如：`<Star Rate={10} />`
+	 * - rate:星级评价的分数。最低0, 最高50, 5的倍数递增, 默认0。 <br/>
+	 * 如：`<Star rate={10} />`
 	 *
 	 * @class Star
 	 * @module 基础组件
@@ -4969,11 +4977,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        value: {
 	            /**
 	             * 星级评价分数
-	             * @property Rate
+	             * @property rate
 	             * @type number
 	             * @default 默认为0，最高50
 	             * */
-	            Rate: _react.PropTypes.number,
+	            rate: _react.PropTypes.number,
 	            /**
 	             * 星星大小
 	             * @property phSize
@@ -4995,7 +5003,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        value: {
 	            phSize: 'sm',
 	            classPrefix: 'star',
-	            Rate: 0,
+	            rate: 0,
 	            classMapping: {}
 	        },
 	        enumerable: true
@@ -5009,10 +5017,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    Star.prototype.render = function render() {
 	        var _props = this.props;
-	        var Rate = _props.Rate;
+	        var rate = _props.rate;
 	        var className = _props.className;
 
-	        var rateCls = 'star-' + Math.round(Rate * 2 / 10) * 5;
+	        var rateCls = 'star-' + Math.round(rate * 2 / 10) * 5;
 	        // let sizeCls = size && 'star-'+size;
 
 	        return _react2['default'].createElement(
@@ -5028,9 +5036,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Star;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 82 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
@@ -5044,8 +5052,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./star.less", function() {
-				var newContent = require("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./star.less");
+			module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./star.less", function() {
+				var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./star.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -5054,9 +5062,9 @@ return /******/ (function(modules) { // webpackBootstrap
 		module.hot.dispose(function() { update(); });
 	}
 
-/***/ },
+/***/ }),
 /* 83 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(26)();
 	// imports
@@ -5068,9 +5076,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	// exports
 
 
-/***/ },
+/***/ }),
 /* 84 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -5321,9 +5329,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Drag;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 85 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -5538,9 +5546,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Swipe;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 86 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
@@ -5554,8 +5562,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./swipe.less", function() {
-				var newContent = require("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./swipe.less");
+			module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./swipe.less", function() {
+				var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./swipe.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -5564,9 +5572,9 @@ return /******/ (function(modules) { // webpackBootstrap
 		module.hot.dispose(function() { update(); });
 	}
 
-/***/ },
+/***/ }),
 /* 87 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(26)();
 	// imports
@@ -5578,9 +5586,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	// exports
 
 
-/***/ },
+/***/ }),
 /* 88 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -5628,27 +5636,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 	/**
 	 * 弹框组件<br/>
-	 * - 由于弹框的显示操作在组件以外, 所以需要在使用时自定义`visible`、`onClose`函数。
+	 * - 由于弹框的显示操作在组件以外, 所以需要在使用时自定义`visible`、`closeCallback`函数。
 	 * - 通过visible设置弹框是否显示, 可选true/false, 必需。
-	 * - 可通过onClose配置点击弹框阴影部分以及弹框右上角X按钮来关闭弹框。
+	 * - 可通过closeCallback配置点击弹框阴影部分以及弹框右上角X按钮来关闭弹框。
 	 * - 可通过closeButton来配置弹框右上角X按钮是否显示, 默认不显示。
-	 * - 默认传了onClose之后阴影部分就具备点击关闭弹框的按钮, 如果需要去掉该功能需要额外传shadowDisabled作为标识。
+	 * - 默认传了closeCallback之后阴影部分就具备点击关闭弹框的按钮, 如果需要去掉该功能需要额外传shadowDisabled作为标识。
 	 *
 	 * 主要属性和接口：
 	 * - visible:弹框是否显示标识, 默认false不可见<br/>
-	 * - onClose:关闭弹框的功能函数<br/>
+	 * - closeCallback:关闭弹框的功能函数<br/>
 	 * - closeButton:右上角关闭按钮是否显示的标识, 默认不显示<br/>
-	 * - shadowDisabled:阴影部分是否可点击关闭按钮, 默认传了onClose函数就可以关闭<br/>
+	 * - shadowDisabled:阴影部分是否可点击关闭按钮, 默认传了closeCallback函数就可以关闭<br/>
 	 *
 	 * 示例:
 	 * ```code
-	 *     <Dialog visible={this.state.visible} onClose={::this.onClose} closeButton shadowDisabled>
+	 *     <Dialog visible={this.state.visible} closeCallback={::this.closeCallback} closeButton shadowDisabled>
 	 *         <Dialog.Title>标题标题</Dialog.Title>
 	 *         <Dialog.Body>
 	 *             <p>可自定义表格内容</p>
 	 *         </Dialog.Body>
 	 *         <Dialog.Footer>
-	 *             <Button hollow phSize="lg" phStyle="gray" onClick={::this.onClose}>取消</Button>
+	 *             <Button hollow phSize="lg" phStyle="gray" onClick={::this.closeCallback}>取消</Button>
 	 *         </Dialog.Footer>
 	 *     </Dialog>
 	 * ```
@@ -5658,7 +5666,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *             visible: true
 	 *         });
 	 *     }
-	 *     onClose(){
+	 *     closeCallback(){
 	 *         this.setState({
 	 *             visible: false
 	 *         });
@@ -5701,10 +5709,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	            visible: _react.PropTypes.bool,
 	            /**
 	             * 关闭弹框的执行函数
-	             * @method onClose
+	             * @method closeCallback
 	             * @type Function
 	             * */
-	            onClose: _react.PropTypes.func,
+	            closeCallback: _react.PropTypes.func,
 	            /**
 	             * 右上角按钮是否可见, 默认不可见
 	             * @property closeButton
@@ -5712,7 +5720,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * */
 	            closeButton: _react.PropTypes.bool,
 	            /**
-	             * 阴影部分是否点击可关闭弹框, 默认传了onClose之后可关闭
+	             * 阴影部分是否点击可关闭弹框, 默认传了closeCallback之后可关闭
 	             * @property shadowDisabled
 	             * @type Boolean
 	             * */
@@ -5739,10 +5747,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Dialog.prototype.onShadowClose = function onShadowClose() {
 	        var _props = this.props;
 	        var shadowDisabled = _props.shadowDisabled;
-	        var onClose = _props.onClose;
+	        var closeCallback = _props.closeCallback;
 
 	        if (shadowDisabled) return;
-	        onClose();
+	        closeCallback();
 	    };
 
 	    Dialog.prototype.renderShadow = function renderShadow() {
@@ -5759,7 +5767,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var _props2 = this.props;
 	        var visible = _props2.visible;
 	        var closeButton = _props2.closeButton;
-	        var onClose = _props2.onClose;
+	        var closeCallback = _props2.closeCallback;
 
 	        if (visible) {
 	            return _react2['default'].createElement(
@@ -5768,7 +5776,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                _react2['default'].createElement(
 	                    'div',
 	                    { className: _classnames2['default'](_utilsTool.setPhPrefix("dialog-content"), "animated") },
-	                    _react2['default'].createElement('a', { href: 'javascript:;', onClick: onClose, className: _classnames2['default'](_utilsTool.setPhPrefix("dialog-close"), closeButton ? "show" : "hide", "gfs-icon icon-close") }),
+	                    _react2['default'].createElement('a', { href: 'javascript:;', onClick: closeCallback, className: _classnames2['default'](_utilsTool.setPhPrefix("dialog-close"), closeButton ? "show" : "hide", "gfs-icon icon-close") }),
 	                    this.renderDialog()
 	                )
 	            );
@@ -5913,9 +5921,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Dialog;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 89 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -6045,15 +6053,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Animate;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 90 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_90__;
 
-/***/ },
+/***/ }),
 /* 91 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
@@ -6067,8 +6075,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./animation.less", function() {
-				var newContent = require("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./animation.less");
+			module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./animation.less", function() {
+				var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./animation.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -6077,9 +6085,9 @@ return /******/ (function(modules) { // webpackBootstrap
 		module.hot.dispose(function() { update(); });
 	}
 
-/***/ },
+/***/ }),
 /* 92 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(26)();
 	// imports
@@ -6091,9 +6099,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	// exports
 
 
-/***/ },
+/***/ }),
 /* 93 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
@@ -6107,8 +6115,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./dialog.less", function() {
-				var newContent = require("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./dialog.less");
+			module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./dialog.less", function() {
+				var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./dialog.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -6117,23 +6125,23 @@ return /******/ (function(modules) { // webpackBootstrap
 		module.hot.dispose(function() { update(); });
 	}
 
-/***/ },
+/***/ }),
 /* 94 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(26)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n@-webkit-keyframes rotate {\n  from {\n    -webkit-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n@keyframes rotate {\n  from {\n    -webkit-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n/**晃动*/\n.ph-dialog-shadow,\n.ph-dialog-main {\n  position: fixed;\n  left: 0;\n  width: 100%;\n}\n.ph-dialog-shadow {\n  top: 0;\n  height: 100%;\n  z-index: 99;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n.ph-dialog-main {\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n  -moz-transform: translateY(-50%);\n  transform: translateY(-50%);\n  z-index: 100;\n}\n.ph-dialog-content {\n  position: relative;\n}\n.ph-dialog-body input {\n  margin-bottom: 0;\n}\n.ph-dialog-content {\n  width: 72.2667%;\n  padding: 48px 0 0;\n  margin: 0 auto;\n  background-color: #fff;\n  -webkit-border-radius: 12px;\n  -moz-border-radius: 12px;\n  border-radius: 12px;\n  background-clip: padding-box;\n  text-align: center;\n}\n.ph-dialog-content .ph-dialog-close {\n  position: absolute;\n  width: 28px;\n  height: 28px;\n  top: 24px;\n  right: 24px;\n  font-size: 100%;\n  color: #ccc;\n}\n.ph-dialog-content .ph-dialog-title,\n.ph-dialog-content .ph-dialog-body.ph-dialog-only {\n  line-height: 48px;\n  font-size: 36px;\n  color: #333;\n}\n.ph-dialog-content .ph-dialog-title {\n  margin: 0 40px 16px;\n}\n.ph-dialog-content .ph-dialog-body {\n  margin: 0 40px 56px;\n  line-height: 40px;\n  font-size: 28px;\n  color: #666;\n}\n.ph-dialog-content .ph-dialog-body.ph-dialog-only {\n  margin: 40px 40px 56px;\n}\n.ph-dialog-content .ph-dialog-picture {\n  width: 60%;\n  padding-top: 20px;\n  margin: 0 auto 40px;\n}\n.ph-dialog-content .ph-dialog-picture img {\n  display: block;\n  width: 100%;\n}\n.ph-dialog-content .ph-dialog-footer .ph-button-group .ph-button {\n  min-width: 0;\n  margin-left: 0;\n  margin-right: 0;\n  border: none;\n}\n.ph-dialog-content .ph-dialog-footer .ph-button-group-default {\n  border-top: 1PX solid #e1e1e1;\n}\n.ph-dialog-content .ph-dialog-footer .ph-button-group-default .ph-button {\n  border-right: 1PX solid #e1e1e1;\n  border-radius: 0;\n}\n.ph-dialog-content .ph-dialog-footer .ph-button-group-default .ph-button:first-child {\n  border-bottom-left-radius: 12px;\n}\n.ph-dialog-content .ph-dialog-footer .ph-button-group-default .ph-button:last-child {\n  border-bottom-right-radius: 12px;\n}\n.ph-dialog-content .ph-dialog-footer .ph-button-group-tacked {\n  border-top: 0;\n}\n.ph-dialog-content .ph-dialog-footer .ph-button-group-tacked .ph-button {\n  border-top: 1PX solid #e1e1e1;\n}\n.ph-dialog-content .ph-dialog-footer .ph-button-group-tacked .ph-button:first-child {\n  border-radius: 0;\n}\n.ph-dialog-content .ph-dialog-footer .ph-button-group-tacked .ph-button:last-child {\n  -webkit-border-radius: 0 0 12px 12px;\n  -moz-border-radius: 0 0 12px 12px;\n  border-radius: 0 0 12px 12px;\n  background-clip: padding-box;\n}\n.ph-dialog-prompt .ph-dialog-title {\n  margin: 0 40px;\n}\n.ph-dialog-prompt .ph-dialog-body {\n  margin: 48px 40px 40px;\n}\n.ph-dialog-prompt .ph-input {\n  margin-top: 20px;\n}\n.ph-dialog-prompt .ph-input:first-child {\n  margin-top: 0;\n}\n.ph-dialog-explain .ph-dialog-title {\n  margin: 0 40px 40px;\n}\n.ph-dialog-explain .ph-dialog-body {\n  line-height: 40px;\n  text-align: left;\n}\n.ph-dialog-explain .ph-dialog-body ul {\n  padding-bottom: 68px;\n}\n.ph-dialog-explain .ph-dialog-body li {\n  margin-bottom: 36px;\n}\n", ""]);
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n@-webkit-keyframes rotate {\n  from {\n    -webkit-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n@keyframes rotate {\n  from {\n    -webkit-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n/**晃动*/\n.ph-dialog-shadow,\n.ph-dialog-main {\n  position: fixed;\n  left: 0;\n  width: 100%;\n}\n.ph-dialog-shadow {\n  top: 0;\n  height: 100%;\n  z-index: 99;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n.ph-dialog-main {\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n  -moz-transform: translateY(-50%);\n  transform: translateY(-50%);\n  z-index: 100;\n}\n.ph-dialog-content {\n  position: relative;\n}\n.ph-dialog-body .ph-dialog-prompt-text {\n  margin-bottom: 16px;\n}\n.ph-dialog-body .ph-input {\n  margin-bottom: 16px;\n}\n.ph-dialog-body .ph-input:last-child {\n  margin-bottom: 0;\n}\n.ph-dialog-content {\n  width: 72.2667%;\n  padding: 48px 0 0;\n  margin: 0 auto;\n  background-color: #fff;\n  -webkit-border-radius: 12px;\n  -moz-border-radius: 12px;\n  border-radius: 12px;\n  background-clip: padding-box;\n  text-align: center;\n}\n.ph-dialog-content .ph-dialog-close {\n  position: absolute;\n  width: 28px;\n  height: 28px;\n  top: 24px;\n  right: 24px;\n  font-size: 100%;\n  color: #ccc;\n}\n.ph-dialog-content .ph-dialog-title,\n.ph-dialog-content .ph-dialog-body.ph-dialog-only {\n  line-height: 48px;\n  font-size: 36px;\n  color: #333;\n}\n.ph-dialog-content .ph-dialog-title {\n  margin: 0 40px 16px;\n}\n.ph-dialog-content .ph-dialog-body {\n  margin: 0 40px 56px;\n  line-height: 40px;\n  font-size: 28px;\n  color: #666;\n}\n.ph-dialog-content .ph-dialog-body.ph-dialog-only {\n  margin: 40px 40px 56px;\n}\n.ph-dialog-content .ph-dialog-picture {\n  width: 60%;\n  padding-top: 20px;\n  margin: 0 auto 40px;\n}\n.ph-dialog-content .ph-dialog-picture img {\n  display: block;\n  width: 100%;\n}\n.ph-dialog-content .ph-dialog-footer .ph-button-group .ph-button {\n  min-width: 0;\n  margin-left: 0;\n  margin-right: 0;\n  border: none;\n}\n.ph-dialog-content .ph-dialog-footer .ph-button-group-default {\n  border-top: 1PX solid #e1e1e1;\n}\n.ph-dialog-content .ph-dialog-footer .ph-button-group-default .ph-button {\n  border-right: 1PX solid #e1e1e1;\n  border-radius: 0;\n}\n.ph-dialog-content .ph-dialog-footer .ph-button-group-default .ph-button:first-child {\n  border-bottom-left-radius: 12px;\n}\n.ph-dialog-content .ph-dialog-footer .ph-button-group-default .ph-button:last-child {\n  border-bottom-right-radius: 12px;\n}\n.ph-dialog-content .ph-dialog-footer .ph-button-group-tacked {\n  border-top: 0;\n}\n.ph-dialog-content .ph-dialog-footer .ph-button-group-tacked .ph-button {\n  border-top: 1PX solid #e1e1e1;\n}\n.ph-dialog-content .ph-dialog-footer .ph-button-group-tacked .ph-button:first-child {\n  border-radius: 0;\n}\n.ph-dialog-content .ph-dialog-footer .ph-button-group-tacked .ph-button:last-child {\n  -webkit-border-radius: 0 0 12px 12px;\n  -moz-border-radius: 0 0 12px 12px;\n  border-radius: 0 0 12px 12px;\n  background-clip: padding-box;\n}\n.ph-dialog-prompt .ph-dialog-title {\n  margin: 0 40px;\n}\n.ph-dialog-prompt .ph-dialog-body {\n  margin: 48px 40px 40px;\n}\n.ph-dialog-prompt .ph-input {\n  margin-top: 20px;\n}\n.ph-dialog-prompt .ph-input:first-child {\n  margin-top: 0;\n}\n.ph-dialog-explain .ph-dialog-title {\n  margin: 0 40px 40px;\n}\n.ph-dialog-explain .ph-dialog-body {\n  line-height: 40px;\n  text-align: left;\n}\n.ph-dialog-explain .ph-dialog-body ul {\n  padding-bottom: 68px;\n}\n.ph-dialog-explain .ph-dialog-body li {\n  margin-bottom: 36px;\n}\n", ""]);
 
 	// exports
 
 
-/***/ },
+/***/ }),
 /* 95 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -6177,31 +6185,31 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/**
 	 * Alert组件<br/>
-	 * - 由于弹框的显示操作在组件以外, 所以需要在使用时自定义`visible`、`onClose`函数。
+	 * - 由于弹框的显示操作在组件以外, 所以需要在使用时自定义`visible`、`closeCallback`函数。
 	 * - 可通过title设置弹出框标题，content设置内容，buttons设置尾部按钮。(相对Dialog新增参数)
-	 * - 默认有[确定]1个按钮，点击[确定]默认的执行函数是onClose直接关闭。
+	 * - 默认有[确定]1个按钮，点击[确定]默认的执行函数是closeCallback直接关闭。
 	 * - 通过visible设置弹框是否显示, 可选true/false, 必需。
-	 * - 可通过onClose配置点击弹框阴影部分以及弹框右上角X按钮来关闭弹框。
+	 * - 可通过closeCallback配置点击弹框阴影部分以及弹框右上角X按钮来关闭弹框。
 	 * - 可通过closeButton来配置弹框右上角X按钮是否显示, 默认不显示。
-	 * - 默认传了onClose之后阴影部分就具备点击关闭弹框的按钮, 如果需要去掉该功能需要额外传shadowDisabled作为标识。
+	 * - 默认传了closeCallback之后阴影部分就具备点击关闭弹框的按钮, 如果需要去掉该功能需要额外传shadowDisabled作为标识。
 	 *
 	 * 主要属性和接口：
 	 * - title:弹框的标题，必需。
 	 * - content:弹框的内容，必需。
 	 * - buttons:尾部按钮的内容，必需是数组的形式，text标识填充的问题，phStyle表示主题，onHandle表示点击的回调，otherProps传递按钮的其他属性，如{active:true, block:true, hollow: true}。
 	 * - visible:弹框是否显示标识, 默认false不可见。
-	 * - onClose:关闭弹框的功能函数。
+	 * - closeCallback:关闭弹框的功能函数。
 	 * - closeButton:右上角关闭按钮是否显示的标识, 默认不显示。
-	 * - shadowDisabled:阴影部分是否可点击关闭按钮, 默认传了onClose函数就可以关闭。
+	 * - shadowDisabled:阴影部分是否可点击关闭按钮, 默认传了closeCallback函数就可以关闭。
 	 *
 	 * 示例:
 	 * ```code
 	 *      const buttons = [
-	            {text: "取消", phStyle: "gray", otherProps: {hollow: true}}, // text默认"确定", phStyle默认primary，onHandle默认onClose
-	            {text: "确定", onHandle: this.onConfirm}
+	            {text: "取消", phStyle: "gray", otherProps: {hollow: true}}, // text默认"确定", phStyle默认primary，onHandle默认执行closeCallback
+	            {text: "确定", onHandle: this.confirmCallback}
 	        ];
 	        ...
-	 *      <Alert closeButton shadowDisabled visible={this.state.visible} onClose={::this.onClose.bind(this,'visible')} 
+	 *      <Alert closeButton shadowDisabled visible={this.state.visible} closeCallback={this.closeCallback.bind(this,'visible')} 
 	 *          title="这是标题" content="这里是弹出框的内容..." buttons={buttons} />
 	 * ```
 	 *
@@ -6246,10 +6254,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	            visible: _react.PropTypes.bool,
 	            /**
 	             * 关闭弹框的执行函数
-	             * @method onClose
+	             * @method closeCallback
 	             * @type Function
 	             * */
-	            onClose: _react.PropTypes.func,
+	            closeCallback: _react.PropTypes.func,
 	            /**
 	             * 右上角按钮是否可见, 默认不可见
 	             * @property closeButton
@@ -6257,7 +6265,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * */
 	            closeButton: _react.PropTypes.bool,
 	            /**
-	             * 阴影部分是否点击可关闭弹框, 默认传了onClose之后可关闭
+	             * 阴影部分是否点击可关闭弹框, 默认传了closeCallback之后可关闭
 	             * @property shadowDisabled
 	             * @type Boolean
 	             * */
@@ -6278,13 +6286,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        _Component.call(this, props, context);
 
-	        this.buttons = [{ text: "确定", onHandle: props.onClose }];
+	        this.buttons = [{ text: "确定", onHandle: props.closeCallback }];
 	    }
 
 	    Alert.prototype.renderButtons = function renderButtons() {
 	        var _props = this.props;
 	        var buttons = _props.buttons;
-	        var onClose = _props.onClose;
+	        var closeCallback = _props.closeCallback;
 
 	        if (buttons) this.buttons = buttons;
 	        var buttonsType = this.buttons.length > 2;
@@ -6296,7 +6304,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                return _react2['default'].createElement(
 	                    _button2['default'],
 	                    _extends({ hollow: true, key: index }, button.otherProps, { phSize: 'lg', phStyle: button.phStyle || 'primary', block: buttonsType,
-	                        onClick: button.onHandle || onClose }),
+	                        onClick: button.onHandle || closeCallback }),
 	                    button.text || "确定"
 	                );
 	            })
@@ -6306,7 +6314,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Alert.prototype.render = function render() {
 	        var _props2 = this.props;
 	        var visible = _props2.visible;
-	        var onClose = _props2.onClose;
+	        var closeCallback = _props2.closeCallback;
 	        var title = _props2.title;
 	        var content = _props2.content;
 	        var closeButton = _props2.closeButton;
@@ -6314,7 +6322,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            _Dialog2['default'],
-	            { className: _utilsTool.setPhPrefix('dialog-alert'), visible: visible, onClose: onClose, closeButton: closeButton, shadowDisabled: shadowDisabled },
+	            { className: _utilsTool.setPhPrefix('dialog-alert'), visible: visible, closeCallback: closeCallback, closeButton: closeButton, shadowDisabled: shadowDisabled },
 	            _react2['default'].createElement(
 	                _Dialog2['default'].Title,
 	                null,
@@ -6339,9 +6347,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Alert;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 96 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -6389,32 +6397,32 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/**
 	 * Prompt组件<br/>
-	 * - 由于弹框的显示操作在组件以外, 所以需要在使用时自定义`visible`、`onClose`函数。
+	 * - 由于弹框的显示操作在组件以外, 所以需要在使用时自定义`visible`、`closeCallback`函数。
 	 * - 可通过title设置弹出框标题，content设置内容，buttons设置尾部按钮。(相对Dialog新增参数)
-	 * - 按钮默认有[取消, 确定]2个按钮，点击[取消]默认的执行函数是直接关闭，点击[确定]通过传入的onConfirm函数可获取input的value数组，可自行添加回调。。
+	 * - 按钮默认有[取消, 确定]2个按钮，点击[取消]默认的执行函数是直接关闭，点击[确定]通过传入的confirmCallback函数可获取input的value数组，可自行添加回调。。
 	 * - 通过visible设置弹框是否显示, 可选true/false, 必需。
-	 * - 可通过onClose配置点击弹框阴影部分以及弹框右上角X按钮来关闭弹框。
+	 * - 可通过closeCallback配置点击弹框阴影部分以及弹框右上角X按钮来关闭弹框。
 	 * - 可通过closeButton来配置弹框右上角X按钮是否显示, 默认不显示。
-	 * - 默认传了onClose之后阴影部分就具备点击关闭弹框的按钮, 如果需要去掉该功能需要额外传shadowDisabled作为标识。
+	 * - 默认传了closeCallback之后阴影部分就具备点击关闭弹框的按钮, 如果需要去掉该功能需要额外传shadowDisabled作为标识。
 	 *
 	 * 主要属性和接口：
 	 * - title:弹框的标题，必需。
 	 * - content:弹框的内容，必需。
 	 * - buttons:尾部按钮的内容，必需是数组的形式，text标识填充的问题，phStyle表示主题，onHandle表示点击按钮的回调，otherProps传递按钮的其他属性，如{active:true, block:true, hollow: true}。
-	 * - onConfirm:点击确定按钮的回调，返回input的value。
+	 * - confirmCallback:点击确定按钮的回调，返回input的value。
 	 * - visible:弹框是否显示标识, 默认false不可见。
-	 * - onClose:关闭弹框的功能函数。
+	 * - closeCallback:关闭弹框的功能函数。
 	 * - closeButton:右上角关闭按钮是否显示的标识, 默认不显示。
-	 * - shadowDisabled:阴影部分是否可点击关闭按钮, 默认传了onClose函数就可以关闭。
+	 * - shadowDisabled:阴影部分是否可点击关闭按钮, 默认传了closeCallback函数就可以关闭。
 	 *
 	 * 示例:
 	 * ```code
 	 *      const buttons = [
-	            {text: "取消", phStyle: "gray", otherProps: {hollow: true}}, // text默认"确定", phStyle默认primary，onHandle默认onClose
-	            {text: "确定", onHandle: this.onConfirm}
+	            {text: "取消", phStyle: "gray", otherProps: {hollow: true}}, // text默认"确定", phStyle默认primary，onHandle默认执行closeCallback
+	            {text: "确定", onHandle: this.confirmCallback}
 	        ];
 	        ...
-	 *      <Prompt closeButton shadowDisabled visible={this.state.visible} onClose={::this.onClose.bind(this,'visible')} 
+	 *      <Prompt closeButton shadowDisabled visible={this.state.visible} closeCallback={this.closeCallback.bind(this,'visible')} 
 	 *          title="这是标题" content="这里是弹出框的内容..." buttons={buttons} />
 	 * ```
 	 *
@@ -6465,16 +6473,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	            visible: _react.PropTypes.bool,
 	            /**
 	             * 关闭弹框的执行函数
-	             * @method onClose
+	             * @method closeCallback
 	             * @type Function
 	             * */
-	            onClose: _react.PropTypes.func,
+	            closeCallback: _react.PropTypes.func,
 	            /**
 	            * 点击确定的回调函数
-	            * @method onConfirm
+	            * @method confirmCallback
 	            * @type Function
 	            * */
-	            onConfirm: _react.PropTypes.func,
+	            confirmCallback: _react.PropTypes.func,
 	            /**
 	             * 右上角按钮是否可见, 默认不可见
 	             * @property closeButton
@@ -6482,7 +6490,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * */
 	            closeButton: _react.PropTypes.bool,
 	            /**
-	             * 阴影部分是否点击可关闭弹框, 默认传了onClose之后可关闭
+	             * 阴影部分是否点击可关闭弹框, 默认传了closeCallback之后可关闭
 	             * @property shadowDisabled
 	             * @type Boolean
 	             * */
@@ -6506,15 +6514,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.inputElem = [];
 	        this.inputValue = [];
 
-	        this.buttons = [{ text: "取消", onHandle: props.onClose }, { text: "确定", onHandle: this.onConfirm.bind(this) }];
+	        this.buttons = [{ text: "取消", onHandle: props.closeCallback }, { text: "确定", onHandle: this.confirmCallback.bind(this) }];
 	        this.inputs = [{ type: "text", placeholder: "请输入" }];
 	    }
 
-	    Prompt.prototype.onConfirm = function onConfirm() {
+	    Prompt.prototype.confirmCallback = function confirmCallback() {
 	        // 用于默认情况下 确定 按钮的回调，用户自定义。
 	        this.getInputValue();
 
-	        if (this.props.onConfirm) this.props.onConfirm(this.inputValue);
+	        if (this.props.confirmCallback) this.props.confirmCallback(this.inputValue);
 	    };
 
 	    Prompt.prototype.getInputValue = function getInputValue() {
@@ -6524,6 +6532,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    Prompt.prototype.renderContent = function renderContent() {
+	        var content = this.props.content;
+
+	        if (content) {
+	            return _react2['default'].createElement(
+	                'div',
+	                { className: _utilsTool.setPhPrefix('dialog-prompt-text') },
+	                content
+	            );
+	        }
+	    };
+
+	    Prompt.prototype.renderInputs = function renderInputs() {
 	        var _this2 = this;
 
 	        if (!this.props.visible) return;
@@ -6549,7 +6569,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var _this = this;
 	        var _props = this.props;
 	        var buttons = _props.buttons;
-	        var onClose = _props.onClose;
+	        var closeCallback = _props.closeCallback;
 
 	        if (buttons) this.buttons = buttons;
 	        var buttonsType = this.buttons.length > 2;
@@ -6566,7 +6586,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                                _this3.getInputValue();
 	                                button.onHandle(_this3.inputValue);
 	                            } else {
-	                                onClose();
+	                                closeCallback();
 	                            }
 	                        } }),
 	                    button.text || "确定"
@@ -6575,18 +6595,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	        );
 	    };
 
-	    Prompt.prototype.render = function render() {
+	    Prompt.prototype.renderPrompt = function renderPrompt() {
 	        var _props2 = this.props;
 	        var visible = _props2.visible;
-	        var onClose = _props2.onClose;
+	        var closeCallback = _props2.closeCallback;
 	        var title = _props2.title;
-	        var content = _props2.content;
 	        var closeButton = _props2.closeButton;
 	        var shadowDisabled = _props2.shadowDisabled;
 
 	        return _react2['default'].createElement(
 	            _Dialog2['default'],
-	            { className: _utilsTool.setPhPrefix('dialog-prompt'), visible: visible, onClose: onClose, closeButton: closeButton, shadowDisabled: shadowDisabled },
+	            { className: _utilsTool.setPhPrefix('dialog-prompt'), visible: visible,
+	                closeCallback: closeCallback,
+	                closeButton: closeButton,
+	                shadowDisabled: shadowDisabled
+	            },
 	            _react2['default'].createElement(
 	                _Dialog2['default'].Title,
 	                null,
@@ -6595,8 +6618,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            _react2['default'].createElement(
 	                _Dialog2['default'].Body,
 	                null,
-	                content,
-	                this.renderContent()
+	                this.renderContent(),
+	                this.renderInputs()
 	            ),
 	            _react2['default'].createElement(
 	                _Dialog2['default'].Footer,
@@ -6606,15 +6629,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	        );
 	    };
 
+	    Prompt.prototype.render = function render() {
+	        return this.renderPrompt();
+	    };
+
 	    return Prompt;
 	})(_utilsComponent2['default']);
 
 	exports['default'] = Prompt;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 97 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -6806,15 +6833,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 98 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_98__;
 
-/***/ },
+/***/ }),
 /* 99 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
@@ -6828,8 +6855,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./toast.less", function() {
-				var newContent = require("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./toast.less");
+			module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./toast.less", function() {
+				var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./toast.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -6838,9 +6865,9 @@ return /******/ (function(modules) { // webpackBootstrap
 		module.hot.dispose(function() { update(); });
 	}
 
-/***/ },
+/***/ }),
 /* 100 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(26)();
 	// imports
@@ -6852,9 +6879,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	// exports
 
 
-/***/ },
+/***/ }),
 /* 101 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -6892,21 +6919,21 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/**
 	 * 弹层组件<br/>
-	 * - 由于弹层的显示操作在组件以外, 所以需要在使用时自定义visible、onShow、onClose函数。
+	 * - 由于弹层的显示操作在组件以外, 所以需要在使用时自定义visible、onShow、closeCallback函数。
 	 * - 通过align设置碳层弹出的位置, 可选top/bottom。
-	 * - 可通过onClose配置点击弹层阴影部分来关闭弹层。
+	 * - 可通过closeCallback配置点击弹层阴影部分来关闭弹层。
 	 *
 	 * 主要属性和接口：
 	 * - visible:弹层是否显示标识, 默认false不可见
-	 * - onClose:关闭弹层的功能函数
+	 * - closeCallback:关闭弹层的功能函数
 	 * - align:弹层的位置, 默认top
 	 *
 	 * 示例:
 	 * ```code
-	 *     <Popup align="top" visible={this.state.visible} onClose={::this.onClose}>
+	 *     <Popup align="top" visible={this.state.visible} closeCallback={::this.closeCallback}>
 	 *         <ul className="ph-popup-list">
-	 *             <li className="ph-popup-item" onClick={::this.onClose}>未上线单店</li>
-	 *             <li className="ph-popup-item" onClick={::this.onClose}>未上线连锁店</li>
+	 *             <li className="ph-popup-item">未上线单店</li>
+	 *             <li className="ph-popup-item">未上线连锁店</li>
 	 *         </ul>
 	 *     </Popup>
 	 * ```
@@ -6916,7 +6943,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *             visible: true
 	 *         });
 	 *     }
-	 *     onClose(){
+	 *     closeCallback(){
 	 *         this.setState({
 	 *             visible: false
 	 *         });
@@ -6965,10 +6992,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	            align: _react.PropTypes.string,
 	            /**
 	             * 关闭的执行函数
-	             * @method onClose
+	             * @method closeCallback
 	             * @type Function
 	             * */
-	            onClose: _react.PropTypes.func
+	            closeCallback: _react.PropTypes.func
 	        },
 	        enumerable: true
 	    }, {
@@ -6995,10 +7022,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Popup.prototype.renderShadow = function renderShadow() {
 	        var _props = this.props;
 	        var visible = _props.visible;
-	        var onClose = _props.onClose;
+	        var closeCallback = _props.closeCallback;
 
 	        if (visible) {
-	            return _react2['default'].createElement('div', { className: _classnames2['default'](_utilsTool.setPhPrefix("popup-shadow"), "animated"), onClick: onClose });
+	            return _react2['default'].createElement('div', { className: _classnames2['default'](_utilsTool.setPhPrefix("popup-shadow"), "animated"), onClick: closeCallback });
 	        } else {
 	            return '';
 	        }
@@ -7048,9 +7075,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Popup;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 102 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
@@ -7064,8 +7091,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./popup.less", function() {
-				var newContent = require("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./popup.less");
+			module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./popup.less", function() {
+				var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./popup.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -7074,9 +7101,9 @@ return /******/ (function(modules) { // webpackBootstrap
 		module.hot.dispose(function() { update(); });
 	}
 
-/***/ },
+/***/ }),
 /* 103 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(26)();
 	// imports
@@ -7088,9 +7115,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	// exports
 
 
-/***/ },
+/***/ }),
 /* 104 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -7413,9 +7440,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Accordion;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 105 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
@@ -7429,8 +7456,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./accordion.less", function() {
-				var newContent = require("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./accordion.less");
+			module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./accordion.less", function() {
+				var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./accordion.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -7439,9 +7466,9 @@ return /******/ (function(modules) { // webpackBootstrap
 		module.hot.dispose(function() { update(); });
 	}
 
-/***/ },
+/***/ }),
 /* 106 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(26)();
 	// imports
@@ -7453,13 +7480,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	// exports
 
 
-/***/ },
+/***/ }),
 /* 107 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -7649,12 +7678,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.node = document.createElement('div');
 	        document.body.appendChild(this.node);
 
-	        var element = _react2['default'].createElement('div', {
+	        var element = _react2['default'].createElement('div', Object.assign(_extends({}, this.props), {
 	            className: _classnames2['default'](this.getProperty(true), this.props.className),
 	            ref: function ref(popover) {
 	                _this2.popover = popover;
 	            }
-	        }, this.popoverArrow(), this.popoverMain());
+	        }), this.popoverArrow(), this.popoverMain());
 
 	        _reactDom2['default'].render(element, this.node);
 	    };
@@ -7845,9 +7874,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Popover;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 108 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -7900,9 +7929,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = findDOMNode;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(109)))
 
-/***/ },
+/***/ }),
 /* 109 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	// shim for using process in browser
 	var process = module.exports = {};
@@ -8074,6 +8103,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	process.removeListener = noop;
 	process.removeAllListeners = noop;
 	process.emit = noop;
+	process.prependListener = noop;
+	process.prependOnceListener = noop;
+
+	process.listeners = function (name) { return [] }
 
 	process.binding = function (name) {
 	    throw new Error('process.binding is not supported');
@@ -8086,9 +8119,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	process.umask = function() { return 0; };
 
 
-/***/ },
+/***/ }),
 /* 110 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -8121,9 +8154,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = ReactCurrentOwner;
 
-/***/ },
+/***/ }),
 /* 111 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -8173,9 +8206,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = ReactInstanceMap;
 
-/***/ },
+/***/ }),
 /* 112 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -9029,9 +9062,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = ReactMount;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(109)))
 
-/***/ },
+/***/ }),
 /* 113 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -9269,9 +9302,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = DOMProperty;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(109)))
 
-/***/ },
+/***/ }),
 /* 114 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -9325,9 +9358,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = invariant;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(109)))
 
-/***/ },
+/***/ }),
 /* 115 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -9654,9 +9687,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = ReactBrowserEventEmitter;
 
-/***/ },
+/***/ }),
 /* 116 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -9751,9 +9784,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = EventConstants;
 
-/***/ },
+/***/ }),
 /* 117 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -9805,9 +9838,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = keyMirror;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(109)))
 
-/***/ },
+/***/ }),
 /* 118 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10090,9 +10123,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = EventPluginHub;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(109)))
 
-/***/ },
+/***/ }),
 /* 119 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10316,9 +10349,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = EventPluginRegistry;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(109)))
 
-/***/ },
+/***/ }),
 /* 120 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10524,9 +10557,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = EventPluginUtils;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(109)))
 
-/***/ },
+/***/ }),
 /* 121 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10607,9 +10640,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = ReactErrorUtils;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(109)))
 
-/***/ },
+/***/ }),
 /* 122 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -10670,9 +10703,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = warning;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(109)))
 
-/***/ },
+/***/ }),
 /* 123 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10713,9 +10746,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = emptyFunction;
 
-/***/ },
+/***/ }),
 /* 124 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -10778,9 +10811,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = accumulateInto;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(109)))
 
-/***/ },
+/***/ }),
 /* 125 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10812,9 +10845,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = forEachAccumulated;
 
-/***/ },
+/***/ }),
 /* 126 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10855,9 +10888,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = ReactEventEmitterMixin;
 
-/***/ },
+/***/ }),
 /* 127 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10957,9 +10990,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = ReactPerf;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(109)))
 
-/***/ },
+/***/ }),
 /* 128 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -10989,9 +11022,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = ViewportMetrics;
 
-/***/ },
+/***/ }),
 /* 129 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -11041,9 +11074,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = assign;
 
-/***/ },
+/***/ }),
 /* 130 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -11106,9 +11139,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = isEventSupported;
 
-/***/ },
+/***/ }),
 /* 131 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -11147,9 +11180,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = ExecutionEnvironment;
 
-/***/ },
+/***/ }),
 /* 132 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -11170,9 +11203,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = ReactDOMFeatureFlags;
 
-/***/ },
+/***/ }),
 /* 133 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -11423,9 +11456,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = ReactElement;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(109)))
 
-/***/ },
+/***/ }),
 /* 134 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -11453,9 +11486,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = canDefineProperty;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(109)))
 
-/***/ },
+/***/ }),
 /* 135 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -11506,9 +11539,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = ReactEmptyComponentRegistry;
 
-/***/ },
+/***/ }),
 /* 136 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -11814,9 +11847,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = ReactInstanceHandles;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(109)))
 
-/***/ },
+/***/ }),
 /* 137 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -11848,9 +11881,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = ReactRootIndex;
 
-/***/ },
+/***/ }),
 /* 138 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -11898,9 +11931,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = ReactMarkupChecksum;
 
-/***/ },
+/***/ }),
 /* 139 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -11945,9 +11978,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = adler32;
 
-/***/ },
+/***/ }),
 /* 140 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12057,9 +12090,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = ReactReconciler;
 
-/***/ },
+/***/ }),
 /* 141 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12140,9 +12173,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = ReactRef;
 
-/***/ },
+/***/ }),
 /* 142 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12237,9 +12270,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = ReactOwner;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(109)))
 
-/***/ },
+/***/ }),
 /* 143 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2015, Facebook, Inc.
@@ -12500,9 +12533,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = ReactUpdateQueue;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(109)))
 
-/***/ },
+/***/ }),
 /* 144 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12729,9 +12762,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = ReactUpdates;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(109)))
 
-/***/ },
+/***/ }),
 /* 145 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12828,9 +12861,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = CallbackQueue;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(109)))
 
-/***/ },
+/***/ }),
 /* 146 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -12953,9 +12986,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = PooledClass;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(109)))
 
-/***/ },
+/***/ }),
 /* 147 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -13190,9 +13223,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Transaction;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(109)))
 
-/***/ },
+/***/ }),
 /* 148 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -13216,9 +13249,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = emptyObject;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(109)))
 
-/***/ },
+/***/ }),
 /* 149 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -13276,9 +13309,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = containsNode;
 
-/***/ },
+/***/ }),
 /* 150 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -13306,9 +13339,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = isTextNode;
 
-/***/ },
+/***/ }),
 /* 151 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -13334,9 +13367,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = isNode;
 
-/***/ },
+/***/ }),
 /* 152 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -13452,9 +13485,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = instantiateReactComponent;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(109)))
 
-/***/ },
+/***/ }),
 /* 153 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -13833,7 +13866,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          // This is intentionally an invariant that gets caught. It's the same
 	          // behavior as without this statement except with a better message.
 	          !(typeof propTypes[propName] === 'function') ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s: %s type `%s` is invalid; it must be a function, usually ' + 'from React.PropTypes.', componentName || 'React class', ReactPropTypeLocationNames[location], propName) : invariant(false) : undefined;
-	          error = propTypes[propName](props, propName, componentName, location);
+	          error = propTypes[propName](props, propName, componentName, location, null, 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED');
 	        } catch (ex) {
 	          error = ex;
 	        }
@@ -14152,9 +14185,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = ReactCompositeComponent;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(109)))
 
-/***/ },
+/***/ }),
 /* 154 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -14209,9 +14242,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = ReactComponentEnvironment;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(109)))
 
-/***/ },
+/***/ }),
 /* 155 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -14236,9 +14269,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = ReactPropTypeLocations;
 
-/***/ },
+/***/ }),
 /* 156 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -14266,9 +14299,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = ReactPropTypeLocationNames;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(109)))
 
-/***/ },
+/***/ }),
 /* 157 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -14314,9 +14347,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = shouldUpdateReactComponent;
 
-/***/ },
+/***/ }),
 /* 158 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -14374,9 +14407,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = ReactEmptyComponent;
 
-/***/ },
+/***/ }),
 /* 159 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -14474,9 +14507,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = ReactNativeComponent;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(109)))
 
-/***/ },
+/***/ }),
 /* 160 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-2015, Facebook, Inc.
@@ -14569,9 +14602,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = setInnerHTML;
 
-/***/ },
+/***/ }),
 /* 161 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2015, Facebook, Inc.
@@ -14938,18 +14971,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = validateDOMNesting;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(109)))
 
-/***/ },
+/***/ }),
 /* 162 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = __webpack_require__(98);
 
 
-/***/ },
+/***/ }),
 /* 163 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
@@ -14963,8 +14996,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./popover.less", function() {
-				var newContent = require("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./popover.less");
+			module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./popover.less", function() {
+				var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./popover.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -14973,9 +15006,9 @@ return /******/ (function(modules) { // webpackBootstrap
 		module.hot.dispose(function() { update(); });
 	}
 
-/***/ },
+/***/ }),
 /* 164 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(26)();
 	// imports
@@ -14987,9 +15020,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	// exports
 
 
-/***/ },
+/***/ }),
 /* 165 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -15035,7 +15068,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * - 可通过range制定范围，默认0-100，必需是长度为2的数组，第一个数字表示初始，第二个数字表示终点。
 	 * - 可通过showRange判断是否在进度条前后显示范围，默认不显示。
 	 * - 可通过duration设置固定移动的距离，默认1。
-	 * - 可通过onSliderChange设置拖拽进度条松开时的回调函数。
+	 * - 可通过slideCallback设置拖拽进度条松开时的回调函数。
 	 * - 可通过disabled设置进度条只读。
 	 * - 使用Slider前确保父级是有宽度的元素；使用flex需要加一层宽度100%的外壳。
 	 *
@@ -15052,8 +15085,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * 如: `<Slider showRange />`
 	 * - duration:固定移动的距离，默认1。 <br/>
 	 * 如: `<Slider duration={20} />`
-	 * - onSliderChange:拖拽进度条松开时的回调函数 <br/>
-	 * 如: `<Slider onSliderChange={(progress)=>{console.log(progress);} />`
+	 * - slideCallback:拖拽进度条松开时的回调函数 <br/>
+	 * 如: `<Slider slideCallback={(progress)=>{console.log(progress);} />`
 	 * - disabled:进度条只读, 不可操作 <br/>
 	 * 如: `<Slider disabled/>`
 	 *
@@ -15135,10 +15168,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	            tipStay: _react.PropTypes.bool,
 	            /**
 	             * 改变进程时的回调函数
-	             * @method onSliderChange
+	             * @method slideCallback
 	             * @type Function
 	             * */
-	            onSliderChange: _react.PropTypes.func
+	            slideCallback: _react.PropTypes.func
 	        },
 	        enumerable: true
 	    }, {
@@ -15264,7 +15297,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    Slider.prototype.onDrop = function onDrop(event, position) {
-	        if (!this.props.tipStay) {
+	        var _props = this.props;
+	        var tipStay = _props.tipStay;
+	        var slideCallback = _props.slideCallback;
+
+	        if (!tipStay) {
 	            this.setState({
 	                tipVisible: false
 	            });
@@ -15272,7 +15309,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        this.newProgressWidth = this.prevProgressWidth;
 
-	        if (this.props.onSliderChange) this.props.onSliderChange(this.state.realProgress);
+	        if (slideCallback) slideCallback(this.state.realProgress);
 	    };
 
 	    Slider.prototype.renderSliderText = function renderSliderText(showTipMode) {
@@ -15309,11 +15346,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Slider.prototype.render = function render() {
 	        var _this = this;
 
-	        var _props = this.props;
-	        var Component = _props.componentTag;
-	        var className = _props.className;
-	        var showRange = _props.showRange;
-	        var tipMode = _props.tipMode;
+	        var _props2 = this.props;
+	        var Component = _props2.componentTag;
+	        var className = _props2.className;
+	        var showRange = _props2.showRange;
+	        var tipMode = _props2.tipMode;
 	        var showTipMode = tipMode == 'default';
 
 	        return _react2['default'].createElement(
@@ -15351,9 +15388,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Slider;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 166 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
@@ -15367,8 +15404,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./slider.less", function() {
-				var newContent = require("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./slider.less");
+			module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./slider.less", function() {
+				var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./slider.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -15377,23 +15414,23 @@ return /******/ (function(modules) { // webpackBootstrap
 		module.hot.dispose(function() { update(); });
 	}
 
-/***/ },
+/***/ }),
 /* 167 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(26)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n@-webkit-keyframes rotate {\n  from {\n    -webkit-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n@keyframes rotate {\n  from {\n    -webkit-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n/**晃动*/\n.ph-slider {\n  position: relative;\n}\n.ph-slider-content {\n  position: absolute;\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n  -ms-transform: translateY(-50%);\n  transform: translateY(-50%);\n}\n.ph-slider-content .ph-slider-tip {\n  -webkit-transform: translateX(-50%);\n  -ms-transform: translateX(-50%);\n  transform: translateX(-50%);\n}\n.ph-slider-content .ph-slider-tip:after {\n  content: \"\";\n  position: absolute;\n  width: 0;\n  height: 0;\n  left: 50%;\n  border-style: solid;\n  border-color: transparent;\n  -webkit-transform: translateX(-50%);\n  -ms-transform: translateX(-50%);\n  transform: translateX(-50%);\n}\n.ph-slider {\n  padding: 92px 52px 52px;\n}\n.ph-slider.ph-keep-range {\n  padding: 92px 105px 52px;\n}\n.ph-slider-line {\n  position: relative;\n  height: 4px;\n  margin: 5px auto;\n  background-color: #bbb;\n}\n.ph-slider-progress {\n  width: 0;\n  height: 4px;\n  background-color: #ff6633;\n}\n.ph-slider-text {\n  position: absolute;\n  width: 100%;\n  top: 24px;\n  left: 0;\n  text-align: center;\n  line-height: 1;\n  font-size: 28px;\n  color: #ff6633;\n}\n.ph-slider-range .ph-slider-range-start,\n.ph-slider-range .ph-slider-range-end {\n  position: absolute;\n  display: inline-block;\n  top: 100px;\n  -webkit-transform: translateY(-50%);\n  -ms-transform: translateY(-50%);\n  transform: translateY(-50%);\n  font-weight: normal;\n  font-size: 28px;\n  color: #999;\n}\n.ph-slider-range .ph-slider-range-start {\n  left: 32px;\n  text-align: left;\n}\n.ph-slider-range .ph-slider-range-end {\n  right: 32px;\n  text-align: right;\n}\n.ph-slider-line {\n  position: relative;\n  height: 4px;\n  background-color: #bbb;\n}\n.ph-slider-progress {\n  width: 0;\n  height: 4px;\n  background-color: #ff6633;\n}\n.ph-slider-content .ph-slider-btn {\n  width: 40px;\n  height: 40px;\n  background-color: #fff;\n  box-shadow: 0 0 4PX rgba(0, 0, 0, 0.1);\n  -webkit-border-radius: 50%;\n  -moz-border-radius: 50%;\n  border-radius: 50%;\n  background-clip: padding-box;\n  -webkit-transform: translateX(-50%);\n  -ms-transform: translateX(-50%);\n  transform: translateX(-50%);\n}\n.ph-slider-content .ph-slider-tip {\n  position: absolute;\n  padding: 12px 18px;\n  background-color: #666;\n  -webkit-border-radius: 8px;\n  -moz-border-radius: 8px;\n  border-radius: 8px;\n  background-clip: padding-box;\n  color: #fff;\n}\n.ph-slider-tip-top .ph-slider-tip {\n  bottom: calc(100% +  20px);\n}\n.ph-slider-tip-top .ph-slider-tip:after {\n  bottom: -8px;\n  border-width: 8px 8px 0;\n  border-top-color: #666;\n}\n.ph-slider-tip-bottom .ph-slider-tip {\n  top: calc(100% +  20px);\n}\n.ph-slider-tip-bottom .ph-slider-tip:after {\n  top: -8px;\n  border-width: 0 8px 8px;\n  border-bottom-color: #666;\n}\n.ph-slider-disabled .ph-slider-text {\n  color: #ffb299;\n}\n.ph-slider-disabled .ph-slider-line {\n  background-color: #f0f0f0;\n}\n.ph-slider-disabled .ph-slider-progress {\n  background-color: #ffb299;\n}\n.ph-slider-disabled .ph-slider-btn {\n  pointer-events: none;\n}\n", ""]);
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n@-webkit-keyframes rotate {\n  from {\n    -webkit-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n@keyframes rotate {\n  from {\n    -webkit-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n/**晃动*/\n.ph-slider {\n  position: relative;\n  background-color: #fff;\n}\n.ph-slider-content {\n  position: absolute;\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n  -ms-transform: translateY(-50%);\n  transform: translateY(-50%);\n}\n.ph-slider-content .ph-slider-tip {\n  -webkit-transform: translateX(-50%);\n  -ms-transform: translateX(-50%);\n  transform: translateX(-50%);\n}\n.ph-slider-content .ph-slider-tip:after {\n  content: \"\";\n  position: absolute;\n  width: 0;\n  height: 0;\n  left: 50%;\n  border-style: solid;\n  border-color: transparent;\n  -webkit-transform: translateX(-50%);\n  -ms-transform: translateX(-50%);\n  transform: translateX(-50%);\n}\n.ph-slider {\n  padding: 92px 52px 52px;\n}\n.ph-slider.ph-keep-range {\n  padding: 92px 105px 52px;\n}\n.ph-slider-line {\n  position: relative;\n  height: 4px;\n  margin: 5px auto;\n  background-color: #bbb;\n}\n.ph-slider-progress {\n  width: 0;\n  height: 4px;\n  background-color: #ff6633;\n}\n.ph-slider-text {\n  position: absolute;\n  width: 100%;\n  top: 24px;\n  left: 0;\n  text-align: center;\n  line-height: 1;\n  font-size: 28px;\n  color: #ff6633;\n}\n.ph-slider-range .ph-slider-range-start,\n.ph-slider-range .ph-slider-range-end {\n  position: absolute;\n  display: inline-block;\n  top: 100px;\n  -webkit-transform: translateY(-50%);\n  -ms-transform: translateY(-50%);\n  transform: translateY(-50%);\n  font-weight: normal;\n  font-size: 28px;\n  color: #999;\n}\n.ph-slider-range .ph-slider-range-start {\n  left: 32px;\n  text-align: left;\n}\n.ph-slider-range .ph-slider-range-end {\n  right: 32px;\n  text-align: right;\n}\n.ph-slider-line {\n  position: relative;\n  height: 4px;\n  background-color: #bbb;\n}\n.ph-slider-progress {\n  width: 0;\n  height: 4px;\n  background-color: #ff6633;\n}\n.ph-slider-content .ph-slider-btn {\n  width: 40px;\n  height: 40px;\n  background-color: #fff;\n  box-shadow: 0 1px 8PX rgba(0, 0, 0, 0.2);\n  -webkit-border-radius: 50%;\n  -moz-border-radius: 50%;\n  border-radius: 50%;\n  background-clip: padding-box;\n  -webkit-transform: translateX(-50%);\n  -ms-transform: translateX(-50%);\n  transform: translateX(-50%);\n}\n.ph-slider-content .ph-slider-tip {\n  position: absolute;\n  padding: 12px 18px;\n  background-color: #666;\n  -webkit-border-radius: 8px;\n  -moz-border-radius: 8px;\n  border-radius: 8px;\n  background-clip: padding-box;\n  color: #fff;\n}\n.ph-slider-tip-top .ph-slider-tip {\n  bottom: calc(100% + 20px);\n}\n.ph-slider-tip-top .ph-slider-tip:after {\n  bottom: -8px;\n  border-width: 8px 8px 0;\n  border-top-color: #666;\n}\n.ph-slider-tip-bottom .ph-slider-tip {\n  top: calc(100% + 20px);\n}\n.ph-slider-tip-bottom .ph-slider-tip:after {\n  top: -8px;\n  border-width: 0 8px 8px;\n  border-bottom-color: #666;\n}\n.ph-slider-disabled .ph-slider-text {\n  color: #ffb299;\n}\n.ph-slider-disabled .ph-slider-line {\n  background-color: #f0f0f0;\n}\n.ph-slider-disabled .ph-slider-progress {\n  background-color: #ffb299;\n}\n.ph-slider-disabled .ph-slider-btn {\n  pointer-events: none;\n}\n", ""]);
 
 	// exports
 
 
-/***/ },
+/***/ }),
 /* 168 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -15672,9 +15709,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Menu;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 169 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -15803,9 +15840,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 170 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -16014,9 +16051,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = MenuBody;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 171 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -16137,9 +16174,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 172 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -16290,9 +16327,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 173 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -16472,9 +16509,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 174 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
@@ -16488,8 +16525,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./menu.less", function() {
-				var newContent = require("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./menu.less");
+			module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./menu.less", function() {
+				var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./menu.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -16498,9 +16535,9 @@ return /******/ (function(modules) { // webpackBootstrap
 		module.hot.dispose(function() { update(); });
 	}
 
-/***/ },
+/***/ }),
 /* 175 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(26)();
 	// imports
@@ -16512,9 +16549,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	// exports
 
 
-/***/ },
+/***/ }),
 /* 176 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -16546,53 +16583,23 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/**
 	 * 图片列表组件<br/>
-	 * - 通过images配置图片列表数据，数组格式，其中图片地址对应`image`字段，名称对应`title`字段，描述对应`desp`字段。
 	 * - 通过column设置图片列表的列数，1-8列。
-	 * - 通过titleField设置名称的格式，以`#`代表名称；通过despField设置描述的格式，以`#`代表描述。
-	 * - 通过otherParams设置额外的字段和格式。
-	 * - 通过clickCallback设置点击单个图片块的回调函数，返回当前图片的所有数据。
-	 * - 可以自定义内容children，当有内容时除了column其他属性不起作用。
 	 *
 	 * 主要属性和接口：
-	 * - images:图片列表数据，默认[]。<br>
+	 * - column:列表的列数，默认1列。<br>
 	 * ```code
-	 * json:
-	 * {
-	 *  "data": [
-	 *      {
-	 *          "image": "http://img5.duitang.com/uploads/item/201602/11/20160211214958_RhdCY.jpeg",
-	 *          "title": "图1",
-	 *          "desp": "关于图是一个...",
-	 *          "score": 1
-	 *      },
-	 *      ...
-	 *  ]
-	 * }
-	 * ...
-	 * <ImageList images={this.state.images} />
-	 * ```
-	 * - column:列表的列数，默认1。<br>
-	 * 如: `<ImageList column={2}  images={this.state.images} />`
-	 * - titleField:名称的格式，以`#`代表名称，默认"#"despField:描述的格式，以`#`代表描述，默认"#"。<br>
-	 * 如: `<ImageList images={this.state.images} titleField={"姓名: #"} despField={"描述: #"} />`
-	 * - otherParams:额外的字段和格式，默认{}。<br>
-	 * 如: `<ImageList images={this.state.images} otherParams={{"score":"分数: #"}} />`
-	 * - clickCallback:点击单个图片块的回调函数。<br>
-	 * 如: `<ImageList images={this.state.images} clickCallback={(data)=>{console.log(data);}} />`
-	 * - 自定义内容:children，当有内容时除了column其他属性不起作用。
-	 * ```code
-	 * <ImageList column={4}>
+	 * <ImageList column={4} lazy>
 	 *  {
 	 *      this.state.images.map((data,index)=>{
 	 *          return (
-	 *              <dl key={index}>
-	 *                  <dd>
-	 *                      <p>{data.title}</p>
-	 *                      <p>{data.desp}</p>
-	 *                  </dd>
+	 *              <dl className="ph-image-item" key={index}>
 	 *                  <dt>
-	 *                      <img src={data.image} alt={data.title} />
+	 *                      <Image src={data.image} alt={data.title}/>
 	 *                  </dt>
+	 *                  <dd>
+	 *                      <p className={setPhPrefix('image-title')}>{data.title}</p>
+	 *                      <p className={setPhPrefix('image-desp')}>{data.desp}</p>
+	 *                  </dd>
 	 *              </dl>
 	 *          )
 	 *      })
@@ -16623,57 +16630,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * */
 	            classPrefix: _react.PropTypes.string,
 	            /**
-	            * 图片列表数据
-	            * @property images
-	            * @type Array
-	            * @default []
-	            * */
-	            images: _react.PropTypes.array,
-	            /**
-	             * 图片列数
+	             * 图片列数，默认1列
 	             * @property column
 	             * @type Number
 	             * @default 1
 	             * */
 	            column: _react.PropTypes.number,
 	            /**
-	             * 名称格式
-	             * @property titleField
-	             * @type String
-	             * @default "#"
+	             * 是否懒加载
+	             * @property lazy
+	             * @type Boolean
+	             * @default false
 	             * */
-	            titleField: _react.PropTypes.string,
-	            /**
-	             * 描述格式
-	             * @property despField
-	             * @type String
-	             * @default "#"
-	             * */
-	            despField: _react.PropTypes.string,
-	            /**
-	            * 其他参数，额外增加的可自定义的字段
-	            * @property otherParams
-	            * @type Object
-	            * @default {}
-	            * */
-	            otherParams: _react.PropTypes.object,
-	            /**
-	             * 点击单个图片块的回调函数,返回当前图片的所有信息
-	             * @method clickCallback
-	             * @type Function
-	             * @default null
-	             **/
-	            clickCallback: _react.PropTypes.func
+	            lazy: _react.PropTypes.bool
 	        },
 	        enumerable: true
 	    }, {
 	        key: 'defaultProps',
 	        value: {
-	            images: [],
 	            column: 1,
-	            titleField: "#",
-	            despField: "#",
-	            otherParams: {},
+	            lazy: false,
 	            classPrefix: 'image-list',
 	            classMapping: {}
 	        },
@@ -16686,87 +16662,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _Component.call(this, props, context);
 	    }
 
-	    ImageList.prototype.formatParams = function formatParams(format, param) {
-	        if (param && format.indexOf('#') != -1) {
-	            return format.replace('#', param);
-	        }
-	    };
-
-	    ImageList.prototype.clickCallback = function clickCallback(data) {
-	        var clickCallback = this.props.clickCallback;
-
-	        if (clickCallback) clickCallback(data);
-	    };
-
 	    ImageList.prototype.renderImageList = function renderImageList() {
-	        var _this = this;
-
 	        var _props = this.props;
-	        var images = _props.images;
 	        var column = _props.column;
-	        var titleField = _props.titleField;
-	        var despField = _props.despField;
-	        var otherParams = _props.otherParams;
 	        var className = _props.className;
 	        var children = _props.children;
 
-	        if (children) {
-	            return _react2['default'].createElement(
-	                'div',
-	                { className: _classnames2['default'](this.getProperty(true), className, _utilsTool.setPhPrefix("column-" + column)) },
-	                children
-	            );
-	        } else {
-	            return _react2['default'].createElement(
-	                'div',
-	                { className: _classnames2['default'](this.getProperty(true), className, _utilsTool.setPhPrefix("column-" + column)) },
-	                images.map(function (data, index) {
-	                    var _context;
-
-	                    return _react2['default'].createElement(
-	                        'dl',
-	                        { key: index, onClick: (_context = _this.clickCallback).bind.call(_context, _this, data) },
-	                        _react2['default'].createElement(
-	                            'dt',
-	                            null,
-	                            _react2['default'].createElement('img', { src: data.image, alt: data.title })
-	                        ),
-	                        _react2['default'].createElement(
-	                            'dd',
-	                            null,
-	                            _react2['default'].createElement(
-	                                'p',
-	                                { className: _utilsTool.setPhPrefix('image-title') },
-	                                _this.formatParams(titleField, data.title)
-	                            ),
-	                            _react2['default'].createElement(
-	                                'p',
-	                                { className: _utilsTool.setPhPrefix('image-desp') },
-	                                _this.formatParams(despField, data.desp)
-	                            ),
-	                            _this.renderRest(otherParams, data)
-	                        )
-	                    );
-	                })
-	            );
-	        }
-	    };
-
-	    ImageList.prototype.renderRest = function renderRest(otherParams, data) {
-	        var newRest = [];
-
-	        for (var i in otherParams) {
-	            newRest.push(_react2['default'].createElement(
-	                'p',
-	                { key: i },
-	                this.formatParams(otherParams[i], data[i])
-	            ));
-	        }
-
-	        return newRest;
+	        return _react2['default'].createElement(
+	            'div',
+	            { className: _classnames2['default'](this.getProperty(true), className, _utilsTool.setPhPrefix("column-" + column))
+	            },
+	            children
+	        );
 	    };
 
 	    ImageList.prototype.render = function render() {
+	        console.log(this.props.children);
 	        return this.renderImageList();
 	    };
 
@@ -16776,9 +16687,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = ImageList;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 177 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
@@ -16792,8 +16703,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./image-list.less", function() {
-				var newContent = require("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./image-list.less");
+			module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./image-list.less", function() {
+				var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./image-list.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -16802,23 +16713,281 @@ return /******/ (function(modules) { // webpackBootstrap
 		module.hot.dispose(function() { update(); });
 	}
 
-/***/ },
+/***/ }),
 /* 178 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(26)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n@-webkit-keyframes rotate {\n  from {\n    -webkit-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n@keyframes rotate {\n  from {\n    -webkit-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n/**晃动*/\n.ph-image-list {\n  overflow: hidden;\n  padding-top: 2%;\n  margin: 0 auto;\n}\n.ph-image-list dl {\n  float: left;\n  margin: 0 0 2% 2%;\n  background-color: #fff;\n}\n.ph-image-list dt img {\n  display: block;\n  width: 100%;\n  border: none;\n}\n.ph-image-list dd {\n  padding: 0.4rem;\n}\n.ph-image-list dd p {\n  margin-bottom: 0.4rem;\n  line-height: 1;\n  font-size: 28px;\n}\n.ph-image-list dd p.ph-image-title {\n  font-weight: 800;\n}\n.ph-image-list dd p.ph-image-desp {\n  font-size: 24px;\n  color: #999;\n}\n.ph-image-list dd p:last-child {\n  margin-bottom: 0;\n}\n.ph-image-list.ph-column-1 dl {\n  width: 96%;\n}\n.ph-image-list.ph-column-2 dl {\n  width: 47%;\n}\n.ph-image-list.ph-column-3 dl {\n  width: 30.66666667%;\n}\n.ph-image-list.ph-column-4 dl {\n  width: 22.5%;\n}\n.ph-image-list.ph-column-5 dl {\n  width: 17.6%;\n}\n.ph-image-list.ph-column-6 dl {\n  width: 14.33333333%;\n}\n.ph-image-list.ph-column-7 dl {\n  width: 12%;\n}\n.ph-image-list.ph-column-8 dl {\n  width: 10.25%;\n}\n", ""]);
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n@-webkit-keyframes rotate {\n  from {\n    -webkit-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n@keyframes rotate {\n  from {\n    -webkit-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n/**晃动*/\n.ph-image-list {\n  overflow: hidden;\n  padding-top: 16px;\n  margin: 0 32px;\n}\n.ph-image-list > * {\n  float: left;\n  margin: 0 16px 16px 0;\n  background-color: #fff;\n}\n.ph-image-list dl.ph-image-item dt img {\n  display: block;\n  width: 100%;\n  border: none;\n}\n.ph-image-list dl.ph-image-item dd {\n  padding: 16px;\n}\n.ph-image-list dl.ph-image-item dd p {\n  margin-bottom: 16px;\n  line-height: 1;\n  font-size: 28px;\n}\n.ph-image-list dl.ph-image-item dd p.ph-image-title {\n  font-weight: 800;\n}\n.ph-image-list dl.ph-image-item dd p.ph-image-desp {\n  font-size: 24px;\n  color: #999;\n}\n.ph-image-list dl.ph-image-item dd p:last-child {\n  margin-bottom: 0;\n}\n.ph-image-list.ph-column-1 > * {\n  width: calc((100% + 16px)/1 - 16px);\n}\n.ph-image-list.ph-column-1 > *:nth-child(1n) {\n  margin-right: 0;\n}\n.ph-image-list.ph-column-2 > * {\n  width: calc((100% + 16px)/2 - 16px);\n}\n.ph-image-list.ph-column-2 > *:nth-child(2n) {\n  margin-right: 0;\n}\n.ph-image-list.ph-column-3 > * {\n  width: calc((100% + 16px)/3 - 16px);\n}\n.ph-image-list.ph-column-3 > *:nth-child(3n) {\n  margin-right: 0;\n}\n.ph-image-list.ph-column-4 > * {\n  width: calc((100% + 16px)/4 - 16px);\n}\n.ph-image-list.ph-column-4 > *:nth-child(4n) {\n  margin-right: 0;\n}\n.ph-image-list.ph-column-5 > * {\n  width: calc((100% + 16px)/5 - 16px);\n}\n.ph-image-list.ph-column-5 > *:nth-child(5n) {\n  margin-right: 0;\n}\n.ph-image-list.ph-column-6 > * {\n  width: calc((100% + 16px)/6 - 16px);\n}\n.ph-image-list.ph-column-6 > *:nth-child(6n) {\n  margin-right: 0;\n}\n.ph-image-list.ph-column-7 > * {\n  width: calc((100% + 16px)/7 - 16px);\n}\n.ph-image-list.ph-column-7 > *:nth-child(7n) {\n  margin-right: 0;\n}\n.ph-image-list.ph-column-8 > * {\n  width: calc((100% + 16px)/8 - 16px);\n}\n.ph-image-list.ph-column-8 > *:nth-child(8n) {\n  margin-right: 0;\n}\n", ""]);
 
 	// exports
 
 
-/***/ },
+/***/ }),
 /* 179 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(38);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utilsComponent = __webpack_require__(39);
+
+	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
+
+	var _classnames = __webpack_require__(40);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _utilsTool = __webpack_require__(44);
+
+	__webpack_require__(180);
+
+	/**
+	 * 图片组件<br/>
+	 * - 
+	 *
+	 * 主要属性和接口：
+	 * - 
+	 * ```code
+	 * 
+	 * ```
+	 * 
+	 * @class Image
+	 * @module 操作类组件
+	 * @extends Component
+	 * @constructor
+	 * @since 1.7.0
+	 * @demo image|image.js {展示}
+	 * @show true
+	 * */
+
+	var Images = (function (_Component) {
+	    _inherits(Images, _Component);
+
+	    _createClass(Images, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 样式前缀
+	             * @property classPrefix
+	             * @type String
+	             * @default 'image'
+	             * */
+	            classPrefix: _react.PropTypes.string,
+	            /**
+	             * 是否懒加载
+	             * @property lazy
+	             * @type Boolean
+	             * @default false
+	             * */
+	            lazy: _react.PropTypes.bool,
+	            /**
+	             * 默认图片地址
+	             * @property defaultSrc
+	             * @type String
+	             * @default null
+	             * */
+	            defaultSrc: _react.PropTypes.string,
+	            /**
+	             * 图片地址
+	             * @property src
+	             * @type String
+	             * @default null
+	             * */
+	            src: _react.PropTypes.string,
+	            align: _react.PropTypes.string,
+	            phSize: _react.PropTypes.oneOf(['cover', 'contain'])
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            src: null,
+	            align: 'center',
+	            lazy: false,
+	            defaultSrc: null,
+	            classPrefix: 'image',
+	            classMapping: {}
+	        },
+	        enumerable: true
+	    }]);
+
+	    function Images(props, context) {
+	        _classCallCheck(this, Images);
+
+	        _Component.call(this, props, context);
+
+	        // 对默认图片预加载
+	        this.defaultImagePreload();
+
+	        this.state = {
+	            src: this.getInitSrc()
+	        };
+
+	        this.scrollHandle = this.scrollHandle.bind(this);
+	        window.addEventListener('scroll', this.scrollHandle, false);
+	    }
+
+	    Images.prototype.defaultImagePreload = function defaultImagePreload() {
+	        var defaultSrc = this.props.defaultSrc;
+
+	        if (defaultSrc) {
+	            var img = new Image();
+	            img.src = defaultSrc;
+	        }
+	    };
+
+	    Images.prototype.getInitSrc = function getInitSrc() {
+	        var _props = this.props;
+	        var defaultSrc = _props.defaultSrc;
+	        var src = _props.src;
+	        var lazy = _props.lazy;
+
+	        if (defaultSrc) return defaultSrc;
+	        if (!lazy) {
+	            return src;
+	        } else {
+	            return null;
+	        }
+	    };
+
+	    Images.prototype.scrollHandle = function scrollHandle() {
+	        this.lazyLoad();
+	    };
+
+	    Images.prototype.lazyLoad = function lazyLoad() {
+	        this.bodyTop = document.body.scrollTop;
+	        this.bodyHeight = document.body.offsetHeight;
+	        this.imageTop = this.phImage.offsetTop;
+
+	        if (this.bodyTop + this.bodyHeight >= this.imageTop) {
+	            this.imageLoad();
+	        }
+	    };
+
+	    Images.prototype.componentDidMount = function componentDidMount() {
+	        var _props2 = this.props;
+	        var defaultSrc = _props2.defaultSrc;
+	        var lazy = _props2.lazy;
+
+	        if (defaultSrc && !lazy) this.imageLoad();
+	        if (lazy) this.lazyLoad();
+	    };
+
+	    Images.prototype.imageLoad = function imageLoad() {
+	        var _this = this;
+
+	        var src = this.props.src;
+
+	        var img = new Image();
+	        img.src = src;
+
+	        if (img.complete) {
+	            // 如果已经存在，直接加载
+	            this.setState({ src: src });
+	            return;
+	        }
+
+	        img.onload = function () {
+	            // 否则等到图片加载完成
+	            img.onload = null;
+
+	            _this.setState({ src: src });
+	        };
+	    };
+
+	    Images.prototype.componentWillUnmount = function componentWillUnmount() {
+	        window.removeEventListener('scroll', this.scrollHandle, false);
+	    };
+
+	    Images.prototype.renderImage = function renderImage() {
+	        var _this2 = this;
+
+	        var _props3 = this.props;
+	        var className = _props3.className;
+	        var children = _props3.children;
+
+	        return _react2['default'].createElement(
+	            'div',
+	            { className: _classnames2['default'](this.getProperty(true), className), ref: function (phImage) {
+	                    _this2.phImage = phImage;
+	                } },
+	            _react2['default'].createElement('img', _extends({}, this.props, { src: this.state.src }))
+	        );
+	    };
+
+	    Images.prototype.render = function render() {
+	        return this.renderImage();
+	    };
+
+	    return Images;
+	})(_utilsComponent2['default']);
+
+	exports['default'] = Images;
+	module.exports = exports['default'];
+
+/***/ }),
+/* 180 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(181);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(27)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./image.less", function() {
+				var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./image.less");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ }),
+/* 181 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(26)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n@-webkit-keyframes rotate {\n  from {\n    -webkit-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n@keyframes rotate {\n  from {\n    -webkit-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n/**晃动*/\n.ph-image img {\n  display: block;\n  width: 100%;\n  height: 100%;\n}\n", ""]);
+
+	// exports
+
+
+/***/ }),
+/* 182 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -16850,7 +17019,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _utilsTool = __webpack_require__(44);
 
-	__webpack_require__(180);
+	__webpack_require__(183);
 
 	/**
 	 * 步骤组件<br/>
@@ -17015,14 +17184,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Steps;
 	module.exports = exports['default'];
 
-/***/ },
-/* 180 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 183 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(181);
+	var content = __webpack_require__(184);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(27)(content, {});
@@ -17031,8 +17200,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./steps.less", function() {
-				var newContent = require("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./steps.less");
+			module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./steps.less", function() {
+				var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./steps.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -17041,9 +17210,9 @@ return /******/ (function(modules) { // webpackBootstrap
 		module.hot.dispose(function() { update(); });
 	}
 
-/***/ },
-/* 181 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 184 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(26)();
 	// imports
@@ -17055,13 +17224,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	// exports
 
 
-/***/ },
-/* 182 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 185 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -17093,7 +17264,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _gridCol2 = _interopRequireDefault(_gridCol);
 
-	__webpack_require__(183);
+	__webpack_require__(186);
 
 	/**
 	 * List<br/>
@@ -17151,7 +17322,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    List.prototype.renderList = function renderList() {
 	        return _react2['default'].createElement(
 	            'ul',
-	            { className: _classnames2['default'](this.getProperty(true), this.props.className) },
+	            _extends({}, this.props, { className: _classnames2['default'](this.getProperty(true), this.props.className) }),
 	            this.props.children
 	        );
 	    };
@@ -17196,7 +17367,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    ListHeader.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            'li',
-	            { className: _classnames2['default'](this.getProperty(true), this.props.className) },
+	            _extends({}, this.props, { className: _classnames2['default'](this.getProperty(true), this.props.className) }),
 	            this.props.children
 	        );
 	    };
@@ -17277,7 +17448,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            _gridRow2['default'],
-	            { componentTag: 'li', className: _classnames2['default'](this.getProperty(true), className, navigate ? _utilsTool.setPhPrefix('navigate-right') : '') },
+	            _extends({}, this.props, { classPrefix: 'row', componentTag: 'li', className: _classnames2['default'](this.getProperty(true), className, navigate ? _utilsTool.setPhPrefix('navigate-right') : '') }),
 	            this.props.children
 	        );
 	    };
@@ -17332,7 +17503,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            _gridCol2['default'],
-	            { className: _classnames2['default'](this.getProperty(true), className) },
+	            _extends({}, this.props, { classPrefix: 'col', className: _classnames2['default'](this.getProperty(true), className) }),
 	            this.props.children
 	        );
 	    };
@@ -17347,14 +17518,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = List;
 	module.exports = exports['default'];
 
-/***/ },
-/* 183 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 186 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(184);
+	var content = __webpack_require__(187);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(27)(content, {});
@@ -17363,8 +17534,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./list.less", function() {
-				var newContent = require("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./list.less");
+			module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./list.less", function() {
+				var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./list.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -17373,9 +17544,9 @@ return /******/ (function(modules) { // webpackBootstrap
 		module.hot.dispose(function() { update(); });
 	}
 
-/***/ },
-/* 184 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 187 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(26)();
 	// imports
@@ -17387,9 +17558,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	// exports
 
 
-/***/ },
-/* 185 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 188 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -17425,11 +17596,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _button2 = _interopRequireDefault(_button);
 
-	__webpack_require__(186);
+	__webpack_require__(189);
 
 	/**
 	 * SearchBar<br/>
-	 * - 
+	 * - 可通过buttonText设置按钮的文字。
+	 * - 可通过clickCallback设置点击按钮的回调。
+	 * - 可通过queryCallback设置回车/搜索动作的回调函数。
 	 *
 	 * 主要属性和接口：
 	 * 
@@ -17456,6 +17629,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * @default 'search-bar'
 	             * */
 	            classPrefix: _react.PropTypes.string,
+	            /**
+	             * 按钮文案
+	             * @property buttonText
+	             * @type String
+	             * @default '取消'
+	             * */
 	            buttonText: _react.PropTypes.string,
 	            /**
 	             * 搜索的回调
@@ -17507,7 +17686,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    SearchBar.prototype.buttonHandle = function buttonHandle() {
 	        var clickCallback = this.props.clickCallback;
 
-	        if (clickCallback) clickCallback();
+	        if (clickCallback) clickCallback(this.searchElem.getValueCallback());
 	    };
 
 	    SearchBar.prototype.onFocus = function onFocus() {
@@ -17562,14 +17741,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = SearchBar;
 	module.exports = exports['default'];
 
-/***/ },
-/* 186 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 189 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(187);
+	var content = __webpack_require__(190);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(27)(content, {});
@@ -17578,8 +17757,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./search-bar.less", function() {
-				var newContent = require("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./search-bar.less");
+			module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./search-bar.less", function() {
+				var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./search-bar.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -17588,27 +17767,29 @@ return /******/ (function(modules) { // webpackBootstrap
 		module.hot.dispose(function() { update(); });
 	}
 
-/***/ },
-/* 187 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 190 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(26)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n@-webkit-keyframes rotate {\n  from {\n    -webkit-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n@keyframes rotate {\n  from {\n    -webkit-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n/**晃动*/\n.ph-search-bar {\n  position: relative;\n}\n.ph-search-bar .ph-button {\n  display: inline-block;\n}\n.ph-search-bar {\n  overflow: hidden;\n  height: 88px;\n  padding: 14px 24px;\n  background-color: #f0f0f0;\n  white-space: nowrap;\n}\n.ph-search-bar .ph-input {\n  display: inline-block;\n  width: 100%;\n  -webkit-transition: all 0.3s;\n  -moz-transition: all 0.3s;\n  transition: all 0.3s;\n}\n.ph-search-bar input[type=\"search\"] {\n  background-color: #fff;\n}\n.ph-search-bar .ph-button {\n  font-size: 32px;\n}\n.ph-search-bar .ph-input-placeholder,\n.ph-search-bar .ph-input-placeholder .gfs-icon {\n  color: #999;\n}\n.ph-search-bar-focus .ph-input {\n  width: calc(100% -  92px);\n}\n", ""]);
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n@-webkit-keyframes rotate {\n  from {\n    -webkit-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n@keyframes rotate {\n  from {\n    -webkit-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(360deg);\n    -ms-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n/**晃动*/\n.ph-search-bar {\n  position: relative;\n}\n.ph-search-bar .ph-button {\n  display: inline-block;\n}\n.ph-search-bar {\n  overflow: hidden;\n  height: 88px;\n  padding: 14px 24px;\n  background-color: #f0f0f0;\n  white-space: nowrap;\n}\n.ph-search-bar .ph-input {\n  display: inline-block;\n  width: 100%;\n  -webkit-transition: all 0.3s;\n  -moz-transition: all 0.3s;\n  transition: all 0.3s;\n}\n.ph-search-bar input[type=\"search\"] {\n  background-color: #fff;\n}\n.ph-search-bar .ph-button {\n  font-size: 32px;\n}\n.ph-search-bar .ph-input-placeholder,\n.ph-search-bar .ph-input-placeholder .gfs-icon {\n  color: #999;\n}\n.ph-search-bar-focus .ph-input {\n  width: calc(100% - 92px);\n}\n", ""]);
 
 	// exports
 
 
-/***/ },
-/* 188 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 191 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -17642,7 +17823,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _icon2 = _interopRequireDefault(_icon);
 
-	__webpack_require__(189);
+	__webpack_require__(192);
 
 	/**
 	 * 加载更多组件<br/>
@@ -17926,9 +18107,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            'div',
-	            { ref: function (pullUp) {
+	            _extends({}, this.props, { ref: function (pullUp) {
 	                    _this.pullUp = pullUp;
-	                }, className: this.getProperty(true) },
+	                }, className: this.getProperty(true) }),
 	            this.renderPullUp()
 	        );
 	    };
@@ -17939,14 +18120,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = PullUp;
 	module.exports = exports['default'];
 
-/***/ },
-/* 189 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 192 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(190);
+	var content = __webpack_require__(193);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(27)(content, {});
@@ -17955,8 +18136,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./pullup.less", function() {
-				var newContent = require("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./pullup.less");
+			module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./pullup.less", function() {
+				var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./pullup.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -17965,9 +18146,9 @@ return /******/ (function(modules) { // webpackBootstrap
 		module.hot.dispose(function() { update(); });
 	}
 
-/***/ },
-/* 190 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 193 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(26)();
 	// imports
@@ -17979,9 +18160,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	// exports
 
 
-/***/ },
-/* 191 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 194 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -17989,35 +18170,35 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-	var _componentsFilterContainerJs = __webpack_require__(192);
+	var _componentsFilterContainerJs = __webpack_require__(195);
 
 	var _componentsFilterContainerJs2 = _interopRequireDefault(_componentsFilterContainerJs);
 
-	var _componentsFilterPanelJs = __webpack_require__(193);
+	var _componentsFilterPanelJs = __webpack_require__(196);
 
 	var _componentsFilterPanelJs2 = _interopRequireDefault(_componentsFilterPanelJs);
 
-	var _componentsFilterPanelSimpleJs = __webpack_require__(195);
+	var _componentsFilterPanelSimpleJs = __webpack_require__(198);
 
 	var _componentsFilterPanelSimpleJs2 = _interopRequireDefault(_componentsFilterPanelSimpleJs);
 
-	var _componentsItemJs = __webpack_require__(196);
+	var _componentsItemJs = __webpack_require__(199);
 
 	var _componentsItemJs2 = _interopRequireDefault(_componentsItemJs);
 
-	var _componentsItemGroupJs = __webpack_require__(197);
+	var _componentsItemGroupJs = __webpack_require__(200);
 
 	var _componentsItemGroupJs2 = _interopRequireDefault(_componentsItemGroupJs);
 
-	var _componentsFilterCheckboxJs = __webpack_require__(198);
+	var _componentsFilterCheckboxJs = __webpack_require__(201);
 
 	var _componentsFilterCheckboxJs2 = _interopRequireDefault(_componentsFilterCheckboxJs);
 
-	var _componentsFilterPanelCheckboxJs = __webpack_require__(199);
+	var _componentsFilterPanelCheckboxJs = __webpack_require__(202);
 
 	var _componentsFilterPanelCheckboxJs2 = _interopRequireDefault(_componentsFilterPanelCheckboxJs);
 
-	__webpack_require__(200);
+	__webpack_require__(203);
 
 	var PhFilter = {};
 
@@ -18032,9 +18213,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports["default"] = PhFilter;
 	module.exports = exports["default"];
 
-/***/ },
-/* 192 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 195 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -18245,9 +18426,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = FilterContainer;
 	module.exports = exports['default'];
 
-/***/ },
-/* 193 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 196 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -18267,7 +18448,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _FilterPanelBaseJs = __webpack_require__(194);
+	var _FilterPanelBaseJs = __webpack_require__(197);
 
 	var _FilterPanelBaseJs2 = _interopRequireDefault(_FilterPanelBaseJs);
 
@@ -18353,9 +18534,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = FilterPanel;
 	module.exports = exports['default'];
 
-/***/ },
-/* 194 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 197 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -18436,9 +18617,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = FilterPanelBase;
 	module.exports = exports['default'];
 
-/***/ },
-/* 195 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 198 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -18458,7 +18639,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _FilterPanelBase = __webpack_require__(194);
+	var _FilterPanelBase = __webpack_require__(197);
 
 	var _FilterPanelBase2 = _interopRequireDefault(_FilterPanelBase);
 
@@ -18496,9 +18677,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = FilterPanelSimple;
 	module.exports = exports['default'];
 
-/***/ },
-/* 196 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 199 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -18625,9 +18806,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Item;
 	module.exports = exports['default'];
 
-/***/ },
-/* 197 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 200 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -18702,9 +18883,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Item;
 	module.exports = exports['default'];
 
-/***/ },
-/* 198 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 201 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -18730,11 +18911,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _input2 = _interopRequireDefault(_input);
 
-	var _FilterContainerJs = __webpack_require__(192);
+	var _FilterContainerJs = __webpack_require__(195);
 
 	var _FilterContainerJs2 = _interopRequireDefault(_FilterContainerJs);
 
-	var _FilterPanelCheckboxJs = __webpack_require__(199);
+	var _FilterPanelCheckboxJs = __webpack_require__(202);
 
 	var _FilterPanelCheckboxJs2 = _interopRequireDefault(_FilterPanelCheckboxJs);
 
@@ -18805,9 +18986,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = FilterCheckbox;
 	module.exports = exports['default'];
 
-/***/ },
-/* 199 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 202 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -18825,7 +19006,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Item = __webpack_require__(196);
+	var _Item = __webpack_require__(199);
 
 	var _Item2 = _interopRequireDefault(_Item);
 
@@ -19051,14 +19232,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = FilterPanelCheckbox;
 	module.exports = exports['default'];
 
-/***/ },
-/* 200 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 203 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(201);
+	var content = __webpack_require__(204);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(27)(content, {});
@@ -19067,8 +19248,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./ph-filter.less", function() {
-				var newContent = require("!!../../../../../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../../../../../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./ph-filter.less");
+			module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./ph-filter.less", function() {
+				var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/less-loader/index.js!./ph-filter.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -19077,9 +19258,9 @@ return /******/ (function(modules) { // webpackBootstrap
 		module.hot.dispose(function() { update(); });
 	}
 
-/***/ },
-/* 201 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ }),
+/* 204 */
+/***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(26)();
 	// imports
@@ -19091,7 +19272,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	// exports
 
 
-/***/ }
+/***/ })
 /******/ ])
 });
 ;

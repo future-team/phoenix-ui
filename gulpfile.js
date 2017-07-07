@@ -11,16 +11,7 @@ var gulp = require('gulp'),
     WebpackDevServer = require("webpack-dev-server"),
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
     projectName = require("./package.json").name,
-    postcss = require('gulp-postcss'),
-    pxtorem = require('postcss-pxtorem'),
     devPort = 3005;
-
-var processors = [
-    pxtorem({
-        rootValue: 100,
-        propWhiteList: []
-    })
-];
 
 gulp.task('babel', function () {
     return gulp.src('src/**/*.js')
@@ -58,7 +49,7 @@ gulp.task('demoBuild', function (done) {
         },
         {
             test: /\.less$/,
-            loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
+            loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader!less-loader")
         },
         {
             test: /\.png$/,
@@ -105,12 +96,6 @@ gulp.task('exampleWebpack', function (done) {
     });
 });
 
-gulp.task('pxtorem', function(){
-  gulp.src(['./examples/dist/*.css','./examples/css/*.css'])
-  .pipe(postcss(processors))
-  .pipe(gulp.dest('./examples/dist/'))
-})
-
 gulp.task('min-webpack', ['webpack'], function (done) {
     var wbpk = Object.create(webpackConfig);
     wbpk.output.filename = projectName+'.min.js';
@@ -131,7 +116,7 @@ gulp.task('karma', function (done) {
     }, done).start();
 });
 
-gulp.task('default', ['babel', 'min-webpack', 'exampleWebpack', 'pxtorem']);
+gulp.task('default', ['babel', 'min-webpack', 'exampleWebpack']);
 gulp.task('demo', ['demoBuild', 'open']);
 gulp.task('min', ['min-webpack']);
 gulp.task('test',['karma']);

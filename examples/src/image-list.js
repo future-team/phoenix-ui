@@ -1,8 +1,12 @@
 import React, { Component } from "react"
 
 import ImageList from "phoenix-ui/lib/image-list"
+import Image from "phoenix-ui/lib/image"
 import Code from "./code/code"
 import {ajax} from "./utils/tool.js"
+
+const DEFULT_IMAGE = 'http://file.digitaling.com/eImg/uimages/20150907/1441607165383971.gif',
+      IMAGE_URL = 'http://img5.duitang.com/uploads/item/201602/11/20160211214958_RhdCY.jpeg'
 
 export default class imagelist extends Component{
     constructor(props,context){
@@ -32,47 +36,47 @@ export default class imagelist extends Component{
         return(
             <div>
             	<h2 className="comp-title">ImageList</h2>
-                <h3 className="comp-type">images(默认[]) 图片数据<br/>默认地址的字段是image，名称的字段是title，描述的字段是desp</h3>
-                <ImageList images={this.state.images} column={4} />
-                <Code target="imagelist-images" />               
-
                 <h3 className="comp-type">column(默认1) 图片列数</h3>
-                <ImageList column={2}  images={this.state.images} />
-                <Code target="imagelist-column" /> 
-
-                <h3 className="comp-type">titleField(默认#) 姓名格式更改，#代表数值；<br/>despField(默认#) 描述格式更改，#代表数值</h3>
-                <ImageList images={this.state.images} column={4} titleField={"姓名: #"} despField={"描述: #"} />
-                <h3 className="comp-tip"> 如果name或desp中有不要的字段，传空字符"" </h3>
-                <ImageList images={this.state.images} column={4} titleField={"姓名: #"} despField={""} />
-                <Code target="imagelist-format" /> 
-                
-                <h3 className="comp-type">otherParams(默认{}) 其他增加项</h3>
-                <ImageList images={this.state.images} column={4} otherParams={{"score":"分数: #"}} />
-                <Code target="imagelist-otherparams" /> 
-
-                <h3 className="comp-type">clickCallback(默认null) 点击单个图片块的回调函数</h3>
-                <ImageList images={this.state.images} column={4} clickCallback={(data)=>{console.log(data);}} />
-                <Code target="imagelist-clickcallback" /> 
-
-                <h3 className="comp-type">children(默认无) 内容完全自定义</h3>
-                <ImageList column={4}>
+                <ImageList column={4} lazy>
                     {
                         this.state.images.map((data,index)=>{
                             return (
-                                <dl key={index}>
-                                    <dd>
-                                        <p className="ph-image-title">{data.title}</p>
-                                        <p className="ph-image-desp">{data.desp}</p>
-                                    </dd>
+                                <dl className="ph-image-item" key={index}>
                                     <dt>
-                                        <img src={data.image} alt={data.title} />
+                                        <Image defaultSrc={DEFULT_IMAGE} src={data.image} alt={data.title}/>
                                     </dt>
+                                    <dd>
+                                        <p className='ph-image-title'>{data.title}</p>
+                                        <p className='ph-image-desp'>{data.desp}</p>
+                                    </dd>
                                 </dl>
                             )
                         })
                     }
                 </ImageList>
-                <Code target="imagelist-custom" /> 
+                <Code target="imagelist-column" />
+
+                <h3 className="comp-type">lazy(默认false) 是否懒加载</h3>
+                <ImageList lazy>
+                    {
+                        this.state.images.map((data,index)=>{
+                            return (
+                                <dl className="ph-image-item" key={index}>
+                                    <dt>
+                                        <Image defaultSrc={DEFULT_IMAGE} src={data.image} alt={data.title}/>
+                                    </dt>
+                                    <dd>
+                                        <p className='ph-image-title'>{data.title}</p>
+                                        <p className='ph-image-desp'>{data.desp}</p>
+                                    </dd>
+                                </dl>
+                            )
+                        })
+                    }
+                </ImageList>
+                <Code target="imagelist-lazy" />
+
+                
             </div>
         );
     }

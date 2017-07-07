@@ -7,18 +7,16 @@ html, body{
     position: absolute;
     top: 0;
     left: 0;
-    padding: 20px;
-    font-size: 48px;
+    padding: .20rem;
+    font-size: .48rem;
     text-align: right;
     color: #fff;
 }
 
 #root{
     min-height: 100%;
-    /*max-width: 414px;*/
+    /*max-width: 414PX;*/
     margin: 0 auto;
-    /*border-right: 1px solid #ddd;*/
-    /*border-left: 1px solid #ddd;*/
 }
 
 ::-webkit-scrollbar{  
@@ -33,14 +31,14 @@ html, body{
 }
 .menu header{
     overflow: hidden;
-    height: 240px;
-    margin-bottom: 32px;
+    height: 2.40rem;
+    margin-bottom: .32rem;
     background: url(../img/phoenix.jpg) center center;
     background-size: cover;
     color: #fff;
 }
 .menu header>*{
-    padding: 64px 32px 32px;
+    padding: .64rem .32rem .32rem;
     height: 100%;
 }
 .left-header{
@@ -48,11 +46,11 @@ html, body{
     width: 60%;
 }
 .left-header h1{
-    margin-bottom: 64px;
-    font-size: 40px;
+    margin-bottom: .64rem;
+    font-size: .40rem;
 }
 .left-header p{
-    font-size: 28px;
+    font-size: .28rem;
     white-space: nowrap;
 }
 .left-header a{
@@ -67,48 +65,48 @@ html, body{
 }
 .right-header a{
     display: block;
-    margin-bottom: 32px;
-    font-size: 30px;
+    margin-bottom: .32rem;
+    font-size: .30rem;
     color: #fff;
 }
 
 .menu>h2{
-    padding: 8px 32px;
+    padding: .08rem .32rem;
     background-color: #ccc;
-    font-size: 30px;
+    font-size: .30rem;
     color: #fff;
 }
 
 .menu>h3{
-    padding: 16px 32px;
+    padding: .16rem .32rem;
     border-top: 1PX solid #e1e1e1;
     border-bottom: 1PX solid #e1e1e1;
-    font-size: 28px;
+    font-size: .28rem;
     color: #999cad;
 }
 
 .list-card{
     display: block;
     position: relative;
-    margin: 0 32px;
-    padding: 20px 0 20px 48px;
+    margin: 0 .32rem;
+    padding: .20rem 0 .20rem .48rem;
     border-bottom: 1PX solid #e1e1e1;
 }
 .list-card:last-child{
     border-bottom: none;
 }
 .menu-panel h3{
-    margin-bottom: 28px;
-    font-size: 32px;
+    margin-bottom: .28rem;
+    font-size: .32rem;
 }
 .menu-panel p{
-    font-size: 28px;
+    font-size: .28rem;
     color: #777;
 }
 /*** phoenix-styles ***/
 .phoenix-styles{
     display: block;
-    padding: 20px 32px;
+    padding: .20rem .32rem;
 }
 .phoenix-styles:hover{
     text-decoration: underline;
@@ -116,30 +114,30 @@ html, body{
 
 .switch-skin{
     display: inline-block;
-    margin: 32px;
+    margin: .32rem;
 }
 
 /*** content common ***/
 .comp-title{
-    padding: 64px;
+    padding: .64rem;
     background: url(../img/phoenix.jpg) center center;
     background-size: cover;
-    font-size: 48px;
+    font-size: .48rem;
     text-align: center;
     color: #fff;
 }
 .comp-type{
-    padding: 20px 32px;
+    padding: .20rem .32rem;
     background-color: #fff;
     border-top: 1PX solid #ddd;
     border-bottom: 1PX solid #ddd;
-    font-size: 30px;
+    font-size: .30rem;
     color: #777;
 }
 .comp-type:before{
     content: "\e64a";
     display: inline-block;
-    margin-right: 20px;
+    margin-right: .20rem;
     font-family:"iconfont" !important;
 }
 .comp-type a{
@@ -148,8 +146,8 @@ html, body{
 }
 
 .comp-tip{
-    padding-bottom: 20px;
-    font-size: 30px;
+    padding-bottom: .20rem;
+    font-size: .30rem;
     color: #999cad;
 }
 
@@ -159,27 +157,27 @@ html, body{
 
 .code-mark{
     display: inline-block;
-    padding: 16px 32px;
+    padding: .16rem .32rem;
     background-color: transparent;
     border: none;
     text-decoration: underline;
-    font-size: 30px;
+    font-size: .30rem;
 }
 
 .code-dialog .ph-dialog-content{
-    padding: 32px;
+    padding: .32rem;
 }
 
 .code-dialog .ph-dialog-body.code-body{
     overflow-x: auto;
-    margin: 16px 0;
+    margin: .16rem 0;
     text-align: left;
     white-space: pre;
 }
 
 /*** content example ***/
 .content, .contents{
-    padding: 32px 32px 16px;
+    padding: .32rem .32rem .16rem;
     background-color: #fff;
 }
 .content > .ph-button:not(.ph-button-block),
@@ -189,7 +187,7 @@ html, body{
 .content .ph-multi-group,
 .content .ph-switch,
 .content > .gfs-icon{
-    margin: 0 16px 16px 0;
+    margin: 0 .16rem .16rem 0;
 }
 
 .content :not(.ph-button) .gfs-icon{
@@ -202,21 +200,12 @@ html, body{
 .contents .ph-form-group,
 .contents .ph-swipe,
 .content code{
-    margin: 0 0 16px 0;
+    margin: 0 0 .16rem 0;
 }
 
 .content .ph-steps,
 .content .ph-input{
-    margin-bottom: 16px;
-}
-
-.content .ph-whisper{
-    display: inline-block;
-    width: 40%;
-    margin: 0 0 32px 32px;
-    padding: 8px 12px;
-    background-color: #fff;
-    text-align: center;
+    margin-bottom: .16rem;
 }
 
 .content .ph-tabs{
@@ -224,30 +213,30 @@ html, body{
 }
 
 .todo-demo .ph-button.ph-button-lg{
-    height: 40px;
+    height: .40rem;
     border-radius: 0;
 }
 
 .animate-field>div{
-    padding: 12px 32px;
+    padding: .12rem .32rem;
     background-color: #fff;
     border-bottom: 1PX solid #ddd;
 }
 
 .content-drag .box{
-    width: 100px;
-    height: 100px;
+    width: 1rem;
+    height: 1rem;
     background-color: #000;
-    line-height: 100px;
+    line-height: 1;
     text-align: center;
     color: #fff;
 }
 
 .col-demo {
-    padding: 5px;
+    padding: .08rem;
     width: 100%;
-    border: 1px solid #ddd;
-    border-radius: 2px;
+    border: 1PX solid #ddd;
+    border-radius: 2PX;
     background: #f1f1f1;
     text-align: center
 }
@@ -256,14 +245,14 @@ html, body{
     display: block;
     overflow-x: auto;
     white-space: nowrap;
-    padding: 32px;
+    padding: .32rem;
     background-color: #fff;
-    font-size: 24px;
+    font-size: .24rem;
 }
 
 .ph-loading-list li{
-    padding: 32px;
-    margin-top: 32px;
+    padding: .32rem;
+    margin-top: .32rem;
     background-color: #fff;
 }
 .ph-loading-list li img{
@@ -276,17 +265,17 @@ html, body{
 
 /*** 列表页demo ***/
 .list-demo{
-    padding: 16px 32px 0;
+    padding: .16rem .32rem 0;
     background-color: #fff;
 }
 .list-item{
     border-bottom: 1px solid #ccc;
 }
 .row-label .label{
-    margin-right: 5px;
+    margin-right: .08rem;
 }
 .row-address{
-    font-size: 12px;
+    font-size: 0.24rem;
     color: #999;
 }
 

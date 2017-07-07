@@ -1,25 +1,29 @@
 {
 	"data": [
-		 "哈哈哈11",
-		 "哈哈哈12",
-		 "哈哈哈13",
-		 "哈哈哈14",
-		 "哈哈哈15",
-		 "哈哈哈16",
-		 "哈哈哈17",
-		 "哈哈哈18",
-		 "哈哈哈19",
-		 "哈哈哈20",
-		 "哈哈哈11",
-		 "哈哈哈12",
-		 "哈哈哈13",
-		 "哈哈哈14",
-		 "哈哈哈15",
-		 "哈哈哈16",
-		 "哈哈哈17",
-		 "哈哈哈18",
-		 "哈哈哈19",
-		 "哈哈哈20"
+		{
+			"image": "http://img5.duitang.com/uploads/item/201602/11/20160211214958_RhdCY.jpeg",
+			"title": "踏青必住酒店",
+			"desp": "关于图是...",
+			"score": 1
+		},
+		{
+			"image": "http://img5.duitang.com/uploads/item/201602/11/20160211214958_RhdCY.jpeg",
+			"title": "都市放松首选",
+			"desp": "关于图是...",
+			"score": 2
+		},
+		{
+			"image": "http://img5.duitang.com/uploads/item/201602/11/20160211214958_RhdCY.jpeg",
+			"title": "城市景观餐厅",
+			"desp": "关于图是...",
+			"score": 3
+		},
+		{
+			"image": "http://img5.duitang.com/uploads/item/201602/11/20160211214958_RhdCY.jpeg",
+			"title": "14.9元抢",
+			"desp": "关于图是...",
+			"score": 3
+		}
 	],
-	"final": false
+	"final": true
 }
