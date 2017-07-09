@@ -5,7 +5,7 @@ import {setPhPrefix} from '../utils/Tool'
 
 import Animate from '../animate'
 
-import "phoenix-styles/less/modules/dialog.less"
+import "phoenix-styles/css/dialog.css"
 
 /**
  * <h5>弹出框组件，主要包括组件:</h5>

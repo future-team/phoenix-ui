@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
 
-import "phoenix-styles/less/modules/buttons.less"
+import "phoenix-styles/css/form.css"
 
 /**
  * 行组件<br/>

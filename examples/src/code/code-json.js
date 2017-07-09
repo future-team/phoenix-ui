@@ -40,9 +40,9 @@ var code = {
 
 	'switch': '<Switch />\n<Switch defaultChecked={true} />\n<Switch checked={this.state.checked} onChange={::this.onChange} />',
 
-	'textarea-count': '<Textarea placeholder="不计数..." />\n<Textarea count maxLength={this.state.MAX_LENGTH} placeholder="count配合maxLength计数..." />',
-	'textarea': '<Textarea defaultValue={this.state.name} placeholder="请输入..." />\n<Textarea value={this.state.words} onChange={this.setValue.bind(this,"words")} placeholder="请输入..."/>\n'+
-		'// setValue是设置value的函数 \n setValue(key,e){\n\  let o ={}; \n\  o[key || e.target.name] = e.target.value;\n\  this.setState(o);\n }',
+	'textarea-count': '<Textarea count maxLength={this.state.MAX_LENGTH} placeholder="count配合maxLength计数..." />',
+	'textarea-value': '<Textarea value="我是默认值" placeholder="请输入..." />',
+	'textarea-getvalue':'<Textarea placeholder="默认text" ref={(textElem)=>{this.textElem = textElem}} />\nthis.textElem.getValueCallback()',
 
 	'form-group-single': '<FormGroup>\n\  <Row single>\n\    <Col><Input type="text" placeholder="姓名" /></Col>\n\  </Row>\n</FormGroup>',
 	'form-group-multiple': ' <FormGroup>\n\  <Row>\n\    <Col>\n\      <label>地址</label>\n\      <Input type="text" placeholder="地址" />\n\    </Col>\n\  </Row>\n\  '+
@@ -136,13 +136,14 @@ var code = {
 	'loadinglist':'<LoadingList phMode="auto" loadingStatus={this.state.loadingStatus} \nloadTips={["点击加载更多","加载中...","加载成功！","加载失败！","没有更多"]} \nbuttonStyles={["primary","gray","success","danger","gray"]} \nloadCallback={::this.nloadCallback} loadEndCallback={::this.loadEndCallback}>\n\  '+
 		'<ul>\n\    {\n\      this.state.loadingData.map((data,index)=>{\n\        return (\n\          <li key={index}>...</li>\n\        );\n\      })\n\    }\n\  </ul>\n</LoadingList>',
 
-	'imagelist-images':'json:\n {"data": [\n\  {\n\    "image": "...",\n\    "title": "图1",\n\    "desp": "关于图是一个...",\n\    "score": 1\n\  },\n\    ...\n]}\n...\n<ImageList images={this.state.images} column={4} />',
-	'imagelist-column':'<ImageList column={2}  images={this.state.images} />',
-	'imagelist-format':'<ImageList titleField={"姓名: #"} despField={"描述: #"} images={this.state.images} column={4} />\n\n<ImageList titleField={"姓名: #"} despField={""} images={this.state.images} column={4} />',
-	'imagelist-otherparams':'<ImageList images={this.state.images} column={4} otherParams={{"score":"分数: #"}} />',
-	'imagelist-clickcallback':'<ImageList images={this.state.images} column={4} clickCallback={(data)=>{console.log(data);}} />',
-	'imagelist-custom':'<ImageList column={4}>\n\  {this.state.images.map((data,index)=>{\n\    return (\n\      <dl key={index}>\n\        <dd>\n\          <p>{data.name}</p>\n\          <p>{data.desp}</p>\n\        </dd>\n\        <dt><img src={data.image} alt={data.name} /></dt>\n\      </dl>\n\    )\n\  })}\n</ImageList>',
+	'image-src':'<Image src={IMAGE_URL} alt="..."/>',
+	'image-defaultsrc':'<Image defaultSrc={DEFULT_IMAGE} src={IMAGE_URL} />',
+	'image-lazy':'<Image defaultSrc={DEFULT_IMAGE} src={LAZY_URL} lazy />',
+	'image-phsize':'<Image src={IMAGE_URL} phSize="default" />\n<Image src={IMAGE_URL} phSize="cover" />\n<Image src={IMAGE_URL} phSize="contain" />',
+	'image-loadcallback':'<Image src={IMAGE_URL} loadCallback={(err)=>{if(!err) console.log("success!")}} />',
 
+	'imagelist-column':'<ImageList column={4}>\n{\n\  this.state.images.map((data,index)=>{\n\    return (\n\      <dl className="ph-image-item" key={index}>\n\        <dt>\n\          <Image src={data.image} alt={data.title}/>\n\        </dt>\n\        <dd>\n\          <p className="ph-image-title">{data.title}</p>\n\          <p className="ph-image-desp">{data.desp}</p>\n\        </dd>\n\      </dl>\n\    )\n\  })\n}\n</ImageList>',
+	
 	'steps-list':'<Steps list={["合作信息","公司信息","资质信息"]} />',
 	'steps-currentstep':'<Steps currentStep={2} list={["合作信息","公司信息","资质信息","资质信息"]} />',
 	'steps-clickcallback':'<Steps clickCallback={::this.clickCallback} list={["合作信息","公司信息","资质信息","资质信息"]}/>\nclickCallback(str, index){\n\  ...\n}',

@@ -2,8 +2,7 @@ var webpack = require('webpack'),
     glob = require('glob'),
     path = require('path'),
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
-    extend = require('extend'),
-    pxtorem = require('postcss-pxtorem');
+    extend = require('extend');
 
 module.exports = extend({},{
     entry: [path.join(process.cwd(), 'examples/src/index.js')],
@@ -18,20 +17,14 @@ module.exports = extend({},{
             loaders: ['babel'],
             exclude: /node_modules/
         }, {
-            test: /\.less$/,
+            test: /\.(css|less)$/,
             // loader: "style-loader!css-loader!less-loader"
-            loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader!less-loader")
-        }, {
+            loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
+        },{
             test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
             loader: 'file-loader?name=./iconfont/[name].[ext]'
         }]
     },
-    postcss: [
-        pxtorem({
-            rootValue: 100,
-            propWhiteList: []
-        })
-    ],
     resolve: {
         alias: { 
             "phoenix-ui/lib" : path.join(process.cwd(), 'src'),

@@ -3,11 +3,12 @@ import Component from '../utils/Component'
 import classnames from 'classnames'
 import {setPhPrefix} from '../utils/Tool'
 
-import "phoenix-styles/less/modules/image-list.less"
+import "phoenix-styles/css/image-list.css"
 
 /**
  * 图片列表组件<br/>
  * - 通过column设置图片列表的列数，1-8列。
+ * - 若需要懒加载，请配合Image组件使用。
  *
  * 主要属性和接口：
  * - column:列表的列数，默认1列。<br>
@@ -55,14 +56,7 @@ export default class ImageList extends Component{
          * @type Number
          * @default 1
          * */
-        column: PropTypes.number,
-        /**
-         * 是否懒加载
-         * @property lazy
-         * @type Boolean
-         * @default false
-         * */
-        lazy: PropTypes.bool
+        column: PropTypes.number
     };
 
     static defaultProps ={

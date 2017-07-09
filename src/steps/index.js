@@ -4,7 +4,7 @@ import Component from '../utils/Component'
 import classnames from 'classnames'
 import {setPhPrefix} from '../utils/Tool'
 
-import "phoenix-styles/less/modules/steps.less"
+import "phoenix-styles/css/steps.css"
 
 /**
  * 步骤组件<br/>

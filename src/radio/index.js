@@ -2,7 +2,7 @@ import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import Checkbox from '../checkbox/'
 
-import "phoenix-styles/less/modules/buttons.less"
+import "phoenix-styles/css/form.css"
 
 /**
  * 单选框组件<br/>

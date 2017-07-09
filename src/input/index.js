@@ -4,7 +4,7 @@ import classnames from 'classnames'
 import {warning,setPhPrefix} from '../utils/Tool'
 import Icon from '../icon/'
 
-import "phoenix-styles/less/modules/buttons.less"
+import "phoenix-styles/css/buttons.css"
 
 /**
  * 输入框组件<br/>

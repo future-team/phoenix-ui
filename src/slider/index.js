@@ -5,7 +5,7 @@ import {setPhPrefix} from '../utils/Tool'
 
 import Drag from '../drag/'
 
-import "phoenix-styles/less/modules/slider.less"
+import "phoenix-styles/css/slider.css"
 
 /**
  * 滑动输入条组件<br/>

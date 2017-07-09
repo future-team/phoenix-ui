@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import {setPhPrefix} from '../utils/Tool';
 import Icon from '../icon/'
 
-import "phoenix-styles/less/modules/form.less"
+import "phoenix-styles/css/form.css"
 
 /**
  * 复选框组件<br/>

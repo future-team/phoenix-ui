@@ -2,7 +2,7 @@ import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
 
-import "phoenix-styles/less/modules/button-group.less"
+import "phoenix-styles/css/button-group.css"
 
 /**
  * 按钮组组件<br/>

@@ -3,7 +3,7 @@ import Component from '../utils/Component'
 import classnames from 'classnames'
 import {setPhPrefix} from '../utils/Tool'
 
-import "phoenix-styles/less/modules/star.less"
+import "phoenix-styles/css/star.css"
 
 /**
  * <h5>基础组件，主要包括:</h5>

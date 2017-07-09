@@ -48,8 +48,8 @@ gulp.task('demoBuild', function (done) {
             exclude: /node_modules/
         },
         {
-            test: /\.less$/,
-            loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader!less-loader")
+            test: /\.(css|less)$/,
+            loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
         },
         {
             test: /\.png$/,

@@ -119,7 +119,7 @@ html, body{
 
 /*** content common ***/
 .comp-title{
-    padding: .64rem;
+    padding: .16rem;
     background: url(../img/phoenix.jpg) center center;
     background-size: cover;
     font-size: .48rem;
@@ -210,6 +210,12 @@ html, body{
 
 .content .ph-tabs{
     background-color: #fff;
+}
+
+.content .ph-image{
+    width: 4rem;
+    height: 4rem;
+    background-color: #f0f0f0;
 }
 
 .todo-demo .ph-button.ph-button-lg{

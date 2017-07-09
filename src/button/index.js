@@ -3,7 +3,7 @@ import Component from '../utils/Component'
 import classnames from 'classnames'
 import Icon from '../icon/'
 
-import "phoenix-styles/less/modules/buttons.less"
+import "phoenix-styles/css/buttons.css"
 
 /**
  * 按钮组件<br/>

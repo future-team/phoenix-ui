@@ -5,9 +5,6 @@ import Image from "phoenix-ui/lib/image"
 import Code from "./code/code"
 import {ajax} from "./utils/tool.js"
 
-const DEFULT_IMAGE = 'http://file.digitaling.com/eImg/uimages/20150907/1441607165383971.gif',
-      IMAGE_URL = 'http://img5.duitang.com/uploads/item/201602/11/20160211214958_RhdCY.jpeg'
-
 export default class imagelist extends Component{
     constructor(props,context){
         super(props,context); 
@@ -37,13 +34,13 @@ export default class imagelist extends Component{
             <div>
             	<h2 className="comp-title">ImageList</h2>
                 <h3 className="comp-type">column(默认1) 图片列数</h3>
-                <ImageList column={4} lazy>
+                <ImageList column={4}>
                     {
                         this.state.images.map((data,index)=>{
                             return (
                                 <dl className="ph-image-item" key={index}>
                                     <dt>
-                                        <Image defaultSrc={DEFULT_IMAGE} src={data.image} alt={data.title}/>
+                                        <Image src={data.image} alt={data.title}/>
                                     </dt>
                                     <dd>
                                         <p className='ph-image-title'>{data.title}</p>
@@ -54,16 +51,13 @@ export default class imagelist extends Component{
                         })
                     }
                 </ImageList>
-                <Code target="imagelist-column" />
-
-                <h3 className="comp-type">lazy(默认false) 是否懒加载</h3>
-                <ImageList lazy>
+                <ImageList column={2}>
                     {
                         this.state.images.map((data,index)=>{
                             return (
                                 <dl className="ph-image-item" key={index}>
                                     <dt>
-                                        <Image defaultSrc={DEFULT_IMAGE} src={data.image} alt={data.title}/>
+                                        <Image src={data.image} alt={data.title}/>
                                     </dt>
                                     <dd>
                                         <p className='ph-image-title'>{data.title}</p>
@@ -74,9 +68,7 @@ export default class imagelist extends Component{
                         })
                     }
                 </ImageList>
-                <Code target="imagelist-lazy" />
-
-                
+                <Code target="imagelist-column" />                
             </div>
         );
     }

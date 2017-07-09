@@ -29,7 +29,7 @@ export default obj=>{
             getVal(['diabled','active','enable'],val)
         },
         align:function(val){
-            return getVal(['center','left','middle','auto','top','right','bottom','stretch','baseline'],val);
+            return getVal(['center','left','middle','auto','top','right','bottom','stretch','baseline','start','end'],val);
         },
         placement:function(val){
             return getVal(['top','bottom','right','left','left-full','right-full','full-screen'],val);

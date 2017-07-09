@@ -4,7 +4,7 @@ import Component from '../utils/Component'
 import classnames from 'classnames'
 import {setPhPrefix} from '../utils/Tool'
 
-import "phoenix-styles/less/modules/toast.less"
+import "phoenix-styles/css/toast.css"
 
 /**
  * 飘字组件<br/>

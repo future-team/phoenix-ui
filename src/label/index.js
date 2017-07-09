@@ -2,7 +2,7 @@ import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
 
-import "phoenix-styles/less/modules/label.less"
+import "phoenix-styles/css/label.css"
 
 /**
  * <h5>标签组件，主要包括组件:</h5>

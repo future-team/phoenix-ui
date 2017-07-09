@@ -6,7 +6,7 @@ import {setPhPrefix} from '../utils/Tool'
 import Drag from '../drag/'
 import Button from '../button/'
 
-import "phoenix-styles/less/modules/swipe.less"
+import "phoenix-styles/css/swipe.css"
 
 /**
  * 左滑组件<br/>

@@ -7,7 +7,7 @@ import {setPhPrefix} from '../utils/Tool'
 import Button from '../button'
 import Icon from '../icon'
 
-import "phoenix-styles/less/modules/pullup.less"
+import "phoenix-styles/css/pullup.css"
 
 /**
  * 加载更多组件<br/>

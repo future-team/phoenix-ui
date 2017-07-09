@@ -3,7 +3,7 @@ import Component from '../utils/Component'
 import classnames from 'classnames'
 import {setPhPrefix} from '../utils/Tool'
 
-import "phoenix-styles/less/modules/grid.less"
+import "phoenix-styles/css/grid.css"
 
 /**
  * <h5>主要栅格化布局组件</h5>

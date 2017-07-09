@@ -2,7 +2,7 @@ import React,{Component, PropTypes} from 'react'
 import classnames from 'classnames'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
-import "phoenix-styles/less/modules/animation.less"
+import "phoenix-styles/css/animation.css"
 
 /**
  * 动画外层组件<br/>

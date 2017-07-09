@@ -17,6 +17,10 @@ export default class icon extends Component{
                 </div>
                 <Code target="icon-phicon" />
                 <a className="code-mark ph-button-link" href="http://future-team.github.io/gfs-icons/index.html">查看所有icon类型</a>
+
+                <h3 className="comp-type">其他</h3>
+                <div className="icon-loading-white"></div>
+                <div className="icon-loading-gray"></div>
             </div>
         );
     }

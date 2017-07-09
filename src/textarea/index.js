@@ -3,7 +3,7 @@ import Component from '../utils/Component'
 import classnames from 'classnames'
 import {setPhPrefix} from '../utils/Tool'
 
-import "phoenix-styles/less/modules/buttons.less"
+import "phoenix-styles/css/form.css"
 
 /**
  * <h5>表单组件，主要包括组件:</h5>
@@ -18,19 +18,18 @@ import "phoenix-styles/less/modules/buttons.less"
  */
 /**
  * 多行文本框组件<br/>
- * - 使用方式跟原生一致。
- * - 可通过defaultValue设置默认值,如果是通过请求获得的数据请使用value，defaultValue只有初始赋值有效。 
- * - 可通过value和onChange事件配合使用手动设置输入值。
- * - 可通过设置count判断是否显示当前输入字数。
- * - 可通过设置maxLength配置最大输入字数。
+ * - 可通过valuee设置默认值。 
+ * - 可通过设置count判断是否显示当前输入字数，需要配合maxLength配置最大输入字数。
+ * - getValueCallback: 获取当前的输入值。
  *
  * 主要属性和接口：
- * - defaultValue:默认值 <br/>
- * 如：`<Textarea defaultValue="测试" />`
- * - value&onChange:<br/>
- * 如：`<Textarea value={this.state.value} onChange={()=>{this.setState({value:"测试"})}} />`
+ * - value:默认值 <br/>
+ * 如：`<Textarea value="测试" />`
  * - count:是否显示当前输入字数, 默认false不显示, 配合maxLength使用<br/>
  * 如：`<Textarea count maxLength={150} />`
+ * - getValueCallback: 获取当前的输入值。<br/>
+ * 如：`<Textarea ref={(textElem)=>{this.textElem=textElem}} />`<br/>
+ * `this.textElem.getValueCallback();`
  *
  * @class TextArea
  * @module 表单组件
@@ -52,23 +51,11 @@ export default class Textarea extends Component{
          * */
         classPrefix: PropTypes.string,
         /**
-         * 默认值
-         * @property defaultValue
-         * @type String
-         * */
-        defaultValue: PropTypes.string,
-        /**
-         * 值
+         * 初始值
          * @property value
          * @type String
          * */
         value: PropTypes.string,
-        /**
-         * 输入时执行的回调
-         * @event onChange
-         * @type Function
-         * */
-        onChange:PropTypes.func,
         /**
          * 是否显示输入计数
          * @property count
@@ -91,9 +78,24 @@ export default class Textarea extends Component{
     constructor(props, context) {
         super(props, context);
 
+        this.setMethod('getValueCallback',this.getValue.bind(this))
+
         this.state = {
+            value: props.value || props.defaultValue || '',
             inputLength: this.getInputLength(props)
         }
+    }
+
+    componentWillReceiveProps(nextProps){
+        if(nextProps.value && nextProps.value !== this.state.value){
+            this.setState({
+                value: nextProps.value
+            })
+        }
+    }
+
+    getValue(){
+        return this.state.value;
     }
 
     getInputLength(props){
@@ -111,15 +113,18 @@ export default class Textarea extends Component{
     }
 
     onTextareaChange(event){
+        let {onChange} = this.props,
+            value = event.target.value;
+
+        if(onChange) onChange(event,value);
+        
         this.setState({
+            value: value,
             inputLength: event.target.value.length
-        });
-        if(this.props.onChange){
-            this.props.onChange(event);
-        }
+        })
     }
 
-    render(){
+    renderTextarea(){
         let {count, maxLength} = this.props;
 
         return (
@@ -127,7 +132,7 @@ export default class Textarea extends Component{
                 <textarea {...this.props} className={classnames(
                     this.getProperty(true),
                     this.props.className
-                )} onChange={(event)=>{this.onTextareaChange(event)}}></textarea>
+                )} value={this.state.value} onChange={(event)=>{this.onTextareaChange(event)}}></textarea>
                 <span className={classnames(
                     setPhPrefix('textarea-count'),
                     count? 'show':'hide'
@@ -135,7 +140,11 @@ export default class Textarea extends Component{
                     <b className={setPhPrefix('textarea-length')}>{this.state.inputLength}</b>/<b>{maxLength}</b>
                 </span>
             </div>
-        );
+        )
+    }
+
+    render(){
+        return this.renderTextarea()
     }
 
 }

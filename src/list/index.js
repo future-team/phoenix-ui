@@ -6,7 +6,7 @@ import {setPhPrefix} from '../utils/Tool'
 import Row from '../grid/Row'
 import Col from '../grid/Col'
 
-import "phoenix-styles/less/modules/list.less"
+import "phoenix-styles/css/list.css"
 
 /**
  * List<br/>

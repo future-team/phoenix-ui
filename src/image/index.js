@@ -3,23 +3,34 @@ import Component from '../utils/Component'
 import classnames from 'classnames'
 import {warning,setPhPrefix} from '../utils/Tool'
 
-import "phoenix-styles/less/modules/image.less"
+import "phoenix-styles/css/image.css"
 
 /**
  * 图片组件<br/>
- * - 
+ * - 和普通图片使用方式一致，src为必填选项，可自行添加alt属性。
+ * - 可通过defaultSrc添加默认图片地址，在图片未加载出来之前显示。
+ * - 可通过phSize设置图片大小，default为宽高和父级一致；cover为覆盖，不变形，没有空白区域；contain包含，不变形，可能有空白区域。
+ * - 可通过lazy设置图片为懒加载的模式，当图片进入视口之后才开始加载，可配合ImageList使用。
+ * - 可通过loadCallback设置图片加载完成的回调函数。
+ * - cover和contain必须设置定高。
  *
  * 主要属性和接口：
- * - 
- * ```code
- * 
- * ```
+ * - src: 图片地址。<br/>
+ * 如：`<Image src={IMAGE_URL} alt='图片没有加载上的提示语'/>`
+ * - defaultSrc: 默认图片地址。<br/>
+ * 如：`<Image src={IMAGE_URL} defaultSrc={DEFAULT_URL}/>`
+ * - phSize: 图片大小。<br/>
+ * 如：`<Image src={IMAGE_URL} phSize='cover'/>`
+ * - lazy: 是否懒加载<br/>
+ * 如：`<Image src={IMAGE_URL} lazy/>`
+ * - loadCallback: 图片加载完成的回调<br/>
+ * 如：`<Image src={IMAGE_URL} loadCallback={(err)=>{if(!err) console.log('success!')}}/>`
  * 
  * @class Image
- * @module 操作类组件
+ * @module 基础组件
  * @extends Component
  * @constructor
- * @since 1.7.0
+ * @since 2.0.0
  * @demo image|image.js {展示}
  * @show true
  * */
@@ -32,14 +43,14 @@ export default class Images extends Component{
          * @type String
          * @default 'image'
          * */
-        classPrefix: PropTypes.string,
+        classPrefix: PropTypes.string,        
         /**
-         * 是否懒加载
-         * @property lazy
-         * @type Boolean
-         * @default false
+         * 图片地址
+         * @property src
+         * @type String
+         * @default null
          * */
-        lazy: PropTypes.bool,
+        src: PropTypes.string,
         /**
          * 默认图片地址
          * @property defaultSrc
@@ -48,21 +59,34 @@ export default class Images extends Component{
          * */
         defaultSrc: PropTypes.string,
         /**
-         * 图片地址
-         * @property src
+         * 图片大小，[default, cover, contain]
+         * @property phSize
          * @type String
+         * @default 'default'
+         * */
+        phSize: PropTypes.oneOf(['default','cover','contain']),
+        /**
+         * 是否懒加载
+         * @property lazy
+         * @type Boolean
+         * @default false
+         * */
+        lazy: PropTypes.bool,
+        /**
+         * 图片加载完成的回调
+         * @property loadCallback
+         * @type Function
          * @default null
          * */
-        src: PropTypes.string,
-        align: PropTypes.string,
-        phSize: PropTypes.oneOf(['cover','contain'])
+        loadCallback: PropTypes.func
     };
 
     static defaultProps ={
         src: null,
-        align: 'center',
-        lazy: false,
         defaultSrc: null,
+        lazy: false,
+        alt: '',
+        phSize: 'default',
         classPrefix:'image',
         classMapping : {}
     };
@@ -70,15 +94,17 @@ export default class Images extends Component{
     constructor(props,context){
         super(props,context)
 
+        this.load = false
+
         // 对默认图片预加载
         this.defaultImagePreload()
 
         this.state = {
-            src: this.getInitSrc()
+            src: props.defaultSrc || null
         }
 
         this.scrollHandle = this.scrollHandle.bind(this)
-        window.addEventListener('scroll', this.scrollHandle, false)
+        if(props.lazy) window.addEventListener('scroll', this.scrollHandle, false)
     }
 
     defaultImagePreload(){
@@ -87,17 +113,6 @@ export default class Images extends Component{
         if(defaultSrc){
             let img = new Image()
             img.src = defaultSrc
-        }
-    }
-
-    getInitSrc(){
-        let {defaultSrc, src, lazy} = this.props
-
-        if(defaultSrc) return defaultSrc
-        if(!lazy){
-            return src
-        }else{
-            return null
         }
     }
 
@@ -111,32 +126,70 @@ export default class Images extends Component{
         this.imageTop = this.phImage.offsetTop
 
         if(this.bodyTop+this.bodyHeight >= this.imageTop){
-            this.imageLoad()
+            if(!this.load) {console.log('lazy')
+                this.imageLoad()
+            }
         }
     }
 
     componentDidMount(){
         let {defaultSrc, lazy} = this.props
 
-        if(defaultSrc && !lazy) this.imageLoad()
+        if(!lazy) this.imageLoad()
         if(lazy) this.lazyLoad()
     }
 
-    imageLoad(){
-        let {src} = this.props
+    getImageSize(){
+        let {phSize} = this.props
 
-        let img = new Image()
-        img.src = src
-
-        if(img.complete){ // 如果已经存在，直接加载
-            this.setState({src: src})
-            return
+        switch(phSize){
+            case 'cover':
+                if(this.imageWidth>this.imageHeight){
+                    this.image.style.height = '100%'
+                }else{
+                    this.image.style.width = '100%'
+                }
+                break
+            case 'contain':
+                if(this.imageWidth>this.imageHeight){
+                    this.image.style.width = '100%'
+                }else{
+                    this.image.style.height = '100%'
+                }
+                break
+            default:
+                this.image.style.width = '100%'
+                this.image.style.height = '100%'
         }
+    }
 
-        img.onload = ()=>{ // 否则等到图片加载完成
-            img.onload = null
+    imageLoad(){
+        let {src, loadCallback} = this.props
 
-            this.setState({src: src})
+        try{
+            let img = new Image()
+            img.src = src
+
+            this.load = true
+
+            this.imageWidth = img.width
+            this.imageHeight = img.height
+
+            if(img.complete){ // 如果已经存在，直接加载
+                this.setState({src: src})
+                this.getImageSize()
+                if(loadCallback) loadCallback()
+                return
+            }
+
+            img.onload = (e)=>{ // 否则等到图片加载完成
+                img.onload = null
+                this.setState({src: src})
+                this.getImageSize()
+                if(loadCallback) loadCallback()
+            }
+        }catch(err){
+            if(loadCallback) loadCallback(err)
         }
     }
 
@@ -145,11 +198,14 @@ export default class Images extends Component{
     }
 
     renderImage(){
-        let {className, children} = this.props;
+        let {className, style, alt, children} = this.props;
 
         return (
-            <div className={classnames(this.getProperty(true), className)} ref={(phImage)=>{this.phImage=phImage}}>
-                <img {...this.props} src={this.state.src} />
+            <div className={classnames(this.getProperty(true), className)} 
+                ref={(phImage)=>{this.phImage=phImage}}
+                style={style}
+            >
+                <img src={this.state.src} ref={(image)=>{this.image=image}} alt={alt}/>
             </div>
         )
     }

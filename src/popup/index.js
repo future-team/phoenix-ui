@@ -4,7 +4,7 @@ import classnames from 'classnames'
 import {setPhPrefix} from '../utils/Tool'
 import Animate from '../animate/'
 
-import "phoenix-styles/less/modules/popup.less"
+import "phoenix-styles/css/popup.css"
 
 /**
  * 弹层组件<br/>

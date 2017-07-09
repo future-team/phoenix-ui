@@ -6,7 +6,7 @@ import {setPhPrefix} from '../utils/Tool'
 import Input from '../input/'
 import Button from '../button/'
 
-import "phoenix-styles/less/modules/search-bar.less"
+import "phoenix-styles/css/search-bar.css"
 
 /**
  * SearchBar<br/>

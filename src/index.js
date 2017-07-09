@@ -1,5 +1,5 @@
-import "phoenix-styles/less/common/reset.less"
-import "phoenix-styles/less/common/global.less"
+import "phoenix-styles/css/reset.css"
+import "phoenix-styles/css/global.css"
 
 import catBrowser from './utils/CatBrowser'
 

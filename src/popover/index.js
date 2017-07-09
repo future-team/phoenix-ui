@@ -5,7 +5,7 @@ import Component from '../utils/Component'
 import classnames from 'classnames'
 import Tool from '../utils/Tool'
 
-import "phoenix-styles/less/modules/popover.less"
+import "phoenix-styles/css/popover.css"
 
 const SHOW_CLASS = 'show'
 
