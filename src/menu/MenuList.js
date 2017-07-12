@@ -8,11 +8,11 @@ import Icon from '../icon'
 /**
  * 菜单导航列表组件<br/>
  * - 通过activeName设置当前导航选中的菜单项， 必需。
- * - 通过onMenulistChange函数设置点击菜单项时的回调，函数内必需手动更改activeName值，必需。
+ * - 通过clickCallback函数设置点击菜单项时的回调，函数内必需手动更改activeName值，必需。
  *
  * 主要属性和接口：
  * - activeName:设置当前导航选中的菜单项,默认null。 
- * - onMenulistChange:点击菜单项时的回调。 <br/>
+ * - clickCallback:点击菜单项时的回调。 <br/>
  * 如：
  * ```code
  *     <Menu>
@@ -21,7 +21,7 @@ import Icon from '../icon'
  *         </Menu.Header>
  *         <Menu.Body>
  *             <Menu.Nav>
- *                  <Menu.List activeName={this.state.activeName} onMenulistChange={(name)=>{this.setState({activeName:name})}}>
+ *                  <Menu.List activeName={this.state.activeName} clickCallback={(name)=>{this.setState({activeName:name})}}>
  *                      ...
  *                  </Menu.List>
  *              </Menu.Nav>
@@ -55,11 +55,11 @@ export default class MenuList extends Component {
         activeName: PropTypes.string,
         /**
          * 点击事件的回调函数
-         * @method onMenulistChange
+         * @method clickCallback
          * @type Function
          * @default null
          * */
-        onMenulistChange: PropTypes.func
+        clickCallback: PropTypes.func
     };
 
     static defaultProps = {
@@ -73,7 +73,7 @@ export default class MenuList extends Component {
     }
 
     changeActive(name){
-        if(this.props.onMenulistChange) this.props.onMenulistChange(name);
+        if(this.props.clickCallback) this.props.clickCallback(name);
     }
 
     renderChildren(){

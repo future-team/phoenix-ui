@@ -64,8 +64,12 @@ export default class Radio extends Component{
         super(props, context);
     }
 
-    render(){
+    renderRadio(){
         return <Checkbox {...this.props} />
+    }
+
+    render(){
+        return this.renderRadio()
     }
 
 }

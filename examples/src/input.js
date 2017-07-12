@@ -52,8 +52,8 @@ export default class input extends Component{
 
                 <div className="content">
                     <h3 className="comp-tip">password</h3>
-                    <Input type="password" defaultValue="123456" seePassword />
-                    <Input type="password" value="123456" placeholder="请输入" clear seePassword />
+                    <Input type="password" defaultValue="123456" visible />
+                    <Input type="password" value="123456" placeholder="请输入" clear visible />
                 </div>
                 <Code target="input-password" />
 

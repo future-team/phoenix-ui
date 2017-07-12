@@ -126,7 +126,7 @@ export default class Images extends Component{
         this.imageTop = this.phImage.offsetTop
 
         if(this.bodyTop+this.bodyHeight >= this.imageTop){
-            if(!this.load) {console.log('lazy')
+            if(!this.load) {
                 this.imageLoad()
             }
         }
@@ -164,7 +164,7 @@ export default class Images extends Component{
     }
 
     imageLoad(){
-        let {src, loadCallback} = this.props
+        let {src} = this.props
 
         try{
             let img = new Image()
@@ -176,21 +176,26 @@ export default class Images extends Component{
             this.imageHeight = img.height
 
             if(img.complete){ // 如果已经存在，直接加载
-                this.setState({src: src})
-                this.getImageSize()
-                if(loadCallback) loadCallback()
+                this.loadSuccessCallback()
                 return
             }
 
             img.onload = (e)=>{ // 否则等到图片加载完成
                 img.onload = null
-                this.setState({src: src})
-                this.getImageSize()
-                if(loadCallback) loadCallback()
+                this.loadSuccessCallback()
             }
         }catch(err){
             if(loadCallback) loadCallback(err)
         }
+    }
+
+    loadSuccessCallback(){
+        let {src, lazy, loadCallback} = this.props
+        if(lazy) window.removeEventListener('scroll', this.scrollHandle, false)
+
+        this.setState({src: src})
+        this.getImageSize()
+        if(loadCallback) loadCallback()
     }
 
     componentWillUnmount(){

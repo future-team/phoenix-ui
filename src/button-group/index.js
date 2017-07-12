@@ -45,7 +45,7 @@ export default class ButtonGroup extends Component{
          * */
         classPrefix: PropTypes.string,
         /**
-         * 是否有自适应宽度，垂直排列等属性，取值为default(用于双按钮)、justify(水平排列)、tacked(垂直排列)、segmente(分割排列)
+         * 是否有自适应宽度，垂直排列等属性，取值为default(用于双按钮)、justify(水平排列)、tacked(垂直排列)、segmente(分割排列)、footer(尾部按钮)
          * @property phType
          * @type String
          * @default 'default'
@@ -56,12 +56,11 @@ export default class ButtonGroup extends Component{
          * @method clickCallback
          * @type Function
          * */
-        clickCallback:PropTypes.func,
-        clickable: PropTypes.bool
+        clickCallback:PropTypes.func
     };
 
     static defaultProps = {
-        clickable: true,
+        clickable: true, // 内部使用
         activeIndex: 0,
         phType:'default',
         classPrefix:'button-group',
@@ -70,7 +69,8 @@ export default class ButtonGroup extends Component{
             'default':'default',
             'justify':'justify',
             'tacked':'tacked',
-            'segmente':'segmente'
+            'segmente':'segmente',
+            'footer':'footer'
         }
     };
 
@@ -82,7 +82,7 @@ export default class ButtonGroup extends Component{
         }
 
         this.clickable = props.clickable
-        if(props.phType=='default') this.clickable = false
+        if(['default','footer'].indexOf(props.phType)!=-1) this.clickable = false
     }
 
     componentWillReceiveProps(nextProps){

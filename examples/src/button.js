@@ -57,13 +57,13 @@ export default class button extends Component{
 
                 <h3 className="comp-type">phIcon属性</h3>
                 <div className="content">
-                    <Button phIcon="search" block>整体居中</Button>
+                    <Button phIcon="loading-white" block>整体居中</Button>
                 </div>
                 <Code target="button-phicon" />
 
                 <h3 className="comp-type">stable属性</h3>
                 <div className="content">
-                    <Button phIcon="search" block stable>文字居中</Button>
+                    <Button phIcon="loading-white" block stable>文字居中</Button>
                 </div>
                 <Code target="button-stable" />
             </div>

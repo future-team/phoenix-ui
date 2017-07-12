@@ -1,48 +1,89 @@
-import React, { Component ,PropTypes} from 'react';
+import React, { Component ,PropTypes} from 'react'
+
+import ButtonGroup from '../../button-group'
+import Button from '../../button'
 
 export default class FilterPanelBase extends Component{
     static propTypes= {
-        /**
-         * panel下选中的item的key、value组成的对象，用于设置该panel初始状态下选中的item项
-         * @property selected
-         * @type Object 如{key:'ljz',value:'陆家嘴'}
-         * */
-        selected:React.PropTypes.shape({
+        selected: React.PropTypes.shape({
             key: React.PropTypes.string,
             value: React.PropTypes.oneOfType([React.PropTypes.string,React.PropTypes.element])
         }),
-        /**
-         * 当不设置panel的选中项时（不选择任何item），可以设置一个默认字符展示在filter上
-         * @property default
-         * @type String
-         * */
-        default:React.PropTypes.string,
-        /**
-         * panel是否为只读模式
-         * @property readOnly
-         * @type Boolean
-         * */
-        readOnly:React.PropTypes.bool
+        default: React.PropTypes.string,
+        readOnly: React.PropTypes.bool
     }
 
     static defaultProps = {
-        readOnly: false
+        readOnly: false,
+        buttons: null,
+        default: ''
+    }
+
+    constructor(props,context){
+        super(props,context)
+        this.category = props.selected || {}
+
+        this.state = {
+            selectedKey: (props.selected && props.selected.key) ? props.selected.key:''
+        }
+    }
+
+    renderButtons(){
+        let {buttons, categoryChange} = this.props
+        
+        return buttons? (
+            <ButtonGroup phType="footer">
+                {
+                    buttons.map((button, index)=>{
+                        return (
+                            <Button key={index} {...button.otherProps} phSize="lg" phStyle={button.phStyle || 'primary'}
+                                onClick={()=>{
+                                    if(button.onHandle){
+                                        button.onHandle(this.category)
+                                        categoryChange(this.index, this.category)
+                                    }
+                                }
+                            }>
+                                {button.text || "确定"}
+                            </Button>
+                        )
+                    })
+                }
+            </ButtonGroup>
+        ): null
     }
 
     renderItemList(itemList){
-        let self=this;
+        let _this = this,
+            {selected, readOnly, categoryChange, panelIndex, buttons} = this.props
+        
         return React.Children.map(itemList,function(item){
-            let key=item.props.itemKey,
-                selectedKey=(self.props.selected&&self.props.selected.key)?self.props.selected.key:'';
+            let key = item.props.itemKey
+            
             return (
                 React.cloneElement(item,{
-                    active:selectedKey==key,
-                    readOnly:self.props.readOnly,
-                    categoryChange:self.props.categoryChange,
-                    panelIndex:self.props.panelIndex
+                    active: _this.state.selectedKey==key,
+                    readOnly: readOnly,
+                    categoryChange: _this.categoryChange.bind(_this),
+                    panelIndex: panelIndex,
+                    onItemChange: _this.onItemChange.bind(_this)
                 })
             )
+        })
+    }
 
+    categoryChange(index, category){
+        let {buttons, categoryChange} = this.props
+
+        this.index = index
+        this.category = category
+        console.log(this.category)
+        categoryChange(index, category, !!buttons)
+    }
+
+    onItemChange(key){
+        this.setState({
+            selectedKey: key
         })
     }
 }

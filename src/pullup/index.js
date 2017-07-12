@@ -264,7 +264,7 @@ export default class PullUp extends Component{
 
     renderIcon(status){
         if(status==1){
-            return <Icon className="gfs-icon-loading" phIcon="loading" />;
+            return <Icon className="gfs-icon-loading" phIcon="loading-gray" phSize="sm" />;
         }    
     }
 

@@ -1,7 +1,7 @@
 let Tool = {
 	ajax : (url,duration) => {
 		return new Promise((resolve, reject)=>{
-			let duration = duration || 1000;
+			let duration = duration || 500;
 			let xhr = new XMLHttpRequest();
 			xhr.open("get", url, true);
 			xhr.responseType = "json";

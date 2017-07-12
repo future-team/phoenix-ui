@@ -27,7 +27,7 @@ var code = {
 
 	'input-text': '<Input placeholder="placeholder"/>\n<Input type="text" value="默认值" placeholder="placeholder" clear />\n<Input placeholder="请输入" value="不可编辑的情况" disabled/>',
 	'input-search':'<Input type="search" placeholder="请输入" />\n<Input type="search" placeholder="请输入" phIcon="search" />\n<Input type="search" placeholder="请输入" value="可清空输入的文字" phIcon="search" clear />\n<Input type="search" placeholder="请输入" value="不可编辑的情况" phIcon="search" disabled />',
-	'input-password':'<Input type="password" defaultValue="123456" seePassword />\n<Input type="password" value="123456" placeholder="请输入" clear seePassword />',
+	'input-password':'<Input type="password" defaultValue="123456" visible />\n<Input type="password" value="123456" placeholder="请输入" clear visible />',
 	'input-getvalue':'<Input placeholder="默认text" ref={(inputElem)=>{this.inputElem = inputElem}} />\n this.inputElem.getValueCallback()',
 
 	'checkbox-default':'<Checkbox label="香蕉" defaultChecked={true} />',
@@ -119,7 +119,7 @@ var code = {
 	'menu-visible': '<Menu visible={true}>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body>...</Menu.Body>\n</Menu>',
 	'menu-scrollceiling': '// 设置为0表示至始至终吸顶\n<Menu scrollCeiling={0}>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body>...</Menu.Body>\n</Menu>\n'+
 		'// 设置为100表示从滚动100开始吸顶\n<Menu scrollCeiling={100}>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body>...</Menu.Body>\n</Menu>',
-	'menu-onmenuchange': '<Menu onMenuChange={(visible)=>{console.log(visible);}}>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body>...</Menu.Body>\n</Menu>',
+	'menu-onmenuchange': '<Menu clickCallback={(visible)=>{console.log(visible);}}>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body>...</Menu.Body>\n</Menu>',
 
 	'menu-header-align': '<Menu>\n\  <Menu.Header align="right">...</Menu.Header>\n\  <Menu.Body>...</Menu.Body>\n</Menu>',
 	'menu-body-placement': '<Menu>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body placement="left">...</Menu.Body>\n</Menu>',
@@ -127,11 +127,11 @@ var code = {
 	'menu-body-closebutton': '<Menu>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body closeButton>...</Menu.Body>\n</Menu>\n or \n'+
 		'<Menu>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body closeButton={false}>...</Menu.Body>\n</Menu>',
 	'menu-nav-align': '<Menu>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body>\n\    <Menu.Nav align="center">...</Menu.Nav>\n\  </Menu.Body>\n</Menu>',
-	'menu-list-onmenulistchange': '<Menu>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body>\n\    <Menu.Nav>\n\      <Menu.List activeName={this.state.activeName} onMenulistChange={(name)=>{this.setState({activeName:name})}} >...<Menu.List>\n\    </Menu.Nav>\n\  </Menu.Body>\n</Menu>',
-	'menu-item-phicon': '...\n<Menu.List activeName={this.state.activeName} onMenulistChange={(name)=>{this.setState({activeName:name})}} >\n\  <Menu.Item phIcon="home">主页</Menu.Item>\n<Menu.List>\n...',
-	'menu-item-name': '...\n<Menu.List activeName={this.state.activeName} onMenulistChange={(name)=>{this.setState({activeName:name})}} >\n\  <Menu.Item name="home">主页</Menu.Item>\n<Menu.List>\n...',
-	'menu-item-href': '...\n<Menu.List activeName={this.state.activeName} onMenulistChange={(name)=>{this.setState({activeName:name})}} >\n\  <Menu.Item href="#home">主页</Menu.Item>\n<Menu.List>\n...',
-	'menu-item-onmenuitemchange': '...\n<Menu.List activeName={this.state.activeName} onMenulistChange={(name)=>{this.setState({activeName:name})}} >\n\  <Menu.Item onMenuitemChange={(name)=>{console.log(name);}}>主页</Menu.Item>\n<Menu.List>\n...',
+	'menu-list-onmenulistchange': '<Menu>\n\  <Menu.Header>...</Menu.Header>\n\  <Menu.Body>\n\    <Menu.Nav>\n\      <Menu.List activeName={this.state.activeName} clickCallback={(name)=>{this.setState({activeName:name})}} >...<Menu.List>\n\    </Menu.Nav>\n\  </Menu.Body>\n</Menu>',
+	'menu-item-phicon': '...\n<Menu.List activeName={this.state.activeName} clickCallback={(name)=>{this.setState({activeName:name})}} >\n\  <Menu.Item phIcon="home">主页</Menu.Item>\n<Menu.List>\n...',
+	'menu-item-name': '...\n<Menu.List activeName={this.state.activeName} clickCallback={(name)=>{this.setState({activeName:name})}} >\n\  <Menu.Item name="home">主页</Menu.Item>\n<Menu.List>\n...',
+	'menu-item-href': '...\n<Menu.List activeName={this.state.activeName} clickCallback={(name)=>{this.setState({activeName:name})}} >\n\  <Menu.Item href="#home">主页</Menu.Item>\n<Menu.List>\n...',
+	'menu-item-onmenuitemchange': '...\n<Menu.List activeName={this.state.activeName} clickCallback={(name)=>{this.setState({activeName:name})}} >\n\  <Menu.Item clickCallback={(name)=>{console.log(name);}}>主页</Menu.Item>\n<Menu.List>\n...',
 	
 	'loadinglist':'<LoadingList phMode="auto" loadingStatus={this.state.loadingStatus} \nloadTips={["点击加载更多","加载中...","加载成功！","加载失败！","没有更多"]} \nbuttonStyles={["primary","gray","success","danger","gray"]} \nloadCallback={::this.nloadCallback} loadEndCallback={::this.loadEndCallback}>\n\  '+
 		'<ul>\n\    {\n\      this.state.loadingData.map((data,index)=>{\n\        return (\n\          <li key={index}>...</li>\n\        );\n\      })\n\    }\n\  </ul>\n</LoadingList>',
@@ -152,11 +152,7 @@ var code = {
 	'animate': '<Animate transitionName="fade">\n\  {this.renderList()}\n</Animate>\n'+
 		'this.state = {list: ["看一本书","睡8个小时"]}\nrenderList(){// 渲染todo list \n\  const items = this.state.list.map((item,index)=>{\n\    return <div key={index} className="animated" onClick={()=>{...}}>{item}</div>;\n\  });\n\  return items;\n}',
 	'drag': '<Drag onDrag={::this.onDrag} onDrop={::this.onDrop} style={{height:0}}>\n\  <div className="box" ref={(box)=>{this.box = box}}>Drag</div>\n</Drag>\n'+
-		'onDrag(event,position){\n\  // ...\n}\nonDrop(event,position){\n\  // ...\n}\n',
-
-	'page-transition': 'let {PageTransition} from "phoenix-ui"; \n\n const RouteTransition = (props)=>(\n\  <PageTransition {...props} transitionName="slide-left" onLoad={()=>{console.log("end!!!");}}>{props.children}</PageTransition>\n);\n\n'+
-		'let Index = class index extends Component {\n\  render() {\n\    return (\n\      <div className="menu ph-transition-index">...</div>\n\    );\n\  }\n};\n\n'+
-		'<Router history={this.history}>\n\  <Route path="/" component={RouteTransition}>\n\    <Route path="/index" name="index" component={Index} />\n\    <Route path="/button" name="button" component={Button} />\n\    ...\n\    <Redirect from="/" to="/index" />\n\  </Route>\n</Router>'
+		'onDrag(event,position){\n\  // ...\n}\nonDrop(event,position){\n\  // ...\n}\n'
 
 };
 

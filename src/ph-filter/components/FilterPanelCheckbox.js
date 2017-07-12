@@ -1,6 +1,10 @@
 import React, { Component ,PropTypes} from 'react'
-import Item from './Item'
+import classnames from 'classnames'
 import {transToArray} from '../../utils/Tool'
+
+import Item from './FilterItem'
+import ButtonGroup from '../../button-group'
+import Button from '../../button'
 
 export default class FilterPanelCheckbox extends Component{
     
@@ -9,8 +13,8 @@ export default class FilterPanelCheckbox extends Component{
     constructor(props,context){
         super(props,context);
 
-        this.init = 0;
-        this.choose = props.choose;
+        this.init = 0
+        this.choose = props.choose
 
         this.state={
             activeGroupIndex: props.groupIndex,
@@ -21,8 +25,8 @@ export default class FilterPanelCheckbox extends Component{
     }
 
     deleteFromArray(val){
-        let {choose} = this.props;
-        let _index = choose.indexOf(val);
+        let {choose} = this.props, _index = choose.indexOf(val);
+
         if(_index>-1){
             choose.splice(_index, 1);
         }
@@ -56,7 +60,9 @@ export default class FilterPanelCheckbox extends Component{
             itemChecked: itemChecked
         });
 
-        if(this.props.getChooseData) this.props.getChooseData(choose.join());
+        this.choosed = choose.join()
+
+        // if(this.props.getChooseData) this.props.getChooseData(choose.join());
     }
 
     onItemChange(mainKey, itemKey, e){
@@ -88,7 +94,9 @@ export default class FilterPanelCheckbox extends Component{
             itemChecked: itemChecked
         });
 
-        if(this.props.getChooseData) this.props.getChooseData(choose.join());
+        this.choosed = choose.join()
+
+        // if(this.props.getChooseData) this.props.getChooseData(choose.join());
     }
 
     renderMainMenuList(){
@@ -165,23 +173,52 @@ export default class FilterPanelCheckbox extends Component{
 
         });
         self.init = 1;
+
+        this.choosed = choose.join()
         // console.log(this.props.choose.join());
         return mainMenu;
     }
 
+    renderButtons(){
+        let {buttons} = this.props
+        
+        return buttons? (
+            <ButtonGroup phType="footer">
+                {
+                    buttons.map((button, index)=>{
+                        return (
+                            <Button key={index} {...button.otherProps} phSize="lg" phStyle={button.phStyle || 'primary'}
+                                onClick={()=>{
+                                    if(button.onHandle){
+                                        button.onHandle(this.choosed)
+                                    }
+                                }
+                            }>
+                                {button.text || "确定"}
+                            </Button>
+                        )
+                    })
+                }
+            </ButtonGroup>
+        ): null
+    }
+
     render(){
-        let self = this,
+        let {className, buttons} = this.props,
             mainMenuList = this.renderMainMenuList(),
             subMenuList = this.renderSubMenuList(mainMenuList);
 
         return(
-            <div className={(this.props.className?this.props.className+' ':'')+"selector"} >
-                <div className="menu main">
-                    {mainMenuList}
+            <div className={classnames('ph-filter-selector', buttons? 'ph-filter-selector-buttons':'')}>
+                <div className={classnames('ph-row ph-tabs ph-tabs-vertical', className ? className:'')} >
+                    <div className="ph-col ph-col-33 ph-tab-navs">
+                        {mainMenuList}
+                    </div>
+                    <div className="ph-col ph-tab-bd">
+                        {subMenuList}
+                    </div>
                 </div>
-                <div className="menu sub">
-                    {subMenuList}
-                </div>
+                {this.renderButtons()}
             </div>
         )
     }

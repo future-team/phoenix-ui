@@ -46,17 +46,17 @@ export default class Icon extends Component{
          **/
         phIcon:PropTypes.string,
          /**
-         * 按钮尺寸[sm、md、lg], 默认为sm
+         * 按钮尺寸[xs、sm、md、lg], 默认为sm
          * @property phSize
          * @type String
          * @default 'sm'
          * */
         phSize:PropTypes.string,
         /**
-         * 按钮颜色[primary、warning、danger、info、error、success、link、gray], 默认primary
+         * 按钮颜色[primary、warning、danger、info、error、success], 默认primary
          * @property phStyle
          * @type Boolean
-         * @default 'primary'
+         * @default 'default'
          * */
         phStyle:PropTypes.string,
     };
@@ -66,14 +66,13 @@ export default class Icon extends Component{
         classPrefix:'icon',
         componentTag:'span',
         classMapping : {
+            'default':'default',
             'primary':'primary',
             'info':'info',
             'success':'success',
             'error':'error',
             'warning':'warning',
-            'danger':'danger',
-            'link':'link',
-            'gray':'gray'
+            'danger':'danger'
         }
     };
 
@@ -81,16 +80,21 @@ export default class Icon extends Component{
         super(props,context);
     }
 
-    render(){
-        let {componentTag:Component, phIcon, classPrefix} = this.props;
+    renderIcon(){
+        let {componentTag:Component, className, phIcon, classPrefix} = this.props;
         return(
             <Component {...this.props} className={classnames(
                 'gfs-icon',
-                this.props.className,
+                this.getProperty(true),
+                className,
                 phIcon? classPrefix + '-' + phIcon:''
            )}>
                {this.props.children}
            </Component>
         )
+    }
+
+    render(){
+        return this.renderIcon()
     }
 }

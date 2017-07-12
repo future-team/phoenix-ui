@@ -1,8 +1,8 @@
 import FilterContainer from './components/FilterContainer.js';
 import Panel from "./components/FilterPanel.js";
 import PanelSimple from "./components/FilterPanelSimple.js";
-import Item from "./components/Item.js";
-import ItemGroup from "./components/ItemGroup.js";
+import Item from "./components/FilterItem.js";
+import ItemGroup from "./components/FilterItemGroup.js";
 import FilterCheckbox from "./components/FilterCheckbox.js";
 import PanelCheckbox from './components/FilterPanelCheckbox.js';
 

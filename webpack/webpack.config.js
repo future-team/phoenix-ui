@@ -11,7 +11,10 @@ module.exports = {
             'node_modules',
             'bower_components',
             'lib'
-        ]
+        ],
+        alias: {
+            "phoenix-styles" : path.join(process.cwd(), 'examples/lib/phoenix-styles')
+        }
     },
     output: {
         library: 'Phoenix',
@@ -40,7 +43,7 @@ module.exports = {
             loaders: ['babel'],
             exclude: /node_modules/
         },{
-            test:/\.less$/,
+            test:/\.(css|less)$/,
             loader: "style-loader!css-loader!less-loader"
         },{
             test:/\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,

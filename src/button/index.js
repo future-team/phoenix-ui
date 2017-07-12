@@ -1,7 +1,7 @@
 import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
-import Icon from '../icon/'
+import Icon from '../icon'
 
 import "phoenix-styles/css/buttons.css"
 
@@ -145,13 +145,14 @@ export default class Button extends Component{
         let {phIcon} = this.props;
 
         if(phIcon){
-            return <Icon phIcon={phIcon} />;
+            let loading = phIcon.indexOf('loading')!=-1
+            return <Icon phIcon={phIcon} phSize={loading?'sm':''}/>;
         }else{
             return '';
         }
     }
 
-    render(){
+    renderButton(){
         let {componentTag:Component} = this.props;
 
         return (
@@ -165,6 +166,10 @@ export default class Button extends Component{
                 {this.props.children}
             </Component>
         );
+    }
+
+    render(){
+        return this.renderButton()
     }
 
 }

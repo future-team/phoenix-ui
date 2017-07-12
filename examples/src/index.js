@@ -9,6 +9,7 @@ import History from 'history/lib/createHashHistory'
 import Tab from './tab.js'
 import Button from './button.js'
 import ButtonGroup from './button-group.js'
+import Label from './label.js'
 
 import Input from './input.js'
 import Checkbox from './checkbox.js'
@@ -18,32 +19,38 @@ import Switch from './switch.js'
 
 import Grid from './grid.js'
 import List from './list.js'
-import Image from './image.js'
+
 import Badge from './badge.js'
 import Star from './star.js'
 import Swipe from './swipe.js'
 import Slider from './slider.js'
+
 import Dialog from './dialog.js'
 import Alert from './alert.js'
 import Prompt from './prompt.js'
 import Toast from './toast.js'
 import Popup from './popup.js'
 import Popover from './popover.js'
+
 import Accordion from './accordion.js'
-import Menu from './menu.js'
-import Animate from './animate.js'
-import Drag from './drag.js'
 import Icon from './icon.js'
 import ImageList from './image-list.js'
+import Image from './image.js'
 import Steps from './steps.js'
 import SearchBar from './search-bar.js'
 import PullUp from './pullup.js'
 
-// import ListDemo from './list-demo.js'
-// import Detail from './detail-demo.js'
+import Animate from './animate.js'
+import Drag from './drag.js'
+
 import PhoenixStyle from './phoenix-styles.js'
 
+import Menu from './menu.js'
 import PhFilter from './ph-filter.js'
+import PhFilterCheckbox from './ph-filter-checkbox.js'
+
+// import ListDemo from './list-demo.js'
+// import Detail from './detail-demo.js'
 
 let Card = class Card extends Component {
     constructor(props, context){
@@ -83,6 +90,7 @@ let Index = class index extends Component {
                     <Card href="#/badge" title="Badge" desp="徽章" />
                     <Card href="#/star" title="Star" desp="星星" />
                     <Card href="#/icon" title="Icon" desp="符号" />
+                    <Card href="#/label" title="Label" desp="标志" />
                     <Card href="#/image" title="Image" desp="图片" />
                 </div>
                 <h3>表单类</h3>
@@ -131,6 +139,7 @@ let Index = class index extends Component {
                 <h2>控件</h2>
                 <div className="menu-panel">
                     <Card href="#/ph-filter" title="PhFilter" desp="筛选" />
+                    <Card href="#/ph-filter-checkbox" title="PhFilter Checkbox" desp="多选筛选" />
                 </div>
 
                 <h2>例子</h2>
@@ -158,6 +167,7 @@ let AppRouter = class AppRouter extends Component {
                 <Route path="/phoenix-styles" name="PhoenixStyle" component={PhoenixStyle} />
                 <Route path="/list" name="List" component={List} />
                 <Route path="/button" name="button" component={Button} />
+                <Route path="/label" name="label" component={Label} />
                 <Route path="/buttongroup" name="buttongroup" component={ButtonGroup} />
                 <Route path="/input" name="input" component={Input} />
                 <Route path="/checkbox" name="checkbox" component={Checkbox} />
@@ -188,6 +198,7 @@ let AppRouter = class AppRouter extends Component {
                 <Route path="/icon" name="icon" component={Icon} />
 
                 <Route path="/ph-filter" name="phfilter" component={PhFilter} />
+                <Route path="/ph-filter-checkbox" name="phfiltercheckbox" component={PhFilterCheckbox} />
                 
                 <Redirect from="/" to="/index" />
             </Router>

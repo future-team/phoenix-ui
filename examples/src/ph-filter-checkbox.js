@@ -1,0 +1,72 @@
+import React, { Component } from "react"
+import {ajax} from "./utils/tool.js"
+
+import PhFilter from "phoenix-ui/lib/ph-filter"
+import List from "phoenix-ui/lib/list"
+// import Code from "./code/code";
+
+const FilterCheckbox = PhFilter.FilterCheckbox,
+      Item = PhFilter.Item,
+      ItemGroup = PhFilter.ItemGroup
+
+export default class phFilterCheckbox extends Component {
+
+    constructor(props,context){
+        super(props,context)
+
+        this.state = {
+            filterData: [],
+            choose: ''
+        }
+
+        this.getData("./data/shop-list.json", 'filterData');
+        this.getData("./data/choose.json", 'choose');
+    }
+
+    getData(fileName, key){ // 获取数据方法，ajax方法在下面定义了
+        ajax(fileName).then((json)=>{
+            let o = {}
+            o[key] = json
+
+            this.setState(o)
+
+        }, (error)=>{// 加载失败
+            console.error("出错了", error)
+        });
+    }
+
+    onSubmit(choose){
+        console.log(choose)
+    }
+
+    render(){
+        const buttons = [
+            {onHandle: this.onSubmit.bind(this)}
+        ]
+        
+        return(
+            <FilterCheckbox choose={this.state.choose} groupIndex={2} buttons={buttons}>
+                {
+                    this.state.filterData.map((cityShopList,index)=>{
+                        return (
+                            <ItemGroup key={cityShopList.cityId} mainKey={cityShopList.cityId} label={cityShopList.cityName}>
+                                {
+                                    cityShopList.shopInfoDTOList.map((shopInfo)=>{
+                                        return (
+                                            <Item disabled={shopInfo.status==1} key={shopInfo.shopId} itemKey={shopInfo.shopId}>
+                                                {shopInfo.shopName}
+                                            </Item>
+                                        );
+                                    })
+                                }
+                            </ItemGroup>
+                        );
+                    })
+                }
+                
+            </FilterCheckbox>
+        )
+    }
+}
+
+

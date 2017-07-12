@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 
 import PhFilter from "phoenix-ui/lib/ph-filter"
-import Col from "phoenix-ui/lib/grid/Col"
 // import Code from "./code/code";
 
 const FilterContainer = PhFilter.FilterContainer,
@@ -17,6 +16,7 @@ export default class phFilter extends Component {
         this.state={
             panel1:[],
             panel2:{},
+            selected2: {key:'f_bbc',value:'本帮江浙菜'},
             panel3:[],
         }
     }
@@ -83,8 +83,8 @@ export default class phFilter extends Component {
                     {
                         itemGroup.map((item)=>{
                             return (
-                                <Item key={item.key} itemKey={item.key} itemLabel={item.value}>
-                                    <Col>{item.value}</Col>
+                                <Item key={item.key} itemKey={item.key}>
+                                    {item.value}
                                 </Item>
                             )
                         })
@@ -96,32 +96,49 @@ export default class phFilter extends Component {
         return newPanel
     }
 
+    clickCallback(key){
+        console.log(key);
+    }
+
+    resetFilter(key){
+        this.setState({
+            selected2: {}
+        })
+    }
+
+    confirmFilter(key){
+        console.log(key);
+    }
+
     render(){
+        const buttons = [
+            {text:'重置', phStyle:'gray', onHandle: this.resetFilter.bind(this), otherProps: {hollow:true}},
+            {onHandle: this.confirmFilter.bind(this)},
+        ]
+
         return (
             <div>
                 <h2 className="comp-title">PhFilter</h2>
-                <FilterContainer onChange={function(key){
-                    console.log(key);
-                }}>
+                <FilterContainer clickCallback={this.clickCallback.bind(this)}>
                     <PanelSimple readOnly className='panel1' selected={{key:'ljz',value:'陆家嘴'}}>
                         {
                             this.state.panel1.map(function(item){
-                                return <Item key={item.key} itemKey={item.key} itemLabel={item.value}><Col>{item.value}</Col></Item>
+                                return <Item key={item.key} itemKey={item.key}>{item.value}</Item>
                             })
                         }
                     </PanelSimple>
-                    <Panel selected={{key:'f_bbc',value:'本帮江浙菜'}}>
+                    <Panel default='筛选' selected={this.state.selected2} buttons={buttons}>
                         {this.renderPanelList()}
                     </Panel>
                     <PanelSimple default='筛选'>
                         {
                             this.state.panel3.map(function(item){
-                                return <Item key={item.key} itemKey={item.key} itemLabel={item.value}><Col>{item.value}</Col></Item>
+                                return <Item key={item.key} itemKey={item.key}>{item.value}</Item>
                             })
                         }
                     </PanelSimple>
                 </FilterContainer>
-                <div style={{height: '2000px'}}>模拟内容多的情况</div>
+                <div className="ph-tip" style={{height: '2000px'}}>模拟内容多的情况</div>
             </div>
         )
     }

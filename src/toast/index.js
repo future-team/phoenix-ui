@@ -4,6 +4,8 @@ import Component from '../utils/Component'
 import classnames from 'classnames'
 import {setPhPrefix} from '../utils/Tool'
 
+import Icon from '../icon'
+
 import "phoenix-styles/css/toast.css"
 
 /**
@@ -52,17 +54,24 @@ class Toast extends Component{
     }
 
     renderChildren(){
-        let {className,children} = this.props;
+        let {phIcon,children} = this.props
 
-        if(className){
-            return <div className={setPhPrefix("toast-body")}>{children}</div>
+        if(phIcon){
+            let loading = phIcon.indexOf('loading')!=-1
+
+            return (
+                <div className={setPhPrefix("toast-body")}>
+                    {phIcon? <Icon phIcon={phIcon} phSize={loading?'sm':'lg'} /> :null}
+                    {children? <p>{children}</p>:null}
+                </div>
+            )
         }else{
             return children;
         }
     }
 
-    render(){
-        let {componentTag:Component, className} = this.props;
+    renderToast(){
+        let {componentTag:Component, className, phIcon} = this.props;
 
         return (
             <Component {...this.props} className={classnames(
@@ -71,12 +80,16 @@ class Toast extends Component{
             )}>
                 <div className={setPhPrefix("toast-shadow")}></div>
                 <div className={setPhPrefix("toast-main")}>
-                    <div className={setPhPrefix("toast-content")}>
+                    <div className={classnames(setPhPrefix("toast-content"), phIcon? setPhPrefix("toast-rect"):'')}>
                         {this.renderChildren(className)}
                     </div>
                 </div>
             </Component>
         );
+    }
+
+    render(){
+        return this.renderToast()
     }
 
 }
@@ -85,8 +98,8 @@ let _layer = document.createElement('div'),
     timer  = null,
     visible = false;
 
-function renderLayer(content,className){
-    return <Toast className={className}>{content}</Toast>;
+function renderLayer(content,phIcon){
+    return <Toast phIcon={phIcon}>{content}</Toast>;
 }
 
 function _renderLayer(layerElement, duration, callback){
@@ -121,15 +134,19 @@ export default {
         _renderLayer(layerElement, duration, callback);
     },
     success(content, duration, callback){
-        let layerElement = renderLayer(content, setPhPrefix('toast-success'));
+        let layerElement = renderLayer(content, 'success');
         _renderLayer(layerElement, duration, callback);
     },
     fail(content, duration, callback){
-        let layerElement = renderLayer(content, setPhPrefix('toast-fail'));
+        let layerElement = renderLayer(content, 'fail');
+        _renderLayer(layerElement, duration, callback);
+    },
+    tip(content, duration, callback){
+        let layerElement = renderLayer(content, 'tip');
         _renderLayer(layerElement, duration, callback);
     },
     loading(content, duration, callback){
-        let layerElement = renderLayer(content, setPhPrefix('toast-loading'));
+        let layerElement = renderLayer(content, 'loading-white');
         _renderLayer(layerElement, duration, callback);
     },
     remove(){

@@ -17,7 +17,7 @@ export default obj=>{
         /*以下属性都是数组里固定值*/
         //类型
         phType:function(val){
-            return getVal(['default','tacked','justify','segmente'],val);
+            return getVal(['default','tacked','justify','segmente','footer'],val);
         },
         phSize:function(val){
             return getVal(['default','lg','md','sm','xs','cover','contain'],val);

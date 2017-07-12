@@ -81,8 +81,6 @@ export default class Checkbox extends Component{
     }
 
     render(){
-        let {componentTag:Component} = this.props
-
         return this.renderCheckbox()
     }
 

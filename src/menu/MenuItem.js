@@ -8,15 +8,15 @@ import Icon from '../icon'
 /**
  * 菜单导航列表项组件<br/>
  * - 可通过phIcon设置菜单项名称前符号的类型，具体可以参考[gfs-icons](https://future-team.github.io/gfs-icons/index.html)。 
- * - 可通过href设置菜单项的跳转地址，可不设置，自定义回调函数onMenuitemChange。
+ * - 可通过href设置菜单项的跳转地址，可不设置，自定义回调函数clickCallback。
  * - 可通过name设置菜单项的唯一标识，对应MenuList的activeName。
- * - 通过onMenuitemChange设置点击菜单项时的回调。
+ * - 通过clickCallback设置点击菜单项时的回调。
  *
  * 主要属性和接口：
  * - phIcon:菜单项名称前符号的类型，不设置时默认没有符号。 
  * - href:菜单项的跳转地址，默认null。
  * - name:菜单项的唯一标识。
- * - onMenuitemChange:点击菜单项时的回调。<br/>
+ * - name:点击菜单项时的回调。<br/>
  * 如：
  * ```code
  *     <Menu>
@@ -25,8 +25,8 @@ import Icon from '../icon'
  *         </Menu.Header>
  *         <Menu.Body>
  *             <Menu.Nav>
- *                  <Menu.List activeName={this.state.activeName} onMenulistChange={(name)=>{this.setState({activeName:name})}}>
- *                      <Menu.Item name="home" href="#index" phIcon="home" onMenuitemChange={(name)=>{console.log(name);}}>首页</Menu.Item>
+ *                  <Menu.List activeName={this.state.activeName} clickCallback={(name)=>{this.setState({activeName:name})}}>
+ *                      <Menu.Item name="home" href="#index" phIcon="home" clickCallback={(name)=>{console.log(name);}}>首页</Menu.Item>
  *                  </Menu.List>
  *              </Menu.Nav>
  *         </Menu.Body>
@@ -77,11 +77,11 @@ export default class MenuItem extends Component {
         name: PropTypes.string,
         /**
          * 点击事件的回调函数
-         * @method onMenuitemChange
+         * @method clickCallback
          * @type Function
          * @default null
          * */
-        onMenuitemChange: PropTypes.func
+        clickCallback: PropTypes.func
     };
 
     static defaultProps = {
@@ -96,9 +96,11 @@ export default class MenuItem extends Component {
         return name === activeName ? 'active':'';
     }
 
-    onMenuitemChange(){
-        this.props.changeActive(this.props.name);
-        if(this.props.onMenuitemChange) this.props.onMenuitemChange(this.props.name);
+    clickCallback(){
+        let {name, changeActive, clickCallback} = this.props
+
+        changeActive(name);
+        if(clickCallback) clickCallback(this.props.name);
     }
 
     renderIcon(){
@@ -121,7 +123,7 @@ export default class MenuItem extends Component {
                     className
                 )}
             >
-                <a href={href} onClick={::this.onMenuitemChange}>
+                <a href={href} onClick={this.clickCallback.bind(this)}>
                     {this.renderIcon()}
                     {children}
                 </a>

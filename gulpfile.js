@@ -117,6 +117,6 @@ gulp.task('karma', function (done) {
 });
 
 gulp.task('default', ['babel', 'min-webpack', 'exampleWebpack']);
-gulp.task('demo', ['demoBuild', 'open']);
+gulp.task('dev', ['demoBuild', 'open']);
 gulp.task('min', ['min-webpack']);
 gulp.task('test',['karma']);

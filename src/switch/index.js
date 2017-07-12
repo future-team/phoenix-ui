@@ -64,8 +64,7 @@ export default class Switch extends Component{
         super(props, context);
     }
 
-    render(){
-
+    renderSwitch(){
         return (
             <label className={
                 classnames(
@@ -73,10 +72,14 @@ export default class Switch extends Component{
                     this.props.className
                 )
             }>
-                <input  type="checkbox" {...this.props} />
+                <input type="checkbox" {...this.props} />
                 <div className={setPhPrefix("checkbox")}></div>
             </label>
-        );
+        )
+    }
+
+    render(){
+        return this.renderSwitch()  
     }
 
 }

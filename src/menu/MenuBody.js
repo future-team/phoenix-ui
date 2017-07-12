@@ -126,7 +126,7 @@ export default class MenuBody extends Component{
         let {closeButton} = this.props;
 
         if(closeButton){
-            return <Icon phIcon="close" className={classnames(setPhPrefix('menu-close-button'))} onClick={::this.onChange} />;
+            return <Icon phIcon="close" className={classnames(setPhPrefix('menu-close-button'))} onClick={this.onChange.bind(this)} />;
         }else{
             return '';
         }

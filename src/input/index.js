@@ -4,7 +4,7 @@ import classnames from 'classnames'
 import {warning,setPhPrefix} from '../utils/Tool'
 import Icon from '../icon/'
 
-import "phoenix-styles/css/buttons.css"
+import "phoenix-styles/css/form.css"
 
 /**
  * 输入框组件<br/>

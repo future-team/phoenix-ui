@@ -1,5 +1,10 @@
 import "phoenix-styles/css/reset.css"
 import "phoenix-styles/css/global.css"
+// 未完成组件
+import "phoenix-styles/css/page.css"
+import "phoenix-styles/css/tabbar.css"
+import "phoenix-styles/css/toolbar.css"
+import "phoenix-styles/css/tip.css"
 
 import catBrowser from './utils/CatBrowser'
 
