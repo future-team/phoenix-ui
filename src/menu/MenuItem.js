@@ -4,6 +4,7 @@ import classnames from 'classnames'
 import {setPhPrefix} from '../utils/Tool'
 
 import Icon from '../icon'
+import List from '../list'
 
 /**
  * 菜单导航列表项组件<br/>
@@ -26,7 +27,7 @@ import Icon from '../icon'
  *         <Menu.Body>
  *             <Menu.Nav>
  *                  <Menu.List activeName={this.state.activeName} clickCallback={(name)=>{this.setState({activeName:name})}}>
- *                      <Menu.Item name="home" href="#index" phIcon="home" clickCallback={(name)=>{console.log(name);}}>首页</Menu.Item>
+ *                      <Menu.Item name='home' href='#index' phIcon='home' clickCallback={(name)=>{console.log(name);}}>首页</Menu.Item>
  *                  </Menu.List>
  *              </Menu.Nav>
  *         </Menu.Body>
@@ -113,21 +114,27 @@ export default class MenuItem extends Component {
         }
     }
 
-    render(){
+    renderMenuItem(){
         let {className, href, children} = this.props;
 
         return (
-            <li {...this.props} className={classnames(
+            <List.Item {...this.props} classPrefix='list-item' className={classnames(
                     this.getProperty(true),
                     this.isActive(),
                     className
                 )}
             >
-                <a href={href} onClick={this.clickCallback.bind(this)}>
-                    {this.renderIcon()}
-                    {children}
-                </a>
-            </li>
-        );
+                <List.Col href={href} onClick={this.clickCallback.bind(this)}>
+                    <label>
+                        {this.renderIcon()}
+                        {children}
+                    </label>
+                </List.Col>
+            </List.Item>
+        )
+    }
+
+    render(){
+        return this.renderMenuItem()
     }
 };

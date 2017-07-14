@@ -5,7 +5,8 @@ import Component from '../utils/Component'
 import classnames from 'classnames'
 import Tool from '../utils/Tool'
 
-import "phoenix-styles/css/popover.css"
+import '../style'
+import 'phoenix-styles/less/modules/popover.less'
 
 const SHOW_CLASS = 'show'
 
@@ -19,19 +20,19 @@ const SHOW_CLASS = 'show'
  *
  * 示例:
  * ```code
- *  <Button phSize="lg" ref={(button)=>{this.button = button}}>按钮</Button>
- *  <Popover getTarget={()=>{return this.button}} placement="top">
- *      <div className="ph-popover-text">
+ *  <Button phSize='lg' ref={(button)=>{this.button = button}}>按钮</Button>
+ *  <Popover getTarget={()=>{return this.button}} placement='top'>
+ *      <div className='ph-popover-text'>
  *          一条很长的很长的气泡提示语，为了占位存在的气泡提示语。一条很长的很长的气泡提示语，为了占位存在的气泡提示语。
  *      </div>
  *  </Popover>
  * ```
  * ```code
- *  <Button phSize="lg" ref={(button)=>{this.button1 = button}}>按钮</Button>
- *  <Popover getTarget={()=>{return this.button1}} placement="right">
- *      <ul className="ph-popover-list">
- *          <li className="ph-popover-item">未上线单店</li>
- *          <li className="ph-popover-item">未上线连锁店</li>
+ *  <Button phSize='lg' ref={(button)=>{this.button1 = button}}>按钮</Button>
+ *  <Popover getTarget={()=>{return this.button1}} placement='right'>
+ *      <ul className='ph-popover-list'>
+ *          <li className='ph-popover-item'>未上线单店</li>
+ *          <li className='ph-popover-item'>未上线连锁店</li>
  *      </ul>
  *  </Popover>
  * ```

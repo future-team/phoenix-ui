@@ -4,8 +4,10 @@ import classnames from 'classnames'
 import {setPhPrefix} from '../utils/Tool'
 
 import Animate from '../animate'
+import Icon from '../icon'
 
-import "phoenix-styles/css/dialog.css"
+import '../style'
+import 'phoenix-styles/less/modules/dialog.less'
 
 /**
  * <h5>弹出框组件，主要包括组件:</h5>
@@ -39,7 +41,7 @@ import "phoenix-styles/css/dialog.css"
  *             <p>可自定义表格内容</p>
  *         </Dialog.Body>
  *         <Dialog.Footer>
- *             <Button hollow phSize="lg" phStyle="gray" onClick={::this.closeCallback}>取消</Button>
+ *             <Button hollow phSize='lg' phStyle='gray' onClick={::this.closeCallback}>取消</Button>
  *         </Dialog.Footer>
  *     </Dialog>
  * ```
@@ -129,7 +131,7 @@ class Dialog extends Component{
         let {visible} = this.props;
 
         if(visible){
-            return <div className={classnames(setPhPrefix("dialog-shadow"), "animated")} onClick={this.onShadowClose.bind(this)}></div>;
+            return <div className={classnames(setPhPrefix('dialog-shadow'), 'animated')} onClick={this.onShadowClose.bind(this)}></div>;
         }else{
             return '';
         }
@@ -140,14 +142,13 @@ class Dialog extends Component{
 
         if(visible){
             return (
-                <div className={classnames(setPhPrefix("dialog-main"), "animated")}>
-                    <div className={classnames(setPhPrefix("dialog-content"), "animated")}>
-                        <a href="javascript:;" onClick={closeCallback} className={classnames(
-                            setPhPrefix("dialog-close"),
-                            closeButton ? "show":"hide",
-                            "gfs-icon icon-close"
-                        )}></a>
-                        {this.renderDialog()}
+                <div className={classnames(setPhPrefix('dialog-main'), 'animated')}>
+                    <div className={classnames(setPhPrefix('dialog-content'), 'animated')}>
+                        <Icon phIcon='close' onClick={closeCallback} className={classnames(
+                            setPhPrefix('dialog-close'),
+                            closeButton ? 'show':'hide'
+                        )} />
+                        {this.renderChildren()}
                     </div>
                 </div>
             );
@@ -156,7 +157,7 @@ class Dialog extends Component{
         }
     }
 
-    renderDialog(){
+    renderChildren(){
         let newChildren = [];
         let {visible, children} = this.props;
 
@@ -172,7 +173,7 @@ class Dialog extends Component{
         return newChildren;
     }
 
-    render(){
+    renderDialog(){
         let {componentTag:Component, className} = this.props;
 
         return (
@@ -187,7 +188,11 @@ class Dialog extends Component{
                     {this.renderContent()}
                 </Animate>
             </Component>
-        );
+        )
+    }
+
+    render(){
+        return this.renderDialog()
     }
 }
 
@@ -200,9 +205,9 @@ class DialogTitle extends Component{
     static defaultProps = {
         classPrefix:'dialog-title',
         classMapping : {}
-    };
+    }
 
-    render(){
+    renderDialogTitle(){
         return (
             <h2 {...this.props} className={classnames(
                 this.getProperty(true),
@@ -210,7 +215,11 @@ class DialogTitle extends Component{
             )}>
                 {this.props.children}
             </h2>
-        );
+        )
+    }
+
+    render(){
+        return this.renderDialogTitle()
     }
 }
 
@@ -223,9 +232,9 @@ class DialogBody extends Component{
     static defaultProps = {
         classPrefix:'dialog-body',
         classMapping : {}
-    };
+    }
 
-    render(){
+    renderDialogBody(){
         return (
             <div {...this.props} className={classnames(
                 this.getProperty(true),
@@ -234,6 +243,10 @@ class DialogBody extends Component{
                 {this.props.children}
             </div>
         );
+    }
+
+    render(){
+        return this.renderDialogBody()
     }
 }
 
@@ -246,9 +259,9 @@ class DialogFooter extends Component{
     static defaultProps = {
         classPrefix:'dialog-footer',
         classMapping : {}
-    };
+    }
 
-    render(){
+    renderDialogFooter(){
         return (
             <div {...this.props} className={classnames(
                 this.getProperty(true),
@@ -257,7 +270,11 @@ class DialogFooter extends Component{
             )}>
                 {this.props.children}
             </div>
-        );
+        )
+    }
+
+    render(){
+        return this.renderDialogFooter()
     }
 }
 

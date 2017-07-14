@@ -6,7 +6,8 @@ import {setPhPrefix} from '../utils/Tool'
 import Input from '../input/'
 import Button from '../button/'
 
-import "phoenix-styles/css/search-bar.css"
+import '../style'
+import 'phoenix-styles/less/modules/search-bar.less'
 
 /**
  * SearchBar<br/>
@@ -76,7 +77,7 @@ export default class SearchBar extends Component{
         let {buttonText} = this.props
         
         if(this.state.focus){
-            return <Button phStyle="link" onClick={this.buttonHandle.bind(this)}>{buttonText}</Button>
+            return <Button phStyle='link' onClick={this.buttonHandle.bind(this)}>{buttonText}</Button>
         }
     }
 
@@ -107,7 +108,7 @@ export default class SearchBar extends Component{
         }
     }
 
-    render(){
+    renderSearchBar(){
         let {className,placeholder} = this.props
 
         return(
@@ -116,7 +117,7 @@ export default class SearchBar extends Component{
                className,
                this.state.focus? setPhPrefix('search-bar-focus'):''
            )}>
-               <Input type="search" phIcon="search" placeholder={placeholder} clear 
+               <Input type='search' phIcon='search' placeholder={placeholder} clear 
                     ref={(searchElem)=>{this.searchElem=searchElem}}
                     onFocus={this.onFocus.bind(this)}
                     onBlur={this.onBlur.bind(this)}
@@ -125,5 +126,9 @@ export default class SearchBar extends Component{
                {this.renderButton()}
            </div>
         )
+    }
+
+    render(){
+        return this.renderSearchBar()
     }
 }

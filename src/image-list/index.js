@@ -3,7 +3,8 @@ import Component from '../utils/Component'
 import classnames from 'classnames'
 import {setPhPrefix} from '../utils/Tool'
 
-import "phoenix-styles/css/image-list.css"
+import '../style'
+import 'phoenix-styles/less/modules/image-list.less'
 
 /**
  * 图片列表组件<br/>
@@ -17,7 +18,7 @@ import "phoenix-styles/css/image-list.css"
  *  {
  *      this.state.images.map((data,index)=>{
  *          return (
- *              <dl className="ph-image-item" key={index}>
+ *              <dl className='ph-image-item' key={index}>
  *                  <dt>
  *                      <Image src={data.image} alt={data.title}/>
  *                  </dt>
@@ -77,7 +78,7 @@ export default class ImageList extends Component{
             <div className={classnames(
                 this.getProperty(true), 
                 className, 
-                setPhPrefix("column-"+column))}
+                setPhPrefix('column-'+column))}
             >
                 {children}
             </div>

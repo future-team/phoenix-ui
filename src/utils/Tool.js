@@ -98,6 +98,10 @@ let Tool = {
             // to find the callsite that caused this warning to fire.
             throw new Error(message);
         } catch (x) {}
+    },
+
+    getClientHeight(){
+        return document.compatMode == "BackCompat" ? document.body.clientHeight : document.documentElement.clientHeight
     }
 }
 

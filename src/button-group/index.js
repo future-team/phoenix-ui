@@ -2,7 +2,8 @@ import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
 
-import "phoenix-styles/css/button-group.css"
+import '../style'
+import 'phoenix-styles/less/modules/button-group.less'
 
 /**
  * 按钮组组件<br/>
@@ -13,7 +14,7 @@ import "phoenix-styles/css/button-group.css"
  * - phType:是否自适应宽度或者垂直排列, 默认justify <br/>
  * 如:
  * ```code
- *     <ButtonGroup phType="tacked">
+ *     <ButtonGroup phType='tacked'>
  *         <Button block>tacked1</Button>
  *         <Button block>tacked2</Button>
  *     </ButtonGroup>
@@ -117,7 +118,7 @@ export default class ButtonGroup extends Component{
         }, this);
     }
 
-    render(){
+    renderButtonGroup(){
         const {componentTag:Component, children} = this.props;
 
         return (
@@ -129,5 +130,9 @@ export default class ButtonGroup extends Component{
                 {this.renderChildren()}
             </Component>
         );
+    }
+
+    render(){
+        return this.renderButtonGroup()
     }
 }

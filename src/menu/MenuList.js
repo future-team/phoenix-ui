@@ -70,10 +70,28 @@ export default class MenuList extends Component {
 
     constructor(props, context){
         super(props, context);
+
+        this.state = {
+            activeName: props.activeName
+        }
+    }
+
+    componentWillReceiveProps(nextProps){
+        if(nextProps.activeName !== this.state.activeName){
+            this.setState({
+                activeName: nextProps.activeName
+            })
+        }
     }
 
     changeActive(name){
-        if(this.props.clickCallback) this.props.clickCallback(name);
+        let {clickCallback} = this.props
+
+        this.setState({
+            activeName: name
+        })
+            
+        if(clickCallback) clickCallback(name);
     }
 
     renderChildren(){
@@ -83,7 +101,7 @@ export default class MenuList extends Component {
         React.Children.forEach(this.props.children, function(child, index){
             newChildren.push(React.cloneElement(child, {
                 key: index,
-                activeName: _this.props.activeName,
+                activeName: _this.state.activeName,
                 changeActive: _this.changeActive.bind(_this)
             }));
         });
@@ -91,7 +109,7 @@ export default class MenuList extends Component {
         return newChildren;
     }
 
-    render(){
+    renderMenuList(){
         let {className, children} = this.props;
 
         return (
@@ -102,6 +120,10 @@ export default class MenuList extends Component {
             >
                 {this.renderChildren()}
             </ul>
-        );
+        )
+    }
+
+    render(){
+        return this.renderMenuList()
     }
 };

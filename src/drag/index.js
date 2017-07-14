@@ -12,7 +12,7 @@ import {setPhPrefix,getDeviceInfo} from '../utils/Tool'
  * 示例:
  * ```code
  *     <Drag onDrag={::this.onDrag} onDrop={::this.onDrop} style={{height:0}}>
- *         <div className="box" ref={(box)=>{this.box = box}}>Drag</div>
+ *         <div className='box' ref={(box)=>{this.box = box}}>Drag</div>
  *     </Drag>
  * ```
  * ```code
@@ -172,9 +172,9 @@ export default class Drag extends Component{
         }
     }
 
-    render(){
+    renderDrag(){
         return (
-            <div {...this.props} className={classnames(setPhPrefix("drag-action"), this.props.className)}
+            <div {...this.props} className={classnames(setPhPrefix('drag-action'), this.props.className)}
                 onTouchStart={(event)=>{this.onTouchStart(event)}}
                 onTouchMove={(event)=>{this.onTouchMove(event)}}
                 onTouchEnd={(event)=>{this.onTouchEnd(event)}}
@@ -187,6 +187,10 @@ export default class Drag extends Component{
                 {this.props.children}
             </div>
         );
+    }
+
+    render(){
+        return this.renderDrag()
     }
 
 }

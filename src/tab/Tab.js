@@ -77,7 +77,7 @@ export default class Tab extends Component {
         return !!this.props.vertical ? '':setPhPrefix('col');
     }
 
-    render(){
+    renderTab(){
         let {className,onClick,...other} = this.props;
         return(
             <li className={
@@ -88,8 +88,12 @@ export default class Tab extends Component {
                     className
                 )
             } onClick={this.handleClick.bind(this)} {...other}>
-                <a href="javascript:;">{this.props.heading}</a>
+                <a href='javascript:;'>{this.props.heading}</a>
             </li>
         )
+    }
+
+    render(){
+        return this.renderTab()
     }
 }

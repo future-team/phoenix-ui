@@ -29,12 +29,12 @@ import Dialog from './Dialog'
  * 示例:
  * ```code
  *      const buttons = [
-            {text: "取消", phStyle: "gray", otherProps: {hollow: true}}, // text默认"确定", phStyle默认primary，onHandle默认执行closeCallback
-            {text: "确定", onHandle: this.confirmCallback}
+            {text: '取消', phStyle: 'gray', otherProps: {hollow: true}}, // text默认'确定', phStyle默认primary，onHandle默认执行closeCallback
+            {text: '确定', onHandle: this.confirmCallback}
         ];
         ...
  *      <Alert closeButton shadowDisabled visible={this.state.visible} closeCallback={this.closeCallback.bind(this,'visible')} 
- *          title="这是标题" content="这里是弹出框的内容..." buttons={buttons} />
+ *          title='这是标题' content='这里是弹出框的内容...' buttons={buttons} />
  * ```
  *
  * @class Alert
@@ -102,7 +102,7 @@ export default class Alert extends Component{
         super(props, context);
 
         this.buttons = [
-            {text: "确定", onHandle: props.closeCallback}
+            {text: '确定', onHandle: props.closeCallback}
         ];
     }
 
@@ -112,18 +112,18 @@ export default class Alert extends Component{
         let buttonsType = this.buttons.length>2;
         
         return (
-            <ButtonGroup phType={buttonsType ? "tacked":"default"} clickable={false}>
+            <ButtonGroup phType={buttonsType ? 'tacked':'default'} clickable={false}>
                 {
                     this.buttons.map((button,index) => {
-                        return <Button hollow key={index} {...button.otherProps} phSize="lg" phStyle={button.phStyle || 'primary'} block={buttonsType}
-                            onClick={button.onHandle || closeCallback}>{button.text || "确定"}</Button>
+                        return <Button hollow key={index} {...button.otherProps} phSize='lg' phStyle={button.phStyle || 'primary'} block={buttonsType}
+                            onClick={button.onHandle || closeCallback}>{button.text || '确定'}</Button>
                     })
                 }
             </ButtonGroup>
         );
     }
 
-    render(){
+    renderAlert(){
         let {visible, closeCallback, title, content, closeButton, shadowDisabled} = this.props;
 
         return (
@@ -132,6 +132,10 @@ export default class Alert extends Component{
                 <Dialog.Body>{content}</Dialog.Body>
                 <Dialog.Footer>{this.renderButtons()}</Dialog.Footer>
             </Dialog>
-        );
+        )
+    }
+
+    render(){
+        return this.renderAlert()
     }
 }

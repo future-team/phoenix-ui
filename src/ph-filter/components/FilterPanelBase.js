@@ -32,11 +32,11 @@ export default class FilterPanelBase extends Component{
         let {buttons, categoryChange} = this.props
         
         return buttons? (
-            <ButtonGroup phType="footer">
+            <ButtonGroup phType='footer'>
                 {
                     buttons.map((button, index)=>{
                         return (
-                            <Button key={index} {...button.otherProps} phSize="lg" phStyle={button.phStyle || 'primary'}
+                            <Button key={index} {...button.otherProps} phSize='lg' phStyle={button.phStyle || 'primary'}
                                 onClick={()=>{
                                     if(button.onHandle){
                                         button.onHandle(this.category)
@@ -44,7 +44,7 @@ export default class FilterPanelBase extends Component{
                                     }
                                 }
                             }>
-                                {button.text || "确定"}
+                                {button.text || '确定'}
                             </Button>
                         )
                     })
@@ -77,7 +77,7 @@ export default class FilterPanelBase extends Component{
 
         this.index = index
         this.category = category
-        console.log(this.category)
+        // console.log(this.category)
         categoryChange(index, category, !!buttons)
     }
 

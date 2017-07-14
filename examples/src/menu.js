@@ -19,7 +19,7 @@ export default class menu extends Component{
             width: 40,
             closeButton: false,
             navAlign: 'top',
-            activeName: 'index',
+            activeName: 'index', // 对应router名称
             value: 'ha'
         }
     }
@@ -87,13 +87,13 @@ export default class menu extends Component{
                     <Menu.Header align={this.state.align}>Phoenix</Menu.Header>
                     <Menu.Body width={this.state.width} placement={this.state.placement} closeButton={this.state.closeButton}>
                         <Menu.Nav align={this.state.navAlign}>
-                            <div>
-                                <Input placeholder="自定义部分"/>
-                            </div>
                             <Menu.List activeName={this.state.activeName} clickCallback={this.setActiveName.bind(this)}>
                                 <Menu.Item name="index" phIcon="home">首页</Menu.Item>
-                                <Menu.Item name="menu" href="#menu" phIcon="menu" clickCallback={this.onMenuItemChange.bind(this)}>菜单</Menu.Item>
+                                <Menu.Item name="menu" phIcon="setting" href="#menu" clickCallback={this.onMenuItemChange.bind(this)}>设置</Menu.Item>
                             </Menu.List>
+                            <div style={{padding: '.16rem .32rem'}}>
+                                <Input phIcon="search" placeholder="自定义部分"/>
+                            </div>
                         </Menu.Nav>
                     </Menu.Body>
                 </Menu>

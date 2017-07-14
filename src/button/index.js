@@ -3,7 +3,8 @@ import Component from '../utils/Component'
 import classnames from 'classnames'
 import Icon from '../icon'
 
-import "phoenix-styles/css/buttons.css"
+import '../style'
+import 'phoenix-styles/less/modules/buttons.less'
 
 /**
  * 按钮组件<br/>
@@ -16,13 +17,13 @@ import "phoenix-styles/css/buttons.css"
  *
  * 主要属性和接口：
  * - phSize:按钮大小, 默认sm <br/>
- * 如: `<Button phSize="lg">button</Button>`
+ * 如: `<Button phSize='lg'>button</Button>`
  * - phStyle:按钮颜色, 默认primary <br/>
- * 如: `<Button phStyle="info">button</Button>`
+ * 如: `<Button phStyle='info'>button</Button>`
  * - block:是否块级显示，默认false <br/>
  * 如: `<Button block>button</Button>`
  * - phIcon:icon符号类型,默认没有符号 <br/>
- * 如: `<Button phIcon="search">button</Button>`
+ * 如: `<Button phIcon='search'>button</Button>`
  *
  * @class Button
  * @module 基础组件

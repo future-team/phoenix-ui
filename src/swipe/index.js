@@ -6,7 +6,8 @@ import {setPhPrefix} from '../utils/Tool'
 import Drag from '../drag/'
 import Button from '../button/'
 
-import "phoenix-styles/css/swipe.css"
+import '../style'
+import 'phoenix-styles/less/modules/swipe.less'
 
 /**
  * 左滑组件<br/>
@@ -69,93 +70,104 @@ export default class Swipe extends Component{
     constructor(props, context) {
         super(props, context);
 
-        this.state = {
-            translateX: -1,
-            preTranslateX : -1,
-            btnsWidth: 0,
-            isBtnsShow: false,
-            OPE_RANGE: 10
-        }
+        this.btnsWidth = 0
+        this.translateX = -1
+        this.preTranslateX = -1
+        this.isBtnsShow = false
     }
 
-    renderOperationButton(buttons){
-        let buttonsDom = [];
+    renderButtons(){
+        let {buttons} = this.props
 
-        if(buttons.length!=0) buttonsDom.push(this.renderButtonByType(buttons));
-
-        return buttonsDom;
-    }
-
-    renderButtonByType(btnInfo){
         return (
-            <div className={setPhPrefix("swipe-btns")} key='buttons' ref={(buttons)=>{this.buttons = buttons;}}>
+            <div className={setPhPrefix('swipe-btns')} key='buttons' ref={(buttons)=>{this.buttons = buttons;}}>
                 {
-                    btnInfo.map((item,index) => {
-                        return <Button key={index} phStyle={item.phStyle || 'primary'}>{item.text}</Button>
+                    buttons.map((button,index) => {
+                        return <Button key={index} {...button.otherProps} phStyle={button.phStyle || 'primary'} 
+                                onClick={()=>{
+                                    if(button.onHandle) button.onHandle()
+                                    this.setSwipeBack()
+                                }}>{button.text}</Button>
                     })
                 }
             </div>
         );
     }
 
+    setSwipeBack(){
+        this.swipeElem.style.transform = 'translateX(0)';
+    }
+
     componentDidMount(){ // 获取btns的宽度
-        if(this.buttons) this.state.btnsWidth = this.buttons.offsetWidth;
+        setTimeout(()=>{
+            this.btnsWidth = this.buttons.offsetWidth
+            this.swipeElem = this.dragElem.dragAction
+        }, 0)        
     }
 
     onDrag(event, position){ // position.start position.move
+        if(!this.btnsWidth) return 
+
         let target = event.currentTarget;
-        this.state.translateX = position.move.x - position.start.x + this.state.preTranslateX;
+        this.translateX = position.move.x - position.start.x + this.preTranslateX;
 
         if(position.move.x < position.start.x){
-            this.state.isBtnsShow = true;
+            this.isBtnsShow = true;
         }else{
-            this.state.isBtnsShow = false;
+            this.isBtnsShow = false;
         }
 
-        if(this.state.translateX >= 0) this.state.translateX = 0;
-        if(this.state.translateX <= - this.state.btnsWidth) this.state.translateX = - this.state.btnsWidth;
+        if(this.translateX >= 0) this.translateX = 0;
+        if(this.translateX <= - this.btnsWidth) this.translateX = - this.btnsWidth;
 
-        target.style.transform = 'translateX('+ this.state.translateX +'px)';
+        target.style.transform = 'translateX('+ this.translateX +'px)';
     }
 
     onDrop(event, position){ // position.end
+        if(!this.btnsWidth) return 
+
         let target = event.currentTarget;
 
-        if(Math.abs(this.state.translateX) < 10){ // 微弱操作保持不变
-            this.state.isBtnsShow = !this.state.isBtnsShow;
+        if(Math.abs(this.translateX) < 10){ // 微弱操作保持不变
+            this.isBtnsShow = !this.isBtnsShow;
 
-            if(this.state.isBtnsShow){
-                this.state.translateX = 0;
+            if(this.isBtnsShow){
+                this.translateX = 0;
             }else{
-                this.state.translateX = - this.state.btnsWidth;
+                this.translateX = - this.btnsWidth;
             }
         }else{
-            if(this.state.isBtnsShow){
-                this.state.translateX = - this.state.btnsWidth;
+            if(this.isBtnsShow){
+                this.translateX = - this.btnsWidth;
             }else{
-                this.state.translateX = 0;
+                this.translateX = 0;
             }
         }
-        // console.log(this.state.isBtnsShow);
+        // console.log(this.isBtnsShow);
 
-        this.state.preTranslateX = this.state.translateX;
-        target.style.transform = 'translateX('+ this.state.translateX +'px)';
+        this.preTranslateX = this.translateX;
+        target.style.transform = 'translateX('+ this.translateX +'px)'
     }
 
-    render(){
-        let {componentTag:Component, buttons, className} = this.props;
-
+    renderSwipe(){
+        let {componentTag:Component, className} = this.props
+        
         return (
             <Component className={classnames(
                 this.getProperty(true),
                 className
             )} style={this.getStyles(this.props.style)}>
-                <Drag className={setPhPrefix("swipe-content")} onDrag={::this.onDrag} onDrop={::this.onDrop}>
+                <Drag className={setPhPrefix('swipe-content')} onDrag={this.onDrag.bind(this)} onDrop={this.onDrop.bind(this)} 
+                    ref={(drag)=>{this.dragElem = drag}}>
                     {this.props.children}
                 </Drag>
-                {this.renderOperationButton(buttons)}
+                {this.renderButtons()}
             </Component>
         );
+    }
+
+    render(){
+        return this.renderSwipe()
     }
 
 }

@@ -2,7 +2,8 @@ import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
 
-import "phoenix-styles/css/label.css"
+import '../style'
+import 'phoenix-styles/less/modules/label.less'
 
 /**
  * <h5>标签组件，主要包括组件:</h5>
@@ -21,9 +22,9 @@ import "phoenix-styles/css/label.css"
  *
  * 主要属性和接口：
  * - phStyle:标签颜色, 默认primary <br/>
- * 如：`<Label phStyle="info">惠</Label>`
+ * 如：`<Label phStyle='info'>惠</Label>`
  * - phSize:标签大小, 默认sm <br/>
- * 如：`<Label phSize="lg">惠</Label>`
+ * 如：`<Label phSize='lg'>惠</Label>`
  *
  * @class Label
  * @module 标签组件
@@ -77,14 +78,20 @@ export default class Label extends Component{
         super(props,context);
     }
 
-    render(){
+    renderLabel(){
+        let {className, style, children} = this.props
+
         return(
            <span className={classnames(
                this.getProperty(true),
-               this.props.className
-           )} style={this.getStyles(this.props.style)}>
-               {this.props.children}
+               className
+           )} style={this.getStyles(style)}>
+               {children}
            </span>
         )
+    }
+
+    render(){
+        return this.renderLabel()
     }
 }

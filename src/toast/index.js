@@ -6,7 +6,8 @@ import {setPhPrefix} from '../utils/Tool'
 
 import Icon from '../icon'
 
-import "phoenix-styles/css/toast.css"
+import '../style'
+import 'phoenix-styles/less/modules/toast.less'
 
 /**
  * 飘字组件<br/>
@@ -60,7 +61,7 @@ class Toast extends Component{
             let loading = phIcon.indexOf('loading')!=-1
 
             return (
-                <div className={setPhPrefix("toast-body")}>
+                <div className={setPhPrefix('toast-body')}>
                     {phIcon? <Icon phIcon={phIcon} phSize={loading?'sm':'lg'} /> :null}
                     {children? <p>{children}</p>:null}
                 </div>
@@ -78,9 +79,9 @@ class Toast extends Component{
                 this.getProperty(true),
                 className
             )}>
-                <div className={setPhPrefix("toast-shadow")}></div>
-                <div className={setPhPrefix("toast-main")}>
-                    <div className={classnames(setPhPrefix("toast-content"), phIcon? setPhPrefix("toast-rect"):'')}>
+                <div className={setPhPrefix('toast-shadow')}></div>
+                <div className={setPhPrefix('toast-main')}>
+                    <div className={classnames(setPhPrefix('toast-content'), phIcon? setPhPrefix('toast-rect'):'')}>
                         {this.renderChildren(className)}
                     </div>
                 </div>

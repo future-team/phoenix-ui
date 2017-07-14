@@ -152,7 +152,7 @@ export default class FilterPanelCheckbox extends Component{
                         // new props
                         checked: self.state.itemChecked[mainKey][key],
                         choose:self.props.choose,
-                        filterType: "checkbox",
+                        filterType: 'checkbox',
                         mainKey: mainKey,
                         onItemChange:self.onItemChange.bind(self)
                     }));
@@ -165,7 +165,7 @@ export default class FilterPanelCheckbox extends Component{
                 }
                 
                 subMenu.unshift(<Item active={false} key={mainKey} itemKey={mainKey} mainKey={mainKey} disabled={disabledCount==sum}
-                    filterType="checkbox" choose={self.props.choose} checked={self.state.allChecked[mainKey]} 
+                    filterType='checkbox' choose={self.props.choose} checked={self.state.allChecked[mainKey]} 
                     onItemChange={self.onAllItemChange.bind(self)}>全部</Item>);
 
                 return subMenu;
@@ -183,18 +183,18 @@ export default class FilterPanelCheckbox extends Component{
         let {buttons} = this.props
         
         return buttons? (
-            <ButtonGroup phType="footer">
+            <ButtonGroup phType='footer'>
                 {
                     buttons.map((button, index)=>{
                         return (
-                            <Button key={index} {...button.otherProps} phSize="lg" phStyle={button.phStyle || 'primary'}
+                            <Button key={index} {...button.otherProps} phSize='lg' phStyle={button.phStyle || 'primary'}
                                 onClick={()=>{
                                     if(button.onHandle){
                                         button.onHandle(this.choosed)
                                     }
                                 }
                             }>
-                                {button.text || "确定"}
+                                {button.text || '确定'}
                             </Button>
                         )
                     })
@@ -211,10 +211,10 @@ export default class FilterPanelCheckbox extends Component{
         return(
             <div className={classnames('ph-filter-selector', buttons? 'ph-filter-selector-buttons':'')}>
                 <div className={classnames('ph-row ph-tabs ph-tabs-vertical', className ? className:'')} >
-                    <div className="ph-col ph-col-33 ph-tab-navs">
+                    <div className='ph-col ph-col-33 ph-tab-navs'>
                         {mainMenuList}
                     </div>
-                    <div className="ph-col ph-tab-bd">
+                    <div className='ph-col ph-tab-bd'>
                         {subMenuList}
                     </div>
                 </div>

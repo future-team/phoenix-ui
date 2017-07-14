@@ -11,10 +11,7 @@ module.exports = {
             'node_modules',
             'bower_components',
             'lib'
-        ],
-        alias: {
-            "phoenix-styles" : path.join(process.cwd(), 'examples/lib/phoenix-styles')
-        }
+        ]
     },
     output: {
         library: 'Phoenix',

@@ -3,7 +3,8 @@ import Component from '../utils/Component'
 import classnames from 'classnames'
 import {setPhPrefix} from '../utils/Tool'
 
-import "phoenix-styles/css/grid.css"
+import '../style'
+import 'phoenix-styles/less/modules/grid.less'
 
 /**
  * <h5>主要栅格化布局组件</h5>
@@ -64,7 +65,7 @@ export default class Grid extends Component{
         super(props, context);
     }
 
-    render(){
+    renderGrid(){
         return (
             <div {...this.props}
                 className={classnames(
@@ -75,5 +76,9 @@ export default class Grid extends Component{
                 {this.props.children}
             </div>
         );
+    }
+
+    render(){
+        return this.renderGrid()
     }
 }

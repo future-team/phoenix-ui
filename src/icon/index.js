@@ -2,7 +2,8 @@ import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
 
-import "phoenix-styles/css/iconfont.css"
+import '../style'
+import 'phoenix-styles/less/modules/iconfont.less'
 
 /**
  * Icon<br/>
@@ -11,7 +12,7 @@ import "phoenix-styles/css/iconfont.css"
  *
  * 主要属性和接口：
  * - phIcon:配置不同类型的符号 <br/>
- * 如：`<Icon phIcon="search" />`
+ * 如：`<Icon phIcon='search' />`
  *
  * @class Icon
  * @module 标签组件

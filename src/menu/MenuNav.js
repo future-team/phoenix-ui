@@ -16,7 +16,7 @@ import {setPhPrefix} from '../utils/Tool'
  *             标题一
  *         </Menu.Header>
  *         <Menu.Body width={60}>
- *             <Menu.Nav align="center">
+ *             <Menu.Nav align='center'>
  *                  ...
  *              </Menu.Nav>
  *         </Menu.Body>
@@ -63,7 +63,7 @@ export default class MenuNav extends Component {
         }
     };
 
-    render(){
+    renderMenuNav(){
         let {className, children} = this.props;
 
         return (
@@ -74,6 +74,10 @@ export default class MenuNav extends Component {
             >
                 {children}
             </nav>
-        );
+        )
+    }
+
+    render(){
+        return this.renderMenuNav()
     }
 };

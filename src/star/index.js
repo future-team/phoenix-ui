@@ -3,7 +3,8 @@ import Component from '../utils/Component'
 import classnames from 'classnames'
 import {setPhPrefix} from '../utils/Tool'
 
-import "phoenix-styles/css/star.css"
+import '../style'
+import 'phoenix-styles/less/modules/star.less'
 
 /**
  * <h5>基础组件，主要包括:</h5>
@@ -22,7 +23,7 @@ import "phoenix-styles/css/star.css"
  *
  * 主要属性和接口：
  * - phSize(v1.1.2以下用size):星星的大小。分别为sm、md、lg, 默认sm。 <br/>
- * 如：`<Star phSize="lg" />`
+ * 如：`<Star phSize='lg' />`
  * - rate:星级评价的分数。最低0, 最高50, 5的倍数递增, 默认0。 <br/>
  * 如：`<Star rate={10} />`
  *
@@ -71,7 +72,7 @@ export default class Star extends Component{
         super(props,context);
     }
 
-    render(){
+    renderStar(){
         let {rate,className} = this.props;
         let rateCls = 'star-'+ Math.round((rate*2)/10)*5;
         // let sizeCls = size && 'star-'+size;
@@ -82,8 +83,12 @@ export default class Star extends Component{
                 setPhPrefix(rateCls),
                 className
             )}>
-                <div className={setPhPrefix("star-grey")}></div>
+                <div className={setPhPrefix('star-grey')}></div>
             </div>
         )
+    }
+
+    render(){
+       return this.renderStar() 
     }
 }

@@ -2,7 +2,8 @@ import React, { PropTypes } from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
 
-import "phoenix-styles/css/form.css"
+import '../style'
+import 'phoenix-styles/less/modules/grid.less'
 
 /**
  * 行组件<br/>
@@ -12,7 +13,7 @@ import "phoenix-styles/css/form.css"
  * 主要属性和接口：
  * - align:项目在交叉轴上的对齐方式, 默认stretch
  * ```code
- *     <Row align="baseline">
+ *     <Row align='baseline'>
  *         <Col>
  *             <div className='col-demo'>baseline</div>
  *         </Col>
@@ -47,7 +48,7 @@ export default class Row extends Component{
          * @type String
          * */
         align: PropTypes.string
-    };
+    }
 
     static defaultProps = {
         componentTag:'div',
@@ -59,9 +60,9 @@ export default class Row extends Component{
             'stretch':'stretch',
             'baseline':'baseline'
         }
-    };
+    }
 
-    render(){
+    renderRow(){
         let {componentTag:Component} = this.props
 
         return (
@@ -71,6 +72,10 @@ export default class Row extends Component{
             )} >
                 {this.props.children}
             </Component>
-        );
+        )
+    }
+
+    render(){
+        return this.renderRow()
     }
 }

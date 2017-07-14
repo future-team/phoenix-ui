@@ -2,7 +2,8 @@ import React,{Component, PropTypes} from 'react'
 import classnames from 'classnames'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
-import "phoenix-styles/css/animation.css"
+import '../style'
+import 'phoenix-styles/less/modules/animation.less'
 
 /**
  * 动画外层组件<br/>
@@ -71,8 +72,9 @@ export default class Animate extends Component{
         super(props, context);
     }
 
-    render(){
+    renderAnimate(){
         let {transitionName, transitionEnterTimeout, transitionLeaveTimeout, children} = this.props;
+
         return (
             <ReactCSSTransitionGroup {...this.props}
                 transitionName={transitionName}
@@ -82,5 +84,9 @@ export default class Animate extends Component{
                 {children}
             </ReactCSSTransitionGroup>
         );
+    }
+
+    render(){
+        return this.renderAnimate()
     }
 }

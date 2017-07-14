@@ -3,7 +3,8 @@ import Component from '../utils/Component'
 import classnames from 'classnames'
 import {setPhPrefix} from '../utils/Tool'
 
-import "phoenix-styles/css/form.css"
+import '../style'
+import 'phoenix-styles/less/modules/textarea.less'
 
 /**
  * <h5>表单组件，主要包括组件:</h5>
@@ -24,7 +25,7 @@ import "phoenix-styles/css/form.css"
  *
  * 主要属性和接口：
  * - value:默认值 <br/>
- * 如：`<Textarea value="测试" />`
+ * 如：`<Textarea value='测试' />`
  * - count:是否显示当前输入字数, 默认false不显示, 配合maxLength使用<br/>
  * 如：`<Textarea count maxLength={150} />`
  * - getValueCallback: 获取当前的输入值。<br/>

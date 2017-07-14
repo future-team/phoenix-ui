@@ -98,11 +98,9 @@ export default class FilterPanelSimple extends PanelBase{
 
         return(
             this.props.show?(
-                <div className={classnames(className? className:'', "ph-filter-selector", buttons? 'ph-filter-selector-buttons':'')} >
-                    <div className="ph-list" >
-                        <div >
-                            {itemList}
-                        </div>
+                <div className={classnames(className? className:'', 'ph-filter-selector', buttons? 'ph-filter-selector-buttons':'')} >
+                    <div className='ph-list'>
+                        {itemList}
                     </div>
                     {this.renderButtons()}
                 </div>

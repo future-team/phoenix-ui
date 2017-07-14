@@ -150,7 +150,7 @@ export default class FilterPanel extends PanelBase{
             show ? (
                 <div className={classnames('ph-filter-selector', buttons? 'ph-filter-selector-buttons':'')}>
                     <div className={classnames('ph-row ph-tabs ph-tabs-vertical', className ? className:'')} >
-                        <div className="ph-col ph-col-33 ph-tab-navs" >
+                        <div className='ph-col ph-col-33 ph-tab-navs' >
                             {mainMenuList}
                         </div>
                         <div className='ph-col ph-tab-bd' >

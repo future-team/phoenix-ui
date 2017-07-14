@@ -9,7 +9,8 @@ import MenuNav from './MenuNav'
 import MenuList from './MenuList'
 import MenuItem from './MenuItem'
 
-import "phoenix-styles/css/menu.css"
+import '../style'
+import 'phoenix-styles/less/modules/menu.less'
 
 /**
  * <h5>菜单组件，主要包括组件:</h5>
@@ -189,7 +190,7 @@ class Menu extends Component{
         window.removeEventListener('scroll', this.handleWindowScroll, false);
     }
 
-    render(){
+    renderMenu(){
         let {componentTag:Component, className} = this.props;
 
         return (
@@ -202,7 +203,11 @@ class Menu extends Component{
                     {this.renderChildren()}
                 </div>
             </Component>
-        );
+        )
+    }
+
+    render(){
+        return this.renderMenu()
     }
 }
 

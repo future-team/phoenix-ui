@@ -4,7 +4,8 @@ import classnames from 'classnames'
 import {setPhPrefix} from '../utils/Tool'
 import Animate from '../animate/'
 
-import "phoenix-styles/css/popup.css"
+import '../style'
+import 'phoenix-styles/less/modules/popup.less'
 
 /**
  * 弹层组件<br/>
@@ -19,10 +20,10 @@ import "phoenix-styles/css/popup.css"
  *
  * 示例:
  * ```code
- *     <Popup align="top" visible={this.state.visible} closeCallback={::this.closeCallback}>
- *         <ul className="ph-popup-list">
- *             <li className="ph-popup-item">未上线单店</li>
- *             <li className="ph-popup-item">未上线连锁店</li>
+ *     <Popup align='top' visible={this.state.visible} closeCallback={::this.closeCallback}>
+ *         <ul className='ph-popup-list'>
+ *             <li className='ph-popup-item'>未上线单店</li>
+ *             <li className='ph-popup-item'>未上线连锁店</li>
  *         </ul>
  *     </Popup>
  * ```
@@ -103,13 +104,13 @@ export default class Popup extends Component{
         let {visible, closeCallback} = this.props;
 
         if(visible){
-            return <div className={classnames(setPhPrefix("popup-shadow"),"animated")} onClick={closeCallback}></div>;
+            return <div className={classnames(setPhPrefix('popup-shadow'),'animated')} onClick={closeCallback}></div>;
         }else{
             return '';
         }
     }
 
-    renderPopup(){
+    renderContent(){
         let {visible,children,className} = this.props;
 
         if(visible){
@@ -119,7 +120,7 @@ export default class Popup extends Component{
         }
     }
 
-    render(){
+    renderPopup(){
         let {componentTag:Component, className} = this.props;
 
         return (
@@ -131,9 +132,13 @@ export default class Popup extends Component{
                     {this.renderShadow()}
                 </Animate>
                 <Animate className={setPhPrefix('popup-main')} transitionName={`slide-${this.props.align}`}>
-                    {this.renderPopup()}
+                    {this.renderContent()}
                 </Animate>
             </Component>
-        );
+        )
+    }
+
+    render(){
+        return this.renderPopup()
     }
 }

@@ -25,10 +25,10 @@ export default class buttongroup extends Component{
                 <Code target="button-group-phtype-default" />
 
                 <div className="content">
-                    <div className="comp-tip">justify 横向满行，适用于弹框按钮等</div>
+                    <div className="comp-tip">justify 横向满行</div>
                     <ButtonGroup phType="justify">
-                        <Button phSize="lg">justify1</Button>
-                        <Button phSize="lg">justify2</Button>
+                        <Button>justify1</Button>
+                        <Button>justify2</Button>
                     </ButtonGroup>
                 </div>
                 <Code target="button-group-phtype-justify" />

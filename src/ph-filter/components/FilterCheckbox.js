@@ -3,7 +3,7 @@ import Button from '../../button'
 import Input from '../../input'
 
 import FilterContainer from './FilterContainer.js'
-import CheckboxPanel from "./FilterPanelCheckbox.js"
+import CheckboxPanel from './FilterPanelCheckbox.js'
 
 /**
  * 多条件筛选组件<br/>
@@ -83,7 +83,7 @@ export default class FilterCheckbox extends Component{
         let {choose, groupIndex, buttons, children} = this.props
 
         return (
-            <div className="ph-checkbox-filter">
+            <div className='ph-checkbox-filter'>
                 <FilterContainer activeIndex={0} hideCat choose={choose}>
                     <CheckboxPanel groupIndex={groupIndex} buttons={buttons}>
                         {children}

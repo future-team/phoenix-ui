@@ -2,35 +2,36 @@ import React,{PropTypes} from 'react'
 import {findDOMNode} from 'react/lib/ReactDOM'
 import Component from '../utils/Component'
 import classnames from 'classnames'
-import {setPhPrefix} from '../utils/Tool'
+import {setPhPrefix, getClientHeight} from '../utils/Tool'
 
 import Button from '../button'
 import Icon from '../icon'
 
-import "phoenix-styles/css/pullup.css"
+import '../style'
+import 'phoenix-styles/less/modules/pullup.less'
 
 /**
  * 加载更多组件<br/>
  * - 书写时PullUp组件在可加载列表的后面。
  * - 通过mode设置加载更多的模式，有点击按钮加载更多，以及滑到最底端自动加载，可选 [auto,button] 2种参数。
  * - 通过status设置当前状态，只需要在请求结束返回相应状态，包含请求成功返回2，请求成功并再没有数据返回4，请求失败返回3。
- * - 可通过tips设置按钮文字和状态提示语，默认["加载更多","","加载成功","加载失败","没有更多"]，分别对应status的状态。
+ * - 可通过tips设置按钮文字和状态提示语，默认['加载更多','','加载成功','加载失败','没有更多']，分别对应status的状态。
  * - 可通过phStyle设置按钮的样式，如果当前mode为auto设置无效。
  * - 可通过loadCallback设置点击按钮加载或滑到底部自动加载的回调函数，如果状态为4不执行。
  *
  * 主要属性和接口：
  * - mode:加载更多的模式，默认auto。
  * - status:当前状态:0加载更多, 1加载中, 2数据加载成功, 3数据加载失败, 4没有更多。
- * - tips:按钮文字和状态提示语，默认["加载更多","","加载成功","加载失败","没有更多"]。
- * - phStyle:按钮的样式，默认"primary"。
+ * - tips:按钮文字和状态提示语，默认['加载更多','','加载成功','加载失败','没有更多']。
+ * - phStyle:按钮的样式，默认'primary'。
  * - loadCallback:点击按钮加载或滑到底部自动加载的回调函数。
  * 
  * 示例：
  * ```code
  *  // 可加载列表的位置
- *  <PullUp mode="button" status={this.state.status} 
- *      tips={["点击加载更多","加载中...","加载成功！","加载失败！","没有更多"]} 
- *      phStyle="primary" 
+ *  <PullUp mode='button' status={this.state.status} 
+ *      tips={['点击加载更多','加载中...','加载成功！','加载失败！','没有更多']} 
+ *      phStyle='primary' 
  *      loadCallback={this.loadCallback.bind(this)} />
  * ```
  * 
@@ -68,10 +69,10 @@ export default class PullUp extends Component{
          **/
         status: PropTypes.number,
         /**
-         * 加载5个状态的文字描述，默认["加载更多","","加载成功","加载失败","没有更多"]
+         * 加载5个状态的文字描述，默认['加载更多','','加载成功','加载失败','没有更多']
          * @property tips
          * @type Array
-         * @default ["加载更多","加载中","加载成功","加载失败","没有更多"]
+         * @default ['加载更多','加载中','加载成功','加载失败','没有更多']
          **/
         tips: PropTypes.array,
         /**
@@ -94,7 +95,7 @@ export default class PullUp extends Component{
         status: 4, // 0初始状态, 1加载中, 2加载成功, 3加载失败, 4没有更多
         mode: 'auto',
         phStyle: 'primary',
-        tips: ["加载更多","","加载成功","加载失败","没有更多"],
+        tips: ['加载更多','','加载成功','加载失败','没有更多'],
         classPrefix:'pullup',
         classMapping : {}
     }
@@ -118,12 +119,12 @@ export default class PullUp extends Component{
     scrollHandle(){
         let {status} = this.state
         
-        this.bodyTop = document.body.scrollTop
-        this.bodyHeight = document.body.offsetHeight
+        this.scrollTop = document.body.scrollTop
+        this.bodyHeight = getClientHeight()
         this.pullTop = this.pullUp.offsetTop
-        if(!this.pullHeight) this.pullHeight = this.pullUp.offsetHeight
-
-        if(this.bodyTop+this.bodyHeight >= this.pullTop){
+        // if(!this.pullHeight) this.pullHeight = this.pullUp.offsetHeight
+        
+        if(this.scrollTop + this.bodyHeight >= this.pullTop){
             this.touchBottom = true
             
             if(status==3) return 
@@ -210,7 +211,7 @@ export default class PullUp extends Component{
         this.distanceY = Math.abs(this.distanceY)
 
         this.transform = Math.min(1, MAX_HEIGHT/this.distanceY) * Math.min(MAX_HEIGHT, this.distanceY)
-        this.dragElem.style.transform = "translateY("+(-this.transform)+"px)"   
+        this.dragElem.style.transform = 'translateY('+(-this.transform)+'px)'   
     }
 
     touchEndHandle(e){
@@ -219,7 +220,7 @@ export default class PullUp extends Component{
 
         this.starY = this.moveY
 
-        this.dragElem.style.transform = "translateY(0)"
+        this.dragElem.style.transform = 'translateY(0)'
         
         if(Math.abs(this.distanceY) <= 80) return
 
@@ -227,7 +228,7 @@ export default class PullUp extends Component{
     }
 
     touchCancelHandle(){
-        this.dragElem.style.transform = "translateY(0)"
+        this.dragElem.style.transform = 'translateY(0)'
     }
 
     componentWillUnmount(){
@@ -240,7 +241,7 @@ export default class PullUp extends Component{
         this.dragElem.removeEventListener('touchend', this.touchEndHandle, false)
     }
 
-    renderPullUp(){
+    renderContent(){
         let {mode, tips, phStyle} = this.props,
             {status} = this.state
 
@@ -264,17 +265,19 @@ export default class PullUp extends Component{
 
     renderIcon(status){
         if(status==1){
-            return <Icon className="gfs-icon-loading" phIcon="loading-gray" phSize="sm" />;
+            return <Icon className='gfs-icon-loading' phIcon='loading-gray' phSize='sm' />;
         }    
     }
 
-    render(){
-        let {className, children} = this.props;
-
+    renderPullUp(){
         return (
             <div {...this.props} ref={(pullUp)=>{this.pullUp=pullUp}} className={this.getProperty(true)}>
-                {this.renderPullUp()}
+                {this.renderContent()}
             </div>
         )
+    }
+
+    render(){
+        return this.renderPullUp()
     }
 }

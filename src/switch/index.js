@@ -3,7 +3,8 @@ import Component from '../utils/Component'
 import classnames from 'classnames'
 import {setPhPrefix} from '../utils/Tool'
 
-import "phoenix-styles/css/form.css"
+import '../style'
+import 'phoenix-styles/less/modules/switch.less'
 
 /**
  * 开关切换组件，仿真ios的开关控件<br/>
@@ -72,8 +73,8 @@ export default class Switch extends Component{
                     this.props.className
                 )
             }>
-                <input type="checkbox" {...this.props} />
-                <div className={setPhPrefix("checkbox")}></div>
+                <input type='checkbox' {...this.props} />
+                <div className={setPhPrefix('checkbox')}></div>
             </label>
         )
     }

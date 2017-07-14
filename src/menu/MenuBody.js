@@ -22,7 +22,7 @@ import Icon from '../icon'
  *         <Menu.Header>
  *             标题一
  *         </Menu.Header>
- *         <Menu.Body width={60} placement="left" closeButton>
+ *         <Menu.Body width={60} placement='left' closeButton>
  *             ...
  *         </Menu.Body>
  *     </Menu>
@@ -97,11 +97,11 @@ export default class MenuBody extends Component{
     setSize(){
         let {visible, placement, width} = this.props;
 
-        // if(placement=="top") this.menuBodyParent.style.height = visible? this.menuBody.offsetHeight+'px' : 0;
+        // if(placement=='top') this.menuBodyParent.style.height = visible? this.menuBody.offsetHeight+'px' : 0;
 
         if(this.props.visible && width){
-            if(placement=="top") return;
-            if(placement=="full-screen") width = 100;
+            if(placement=='top') return;
+            if(placement=='full-screen') width = 100;
             this.menuBodyParent.style.width = width +'%';
         }
     }
@@ -126,7 +126,7 @@ export default class MenuBody extends Component{
         let {closeButton} = this.props;
 
         if(closeButton){
-            return <Icon phIcon="close" className={classnames(setPhPrefix('menu-close-button'))} onClick={this.onChange.bind(this)} />;
+            return <Icon phIcon='close' className={classnames(setPhPrefix('menu-close-button'))} onClick={this.onChange.bind(this)} />;
         }else{
             return '';
         }
@@ -136,16 +136,20 @@ export default class MenuBody extends Component{
         this.props.changeVisible();
     }
 
-    render(){
-        let {placement} = this.props;
-        let animateName = `slide-${this.props.placement}`;
+    renderMenuBody(){
+        let {placement} = this.props,
+            animateName = `slide-${this.props.placement}`;
 
-        if(placement=="full-screen") animateName = "fade";
+        if(placement=='full-screen') animateName = 'fade';
 
         return (
             <Animate transitionName={animateName}>
                 {this.renderAnimation()}
             </Animate>
         );
+    }
+
+    render(){
+        return this.renderMenuBody()
     }
 }

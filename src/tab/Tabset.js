@@ -4,7 +4,8 @@ import classnames from 'classnames'
 import {setPhPrefix} from '../utils/Tool'
 import Tab from './Tab.js'
 
-import "phoenix-styles/css/tab.css"
+import '../style'
+import 'phoenix-styles/less/modules/tab.less'
 
 /**
  * <h5>tab选项卡，主要包括一下两个组件:</h5>
@@ -149,7 +150,7 @@ class Tabset extends Component {
         clickCallback && clickCallback(index);
     }
 
-    render() {
+    renderTabset(){
         let panels = [];
         let {className,...other} = this.props;
         let headings = React.Children.map(this.props.children, (options, index)=> {
@@ -188,6 +189,11 @@ class Tabset extends Component {
                 )}>
                     {panels}
                 </div>
-            </div>)
+            </div>
+        )
+    }
+
+    render() {
+        return this.renderTabset()
     }
 }

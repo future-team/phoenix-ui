@@ -4,7 +4,8 @@ import classnames from 'classnames'
 import {warning,setPhPrefix} from '../utils/Tool'
 import Icon from '../icon/'
 
-import "phoenix-styles/css/form.css"
+import '../style'
+import 'phoenix-styles/less/modules/input.less'
 
 /**
  * 输入框组件<br/>
@@ -17,15 +18,15 @@ import "phoenix-styles/css/form.css"
  *
  * 主要属性和接口：
  * - type:input类型, 默认text <br/>
- * 如：`<Input type="search" disabled/>`
- * - value:设置默认值(text) <br/>
- * 如：`<Input type="text" value="测试" />`
+ * 如：`<Input type='search' disabled/>`
+ * - value:设置默认值 <br/>
+ * 如：`<Input value='测试' />`
  * - clear:是否显示清除按钮 <br/>
- * 如：`<Input type="text" value="测试" clear/>`
+ * 如：`<Input value='测试' clear/>`
  * - visible: 是否显示可见密码的按钮(仅适用于password类型)<br/>
- * 如：`<Input type="password" value="123456" visible />`
+ * 如：`<Input type='password' value='123456' visible />`
  * - getValueCallback: 获取当前input的value。<br/>
- * 如：`<Input type="text" ref={(inputElem)=>{this.inputElem=inputElem}} />`<br/>
+ * 如：`<Input ref={(inputElem)=>{this.inputElem=inputElem}} />`<br/>
  * `this.inputElem.getValueCallback();`
  *
  * @class Input
@@ -208,7 +209,7 @@ export default class Input extends Component{
     }
 
     visibleHandle(){
-        if(this.state.visible){
+        if(this.state.cansee){
             this.setState({
                 type: 'password',
                 cansee: 0
@@ -231,9 +232,11 @@ export default class Input extends Component{
         return this.state.value;
     }
 
-    render(){
-        let {componentTag:Component} = this.props
+    componentWillUnmount(){
+        clearTimeout(this.timer)
+    }
 
+    render(){
         return this.renderInput()
     }
 

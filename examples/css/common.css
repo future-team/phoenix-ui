@@ -31,43 +31,24 @@ html, body{
 }
 .menu header{
     overflow: hidden;
-    height: 2.40rem;
+    padding: .4rem 0 .64rem;
     margin-bottom: .32rem;
-    background: url(../img/phoenix.jpg) center center;
+    background: url(../img/phoenix.jpg) top center;
     background-size: cover;
-    color: #fff;
-}
-.menu header>*{
-    padding: .64rem .32rem .32rem;
-    height: 100%;
-}
-.left-header{
-    float: left;
-    width: 60%;
-}
-.left-header h1{
-    margin-bottom: .64rem;
-    font-size: .40rem;
-}
-.left-header p{
-    font-size: .28rem;
-    white-space: nowrap;
-}
-.left-header a{
-    text-decoration: underline;
-    color: #fff;
-}
-.right-header{
-    float: right;
-    width: 40%;
-    background-color: rgba(0,0,0,.4);
     text-align: center;
-}
-.right-header a{
-    display: block;
-    margin-bottom: .32rem;
-    font-size: .30rem;
     color: #fff;
+}
+header h1{
+    margin-bottom: .32rem;
+    font-size: .48rem;
+}
+.phoenix-about a{
+    padding: 0 .24rem;
+    border-right: 1PX solid #fff;
+    color: #fff;
+}
+.phoenix-about a:last-child{
+    border-right:none;
 }
 
 .menu>h2{

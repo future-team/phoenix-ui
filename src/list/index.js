@@ -6,7 +6,8 @@ import {setPhPrefix} from '../utils/Tool'
 import Row from '../grid/Row'
 import Col from '../grid/Col'
 
-import "phoenix-styles/css/list.css"
+import '../style'
+import 'phoenix-styles/less/modules/list.less'
 
 /**
  * List<br/>
@@ -87,7 +88,7 @@ class ListHeader extends Component{
         super(props,context);
     }
 
-    render(){
+    renderListHeader(){
         return(
             <li {...this.props} className={classnames(
                this.getProperty(true),
@@ -96,6 +97,10 @@ class ListHeader extends Component{
                {this.props.children}
            </li>
         )
+    }
+
+    render(){
+        return this.renderListHeader()
     }
 }
 
@@ -155,11 +160,11 @@ class ListItem extends Component{
         super(props,context);
     }
 
-    render(){
+    renderListItem(){
         let {className, navigate} = this.props;
 
         return(
-            <Row {...this.props} classPrefix='row' componentTag="li" className={classnames(
+            <Row {...this.props} classPrefix='row' componentTag='li' className={classnames(
                this.getProperty(true),
                className,
                navigate? setPhPrefix('navigate-right'):''
@@ -167,6 +172,10 @@ class ListItem extends Component{
                {this.props.children}
            </Row>
         )
+    }
+
+    render(){
+        return this.renderListItem()
     }
 }
 
@@ -201,18 +210,22 @@ class ListCol extends Component{
     constructor(props,context){
         super(props,context);
     }
-
-    render(){
-        let {className} = this.props;
+    
+    renderListCol(){
+        let {className, children} = this.props;
 
         return(
             <Col {...this.props} classPrefix='col' className={classnames(
                this.getProperty(true),
                className
            )}>
-               {this.props.children}
+               {children}
            </Col>
         )
+    }
+
+    render(){
+        return this.renderListCol()
     }
 }
 

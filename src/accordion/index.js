@@ -3,9 +3,10 @@ import Component from '../utils/Component'
 import classnames from 'classnames'
 import {setPhPrefix} from '../utils/Tool'
 
-import Icon from '../icon/'
+import '../style'
+import Icon from '../icon'
 
-import "phoenix-styles/css/accordion.css"
+import 'phoenix-styles/less/modules/accordion.less'
 
 /**
  * <h5>操作类组件，主要包括组件:</h5>
@@ -148,7 +149,7 @@ class Accordion extends Component{
         return newChildren;
     }
 
-    render(){
+    renderAccordion(){
         let {componentTag:Component, className} = this.props;
 
         return (
@@ -158,7 +159,11 @@ class Accordion extends Component{
             )}>
                 {this.renderChildren()}
             </Component>
-        );
+        )
+    }
+
+    render(){
+        return this.renderAccordion()
     }
 }
 
@@ -180,13 +185,13 @@ class AccordionHeader extends Component {
         let {visible, hideIcon} = this.props;
 
         if(!hideIcon){
-            return <Icon phIcon="expand-more" className={visible? 'active':''} />;
+            return <Icon phIcon='expand-more' className={visible? 'active':''} />;
         }else{
             return '';
         }        
     }
 
-    render(){
+    renderAccordionHeader(){
         let {className} = this.props;
 
         return (
@@ -200,7 +205,11 @@ class AccordionHeader extends Component {
                 {this.props.children}
                 {this.renderIcon()}
             </div>
-        );
+        )
+    }
+
+    render(){
+        return this.renderAccordionHeader()
     }
 };
 
@@ -232,7 +241,7 @@ class AccordionBody extends Component{
         this.accordionBodyParent.style.height = this.props.visible ? this.height : 0;
     }
 
-    render(){
+    renderAccordionBody(){
         let {children,className} = this.props;
 
         return (
@@ -245,7 +254,11 @@ class AccordionBody extends Component{
                     {children}
                 </div>
             </div>
-        );
+        )
+    }
+
+    render(){
+        return this.renderAccordionBody()
     }
 }
 

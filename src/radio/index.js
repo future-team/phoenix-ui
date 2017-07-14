@@ -2,7 +2,8 @@ import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import Checkbox from '../checkbox/'
 
-import "phoenix-styles/css/form.css"
+import '../style'
+import 'phoenix-styles/less/modules/checkbox.less'
 
 /**
  * 单选框组件<br/>
@@ -12,11 +13,11 @@ import "phoenix-styles/css/form.css"
  *
  * 主要属性和接口：
  * - label:展示的文字信息, 默认空<br/>
- * 如：`<Input label="测试" name="test"/>`
+ * 如：`<Radio label='测试' name='test'/>`
  * - defaultChecked:默认值<br/>
- * 如：`<Input type="checkbox" defaultChecked={true} />`
+ * 如：`<Radio defaultChecked={true} />`
  * - checked&onChange:<br/>
- * 如：`<Input type="checkbox" checked={this.state.checked} onChange={()=>{this.setState({checked:false})}} />`
+ * 如：`<Radio checked={this.state.checked} onChange={()=>{this.setState({checked:false})}} />`
  *
  * @class Radio
  * @module 表单组件

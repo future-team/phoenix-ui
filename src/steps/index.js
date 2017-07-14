@@ -4,24 +4,25 @@ import Component from '../utils/Component'
 import classnames from 'classnames'
 import {setPhPrefix} from '../utils/Tool'
 
-import "phoenix-styles/css/steps.css"
+import '../style'
+import 'phoenix-styles/less/modules/steps.less'
 
 /**
  * 步骤组件<br/>
- * - 通过list设置步骤过程名称数组，如["合作信息","公司信息","资质信息"]，必需。
+ * - 通过list设置步骤过程名称数组，如['合作信息','公司信息','资质信息']，必需。
  * - 可通过currentStep设置当前步骤，从0开始计算。
  * - 可通过clickCallback设置点击步骤的回调，函数返回步骤名称和索引。
  * - 可通过readOnly设置步骤是否只读不可点击，默认可点击。
  * 
  * 主要属性和接口：
  * - list:初始进度百分比, 默认0。 <br/>
- * 如: `<Steps list={["合作信息","公司信息","资质信息"]} />`
+ * 如: `<Steps list={['合作信息','公司信息','资质信息']} />`
  * - currentStep:当前步骤，从0开始计算，默认0。 <br/>
- * 如: `<Steps currentStep={1} list={["合作信息","公司信息","资质信息"]} />`
+ * 如: `<Steps currentStep={1} list={['合作信息','公司信息','资质信息']} />`
  * - clickCallback:点击步骤的回调，函数返回步骤名称和索引。 <br/>
- * 如: `<Steps clickCallback={(str,index)=>{console.log(index);}} list={["合作信息","公司信息","资质信息"]}/>`
+ * 如: `<Steps clickCallback={(str,index)=>{console.log(index);}} list={['合作信息','公司信息','资质信息']}/>`
  * - readOnly:只读不可点击，默认false。<br/>
- * 如: `<Steps readOnly list={["合作信息","公司信息","资质信息"]} />`
+ * 如: `<Steps readOnly list={['合作信息','公司信息','资质信息']} />`
  *
  * @class Steps
  * @module 操作类组件
@@ -107,13 +108,13 @@ export default class Steps extends Component{
             listLen = list.length;
 
         return (
-            <div className="ph-steps-line">
-                <div className="ph-steps-progress" style={{width:this.state.currentStep*(1/(listLen-1))*100+'%'}}></div>
+            <div className='ph-steps-line'>
+                <div className='ph-steps-progress' style={{width:this.state.currentStep*(1/(listLen-1))*100+'%'}}></div>
             </div>
         )
     }
 
-    renderSteps(){
+    renderContent(){
         let {list} = this.props;
         let _this = this, listLen = list.length;
 
@@ -136,12 +137,16 @@ export default class Steps extends Component{
         );
     }
 
-    render(){
+    renderSteps(){
         return(
             <div className={classnames(this.getProperty(true),this.props.className)}>
                 {this.renderLine()}
-                {this.renderSteps()}
+                {this.renderContent()}
            </div>
         )
+    }
+
+    render(){
+        return this.renderSteps()
     }
 }

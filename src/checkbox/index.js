@@ -4,7 +4,8 @@ import classnames from 'classnames';
 import {setPhPrefix} from '../utils/Tool';
 import Icon from '../icon/'
 
-import "phoenix-styles/css/form.css"
+import '../style'
+import 'phoenix-styles/less/modules/checkbox.less'
 
 /**
  * 复选框组件<br/>
@@ -14,11 +15,11 @@ import "phoenix-styles/css/form.css"
  *
  * 主要属性和接口：
  * - label:展示的文字信息, 默认空<br/>
- * 如：`<Input type="checkbox" label="测试" />`
+ * 如：`<Checkbox label='测试' />`
  * - defaultChecked:默认值<br/>
- * 如：`<Input type="checkbox" defaultChecked={true} />`
+ * 如：`<Checkbox defaultChecked={true} />`
  * - checked&onChange:<br/>
- * 如：`<Input type="checkbox" checked={this.state.checked} onChange={()=>{this.setState({checked:false})}} />`
+ * 如：`<Checkbox checked={this.state.checked} onChange={()=>{this.setState({checked:false})}} />`
  *
  * @class Checkbox
  * @module 表单组件
@@ -70,7 +71,7 @@ export default class Checkbox extends Component{
         let {label, type} = this.props
 
         return (
-            <label className={setPhPrefix("multi-group")}>
+            <label className={setPhPrefix('multi-group')}>
                 <div className={setPhPrefix(type)}>
                     <input {...this.props} />
                     <i></i>

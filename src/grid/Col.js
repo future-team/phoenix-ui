@@ -3,7 +3,8 @@ import Component from '../utils/Component'
 import {setPhPrefix} from '../utils/Tool'
 import classnames from 'classnames'
 
-import "phoenix-styles/css/grid.css"
+import '../style'
+import 'phoenix-styles/less/modules/grid.less'
 
 /**
  * 列组件<br/>
@@ -16,30 +17,30 @@ import "phoenix-styles/css/grid.css"
  * - align:单个项目在交叉轴上的对齐方式, 默认auto <br/>
  * ```code
  *     <Row>
- *         <Col align="top">
- *             <div className="col-demo">top</div>
+ *         <Col align='top'>
+ *             <div className='col-demo'>top</div>
  *         </Col>
- *         <Col align="center">
- *             <div className="col-demo">center</div>
+ *         <Col align='center'>
+ *             <div className='col-demo'>center</div>
  *         </Col>
- *         <Col align="bottom">
- *             <div className="col-demo">bottom</div>
+ *         <Col align='bottom'>
+ *             <div className='col-demo'>bottom</div>
  *         </Col>
  *     </Row>
  * ```
  * - width:单个项目的宽度百分比 <br/>
  * ```code
  *     <Row>
- *         <Col width="15">
- *             <div className="col-demo">15</div>
+ *         <Col width='15'>
+ *             <div className='col-demo'>15</div>
  *         </Col>
  *     </Row>
  * ```
  * - offset:单个项目的偏移值,即左边外边距 <br/>
  * ```code
  *     <Row>
- *         <Col width="20" offset="10">
- *             <div className="col-demo">10</div>
+ *         <Col width='20' offset='10'>
+ *             <div className='col-demo'>10</div>
  *         </Col>
  *     </Row>
  * ```
@@ -92,7 +93,7 @@ export default class Col extends Component{
         }
     };
 
-    render(){
+    renderCol(){
         let  {className} = this.props;
 
         return (
@@ -105,5 +106,9 @@ export default class Col extends Component{
                 {this.props.children}
             </div>
         );
+    }
+
+    render(){
+        return this.renderCol()
     }
 }

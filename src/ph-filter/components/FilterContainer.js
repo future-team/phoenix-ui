@@ -2,6 +2,8 @@ import React, { Component ,PropTypes} from 'react'
 import classnames from 'classnames'
 import {transToArray} from '../../utils/Tool'
 
+import Icon from '../../icon'
+
 /**
  * <h5>筛选控件，主要包括组件:</h5>
  * <strong><a href='../classes/FilterContainer.html'>FilterContainer 单选筛选</a></strong><br/>
@@ -209,9 +211,9 @@ export default class FilterContainer extends Component{
                     className={classnames('ph-col', 'ph-filter-header-item', index==activeCat ? 'active':'')} 
                     onClick={function(){self.activeCat(index);}}
                 >
-                    <a href="javascript:;">
-                        <span className="ph-filter-header-text">{catList[index].value}</span>
-                        <span className="gfs-icon icon-expand-more"></span>
+                    <a href='javascript:;'>
+                        <span className='ph-filter-header-text'>{catList[index].value}</span>
+                        <Icon phIcon='expand-more' />
                     </a>
                 </li>
             )

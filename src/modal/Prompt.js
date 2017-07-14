@@ -31,12 +31,12 @@ import Dialog from './Dialog'
  * 示例:
  * ```code
  *      const buttons = [
-            {text: "取消", phStyle: "gray", otherProps: {hollow: true}}, // text默认"确定", phStyle默认primary，onHandle默认执行closeCallback
-            {text: "确定", onHandle: this.confirmCallback}
+            {text: '取消', phStyle: 'gray', otherProps: {hollow: true}}, // text默认'确定', phStyle默认primary，onHandle默认执行closeCallback
+            {text: '确定', onHandle: this.confirmCallback}
         ];
         ...
  *      <Prompt closeButton shadowDisabled visible={this.state.visible} closeCallback={this.closeCallback.bind(this,'visible')} 
- *          title="这是标题" content="这里是弹出框的内容..." buttons={buttons} />
+ *          title='这是标题' content='这里是弹出框的内容...' buttons={buttons} />
  * ```
  *
  * @class Prompt
@@ -119,11 +119,11 @@ export default class Prompt extends Component{
         this.inputValue = [];
 
         this.buttons = [
-            {text: "取消", onHandle: props.closeCallback},
-            {text: "确定", onHandle: this.confirmCallback.bind(this)}
+            {text: '取消', onHandle: props.closeCallback},
+            {text: '确定', onHandle: this.confirmCallback.bind(this)}
         ];
         this.inputs = [
-            {type: "text", placeholder: "请输入"}
+            {type: 'text', placeholder: '请输入'}
         ];
     }
 
@@ -157,7 +157,7 @@ export default class Prompt extends Component{
             <div>
                 {
                     this.inputs.map((input,index) => {
-                        return <Input key={index} {...input} type={input.type || "text"} ref={(input)=>{this.inputElem[index]=input}} />;
+                        return <Input key={index} {...input} type={input.type || 'text'} ref={(input)=>{this.inputElem[index]=input}} />;
                     })
                 }
             </div>
@@ -171,10 +171,10 @@ export default class Prompt extends Component{
         let buttonsType = this.buttons.length>2;
         
         return (
-            <ButtonGroup phType={buttonsType ? "tacked":"default"} clickable={false}>
+            <ButtonGroup phType={buttonsType ? 'tacked':'default'} clickable={false}>
                 {
                     this.buttons.map((button,index) => {
-                        return <Button hollow key={index} {...button.otherProps} phSize="lg" phStyle={button.phStyle || 'primary'} block={buttonsType}
+                        return <Button hollow key={index} {...button.otherProps} phSize='lg' phStyle={button.phStyle || 'primary'} block={buttonsType}
                             onClick={()=>{
                                 if(button.onHandle){
                                     this.getInputValue()
@@ -182,7 +182,7 @@ export default class Prompt extends Component{
                                 }else{
                                     closeCallback();
                                 }
-                            }}>{button.text || "确定"}</Button>
+                            }}>{button.text || '确定'}</Button>
                     })
                 }
             </ButtonGroup>

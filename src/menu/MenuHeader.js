@@ -14,7 +14,7 @@ import Icon from '../icon'
  * 如：
  * ```code
  *     <Menu>
- *         <Menu.Header align="right">
+ *         <Menu.Header align='right'>
  *             标题一
  *         </Menu.Header>
  *         <Menu.Body>
@@ -66,7 +66,7 @@ export default class MenuHeader extends Component {
         this.props.changeVisible();
     }
 
-    render(){
+    renderMenuHeader(){
         let {className} = this.props;
 
         return (
@@ -75,9 +75,13 @@ export default class MenuHeader extends Component {
                     className
                 )}
             >
-                <Icon phIcon="menu" onClick={::this.onChange}/>
+                <Icon phIcon='menu' onClick={this.onChange.bind(this)}/>
                 <div className={setPhPrefix('menu-header-content')}>{this.props.children}</div>
             </div>
-        );
+        )
+    }
+
+    render(){
+        return this.renderMenuHeader()
     }
 };

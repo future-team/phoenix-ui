@@ -1,9 +1,10 @@
 import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
-import {warning,setPhPrefix} from '../utils/Tool'
+import {warning,setPhPrefix,getClientHeight} from '../utils/Tool'
 
-import "phoenix-styles/css/image.css"
+import '../style'
+import 'phoenix-styles/less/modules/image.less'
 
 /**
  * 图片组件<br/>
@@ -121,11 +122,11 @@ export default class Images extends Component{
     }
 
     lazyLoad(){
-        this.bodyTop = document.body.scrollTop
-        this.bodyHeight = document.body.offsetHeight
+        this.scrollTop = document.body.scrollTop
+        this.bodyHeight = getClientHeight()
         this.imageTop = this.phImage.offsetTop
 
-        if(this.bodyTop+this.bodyHeight >= this.imageTop){
+        if(this.scrollTop + this.bodyHeight >= this.imageTop){
             if(!this.load) {
                 this.imageLoad()
             }

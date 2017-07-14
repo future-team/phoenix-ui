@@ -5,7 +5,8 @@ import {setPhPrefix} from '../utils/Tool'
 
 import Drag from '../drag/'
 
-import "phoenix-styles/css/slider.css"
+import '../style'
+import 'phoenix-styles/less/modules/slider.less'
 
 /**
  * 滑动输入条组件<br/>
@@ -25,7 +26,7 @@ import "phoenix-styles/css/slider.css"
  * - process:初始进度百分比, 默认0 <br/>
  * 如: `<Slider progress={10}/>`
  * - placement:进度提示框的位置, 默认top <br/>
- * 如: `<Slider placement="bottom" />`
+ * 如: `<Slider placement='bottom' />`
  * - tipStay:初始和松开按钮时提示是否消失，默认false <br/>
  * 如: `<Slider tipStay />`
  * - range:范围，默认[0,100]。 <br/>
@@ -249,16 +250,16 @@ export default class Slider extends Component{
 
     renderSliderText(showTipMode){
         if(showTipMode){
-            return <div className={setPhPrefix("slider-text")}>{this.state.realProgress}</div>
+            return <div className={setPhPrefix('slider-text')}>{this.state.realProgress}</div>
         }        
     }
 
     renderSliderRange(){
         if(this.props.showRange){
             return (
-                <div className={setPhPrefix("slider-range")}>
-                    <strong className={setPhPrefix("slider-range-start")}>{this.range[0]}</strong>
-                    <strong className={setPhPrefix("slider-range-end")}>{this.range[1]}</strong>
+                <div className={setPhPrefix('slider-range')}>
+                    <strong className={setPhPrefix('slider-range-start')}>{this.range[0]}</strong>
+                    <strong className={setPhPrefix('slider-range-end')}>{this.range[1]}</strong>
                 </div>
             );
         }else{
@@ -266,7 +267,7 @@ export default class Slider extends Component{
         }
     }
 
-    render(){
+    renderSlider(){
         let {componentTag:Component, className, showRange, tipMode} = this.props,
             showTipMode = tipMode=='default';
 
@@ -278,15 +279,19 @@ export default class Slider extends Component{
             )}>
                 {this.renderSliderText(showTipMode)}
                 {this.renderSliderRange()}
-                <div className={setPhPrefix("slider-line")} ref={(sliderLine)=>{this.sliderLine=sliderLine}}>
-                    <div className={setPhPrefix("slider-progress")} ref={(sliderProgress)=>{this.sliderProgress=sliderProgress}}></div>
-                    <div className={setPhPrefix("slider-content")} ref={(sliderBtn)=>{this.sliderBtn=sliderBtn}}>
-                        <div className={classnames(setPhPrefix("slider-tip"), this.state.tipVisible && !showTipMode?'show':'hide')}>{this.state.realProgress}</div>
-                        <Drag className={setPhPrefix("slider-btn")} onDrag={::this.onDrag} onDrop={::this.onDrop}></Drag>
+                <div className={setPhPrefix('slider-line')} ref={(sliderLine)=>{this.sliderLine=sliderLine}}>
+                    <div className={setPhPrefix('slider-progress')} ref={(sliderProgress)=>{this.sliderProgress=sliderProgress}}></div>
+                    <div className={setPhPrefix('slider-content')} ref={(sliderBtn)=>{this.sliderBtn=sliderBtn}}>
+                        <div className={classnames(setPhPrefix('slider-tip'), this.state.tipVisible && !showTipMode?'show':'hide')}>{this.state.realProgress}</div>
+                        <Drag className={setPhPrefix('slider-btn')} onDrag={this.onDrag.bind(this)} onDrop={this.onDrop.bind(this)}></Drag>
                     </div>
                 </div>
             </Component>
         );
+    }
+
+    render(){
+        return this.renderSlider()
     }
 
 }

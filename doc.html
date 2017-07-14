@@ -13,13 +13,27 @@
 $ npm install phoenix-ui --save
 </pre>
 
+<h2>使用前</h2>
+<h3>针对dpr的屏幕兼容</h3>
+<p>在html文件的head元素中引入gfs-viewport.js文件，兼容不同手机不同dpr带来的适配问题。</p>
+<pre class="well well-small sign-left3">
+&#60;script src="https://www.dpfile.com/app/gfs-viewport/gfs-viewport.js"&#62;&#60;/script&#62;
+</pre>
+<p>或直接放置代码：</p>
+<pre class="well well-small sign-left3">
+&#60;script&#62;
+    (function(baseFontSize,fontscale){var _baseFontSize=baseFontSize||100;var _fontscale=fontscale||1;var win=window;var doc=win.document;var ua=navigator.userAgent;var matches=ua.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i);var UCversion=ua.match(/U3\/((\d+|\.){5,})/i);var isUCHd=UCversion&&parseInt(UCversion[1].split(".").join(""),10)>=80;var isIos=navigator.appVersion.match(/(iphone|ipad|ipod)/gi);var dpr=win.devicePixelRatio||1;if(!isIos&&!(matches&&matches[1]>534)&&!isUCHd){dpr=1}var scale=1/dpr;var metaEl=doc.querySelector('meta[name="viewport"]');if(!metaEl){metaEl=doc.createElement("meta");metaEl.setAttribute("name","viewport");doc.head.appendChild(metaEl)}metaEl.setAttribute("content","width=device-width,user-scalable=no,initial-scale="+scale+",maximum-scale="+scale+",minimum-scale="+scale);doc.documentElement.style.fontSize=_baseFontSize/2*dpr*_fontscale+"px"})();
+&#60;/script&#62;
+</pre>
+
 <h2>使用</h2>
 <h3>CommonJS & ES6</h3>
+<p>从2.0版本开始，建议都使用以下方式引入，可很大程度上减少打包的大小。</p>
 <pre class="well well-small sign-left3">
 // CommonJS
-var Button = require('phoenix-ui/lib/Button')
+var Button = require('phoenix-ui/lib/button')
 // ES6
-import {Button} from 'phoenix-ui'
+import Button from 'phoenix-ui/lib/button'
 ...
 render: function() {
     return (
@@ -29,7 +43,6 @@ render: function() {
     );
 }
 </pre>
-
 <h3>Browser globals</h3>
 <pre class="well well-small sign-left3">
 &#60;script src="http://future-team.github.io/phoenix-ui/dist/phoenix-ui.min.js"&#62;&#60;/script&#62;
@@ -43,41 +56,56 @@ render: function() {
 }
 </pre>
 
-<h2>其他</h2>
-<p>和 <a href="https://github.com/future-team/phoenix-styles">phoenix-styles</a> (组件样式库)配合使用最佳。</p>
-<h3>phoenix-styles</h3>
-<p>默认提供阿波罗默认样式phoenix-styles.min.css,如果需要IOS样式同时引入skin-ios.min.css即可。</p>
-<pre class="well well-small sign-left3">
-// Global
-&#60;link rel="stylesheet" href="http://future-team.github.io/phoenix-styles/dist/phoenix-styles.min.css" /&#62;
-// add IOS skin
-&#60;link rel="stylesheet" href="http://future-team.github.io/phoenix-styles/dist/skin-ios.min.css" /&#62;
+<h2>Version 2.0.0 重大修改</h2>
+<ol>
+    <li>去掉TableView和FormGroup，新增List，有需要form元素的可自行在外层加上。</li>
+    <li>去掉LoadingList组件，新增PullUp，简化API，修复滑动触发的BUG。</li>
+    <li>去掉Whisper组件，修改Popover的使用方式和位置计算，优化位置显示。</li>
+    <li>Input拆分成Input、Checkbox、Radio。Input新增phIcon、clear、visible等属性；不再需要外部setValue的使用方式，通过getValueCallback获取当前Input的值。</li>
+    <li>新增SearchBar组件。</li>
+    <li>新增Image组件，可定义图片在区域内的大小、位置和是否懒加载。</li>
+    <li>多组件丰富API。</li>
+    <li>ph-filter合并到phoenix-ui中，可以通过`import PhFilter from 'phoenix-ui/lib/ph-filter'`引入使用，新增和修改部分API。</li>
+    <li>所有的回调函数更名，如clickCallback（事件+Callback）的命名标准（除了表单元素仍然使用的是react标准的onChange）。</li>
+    <li>样式规范化。</li>
+</ol>
 
-// ES6
-import 'phoenix-styles/less/phoenix-styles.less';
-import 'phoenix-styles/less/skin-ios.less';
+<h2>高级</h2>
+<p>组件拓展</p>
+<p>如：</p>
+<pre class="well well-small sign-left3">
+    import Button from 'phoenix-ui/lib/button'
+
+    class MyButton extends Button{
+        ...
+        render(){
+            return (
+                &#60;div className='my-button'&#62;
+                    ...
+                    {this.renderButton()}
+                &#60;/div&#62;
+            )
+        }
+    }
 </pre>
 
-<h3>phoenix系列插件(完善中...)</h3>
-<ul>
-    <li><a href="https://github.com/future-team/ph-picker">ph-picker</a>: 基于Phoenix-ui的移动端的`选择(时间、城市等)`组件</li>
-    <li><a href="https://github.com/future-team/ph-filter">ph-filter</a>: 基于Phoenix-ui的移动端的`下拉筛选`组件</li>
-    <li><a href="https://github.com/future-team/ph-cascade-selector">ph-cascade-selector</a>: 基于Phoenix-ui的移动端的`级联选择`组件</li>
-    <li><a href="https://github.com/future-team/ph-image-list">ph-image-list</a>: 基于Phoenix-ui的移动端的`图片列表展示、增删、全屏查看`组件</li>
-    <li><a href="https://github.com/future-team/ph-image-upload">ph-image-upload</a>: 基于Phoenix-ui的移动端的`图片上传`组件</li>
-    <li><a href="https://github.com/future-team/ph-upload">ph-upload</a>: 基于Phoenix-ui的移动端的`文件上传`组件</li>
-    <li><a href="https://github.com/future-team/ph-selector">ph-selector</a>: 基于Phoenix-ui的移动端的`搜索筛选`组件</li>
-    <li><a href="https://github.com/future-team/ph-swipe">ph-swipe</a>: 基于Phoenix-ui的移动端的`大图滚动`组件</li>
-    <li><a href="https://github.com/future-team/ph-scroll">ph-scroll</a>: 基于Phoenix-ui的移动端的`滚动刷新`组件</li>
-</ul>
+<h2>样式</h2>
+<h3>关于换肤</h3>
+<p>phoenix-ui默认和<a href="https://github.com/future-team/phoenix-styles">phoenix-styles</a> (组件样式库)配合使用。</p>
+<p>如果要换成ios主题的皮肤，在打包之后的css文件后再引入ios-skin.min.css：</p>
+<pre class="well well-small sign-left3">
+...
+&#60;link rel="stylesheet" href="http://future-team.github.io/phoenix-styles/dist/ios-skin.min.css" /&#62;
+</pre>
+<h3>关于布局</h3>
+<p>建议使用rem布局，gfs-viewport会根据当前的dpr进行基础文字(html font-size)大小的切换，使用rem会根据该基础字体布局。<br/>
+一般设计给出的是750宽的基于iphone6的UED，在当前尺寸基础下<strong>除以100</strong>，就是得到的rem值。<br/>
+如：88px  -> .88rem </p>
 
-<h3>推荐PC端React UI组件库 - eagle-ui</h3>
+<h2>推荐</h2>
+<h3>PC端React UI组件库 - eagle-ui</h3>
 <p>Github: <a href="https://github.com/future-team/eagle-ui">https://github.com/future-team/eagle-ui</a></p>
 <p>Document: <a href="http://future-team.github.io/eagle-ui/doc/index.html">http://future-team.github.io/eagle-ui/doc/index.html</a></p>
-
-<h3>推荐Icon库 - gfs-icons</h3>
-<p>Github: <a href="https://github.com/future-team/gfs-icons">https://github.com/future-team/gfs-icons</a></p>
-<p>Document: <a href="https://future-team.github.io/gfs-icons/index.html">https://future-team.github.io/gfs-icons/index.html</a></p>
 
 <div style="margin:25px -20px -15px;padding:50px 24px 60px 24px;box-sizing:border-box;background-color:rgb(238,238,238);text-align:center;">
     <p class="lead">使用中遇到问题请提交issue: <a href="https://github.com/future-team/phoenix-ui/issues">Phoenix-ui Issues</a></p>
