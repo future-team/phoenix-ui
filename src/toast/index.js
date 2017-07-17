@@ -62,7 +62,7 @@ class Toast extends Component{
 
             return (
                 <div className={setPhPrefix('toast-body')}>
-                    {phIcon? <Icon phIcon={phIcon} phSize={loading?'sm':'lg'} /> :null}
+                    {phIcon? <Icon phIcon={phIcon} phSize={loading?'lg':'xlg'} /> :null}
                     {children? <p>{children}</p>:null}
                 </div>
             )

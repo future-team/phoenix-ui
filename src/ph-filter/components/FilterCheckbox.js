@@ -13,8 +13,8 @@ import CheckboxPanel from './FilterPanelCheckbox.js'
  *
  * 主要属性和接口：
  * - groupIndex: 主菜单索引值。
- * - choose: 选中id的字符串
- * - buttons: 底部按钮数组
+ * - choose: 选中id的字符串。
+ * - buttons: 底部按钮数组。
  * 如：
  * ```code
  *  <FilterCheckbox choose={this.state.choose} groupIndex={2} buttons={buttons}>

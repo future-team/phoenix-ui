@@ -146,8 +146,7 @@ export default class Button extends Component{
         let {phIcon} = this.props;
 
         if(phIcon){
-            let loading = phIcon.indexOf('loading')!=-1
-            return <Icon phIcon={phIcon} phSize={loading?'sm':''}/>;
+            return <Icon phIcon={phIcon}/>;
         }else{
             return '';
         }

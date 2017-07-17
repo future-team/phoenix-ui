@@ -47,14 +47,14 @@ export default class Icon extends Component{
          **/
         phIcon:PropTypes.string,
          /**
-         * 按钮尺寸[xs、sm、md、lg], 默认为sm
+         * 按钮尺寸[xs、sm、md、lg、xlg], 默认为sm
          * @property phSize
          * @type String
          * @default 'sm'
          * */
         phSize:PropTypes.string,
         /**
-         * 按钮颜色[primary、warning、danger、info、error、success], 默认primary
+         * 按钮颜色[default, primary、warning、danger、info、error、success], 默认default
          * @property phStyle
          * @type Boolean
          * @default 'default'
@@ -64,6 +64,8 @@ export default class Icon extends Component{
 
     static defaultProps ={
         phIcon: '',
+        phSize: 'sm',
+        phStyle: 'default',
         classPrefix:'icon',
         componentTag:'span',
         classMapping : {

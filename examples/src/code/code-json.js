@@ -16,6 +16,9 @@ var code = {
 	'button-group-callback': '<ButtonGroup onButtongroupChange={(target,html)=>{console.log(target);alert(html);}}>\n\  <Button>justify1</Button>\n\  <Button>justify2</Button>\n\  <Button>justify3</Button>\n</ButtonGroup>',
 	
 	'icon-phicon': '<Icon phIcon="search" />\n<Icon className="icon-home" />\n<span className="gfs-icon icon-chevron-left"></span>',
+	'icon-phsize':'<Icon phIcon="tip" phSize="xs" />\n<Icon phIcon="tip" phSize="sm" />\n<Icon phIcon="tip" phSize="md" />\n<Icon phIcon="tip" phSize="lg" />\n<Icon phIcon="tip" phSize="xlg" />',
+	'icon-phstyle':'<Icon phIcon="search" phStyle="primary" />\n<Icon phIcon="search" phStyle="info" />\n<Icon phIcon="search" phStyle="success" />',
+	'icon-other':'<Icon phIcon="loading-white" />\n<Icon phIcon="loading-gray" />',
 
 	'star-rate': '<Star />\n<Star rate={5} />\n<Star rate={15} />\n<Star rate={20} />\n<Star rate={25} />\n<Star rate={30} />\n<Star rate={35} />',
 	'star-phsize': '<Star rate={40} phSize="sm" />\n<Star rate={45} phSize="md" />\n<Star rate={50} phSize="lg" />',
