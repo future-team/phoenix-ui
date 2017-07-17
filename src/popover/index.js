@@ -1,5 +1,5 @@
 import React,{PropTypes} from 'react'
-import findDOMNode from 'react/lib/findDOMNode'
+import findDOMNode from 'react-dom/lib/findDOMNode'
 import ReactDOM from 'react-dom'
 import Component from '../utils/Component'
 import classnames from 'classnames'

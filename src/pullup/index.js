@@ -1,5 +1,5 @@
 import React,{PropTypes} from 'react'
-import {findDOMNode} from 'react/lib/ReactDOM'
+import findDOMNode from 'react-dom/lib/findDOMNode'
 import Component from '../utils/Component'
 import classnames from 'classnames'
 import {setPhPrefix, getClientHeight} from '../utils/Tool'

@@ -1,5 +1,4 @@
 import React,{PropTypes} from 'react'
-import ReactDOM,{findDOMNode} from 'react/lib/ReactDOM'
 import Component from '../utils/Component'
 import classnames from 'classnames'
 import {setPhPrefix} from '../utils/Tool'

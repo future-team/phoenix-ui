@@ -32,6 +32,13 @@ module.exports = {
             commonjs: 'react/lib/ReactDOM',
             amd: 'react/lib/ReactDOM'
         },
+        'react-dom': {
+            root: 'ReactDOM',
+            commonjs2: 'react-dom',
+            commonjs: 'react-dom',
+            amd: 'react-dom',
+            umd: 'react-dom',
+        },
         'react-addons-css-transition-group': 'ReactCSSTransitionGroup'
     }],
     module:{
