@@ -1,7 +1,6 @@
 import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
-import {setPhPrefix} from '../utils/Tool'
 
 import ButtonGroup from '../button-group'
 import Button from '../button'
@@ -143,7 +142,7 @@ export default class Prompt extends Component{
         let {content} = this.props
 
         if(content){
-            return <div className={setPhPrefix('dialog-prompt-text')}>{content}</div>
+            return <div className={this.setPhPrefix('dialog-prompt-text',true)}>{content}</div>
         }
     }
 
@@ -193,7 +192,7 @@ export default class Prompt extends Component{
         let {visible, closeCallback, title, closeButton, shadowDisabled} = this.props;
 
         return (
-            <Dialog className={setPhPrefix('dialog-prompt')} visible={visible} 
+            <Dialog className={this.setPhPrefix('dialog-prompt', true)} visible={visible} 
                 closeCallback={closeCallback} 
                 closeButton={closeButton} 
                 shadowDisabled={shadowDisabled}

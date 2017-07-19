@@ -1,7 +1,6 @@
 import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
-import {setPhPrefix} from '../utils/Tool'
 
 import Animate from '../animate'
 import Icon from '../icon'
@@ -126,7 +125,7 @@ export default class MenuBody extends Component{
         let {closeButton} = this.props;
 
         if(closeButton){
-            return <Icon phIcon='close' className={classnames(setPhPrefix('menu-close-button'))} onClick={this.onChange.bind(this)} />;
+            return <Icon phIcon='close' className={classnames(this.setPhPrefix('menu-close-button', true))} onClick={this.onChange.bind(this)} />;
         }else{
             return '';
         }

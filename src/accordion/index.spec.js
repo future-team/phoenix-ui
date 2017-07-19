@@ -1,11 +1,11 @@
 'use strict';
 
-import React from 'react';
-import {findDOMNode} from 'react-dom';
-import assert from 'assert';
-import TestUtils from 'react/lib/ReactTestUtils.js';
+import React from 'react'
+import {findDOMNode} from 'react-dom'
+import assert from 'assert'
+import TestUtils from 'react/lib/ReactTestUtils'
 
-import Accordion from '../src/Accordion';
+import Accordion from './index'
 
 describe("<Accordion/>", function(){
     let visible, onChange;
@@ -34,7 +34,7 @@ describe("<Accordion/>", function(){
 
         TestUtils.Simulate.click(accordionHeader);
         // 未完成
-        // console.log(parseInt(findDOMNode(accordionBody).style.height));
+        console.log(parseInt(findDOMNode(accordionBody).style.height));
         // assert.notEqual(parseInt(findDOMNode(accordionBody).style.height), 0);
     });
 });

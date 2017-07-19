@@ -1,7 +1,6 @@
 import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
-import {setPhPrefix} from '../utils/Tool'
 
 import Icon from '../icon'
 

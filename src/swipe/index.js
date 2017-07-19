@@ -1,7 +1,6 @@
 import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
-import {setPhPrefix} from '../utils/Tool'
 
 import Drag from '../drag/'
 import Button from '../button/'
@@ -80,7 +79,7 @@ export default class Swipe extends Component{
         let {buttons} = this.props
 
         return (
-            <div className={setPhPrefix('swipe-btns')} key='buttons' ref={(buttons)=>{this.buttons = buttons;}}>
+            <div className={this.setPhPrefix('btns')} key='buttons' ref={(buttons)=>{this.buttons = buttons;}}>
                 {
                     buttons.map((button,index) => {
                         return <Button key={index} {...button.otherProps} phStyle={button.phStyle || 'primary'} 
@@ -105,7 +104,7 @@ export default class Swipe extends Component{
         }, 0)        
     }
 
-    onDrag(event, position){ // position.start position.move
+    dragCallback(event, position){ // position.start position.move
         if(!this.btnsWidth) return 
 
         let target = event.currentTarget;
@@ -123,7 +122,7 @@ export default class Swipe extends Component{
         target.style.transform = 'translateX('+ this.translateX +'px)';
     }
 
-    onDrop(event, position){ // position.end
+    dropCallback(event, position){ // position.end
         if(!this.btnsWidth) return 
 
         let target = event.currentTarget;
@@ -157,7 +156,7 @@ export default class Swipe extends Component{
                 this.getProperty(true),
                 className
             )} style={this.getStyles(this.props.style)}>
-                <Drag className={setPhPrefix('swipe-content')} onDrag={this.onDrag.bind(this)} onDrop={this.onDrop.bind(this)} 
+                <Drag className={this.setPhPrefix('content')} dragCallback={this.dragCallback.bind(this)} dropCallback={this.dropCallback.bind(this)} 
                     ref={(drag)=>{this.dragElem = drag}}>
                     {this.props.children}
                 </Drag>

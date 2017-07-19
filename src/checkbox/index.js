@@ -1,8 +1,6 @@
-import React,{PropTypes} from 'react';
-import Component from '../utils/Component';
-import classnames from 'classnames';
-import {setPhPrefix} from '../utils/Tool';
-import Icon from '../icon/'
+import React,{PropTypes} from 'react'
+import Component from '../utils/Component'
+import classnames from 'classnames'
 
 import '../style'
 import 'phoenix-styles/less/modules/checkbox.less'
@@ -58,7 +56,7 @@ export default class Checkbox extends Component{
     static defaultProps = {
         type: 'checkbox',
         label: '',
-        classPrefix:'input',
+        classPrefix:'checkbox',
         componentTag:'div',
         classMapping : {}
     };
@@ -71,8 +69,8 @@ export default class Checkbox extends Component{
         let {label, type} = this.props
 
         return (
-            <label className={setPhPrefix('multi-group')}>
-                <div className={setPhPrefix(type)}>
+            <label className={this.setPhPrefix('multi-group',true)}>
+                <div className={this.getProperty(true)}>
                     <input {...this.props} />
                     <i></i>
                 </div>

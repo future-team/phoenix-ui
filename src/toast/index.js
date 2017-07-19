@@ -2,7 +2,6 @@ import React,{PropTypes} from 'react'
 import ReactDOM from 'react-dom'
 import Component from '../utils/Component'
 import classnames from 'classnames'
-import {setPhPrefix} from '../utils/Tool'
 
 import Icon from '../icon'
 
@@ -61,7 +60,7 @@ class Toast extends Component{
             let loading = phIcon.indexOf('loading')!=-1
 
             return (
-                <div className={setPhPrefix('toast-body')}>
+                <div className={this.setPhPrefix('body')}>
                     {phIcon? <Icon phIcon={phIcon} phSize={loading?'lg':'xlg'} /> :null}
                     {children? <p>{children}</p>:null}
                 </div>
@@ -79,9 +78,9 @@ class Toast extends Component{
                 this.getProperty(true),
                 className
             )}>
-                <div className={setPhPrefix('toast-shadow')}></div>
-                <div className={setPhPrefix('toast-main')}>
-                    <div className={classnames(setPhPrefix('toast-content'), phIcon? setPhPrefix('toast-rect'):'')}>
+                <div className={this.setPhPrefix('shadow')}></div>
+                <div className={this.setPhPrefix('main')}>
+                    <div className={classnames(this.setPhPrefix('content'), phIcon? this.setPhPrefix('rect'):'')}>
                         {this.renderChildren(className)}
                     </div>
                 </div>

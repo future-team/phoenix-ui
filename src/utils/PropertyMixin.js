@@ -40,18 +40,18 @@ export default obj=>{
         radius:true,
         round:true,
         clearfix:true,
-        clear:true,
         phHref:true,
         show:true,
         hide:true,
         block:true,
         hollow: true,
-        error: true,
         heading: true,
         tail: true,
         required: true,
         stable:true,
-        visible:true,
+        // error: true,
+        // clear:true,
+        // visible:true,
 
         /*以下属性相当于css属性的快速赋值，比如设置zIndex="2",则会被merge进style里，如果只有属性zIndex没有设置取值，则会被放入props列表中*/
         zIndex:val=>{

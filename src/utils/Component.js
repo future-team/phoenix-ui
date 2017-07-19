@@ -32,6 +32,12 @@ export default class BaseComponent extends Component{
         this.registerMethod(this.otherProps);
 
     }
+
+    setPhPrefix(name, onlyPh){
+        if(onlyPh) return 'ph-'+name
+        else return 'ph-'+this.classPrefix+'-'+name
+    }
+
     setDefaultState(obj){
 
         this.state = extend({},{
@@ -107,7 +113,7 @@ export default class BaseComponent extends Component{
     setProperty(prop,val){
         if(val!== undefined){
             this.properties[prop] = val;
-            if(this.props[prop]!==undefined){
+            if(this.props[prop]!==undefined && !this.props[prop]){
                 this.updateProperty({key:prop,value:val},this._properties,this._styles,this.otherProps);
             }
         }

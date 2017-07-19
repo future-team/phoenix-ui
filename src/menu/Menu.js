@@ -1,7 +1,7 @@
 import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
-import {setPhPrefix, closest} from '../utils/Tool'
+import {closest} from '../utils/Tool'
 
 import MenuHeader from './MenuHeader'
 import MenuBody from './MenuBody'
@@ -196,10 +196,10 @@ class Menu extends Component{
         return (
             <Component {...this.props} className={classnames(
                 this.getProperty(true),
-                setPhPrefix('menu-placeholder'),
+                this.setPhPrefix('placeholder'),
                 className
             )} ref={(menuPlaceholder)=>{this.menuPlaceholder=menuPlaceholder}}>
-                <div className={this.state.ceiling? setPhPrefix('menu-ceiling'):''} ref={(menuCeiling)=>{this.menuCeiling=menuCeiling}}>
+                <div className={this.state.ceiling? this.setPhPrefix('ceiling'):''} ref={(menuCeiling)=>{this.menuCeiling=menuCeiling}}>
                     {this.renderChildren()}
                 </div>
             </Component>

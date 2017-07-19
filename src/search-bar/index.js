@@ -1,7 +1,6 @@
 import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
-import {setPhPrefix} from '../utils/Tool'
 
 import Input from '../input/'
 import Button from '../button/'
@@ -43,6 +42,8 @@ export default class SearchBar extends Component{
          * @default '取消'
          * */
         buttonText: PropTypes.string,
+        focusCallback: PropTypes.func,
+        blurCallback: PropTypes.func,
         /**
          * 搜索的回调
          * @method queryCallback
@@ -87,17 +88,25 @@ export default class SearchBar extends Component{
     }
 
     onFocus(){
+        let {focusCallback} = this.props
+
         this.setState({
             focus: true
         })
+
+        if(focusCallback) focusCallback()
     }
 
     onBlur(){
+        let {blurCallback} = this.props
+
         this.timer = setTimeout(()=>{
             this.setState({
                 focus: false
             })
         },0)
+
+        if(blurCallback) blurCallback()
     }
 
     onKeyDown(e){
@@ -115,7 +124,7 @@ export default class SearchBar extends Component{
             <div className={classnames(
                this.getProperty(true),
                className,
-               this.state.focus? setPhPrefix('search-bar-focus'):''
+               this.state.focus? this.setPhPrefix('focus'):''
            )}>
                <Input type='search' phIcon='search' placeholder={placeholder} clear 
                     ref={(searchElem)=>{this.searchElem=searchElem}}

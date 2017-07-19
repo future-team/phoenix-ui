@@ -6,17 +6,17 @@ import {setPhPrefix,getDeviceInfo} from '../utils/Tool'
 /**
  * 拖拽组件<br/>
  * - 兼容移动端的touch和pc端的mouse事件。
- * - 可通过onDrag设置抓取的回调函数, 返回抓取在屏幕上的位置, 分别保存在start和move中, 以x和y的形式展示。
- * - 可通过onDrop设置松开瞬间的回调函数, 返回松开时在屏幕上的位置, 保存在end中, 以x和y的形式展示。
+ * - 可通过dragCallback设置抓取的回调函数, 返回抓取在屏幕上的位置, 分别保存在start和move中, 以x和y的形式展示。
+ * - 可通过dropCallback设置松开瞬间的回调函数, 返回松开时在屏幕上的位置, 保存在end中, 以x和y的形式展示。
  *
  * 示例:
  * ```code
- *     <Drag onDrag={::this.onDrag} onDrop={::this.onDrop} style={{height:0}}>
+ *     <Drag dragCallback={::this.dragCallback} dropCallback={::this.dropCallback} style={{height:0}}>
  *         <div className='box' ref={(box)=>{this.box = box}}>Drag</div>
  *     </Drag>
  * ```
  * ```code
- *     onDrag(event,position){
+ *     dragCallback(event,position){
  *         this.prePosition = position.start;
  *         this.nowPosition = position.move;
  *
@@ -24,7 +24,7 @@ import {setPhPrefix,getDeviceInfo} from '../utils/Tool'
  *         this.distanceY = this.preDistanceY + this.nowPosition.y - this.prePosition.y;
  *         console.log(this.distanceX, this.distanceY);
  *     }
- *     onDrop(event,position){
+ *     dropCallback(event,position){
  *         this.preDistanceX = this.distanceX;
  *         this.preDistanceY = this.distanceY;
  *     }
@@ -44,16 +44,16 @@ export default class Drag extends Component{
     static propTypes = {
         /**
          * 抓取的执行函数,对应TouchStart/TouchMove
-         * @method onDrag
+         * @method dragCallback
          * @type Function
          * */
-        onDrag: PropTypes.func,
+        dragCallback: PropTypes.func,
         /**
          * 放开的执行函数,对应TouchEnd
-         * @method onDrop
+         * @method dropCallback
          * @type Function
          * */
-        onDrop: PropTypes.func
+        dropCallback: PropTypes.func
     };
 
     static defaultProps = {
@@ -76,21 +76,21 @@ export default class Drag extends Component{
     }
 
     onTouchStart(event){
-        let {onDrag, onDragStart} = this.props;
+        let {dragCallback, dragStartCallback} = this.props;
         event.stopPropagation();
         // event.preventDefault();
 
         this.state.position.start = {x:event.touches[0].pageX, y: event.touches[0].pageY};
         this.state.position.move = this.state.position.start;
 
-        if(onDrag) onDrag(event, this.state.position);
-        if(onDragStart) onDragStart(event, this.state.position);
+        if(dragCallback) dragCallback(event, this.state.position);
+        if(dragStartCallback) dragStartCallback(event, this.state.position);
 
         return false;
     }
 
     onMouseStart(event){
-        let {onDrag, onDragStart} = this.props;
+        let {dragCallback, dragStartCallback} = this.props;
         this.isMouseDown = true;
         event.stopPropagation();
         // event.preventDefault();
@@ -98,8 +98,8 @@ export default class Drag extends Component{
         this.state.position.start = {x:event.pageX, y: event.pageY};
         this.state.position.move = this.state.position.start;
 
-        if(onDrag) onDrag(event, this.state.position);
-        if(onDragStart) onDragStart(event, this.state.position);
+        if(dragCallback) dragCallback(event, this.state.position);
+        if(dragStartCallback) dragStartCallback(event, this.state.position);
 
         if(!this.mobile){
             document.addEventListener('mousemove',this.onMouseMoveHandle,false);
@@ -115,7 +115,7 @@ export default class Drag extends Component{
 
         this.state.position.move = {x:event.touches[0].pageX, y: event.touches[0].pageY};
 
-        if(this.props.onDrag) this.props.onDrag(event, this.state.position);
+        if(this.props.dragCallback) this.props.dragCallback(event, this.state.position);
 
         return false;
     }
@@ -127,7 +127,7 @@ export default class Drag extends Component{
 
         this.state.position.move = {x:event.pageX, y: event.pageY};
 
-        if(this.props.onDrag) this.props.onDrag(event, this.state.position);
+        if(this.props.dragCallback) this.props.dragCallback(event, this.state.position);
         
         return false;
     }
@@ -139,7 +139,7 @@ export default class Drag extends Component{
         this.state.position.end = {x:event.changedTouches[0].pageX, y: event.changedTouches[0].pageY};
         this.state.position.start = this.state.position.move;
 
-        if(this.props.onDrop) this.props.onDrop(event, this.state.position);
+        if(this.props.dropCallback) this.props.dropCallback(event, this.state.position);
 
         return false;
     }
@@ -151,7 +151,7 @@ export default class Drag extends Component{
         this.state.position.end = {x:event.pageX, y: event.pageY};
         this.state.position.start = this.state.position.move;
 
-        if(this.props.onDrop) this.props.onDrop(event, this.state.position);
+        if(this.props.dropCallback) this.props.dropCallback(event, this.state.position);
         this.isMouseDown = false;
         
         if(!this.mobile){

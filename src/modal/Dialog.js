@@ -1,7 +1,6 @@
 import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
-import {setPhPrefix} from '../utils/Tool'
 
 import Animate from '../animate'
 import Icon from '../icon'
@@ -131,29 +130,34 @@ class Dialog extends Component{
         let {visible} = this.props;
 
         if(visible){
-            return <div className={classnames(setPhPrefix('dialog-shadow'), 'animated')} onClick={this.onShadowClose.bind(this)}></div>;
+            return <div className={classnames(this.setPhPrefix('shadow'), 'animated')} onClick={this.onShadowClose.bind(this)}></div>;
         }else{
             return '';
         }
     }
 
+    renderIcon(){
+        let {closeButton, closeCallback} = this.props
+        
+        if(closeButton){
+            return <Icon phIcon='close' onClick={closeCallback} className={classnames(this.setPhPrefix('close'))} />
+        }        
+    }
+
     renderContent(){
-        let {visible, closeButton, closeCallback} = this.props;
+        let {visible} = this.props
 
         if(visible){
             return (
-                <div className={classnames(setPhPrefix('dialog-main'), 'animated')}>
-                    <div className={classnames(setPhPrefix('dialog-content'), 'animated')}>
-                        <Icon phIcon='close' onClick={closeCallback} className={classnames(
-                            setPhPrefix('dialog-close'),
-                            closeButton ? 'show':'hide'
-                        )} />
+                <div className={classnames(this.setPhPrefix('main'), 'animated')}>
+                    <div className={classnames(this.setPhPrefix('content'), 'animated')}>
+                        {this.renderIcon()}
                         {this.renderChildren()}
                     </div>
                 </div>
-            );
+            )
         }else{
-            return '';
+            return ''
         }
     }
 

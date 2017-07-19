@@ -1,7 +1,6 @@
 import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
-import {setPhPrefix} from '../utils/Tool'
 
 import '../style'
 import 'phoenix-styles/less/modules/textarea.less'
@@ -125,21 +124,26 @@ export default class Textarea extends Component{
         })
     }
 
-    renderTextarea(){
-        let {count, maxLength} = this.props;
+    renderCount(){
+        let {count, maxLength} = this.props
 
+        if(count){
+            return (
+                <span className={classnames(this.setPhPrefix('count'))}> 
+                    <b className={this.setPhPrefix('length')}>{this.state.inputLength}</b>/<b>{maxLength}</b>
+                </span>
+            )
+        }
+    }
+
+    renderTextarea(){
         return (
-            <div className={setPhPrefix('textarea-field')}>
+            <div className={this.setPhPrefix('field')}>
                 <textarea {...this.props} className={classnames(
                     this.getProperty(true),
                     this.props.className
                 )} value={this.state.value} onChange={(event)=>{this.onTextareaChange(event)}}></textarea>
-                <span className={classnames(
-                    setPhPrefix('textarea-count'),
-                    count? 'show':'hide'
-                )}> 
-                    <b className={setPhPrefix('textarea-length')}>{this.state.inputLength}</b>/<b>{maxLength}</b>
-                </span>
+                {this.renderCount()}
             </div>
         )
     }

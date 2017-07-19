@@ -1,7 +1,6 @@
 import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
-import {setPhPrefix} from '../utils/Tool'
 
 import Row from '../grid/Row'
 import Col from '../grid/Col'
@@ -158,16 +157,19 @@ class ListItem extends Component{
 
     constructor(props,context){
         super(props,context);
+
+        // this.setProperty('error','error')
     }
 
     renderListItem(){
-        let {className, navigate} = this.props;
+        let {className, error, navigate} = this.props;
 
         return(
             <Row {...this.props} classPrefix='row' componentTag='li' className={classnames(
                this.getProperty(true),
                className,
-               navigate? setPhPrefix('navigate-right'):''
+               navigate? this.setPhPrefix('navigate-right',true):'',
+               error ? this.setPhPrefix('error'):''
            )}>
                {this.props.children}
            </Row>

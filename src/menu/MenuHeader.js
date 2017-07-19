@@ -1,7 +1,6 @@
 import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
-import {setPhPrefix} from '../utils/Tool'
 
 import Icon from '../icon'
 
@@ -76,7 +75,7 @@ export default class MenuHeader extends Component {
                 )}
             >
                 <Icon phIcon='menu' onClick={this.onChange.bind(this)}/>
-                <div className={setPhPrefix('menu-header-content')}>{this.props.children}</div>
+                <div className={this.setPhPrefix('content')}>{this.props.children}</div>
             </div>
         )
     }

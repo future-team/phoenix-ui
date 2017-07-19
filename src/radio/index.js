@@ -56,7 +56,7 @@ export default class Radio extends Component{
     static defaultProps = {
         type: 'radio',
         label: '',
-        classPrefix:'input',
+        classPrefix:'radio',
         componentTag:'div',
         classMapping : {}
     };

@@ -1,7 +1,7 @@
 import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
-import {warning,setPhPrefix,getClientHeight} from '../utils/Tool'
+import {warning,getClientHeight} from '../utils/Tool'
 
 import '../style'
 import 'phoenix-styles/less/modules/image.less'

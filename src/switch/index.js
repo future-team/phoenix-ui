@@ -1,7 +1,6 @@
 import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
-import {setPhPrefix} from '../utils/Tool'
 
 import '../style'
 import 'phoenix-styles/less/modules/switch.less'
@@ -74,7 +73,7 @@ export default class Switch extends Component{
                 )
             }>
                 <input type='checkbox' {...this.props} />
-                <div className={setPhPrefix('checkbox')}></div>
+                <div className={this.setPhPrefix('checkbox',true)}></div>
             </label>
         )
     }

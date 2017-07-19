@@ -1,7 +1,7 @@
 import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
-import {warning,setPhPrefix} from '../utils/Tool'
+import {warning} from '../utils/Tool'
 import Icon from '../icon/'
 
 import '../style'
@@ -14,7 +14,9 @@ import 'phoenix-styles/less/modules/input.less'
  * - 可通过value设置默认值。
  * - 可通过设置clear属性是否显示清除按钮，默认不显示。
  * - 可通过设置visible属性判断password类型是否显示可见密码的按钮，默认不显示。
+ * - 可通过设置error设置当前输入错误。
  * - 可通过getValueCallback获取当前元素的value值，仅适用于text、search。
+ * - 可通过设置phReg设置正则表达式，失焦时如果不符合正则显示错误样式。
  *
  * 主要属性和接口：
  * - type:input类型, 默认text <br/>
@@ -25,6 +27,10 @@ import 'phoenix-styles/less/modules/input.less'
  * 如：`<Input value='测试' clear/>`
  * - visible: 是否显示可见密码的按钮(仅适用于password类型)<br/>
  * 如：`<Input type='password' value='123456' visible />`
+ * - error: 当前输入错误<br/>
+ * 如：`<Input type='password' value='123456' error />`
+ * - phReg: 正则表达式<br/>
+ * 如：`<Input type="text" placeholder="6-18位不以数字开头的用户名" phReg={/^[a-zA-Z$_]\w{5,17}$/} />`
  * - getValueCallback: 获取当前input的value。<br/>
  * 如：`<Input ref={(inputElem)=>{this.inputElem=inputElem}} />`<br/>
  * `this.inputElem.getValueCallback();`
@@ -78,7 +84,20 @@ export default class Input extends Component{
          * @property error
          * @type Boolean
          * */
-        error: PropTypes.bool
+        error: PropTypes.bool,
+        /**
+         * 正则表达式
+         * @property phReg
+         * @type Object
+         * */
+        phReg: PropTypes.object,
+        /**
+         * icon符号类型
+         * @property phIcon
+         * @type string
+         * @default ''
+         **/
+        phIcon:PropTypes.string
     };
 
     static defaultProps = {
@@ -87,6 +106,7 @@ export default class Input extends Component{
         error: false,
         visible: false,
         phIcon: '',
+        phReg: null,
         classPrefix:'input',
         componentTag:'div',
         classMapping : {}
@@ -103,21 +123,34 @@ export default class Input extends Component{
             type: props.type,
             cansee: 0,
             focus: false,
-            value: props.value || props.defaultValue || ''
+            value: props.value || props.defaultValue || '',
+            error: props.error
         }
+    }
+
+    componentDidMount(){
+        let o = {},
+            {phReg} = this.props
+        
+        if(!phReg || !this.state.value) return
+
+        o.error = !phReg.test(this.state.value)
+        
+        this.setState(o)
     }
 
     componentWillReceiveProps(nextProps){
-        if(nextProps.value && nextProps.value !== this.state.value){
-            this.setState({
-                value: nextProps.value
-            })
-        }
+        let o = {}
+
+        if(nextProps.value && nextProps.value !== this.state.value) o.value = nextProps.value
+        if(nextProps.error && nextProps.error !== this.state.error) o.error = nextProps.error
+
+        this.setState(o)
     }
 
     renderInput(){
-        let {type, clear, visible, placeholder, phIcon, error} = this.props,
-            {value, focus} = this.state;
+        let {type, clear, visible, placeholder, phIcon} = this.props,
+            {value, focus, error} = this.state;
         let clearStatus = clear && value && focus,
             visibleStatus = visible && type=='password',
             errorState = error && !focus,
@@ -130,7 +163,10 @@ export default class Input extends Component{
             return (
                 <div className={classnames(
                     this.getProperty(true),
-                    phIcon ? setPhPrefix('input-heading'):'',
+                    phIcon ? this.setPhPrefix('heading'):'',
+                    clearStatus ? this.setPhPrefix('clear'):'',
+                    visibleStatus ? this.setPhPrefix('visible'):'',
+                    errorState ? this.setPhPrefix('error'):'',
                 )}>
                     <input {...this.props} type={this.state.type} placeholder='' value={value}
                         ref={(inputElem)=>{this.inputElem=inputElem}}
@@ -138,11 +174,11 @@ export default class Input extends Component{
                         onFocus={this.onFocus.bind(this)} 
                         onBlur={this.onBlur.bind(this)} />
                     <label className={classnames(
-                        setPhPrefix('input-placeholder'),
-                        !placeholderShow? setPhPrefix('input-placeholder-hide'):''
+                        this.setPhPrefix('placeholder'),
+                        !placeholderShow? this.setPhPrefix('placeholder-hide'):''
                     )}>
                         {phIcon ? <Icon phIcon={phIcon} />: null}
-                        <span className={setPhPrefix('input-placeholder-text')}>{placeholder}</span>
+                        <span className={this.setPhPrefix('placeholder-text')}>{placeholder}</span>
                     </label>
                     {this.renderClearButton(clearStatus)}
                     {this.renderVisibleButton(visibleStatus)}
@@ -153,15 +189,19 @@ export default class Input extends Component{
     }
 
     onChange(event){
-        let {onChange} = this.props,
-            value = event.target.value;
-
-        if(onChange) onChange(event,value);
+        let o = {},
+            {onChange, phReg} = this.props,
+            value = event.target.value
         
-        this.setState({
-            value: value,
-            focus: true
-        })
+        o.value = value
+        o.focus = true
+        if(phReg){
+            o.error = !phReg.test(value)
+        }
+
+        if(onChange) onChange(event,value)
+        
+        this.setState(o)
     }
 
     onFocus(e){

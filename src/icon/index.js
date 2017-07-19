@@ -84,13 +84,15 @@ export default class Icon extends Component{
     }
 
     renderIcon(){
-        let {componentTag:Component, className, phIcon, classPrefix} = this.props;
+        let {componentTag:Component, className, phIcon, classPrefix} = this.props
+
         return(
             <Component {...this.props} className={classnames(
                 'gfs-icon',
                 this.getProperty(true),
                 className,
-                phIcon? classPrefix + '-' + phIcon:''
+                phIcon? classPrefix + '-' + phIcon:'',
+                phIcon && phIcon.indexOf('loading')>=0 ? 'gfs-icon-loading':''
            )}>
                {this.props.children}
            </Component>

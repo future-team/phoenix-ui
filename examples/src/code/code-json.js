@@ -13,7 +13,8 @@ var code = {
 	'button-group-phtype-justify': '<ButtonGroup phType="justify">\n\  <Button>justify1</Button>\n\  <Button>justify2</Button>\n\  <Button>justify3</Button>\n</ButtonGroup>',
 	'button-group-phtype-segmente':'<ButtonGroup phType="segmente">\n\  <Button>标签1</Button>\n\  <Button>标签2</Button>\n\  <Button>标签3</Button>\n</ButtonGroup>',
 	'button-group-phtype-tacked': '<ButtonGroup phType="tacked">\n\  <Button block>tacked1</Button>\n\  <Button block>tacked2</Button>\n\  <Button block>tacked3</Button>\n</ButtonGroup>',
-	'button-group-callback': '<ButtonGroup onButtongroupChange={(target,html)=>{console.log(target);alert(html);}}>\n\  <Button>justify1</Button>\n\  <Button>justify2</Button>\n\  <Button>justify3</Button>\n</ButtonGroup>',
+	'button-group-activeindex':'<ButtonGroup phType="justify" activeIndex={1}>\n\  <Button>justify1</Button>\n\  <Button>justify2</Button>\n\  <Button>justify3</Button>\n</ButtonGroup>',
+	'button-group-callback': '<ButtonGroup clickCallback={(target,html)=>{console.log(target);alert(html);}}>\n\  <Button>justify1</Button>\n\  <Button>justify2</Button>\n\  <Button>justify3</Button>\n</ButtonGroup>',
 	
 	'icon-phicon': '<Icon phIcon="search" />\n<Icon className="icon-home" />\n<span className="gfs-icon icon-chevron-left"></span>',
 	'icon-phsize':'<Icon phIcon="tip" phSize="xs" />\n<Icon phIcon="tip" phSize="sm" />\n<Icon phIcon="tip" phSize="md" />\n<Icon phIcon="tip" phSize="lg" />\n<Icon phIcon="tip" phSize="xlg" />',
@@ -28,9 +29,14 @@ var code = {
 	'label-phstyle': '<Label>惠</Label>\n<Label phStyle="success">惠</Label>\n<Label phStyle="info">惠</Label>\n<Label phStyle="danger">惠</Label>\n<Label phStyle="error">惠</Label>\n<Label phStyle="warning">惠</Label>',
 	'label-phsize': '<Label>惠</Label>\n<Label phSize="md">惠</Label>\n<Label phSize="lg">惠</Label>',
 
-	'input-text': '<Input placeholder="placeholder"/>\n<Input type="text" value="默认值" placeholder="placeholder" clear />\n<Input placeholder="请输入" value="不可编辑的情况" disabled/>',
-	'input-search':'<Input type="search" placeholder="请输入" />\n<Input type="search" placeholder="请输入" phIcon="search" />\n<Input type="search" placeholder="请输入" value="可清空输入的文字" phIcon="search" clear />\n<Input type="search" placeholder="请输入" value="不可编辑的情况" phIcon="search" disabled />',
-	'input-password':'<Input type="password" defaultValue="123456" visible />\n<Input type="password" value="123456" placeholder="请输入" clear visible />',
+	'input-text': '<Input placeholder="请输入"/>\n<Input placeholder="请输入" value="默认值" clear />\n<Input placeholder="请输入" value="不可编辑的情况" disabled/>',
+	'input-search':'<Input type="search" placeholder="请输入" />\n<Input type="search" placeholder="请输入" value="可清空输入的文字" clear />\n<Input type="search" placeholder="请输入" value="不可编辑的情况" disabled />',
+	'input-password':'<Input type="password" placeholder="请输入" />\n<Input type="password" value="123456" clear />\n<Input type="password" value="123456" placeholder="请输入" clear visible />',
+	'input-clear':'<Input type="text" value="123456" clear />',
+	'input-visible':'<Input type="password" value="123456" visible />',
+	'input-error':'<Input type="text" value="123456" error />',
+	'input-phicon':'<Input type="text" placeholder="请输入" phIcon="search" />\n<Input type="search" placeholder="请输入" phIcon="search" />\n<Input type="text" value="123456" placeholder="请输入" phIcon="search" />\n<Input type="search" value="123456" placeholder="请输入" phIcon="search" />',
+	'input-phreg':'<Input type="text" placeholder="6-18位不以数字开头的用户名" phReg={/^[a-zA-Z$_]\w{5,17}$/} />',
 	'input-getvalue':'<Input placeholder="默认text" ref={(inputElem)=>{this.inputElem = inputElem}} />\n this.inputElem.getValueCallback()',
 
 	'checkbox-default':'<Checkbox label="香蕉" defaultChecked={true} />',
@@ -154,8 +160,8 @@ var code = {
 
 	'animate': '<Animate transitionName="fade">\n\  {this.renderList()}\n</Animate>\n'+
 		'this.state = {list: ["看一本书","睡8个小时"]}\nrenderList(){// 渲染todo list \n\  const items = this.state.list.map((item,index)=>{\n\    return <div key={index} className="animated" onClick={()=>{...}}>{item}</div>;\n\  });\n\  return items;\n}',
-	'drag': '<Drag onDrag={::this.onDrag} onDrop={::this.onDrop} style={{height:0}}>\n\  <div className="box" ref={(box)=>{this.box = box}}>Drag</div>\n</Drag>\n'+
-		'onDrag(event,position){\n\  // ...\n}\nonDrop(event,position){\n\  // ...\n}\n'
+	'drag': '<Drag dragCallback={::this.dragCallback} dropCallback={::this.dropCallback} style={{height:0}}>\n\  <div className="box" ref={(box)=>{this.box = box}}>Drag</div>\n</Drag>\n'+
+		'dragCallback(event,position){\n\  // ...\n}\dropCallback(event,position){\n\  // ...\n}\n'
 
 };
 

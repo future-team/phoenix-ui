@@ -61,7 +61,7 @@ export default class buttongroup extends Component{
                         <Button>justify3</Button>
                     </ButtonGroup>
                 </div>
-                <Code target="button-group-callback" />
+                <Code target="button-group-activeindex" />
 
                 <h3 className="comp-type">clickCallback 点击按钮组回调函数</h3>
                 <div className="content">

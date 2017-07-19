@@ -14,7 +14,7 @@ export default class toast extends Component{
         this.distanceY = 0;
     }
 
-    onDrag(event,position){
+    dragCallback(event,position){
         this.prePosition = position.start;
         this.nowPosition = position.move;
 
@@ -24,7 +24,7 @@ export default class toast extends Component{
         this.setBoxPosition(this.distanceX, this.distanceY);
     }
 
-    onDrop(event,position){
+    dropCallback(event,position){
         this.preDistanceX = this.distanceX;
         this.preDistanceY = this.distanceY;
     }
@@ -41,7 +41,7 @@ export default class toast extends Component{
                 <h3 className="comp-type">Dragable Box demo</h3>
                 <Code target="drag" />
                 <div className="content-drag">
-                    <Drag onDrag={::this.onDrag} onDrop={::this.onDrop} style={{height:0}}>
+                    <Drag dragCallback={this.dragCallback.bind(this)} dropCallback={this.dropCallback.bind(this)} style={{height:0}}>
                         <div className="box" ref={(box)=>{this.box = box}}>Drag</div>
                     </Drag>
                 </div>

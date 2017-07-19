@@ -1,6 +1,5 @@
 import React,{ PropTypes } from 'react'
 import Component from '../utils/Component'
-import {setPhPrefix} from '../utils/Tool'
 import classnames from 'classnames'
 
 import '../style'

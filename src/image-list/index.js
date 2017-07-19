@@ -1,7 +1,6 @@
 import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
-import {setPhPrefix} from '../utils/Tool'
 
 import '../style'
 import 'phoenix-styles/less/modules/image-list.less'
@@ -23,8 +22,8 @@ import 'phoenix-styles/less/modules/image-list.less'
  *                      <Image src={data.image} alt={data.title}/>
  *                  </dt>
  *                  <dd>
- *                      <p className={setPhPrefix('image-title')}>{data.title}</p>
- *                      <p className={setPhPrefix('image-desp')}>{data.desp}</p>
+ *                      <p className='ph-image-title'>{data.title}</p>
+ *                      <p className='ph-image-desp'>{data.desp}</p>
  *                  </dd>
  *              </dl>
  *          )
@@ -78,8 +77,8 @@ export default class ImageList extends Component{
             <div className={classnames(
                 this.getProperty(true), 
                 className, 
-                setPhPrefix('column-'+column))}
-            >
+                this.setPhPrefix('column-'+column, true)
+            )}>
                 {children}
             </div>
         )

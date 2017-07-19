@@ -83,12 +83,11 @@ let Index = class index extends Component {
                 <h3>基础类</h3>
                 <div className="menu-panel">
                     <Card href="#/button" title="Button" desp="按钮" />
-                    <Card href="#/buttongroup" title="ButtonGroup" desp="按钮组" />
-                    <Card href="#/badge" title="Badge" desp="徽章" />
-                    <Card href="#/star" title="Star" desp="星星" />
                     <Card href="#/icon" title="Icon" desp="符号" />
+                    <Card href="#/badge" title="Badge" desp="徽章" />
                     <Card href="#/label" title="Label" desp="标志" />
                     <Card href="#/image" title="Image" desp="图片" />
+                    <Card href="#/star" title="Star" desp="星星" />
                 </div>
                 <h3>表单类</h3>
                 <div className="menu-panel">
@@ -114,6 +113,7 @@ let Index = class index extends Component {
                 </div>
                 <h3>操作类</h3>
                 <div className="menu-panel">
+                    <Card href="#/buttongroup" title="ButtonGroup" desp="按钮组" />
                     <Card href="#/tab" title="Tab" desp="选项卡" />
                     <Card href="#/steps" title="Steps" desp="步骤" />
                     <Card href="#/accordion" title="Accordion" desp="手风琴" />

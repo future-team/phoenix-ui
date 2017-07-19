@@ -2,9 +2,9 @@
 
 import React from 'react';
 import assert from 'assert';
-import {shallowRender} from './utils/Tool';
+import {shallowRender} from '../utils/TestTool';
 
-import Animate from '../src/Animate';
+import Animate from './index';
 
 describe("<Animate/>", function(){
     it('默认transitionName为fade', ()=>{

@@ -1,7 +1,6 @@
 import React,{ PropTypes } from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
-import {setPhPrefix} from '../utils/Tool'
 
 import '../style'
 import 'phoenix-styles/less/modules/grid.less'
@@ -70,7 +69,7 @@ export default class Grid extends Component{
             <div {...this.props}
                 className={classnames(
                     this.getProperty(true),
-                    this.props.fluid ? setPhPrefix('grid-fluid'):'',
+                    this.props.fluid ? this.setPhPrefix('fluid'):'',
                     this.props.className
             )}>
                 {this.props.children}

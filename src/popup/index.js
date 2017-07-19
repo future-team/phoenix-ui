@@ -1,7 +1,6 @@
 import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
-import {setPhPrefix} from '../utils/Tool'
 import Animate from '../animate/'
 
 import '../style'
@@ -104,7 +103,7 @@ export default class Popup extends Component{
         let {visible, closeCallback} = this.props;
 
         if(visible){
-            return <div className={classnames(setPhPrefix('popup-shadow'),'animated')} onClick={closeCallback}></div>;
+            return <div className={classnames(this.setPhPrefix('shadow'),'animated')} onClick={closeCallback}></div>;
         }else{
             return '';
         }
@@ -114,7 +113,7 @@ export default class Popup extends Component{
         let {visible,children,className} = this.props;
 
         if(visible){
-            return <div {...this.props} className={classnames(setPhPrefix('popup-content'), 'animated', className)}>{children}</div>;
+            return <div {...this.props} className={classnames(this.setPhPrefix('content'), 'animated', className)}>{children}</div>;
         }else{
             return '';
         }
@@ -131,7 +130,7 @@ export default class Popup extends Component{
                 <Animate>
                     {this.renderShadow()}
                 </Animate>
-                <Animate className={setPhPrefix('popup-main')} transitionName={`slide-${this.props.align}`}>
+                <Animate className={this.setPhPrefix('main')} transitionName={`slide-${this.props.align}`}>
                     {this.renderContent()}
                 </Animate>
             </Component>

@@ -5,7 +5,7 @@
   "main": "lib/",
   "scripts": {
     "build": "node_modules/.bin/gulp",
-    "demo": "node_modules/.bin/gulp demo",
+    "demo": "node_modules/.bin/gulp dev",
     "test": "karma start",
     "babel": "babel --watch src --out-dir lib",
     "doc": "gfsdoc ||node_modules/.bin/gfsdoc",

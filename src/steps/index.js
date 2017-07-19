@@ -1,7 +1,6 @@
 import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
-import {setPhPrefix} from '../utils/Tool'
 
 import '../style'
 import 'phoenix-styles/less/modules/steps.less'
@@ -118,15 +117,15 @@ export default class Steps extends Component{
         let _this = this, listLen = list.length;
 
         return (
-            <ul className={setPhPrefix('steps-content')}>
+            <ul className={this.setPhPrefix('content')}>
                 {
                     list.map((item, index)=>{
                         return (
-                            <li key={index} className={classnames(setPhPrefix('steps-list'), index==this.state.currentStep? 'active':index<this.state.currentStep? 'done':'')}
+                            <li key={index} className={classnames(this.setPhPrefix('list'), index==this.state.currentStep? 'active':index<this.state.currentStep? 'done':'')}
                                 style={{left: index/(listLen-1)*100+'%' }}
                                 onClick={_this.clickCallback.bind(_this,item,index)}
                             >
-                                <span className={setPhPrefix('steps-dot')}></span>
+                                <span className={this.setPhPrefix('dot')}></span>
                                 <p>{item}</p>
                             </li>
                         )

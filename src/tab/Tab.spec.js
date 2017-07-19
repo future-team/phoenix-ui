@@ -5,8 +5,8 @@ import {findDOMNode} from 'react-dom';
 import assert from 'assert';
 import TestUtils from 'react/lib/ReactTestUtils.js';
 
-import Tabset from '../src/Tabset';
-import Tab from '../src/Tab';
+import Tabset from './Tabset';
+import Tab from './Tab';
 
 describe("<Tab/>", function(){
     it('默认第一个选中', ()=>{
@@ -75,10 +75,10 @@ describe("<Tab/>", function(){
         assert.equal(flag, false);
     });
 
-    it('点击触发tabCallback', ()=>{
+    it('点击触发clickCallback', ()=>{
         let flag = true;
         const tab = TestUtils.renderIntoDocument(
-            <Tabset tabCallback={()=>{flag=false;}}>
+            <Tabset clickCallback={()=>{flag=false;}}>
                 <Tab heading='标题1'>
                     横向内容1
                 </Tab>

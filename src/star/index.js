@@ -1,7 +1,6 @@
 import React, {PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
-import {setPhPrefix} from '../utils/Tool'
 
 import '../style'
 import 'phoenix-styles/less/modules/star.less'
@@ -73,17 +72,17 @@ export default class Star extends Component{
     }
 
     renderStar(){
-        let {rate,className} = this.props;
-        let rateCls = 'star-'+ Math.round((rate*2)/10)*5;
+        let {rate,className} = this.props,
+            rateCls = Math.round((rate*2)/10)*5;
         // let sizeCls = size && 'star-'+size;
 
         return (
             <div className={classnames(
                 this.getProperty(true),
-                setPhPrefix(rateCls),
+                this.setPhPrefix(rateCls),
                 className
             )}>
-                <div className={setPhPrefix('star-grey')}></div>
+                <div className={this.setPhPrefix('grey')}></div>
             </div>
         )
     }

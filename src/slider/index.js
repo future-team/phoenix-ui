@@ -1,7 +1,6 @@
 import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
-import {setPhPrefix} from '../utils/Tool'
 
 import Drag from '../drag/'
 
@@ -210,7 +209,7 @@ export default class Slider extends Component{
         this.sliderBtn.style.left = distance;
     }
 
-    onDrag(event, position){
+    dragCallback(event, position){
         let newProgress, nowSec;
 
         this.preX = position.start.x;
@@ -235,7 +234,7 @@ export default class Slider extends Component{
         });
     }
 
-    onDrop(event, position){
+    dropCallback(event, position){
         let {tipStay, slideCallback} = this.props
         if(!tipStay){
             this.setState({
@@ -250,16 +249,16 @@ export default class Slider extends Component{
 
     renderSliderText(showTipMode){
         if(showTipMode){
-            return <div className={setPhPrefix('slider-text')}>{this.state.realProgress}</div>
+            return <div className={this.setPhPrefix('text')}>{this.state.realProgress}</div>
         }        
     }
 
     renderSliderRange(){
         if(this.props.showRange){
             return (
-                <div className={setPhPrefix('slider-range')}>
-                    <strong className={setPhPrefix('slider-range-start')}>{this.range[0]}</strong>
-                    <strong className={setPhPrefix('slider-range-end')}>{this.range[1]}</strong>
+                <div className={this.setPhPrefix('range')}>
+                    <strong className={this.setPhPrefix('range-start')}>{this.range[0]}</strong>
+                    <strong className={this.setPhPrefix('range-end')}>{this.range[1]}</strong>
                 </div>
             );
         }else{
@@ -275,15 +274,15 @@ export default class Slider extends Component{
             <Component {...this.props} className={classnames(
                 this.getProperty(true),
                 className,
-                showRange? setPhPrefix('keep-range'):''
+                showRange? this.setPhPrefix('keep-range',true):''
             )}>
                 {this.renderSliderText(showTipMode)}
                 {this.renderSliderRange()}
-                <div className={setPhPrefix('slider-line')} ref={(sliderLine)=>{this.sliderLine=sliderLine}}>
-                    <div className={setPhPrefix('slider-progress')} ref={(sliderProgress)=>{this.sliderProgress=sliderProgress}}></div>
-                    <div className={setPhPrefix('slider-content')} ref={(sliderBtn)=>{this.sliderBtn=sliderBtn}}>
-                        <div className={classnames(setPhPrefix('slider-tip'), this.state.tipVisible && !showTipMode?'show':'hide')}>{this.state.realProgress}</div>
-                        <Drag className={setPhPrefix('slider-btn')} onDrag={this.onDrag.bind(this)} onDrop={this.onDrop.bind(this)}></Drag>
+                <div className={this.setPhPrefix('line')} ref={(sliderLine)=>{this.sliderLine=sliderLine}}>
+                    <div className={this.setPhPrefix('progress')} ref={(sliderProgress)=>{this.sliderProgress=sliderProgress}}></div>
+                    <div className={this.setPhPrefix('content')} ref={(sliderBtn)=>{this.sliderBtn=sliderBtn}}>
+                        <div className={classnames(this.setPhPrefix('tip'), this.state.tipVisible && !showTipMode?'show':'hide')}>{this.state.realProgress}</div>
+                        <Drag className={this.setPhPrefix('btn')} dragCallback={this.dragCallback.bind(this)} dropCallback={this.dropCallback.bind(this)}></Drag>
                     </div>
                 </div>
             </Component>

@@ -7,11 +7,12 @@ import 'phoenix-styles/less/modules/button-group.less'
 
 /**
  * 按钮组组件<br/>
- * - 按钮组组件配合Button组件,提供了横、竖两种排列方式, 可选default,justify,segmente,tacked。
- * - 可通过clickCallback实现点击回调。
+ * - 按钮组组件配合Button组件,提供了横、竖两种排列方式, 可选default,justify,segmente,tacked,footer。
+ * - 可通过activeIndex设置默认的选中索引值。
+ * - 可通过clickCallback实现点击回调，default和footer模式下不支持clickCallback。
  *
  * 主要属性和接口：
- * - phType:是否自适应宽度或者垂直排列, 默认justify <br/>
+ * - phType:是否自适应宽度或者垂直排列, 默认default <br/>
  * 如:
  * ```code
  *     <ButtonGroup phType='tacked'>
@@ -19,9 +20,17 @@ import 'phoenix-styles/less/modules/button-group.less'
  *         <Button block>tacked2</Button>
  *     </ButtonGroup>
  * ```
+ * activeIndex:默认的选中索引值, 默认0 <br/>
+ * 如:
+ * ```code
+ *     <ButtonGroup phType='justify' activeIndex={1}>
+ *         <Button>justify</Button>
+ *         <Button>justify</Button>
+ *     </ButtonGroup>
+ * ```
  * - clickCallback:点击按钮组的回调函数。<br/>
  * ```code
- *     <ButtonGroup clickCallback={function(target,html){console.log(target,html);}}>
+ *     <ButtonGroup clickCallback={(target,html)=>{console.log(target,html);}}>
  *         <Button>tacked1</Button>
  *         <Button>tacked2</Button>
  *     </ButtonGroup>
@@ -45,6 +54,13 @@ export default class ButtonGroup extends Component{
          * @default 'button-group'
          * */
         classPrefix: PropTypes.string,
+         /**
+         * 默认索引值
+         * @property activeIndex
+         * @type Number
+         * @default 0
+         * */
+        activeIndex: PropTypes.number,
         /**
          * 是否有自适应宽度，垂直排列等属性，取值为default(用于双按钮)、justify(水平排列)、tacked(垂直排列)、segmente(分割排列)、footer(尾部按钮)
          * @property phType
@@ -61,7 +77,6 @@ export default class ButtonGroup extends Component{
     };
 
     static defaultProps = {
-        clickable: true, // 内部使用
         activeIndex: 0,
         phType:'default',
         classPrefix:'button-group',
@@ -82,7 +97,7 @@ export default class ButtonGroup extends Component{
             activeIndex:this.props.activeIndex
         }
 
-        this.clickable = props.clickable
+        this.clickable = true
         if(['default','footer'].indexOf(props.phType)!=-1) this.clickable = false
     }
 
@@ -103,7 +118,7 @@ export default class ButtonGroup extends Component{
     }
 
     renderChildren(){
-        let {phType, clickable, children} = this.props;
+        let {phType, children} = this.props;
 
         return React.Children.map(children,(child,index)=>{
             let options = {};
