@@ -9,12 +9,13 @@ import {shallowRender, render, scry, simulate} from '../utils/TestTool'
 import Drag from './index'
 
 describe("<Drag/>", function(){
-    it('dragCallback', ()=>{
-        let position = {}
-        const drag = render(<Drag dragCallback={(position)=>{console.log(position);position=position}} />);
 
-        simulate.touchStart(drag);
-        simulate.touchMove(drag);
-        // console.log(start)
-    })
-});
+    // it('dragCallback', ()=>{
+    //     let position = {}
+    //     const drag = render(<Drag dragCallback={(position)=>{position=position}} dropCallback={(position)=>{position=position}}/>)
+
+    //     simulate.touchStart(drag, TestUtils.nativeTouchData(0, 0))
+    //     simulate.touchEnd(drag, TestUtils.nativeTouchData(500, 500))
+    //     console.log(position)
+    // })
+})

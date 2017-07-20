@@ -4,23 +4,16 @@ import React from 'react'
 import {findDOMNode} from 'react-dom'
 import assert from 'assert'
 import TestUtils from 'react/lib/ReactTestUtils'
+import {shallowRender, render, simulate, scry} from '../utils/TestTool'
 
 import Accordion from './index'
 
 describe("<Accordion/>", function(){
-    let visible, onChange;
 
-    beforeEach(()=>{
-        visible = false;
-        onChange = ()=>{
-            visible = !visible;
-        }
-    });
-
-    it('点击高度是否显示正常', ()=>{
-        visible = false;
-        const accordion = TestUtils.renderIntoDocument(
-            <Accordion visible={visible} onChange={onChange}>
+    it('visible设置为true', ()=>{
+        let visible = true
+        const accordion = render(
+            <Accordion visible={visible}>
                 <Accordion.Header>
                     标题一
                 </Accordion.Header>
@@ -28,13 +21,46 @@ describe("<Accordion/>", function(){
                     内容一
                 </Accordion.Body>
             </Accordion>
-        );
-        const accordionHeader = TestUtils.scryRenderedDOMComponentsWithClass(accordion,'ph-accordion-header')[0];
-        const accordionBody = TestUtils.scryRenderedDOMComponentsWithClass(accordion,'ph-accordion-body')[0];
+        ),
+            accordionBody = scry(accordion, '.ph-accordion-body')
+        
+        // console.log('height',findDOMNode(accordionBody).style.height)
 
-        TestUtils.Simulate.click(accordionHeader);
-        // 未完成
-        console.log(parseInt(findDOMNode(accordionBody).style.height));
-        // assert.notEqual(parseInt(findDOMNode(accordionBody).style.height), 0);
-    });
-});
+    })
+
+    it('clickCallback执行正常', ()=>{
+        let visible = false
+        const accordion = render(
+            <Accordion visible={visible} clickCallback={(v)=>{visible=v}}>
+                <Accordion.Header>
+                    标题一
+                </Accordion.Header>
+                <Accordion.Body>
+                    内容一
+                </Accordion.Body>
+            </Accordion>
+        ),
+            accordionHeader = scry(accordion, '.ph-accordion-header')
+
+        simulate.click(accordionHeader)
+        
+        assert(visible)
+    })
+
+    it('hideIcon设置正常', ()=>{
+        const accordion = render(
+            <Accordion hideIcon>
+                <Accordion.Header>
+                    标题一
+                </Accordion.Header>
+                <Accordion.Body>
+                    内容一
+                </Accordion.Body>
+            </Accordion>
+        ),
+            accordionIcon = scry(accordion, '.gfs-icon')
+        
+        assert(!accordionIcon)
+    })
+
+})

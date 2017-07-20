@@ -102,8 +102,11 @@ var code = {
 	'tab-clickcallback': '<Tabset>\n\  <Tab heading="标题1" clickCallback={(index)=>{alert(index);}}>\n\    横向内容1\n\  </Tab>\n\  <Tab heading="标题2">\n\    横向内容2\n\  </Tab>\n</Tabset>',
 
 	'search-buttontext':'<SearchBar buttonText="no" />',
+	'search-placeholder':'<SearchBar placeholder="请输入..." />',
 	'search-clickcallback':'<SearchBar clickCallback={(query)=>{alert(query)}} />',
 	'search-querycallback':'<SearchBar queryCallback={(query)=>{alert(query)}} />',
+	'search-focuscallback':'<SearchBar focusCallback={()=>{alert("focus")}} />',
+	'search-blurcallback':'<SearchBar blurCallback={()=>{alert("blur")}} />',
 
 	'slider-progress': '<Slider progress={25} />',
 	'slider-placement': '<Slider />\n<Slider placement="bottom" />',

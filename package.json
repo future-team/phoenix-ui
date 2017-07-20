@@ -31,6 +31,10 @@
     "url": "https://github.com/future-team/phoenix-ui/issues"
   },
   "homepage": "https://github.com/future-team/phoenix-ui#readme",
+  "peerDependencies":{
+    "react": "^0.14.2",
+    "react-dom": "^0.14.3"
+  },
   "devDependencies": {
     "babel": "^6.0.15",
     "babel-core": "^5.8.23",

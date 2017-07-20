@@ -39,7 +39,7 @@ describe("<Image/>", function(){
     })
 
     // it('lazy懒加载', ()=>{
-
+        
     // })
 
     it('loadCallback回调正常执行', ()=>{

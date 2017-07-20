@@ -226,9 +226,9 @@ class AccordionBody extends Component{
 
     componentDidMount(){
         setTimeout(()=>{
-            this.height =  this.accordionBody.offsetHeight+'px';
-            this.setHeight();
-        },0);
+            this.height =  this.accordionBody.offsetHeight+'px'
+            this.setHeight()
+        },0)
     }
 
     componentDidUpdate(){
@@ -236,7 +236,7 @@ class AccordionBody extends Component{
     }
 
     setHeight(){
-        this.accordionBodyParent.style.height = this.props.visible ? this.height : 0;
+        this.accordionBodyParent.style.height = this.props.visible ? this.height : 0
     }
 
     renderAccordionBody(){
@@ -247,8 +247,8 @@ class AccordionBody extends Component{
                     this.getProperty(true),
                     'animated',
                     className
-                )} ref={(accordionBodyParent)=>{this.accordionBodyParent = accordionBodyParent;}}>
-                <div ref={(accordionBody)=>{this.accordionBody = accordionBody;}}>
+                )} ref={(accordionBodyParent)=>{this.accordionBodyParent = accordionBodyParent}}>
+                <div ref={(accordionBody)=>{this.accordionBody = accordionBody}}>
                     {children}
                 </div>
             </div>

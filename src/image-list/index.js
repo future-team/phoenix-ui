@@ -13,13 +13,13 @@ import 'phoenix-styles/less/modules/image-list.less'
  * 主要属性和接口：
  * - column:列表的列数，默认1列。<br>
  * ```code
- * <ImageList column={4} lazy>
+ * <ImageList column={4}>
  *  {
  *      this.state.images.map((data,index)=>{
  *          return (
  *              <dl className='ph-image-item' key={index}>
  *                  <dt>
- *                      <Image src={data.image} alt={data.title}/>
+ *                      <Image src={data.image} alt={data.title} lazy/>
  *                  </dt>
  *                  <dd>
  *                      <p className='ph-image-title'>{data.title}</p>

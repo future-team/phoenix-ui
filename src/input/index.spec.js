@@ -59,6 +59,7 @@ describe("<Input/>", function(){
 
         findDOMNode(inputElem).value = value
         simulate.change(inputElem)
+        simulate.focus(inputElem)
         simulate.blur(inputElem)
         
         // assert(findDOMNode(input).className.match('error'))

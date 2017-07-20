@@ -30,14 +30,6 @@ export default class prompt extends Component{
         this.closeCallback('visible2');
     }
 
-    onUserNameChange(userName){
-        console.log(userName);
-    }
-
-    onPasswordChange(password){
-        console.log(password);
-    }
-
     render(){
         const buttons = [
              // text默认"确定", phStyle默认primary，onHandle默认closeCallback, otherProps传按钮的属性
@@ -46,8 +38,8 @@ export default class prompt extends Component{
         ];
         const inputs = [ 
             // type默认text，其他属性可选，按照正常输入; 
-            {defaultValue: "hah", placeholder: "用户名", maxLength: 10, onChange: this.onUserNameChange.bind(this)},
-            {type: "password", placeholder: "密码", onChange: this.onPasswordChange.bind(this)}
+            {value: "hah", placeholder: "用户名", maxLength: 10},
+            {type: "password", placeholder: "密码"}
         ];
 
         return(

@@ -14,34 +14,40 @@ let Tool = {
         return  TestUtils.renderIntoDocument(node)
     },
 
-    scry: function(parent, elem){
+    scry: function(parent, elem, index){
+        let _index = index || 0
         if(typeof elem == 'string'){
             if(elem.indexOf('.')>=0){
                 elem = elem.replace('.','')
-                return TestUtils.scryRenderedDOMComponentsWithClass(parent, elem)[0]
+                return TestUtils.scryRenderedDOMComponentsWithClass(parent, elem)[_index]
             }else{
-                return TestUtils.scryRenderedDOMComponentsWithTag(parent, elem)[0]
+                return TestUtils.scryRenderedDOMComponentsWithTag(parent, elem)[_index]
             }
         }else{
-            return TestUtils.scryRenderedComponentsWithType(parent, elem)[0]
+            return TestUtils.scryRenderedComponentsWithType(parent, elem)[_index]
         }
     },
 
-    find: function(parent, elem){
+    find: function(parent, elem, index){
+        let _index = index || 0
         if(typeof elem == 'string'){
             if(elem.indexOf('.')>=0){
                 elem = elem.replace('.','')
-                return TestUtils.findRenderedDOMComponentWithClass(parent, elem)[0]
+                return TestUtils.findRenderedDOMComponentWithClass(parent, elem)[_index]
             }else{
-                return TestUtils.findRenderedDOMComponentWithTag(parent, elem)[0]
+                return TestUtils.findRenderedDOMComponentWithTag(parent, elem)[_index]
             }
         }else{
-            return TestUtils.findRenderedComponentWithType(parent, elem)[0]
+            return TestUtils.findRenderedComponentWithType(parent, elem)[_index]
         }
     },
 
     findAll: function(parent, elem){
         return TestUtils.findAllInRenderedTree(parent, elem)
+    },
+
+    nativeTouchData: function(x,y){
+        return TestUtils.nativeTouchData(x,y)
     }
    
 }

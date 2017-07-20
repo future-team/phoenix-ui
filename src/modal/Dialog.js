@@ -110,6 +110,7 @@ class Dialog extends Component{
 
     static defaultProps = {
         visible: false,
+        closeButton: false,
         classPrefix:'dialog',
         componentTag:'div',
         classMapping : {}
