@@ -19,14 +19,14 @@ import 'phoenix-styles/less/modules/tab.less'
  */
 /**
  * tabset选项卡组件<br/>
- * - 通过activeIndex指定默认的选中tab的索引值。
+ * - 通过index指定默认的选中tab的索引值。
  * - 选项卡默认横排, 可通过vertical设置为竖排。
  * - 当设置为vertical后, 可通过width设置tab标题部分的宽度占比。
  * - 可通过clickCallback设置点击选项卡的回调函数。
  * - 可自定义className等常用属性以及事件。
  *
  * 具体属性和接口如下：
- * - activeIndex:默认选中的标签卡索引值，默认0第一个tab
+ * - index:默认选中的标签卡索引值，默认0第一个tab
  * - vertical:是否竖排，如需要直接添加改属性即可，默认不竖排
  * - width:选项卡头部的宽度，取值0-100之间, 只有设置vertical下生效, 默认20
  * - clickCallback:点击选项卡执行的回调函数
@@ -34,7 +34,7 @@ import 'phoenix-styles/less/modules/tab.less'
  * 示例:
  * - 横排
  * ```code
- *     <Tabset activeIndex ={this.state.index} clickCallback={(index)=>{console.log(index);}>
+ *     <Tabset index={this.state.index} clickCallback={(index)=>{console.log(index);}>
  *         <Tab heading='标题1' className='tab-test'>
  *             横向内容1
  *         </Tab>
@@ -70,11 +70,11 @@ class Tabset extends Component {
     static propTypes={
         /**
          * 指定默认选中的选项卡，默认为0
-         * @property activeIndex
+         * @property index
          * @type Number
          * @default 0
          * */
-        activeIndex:PropTypes.number,
+        index:PropTypes.number,
         /**
          * 是否竖排
          * @property vertical
@@ -99,7 +99,7 @@ class Tabset extends Component {
     };
 
     static defaultProps = {
-        activeIndex: 0,
+        index: 0,
         vertical: false,
         width: 33,
         clickCallback: null
@@ -109,12 +109,12 @@ class Tabset extends Component {
         super(props, context);
 
         this.state = {
-            activeIndex: this.props.activeIndex
+            activeIndex: this.props.index
         };
     }
 
     componentWillReceiveProps(nextProps){
-        this.state.activeIndex != nextProps.activeIndex && this.changeActive(nextProps.activeIndex);
+        this.state.activeIndex != nextProps.index && this.changeActive(nextProps.index);
     }
 
     isVertial() {

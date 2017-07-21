@@ -24,8 +24,8 @@ export default class tab extends Component{
            <div>
                 <h2 className="comp-title">Tabset/Tab</h2>
                 <h3 className="comp-type"><strong>Tabset</strong></h3>
-                <h3 className="comp-type">activeIndex(默认0) 默认选中选项卡的索引值</h3>
-                <Tabset activeIndex={1}>
+                <h3 className="comp-type">index(默认0) 默认选中选项卡的索引值</h3>
+                <Tabset index={1}>
                     <Tab heading="标题1">
                         横向内容1
                     </Tab>
@@ -33,7 +33,7 @@ export default class tab extends Component{
                         横向内容2
                     </Tab>
                 </Tabset>
-                <Code target="tabset-activeindex" />
+                <Code target="tabset-index" />
 
                 <h3 className="comp-type">vertical(默认false) 设置选项卡竖排</h3>
                 <Tabset vertical>

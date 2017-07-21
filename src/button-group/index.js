@@ -8,7 +8,7 @@ import 'phoenix-styles/less/modules/button-group.less'
 /**
  * 按钮组组件<br/>
  * - 按钮组组件配合Button组件,提供了横、竖两种排列方式, 可选default,justify,segmente,tacked,footer。
- * - 可通过activeIndex设置默认的选中索引值。
+ * - 可通过index设置默认的选中索引值。
  * - 可通过clickCallback实现点击回调，default和footer模式下不支持clickCallback。
  *
  * 主要属性和接口：
@@ -20,10 +20,10 @@ import 'phoenix-styles/less/modules/button-group.less'
  *         <Button block>tacked2</Button>
  *     </ButtonGroup>
  * ```
- * activeIndex:默认的选中索引值, 默认0 <br/>
+ * index:默认的选中索引值, 默认0 <br/>
  * 如:
  * ```code
- *     <ButtonGroup phType='justify' activeIndex={1}>
+ *     <ButtonGroup phType='justify' index={1}>
  *         <Button>justify</Button>
  *         <Button>justify</Button>
  *     </ButtonGroup>
@@ -56,11 +56,11 @@ export default class ButtonGroup extends Component{
         classPrefix: PropTypes.string,
          /**
          * 默认索引值
-         * @property activeIndex
+         * @property index
          * @type Number
          * @default 0
          * */
-        activeIndex: PropTypes.number,
+        index: PropTypes.number,
         /**
          * 是否有自适应宽度，垂直排列等属性，取值为default(用于双按钮)、justify(水平排列)、tacked(垂直排列)、segmente(分割排列)、footer(尾部按钮)
          * @property phType
@@ -77,7 +77,7 @@ export default class ButtonGroup extends Component{
     };
 
     static defaultProps = {
-        activeIndex: 0,
+        index: 0,
         phType:'default',
         classPrefix:'button-group',
         componentTag:'div',
@@ -94,7 +94,7 @@ export default class ButtonGroup extends Component{
         super(props, context);
 
         this.state = {
-            activeIndex:this.props.activeIndex
+            activeIndex:this.props.index
         }
 
         this.clickable = true
@@ -102,7 +102,7 @@ export default class ButtonGroup extends Component{
     }
 
     componentWillReceiveProps(nextProps){
-         if(this.state.activeIndex != nextProps.activeIndex) this.setState({activeIndex: nextProps.activeIndex});
+         if(this.state.activeIndex != nextProps.index) this.setState({activeIndex: nextProps.index});
     }
 
     clickHandler(index){

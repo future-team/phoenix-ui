@@ -141,13 +141,12 @@ let Index = class index extends Component {
 
                 <h2>例子</h2>
                 <div className="menu-panel">
-                    <Card href="#/list-demo" title="列表页示例" desp="列表页示例" />
-                    <Card href="#/detail" title="详情页示例" desp="详情页示例" />
+                    <Card href="#" title="待续..." desp="" />
                 </div>
             </div>
         );
     }
-};
+}
 
 let AppRouter = class AppRouter extends Component {
     constructor(props, context) {

@@ -53,15 +53,15 @@ export default class buttongroup extends Component{
                 </div>
                 <Code target="button-group-phtype-tacked" />
 
-                <h3 className="comp-type">activeIndex 选中的索引</h3>
+                <h3 className="comp-type">index 选中的索引</h3>
                 <div className="content">
-                    <ButtonGroup phType="justify" activeIndex={1}>
+                    <ButtonGroup phType="justify" index={1}>
                         <Button>justify1</Button>
                         <Button>justify2</Button>
                         <Button>justify3</Button>
                     </ButtonGroup>
                 </div>
-                <Code target="button-group-activeindex" />
+                <Code target="button-group-index" />
 
                 <h3 className="comp-type">clickCallback 点击按钮组回调函数</h3>
                 <div className="content">

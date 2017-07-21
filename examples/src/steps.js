@@ -27,12 +27,12 @@ export default class steps extends Component{
                 <Steps list={["合作信息","公司信息","资质信息"]} />
                 <Code target="steps-list" />
 
-                <h3 className="comp-type">currentStep(默认0) 当前步骤(从0开始)</h3>
-                <Steps currentStep={2} list={this.state.list1} />
-                <Code target="steps-currentstep" />
+                <h3 className="comp-type">index(默认0) 当前步骤(从0开始)</h3>
+                <Steps index={2} list={this.state.list1} />
+                <Code target="steps-index" />
 
                 <h3 className="comp-type">clickCallback(默认null) 选择步骤的回调函数</h3>
-                <Steps clickCallback={::this.clickCallback} list={this.state.list1}/>
+                <Steps clickCallback={this.clickCallback.bind(this)} list={this.state.list1}/>
                 <Code target="steps-clickcallback" />
 
                 <h3 className="comp-type">readOnly(默认false) 是否只读，只读时不可点击选择步骤</h3>

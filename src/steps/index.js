@@ -8,15 +8,15 @@ import 'phoenix-styles/less/modules/steps.less'
 /**
  * 步骤组件<br/>
  * - 通过list设置步骤过程名称数组，如['合作信息','公司信息','资质信息']，必需。
- * - 可通过currentStep设置当前步骤，从0开始计算。
+ * - 可通过index设置当前步骤，从0开始计算。
  * - 可通过clickCallback设置点击步骤的回调，函数返回步骤名称和索引。
  * - 可通过readOnly设置步骤是否只读不可点击，默认可点击。
  * 
  * 主要属性和接口：
  * - list:初始进度百分比, 默认0。 <br/>
  * 如: `<Steps list={['合作信息','公司信息','资质信息']} />`
- * - currentStep:当前步骤，从0开始计算，默认0。 <br/>
- * 如: `<Steps currentStep={1} list={['合作信息','公司信息','资质信息']} />`
+ * - index:当前步骤，从0开始计算，默认0。 <br/>
+ * 如: `<Steps index={1} list={['合作信息','公司信息','资质信息']} />`
  * - clickCallback:点击步骤的回调，函数返回步骤名称和索引。 <br/>
  * 如: `<Steps clickCallback={(str,index)=>{console.log(index);}} list={['合作信息','公司信息','资质信息']}/>`
  * - readOnly:只读不可点击，默认false。<br/>
@@ -55,12 +55,12 @@ export default class Steps extends Component{
          **/
         list: PropTypes.arrayOf(PropTypes.string),
         /**
-         * 当前处于第几步，默认为0，也就是说所有的步骤都没有开始，如果到第一步的话将currentStep设置为1即可，注意currentStep不可以超过list数组长度
-         * @property currentStep
+         * 当前处于第几步，默认为0，也就是说所有的步骤都没有开始，如果到第一步的话将index设置为1即可，注意index不可以超过list数组长度
+         * @property index
          * @type Number
          * @default 0
          **/
-        currentStep: PropTypes.number,
+        index: PropTypes.number,
         /**
          * 点击每一步的回调，function(str,index){} str为步骤名称，index为第几步（从1开始计数）
          * @method clickCallback
@@ -73,7 +73,7 @@ export default class Steps extends Component{
     static defaultProps = {
         readOnly: false,
         list: [],
-        currentStep: 0,
+        index: 0,
         classPrefix:'steps',
         classMapping : {}
     };
@@ -82,12 +82,12 @@ export default class Steps extends Component{
         super(props,context);
 
         this.state = {
-            currentStep: props.currentStep
+            currentStep: props.index
         }
     }
 
     componentWillReceiveProps(nextProps){
-         if(this.state.currentStep != nextProps.currentStep) this.setState({currentStep: nextProps.currentStep});
+         if(this.state.currentStep != nextProps.index) this.setState({currentStep: nextProps.index});
     }
 
     clickCallback(str, index, e){

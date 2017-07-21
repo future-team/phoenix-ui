@@ -211,10 +211,10 @@ header h1{
 }
 
 .content-drag .box{
-    width: 1rem;
-    height: 1rem;
+    width: 2rem;
+    height: 2rem;
     background-color: #000;
-    line-height: 1;
+    line-height: 2rem;
     text-align: center;
     color: #fff;
 }

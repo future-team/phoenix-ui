@@ -13,7 +13,7 @@ var code = {
 	'button-group-phtype-justify': '<ButtonGroup phType="justify">\n\  <Button>justify1</Button>\n\  <Button>justify2</Button>\n\  <Button>justify3</Button>\n</ButtonGroup>',
 	'button-group-phtype-segmente':'<ButtonGroup phType="segmente">\n\  <Button>标签1</Button>\n\  <Button>标签2</Button>\n\  <Button>标签3</Button>\n</ButtonGroup>',
 	'button-group-phtype-tacked': '<ButtonGroup phType="tacked">\n\  <Button block>tacked1</Button>\n\  <Button block>tacked2</Button>\n\  <Button block>tacked3</Button>\n</ButtonGroup>',
-	'button-group-activeindex':'<ButtonGroup phType="justify" activeIndex={1}>\n\  <Button>justify1</Button>\n\  <Button>justify2</Button>\n\  <Button>justify3</Button>\n</ButtonGroup>',
+	'button-group-index':'<ButtonGroup phType="justify" index={1}>\n\  <Button>justify1</Button>\n\  <Button>justify2</Button>\n\  <Button>justify3</Button>\n</ButtonGroup>',
 	'button-group-callback': '<ButtonGroup clickCallback={(target,html)=>{console.log(target);alert(html);}}>\n\  <Button>justify1</Button>\n\  <Button>justify2</Button>\n\  <Button>justify3</Button>\n</ButtonGroup>',
 	
 	'icon-phicon': '<Icon phIcon="search" />\n<Icon className="icon-home" />\n<span className="gfs-icon icon-chevron-left"></span>',
@@ -94,7 +94,7 @@ var code = {
 	'popover-distance':'<Button phSize="lg" ref={(button)=>{this.button3 = button}}>按钮</Button>\n<Popover getTarget={()=>{return this.button3}} distance={20}>\n\  <div className="ph-popover-text">\n\    为了占位存在的气泡提示语。\n\  </div>\n</Popover>',
 	'popover-clickcallback':'<Button phSize="lg" ref={(button)=>{this.button4 = button}}>按钮</Button>\n<Popover getTarget={()=>{return this.button4}} clickCallback={(bool)=>{alert(bool)}}>\n\  <div className="ph-popover-text">\n\    为了占位存在的气泡提示语。\n\  </div>\n</Popover>',
 
-	'tabset-activeindex': '<Tabset activeIndex={1}>\n\  <Tab heading="标题1">\n\    横向内容1\n\  </Tab>\n\  <Tab heading="标题2">\n\    横向内容2\n\  </Tab>\n</Tabset>',
+	'tabset-index': '<Tabset index={1}>\n\  <Tab heading="标题1">\n\    横向内容1\n\  </Tab>\n\  <Tab heading="标题2">\n\    横向内容2\n\  </Tab>\n</Tabset>',
 	'tabset-vertical': '<Tabset vertical>\n\  <Tab heading="标题1">\n\    竖向内容1\n\  </Tab>\n\  <Tab heading="标题2">\n\    竖向内容2\n\  </Tab>\n</Tabset>',
 	'tabset-width': '<Tabset vertical width={30}>\n\  <Tab heading="标题1">\n\    竖向内容1\n\  </Tab>\n\  <Tab heading="标题2">\n\    竖向内容2\n\  </Tab>\n</Tabset>',
 	'tabset-clickcallback': '<Tabset clickCallback={(index)=>{alert(index);}}>\n\  <Tab heading="标题1">\n\    横向内容1\n\  </Tab>\n\  <Tab heading="标题2">\n\    横向内容2\n\  </Tab>\n</Tabset>',
@@ -157,7 +157,7 @@ var code = {
 	'imagelist-column':'<ImageList column={4}>\n{\n\  this.state.images.map((data,index)=>{\n\    return (\n\      <dl className="ph-image-item" key={index}>\n\        <dt>\n\          <Image src={data.image} alt={data.title}/>\n\        </dt>\n\        <dd>\n\          <p className="ph-image-title">{data.title}</p>\n\          <p className="ph-image-desp">{data.desp}</p>\n\        </dd>\n\      </dl>\n\    )\n\  })\n}\n</ImageList>',
 	
 	'steps-list':'<Steps list={["合作信息","公司信息","资质信息"]} />',
-	'steps-currentstep':'<Steps currentStep={2} list={["合作信息","公司信息","资质信息","资质信息"]} />',
+	'steps-index':'<Steps index={2} list={["合作信息","公司信息","资质信息","资质信息"]} />',
 	'steps-clickcallback':'<Steps clickCallback={::this.clickCallback} list={["合作信息","公司信息","资质信息","资质信息"]}/>\nclickCallback(str, index){\n\  ...\n}',
 	'steps-readonly':'<Steps readOnly list={["合作信息","公司信息","资质信息","公司信息","资质信息","公司信息"]} />',
 

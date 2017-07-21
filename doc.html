@@ -1,5 +1,7 @@
-<div style="margin: -15px -20px 15px;padding: 50px 24px 60px 24px;box-sizing: border-box;background-color: #38b7ea;overflow: hidden;text-align:center; color:#fff;">
+<div style="position:relative; margin: -15px -20px 15px;padding: 50px 24px 60px 24px;box-sizing: border-box;background-color: #38b7ea;overflow: hidden;text-align:center; color:#fff;">
+    <a style="color:#fff;position: absolute;right:25px;top:15px;" href="http://future-team.github.io/phoenix-ui/doc_v1/index.html">Version 1.7.4 文档</a>
     <h1>Phoenix-ui</h1>
+    <p style="margin-top:15px">Version 2.0.0</p>
     <p style="margin-top:15px">基于React框架实现的移动端UI组件库</p>
     <p style="margin-top:15px">
         <a style="color:#fff" href="https://github.com/future-team/phoenix-ui">Github</a> |
@@ -61,27 +63,34 @@ render: function() {
     <li>去掉TableView和FormGroup，新增List，有需要form元素的可自行在外层加上。</li>
     <li>去掉LoadingList组件，新增PullUp，简化API，修复滑动触发的BUG。</li>
     <li>去掉Whisper组件，修改Popover的使用方式和位置计算，优化位置显示。</li>
-    <li>Input拆分成Input、Checkbox、Radio。Input新增phIcon、clear、visible等属性；不再需要外部setValue的使用方式，通过getValueCallback获取当前Input的值。</li>
+    <li>Input拆分成Input、Checkbox、Radio。Input新增phIcon、clear、visible等属性；不再需要外部onChange的使用方式，通过getValueCallback获取当前Input的值。</li>
     <li>新增SearchBar组件。</li>
     <li>新增Image组件，可定义图片在区域内的大小、位置和是否懒加载。</li>
-    <li>多组件丰富API。</li>
+    <li>Label组件使用方式改变，为统一规范用iconfont来替代。</li>
     <li>ph-filter合并到phoenix-ui中，可以通过`import PhFilter from 'phoenix-ui/lib/ph-filter'`引入使用，新增和修改部分API。</li>
+    <li>多组件丰富API，具体参考文档。</li>
     <li>所有的回调函数更名，如clickCallback（事件+Callback）的命名标准（除了表单元素仍然使用的是react标准的onChange）。</li>
     <li>样式规范化。</li>
 </ol>
 
 <h2>高级</h2>
-<p>组件拓展</p>
-<p>如：</p>
+<h3>组件拓展</h3>
+<p>想增加更多的属性，或者从根本上修改某些属性的表现方式等，可以选择拓展组件。</p>
 <pre class="well well-small sign-left3">
     import Button from 'phoenix-ui/lib/button'
 
     class MyButton extends Button{
         ...
+        // 方法覆盖
+        renderIcon(){
+            return null
+        }
+
         render(){
             return (
                 &#60;div className='my-button'&#62;
                     ...
+                    // 方法调用
                     {this.renderButton()}
                 &#60;/div&#62;
             )
@@ -105,7 +114,6 @@ render: function() {
 <h2>推荐</h2>
 <h3>PC端React UI组件库 - eagle-ui</h3>
 <p>Github: <a href="https://github.com/future-team/eagle-ui">https://github.com/future-team/eagle-ui</a></p>
-<p>Document: <a href="http://future-team.github.io/eagle-ui/doc/index.html">http://future-team.github.io/eagle-ui/doc/index.html</a></p>
 
 <div style="margin:25px -20px -15px;padding:50px 24px 60px 24px;box-sizing:border-box;background-color:rgb(238,238,238);text-align:center;">
     <p class="lead">使用中遇到问题请提交issue: <a href="https://github.com/future-team/phoenix-ui/issues">Phoenix-ui Issues</a></p>

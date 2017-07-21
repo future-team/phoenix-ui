@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import classnames from "classnames";
 
-import Menu from "phoenix-ui/lib/menu/Menu"
+import Menu from "phoenix-ui/lib/menu"
 import Button from "phoenix-ui/lib/button"
 import Icon from "phoenix-ui/lib/icon"
 import Input from "phoenix-ui/lib/input"
