@@ -1,7 +1,7 @@
 /**
  * Created by panqianjin on 16/5/19.
  */
-import React, { Component ,PropTypes} from 'react'
+import React, { Component } from 'react'
 import ReactDOM,{findDOMNode} from 'react-dom'
 import { Redirect, Router, Route } from 'react-router'
 import History from 'history/lib/createHashHistory'

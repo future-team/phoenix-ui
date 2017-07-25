@@ -70,13 +70,13 @@ export default class FilterItemGroup extends Component{
          * @property label
          * @type String | Element
          * */
-        label: PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.element]),
+        label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
         /**
          * 使用多条件筛选时，需要传递mainKey
          * @property mainKey
          * @type String | Number
          * */
-        mainKey: PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number])
+        mainKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
     }
 
     static defaultProps = {

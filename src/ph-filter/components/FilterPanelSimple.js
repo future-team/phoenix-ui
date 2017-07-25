@@ -57,22 +57,22 @@ export default class FilterPanelSimple extends PanelBase{
          * @property selected
          * @type Object 如{key:'ljz',value:'陆家嘴'}
          * */
-        selected: React.PropTypes.shape({
-            key: React.PropTypes.string,
-            value: React.PropTypes.oneOfType([React.PropTypes.string,React.PropTypes.element])
+        selected: PropTypes.shape({
+            key: PropTypes.string,
+            value: PropTypes.oneOfType([PropTypes.string,PropTypes.element])
         }),
         /**
          * 当不设置panel的选中项时（不选择任何item），可以设置一个默认字符展示在filter上
          * @property default
          * @type String
          * */
-        default: React.PropTypes.string,
+        default: PropTypes.string,
         /**
          * panel是否为只读模式
          * @property readOnly
          * @type Boolean
          * */
-        readOnly: React.PropTypes.bool,
+        readOnly: PropTypes.bool,
          /**
          * 按钮数组
          * @property buttons

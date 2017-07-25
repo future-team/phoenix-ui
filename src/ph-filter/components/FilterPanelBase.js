@@ -5,12 +5,12 @@ import Button from '../../button'
 
 export default class FilterPanelBase extends Component{
     static propTypes= {
-        selected: React.PropTypes.shape({
-            key: React.PropTypes.string,
-            value: React.PropTypes.oneOfType([React.PropTypes.string,React.PropTypes.element])
+        selected: PropTypes.shape({
+            key: PropTypes.string,
+            value: PropTypes.oneOfType([PropTypes.string,PropTypes.element])
         }),
-        default: React.PropTypes.string,
-        readOnly: React.PropTypes.bool
+        default: PropTypes.string,
+        readOnly: PropTypes.bool
     }
 
     static defaultProps = {
