@@ -116,7 +116,7 @@ header h1{
     color: #777;
 }
 .comp-type:before{
-    content: "\e64a";
+    content: "\e68b";
     display: inline-block;
     margin-right: .20rem;
     font-family:"iconfont" !important;

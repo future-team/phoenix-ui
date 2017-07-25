@@ -15,7 +15,7 @@
 $ npm install phoenix-ui --save
 </pre>
 
-<h2>使用前</h2>
+<h2 style="color:red">特别注意</h2>
 <h3>针对dpr的屏幕兼容</h3>
 <p>在html文件的head元素中引入gfs-viewport.js文件，兼容不同手机不同dpr带来的适配问题。</p>
 <pre class="well well-small sign-left3">
@@ -73,13 +73,12 @@ render: function() {
     <li>样式规范化。</li>
 </ol>
 
-<h2>高级</h2>
-<h3>组件拓展</h3>
-<p>想增加更多的属性，或者从根本上修改某些属性的表现方式等，可以选择拓展组件。</p>
+<h2>组件拓展</h2>
+<h3>组件继承</h3>
 <pre class="well well-small sign-left3">
     import Button from 'phoenix-ui/lib/button'
 
-    class MyButton extends Button{
+    export default class MyButton extends Button{
         ...
         // 方法覆盖
         renderIcon(){
@@ -96,6 +95,25 @@ render: function() {
             )
         }
     }
+</pre>
+<h3>高阶组件</h3>
+<pre class="well well-small sign-left3">
+    import {Component} from 'react'
+    import Button from 'phoenix-ui/lib/button'
+
+    function enhance(WrappedComponent){
+        return class extends Component{
+            ...
+
+            render(){
+                return <WrappedComponent {...this.props} />
+            }
+        }
+    }
+
+    const MyButton = enhance(Button)
+
+    export default MyButton
 </pre>
 
 <h2>样式</h2>

@@ -8,22 +8,44 @@ export default class Labels extends Component{
         return(
         	<div>
             	<h2 className="comp-title">Label</h2>
+                <h3 className="comp-type">phLabel 标签类型</h3>
+                <div className="content">
+	                <Label phLabel="zu"/>
+                    <Label phLabel="tuan"/>
+                    <Label phLabel="fu"/>
+                    <Label phLabel="cu"/>
+                    <Label phLabel="quan"/>
+                    <Label phLabel="shou"/>
+                    <Label phLabel="piao"/>
+                    <Label phLabel="ding"/>
+                    <Label phLabel="jia"/>
+                    <Label phLabel="yin"/>
+                    <Label phLabel="ka"/>
+                    <Label phLabel="wai"/>
+                    <Label phLabel="dian"/>
+                    <Label phLabel="pin"/>
+                    <Label phLabel="ke"/>
+                    <Label phLabel="pai"/>
+                    <Label phLabel="huo"/>
+                </div>
+                <Code target="label-phlabel" />
+
                 <h3 className="comp-type">phStyle(默认primary) 标签颜色</h3>
                 <div className="content">
-	                <Label>惠</Label>
-	                <Label phStyle="success">惠</Label>
-	                <Label phStyle="info">惠</Label>
-					<Label phStyle="danger">惠</Label>
-	                <Label phStyle="error">惠</Label>
-	                <Label phStyle="warning">惠</Label>
+	                <Label phLabel="tuan"/>
+                    <Label phLabel="ke" phStyle="info"/>
+                    <Label phLabel="ding" phStyle="success"/>
+                    <Label phLabel="cu" phStyle="tip"/>
+                    <Label phLabel="huo" phStyle="calm"/>
+                    <Label phLabel="ka" phStyle="light"/>
+                    <Label phLabel="zu" phStyle="gray"/>
                 </div>
                 <Code target="label-phstyle" />
 
                 <h3 className="comp-type">phSize(默认sm) 标签大小</h3>
                 <div className="content">
-	                <Label>惠</Label>
-	                <Label phSize="md">惠</Label>
-	                <Label phSize="lg">惠</Label>
+	                <Label phLabel="pai"/>
+                    <Label phLabel="pai" phSize="md"/>
                 </div>
                 <Code target="label-phsize" />
             </div>

@@ -20,15 +20,15 @@ export default class icon extends Component{
                 <h3 className="comp-type">phSize 符号大小</h3>
                 <div className="content">
                     <h3 className="comp-tip">xs-24px</h3>
-                    <Icon phIcon="tip" phSize="xs" />
+                    <Icon phIcon="tip-circle" phSize="xs" />
                     <h3 className="comp-tip">sm-32px</h3>
-                    <Icon phIcon="tip" phSize="sm" />
+                    <Icon phIcon="tip-circle" phSize="sm" />
                     <h3 className="comp-tip">md-40px</h3>
-                    <Icon phIcon="tip" phSize="md" />
+                    <Icon phIcon="tip-circle" phSize="md" />
                     <h3 className="comp-tip">lg-48px</h3>
-                    <Icon phIcon="tip" phSize="lg" />
+                    <Icon phIcon="tip-circle" phSize="lg" />
                     <h3 className="comp-tip">xlg-80px</h3>
-                    <Icon phIcon="tip" phSize="xlg" />
+                    <Icon phIcon="tip-circle" phSize="xlg" />
                 </div>
                 <Code target="icon-phsize" />
 

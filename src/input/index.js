@@ -117,7 +117,7 @@ export default class Input extends Component{
 
         this.setMethod('getValueCallback',this.getValue.bind(this))
 
-        this.visibleIcon = ['camera-fill','camera']
+        this.visibleIcon = ['yinsi','biyan']
 
         this.state = {
             type: props.type,
@@ -242,7 +242,7 @@ export default class Input extends Component{
 
     renderVisibleButton(visible){
         if(visible){
-            return <Icon className={classnames('gfs-icon-visible', !this.state.visible? 'gfs-icon-active':'')} 
+            return <Icon className={classnames('gfs-icon-visible', !this.state.cansee? 'gfs-icon-active':'')} 
                 phIcon={this.visibleIcon[this.state.cansee]} 
                 onClick={this.visibleHandle.bind(this)} />
         }
@@ -264,7 +264,7 @@ export default class Input extends Component{
 
     renderErrorButton(error){
         if(error){
-            return <Icon className={classnames('gfs-icon-error')} phIcon='tip-fill' />
+            return <Icon className={classnames('gfs-icon-error')} phIcon='warning-fill' />
         }
     }
 

@@ -26,8 +26,9 @@ var code = {
 
 	'badge-phstyle': '<Badge>1</Badge>\n<Badge>10</Badge>\n<Badge>Hot</Badge>\n\n<Badge phStyle="primary">惠</Badge>\n<Badge phStyle="success">惠</Badge>\n<Badge phStyle="info">惠</Badge>\n<Badge phStyle="danger">惠</Badge>\n<Badge phStyle="error">惠</Badge>\n<Badge phStyle="warning">惠</Badge>',
 
-	'label-phstyle': '<Label>惠</Label>\n<Label phStyle="success">惠</Label>\n<Label phStyle="info">惠</Label>\n<Label phStyle="danger">惠</Label>\n<Label phStyle="error">惠</Label>\n<Label phStyle="warning">惠</Label>',
-	'label-phsize': '<Label>惠</Label>\n<Label phSize="md">惠</Label>\n<Label phSize="lg">惠</Label>',
+	'label-phlabel':'<Label phLabel="zu"/>\n<Label phLabel="tuan"/>\n<Label phLabel="fu"/>\n<Label phLabel="cu"/>\n<Label phLabel="quan"/>\n<Label phLabel="shou"/>\n<Label phLabel="piao"/>\n<Label phLabel="ding"/>\n<Label phLabel="jia"/>\n<Label phLabel="yin"/>\n<Label phLabel="ka"/>\n<Label phLabel="wai"/>\n<Label phLabel="dian"/>\n<Label phLabel="pin"/>\n<Label phLabel="ke"/>\n<Label phLabel="pai"/>\n<Label phLabel="huo"/>',
+	'label-phstyle': '<Label phLabel="tuan"/>\n<Label phLabel="ke" phStyle="info"/>\n<Label phLabel="ding" phStyle="success"/>\n<Label phLabel="cu" phStyle="tip"/>\n<Label phLabel="huo" phStyle="calm"/>\n<Label phLabel="ka" phStyle="light"/>\n<Label phLabel="zu" phStyle="gray"/>',
+	'label-phsize': '<Label phLabel="pai"/>\n<Label phLabel="pai" phSize="md"/>',
 
 	'input-text': '<Input placeholder="请输入"/>\n<Input placeholder="请输入" value="默认值" clear />\n<Input placeholder="请输入" value="不可编辑的情况" disabled/>',
 	'input-search':'<Input type="search" placeholder="请输入" />\n<Input type="search" placeholder="请输入" value="可清空输入的文字" clear />\n<Input type="search" placeholder="请输入" value="不可编辑的情况" disabled />',
