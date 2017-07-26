@@ -61,7 +61,6 @@ export default class ImageList extends Component{
 
     static defaultProps ={
         column: 1,
-        lazy: false,
         classPrefix:'image-list',
         classMapping : {}
     };
@@ -74,7 +73,7 @@ export default class ImageList extends Component{
         let {column, className, children} = this.props;
 
         return (
-            <div className={classnames(
+            <div {...this.otherProps} className={classnames(
                 this.getProperty(true), 
                 className, 
                 this.setPhPrefix('column-'+column, true)

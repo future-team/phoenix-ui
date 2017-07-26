@@ -71,7 +71,7 @@ export default class Checkbox extends Component{
         return (
             <label className={this.setPhPrefix('multi-group',true)}>
                 <div className={this.getProperty(true)}>
-                    <input {...this.props} />
+                    <input {...this.otherProps} />
                     <i></i>
                 </div>
                 <span>{label}</span>

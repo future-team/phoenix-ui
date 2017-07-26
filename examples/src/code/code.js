@@ -1,4 +1,4 @@
-import React, { Component ,PropTypes} from 'react';
+import React, { Component } from 'react';
 import ReactDOM,{findDOMNode} from 'react-dom';
 import codeJson from './code-json';
 

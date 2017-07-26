@@ -149,16 +149,16 @@ export default class Swipe extends Component{
     }
 
     renderSwipe(){
-        let {componentTag:Component, className} = this.props
+        let {componentTag:Component, className, style, children} = this.props
         
         return (
-            <Component className={classnames(
+            <Component {...this.otherProps} className={classnames(
                 this.getProperty(true),
                 className
-            )} style={this.getStyles(this.props.style)}>
+            )} style={this.getStyles(style)}>
                 <Drag className={this.setPhPrefix('content')} dragCallback={this.dragCallback.bind(this)} dropCallback={this.dropCallback.bind(this)} 
                     ref={(drag)=>{this.dragElem = drag}}>
-                    {this.props.children}
+                    {children}
                 </Drag>
                 {this.renderButtons()}
             </Component>

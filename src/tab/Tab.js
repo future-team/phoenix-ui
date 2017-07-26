@@ -1,6 +1,5 @@
-import React, {PropTypes, Component} from 'react'
-import ClassNameMixin from '../utils/ClassNameMixin'
-import {setPhPrefix} from '../utils/Tool'
+import React, {PropTypes} from 'react'
+import Component from '../utils/Component'
 import classnames from 'classnames'
 
 /**
@@ -15,7 +14,7 @@ import classnames from 'classnames'
  *
  * 示例:
  * ```code
- *     <Tabset activeIndex ={this.state.index} tabCallback={(index)=>{console.log(index);}>
+ *     <Tabset index={this.state.index} tabCallback={(index)=>{console.log(index);}>
  *         <Tab heading='标题1' className='tab-test'>
  *             横向内容1
  *         </Tab>
@@ -34,7 +33,6 @@ import classnames from 'classnames'
  * @show true
  * */
 
-@ClassNameMixin
 export default class Tab extends Component {
     static ProTypes = {
         /**
@@ -57,7 +55,9 @@ export default class Tab extends Component {
         heading: 'tab',
         activeIndex:0,
         vertical:false,
-        clickCallback: null
+        clickCallback: null,
+        classPrefix:'tab',
+        classMapping : {}
     };
 
     constructor(props,context){
@@ -74,20 +74,20 @@ export default class Tab extends Component {
     }
 
     isVertical(){
-        return !!this.props.vertical ? '':setPhPrefix('col');
+        return !!this.props.vertical ? '': this.setPhPrefix('col',true);
     }
 
     renderTab(){
-        let {className,onClick,...other} = this.props;
+        let {className} = this.props;
         return(
-            <li className={
+            <li {...this.otherProps} className={
                 classnames(
                     this.isVertical(),
-                    setPhPrefix('tab-nav'),
+                    this.setPhPrefix('tab-nav',true),
                     this.isActive(),
                     className
                 )
-            } onClick={this.handleClick.bind(this)} {...other}>
+            } onClick={this.handleClick.bind(this)}>
                 <a href='javascript:;'>{this.props.heading}</a>
             </li>
         )

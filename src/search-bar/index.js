@@ -145,14 +145,14 @@ export default class SearchBar extends Component{
     }
 
     renderSearchBar(){
-        let {className,placeholder} = this.props
+        let {className, placeholder, style} = this.props
 
         return(
             <div className={classnames(
                this.getProperty(true),
                className,
                this.state.focus? this.setPhPrefix('focus'):''
-           )}>
+           )} style={this.getStyles(style)}>
                <Input type='search' phIcon='search' placeholder={placeholder} clear 
                     ref={(searchElem)=>{this.searchElem=searchElem}}
                     onFocus={this.onFocus.bind(this)}

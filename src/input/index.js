@@ -168,7 +168,7 @@ export default class Input extends Component{
                     visibleStatus ? this.setPhPrefix('visible'):'',
                     errorState ? this.setPhPrefix('error'):'',
                 )}>
-                    <input {...this.props} type={this.state.type} placeholder='' value={value}
+                    <input {...this.otherProps} type={this.state.type} placeholder='' value={value}
                         ref={(inputElem)=>{this.inputElem=inputElem}}
                         onChange={this.onChange.bind(this)} 
                         onFocus={this.onFocus.bind(this)} 

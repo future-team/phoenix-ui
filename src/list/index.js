@@ -53,7 +53,7 @@ class List extends Component{
 
     renderList(){
         return (
-            <ul {...this.props} className={classnames(
+            <ul {...this.otherProps} className={classnames(
                 this.getProperty(true),
                 this.props.className
             )}>
@@ -89,7 +89,7 @@ class ListHeader extends Component{
 
     renderListHeader(){
         return(
-            <li {...this.props} className={classnames(
+            <li {...this.otherProps} className={classnames(
                this.getProperty(true),
                this.props.className
            )}>

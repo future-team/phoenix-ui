@@ -6,14 +6,10 @@ import Icon from '../icon'
 
 /**
  * 菜单头部组件<br/>
- * - 通过align设置菜单按钮的位置, 可选[left, right]。
- *
- * 主要属性和接口：
- * - align:设置菜单按钮的位置,默认left。 <br/>
  * 如：
  * ```code
  *     <Menu>
- *         <Menu.Header align='right'>
+ *         <Menu.Header>
  *             标题一
  *         </Menu.Header>
  *         <Menu.Body>
@@ -42,39 +38,23 @@ export default class MenuHeader extends Component {
          * @type String
          * @default 'menu-header'
          * */
-        classPrefix: PropTypes.string,
-        /**
-         * 菜单按钮位置, 可选[left,right], left
-         * @property align
-         * @type String
-         * @default 'left'
-         * */
-        align: PropTypes.string,
+        classPrefix: PropTypes.string
     };
 
     static defaultProps = {
-        align: 'left',
         classPrefix:'menu-header',
-        classMapping : {
-            'left':'left',
-            'right':'right'
-        }
-    };
-
-    onChange(){
-        this.props.changeVisible();
+        classMapping : {}
     }
 
     renderMenuHeader(){
         let {className} = this.props;
 
         return (
-            <div {...this.props} className={classnames(
+            <div {...this.otherProps} className={classnames(
                     this.getProperty(true),
                     className
                 )}
             >
-                <Icon phIcon='menu' onClick={this.onChange.bind(this)}/>
                 <div className={this.setPhPrefix('content')}>{this.props.children}</div>
             </div>
         )

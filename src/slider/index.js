@@ -271,7 +271,7 @@ export default class Slider extends Component{
             showTipMode = tipMode=='default';
 
         return (
-            <Component {...this.props} className={classnames(
+            <Component {...this.otherProps} className={classnames(
                 this.getProperty(true),
                 className,
                 showRange? this.setPhPrefix('keep-range',true):''

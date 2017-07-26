@@ -87,4 +87,56 @@ export const classConstants = {
     * tab
     * */
     vertical: setNamespace('vertical')
-};
+}
+
+// 自定义属性集合
+export const propsConstants = {
+    classPrefix: 'classPrefix',
+    componentTag: 'componentTag',
+    classMapping: 'classMapping',
+
+    phIcon: 'phIcon',
+    phReg: 'phReg',
+
+    index: 'index',
+    activeIndex: 'activeIndex',
+    vertical: 'vertical',
+    visible: 'visible',
+    error: 'error',
+    clear: 'clear',
+    closeButton: 'closeButton',
+    shadowDisabled: 'shadowDisabled',
+    count: 'count',
+    navigate: 'navigate',
+    clickable: 'clickable',
+    getTarget: 'getTarget',
+    distance: 'distance',
+    changeActive: 'changeActive',
+    hideIcon: 'hideIcon',
+    changeVisible: 'changeVisible',
+    progress: 'progress',
+    range: 'range',
+    showRange: 'showRange',
+    duration: 'duration',
+    tipMode: 'tipMode',
+    tipStay: 'tipStay',
+    buttons: 'buttons',
+    tips: 'tips',
+    status: 'status',
+    column: 'column',
+
+    // fn
+    closeCallback: 'closeCallback',
+    clickCallback: 'clickCallback',
+    focusCallback: 'focusCallback',
+    blurCallback: 'blurCallback',
+    slideCallback: 'slideCallback',
+    dragCallback: 'dragCallback',
+    dropCallback: 'dropCallback',
+    loadCallback: 'loadCallback',
+
+    // menu
+    ceiling: 'ceiling',
+    headerHeight: 'headerHeight',
+    activeName: 'activeName'
+}

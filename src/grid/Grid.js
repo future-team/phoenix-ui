@@ -66,7 +66,7 @@ export default class Grid extends Component{
 
     renderGrid(){
         return (
-            <div {...this.props}
+            <div {...this.otherProps}
                 className={classnames(
                     this.getProperty(true),
                     this.props.fluid ? this.setPhPrefix('fluid'):'',

@@ -72,7 +72,7 @@ export default class Switch extends Component{
                     this.props.className
                 )
             }>
-                <input type='checkbox' {...this.props} />
+                <input type='checkbox' {...this.otherProps} />
                 <div className={this.setPhPrefix('checkbox',true)}></div>
             </label>
         )

@@ -113,7 +113,7 @@ export default class Popup extends Component{
         let {visible,children,className} = this.props;
 
         if(visible){
-            return <div {...this.props} className={classnames(this.setPhPrefix('content'), 'animated', className)}>{children}</div>;
+            return <div {...this.otherProps} className={classnames(this.setPhPrefix('content'), 'animated', className)}>{children}</div>;
         }else{
             return '';
         }
@@ -123,7 +123,7 @@ export default class Popup extends Component{
         let {componentTag:Component, className} = this.props;
 
         return (
-            <Component {...this.props} className={classnames(
+            <Component className={classnames(
                 this.getProperty(true),
                 className
             )}>

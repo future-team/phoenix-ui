@@ -1,7 +1,6 @@
-import React,{PropTypes, Component} from 'react'
-import ClassNameMixin from '../utils/ClassNameMixin'
+import React,{PropTypes} from 'react'
+import Component from '../utils/Component'
 import classnames from 'classnames'
-import {setPhPrefix} from '../utils/Tool'
 import Tab from './Tab.js'
 
 import '../style'
@@ -45,7 +44,7 @@ import 'phoenix-styles/less/modules/tab.less'
  * ```
  * - 竖排
  * ```code
- *     <Tabset vertical width={30} activeIndex ={this.state.index} clickCallback={(index)=>{console.log(index);}>
+ *     <Tabset vertical width={30} index={this.state.index} clickCallback={(index)=>{console.log(index);}>
  *         <Tab heading='标题1'>
  *             竖向内容1
  *         </Tab>
@@ -63,9 +62,8 @@ import 'phoenix-styles/less/modules/tab.less'
  * @demo tab|tab.js{展示}
  * @show true
  * */
-@ClassNameMixin
-export default
-class Tabset extends Component {
+
+export default class Tabset extends Component {
 
     static propTypes={
         /**
@@ -102,7 +100,9 @@ class Tabset extends Component {
         index: 0,
         vertical: false,
         width: 33,
-        clickCallback: null
+        clickCallback: null,
+        classPrefix:'tabs',
+        classMapping : {}
     };
 
     constructor(props, context) {
@@ -118,7 +118,7 @@ class Tabset extends Component {
     }
 
     isVertial() {
-        return !!this.props.vertical ? setPhPrefix('tabs-vertical')+' '+setPhPrefix('row') : '';
+        return !!this.props.vertical ? this.setPhPrefix('tabs-vertical',true)+' '+this.setPhPrefix('row',true) : '';
     }
 
     isActive(index) {
@@ -137,10 +137,10 @@ class Tabset extends Component {
     getClass(flag) {
         let vertical = this.props.vertical;
         if(flag){
-            let cols = setPhPrefix('col-'+this.props.width);
-            return !vertical ? setPhPrefix('row'): setPhPrefix('col')+' '+cols;
+            let cols = this.setPhPrefix('col-'+this.props.width, true);
+            return !vertical ? this.setPhPrefix('row',true): this.setPhPrefix('col',true)+' '+cols;
         }else{
-            return vertical ? setPhPrefix('col'): '';
+            return vertical ? this.setPhPrefix('col',true): '';
         }
 
     }
@@ -151,10 +151,11 @@ class Tabset extends Component {
     }
 
     renderTabset(){
-        let panels = [];
-        let {className,...other} = this.props;
+        let panels = [],
+            {className} = this.props
+
         let headings = React.Children.map(this.props.children, (options, index)=> {
-            let { vertical,...other} = options.props;
+            let { vertical } = options.props;
             let opt = React.cloneElement(options, {
                 key:index,
                 index: index,
@@ -164,7 +165,7 @@ class Tabset extends Component {
             });
 
             let panel = <div className={classnames(
-                    setPhPrefix('tab-panel'),
+                    this.setPhPrefix('tab-panel',true),
                    this.isActive(index),
                    options.props.className
                 )} key={index}>
@@ -175,17 +176,17 @@ class Tabset extends Component {
         }, this);
 
         return (
-            <div className={classnames(
-                setPhPrefix('tabs'),
+            <div {...this.otherProps} className={classnames(
+                this.setPhPrefix('tabs',true),
                 this.isVertial(),
                 className
-            )}  {...other}>
-                <ul className={classnames(this.getClass(true), setPhPrefix('tab-navs'))}>
+            )}>
+                <ul className={classnames(this.getClass(true), this.setPhPrefix('tab-navs',true))}>
                     {headings}
                 </ul>
                 <div className={classnames(
                     this.getClass(false),
-                    setPhPrefix('tab-bd')
+                    this.setPhPrefix('tab-bd', true)
                 )}>
                     {panels}
                 </div>

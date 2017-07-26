@@ -93,16 +93,16 @@ export default class Col extends Component{
     };
 
     renderCol(){
-        let  {className} = this.props;
+        let  {className, children} = this.props;
 
         return (
-            <div {...this.props} className={
+            <div {...this.otherProps} className={
                 classnames(
                     this.getProperty(true),
                     className
                 )
             }>
-                {this.props.children}
+                {children}
             </div>
         );
     }

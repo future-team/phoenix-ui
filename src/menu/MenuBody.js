@@ -1,6 +1,8 @@
 import React,{PropTypes} from 'react'
+import {findDOMNode} from 'react-dom'
 import Component from '../utils/Component'
 import classnames from 'classnames'
+import Tool from '../utils/Tool'
 
 import Animate from '../animate'
 import Icon from '../icon'
@@ -18,10 +20,10 @@ import Icon from '../icon'
  * 如：
  * ```code
  *     <Menu>
- *         <Menu.Header>
+ *         <Menu.Header ref={(menuHandler)=>{this.menuHandler=menuHandler}}>
  *             标题一
  *         </Menu.Header>
- *         <Menu.Body width={60} placement='left' closeButton>
+ *         <Menu.Body width={60} placement='left' closeButton getTarget={()=>{return this.menuHandler}}>
  *             ...
  *         </Menu.Body>
  *     </Menu>
@@ -44,6 +46,12 @@ export default class MenuBody extends Component{
          * @default 'menu-body'
          * */
         classPrefix: PropTypes.string,
+        /**
+         * 返回菜单的目标元素
+         * @method getTarget
+         * @type Function
+         * */
+        getTarget: PropTypes.func,
         /**
          * 菜单位置, 可选[top,left,right,left-full,right-full,full-screen], 默认top
          * @property placement
@@ -68,6 +76,7 @@ export default class MenuBody extends Component{
     };
 
     static defaultProps = {
+        activeName: null,
         width: 50,
         classPrefix:'menu-body',
         placement: 'top',
@@ -82,15 +91,65 @@ export default class MenuBody extends Component{
     };
 
     constructor(props, context) {
-        super(props, context);
+        super(props, context)
+
+        this.handleDocumentClick = this.handleDocumentClick.bind(this)
+        this.targetClickHandle = this.targetClickHandle.bind(this)
+
+        this.state = {
+            visible: props.visible,
+            activeName: props.activeName
+        }
+
+        document.addEventListener('click', this.handleDocumentClick, false);
+    }
+
+    handleDocumentClick(event){
+        if(!this.state.visible) return
+
+        let el = event.target
+        
+        if(!Tool.closest(el,'.ph-menu')){
+            this.targetClickHandle()
+        }
     }
 
     componentDidMount(){
-        this.setSize(); 
+        this.setSize()
+
+        let target = this.props.getTarget()
+        if(!target) Tool.warning('Popover 必须传递 getTarget[func]!')
+
+        this.target = findDOMNode(target)
+        this.target.addEventListener('click', this.targetClickHandle, false)
     }
 
     componentDidUpdate(){
         this.setSize();
+    }
+
+    componentWillReceiveProps(nextProps){
+        let {clickCallback} = nextProps.clickCallback
+        
+        if(this.state.visible !== nextProps.visible){
+            this.setState({
+                visible: nextProps.visible
+            }, ()=>{
+                if(clickCallback) clickCallback(nextProps.visible)
+            })
+        }
+        
+        if(nextProps.activeName !== this.state.activeName){
+            this.setState({
+                activeName: nextProps.activeName
+            })
+        }
+    }
+
+    changeActive(name){
+        this.setState({
+            activeName: name
+        })
     }
 
     setSize(){
@@ -106,14 +165,15 @@ export default class MenuBody extends Component{
     }
 
     renderAnimation(){
-        let {visible,children,className} = this.props;
+        let {children,className} = this.props,
+            {visible} = this.state
 
         if(visible){
             return (
-                <div {...this.props} className={classnames(this.getProperty(true),className, 'animated')}
+                <div {...this.otherProps} className={classnames(this.getProperty(true),className, 'animated')}
                     ref={(menuBodyParent)=>{this.menuBodyParent = menuBodyParent;}}>
                     {this.renderCloseButton()}
-                    {children}
+                    {this.renderChildren()}
                 </div>
             );
         }else{
@@ -121,18 +181,44 @@ export default class MenuBody extends Component{
         }
     }
 
+    renderChildren(){
+        let _this = this,
+            newChildren = [],
+            {activeName} = this.state
+        
+        React.Children.forEach(this.props.children, function(child, index){
+            let opt = {}
+
+            opt.key = index
+            if(child.type.name=='MenuList'){
+                opt.activeName = activeName
+                opt.changeActive = _this.changeActive.bind(_this)
+            } 
+
+            newChildren.push(React.cloneElement(child, opt));
+        });
+
+        return newChildren;
+    }
+
     renderCloseButton(){
         let {closeButton} = this.props;
 
         if(closeButton){
-            return <Icon phIcon='close' className={classnames(this.setPhPrefix('menu-close-button', true))} onClick={this.onChange.bind(this)} />;
+            return <Icon phIcon='close' className={classnames(this.setPhPrefix('menu-close-button', true))} onClick={this.targetClickHandle.bind(this)} />;
         }else{
             return '';
         }
     }
 
-    onChange(){
-        this.props.changeVisible();
+    targetClickHandle(){
+        let {clickCallback} = this.props
+
+        this.setState({
+            visible: !this.state.visible
+        }, ()=>{
+            if(clickCallback) clickCallback(this.state.visible)
+        })
     }
 
     renderMenuBody(){
@@ -146,6 +232,11 @@ export default class MenuBody extends Component{
                 {this.renderAnimation()}
             </Animate>
         );
+    }
+
+    componentWillUnmount(){
+        this.target.removeEventListener('click', this.targetClickHandle, false)
+        document.removeEventListener('click', this.handleDocumentClick, false)
     }
 
     render(){

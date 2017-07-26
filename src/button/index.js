@@ -135,10 +135,10 @@ export default class Button extends Component{
         super(props, context);
     }
 
-    clickHandle(e){
-        let {clickHandle, onClick} = this.props;
+    clickCallback(e){
+        let {clickCallback, onClick} = this.props;
 
-        if(clickHandle) clickHandle(e);
+        if(clickCallback) clickCallback(e);
         if(onClick) onClick(e);
     }
 
@@ -153,17 +153,17 @@ export default class Button extends Component{
     }
 
     renderButton(){
-        let {componentTag:Component} = this.props;
+        let {componentTag:Component, className, style, children} = this.props;
 
         return (
             <Component {...this.otherProps} className={
                 classnames(
                     this.getProperty(true),
-                    this.props.className
+                    className
                 )}
-                style={this.getStyles(this.props.style)} onClick={this.clickHandle.bind(this)}>
+                style={this.getStyles(style)} onClick={this.clickCallback.bind(this)}>
                 {this.renderIcon()}
-                {this.props.children}
+                {children}
             </Component>
         );
     }

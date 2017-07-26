@@ -182,7 +182,7 @@ class Dialog extends Component{
         let {componentTag:Component, className} = this.props;
 
         return (
-            <Component {...this.props} className={classnames(
+            <Component {...this.otherProps} className={classnames(
                 this.getProperty(true),
                 className
             )}>
@@ -214,7 +214,7 @@ class DialogTitle extends Component{
 
     renderDialogTitle(){
         return (
-            <h2 {...this.props} className={classnames(
+            <h2 {...this.otherProps} className={classnames(
                 this.getProperty(true),
                 this.props.className
             )}>
@@ -241,7 +241,7 @@ class DialogBody extends Component{
 
     renderDialogBody(){
         return (
-            <div {...this.props} className={classnames(
+            <div {...this.otherProps} className={classnames(
                 this.getProperty(true),
                 this.props.className
             )}>
@@ -268,7 +268,7 @@ class DialogFooter extends Component{
 
     renderDialogFooter(){
         return (
-            <div {...this.props} className={classnames(
+            <div {...this.otherProps} className={classnames(
                 this.getProperty(true),
                 this.props.className,
                 'clearfix'

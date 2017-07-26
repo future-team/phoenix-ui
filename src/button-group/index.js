@@ -77,6 +77,7 @@ export default class ButtonGroup extends Component{
     };
 
     static defaultProps = {
+        clickable: true, // for modal
         index: 0,
         phType:'default',
         classPrefix:'button-group',
@@ -97,7 +98,7 @@ export default class ButtonGroup extends Component{
             activeIndex:this.props.index
         }
 
-        this.clickable = true
+        this.clickable = props.clickable
         if(['default','footer'].indexOf(props.phType)!=-1) this.clickable = false
     }
 
@@ -123,7 +124,7 @@ export default class ButtonGroup extends Component{
         return React.Children.map(children,(child,index)=>{
             let options = {};
 
-            options.clickHandle = this.clickHandler.bind(this,index);
+            options.clickCallback = this.clickHandler.bind(this,index);
             if(this.clickable) options.hollow = this.state.activeIndex != index;
 
             let newChildren = React.cloneElement(child, options);
@@ -137,7 +138,7 @@ export default class ButtonGroup extends Component{
         const {componentTag:Component, children} = this.props;
 
         return (
-            <Component {...this.props} className={
+            <Component {...this.otherProps} className={
                 classnames(
                     this.getProperty(true),
                     'clearfix'

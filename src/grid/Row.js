@@ -51,7 +51,6 @@ export default class Row extends Component{
     }
 
     static defaultProps = {
-        componentTag:'div',
         classPrefix: 'row',
         classMapping : {
             'top':'top',
@@ -63,15 +62,15 @@ export default class Row extends Component{
     }
 
     renderRow(){
-        let {componentTag:Component} = this.props
+        let {className, children} = this.props
 
         return (
-            <Component {...this.props} className={classnames(
+            <div {...this.otherProps} className={classnames(
                 this.getProperty(true),
-                this.props.className
+                className
             )} >
-                {this.props.children}
-            </Component>
+                {children}
+            </div>
         )
     }
 

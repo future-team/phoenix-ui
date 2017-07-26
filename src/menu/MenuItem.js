@@ -117,7 +117,7 @@ export default class MenuItem extends Component {
         let {className, href, children} = this.props;
 
         return (
-            <List.Item {...this.props} classPrefix='list-item' className={classnames(
+            <List.Item {...this.otherProps} classPrefix='list-item' className={classnames(
                     this.getProperty(true),
                     this.isActive(),
                     className

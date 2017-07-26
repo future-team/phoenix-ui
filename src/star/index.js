@@ -72,7 +72,7 @@ export default class Star extends Component{
     }
 
     renderStar(){
-        let {rate,className} = this.props,
+        let {rate, className, style} = this.props,
             rateCls = Math.round((rate*2)/10)*5;
         // let sizeCls = size && 'star-'+size;
 
@@ -81,7 +81,7 @@ export default class Star extends Component{
                 this.getProperty(true),
                 this.setPhPrefix(rateCls),
                 className
-            )}>
+            )} style={this.getStyles(style)}>
                 <div className={this.setPhPrefix('grey')}></div>
             </div>
         )

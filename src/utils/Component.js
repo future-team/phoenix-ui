@@ -6,7 +6,7 @@ import PropertyMixin from './PropertyMixin';
 import MethodMixin from './MethodMixin';
 
 import extend from 'extend';
-
+import {propsConstants} from './constants'
 
 //import 'babel-polyfill';
 
@@ -158,7 +158,7 @@ export default class BaseComponent extends Component{
             }
 
         }else{
-            otherProps[propKey] = propValue;
+            if(!propsConstants[propKey]) otherProps[propKey] = propValue;
         }
     }
     replaceProperties(props){

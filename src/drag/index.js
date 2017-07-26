@@ -174,7 +174,7 @@ export default class Drag extends Component{
 
     renderDrag(){
         return (
-            <div {...this.props} className={classnames(setPhPrefix('drag-action'), this.props.className)}
+            <div {...this.otherProps} className={classnames(setPhPrefix('drag-action'), this.props.className)}
                 onTouchStart={(event)=>{this.onTouchStart(event)}}
                 onTouchMove={(event)=>{this.onTouchMove(event)}}
                 onTouchEnd={(event)=>{this.onTouchEnd(event)}}

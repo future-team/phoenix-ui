@@ -87,7 +87,7 @@ export default class Icon extends Component{
         let {componentTag:Component, className, phIcon, classPrefix} = this.props
 
         return(
-            <Component {...this.props} className={classnames(
+            <Component {...this.otherProps} className={classnames(
                 'gfs-icon',
                 this.getProperty(true),
                 className,

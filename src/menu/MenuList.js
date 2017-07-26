@@ -3,6 +3,7 @@ import Component from '../utils/Component'
 import classnames from 'classnames'
 
 import Icon from '../icon'
+import List from '../list'
 
 /**
  * 菜单导航列表组件<br/>
@@ -19,11 +20,9 @@ import Icon from '../icon'
  *             标题一
  *         </Menu.Header>
  *         <Menu.Body>
- *             <Menu.Nav>
- *                  <Menu.List activeName={this.state.activeName} clickCallback={(name)=>{this.setState({activeName:name})}}>
- *                      ...
- *                  </Menu.List>
- *              </Menu.Nav>
+ *             <Menu.List activeName={this.state.activeName} clickCallback={(name)=>{this.setState({activeName:name})}}>
+ *                  ...
+ *             </Menu.List>
  *         </Menu.Body>
  *     </Menu>
  * ```
@@ -68,28 +67,13 @@ export default class MenuList extends Component {
     };
 
     constructor(props, context){
-        super(props, context);
-
-        this.state = {
-            activeName: props.activeName
-        }
-    }
-
-    componentWillReceiveProps(nextProps){
-        if(nextProps.activeName !== this.state.activeName){
-            this.setState({
-                activeName: nextProps.activeName
-            })
-        }
+        super(props, context)
     }
 
     changeActive(name){
-        let {clickCallback} = this.props
+        let {changeActive, clickCallback} = this.props
 
-        this.setState({
-            activeName: name
-        })
-            
+        changeActive(name)    
         if(clickCallback) clickCallback(name);
     }
 
@@ -100,10 +84,10 @@ export default class MenuList extends Component {
         React.Children.forEach(this.props.children, function(child, index){
             newChildren.push(React.cloneElement(child, {
                 key: index,
-                activeName: _this.state.activeName,
+                activeName: _this.props.activeName,
                 changeActive: _this.changeActive.bind(_this)
-            }));
-        });
+            }))
+        })
 
         return newChildren;
     }
@@ -112,13 +96,13 @@ export default class MenuList extends Component {
         let {className, children} = this.props;
 
         return (
-            <ul {...this.props} className={classnames(
+            <List {...this.otherProps} classPrefix='list' className={classnames(
                     this.getProperty(true),
                     className
                 )}
             >
                 {this.renderChildren()}
-            </ul>
+            </List>
         )
     }
 

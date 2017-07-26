@@ -5,7 +5,6 @@ import {closest} from '../utils/Tool'
 
 import MenuHeader from './MenuHeader'
 import MenuBody from './MenuBody'
-import MenuNav from './MenuNav'
 import MenuList from './MenuList'
 import MenuItem from './MenuItem'
 
@@ -17,7 +16,6 @@ import 'phoenix-styles/less/modules/menu.less'
  * <strong><a href='../classes/Menu.html'>Menu 菜单</a></strong><br/>
  * <strong><a href='../classes/MenuHeader.html'>MenuHeader 菜单头部</a></strong><br>
  * <strong><a href='../classes/MenuBody.html'>MenuBody 菜单主体</a></strong><br>
- * <strong><a href='../classes/MenuNav.html'>MenuNav 菜单导航</a></strong><br>
  * <strong><a href='../classes/MenuList.html'>MenuList 菜单导航列表</a></strong><br>
  * <strong><a href='../classes/MenuItem.html'>MenuItem 菜单导航列表项</a></strong><br>
  * <h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>
@@ -28,16 +26,16 @@ import 'phoenix-styles/less/modules/menu.less'
 /**
  * 菜单组件<br/>
  - 可通过visible设置菜单初始是否可见，默认不可见。
- - 不设置scrollCeiling时默认菜单不吸顶，设置scrollCeiling为具体数值时表示从当前距离开始吸顶，设置0表示至始至终吸顶。
+ - 不设置ceiling时默认菜单不吸顶，设置ceiling为具体数值时表示从当前距离开始吸顶，设置0表示至始至终吸顶。
  - 可通过clickCallback函数设置菜单打开收起的回调函数。
  *
  * 主要属性和接口：
  * - visible:初始展开或收起的状态, 默认false收起。
- * - scrollCeiling:设置吸顶的距离, 默认不吸顶, 设置0表示始终吸顶。
+ * - ceiling:设置吸顶的距离, 默认不吸顶, 设置0表示始终吸顶。
  * - clickCallback:菜单打开关闭时的回调函数。 <br/>
  * 如：
  * ```code
- *     <Menu scrollCeiling={100} visible={true} clickCallback={(visible)=>{console.log(visible);}}>
+ *     <Menu ceiling={100} visible={true} clickCallback={(visible)=>{console.log(visible);}}>
  *         <Menu.Header>
  *             标题一
  *         </Menu.Header>
@@ -87,11 +85,11 @@ class Menu extends Component{
         clickCallback: PropTypes.func,
         /**
          * 是否滚动吸顶, 默认不吸顶(false); 设置确定的数字从当前距离开始吸顶 
-         * @property scrollCeiling
+         * @property ceiling
          * @type Number
          * @default 不设置
          * */
-        scrollCeiling: PropTypes.number
+        ceiling: PropTypes.number
     };
 
     static defaultProps = {
@@ -104,40 +102,21 @@ class Menu extends Component{
     constructor(props, context) {
         super(props, context);
 
-        this.handleDocumentClick = this.handleDocumentClick.bind(this);
         this.handleWindowScroll = this.handleWindowScroll.bind(this);
 
         this.state = {
-            visible: props.visible,
-            ceiling: !(props.scrollCeiling === undefined || props.scrollCeiling > 0),
+            ceiling: !(props.ceiling === undefined || props.ceiling > 0),
             headerHeight: 0
-        };
-
-        document.addEventListener('click', this.handleDocumentClick, false);
+        }
 
         // 是否滚动吸顶
-        if(props.scrollCeiling === undefined || props.scrollCeiling === 0) return;
+        if(props.ceiling === undefined || props.ceiling === 0) return;
         
         window.addEventListener('scroll', this.handleWindowScroll, false);
     }
-
-    handleDocumentClick(event){
-        if(!this.state.visible) return;
-        let el = event.target;
-
-        if(!closest(el,'.ph-menu')){
-            this.setState({
-                visible: false
-            }, ()=>{
-                if(this.props.clickCallback) this.props.clickCallback(this.state.visible);
-            });
-        }
-
-        return false;
-    }
-
+    
     handleWindowScroll(){
-        if(document.body.scrollTop >= this.props.scrollCeiling){
+        if(document.body.scrollTop >= this.props.ceiling){
             if(!this.state.ceiling) this.setState({ceiling: true});
         }else{
             if(this.state.ceiling) this.setState({ceiling: false});
@@ -151,33 +130,16 @@ class Menu extends Component{
         },0);
     }
 
-    // componentWillReceiveProps(nextProps){
-    //     if(this.state.visible != nextProps.visible){
-    //         this.setState({
-    //             visible: nextProps.visible
-    //         }, ()=>{
-    //         if(this.props.clickCallback) this.props.clickCallback(nextProps.visible);
-    //     });
-    //     }
-    // }
-
-    changeVisible(){
-        this.setState({
-            visible: !this.state.visible
-        }, ()=>{
-            if(this.props.clickCallback) this.props.clickCallback(this.state.visible);
-        });
-    }
-
     renderChildren(){
-        let _this = this;
-        let newChildren = [];
+        let _this = this,
+            newChildren = [],
+            {visible, clickCallback} = this.props
 
         React.Children.forEach(this.props.children, function(child, index){
             newChildren.push(React.cloneElement(child, {
                 key: index,
-                visible: _this.state.visible,
-                changeVisible: _this.changeVisible.bind(_this),
+                visible: visible,
+                clickCallback: clickCallback,
                 headerHeight: _this.state.headerHeight
             }));
         });
@@ -186,7 +148,6 @@ class Menu extends Component{
     }
 
     componentWillUnmount(){
-        document.removeEventListener('click', this.handleDocumentClick, false);
         window.removeEventListener('scroll', this.handleWindowScroll, false);
     }
 
@@ -194,7 +155,7 @@ class Menu extends Component{
         let {componentTag:Component, className} = this.props;
 
         return (
-            <Component {...this.props} className={classnames(
+            <Component {...this.otherProps} className={classnames(
                 this.getProperty(true),
                 this.setPhPrefix('placeholder'),
                 className
@@ -211,10 +172,9 @@ class Menu extends Component{
     }
 }
 
-Menu.Header = MenuHeader;
-Menu.Body = MenuBody;
-Menu.Nav = MenuNav;
-Menu.List = MenuList;
-Menu.Item = MenuItem;
+Menu.Header = MenuHeader
+Menu.Body = MenuBody
+Menu.List = MenuList
+Menu.Item = MenuItem
 
-export default Menu;
+export default Menu

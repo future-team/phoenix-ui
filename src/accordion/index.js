@@ -151,7 +151,7 @@ class Accordion extends Component{
         let {componentTag:Component, className} = this.props;
 
         return (
-            <Component {...this.props} className={classnames(
+            <Component {...this.otherProps} className={classnames(
                 this.getProperty(true),
                 className
             )}>
@@ -176,7 +176,9 @@ class AccordionHeader extends Component {
     };
 
     clickHandle(){
-        this.props.changeVisible();
+        let {changeVisible, onClick} = this.props
+        this.props.changeVisible()
+        if(onClick) onClick()
     }
 
     renderIcon(){
@@ -193,12 +195,11 @@ class AccordionHeader extends Component {
         let {className} = this.props;
 
         return (
-            <div className={classnames(
+            <div {...this.otherProps} className={classnames(
                     this.getProperty(true),
                     className
                 )}
                 onClick={this.clickHandle.bind(this)}
-                {...this.props}
             >
                 {this.props.children}
                 {this.renderIcon()}
@@ -243,7 +244,7 @@ class AccordionBody extends Component{
         let {children,className} = this.props;
 
         return (
-            <div {...this.props} className={classnames(
+            <div {...this.otherProps} className={classnames(
                     this.getProperty(true),
                     'animated',
                     className

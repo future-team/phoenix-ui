@@ -147,7 +147,7 @@ export default class Popover extends Component{
         this.node = document.createElement('div');
         document.body.appendChild(this.node);
 
-        let element = React.createElement('div', Object.assign({...this.props}, {
+        let element = React.createElement('div', Object.assign({...this.otherProps}, {
             className: classnames(this.getProperty(true), this.props.className),
             ref: (popover)=>{this.popover = popover}
         }), this.popoverArrow(), this.popoverMain())
