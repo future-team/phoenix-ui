@@ -5,7 +5,7 @@ import PhFilter from "phoenix-ui/lib/ph-filter"
 import List from "phoenix-ui/lib/list"
 // import Code from "./code/code";
 
-const FilterCheckbox = PhFilter.FilterCheckbox,
+const CheckboxContainer = PhFilter.CheckboxContainer,
       Item = PhFilter.Item,
       ItemGroup = PhFilter.ItemGroup
 
@@ -45,26 +45,30 @@ export default class phFilterCheckbox extends Component {
         ]
         
         return(
-            <FilterCheckbox choose={this.state.choose} groupIndex={2} buttons={buttons}>
-                {
-                    this.state.filterData.map((cityShopList,index)=>{
-                        return (
-                            <ItemGroup key={cityShopList.cityId} mainKey={cityShopList.cityId} label={cityShopList.cityName}>
-                                {
-                                    cityShopList.shopInfoDTOList.map((shopInfo)=>{
-                                        return (
-                                            <Item disabled={shopInfo.status==1} key={shopInfo.shopId} itemKey={shopInfo.shopId}>
-                                                {shopInfo.shopName}
-                                            </Item>
-                                        );
-                                    })
-                                }
-                            </ItemGroup>
-                        );
-                    })
-                }
+            <div>
+                <CheckboxContainer choose={this.state.choose} index={2} buttons={buttons}>
+                    {
+                        this.state.filterData.map((cityShopList,index)=>{
+                            return (
+                                <ItemGroup key={cityShopList.cityId} mainKey={cityShopList.cityId} label={cityShopList.cityName}>
+                                    {
+                                        cityShopList.shopInfoDTOList.map((shopInfo)=>{
+                                            return (
+                                                <Item disabled={shopInfo.status==1} key={shopInfo.shopId} itemKey={shopInfo.shopId}>
+                                                    {shopInfo.shopName}
+                                                </Item>
+                                            );
+                                        })
+                                    }
+                                </ItemGroup>
+                            );
+                        })
+                    }
+                    
+                </CheckboxContainer>
                 
-            </FilterCheckbox>
+                <a href="#/ph-filter-code" className="ph-filter-code">查看代码</a>
+            </div>
         )
     }
 }

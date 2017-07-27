@@ -56,6 +56,7 @@ export default class Switch extends Component{
     };
 
     static defaultProps = {
+        disabled: false,
         classPrefix:'switch',
         classMapping : {}
     };
@@ -65,14 +66,16 @@ export default class Switch extends Component{
     }
 
     renderSwitch(){
+        let {className, disabled} = this.props
+
         return (
             <label className={
                 classnames(
                     this.getProperty(true),
-                    this.props.className
+                    className
                 )
             }>
-                <input type='checkbox' {...this.otherProps} />
+                <input type='checkbox' {...this.otherProps} disabled={disabled}/>
                 <div className={this.setPhPrefix('checkbox',true)}></div>
             </label>
         )

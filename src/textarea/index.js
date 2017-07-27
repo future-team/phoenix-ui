@@ -71,6 +71,7 @@ export default class Textarea extends Component{
     };
 
     static defaultProps = {
+        disabled: false,
         classPrefix:'textarea',
         classMapping : {}
     };
@@ -137,12 +138,14 @@ export default class Textarea extends Component{
     }
 
     renderTextarea(){
+        let {className, disabled} = this.props
+
         return (
             <div className={this.setPhPrefix('field')}>
                 <textarea {...this.otherProps} className={classnames(
                     this.getProperty(true),
-                    this.props.className
-                )} value={this.state.value} onChange={(event)=>{this.onTextareaChange(event)}}></textarea>
+                    className
+                )} value={this.state.value} onChange={(event)=>{this.onTextareaChange(event)}} disabled={disabled}></textarea>
                 {this.renderCount()}
             </div>
         )

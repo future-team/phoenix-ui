@@ -24,6 +24,8 @@ import 'phoenix-styles/less/modules/buttons.less'
  * 如: `<Button block>button</Button>`
  * - phIcon:icon符号类型,默认没有符号 <br/>
  * 如: `<Button phIcon='search'>button</Button>`
+ * - stable: icon不占位 <br/>
+ * 如: `<Button phIcon='search' stable>button</Button>`
  *
  * @class Button
  * @module 基础组件
@@ -70,13 +72,6 @@ export default class Button extends Component{
          * @default false
          * */
         block:PropTypes.bool,
-        /**
-         * 圆角
-         * @property radius
-         * @type Boolean
-         * @default false
-         * */
-        radius:PropTypes.bool,
         /**
          * 空背景
          * @property hollow

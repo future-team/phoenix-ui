@@ -118,14 +118,14 @@ export default class MenuBody extends Component{
         this.setSize()
 
         let target = this.props.getTarget()
-        if(!target) Tool.warning('Popover 必须传递 getTarget[func]!')
+        if(!target) Tool.warning('MenuBody 必须传递 getTarget[func]!')
 
         this.target = findDOMNode(target)
         this.target.addEventListener('click', this.targetClickHandle, false)
     }
 
     componentDidUpdate(){
-        this.setSize();
+        this.setSize()
     }
 
     componentWillReceiveProps(nextProps){
@@ -153,19 +153,17 @@ export default class MenuBody extends Component{
     }
 
     setSize(){
-        let {visible, placement, width} = this.props;
+        let {visible, placement, width} = this.props
 
-        // if(placement=='top') this.menuBodyParent.style.height = visible? this.menuBody.offsetHeight+'px' : 0;
-
-        if(this.props.visible && width){
-            if(placement=='top') return;
-            if(placement=='full-screen') width = 100;
-            this.menuBodyParent.style.width = width +'%';
+        if(this.state.visible && width){
+            if(placement=='top') return
+            if(placement=='full-screen') width = 100
+            this.menuBodyParent.style.width = width +'%'
         }
     }
 
     renderAnimation(){
-        let {children,className} = this.props,
+        let {children,className,style,width} = this.props,
             {visible} = this.state
 
         if(visible){

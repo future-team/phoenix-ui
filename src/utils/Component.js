@@ -128,39 +128,36 @@ export default class BaseComponent extends Component{
     updateProperty(props,propList,styleList,otherProps){
         let propKey=props.key,
             propValue=props.value,
-            propConfig = this.properties[propKey];
-        // console.log(propConfig)
-        const type = 'property';
-        if(propConfig ){
-            // this.filterClass();
+            propConfig = this.properties[propKey]
+        const type = 'property'
+
+        if(propConfig){
             switch (typeof(propConfig)){
                 case 'boolean':
                     if(propValue){
-                        propList.push(this.filterClass(propKey) );
+                        propList.push(this.filterClass(propKey))
                     }
-                    break;
+                    break
                 case 'function':
-                    let param = propConfig.call(this,propValue);
-                    if(typeof(param) == 'string' ){
-                        propList.push(this.filterClass(param) );
-                    }else if(param.type && param.type == type){
-                        this[propKey] = param.value;
-                    }else{
-                        //{
-                        //    border:val
-                        //}
-                        styleList.push(param);
-                    }
-                    break;
-                default :
-                    propList.push(this.filterClass(propConfig) );
-                    break;
-            }
+                    let param = propConfig.call(this,propValue)
 
+                    if(typeof(param) == 'string' ){
+                        propList.push(this.filterClass(param))
+                    }else if(param.type && param.type == type){
+                        this[propKey] = param.value
+                    }else{
+                        styleList.push(param)
+                    }
+                    break
+                default :
+                    propList.push(this.filterClass(propConfig))
+                    break
+            }
         }else{
-            if(!propsConstants[propKey]) otherProps[propKey] = propValue;
+            if(!propsConstants[propKey]) otherProps[propKey] = propValue
         }
     }
+    
     replaceProperties(props){
         // 整体替换
         let propList = [],

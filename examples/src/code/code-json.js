@@ -48,10 +48,11 @@ var code = {
 	'radio-onchange':'onRadioChange(){\n\  this.setState({\n\    radioChecked: !this.state.radioChecked\n\  });\n}\n...\n<Radio label="男" name="sex3" checked={this.state.radioChecked} onChange={::this.onRadioChange}/>\n<Radio label="女" name="sex3" checked={!this.state.radioChecked} onChange={::this.onRadioChange}/>',
 	'radio-disabled':'<Radio label="男" name="sex4" disabled />\n<Radio label="女" name="sex4" disabled />',
 
-	'switch': '<Switch />\n<Switch defaultChecked={true} />\n<Switch checked={this.state.checked} onChange={::this.onChange} />',
+	'switch': '<Switch />\n<Switch defaultChecked={true} />\n<Switch checked={this.state.checked} onChange={::this.onChange} />\n<Switch disabled />',
 
 	'textarea-count': '<Textarea count maxLength={this.state.MAX_LENGTH} placeholder="count配合maxLength计数..." />',
 	'textarea-value': '<Textarea value="我是默认值" placeholder="请输入..." />',
+	'textarea-disabled':'<Textarea value="我是默认值" placeholder="请输入..." disabled/>',
 	'textarea-getvalue':'<Textarea placeholder="默认text" ref={(textElem)=>{this.textElem = textElem}} />\nthis.textElem.getValueCallback()',
 
 	'form-group-single': '<FormGroup>\n\  <Row single>\n\    <Col><Input type="text" placeholder="姓名" /></Col>\n\  </Row>\n</FormGroup>',
@@ -165,8 +166,16 @@ var code = {
 	'animate': '<Animate transitionName="fade">\n\  {this.renderList()}\n</Animate>\n'+
 		'this.state = {list: ["看一本书","睡8个小时"]}\nrenderList(){// 渲染todo list \n\  const items = this.state.list.map((item,index)=>{\n\    return <div key={index} className="animated" onClick={()=>{...}}>{item}</div>;\n\  });\n\  return items;\n}',
 	'drag': '<Drag dragCallback={::this.dragCallback} dropCallback={::this.dropCallback} style={{height:0}}>\n\  <div className="box" ref={(box)=>{this.box = box}}>Drag</div>\n</Drag>\n'+
-		'dragCallback(event,position){\n\  // ...\n}\dropCallback(event,position){\n\  // ...\n}\n'
+		'dragCallback(event,position){\n\  // ...\n}\dropCallback(event,position){\n\  // ...\n}\n',
 
+	'filter-container': '<PhFilter.Container index={-1} hidecat={false} clickCallback={this.clickCallback.bind(this)}>\n...\n</PhFilter.Container>',
+	'filter-panelsimple': 'const buttons = [{onHandle: this.confirmFilter.bind(this)}]\n\n<PhFilter.Container>\n\  <PhFilter.PanelSimple default="筛选" selected={{key:"rry",value:"人人有"}} buttons={buttons}>\n\    ...\n\  </PhFilter.PanelSimple>\n</PhFilter.Container>',
+	'filter-panel': 'const buttons = [{onHandle: this.confirmFilter.bind(this)}]\n\n<PhFilter.Container>\n\  <PhFilter.Panel default="筛选" selected={{key:"rry",value:"人人有"}} buttons={buttons} index={1}>\n\    ...\n\  </PhFilter.Panel>\n</PhFilter.Container>',
+	'filter-itemgroup':'...\n<PhFilter.Panel default="筛选">\n\  <PhFilter.ItemGroup label={i}>\n\    <PhFilter.Item itemKey="sk">烧烤</PhFilter.Item>\n\    <PhFilter.Item itemKey="hx">海鲜</PhFilter.Item>\n\  </PhFilter.ItemGroup>\n</PhFilter.Panel>\n...',
+	'filter-item':'...\n<PhFilter.PanelSimple default="筛选">\n\  <PhFilter.Item itemKey="sk">烧烤</PhFilter.Item>\n\  <PhFilter.Item itemKey="hx">海鲜</PhFilter.Item>\n</PhFilter.PanelSimple>\n...',
+
+	'filter-checkbox-container':'const buttons = [{onHandle: this.onSubmit.bind(this)}]\n\n<PhFilter.CheckboxContainer choose={this.state.choose} index={2} buttons={buttons}>\n...\n</PhFilter.CheckboxContainer>',
+	'filter-checkbox-item':'const buttons = [{onHandle: this.onSubmit.bind(this)}]\n<PhFilter.CheckboxContainer buttons={buttons}>\n\  <PhFilter.ItemGroup mainKey="gw" label="购物">\n\    <PhFilter.Item disabled={false} itemKey="tz">\n\      童装\n\    </PhFilter.Item>\n\  </PhFilter.ItemGroup>\n</PhFilter.CheckboxContainer>'
 };
 
 export default code;

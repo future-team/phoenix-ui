@@ -31,7 +31,9 @@ export default class switchs extends Component{
                     <h3 className="comp-tip">defaultChecked 初始传值</h3>
                     <Switch defaultChecked={true} />
                     <h3 className="comp-tip">checked和onChange配合使用</h3>
-                    <Switch checked={this.state.checked} onChange={::this.onChange} />
+                    <Switch checked={this.state.checked} onChange={this.onChange.bind(this)} />
+                    <h3 className="comp-tip">disabled 不可选</h3>
+                    <Switch disabled />
                 </div>
                 <Code target="switch" />
             </div>

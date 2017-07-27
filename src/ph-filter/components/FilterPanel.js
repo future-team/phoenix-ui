@@ -75,10 +75,18 @@ export default class FilterPanel extends PanelBase{
          * @property buttons
          * @type Array
          * */
-        buttons: PropTypes.array
+        buttons: PropTypes.array,
+         /**
+         * 主菜单默认选中项
+         * @property index
+         * @type Number
+         * @default 0
+         * */
+        index: PropTypes.number
     }
 
     static defaultProps = {
+        index: 0,
         selected: null,
         readOnly: false,
         buttons: null,
@@ -89,26 +97,32 @@ export default class FilterPanel extends PanelBase{
         super(props,context);
 
         this.state = {
-            selectedKey: (props.selected && props.selected.key) ? props.selected.key:'',
+            selectedKey: this.getSelectedKey(props),
             activeGroupIndex: this.getActiveGroupIndex()
         }
     }
 
     getActiveGroupIndex(){
-        let activeIndex=0,
-            selectedKey=this.props.selected.key;
-
+        let {selected, index, children} = this.props,
+            activeIndex = 0,
+            selectedKey = selected.key
+        
+        if(index && index>=0) return index 
+        
+        // 获取不到children,并不会执行
         if(selectedKey){
-            React.Children.map(this.props.children,function(mainMenu,mainIndex){
+            React.Children.map(children, function(mainMenu,mainIndex){
+                
                 React.Children.map(mainMenu.props.children,function(subMenu,subIndex){
                     if(subMenu.props.itemKey==selectedKey){
-                        activeIndex=mainIndex;
+                        activeIndex = mainIndex
                     }
                 })
+
             })
         }
-
-        return activeIndex;
+        
+        return activeIndex
     }
 
     renderSubMenuList(mainMenuList){

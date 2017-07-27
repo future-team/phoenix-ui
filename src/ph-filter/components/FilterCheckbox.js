@@ -54,11 +54,11 @@ export default class FilterCheckbox extends Component{
     static propTypes= {
         /**
          * 默认选中的侧边栏的索引值
-         * @property groupIndex
+         * @property index
          * @type Number
          * @default 0
          * */
-        groupIndex: PropTypes.number,
+        index: PropTypes.number,
         /**
          * 选中的id字符串，逗号隔开
          * @property choose
@@ -75,17 +75,17 @@ export default class FilterCheckbox extends Component{
     }
 
     static defaultProps = {
-        groupIndex: 0,
+        index: 0,
         choose: []
     }
     
     render(){
-        let {choose, groupIndex, buttons, children} = this.props
+        let {choose, index, buttons, children} = this.props
 
         return (
             <div className='ph-checkbox-filter'>
-                <FilterContainer activeIndex={0} hideCat choose={choose}>
-                    <CheckboxPanel groupIndex={groupIndex} buttons={buttons}>
+                <FilterContainer index={0} hideCat choose={choose}>
+                    <CheckboxPanel index={index} buttons={buttons}>
                         {children}
                     </CheckboxPanel>
                 </FilterContainer>

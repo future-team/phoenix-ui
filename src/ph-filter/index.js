@@ -11,12 +11,12 @@ import 'phoenix-styles/less/modules/ph-filter.less'
 
 let PhFilter = {}
 
-PhFilter.FilterContainer = FilterContainer
+PhFilter.Container = FilterContainer
 PhFilter.Panel = Panel
 PhFilter.PanelSimple = PanelSimple
 PhFilter.Item = Item
 PhFilter.ItemGroup = ItemGroup
-PhFilter.FilterCheckbox = FilterCheckbox
+PhFilter.CheckboxContainer = FilterCheckbox
 PhFilter.PanelCheckbox = PanelCheckbox
 
 export default PhFilter

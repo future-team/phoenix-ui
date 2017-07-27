@@ -50,16 +50,16 @@ export default class popup extends Component{
                 </div>
                 <Popup visible={this.state.topVisible} closeCallback={this.hideTopPopup.bind(this)}>
                     <List>
-                        <List.Item active>
+                        <List.Item className="clickable" active>
                             <List.Col>未上线单店</List.Col>
                         </List.Item>
-                        <List.Item>
+                        <List.Item className="clickable">
                             <List.Col>未上线连锁店</List.Col>
                         </List.Item>
-                        <List.Item>
+                        <List.Item className="clickable">
                             <List.Col>在线单店</List.Col>
                         </List.Item>
-                        <List.Item>
+                        <List.Item className="clickable">
                             <List.Col>在线连锁店</List.Col>
                         </List.Item>
                     </List>

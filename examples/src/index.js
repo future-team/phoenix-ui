@@ -3,8 +3,9 @@
  */
 import React, { Component } from 'react'
 import ReactDOM,{findDOMNode} from 'react-dom'
-import { Redirect, Router, Route } from 'react-router'
-import History from 'history/lib/createHashHistory'
+import { Redirect, Router, Route, useRouterHistory } from 'react-router'
+// import History from 'history/lib/createHashHistory'
+import { createHashHistory } from 'history'
 
 import Tab from './tab.js'
 import Button from './button.js'
@@ -48,6 +49,7 @@ import PhoenixStyle from './phoenix-styles.js'
 import Menu from './menu.js'
 import PhFilter from './ph-filter.js'
 import PhFilterCheckbox from './ph-filter-checkbox.js'
+import PhFilterCode from './ph-filter-code.js'
 
 // import ListDemo from './list-demo.js'
 // import Detail from './detail-demo.js'
@@ -69,6 +71,7 @@ let Card = class Card extends Component {
 };
 
 let Index = class index extends Component {
+    
     render() {
         return (
             <div className="menu ph-transition-index">
@@ -151,9 +154,11 @@ let Index = class index extends Component {
 let AppRouter = class AppRouter extends Component {
     constructor(props, context) {
         super(props, context);
-        this.history = new History({
-            queryKey: false
-        });
+
+        this.history = useRouterHistory(createHashHistory)({ queryKey: false })
+        // this.history = new History({
+        //     queryKey: false
+        // });
     }
 
     render() {
@@ -195,6 +200,7 @@ let AppRouter = class AppRouter extends Component {
 
                 <Route path="/ph-filter" name="phfilter" component={PhFilter} />
                 <Route path="/ph-filter-checkbox" name="phfiltercheckbox" component={PhFilterCheckbox} />
+                <Route path="/ph-filter-code" name="phfiltercode" component={PhFilterCode} />
                 
                 <Redirect from="/" to="/index" />
             </Router>

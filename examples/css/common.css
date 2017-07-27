@@ -246,6 +246,15 @@ header h1{
     width: 100%;
 }
 
+.ph-filter-code{
+    position: fixed;
+    top: .16rem;
+    right: .16rem;
+    z-index:999;
+    color: #ff6633;
+    text-decoration: underline;
+}
+
 ::-webkit-scrollbar{
     height: 0;
 }

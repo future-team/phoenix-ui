@@ -24,7 +24,21 @@ export default class FilterPanelBase extends Component{
         this.category = props.selected || {}
 
         this.state = {
-            selectedKey: (props.selected && props.selected.key) ? props.selected.key:''
+            selectedKey: this.getSelectedKey(props)
+        }
+    }
+
+    getSelectedKey(props){
+        return (props.selected && props.selected.key) ? props.selected.key: ''
+    }
+
+    componentWillReceiveProps(nextProps){
+        if(this.props.selected !== nextProps.selected){
+            this.setState({
+                selectedKey: this.getSelectedKey(nextProps)
+            }, ()=>{
+                this.props.setCatList()
+            })
         }
     }
 

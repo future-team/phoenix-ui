@@ -20,12 +20,12 @@ import Icon from '../../icon'
 
 /**
  * 单选筛选<br/>
- * - 可通过activeIndex设置筛选默认打开的面板。默认－1，即都不打开。
+ * - 可通过index设置筛选默认打开的面板。默认－1，即都不打开。
  * - 可通过hideCat选择是否要显示筛选头部。
  * - 可通过clickCallback设置有效选择的回调，当没有按钮时选中即触发，有按钮时点击按钮时触发。
  *
  * 主要属性和接口：
- * - activeIndex: 默认打开的面板。
+ * - index: 默认打开的面板。
  * - hideCat: 是否显示筛选头部。
  * - clickCallback: 有效选择的回调。
  * 
@@ -41,7 +41,7 @@ import Icon from '../../icon'
  *      ]
  *  }
  * ...
- *  <FilterContainer activeIndex={0} hideCat={false} clickCallback={this.clickCallback.bind(this)}>
+ *  <FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)}>
  *      <PanelSimple readOnly className='panel1' selected={{key:'ljz',value:'陆家嘴'}}>
  *          {
  *              this.state.panel1.map(function(item){
@@ -54,7 +54,7 @@ import Icon from '../../icon'
  * 其一，双栏模式。<br/>
  * 如：
  * ```code
- *  <FilterContainer activeIndex={0} hideCat={false} clickCallback={this.clickCallback.bind(this)}>
+ *  <FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)}>
  *      <Panel readOnly selected={{key:'s_flower',value:'花店'}}>
  *          <ItemGroup label={<span style={{color:'red'}}>美食</span>}>
  *              <Item itemKey='f_all'>全部美食</Item>
@@ -84,11 +84,11 @@ export default class FilterContainer extends Component{
     static propTypes= {
         /**
          * 默认展开筛选的索引，默认－1，即都不展开
-         * @property activeIndex
+         * @property index
          * @type Number
          * @default -1
          * */
-        activeIndex: PropTypes.number,
+        index: PropTypes.number,
         /**
          * 是否隐藏头部
          * @property hideCat
@@ -105,7 +105,7 @@ export default class FilterContainer extends Component{
     }
 
     static defaultProps = {
-        activeIndex: -1,
+        index: -1,
         hideCat: false,
         clickCallback: null
     }
@@ -113,8 +113,8 @@ export default class FilterContainer extends Component{
     constructor(props,context){
         super(props,context);
         this.state={
-            catList:this.initCat(),
-            activeCat:props.activeIndex,
+            catList: this.getCatList(),
+            activeCat: props.index,
             fixed: false
         };
 
@@ -140,16 +140,21 @@ export default class FilterContainer extends Component{
         window.removeEventListener('scroll', this.windowScrollHandle, false)
     }
 
-    initCat(){
-        let catList=React.Children.map(this.props.children,function(panel,index){
+    getCatList(){
+        let catList = React.Children.map(this.props.children,function(panel,index){
             //如果panel设置了selected属性的话直接读取selected属性；如果panel没有设置selected属性，则读取default用来展示在cat列表中
-            let cat=panel.props.selected ? panel.props.selected:{
+            return panel.props.selected ? panel.props.selected:{
                 key:'',
                 value: panel.props.default ? panel.props.default:''
-            };
-            return cat
+            }
         })
         return catList
+    }
+
+    setCatList(){
+        this.setState({
+            catList: this.getCatList()
+        })
     }
 
     categoryChange(index,category,hasButtons){
@@ -189,7 +194,8 @@ export default class FilterContainer extends Component{
 
             return  React.cloneElement(panel,{
                 categoryChange: self.categoryChange.bind(self),
-                selected: catList[index],
+                // selected: catList[index],
+                setCatList: self.setCatList.bind(self),
                 panelIndex: index,
                 show: show,
                 choose: transToArray(self.props.choose),

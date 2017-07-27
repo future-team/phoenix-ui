@@ -56,6 +56,7 @@ export default class Checkbox extends Component{
     static defaultProps = {
         type: 'checkbox',
         label: '',
+        disabled: false,
         classPrefix:'checkbox',
         componentTag:'div',
         classMapping : {}
@@ -66,12 +67,12 @@ export default class Checkbox extends Component{
     }
 
     renderCheckbox(){
-        let {label, type} = this.props
+        let {label, type, disabled} = this.props
 
         return (
             <label className={this.setPhPrefix('multi-group',true)}>
                 <div className={this.getProperty(true)}>
-                    <input {...this.otherProps} />
+                    <input {...this.otherProps} disabled={disabled}/>
                     <i></i>
                 </div>
                 <span>{label}</span>

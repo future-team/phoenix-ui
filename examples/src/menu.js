@@ -4,7 +4,6 @@ import classnames from "classnames";
 import Menu from "phoenix-ui/lib/menu"
 import Button from "phoenix-ui/lib/button"
 import Icon from "phoenix-ui/lib/icon"
-import Input from "phoenix-ui/lib/input"
 import Code from "./code/code"
 
 export default class menu extends Component{
@@ -79,9 +78,6 @@ export default class menu extends Component{
                             <Menu.Item name="index" phIcon="meidianbao-fill">首页</Menu.Item>
                             <Menu.Item name="setting" phIcon="shanghuguanli-fill" href="#menu" clickCallback={this.onMenuItemChange.bind(this)}>设置</Menu.Item>
                         </Menu.List>
-                        <div style={{padding: ".16rem .32rem"}}>
-                            <Input phIcon="search" placeholder="自定义部分"/>
-                        </div>
                     </Menu.Body>
                 </Menu>
 

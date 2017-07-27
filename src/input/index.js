@@ -107,6 +107,7 @@ export default class Input extends Component{
         visible: false,
         phIcon: '',
         phReg: null,
+        disabled: false,
         classPrefix:'input',
         componentTag:'div',
         classMapping : {}
@@ -149,7 +150,7 @@ export default class Input extends Component{
     }
 
     renderInput(){
-        let {type, clear, visible, placeholder, phIcon} = this.props,
+        let {type, clear, visible, placeholder, phIcon, disabled} = this.props,
             {value, focus, error} = this.state;
         let clearStatus = clear && value && focus,
             visibleStatus = visible && type=='password',
@@ -168,7 +169,7 @@ export default class Input extends Component{
                     visibleStatus ? this.setPhPrefix('visible'):'',
                     errorState ? this.setPhPrefix('error'):'',
                 )}>
-                    <input {...this.otherProps} type={this.state.type} placeholder='' value={value}
+                    <input {...this.otherProps} type={this.state.type} placeholder='' value={value} disabled={disabled}
                         ref={(inputElem)=>{this.inputElem=inputElem}}
                         onChange={this.onChange.bind(this)} 
                         onFocus={this.onFocus.bind(this)} 

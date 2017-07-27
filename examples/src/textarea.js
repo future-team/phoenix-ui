@@ -38,6 +38,12 @@ export default class textarea extends Component{
                 </div>
                 <Code target="textarea-value" />
 
+                <h3 className="comp-type">disabled 不可输入</h3>
+                <div className="content">
+                    <Textarea value="我是默认值" placeholder="请输入..." disabled/>
+                </div>
+                <Code target="textarea-disabled" />
+
                 <h3 className="comp-type">getValueCallback 获取数值</h3>
                 <div className="content">
                     <Textarea placeholder="默认text" ref={(textElem)=>{this.textElem = textElem}} />

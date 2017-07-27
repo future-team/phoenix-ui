@@ -182,6 +182,25 @@ export default class star extends Component{
                         </List.Col>
                     </List.Item>
                 </List>
+
+                <List>
+                    <List.Header>点击态</List.Header>
+                    <List.Item className="clickable">
+                        <List.Col>
+                            <label>选择一</label>
+                        </List.Col>
+                    </List.Item>
+                    <List.Item className="clickable">
+                        <List.Col>
+                            <label>选择二</label>
+                        </List.Col>
+                    </List.Item>
+                    <List.Item className="clickable">
+                        <List.Col>
+                            <label>选择三</label>
+                        </List.Col>
+                    </List.Item>
+                </List>
             </div>
         );
     }
