@@ -45,13 +45,6 @@ export default class MenuList extends Component {
          * */
         classPrefix: PropTypes.string,
         /**
-         * 当前选中的项目name，对应item的name属性
-         * @property activeName
-         * @type String
-         * @default null
-         * */
-        activeName: PropTypes.string,
-        /**
          * 点击事件的回调函数
          * @method clickCallback
          * @type Function
@@ -61,7 +54,6 @@ export default class MenuList extends Component {
     };
 
     static defaultProps = {
-        activeName: null,
         classPrefix:'menu-list',
         classMapping : {}        
     };
@@ -80,7 +72,7 @@ export default class MenuList extends Component {
     renderChildren(){
         let _this = this;
         let newChildren = [];
-
+        
         React.Children.forEach(this.props.children, function(child, index){
             newChildren.push(React.cloneElement(child, {
                 key: index,

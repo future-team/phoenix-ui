@@ -105,7 +105,7 @@ export default class Popover extends Component{
         this.documentClickHandle = this.documentClickHandle.bind(this);
         this.targetClickHandle = this.targetClickHandle.bind(this)
 
-        document.addEventListener('click', this.documentClickHandle, false);
+        document.body.addEventListener('click', this.documentClickHandle, false);
 
         this.adaptePlacement = {
             'top': ['top', 'bottom', 'left', 'right'],
@@ -132,7 +132,7 @@ export default class Popover extends Component{
 
         this.target = findDOMNode(target)
         this.target.addEventListener('click', this.targetClickHandle, false)
-
+        
         // 将popover动态插入body
         this.renderPortal();
 
@@ -147,10 +147,11 @@ export default class Popover extends Component{
         this.node = document.createElement('div');
         document.body.appendChild(this.node);
 
-        let element = React.createElement('div', Object.assign({...this.otherProps}, {
-            className: classnames(this.getProperty(true), this.props.className),
-            ref: (popover)=>{this.popover = popover}
-        }), this.popoverArrow(), this.popoverMain())
+        let popoverProps = this.otherProps
+        popoverProps.className = classnames(this.getProperty(true), this.props.className)
+        popoverProps.ref = (popover)=>{this.popover = popover}
+
+        let element = React.createElement('div', popoverProps , this.popoverArrow(), this.popoverMain())
 
         ReactDOM.render(element, this.node);
     }
@@ -171,7 +172,7 @@ export default class Popover extends Component{
 
     targetClickHandle(){
         let {clickCallback} = this.props
-
+        
         if(this.hasClass(this.popover, SHOW_CLASS)){
             this.removeClass(this.popover, SHOW_CLASS)
         }else{
@@ -182,7 +183,7 @@ export default class Popover extends Component{
 
     documentClickHandle(event){
         let el = event.target
-
+        
         if(el==this.target || Tool.contains(this.target,el) || Tool.contains(this.bubble,el)) return 
         
         this.removeClass(this.popover, SHOW_CLASS)
@@ -243,7 +244,7 @@ export default class Popover extends Component{
                 if(this.style.left<0) this.style.left=0
                 break;
             case 'left':
-                this.style.left = this.position.x - this.bubbleSize.height - distance;
+                this.style.left = this.position.x - this.bubbleSize.width - distance;
                 this.style.top = leftRightTop;
 
                 if(this.style.left<0){
@@ -317,7 +318,7 @@ export default class Popover extends Component{
 
     componentWillUnmount(){
         this.target.removeEventListener('click', this.targetClickHandle, false)
-        document.removeEventListener('click', this.handleDocumentClick, false);
+        document.removeEventListener('click', this.documentClickHandle, false);
         document.body.removeChild(this.node);
     }
 

@@ -282,7 +282,7 @@ export default class Slider extends Component{
                     <div className={this.setPhPrefix('progress')} ref={(sliderProgress)=>{this.sliderProgress=sliderProgress}}></div>
                     <div className={this.setPhPrefix('content')} ref={(sliderBtn)=>{this.sliderBtn=sliderBtn}}>
                         <div className={classnames(this.setPhPrefix('tip'), this.state.tipVisible && !showTipMode?'show':'hide')}>{this.state.realProgress}</div>
-                        <Drag className={this.setPhPrefix('btn')} dragCallback={this.dragCallback.bind(this)} dropCallback={this.dropCallback.bind(this)}></Drag>
+                        <Drag className={classnames(this.setPhPrefix('btn'),'hardware')} dragCallback={this.dragCallback.bind(this)} dropCallback={this.dropCallback.bind(this)}></Drag>
                     </div>
                 </div>
             </Component>

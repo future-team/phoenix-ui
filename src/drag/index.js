@@ -78,7 +78,7 @@ export default class Drag extends Component{
     onTouchStart(event){
         let {dragCallback, dragStartCallback} = this.props;
         event.stopPropagation();
-        // event.preventDefault();
+        event.preventDefault();
 
         this.state.position.start = {x:event.touches[0].pageX, y: event.touches[0].pageY};
         this.state.position.move = this.state.position.start;
@@ -93,7 +93,7 @@ export default class Drag extends Component{
         let {dragCallback, dragStartCallback} = this.props;
         this.isMouseDown = true;
         event.stopPropagation();
-        // event.preventDefault();
+        event.preventDefault();
 
         this.state.position.start = {x:event.pageX, y: event.pageY};
         this.state.position.move = this.state.position.start;
@@ -111,7 +111,7 @@ export default class Drag extends Component{
 
     onTouchMove(event){
         event.stopPropagation();
-        // event.preventDefault();
+        event.preventDefault();
 
         this.state.position.move = {x:event.touches[0].pageX, y: event.touches[0].pageY};
 
@@ -123,7 +123,7 @@ export default class Drag extends Component{
     onMouseMove(event){
         if(!this.isMouseDown) return;
         event.stopPropagation();
-        // event.preventDefault();
+        event.preventDefault();
 
         this.state.position.move = {x:event.pageX, y: event.pageY};
 
@@ -134,7 +134,7 @@ export default class Drag extends Component{
 
     onTouchEnd(event){
         event.stopPropagation();
-        // event.preventDefault();
+        event.preventDefault();
 
         this.state.position.end = {x:event.changedTouches[0].pageX, y: event.changedTouches[0].pageY};
         this.state.position.start = this.state.position.move;
@@ -146,7 +146,7 @@ export default class Drag extends Component{
 
     onMouseEnd(event){
         event.stopPropagation();
-        // event.preventDefault();
+        event.preventDefault();
 
         this.state.position.end = {x:event.pageX, y: event.pageY};
         this.state.position.start = this.state.position.move;
@@ -174,7 +174,7 @@ export default class Drag extends Component{
 
     renderDrag(){
         return (
-            <div {...this.otherProps} className={classnames(setPhPrefix('drag-action'), this.props.className)}
+            <div {...this.otherProps} className={classnames(setPhPrefix('drag-action'), this.props.className, 'user-none')}
                 onTouchStart={(event)=>{this.onTouchStart(event)}}
                 onTouchMove={(event)=>{this.onTouchMove(event)}}
                 onTouchEnd={(event)=>{this.onTouchEnd(event)}}

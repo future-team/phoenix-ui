@@ -84,6 +84,7 @@ var code = {
 	'toast-info': '<Button phSize="lg" onClick={::this.showToast}>Toast</Button>\n...\nshowToast(){\n\  Toast.info("只显示信息的toast！！", 2000,()=>{\n\    console.log("额外的执行内容");\n\  });\n}',
 	'toast-success': '<Button phSize="lg" onClick={::this.showToast}>Toast</Button>\n...\nshowToast(){\n\  Toast.success("操作成功", 2000,()=>{\n\    console.log("额外的执行内容");\n\  });\n}',
 	'toast-fail': '<Button phSize="lg" onClick={::this.showToast}>Toast</Button>\n...\nshowToast(){\n\  Toast.fail("操作失败", 2000,()=>{\n\    console.log("额外的执行内容");\n\  });\n}',
+	'toast-tip':'<Button phSize="lg" onClick={::this.showToast}>Toast</Button>\n...\nshowToast(){\n\  Toast.tip("操作提示", 2000,()=>{\n\    console.log("额外的执行内容");\n\  });\n}',
 	'toast-loading': '<Button phSize="lg" onClick={::this.showToast}>Toast</Button>\n...\nshowToast(){\n\  Toast.loading("加载中...", 2000,()=>{\n\    console.log("额外的执行内容");\n\  });\n}',
 	'toast-remove':'Toast.info("只显示信息的toast！", false, null);\n....\nToast.remove();',
 

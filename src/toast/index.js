@@ -134,15 +134,15 @@ export default {
         _renderLayer(layerElement, duration, callback);
     },
     success(content, duration, callback){
-        let layerElement = renderLayer(content, 'success');
+        let layerElement = renderLayer(content, 'success-circle');
         _renderLayer(layerElement, duration, callback);
     },
     fail(content, duration, callback){
-        let layerElement = renderLayer(content, 'fail');
+        let layerElement = renderLayer(content, 'fail-circle');
         _renderLayer(layerElement, duration, callback);
     },
     tip(content, duration, callback){
-        let layerElement = renderLayer(content, 'tip');
+        let layerElement = renderLayer(content, 'warning-circle');
         _renderLayer(layerElement, duration, callback);
     },
     loading(content, duration, callback){

@@ -93,6 +93,7 @@ export default class MenuItem extends Component {
 
     isActive(){
         let {name, activeName} = this.props;
+        
         return name === activeName ? 'active':'';
     }
 
