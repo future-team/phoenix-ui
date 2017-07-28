@@ -105,7 +105,7 @@ export default class Popover extends Component{
         this.documentClickHandle = this.documentClickHandle.bind(this);
         this.targetClickHandle = this.targetClickHandle.bind(this)
 
-        document.body.addEventListener('click', this.documentClickHandle, false);
+        document.documentElement.addEventListener('click', this.documentClickHandle, false);
 
         this.adaptePlacement = {
             'top': ['top', 'bottom', 'left', 'right'],
