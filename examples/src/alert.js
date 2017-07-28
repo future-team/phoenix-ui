@@ -37,7 +37,11 @@ export default class alert extends Component{
             {text: "按钮一", otherProps: {hollow: true}},
             {text: "按钮二", otherProps: {hollow: true}},
             {text: "按钮三", otherProps: {hollow: true}}
-        ];
+        ],
+        buttons3 = [
+            {text: "取消", phStyle: "gray", otherProps: {hollow: true}}, 
+            {onHandle: this.confirmCallback.bind(this,"visible4")}
+        ]
         const content = <p>这里是弹出框的内容...</p>;
 
         return(
@@ -66,7 +70,7 @@ export default class alert extends Component{
                     <Button radius phSize="lg" onClick={()=>{this.setState({visible4:true})}}>完整案例</Button>
                 </div>
                 <Alert visible={this.state.visible4} closeCallback={this.closeCallback.bind(this,"visible4")} closeButton shadowDisabled
-                    title="这是标题" content="这里是弹出框的内容..." buttons={buttons1} />
+                    title="这是标题" content="这里是弹出框的内容..." buttons={buttons3} />
                 <Code target="alert-whole" />
             </div>
         );

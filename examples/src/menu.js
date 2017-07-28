@@ -127,7 +127,7 @@ export default class menu extends Component{
 
 
                 <h3 className="comp-type"><strong>MenuList属性</strong></h3>
-                <h3 className="comp-type">clickCallback 点击菜单项时的回调，函数内必需手动更改activeName值</h3>
+                <h3 className="comp-type">clickCallback 点击菜单项时的回调</h3>
                 <Code target="menu-list-onmenulistchange" />
 
 

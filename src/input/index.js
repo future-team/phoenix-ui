@@ -118,7 +118,7 @@ export default class Input extends Component{
 
         this.setMethod('getValueCallback',this.getValue.bind(this))
 
-        this.visibleIcon = ['yinsi','biyan']
+        this.visibleIcon = ['biyan','yinsi']
 
         this.state = {
             type: props.type,

@@ -1,12 +1,12 @@
-html, body{
+/*html, body{
     height: 100%;
-}
+}*/
 
 #Back{
-    display: none;
     position: absolute;
     top: 0;
     left: 0;
+    z-index:1;
     padding: .24rem;
     font-size: .40rem;
     text-align: right;
@@ -31,6 +31,8 @@ html, body{
 }
 .menu header{
     overflow: hidden;
+    position:relative;
+    z-index:2;
     padding: .4rem 0 .64rem;
     margin-bottom: .32rem;
     background: url(../img/phoenix.jpg) top center;

@@ -73,6 +73,13 @@ export default class MenuBody extends Component{
          * @type Boolean
          * */
         closeButton: PropTypes.bool,
+        /**
+         * 当前选中的项目name，对应item的name属性
+         * @property activeName
+         * @type String
+         * @default null
+         * */
+        activeName: PropTypes.string
     };
 
     static defaultProps = {
@@ -101,7 +108,7 @@ export default class MenuBody extends Component{
             activeName: props.activeName
         }
 
-        document.addEventListener('click', this.handleDocumentClick, false);
+        document.body.addEventListener('click', this.handleDocumentClick, false);
     }
 
     handleDocumentClick(event){
@@ -186,14 +193,18 @@ export default class MenuBody extends Component{
         
         React.Children.forEach(this.props.children, function(child, index){
             let opt = {}
+            
+            // opt.key = index
+            // if(child.type.name=='MenuList'){
+            //     opt.activeName = activeName
+            //     opt.changeActive = _this.changeActive.bind(_this)
+            // } 
 
-            opt.key = index
-            if(child.type.name=='MenuList'){
-                opt.activeName = activeName
-                opt.changeActive = _this.changeActive.bind(_this)
-            } 
-
-            newChildren.push(React.cloneElement(child, opt));
+            newChildren.push(React.cloneElement(child, {
+                key: index,
+                activeName: activeName,
+                changeActive: _this.changeActive.bind(_this)
+            }));
         });
 
         return newChildren;

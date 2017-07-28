@@ -213,23 +213,6 @@ let App = class App extends Component {
         super(props, context);
     }
 
-    componentDidMount(){
-        let Back = document.getElementById('Back');
-        this.setBack(Back);
-        window.addEventListener('hashchange', ()=>{
-            this.setBack(Back);
-        }, false);
-    }
-
-    setBack(Back){
-        let hash = location.hash.split('/')[1];
-        if(hash=='index'){
-            Back.style.display = 'none';
-        }else{
-            Back.style.display = 'block';
-        }
-    }
-
     render() {
         return (
             <div>

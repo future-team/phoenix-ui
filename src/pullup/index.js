@@ -146,7 +146,7 @@ export default class PullUp extends Component{
         let pullUpElem = findDOMNode(this.pullUp)
 
         this.dragElem = pullUpElem.parentNode
-        this.dragElem.classList.add('animated')
+        this.addClass(this.dragElem, 'animated hardware')
 
         this.dragEventHandle(this.dragElem)
     }

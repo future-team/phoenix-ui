@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import classnames from 'classnames';
+import FastClick from 'fastclick';
 
 import ClassNameMixin from './ClassNameMixin';
 import PropertyMixin from './PropertyMixin';
@@ -19,6 +20,8 @@ export default class BaseComponent extends Component{
     constructor(props, context,defaultState) {
         super(props, context);
 
+        this.setUp()
+
         if(defaultState){
             this.setDefaultState(defaultState);
         }
@@ -31,6 +34,12 @@ export default class BaseComponent extends Component{
         //注册
         this.registerMethod(this.otherProps);
 
+    }
+
+    setUp(){
+        document.addEventListener('DOMContentLoaded', function() {
+            FastClick.attach(document.body);
+        }, false);
     }
 
     setPhPrefix(name, onlyPh){
