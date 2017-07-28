@@ -164,6 +164,10 @@ export default class SearchBar extends Component{
         )
     }
 
+    componentWillUnmount(){
+        clearTimeout(this.timer)
+    }
+
     render(){
         return this.renderSearchBar()
     }

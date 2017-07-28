@@ -30,7 +30,7 @@ $ npm install phoenix-ui --save
 
 <h2>使用</h2>
 <h3>CommonJS & ES6</h3>
-<p>从2.0版本开始，建议都使用以下方式引入，可很大程度上减少打包的大小。</p>
+<p>从2.0版本开始，建议都使用以下方式引入，可减少冗余代码的打包。</p>
 <pre class="well well-small sign-left3">
 // CommonJS
 var Button = require('phoenix-ui/lib/button')
@@ -129,6 +129,9 @@ render: function() {
 <p>建议使用rem布局，gfs-viewport会根据当前的dpr进行基础文字(html font-size)大小的切换，使用rem会根据该基础字体布局。<br/>
 一般设计给出的是750宽的基于iphone6的UED，在当前尺寸基础下<strong>除以100</strong>，就是得到的rem值。<br/>
 如：88px  -> .88rem </p>
+<h3>其他</h3>
+<p>样式提供了对应的dom结构，还有能够全局应用的类：<a href="http://future-team.github.io/phoenix-styles/example/index.html">具体查看说明</a>。</p>
+
 
 <h2>推荐</h2>
 <h3>移动端基于Vue的UI组件库 - swan-ui</h3>
