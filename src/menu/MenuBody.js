@@ -108,7 +108,7 @@ export default class MenuBody extends Component{
             activeName: props.activeName
         }
 
-        document.body.addEventListener('click', this.handleDocumentClick, false);
+        document.documentElement.addEventListener('click', this.handleDocumentClick, false);
     }
 
     handleDocumentClick(event){
