@@ -86,7 +86,6 @@ export default class Images extends Component{
         src: null,
         defaultSrc: null,
         lazy: false,
-        alt: '',
         phSize: 'default',
         classPrefix:'image',
         classMapping : {}
@@ -173,28 +172,29 @@ export default class Images extends Component{
 
             this.load = true
 
-            this.imageWidth = img.width
-            this.imageHeight = img.height
-
             if(img.complete){ // 如果已经存在，直接加载
-                this.loadSuccessCallback()
+                this.loadSuccessCallback(img)
                 return
             }
 
             img.onload = (e)=>{ // 否则等到图片加载完成
                 img.onload = null
-                this.loadSuccessCallback()
+                this.loadSuccessCallback(img)
             }
         }catch(err){
             if(loadCallback) loadCallback(err)
         }
     }
 
-    loadSuccessCallback(){
+    loadSuccessCallback(img){
         let {src, lazy, loadCallback} = this.props
         if(lazy) window.removeEventListener('scroll', this.scrollHandle, false)
 
         this.setState({src: src})
+
+        this.imageWidth = img.width
+        this.imageHeight = img.height
+
         this.getImageSize()
         if(loadCallback) loadCallback()
     }
@@ -211,7 +211,7 @@ export default class Images extends Component{
                 ref={(phImage)=>{this.phImage=phImage}}
                 style={this.getStyles(style)}
             >
-                <img src={this.state.src} ref={(image)=>{this.image=image}} alt={alt}/>
+                <img {...this.otherProps} src={this.state.src} ref={(image)=>{this.image=image}} />
             </div>
         )
     }

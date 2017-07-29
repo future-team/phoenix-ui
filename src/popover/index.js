@@ -105,8 +105,6 @@ export default class Popover extends Component{
         this.documentClickHandle = this.documentClickHandle.bind(this);
         this.targetClickHandle = this.targetClickHandle.bind(this)
 
-        document.documentElement.addEventListener('click', this.documentClickHandle, false);
-
         this.adaptePlacement = {
             'top': ['top', 'bottom', 'left', 'right'],
             'bottom': ['bottom', 'top', 'left', 'right'],
@@ -126,6 +124,7 @@ export default class Popover extends Component{
     }
 
     componentDidMount(){
+        document.addEventListener('click', this.documentClickHandle, false);
         // 获取点击的对象target，并绑定点击事件
         let target = this.props.getTarget()
         if(!target) Tool.warning('Popover 必须传递 getTarget[func]!')
@@ -182,8 +181,9 @@ export default class Popover extends Component{
     }
 
     documentClickHandle(event){
+        event.stopPropagation()
         let el = event.target
-        
+        // alert(event)
         if(el==this.target || Tool.contains(this.target,el) || Tool.contains(this.bubble,el)) return 
         
         this.removeClass(this.popover, SHOW_CLASS)
