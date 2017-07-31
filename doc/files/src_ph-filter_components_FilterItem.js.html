@@ -639,10 +639,10 @@ export default class FilterItem extends Component{
     }
 
     render(){
-        let {active, disabled} = this.props
+        let {active, disabled, className} = this.props
 
         return (
-            &lt;div className={classnames(&#x27;ph-row ph-list-item&#x27;, active ? &#x27;active&#x27;:&#x27;&#x27;, disabled? &#x27;disabled&#x27;:&#x27;&#x27;)}
+            &lt;div className={classnames(&#x27;ph-row ph-list-item&#x27;, active ? &#x27;active&#x27;:&#x27;&#x27;, disabled? &#x27;disabled&#x27;:&#x27;&#x27;, className)}
                 onClick={this.clickCallback.bind(this)}
             &gt;
                 {this.renderChildren()}

@@ -544,9 +544,28 @@
  <div class="well well-small sign-left3">
       <div class="stdoc-code"><p>List<br/></p>
 <ul>
-<li><p>主要属性和接口：</p>
-</li>
+<li>ListItem：根据需要可添加disabled、error、required、navigate属性。</li>
+<li>ListCol：根据需要可添加heading(标题样式)、tail(尾部右对齐样式)属性。</li>
 </ul>
+<p>示例：</p>
+<pre class="code prettyprint"><code> &lt;List&gt;
+     &lt;List.Header&gt;标题&lt;/List.Header&gt;
+         &lt;List.Item className="clickable"&gt;
+             &lt;List.Col&gt;
+                 &lt;label&gt;选择一&lt;/label&gt;
+             &lt;/List.Col&gt;
+         &lt;/List.Item&gt;
+ &lt;/List&gt;</code></pre>
+<pre class="code prettyprint"><code> &lt;List&gt;
+     &lt;List.Item navigate&gt;
+         &lt;List.Col heading&gt;
+             &lt;label&gt;性别&lt;/label&gt;
+         &lt;/List.Col&gt;
+         &lt;List.Col tail&gt;
+             &lt;Input type="text" placeholder="男/女" disabled /&gt;
+         &lt;/List.Col&gt;
+     &lt;/List.Item&gt;
+ &lt;/List&gt;</code></pre>
 </div>
  </div>
 
@@ -607,13 +626,6 @@
                         
                             <li class="index-item property">
                                 <a href="#" data-tabid="#property" data-anchor="#property_heading" data-tablink="heading">heading</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property">
-                                <a href="#" data-tabid="#property" data-anchor="#property_loading" data-tablink="loading">loading</a>
 
                                 
                                 
@@ -1005,7 +1017,7 @@ export default class star extends Component{
             
         
         
-        <a href="../files/src_list_index.js.html#l28"><code>src&#x2F;list&#x2F;index.js:28</code></a>
+        <a href="../files/src_list_index.js.html#l51"><code>src&#x2F;list&#x2F;index.js:51</code></a>
         
         </p>
 
@@ -1053,7 +1065,7 @@ export default class star extends Component{
             
         
         
-        <a href="../files/src_list_index.js.html#l72"><code>src&#x2F;list&#x2F;index.js:72</code></a>
+        <a href="../files/src_list_index.js.html#l87"><code>src&#x2F;list&#x2F;index.js:87</code></a>
         
         </p>
 
@@ -1101,7 +1113,7 @@ export default class star extends Component{
             
         
         
-        <a href="../files/src_list_index.js.html#l108"><code>src&#x2F;list&#x2F;index.js:108</code></a>
+        <a href="../files/src_list_index.js.html#l123"><code>src&#x2F;list&#x2F;index.js:123</code></a>
         
         </p>
 
@@ -1149,7 +1161,7 @@ export default class star extends Component{
             
         
         
-        <a href="../files/src_list_index.js.html#l186"><code>src&#x2F;list&#x2F;index.js:186</code></a>
+        <a href="../files/src_list_index.js.html#l201"><code>src&#x2F;list&#x2F;index.js:201</code></a>
         
         </p>
 
@@ -1197,7 +1209,7 @@ export default class star extends Component{
             
         
         
-        <a href="../files/src_list_index.js.html#l115"><code>src&#x2F;list&#x2F;index.js:115</code></a>
+        <a href="../files/src_list_index.js.html#l130"><code>src&#x2F;list&#x2F;index.js:130</code></a>
         
         </p>
 
@@ -1245,7 +1257,7 @@ export default class star extends Component{
             
         
         
-        <a href="../files/src_list_index.js.html#l122"><code>src&#x2F;list&#x2F;index.js:122</code></a>
+        <a href="../files/src_list_index.js.html#l137"><code>src&#x2F;list&#x2F;index.js:137</code></a>
         
         </p>
 
@@ -1293,7 +1305,7 @@ export default class star extends Component{
             
         
         
-        <a href="../files/src_list_index.js.html#l193"><code>src&#x2F;list&#x2F;index.js:193</code></a>
+        <a href="../files/src_list_index.js.html#l208"><code>src&#x2F;list&#x2F;index.js:208</code></a>
         
         </p>
 
@@ -1307,54 +1319,6 @@ export default class star extends Component{
 </div>
     </div>
 
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_loading" class="property item">
-    <h3 class="name"><code>loading</code></h3>
-    <span class="type">Boolean</span>
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p class="foundat">
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_list_index.js.html#l35"><code>src&#x2F;list&#x2F;index.js:35</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <div class="stdoc-code"><p>是否能加载更多</p>
-</div>
-    </div>
-
-    
-        <p><strong>Default:</strong></p>
-         <code> false</code>
     
 
     
@@ -1386,7 +1350,7 @@ export default class star extends Component{
             
         
         
-        <a href="../files/src_list_index.js.html#l136"><code>src&#x2F;list&#x2F;index.js:136</code></a>
+        <a href="../files/src_list_index.js.html#l151"><code>src&#x2F;list&#x2F;index.js:151</code></a>
         
         </p>
 
@@ -1434,7 +1398,7 @@ export default class star extends Component{
             
         
         
-        <a href="../files/src_list_index.js.html#l129"><code>src&#x2F;list&#x2F;index.js:129</code></a>
+        <a href="../files/src_list_index.js.html#l144"><code>src&#x2F;list&#x2F;index.js:144</code></a>
         
         </p>
 
@@ -1482,7 +1446,7 @@ export default class star extends Component{
             
         
         
-        <a href="../files/src_list_index.js.html#l199"><code>src&#x2F;list&#x2F;index.js:199</code></a>
+        <a href="../files/src_list_index.js.html#l214"><code>src&#x2F;list&#x2F;index.js:214</code></a>
         
         </p>
 

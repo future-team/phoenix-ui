@@ -556,9 +556,32 @@ import &#x27;phoenix-styles/less/modules/list.less&#x27;
 
 /**
  * List&lt;br/&gt;
- * - 
- *
- * 主要属性和接口：
+ * - ListItem：根据需要可添加disabled、error、required、navigate属性。
+ * - ListCol：根据需要可添加heading(标题样式)、tail(尾部右对齐样式)属性。
+ * 
+ * 示例：
+ * &#x60;&#x60;&#x60;
+ *  &lt;List&gt;
+ *      &lt;List.Header&gt;标题&lt;/List.Header&gt;
+ *          &lt;List.Item className=&quot;clickable&quot;&gt;
+ *              &lt;List.Col&gt;
+ *                  &lt;label&gt;选择一&lt;/label&gt;
+ *              &lt;/List.Col&gt;
+ *          &lt;/List.Item&gt;
+ *  &lt;/List&gt;
+ * &#x60;&#x60;&#x60;
+ * &#x60;&#x60;&#x60;
+ *  &lt;List&gt;
+ *      &lt;List.Item navigate&gt;
+ *          &lt;List.Col heading&gt;
+ *              &lt;label&gt;性别&lt;/label&gt;
+ *          &lt;/List.Col&gt;
+ *          &lt;List.Col tail&gt;
+ *              &lt;Input type=&quot;text&quot; placeholder=&quot;男/女&quot; disabled /&gt;
+ *          &lt;/List.Col&gt;
+ *      &lt;/List.Item&gt;
+ *  &lt;/List&gt;
+ * &#x60;&#x60;&#x60;
  *
  * @class List
  * @module 列表组件
@@ -577,15 +600,7 @@ class List extends Component{
          * @type String
          * @default &#x27;list&#x27;
          * */
-        classPrefix: PropTypes.string,
-        /**
-         * 是否能加载更多
-         * @property loading
-         * @type Boolean
-         * @default false
-         * */
-        // loading: PropTypes.bool,
-        // mode: PropTypes.oneOf([&#x27;auto&#x27;,&#x27;button&#x27;]),
+        classPrefix: PropTypes.string
     };
 
     static defaultProps ={
@@ -621,7 +636,7 @@ class ListHeader extends Component{
          * @type String
          * @default &#x27;list-header&#x27;
          * */
-        classPrefix: PropTypes.string,
+        classPrefix: PropTypes.string
     };
 
     static defaultProps ={
@@ -685,7 +700,7 @@ class ListItem extends Component{
          * @type Boolean
          * @default false
          * */
-        navigate: PropTypes.bool,
+        navigate: PropTypes.bool
     };
 
     static defaultProps ={

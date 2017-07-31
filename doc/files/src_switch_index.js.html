@@ -555,6 +555,7 @@ import &#x27;phoenix-styles/less/modules/switch.less&#x27;
  * 开关切换组件，仿真ios的开关控件&lt;br/&gt;
  * - 可通过defaultChecked设置默认值。
  * - 可通过checked和onChange事件配合使用手动设置输入值。
+ * - className属性加在外层，其余属性均赋予input元素。
  *
  * 主要属性和接口：
  * - defaultChecked:默认值&lt;br/&gt;
@@ -612,7 +613,7 @@ export default class Switch extends Component{
     }
 
     renderSwitch(){
-        let {className, disabled} = this.props
+        let {className, disabled, style} = this.props
 
         return (
             &lt;label className={
@@ -620,8 +621,8 @@ export default class Switch extends Component{
                     this.getProperty(true),
                     className
                 )
-            }&gt;
-                &lt;input type=&#x27;checkbox&#x27; {...this.otherProps} disabled={disabled}/&gt;
+            } style={this.getStyles(style)}&gt;
+                &lt;input type=&#x27;checkbox&#x27; {...this.otherProps} className=&#x27;&#x27; style={null} disabled={disabled}/&gt;
                 &lt;div className={this.setPhPrefix(&#x27;checkbox&#x27;,true)}&gt;&lt;/div&gt;
             &lt;/label&gt;
         )

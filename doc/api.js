@@ -65,7 +65,7 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "列表组件",
             "name": "列表组件",
-            "description": "List<br/>\n- \n\n主要属性和接口：",
+            "description": "List<br/>\n- ListItem：根据需要可添加disabled、error、required、navigate属性。\n- ListCol：根据需要可添加heading(标题样式)、tail(尾部右对齐样式)属性。\n\n示例：\n```\n <List>\n     <List.Header>标题</List.Header>\n         <List.Item className=\"clickable\">\n             <List.Col>\n                 <label>选择一</label>\n             </List.Col>\n         </List.Item>\n </List>\n```\n```\n <List>\n     <List.Item navigate>\n         <List.Col heading>\n             <label>性别</label>\n         </List.Col>\n         <List.Col tail>\n             <Input type=\"text\" placeholder=\"男/女\" disabled />\n         </List.Col>\n     </List.Item>\n </List>\n```",
             "classes": [
                 {
                     "name": "List"
@@ -136,7 +136,7 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "搜索组件",
             "name": "搜索组件",
-            "description": "SearchBar<br/>\n- 可通过buttonText设置按钮的文字。\n- 可通过clickCallback设置点击按钮的回调。\n- 可通过queryCallback设置回车/搜索动作的回调函数。\n- 可通过focusCallback设置聚焦的回调；可通过blurCallback设置失焦的回调。\n\n主要属性和接口：\n- buttonText: 按钮文字 <br/>\n如：`<SearchBar buttonText=\"no\" />`\n- clickCallback: 点击按钮的回调 <br/>\n如：`<SearchBar clickCallback={(value)=>{console.log(value)}} />`\n- queryCallback: 回车/搜索动作的回调函数 <br/>\n如：`<SearchBar queryCallback={(value)=>{console.log(value)}} />`\n- focusCallback: 聚焦的回调 <br/>\n如：`<SearchBar focusCallback={()=>{console.log(\"focus\")}} />`\n- blurCallback: 失焦的回调 <br/>\n如：`<SearchBar blurCallback={()=>{console.log(\"blur\")}} />`",
+            "description": "SearchBar<br/>\n- 可通过buttonText设置按钮的文字。\n- 可通过clickCallback设置点击按钮的回调。\n- 可通过queryCallback设置回车/搜索动作的回调函数。\n- 可通过focusCallback设置聚焦的回调；可通过blurCallback设置失焦的回调。\n- className/style属性加在外层，其余属性均赋予input元素。\n\n主要属性和接口：\n- buttonText: 按钮文字 <br/>\n如：`<SearchBar buttonText=\"no\" />`\n- clickCallback: 点击按钮的回调 <br/>\n如：`<SearchBar clickCallback={(value)=>{console.log(value)}} />`\n- queryCallback: 回车/搜索动作的回调函数 <br/>\n如：`<SearchBar queryCallback={(value)=>{console.log(value)}} />`\n- focusCallback: 聚焦的回调 <br/>\n如：`<SearchBar focusCallback={()=>{console.log(\"focus\")}} />`\n- blurCallback: 失焦的回调 <br/>\n如：`<SearchBar blurCallback={()=>{console.log(\"blur\")}} />`",
             "classes": [
                 {
                     "name": "SearchBar"

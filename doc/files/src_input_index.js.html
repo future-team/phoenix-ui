@@ -563,6 +563,7 @@ import &#x27;phoenix-styles/less/modules/input.less&#x27;
  * - 可通过设置error设置当前输入错误。
  * - 可通过getValueCallback获取当前元素的value值，仅适用于text、search。
  * - 可通过设置phReg设置正则表达式，失焦时如果不符合正则显示错误样式。
+ * - className/style属性加在外层，其余属性均赋予input元素。
  *
  * 主要属性和接口：
  * - type:input类型, 默认text &lt;br/&gt;
@@ -696,7 +697,7 @@ export default class Input extends Component{
     }
 
     renderInput(){
-        let {type, clear, visible, placeholder, phIcon, disabled} = this.props,
+        let {type, clear, visible, placeholder, phIcon, disabled, className, style} = this.props,
             {value, focus, error} = this.state;
         let clearStatus = clear &amp;&amp; value &amp;&amp; focus,
             visibleStatus = visible &amp;&amp; type==&#x27;password&#x27;,
@@ -714,8 +715,9 @@ export default class Input extends Component{
                     clearStatus ? this.setPhPrefix(&#x27;clear&#x27;):&#x27;&#x27;,
                     visibleStatus ? this.setPhPrefix(&#x27;visible&#x27;):&#x27;&#x27;,
                     errorState ? this.setPhPrefix(&#x27;error&#x27;):&#x27;&#x27;,
-                )}&gt;
-                    &lt;input {...this.otherProps} type={this.state.type} placeholder=&#x27;&#x27; value={value} disabled={disabled}
+                    className
+                )} style={this.getStyles(style)}&gt;
+                    &lt;input {...this.otherProps} className=&#x27;&#x27; style={null} type={this.state.type} placeholder=&#x27;&#x27; value={value} disabled={disabled}
                         ref={(inputElem)=&gt;{this.inputElem=inputElem}}
                         onChange={this.onChange.bind(this)} 
                         onFocus={this.onFocus.bind(this)} 
@@ -789,7 +791,7 @@ export default class Input extends Component{
 
     renderVisibleButton(visible){
         if(visible){
-            return &lt;Icon className={classnames(&#x27;gfs-icon-visible&#x27;, !this.state.cansee? &#x27;gfs-icon-active&#x27;:&#x27;&#x27;)} 
+            return &lt;Icon className={classnames(&#x27;gfs-icon-visible gfs-icon-active&#x27;)} 
                 phIcon={this.visibleIcon[this.state.cansee]} 
                 onClick={this.visibleHandle.bind(this)} /&gt;
         }

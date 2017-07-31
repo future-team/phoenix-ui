@@ -561,9 +561,28 @@
 <div class="moduledesc well well-small sign-left3">
     <div class="stdoc-code"><p>List<br/></p>
 <ul>
-<li><p>主要属性和接口：</p>
-</li>
+<li>ListItem：根据需要可添加disabled、error、required、navigate属性。</li>
+<li>ListCol：根据需要可添加heading(标题样式)、tail(尾部右对齐样式)属性。</li>
 </ul>
+<p>示例：</p>
+<pre class="code prettyprint"><code> &lt;List&gt;
+     &lt;List.Header&gt;标题&lt;/List.Header&gt;
+         &lt;List.Item className="clickable"&gt;
+             &lt;List.Col&gt;
+                 &lt;label&gt;选择一&lt;/label&gt;
+             &lt;/List.Col&gt;
+         &lt;/List.Item&gt;
+ &lt;/List&gt;</code></pre>
+<pre class="code prettyprint"><code> &lt;List&gt;
+     &lt;List.Item navigate&gt;
+         &lt;List.Col heading&gt;
+             &lt;label&gt;性别&lt;/label&gt;
+         &lt;/List.Col&gt;
+         &lt;List.Col tail&gt;
+             &lt;Input type="text" placeholder="男/女" disabled /&gt;
+         &lt;/List.Col&gt;
+     &lt;/List.Item&gt;
+ &lt;/List&gt;</code></pre>
 </div>
 </div>
 

@@ -10,9 +10,32 @@ import 'phoenix-styles/less/modules/list.less'
 
 /**
  * List<br/>
- * - 
- *
- * 主要属性和接口：
+ * - ListItem：根据需要可添加disabled、error、required、navigate属性。
+ * - ListCol：根据需要可添加heading(标题样式)、tail(尾部右对齐样式)属性。
+ * 
+ * 示例：
+ * ```
+ *  <List>
+ *      <List.Header>标题</List.Header>
+ *          <List.Item className="clickable">
+ *              <List.Col>
+ *                  <label>选择一</label>
+ *              </List.Col>
+ *          </List.Item>
+ *  </List>
+ * ```
+ * ```
+ *  <List>
+ *      <List.Item navigate>
+ *          <List.Col heading>
+ *              <label>性别</label>
+ *          </List.Col>
+ *          <List.Col tail>
+ *              <Input type="text" placeholder="男/女" disabled />
+ *          </List.Col>
+ *      </List.Item>
+ *  </List>
+ * ```
  *
  * @class List
  * @module 列表组件
@@ -31,15 +54,7 @@ class List extends Component{
          * @type String
          * @default 'list'
          * */
-        classPrefix: PropTypes.string,
-        /**
-         * 是否能加载更多
-         * @property loading
-         * @type Boolean
-         * @default false
-         * */
-        // loading: PropTypes.bool,
-        // mode: PropTypes.oneOf(['auto','button']),
+        classPrefix: PropTypes.string
     };
 
     static defaultProps ={
@@ -75,7 +90,7 @@ class ListHeader extends Component{
          * @type String
          * @default 'list-header'
          * */
-        classPrefix: PropTypes.string,
+        classPrefix: PropTypes.string
     };
 
     static defaultProps ={
@@ -139,7 +154,7 @@ class ListItem extends Component{
          * @type Boolean
          * @default false
          * */
-        navigate: PropTypes.bool,
+        navigate: PropTypes.bool
     };
 
     static defaultProps ={

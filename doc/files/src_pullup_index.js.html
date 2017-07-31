@@ -817,7 +817,7 @@ export default class PullUp extends Component{
 
     renderPullUp(){
         return (
-            &lt;div {...this.otherProps} ref={(pullUp)=&gt;{this.pullUp=pullUp}} className={this.getProperty(true)}&gt;
+            &lt;div {...this.otherProps} ref={(pullUp)=&gt;{this.pullUp=pullUp}} className={classnames(this.getProperty(true),this.props.className)}&gt;
                 {this.renderContent()}
             &lt;/div&gt;
         )

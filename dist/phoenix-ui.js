@@ -3154,8 +3154,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./reset.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./reset.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./reset.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./reset.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -3475,8 +3475,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./global.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./global.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./global.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./global.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -3515,8 +3515,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./page.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./page.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./page.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./page.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -3555,8 +3555,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./tip.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./tip.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./tip.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./tip.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -3595,8 +3595,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./iconfont.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./iconfont.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./iconfont.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./iconfont.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -3659,8 +3659,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./buttons.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./buttons.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./buttons.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./buttons.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -3865,10 +3865,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var _props3 = this.props;
 	        var Component = _props3.componentTag;
 	        var children = _props3.children;
+	        var className = _props3.className;
 
 	        return _react2['default'].createElement(
 	            Component,
-	            _extends({}, this.otherProps, { className: _classnames2['default'](this.getProperty(true), 'clearfix') }),
+	            _extends({}, this.otherProps, { className: _classnames2['default'](this.getProperty(true), className, 'clearfix') }),
 	            this.renderChildren()
 	        );
 	    };
@@ -3899,8 +3900,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./button-group.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./button-group.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./button-group.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./button-group.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -3918,7 +3919,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.ph-button-group {\n  position: relative;\n  display: inline-block;\n  vertical-align: middle;\n}\n.ph-button-group-default,\n.ph-button-group-footer,\n.ph-button-group-justify {\n  width: 100%;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -moz-box;\n  display: -moz-flex;\n  display: -ms-flexbox;\n  display: flex;\n}\n.ph-button-group-default .ph-button,\n.ph-button-group-footer .ph-button,\n.ph-button-group-justify .ph-button {\n  -moz-flex: 1;\n  -ms-flex: 1;\n  -webkit-flex: 1;\n  flex: 1;\n  -webkit-box-flex: 1;\n  -webkit-flex: 1  ;\n  -moz-box-flex: 1;\n  -moz-flex: 1  ;\n  -ms-flex: 1  ;\n  flex: 1  ;\n  min-width: 0;\n}\n.ph-button-group-default .ph-button,\n.ph-button-group-footer .ph-button {\n  position: relative;\n  margin-right: 0.24rem;\n}\n.ph-button-group-default .ph-button:last-child,\n.ph-button-group-footer .ph-button:last-child {\n  margin-right: 0;\n}\n.ph-button-group-justify .ph-button,\n.ph-button-group-segmente .ph-button {\n  min-width: 0;\n}\n.ph-button-group-justify .ph-button:not(:first-child),\n.ph-button-group-segmente .ph-button:not(:first-child) {\n  border-left: none;\n}\n.ph-button-group-justify .ph-button:not(:first-child):not(:last-child),\n.ph-button-group-segmente .ph-button:not(:first-child):not(:last-child) {\n  border-radius: 0;\n}\n.ph-button-group-justify .ph-button:first-child:not(:last-child),\n.ph-button-group-segmente .ph-button:first-child:not(:last-child) {\n  border-bottom-right-radius: 0;\n  border-top-right-radius: 0;\n}\n.ph-button-group-justify .ph-button:last-child:not(:first-child),\n.ph-button-group-segmente .ph-button:last-child:not(:first-child) {\n  border-bottom-left-radius: 0;\n  border-top-left-radius: 0;\n}\n.ph-button-group-tacked {\n  width: 100%;\n}\n.ph-button-group-tacked .ph-button {\n  float: none;\n  display: block;\n  margin-left: 0;\n}\n.ph-button-group-tacked .ph-button:not(:first-child) {\n  border-top: none;\n}\n.ph-button-group-tacked .ph-button:not(:first-child):not(:last-child) {\n  border-radius: 0;\n}\n.ph-button-group-tacked .ph-button:first-child:not(:last-child) {\n  border-bottom-right-radius: 0;\n  border-bottom-left-radius: 0;\n}\n.ph-button-group-tacked .ph-button:last-child:not(:first-child) {\n  border-top-right-radius: 0;\n  border-top-left-radius: 0;\n}\n.ph-button-group-footer {\n  width: 100%;\n  padding: 0.2rem 0.32rem;\n  border-top: 1PX solid #e1e1e1;\n  background-color: #fff;\n}\n.ph-button-group-segmente .ph-button {\n  width: 1.52rem;\n  height: 0.56rem;\n  -webkit-border-radius: 0.08rem;\n  -moz-border-radius: 0.08rem;\n  border-radius: 0.08rem;\n  background-clip: padding-box;\n  line-height: 0.56rem;\n}\n", ""]);
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.ph-button-group {\n  position: relative;\n  display: inline-block;\n  vertical-align: middle;\n}\n.ph-button-group .ph-button {\n  border-width: 2PX;\n}\n.ph-button-group-default,\n.ph-button-group-footer,\n.ph-button-group-justify {\n  width: 100%;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -moz-box;\n  display: -moz-flex;\n  display: -ms-flexbox;\n  display: flex;\n}\n.ph-button-group-default .ph-button,\n.ph-button-group-footer .ph-button,\n.ph-button-group-justify .ph-button {\n  -moz-flex: 1;\n  -ms-flex: 1;\n  -webkit-flex: 1;\n  flex: 1;\n  -webkit-box-flex: 1;\n  -webkit-flex: 1  ;\n  -moz-box-flex: 1;\n  -moz-flex: 1  ;\n  -ms-flex: 1  ;\n  flex: 1  ;\n  min-width: 0;\n}\n.ph-button-group-default .ph-button,\n.ph-button-group-footer .ph-button {\n  position: relative;\n  margin-right: 0.24rem;\n}\n.ph-button-group-default .ph-button:last-child,\n.ph-button-group-footer .ph-button:last-child {\n  margin-right: 0;\n}\n.ph-button-group-justify .ph-button,\n.ph-button-group-segmente .ph-button {\n  min-width: 0;\n}\n.ph-button-group-justify .ph-button:not(:first-child),\n.ph-button-group-segmente .ph-button:not(:first-child) {\n  border-left: none;\n}\n.ph-button-group-justify .ph-button:not(:first-child):not(:last-child),\n.ph-button-group-segmente .ph-button:not(:first-child):not(:last-child) {\n  border-radius: 0;\n}\n.ph-button-group-justify .ph-button:first-child:not(:last-child),\n.ph-button-group-segmente .ph-button:first-child:not(:last-child) {\n  border-bottom-right-radius: 0;\n  border-top-right-radius: 0;\n}\n.ph-button-group-justify .ph-button:last-child:not(:first-child),\n.ph-button-group-segmente .ph-button:last-child:not(:first-child) {\n  border-bottom-left-radius: 0;\n  border-top-left-radius: 0;\n}\n.ph-button-group-tacked {\n  width: 100%;\n}\n.ph-button-group-tacked .ph-button {\n  float: none;\n  display: block;\n  margin-left: 0;\n}\n.ph-button-group-tacked .ph-button:not(:first-child) {\n  border-top: none;\n}\n.ph-button-group-tacked .ph-button:not(:first-child):not(:last-child) {\n  border-radius: 0;\n}\n.ph-button-group-tacked .ph-button:first-child:not(:last-child) {\n  border-bottom-right-radius: 0;\n  border-bottom-left-radius: 0;\n}\n.ph-button-group-tacked .ph-button:last-child:not(:first-child) {\n  border-top-right-radius: 0;\n  border-top-left-radius: 0;\n}\n.ph-button-group-footer {\n  width: 100%;\n  padding: 0.2rem 0.32rem;\n  border-top: 1PX solid #e1e1e1;\n  background-color: #fff;\n}\n.ph-button-group-segmente .ph-button {\n  width: 1.52rem;\n  height: 0.56rem;\n  -webkit-border-radius: 0.08rem;\n  -moz-border-radius: 0.08rem;\n  border-radius: 0.08rem;\n  background-clip: padding-box;\n  line-height: 0.56rem;\n}\n", ""]);
 
 	// exports
 
@@ -3973,6 +3974,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * - 可通过设置error设置当前输入错误。
 	 * - 可通过getValueCallback获取当前元素的value值，仅适用于text、search。
 	 * - 可通过设置phReg设置正则表达式，失焦时如果不符合正则显示错误样式。
+	 * - className/style属性加在外层，其余属性均赋予input元素。
 	 *
 	 * 主要属性和接口：
 	 * - type:input类型, 默认text <br/>
@@ -4124,6 +4126,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var placeholder = _props.placeholder;
 	        var phIcon = _props.phIcon;
 	        var disabled = _props.disabled;
+	        var className = _props.className;
+	        var style = _props.style;
 	        var _state = this.state;
 	        var value = _state.value;
 	        var focus = _state.focus;
@@ -4140,8 +4144,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        } else {
 	            return _react2['default'].createElement(
 	                'div',
-	                { className: _classnames2['default'](this.getProperty(true), phIcon ? this.setPhPrefix('heading') : '', clearStatus ? this.setPhPrefix('clear') : '', visibleStatus ? this.setPhPrefix('visible') : '', errorState ? this.setPhPrefix('error') : '') },
-	                _react2['default'].createElement('input', _extends({}, this.otherProps, { type: this.state.type, placeholder: '', value: value, disabled: disabled,
+	                { className: _classnames2['default'](this.getProperty(true), phIcon ? this.setPhPrefix('heading') : '', clearStatus ? this.setPhPrefix('clear') : '', visibleStatus ? this.setPhPrefix('visible') : '', errorState ? this.setPhPrefix('error') : '', className), style: this.getStyles(style) },
+	                _react2['default'].createElement('input', _extends({}, this.otherProps, { className: '', style: null, type: this.state.type, placeholder: '', value: value, disabled: disabled,
 	                    ref: function (inputElem) {
 	                        _this.inputElem = inputElem;
 	                    },
@@ -4227,7 +4231,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    Input.prototype.renderVisibleButton = function renderVisibleButton(visible) {
 	        if (visible) {
-	            return _react2['default'].createElement(_icon2['default'], { className: _classnames2['default']('gfs-icon-visible', !this.state.cansee ? 'gfs-icon-active' : ''),
+	            return _react2['default'].createElement(_icon2['default'], { className: _classnames2['default']('gfs-icon-visible gfs-icon-active'),
 	                phIcon: this.visibleIcon[this.state.cansee],
 	                onClick: this.visibleHandle.bind(this) });
 	        }
@@ -4287,8 +4291,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./input.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./input.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./input.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./input.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -4306,7 +4310,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\ninput,\nselect {\n  font-family: Helvetica, Tahoma, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei';\n  font-size: 0.32rem;\n}\nselect,\ninput[type=\"text\"],\ninput[type=\"search\"],\ninput[type=\"password\"],\ninput[type=\"datetime\"],\ninput[type=\"datetime-local\"],\ninput[type=\"date\"],\ninput[type=\"month\"],\ninput[type=\"time\"],\ninput[type=\"week\"],\ninput[type=\"number\"],\ninput[type=\"email\"],\ninput[type=\"url\"],\ninput[type=\"tel\"] {\n  width: 100%;\n  height: 0.6rem;\n  padding: 0.1rem 0.16rem;\n  line-height: 1;\n  background-color: #fff;\n  border: 1PX solid #bbb;\n  -webkit-border-radius: 0.04rem;\n  -moz-border-radius: 0.04rem;\n  border-radius: 0.04rem;\n  background-clip: padding-box;\n  font-size: 0.28rem;\n  -webkit-appearance: none;\n  outline: none;\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n}\ninput[type=\"text\"]:disabled,\ninput[type=\"search\"]:disabled {\n  background-color: #f8f8f8;\n  color: #ccc;\n}\ninput[type=\"text\"]:disabled .gfs-icon,\ninput[type=\"search\"]:disabled .gfs-icon {\n  pointer-events: none;\n}\ninput[type=\"search\"] {\n  background-color: #f0f0f0;\n  border: none;\n}\ninput[type=\"search\"]:focus {\n  text-align: left;\n}\nselect {\n  height: auto;\n  -webkit-box-shadow: inset 0 1PX 1PX rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: inset 0 1PX 1PX rgba(0, 0, 0, 0.1);\n  box-shadow: inset 0 1PX 1PX rgba(0, 0, 0, 0.1);\n}\ninput::-webkit-input-placeholder,\n.ph-input-placeholder {\n  text-align: left;\n  font-size: 0.28rem;\n  color: #ccc;\n}\n.ph-input {\n  position: relative;\n}\n.ph-input input {\n  color: #666;\n}\n.ph-input .gfs-icon {\n  font-size: 0.32rem;\n  color: #ccc;\n}\n.ph-input > .gfs-icon {\n  position: absolute;\n  top: 50%;\n  right: 0.16rem;\n  -webkit-transform: translateY(-50%);\n  -ms-transform: translateY(-50%);\n  transform: translateY(-50%);\n  cursor: pointer;\n}\n.ph-input > .gfs-icon.gfs-icon-active {\n  color: #333;\n}\n.ph-input-clear input,\n.ph-input-visible input,\n.ph-input-error input {\n  padding-right: 0.48rem;\n}\n.ph-input-clear.ph-input-visible input {\n  padding-right: 0.96rem;\n}\n.ph-input-clear.ph-input-visible .gfs-icon-close {\n  right: 0.64rem;\n}\n.ph-input-heading input {\n  padding-left: 0.64rem;\n}\n.ph-input-error input {\n  color: #e2391a;\n}\n.ph-input-error .gfs-icon-error {\n  color: #f64d2e;\n}\n.ph-input-placeholder {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  padding: 0 0.16rem;\n  line-height: 0.6rem;\n  font-size: 0.28rem;\n  pointer-events: none;\n}\n.ph-input-placeholder .gfs-icon {\n  margin-right: 0.08rem;\n}\n.ph-input-placeholder-hide .ph-input-placeholder-text {\n  display: none;\n}\n.ph-input-placeholder-hide .gfs-icon {\n  color: #999;\n}\ninput[type=\"search\"] + .ph-input-placeholder {\n  text-align: center;\n  -webkit-transition: all 0.2s;\n  -moz-transition: all 0.2s;\n  transition: all 0.2s;\n}\ninput + .ph-input-placeholder-hide {\n  width: 0.64rem;\n}\n", ""]);
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\ninput,\nselect {\n  font-family: Helvetica, Tahoma, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei';\n  font-size: 0.32rem;\n}\nselect,\ninput[type=\"text\"],\ninput[type=\"search\"],\ninput[type=\"password\"],\ninput[type=\"datetime\"],\ninput[type=\"datetime-local\"],\ninput[type=\"date\"],\ninput[type=\"month\"],\ninput[type=\"time\"],\ninput[type=\"week\"],\ninput[type=\"number\"],\ninput[type=\"email\"],\ninput[type=\"url\"],\ninput[type=\"tel\"] {\n  width: 100%;\n  height: 0.6rem;\n  padding: 0.1rem 0.16rem;\n  line-height: 1;\n  background-color: #fff;\n  border: 1PX solid #bbb;\n  -webkit-border-radius: 0.04rem;\n  -moz-border-radius: 0.04rem;\n  border-radius: 0.04rem;\n  background-clip: padding-box;\n  font-size: 0.28rem;\n  -webkit-appearance: none;\n  outline: none;\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  caret-color: #ff6633;\n}\ninput[type=\"text\"]:disabled,\ninput[type=\"search\"]:disabled {\n  background-color: #f8f8f8;\n  color: #ccc;\n}\ninput[type=\"text\"]:disabled .gfs-icon,\ninput[type=\"search\"]:disabled .gfs-icon {\n  pointer-events: none;\n}\ninput[type=\"search\"] {\n  background-color: #f0f0f0;\n  border: none;\n}\ninput[type=\"search\"]:focus {\n  text-align: left;\n}\nselect {\n  height: auto;\n  -webkit-box-shadow: inset 0 1PX 1PX rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: inset 0 1PX 1PX rgba(0, 0, 0, 0.1);\n  box-shadow: inset 0 1PX 1PX rgba(0, 0, 0, 0.1);\n}\ninput::-webkit-input-placeholder,\n.ph-input-placeholder {\n  text-align: left;\n  font-size: 0.28rem;\n  color: #ccc;\n}\n.ph-input {\n  position: relative;\n}\n.ph-input input {\n  color: #666;\n}\n.ph-input .gfs-icon {\n  font-size: 0.32rem;\n  color: #ccc;\n}\n.ph-input > .gfs-icon {\n  position: absolute;\n  top: 50%;\n  right: 0.16rem;\n  -webkit-transform: translateY(-50%);\n  -ms-transform: translateY(-50%);\n  transform: translateY(-50%);\n  cursor: pointer;\n}\n.ph-input > .gfs-icon.gfs-icon-active {\n  color: #333;\n}\n.ph-input-clear input,\n.ph-input-visible input,\n.ph-input-error input {\n  padding-right: 0.48rem;\n}\n.ph-input-clear.ph-input-visible input {\n  padding-right: 0.96rem;\n}\n.ph-input-clear.ph-input-visible .gfs-icon-close {\n  right: 0.64rem;\n}\n.ph-input-heading input {\n  padding-left: 0.64rem;\n}\n.ph-input-error input {\n  color: #e2391a;\n}\n.ph-input-error .gfs-icon-error {\n  color: #f64d2e;\n}\n.ph-input-placeholder {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  padding: 0 0.16rem;\n  line-height: 0.6rem;\n  font-size: 0.28rem;\n  pointer-events: none;\n}\n.ph-input-placeholder .gfs-icon {\n  margin-right: 0.08rem;\n}\n.ph-input-placeholder-hide .ph-input-placeholder-text {\n  display: none;\n}\n.ph-input-placeholder-hide .gfs-icon {\n  color: #999;\n}\ninput[type=\"search\"] + .ph-input-placeholder {\n  text-align: center;\n  -webkit-transition: all 0.2s;\n  -moz-transition: all 0.2s;\n  transition: all 0.2s;\n}\ninput + .ph-input-placeholder-hide {\n  width: 0.64rem;\n}\n", ""]);
 
 	// exports
 
@@ -4350,6 +4354,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * - 使用方式跟原生一致, 支持disabled等原生属性。
 	 * - 可通过label设置展示的文字。
 	 * - 可通过defaultChecked设置默认值; 可通过checked和onChange事件配合使用手动设置输入值。
+	 * - className属性加在外层，其余属性均赋予input元素。
 	 *
 	 * 主要属性和接口：
 	 * - label:展示的文字信息, 默认空<br/>
@@ -4420,14 +4425,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var label = _props.label;
 	        var type = _props.type;
 	        var disabled = _props.disabled;
+	        var className = _props.className;
+	        var style = _props.style;
 
 	        return _react2['default'].createElement(
 	            'label',
-	            { className: this.setPhPrefix('multi-group', true) },
+	            { className: _classnames2['default'](this.setPhPrefix('multi-group', true), className), style: this.getStyles(style) },
 	            _react2['default'].createElement(
 	                'div',
 	                { className: this.getProperty(true) },
-	                _react2['default'].createElement('input', _extends({}, this.otherProps, { disabled: disabled })),
+	                _react2['default'].createElement('input', _extends({}, this.otherProps, { className: '', style: null, disabled: disabled })),
 	                _react2['default'].createElement('i', null)
 	            ),
 	            _react2['default'].createElement(
@@ -4464,8 +4471,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./checkbox.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./checkbox.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./checkbox.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./checkbox.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -4483,7 +4490,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.ph-multi-group {\n  display: inline-block;\n  vertical-align: top;\n  height: 0.4rem;\n  margin-right: 0.32rem;\n}\n.ph-multi-group span {\n  float: right;\n  margin-left: 0.16rem;\n  font-size: 0.28rem;\n}\n.ph-multi-group .ph-radio,\n.ph-multi-group .ph-checkbox {\n  display: inline-block;\n  vertical-align: top;\n}\n.ph-multi-group:last-child {\n  margin-right: 0;\n}\n.ph-checkbox {\n  position: relative;\n  width: 0.4rem;\n  height: 0.4rem;\n}\n.ph-checkbox i {\n  -webkit-border-radius: 0.04rem;\n  -moz-border-radius: 0.04rem;\n  border-radius: 0.04rem;\n  background-clip: padding-box;\n  position: relative;\n  display: block;\n  width: 0.4rem;\n  height: 0.4rem;\n  border: 1PX solid #bbb;\n  background-color: #fff;\n  -webkit-transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;\n  -moz-transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;\n  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;\n}\n.ph-checkbox input {\n  position: absolute;\n  z-index: 2;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  opacity: 0;\n  cursor: pointer;\n  pointer-events: all;\n}\n.ph-checkbox input:checked + i {\n  position: relative;\n  background-color: #fff1ed;\n  border: 0.02rem solid #ff6633;\n}\n.ph-checkbox input:checked + i:before,\n.ph-checkbox input:checked + i:after {\n  display: inline-block;\n  position: absolute;\n  content: \"\";\n  width: 0.02rem;\n  background-color: #ff6633;\n}\n.ph-checkbox input:checked + i:before {\n  height: 0.12rem;\n  left: 0.09rem;\n  top: 0.16rem;\n  -webkit-transform: rotate(135deg);\n  -ms-transform: rotate(135deg);\n  transform: rotate(135deg);\n}\n.ph-checkbox input:checked + i:after {\n  height: 0.24rem;\n  left: 0.21rem;\n  top: 0.07rem;\n  -webkit-transform: rotate(45deg);\n  -ms-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n.ph-checkbox input:disabled + i {\n  background-color: #f8f8f8;\n  border-color: #e1e1e1;\n}\n.ph-radio {\n  position: relative;\n  width: 0.42rem;\n  height: 0.42rem;\n}\n.ph-radio i {\n  -webkit-border-radius: 0.04rem;\n  -moz-border-radius: 0.04rem;\n  border-radius: 0.04rem;\n  background-clip: padding-box;\n  position: relative;\n  display: block;\n  width: 0.42rem;\n  height: 0.42rem;\n  border: 1PX solid #bbb;\n  background-color: #fff;\n  -webkit-transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;\n  -moz-transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;\n  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;\n}\n.ph-radio input {\n  position: absolute;\n  z-index: 2;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  opacity: 0;\n  cursor: pointer;\n  pointer-events: all;\n}\n.ph-radio input:checked + i {\n  position: relative;\n  background-color: #fff1ed;\n  border: 0.02rem solid #ff6633;\n}\n.ph-radio input:checked + i:before,\n.ph-radio input:checked + i:after {\n  display: inline-block;\n  position: absolute;\n  content: \"\";\n  width: 0.02rem;\n  background-color: #ff6633;\n}\n.ph-radio input:checked + i:before {\n  height: 0.12rem;\n  left: 0.09rem;\n  top: 0.16rem;\n  -webkit-transform: rotate(135deg);\n  -ms-transform: rotate(135deg);\n  transform: rotate(135deg);\n}\n.ph-radio input:checked + i:after {\n  height: 0.24rem;\n  left: 0.21rem;\n  top: 0.07rem;\n  -webkit-transform: rotate(45deg);\n  -ms-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n.ph-radio input:disabled + i {\n  background-color: #f8f8f8;\n  border-color: #e1e1e1;\n}\n.ph-radio i {\n  -webkit-border-radius: 50%;\n  -moz-border-radius: 50%;\n  border-radius: 50%;\n  background-clip: padding-box;\n}\n", ""]);
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.ph-multi-group {\n  display: inline-block;\n  vertical-align: top;\n  height: 0.4rem;\n  margin-right: 0.32rem;\n}\n.ph-multi-group span {\n  float: right;\n  margin-left: 0.16rem;\n  font-size: 0.28rem;\n}\n.ph-multi-group .ph-radio,\n.ph-multi-group .ph-checkbox {\n  display: inline-block;\n  vertical-align: top;\n}\n.ph-multi-group:last-child {\n  margin-right: 0;\n}\n.ph-checkbox {\n  position: relative;\n  width: 0.4rem;\n  height: 0.4rem;\n}\n.ph-checkbox i {\n  -webkit-border-radius: 0.04rem;\n  -moz-border-radius: 0.04rem;\n  border-radius: 0.04rem;\n  background-clip: padding-box;\n  position: relative;\n  display: block;\n  width: 0.4rem;\n  height: 0.4rem;\n  border: 2PX solid #bbb;\n  background-color: #fff;\n  -webkit-transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;\n  -moz-transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;\n  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;\n}\n.ph-checkbox input {\n  position: absolute;\n  z-index: 2;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  opacity: 0;\n  cursor: pointer;\n  pointer-events: all;\n}\n.ph-checkbox input:checked + i {\n  position: relative;\n  background-color: #fff1ed;\n  border: 2PX solid #ff6633;\n}\n.ph-checkbox input:checked + i:before,\n.ph-checkbox input:checked + i:after {\n  display: inline-block;\n  position: absolute;\n  content: \"\";\n  width: 0.02rem;\n  background-color: #ff6633;\n}\n.ph-checkbox input:checked + i:before {\n  height: 0.12rem;\n  left: 0.085rem;\n  top: 0.16rem;\n  -webkit-transform: rotate(135deg);\n  -ms-transform: rotate(135deg);\n  transform: rotate(135deg);\n}\n.ph-checkbox input:checked + i:after {\n  height: 0.24rem;\n  left: 0.21rem;\n  top: 0.07rem;\n  -webkit-transform: rotate(45deg);\n  -ms-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n.ph-checkbox input:disabled + i {\n  background-color: #f8f8f8;\n  border-color: #e1e1e1;\n}\n.ph-radio {\n  position: relative;\n  width: 0.42rem;\n  height: 0.42rem;\n}\n.ph-radio i {\n  -webkit-border-radius: 0.04rem;\n  -moz-border-radius: 0.04rem;\n  border-radius: 0.04rem;\n  background-clip: padding-box;\n  position: relative;\n  display: block;\n  width: 0.42rem;\n  height: 0.42rem;\n  border: 2PX solid #bbb;\n  background-color: #fff;\n  -webkit-transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;\n  -moz-transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;\n  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;\n}\n.ph-radio input {\n  position: absolute;\n  z-index: 2;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  opacity: 0;\n  cursor: pointer;\n  pointer-events: all;\n}\n.ph-radio input:checked + i {\n  position: relative;\n  background-color: #fff1ed;\n  border: 2PX solid #ff6633;\n}\n.ph-radio input:checked + i:before,\n.ph-radio input:checked + i:after {\n  display: inline-block;\n  position: absolute;\n  content: \"\";\n  width: 0.02rem;\n  background-color: #ff6633;\n}\n.ph-radio input:checked + i:before {\n  height: 0.12rem;\n  left: 0.085rem;\n  top: 0.16rem;\n  -webkit-transform: rotate(135deg);\n  -ms-transform: rotate(135deg);\n  transform: rotate(135deg);\n}\n.ph-radio input:checked + i:after {\n  height: 0.24rem;\n  left: 0.21rem;\n  top: 0.07rem;\n  -webkit-transform: rotate(45deg);\n  -ms-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n.ph-radio input:disabled + i {\n  background-color: #f8f8f8;\n  border-color: #e1e1e1;\n}\n.ph-radio i {\n  -webkit-border-radius: 50%;\n  -moz-border-radius: 50%;\n  border-radius: 50%;\n  background-clip: padding-box;\n}\n", ""]);
 
 	// exports
 
@@ -4525,6 +4532,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * - 使用方式跟原生一致, 支持disabled等原生属性。
 	 * - 可通过label设置展示的文字。
 	 * - 可通过defaultChecked设置默认值; 可通过checked和onChange事件配合使用手动设置输入值。
+	 * - className/style属性加在外层，其余属性均赋予input元素。
 	 *
 	 * 主要属性和接口：
 	 * - label:展示的文字信息, 默认空<br/>
@@ -4653,6 +4661,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * - 可通过valuee设置默认值。 
 	 * - 可通过设置count判断是否显示当前输入字数，需要配合maxLength配置最大输入字数。
 	 * - getValueCallback: 获取当前的输入值。
+	 * - className属性加在外层，其余属性均赋予input元素。
 	 *
 	 * 主要属性和接口：
 	 * - value:默认值 <br/>
@@ -4798,13 +4807,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var _props3 = this.props;
 	        var className = _props3.className;
 	        var disabled = _props3.disabled;
+	        var style = _props3.style;
 
 	        return _react2['default'].createElement(
 	            'div',
-	            { className: this.setPhPrefix('field') },
-	            _react2['default'].createElement('textarea', _extends({}, this.otherProps, { className: _classnames2['default'](this.getProperty(true), className), value: this.state.value, onChange: function (event) {
+	            { className: _classnames2['default'](this.setPhPrefix('field'), _classnames2['default']), style: this.getStyles(style) },
+	            _react2['default'].createElement('textarea', _extends({}, this.otherProps, { className: this.getProperty(true),
+	                value: this.state.value,
+	                onChange: function (event) {
 	                    _this.onTextareaChange(event);
-	                }, disabled: disabled })),
+	                },
+	                disabled: disabled, style: null })),
 	            this.renderCount()
 	        );
 	    };
@@ -4835,8 +4848,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./textarea.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./textarea.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./textarea.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./textarea.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -4897,6 +4910,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * 开关切换组件，仿真ios的开关控件<br/>
 	 * - 可通过defaultChecked设置默认值。
 	 * - 可通过checked和onChange事件配合使用手动设置输入值。
+	 * - className属性加在外层，其余属性均赋予input元素。
 	 *
 	 * 主要属性和接口：
 	 * - defaultChecked:默认值<br/>
@@ -4966,11 +4980,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var _props = this.props;
 	        var className = _props.className;
 	        var disabled = _props.disabled;
+	        var style = _props.style;
 
 	        return _react2['default'].createElement(
 	            'label',
-	            { className: _classnames2['default'](this.getProperty(true), className) },
-	            _react2['default'].createElement('input', _extends({ type: 'checkbox' }, this.otherProps, { disabled: disabled })),
+	            { className: _classnames2['default'](this.getProperty(true), className), style: this.getStyles(style) },
+	            _react2['default'].createElement('input', _extends({ type: 'checkbox' }, this.otherProps, { className: '', style: null, disabled: disabled })),
 	            _react2['default'].createElement('div', { className: this.setPhPrefix('checkbox', true) })
 	        );
 	    };
@@ -5001,8 +5016,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./switch.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./switch.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./switch.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./switch.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -5163,8 +5178,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./grid.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./grid.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./grid.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./grid.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -5866,8 +5881,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./tab.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./tab.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./tab.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./tab.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -6056,8 +6071,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./label.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./label.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./label.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./label.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -6216,8 +6231,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./badges.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./badges.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./badges.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./badges.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -6389,8 +6404,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./star.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./star.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./star.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./star.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -6408,7 +6423,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.ph-star {\n  position: relative;\n  display: inline-block;\n  vertical-align: middle;\n  width: 1.44rem;\n  height: 0.24rem;\n  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAAAwCAYAAAD+WvNWAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoyOUY3Mzg3OTQ5QjcxMUU3OUFBOUEyOUQ0NDE5NDUyMCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDoyOUY3Mzg3QTQ5QjcxMUU3OUFBOUEyOUQ0NDE5NDUyMCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjI5RjczODc3NDlCNzExRTc5QUE5QTI5RDQ0MTk0NTIwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjI5RjczODc4NDlCNzExRTc5QUE5QTI5RDQ0MTk0NTIwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+tPSyYAAABFNJREFUeNrsnE1oE0EUx//ZbJrW1raJYrFfSipW24uiiB6LH4gXwYMFPy6CipeCh4qIH+fqTUQo1KJU0Qp+nAQvCuJR7MGb2lLQXmpN2krTmiap85JqG7Kbzia7ZWd9D166HzPvNwP/TN7M7tQ3PDxcBuCW8FPCw7DHosIfCu+ORCIJowIjIyPM9QBXFx83hXfBXgsvxpwVftmkDHM9wNXEx2nZWj6fL+MW7GyBe8z1AFeTHdYocENDAxobG61AwkXeY64iXE22ZFVVFcrKyhAIBDLHq2XMdTdXWkA1NTWGx04bc93NlRJQRUVFRp1/jY7pmtPGXPdzpQRUW1srdc1uY677ufryE1JeeXk5/H4/dF3P/CUPBoOGqqWkK5VKZTyZTGb+zs3NIZFIWOoAc9Xl5giovr4emiadFhmC0+k0RkdHLXWMuepyc6JNT0+XPBxOTU1ZrsNcdbk5AopGo4jFYkUHL7Y+c9Xl5o1nVGBiYsJycKozOTlZdOOYqyZXMxvqxsfHpYNTWTuGR+aqxzXNqGZmZrCwsCAFiMfjtk0pmasWVyuUgcs+EzHK1os15qrF1exo7PJVTDs6xlx1uJYERItI5E5/M5irDleXAczPz2emcPS7SVZZWYlwOJx5cuvkN4O57ueaCogSLFp1pGkfZeDLEy4CUWJVXV2NUCgknYzJGHPV4poKaGxs7B/IrAG0KmnHtJK56nIpB4qaBZBR/ArlogWqMtcDXBLQAJyzvgL3mOsBLv2EXRJOCwL08nXIpsCxxYZfK1CGuR7g6pGe4/9GKxuVuRSr94NhAeZ6g8v7wphbEtfSvjD4hd70gBWQLfuVmOtervS+MGh+4Ooj4PqgFUjJ+5WY626u/PuNew4D9S1AXXP2eLWMua7mygmIntoeOLl0fuh09prTxlzXc+UE1LYXaNq6dL4xkr3mtDHX9Vw5AR00yMP2n3C+Y8x1PTf3WRipsGUHsDYE1KwXvg4I1Ynrrfk12/cBVwaAqR/CfwqfAH7FgK9DwPcv1jrwv3EbBXeLN7i5AuruA4Jr5Bu0abv42J57Lf4LuNhhrWP/G/eSd7i5P2FvnpQ+HBYTg7nKcnNHoJd3gcRv4OgF64Hpie2LO8DrB9brMldZbv77QK/uAbNimOrslp9CptPA4x7g3bPilc1cJbnGs7C3T4H7NySVKYL3XyutU8xVlms+jf/4RigvJbMKBXx6b9+UkrlKcc0FRFM7ej6yYnwBaN5mX8eYqxTXXECb2+Ub09xqX8eYqxS3gIDa8q99/pj1PICN3wzmKsXVpQDj34Dnt4Ght9nznR3AsS5gQ9PicOhQx5jreq65gFJJID4tpn39ImsfBJLzS/cIRIlVRydw5AyQmLOvY8xViutbOLfL+F3ZYEUWsjywoQQD2Uw9afL/+no/GC82nN/NXA9waQSifUP5b639npVTcuEGrLRfibmKc3lfGHNL4vK+MOaWxP0jwABoqTpM7ptIKwAAAABJRU5ErkJggg==') repeat-x 0 0;\n  background-size: 100% 200%;\n}\n.ph-star .ph-star-grey {\n  overflow: hidden;\n  width: 0;\n  height: 100%;\n}\n.ph-star .ph-star-grey:before {\n  content: '';\n  display: block;\n  width: 1.44rem;\n  height: 100%;\n  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAAAwCAYAAAD+WvNWAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoyOUY3Mzg3OTQ5QjcxMUU3OUFBOUEyOUQ0NDE5NDUyMCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDoyOUY3Mzg3QTQ5QjcxMUU3OUFBOUEyOUQ0NDE5NDUyMCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjI5RjczODc3NDlCNzExRTc5QUE5QTI5RDQ0MTk0NTIwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjI5RjczODc4NDlCNzExRTc5QUE5QTI5RDQ0MTk0NTIwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+tPSyYAAABFNJREFUeNrsnE1oE0EUx//ZbJrW1raJYrFfSipW24uiiB6LH4gXwYMFPy6CipeCh4qIH+fqTUQo1KJU0Qp+nAQvCuJR7MGb2lLQXmpN2krTmiap85JqG7Kbzia7ZWd9D166HzPvNwP/TN7M7tQ3PDxcBuCW8FPCw7DHosIfCu+ORCIJowIjIyPM9QBXFx83hXfBXgsvxpwVftmkDHM9wNXEx2nZWj6fL+MW7GyBe8z1AFeTHdYocENDAxobG61AwkXeY64iXE22ZFVVFcrKyhAIBDLHq2XMdTdXWkA1NTWGx04bc93NlRJQRUVFRp1/jY7pmtPGXPdzpQRUW1srdc1uY677ufryE1JeeXk5/H4/dF3P/CUPBoOGqqWkK5VKZTyZTGb+zs3NIZFIWOoAc9Xl5giovr4emiadFhmC0+k0RkdHLXWMuepyc6JNT0+XPBxOTU1ZrsNcdbk5AopGo4jFYkUHL7Y+c9Xl5o1nVGBiYsJycKozOTlZdOOYqyZXMxvqxsfHpYNTWTuGR+aqxzXNqGZmZrCwsCAFiMfjtk0pmasWVyuUgcs+EzHK1os15qrF1exo7PJVTDs6xlx1uJYERItI5E5/M5irDleXAczPz2emcPS7SVZZWYlwOJx5cuvkN4O57ueaCogSLFp1pGkfZeDLEy4CUWJVXV2NUCgknYzJGHPV4poKaGxs7B/IrAG0KmnHtJK56nIpB4qaBZBR/ArlogWqMtcDXBLQAJyzvgL3mOsBLv2EXRJOCwL08nXIpsCxxYZfK1CGuR7g6pGe4/9GKxuVuRSr94NhAeZ6g8v7wphbEtfSvjD4hd70gBWQLfuVmOtervS+MGh+4Ooj4PqgFUjJ+5WY626u/PuNew4D9S1AXXP2eLWMua7mygmIntoeOLl0fuh09prTxlzXc+UE1LYXaNq6dL4xkr3mtDHX9Vw5AR00yMP2n3C+Y8x1PTf3WRipsGUHsDYE1KwXvg4I1Ynrrfk12/cBVwaAqR/CfwqfAH7FgK9DwPcv1jrwv3EbBXeLN7i5AuruA4Jr5Bu0abv42J57Lf4LuNhhrWP/G/eSd7i5P2FvnpQ+HBYTg7nKcnNHoJd3gcRv4OgF64Hpie2LO8DrB9brMldZbv77QK/uAbNimOrslp9CptPA4x7g3bPilc1cJbnGs7C3T4H7NySVKYL3XyutU8xVlms+jf/4RigvJbMKBXx6b9+UkrlKcc0FRFM7ej6yYnwBaN5mX8eYqxTXXECb2+Ub09xqX8eYqxS3gIDa8q99/pj1PICN3wzmKsXVpQDj34Dnt4Ght9nznR3AsS5gQ9PicOhQx5jreq65gFJJID4tpn39ImsfBJLzS/cIRIlVRydw5AyQmLOvY8xViutbOLfL+F3ZYEUWsjywoQQD2Uw9afL/+no/GC82nN/NXA9waQSifUP5b639npVTcuEGrLRfibmKc3lfGHNL4vK+MOaWxP0jwABoqTpM7ptIKwAAAABJRU5ErkJggg==') repeat-x 0 100%;\n  background-size: 100% 200%;\n}\n.ph-star-lg {\n  width: 2.16rem;\n  height: 0.36rem;\n}\n.ph-star-lg .ph-star-grey:before {\n  width: 2.16rem;\n}\n.ph-star-md {\n  width: 1.8rem;\n  height: 0.3rem;\n}\n.ph-star-md .ph-star-grey:before {\n  width: 1.8rem;\n}\n.ph-star-5 .ph-star-grey {\n  width: 8.3333%;\n}\n.ph-star-10 .ph-star-grey {\n  width: 16.6667%;\n}\n.ph-star-15 .ph-star-grey {\n  width: 29.1667%;\n}\n.ph-star-20 .ph-star-grey {\n  width: 37.5%;\n}\n.ph-star-25 .ph-star-grey {\n  width: 50%;\n}\n.ph-star-30 .ph-star-grey {\n  width: 58.3333%;\n}\n.ph-star-35 .ph-star-grey {\n  width: 70.8333%;\n}\n.ph-star-40 .ph-star-grey {\n  width: 80%;\n}\n.ph-star-45 .ph-star-grey {\n  width: 91.6667%;\n}\n.ph-star-50 .ph-star-grey {\n  width: 100%;\n}\n", ""]);
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.ph-star {\n  position: relative;\n  display: inline-block;\n  vertical-align: middle;\n  width: 1.44rem;\n  height: 0.24rem;\n  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANgAAABICAYAAACURjuuAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDowMTgwMTE3NDA3MjA2ODExODIyQThCQ0FBRjFGQUIyQiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowMTVBQkYwNDZERkMxMUU3ODkxMEMzQjdCRkM3MURBRiIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowMTVBQkYwMzZERkMxMUU3ODkxMEMzQjdCRkM3MURBRiIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChNYWNpbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MDE4MDExNzQwNzIwNjgxMTgyMkE4QkNBQUYxRkFCMkIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MDE4MDExNzQwNzIwNjgxMTgyMkE4QkNBQUYxRkFCMkIiLz4gPC9yZGY6RGVzY3Jp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') repeat-x 0 0;\n  background-size: 100% 200%;\n}\n.ph-star .ph-star-grey {\n  overflow: hidden;\n  width: 0;\n  height: 100%;\n}\n.ph-star .ph-star-grey:before {\n  content: '';\n  display: block;\n  width: 1.44rem;\n  height: 100%;\n  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANgAAABICAYAAACURjuuAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDowMTgwMTE3NDA3MjA2ODExODIyQThCQ0FBRjFGQUIyQiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowMTVBQkYwNDZERkMxMUU3ODkxMEMzQjdCRkM3MURBRiIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowMTVBQkYwMzZERkMxMUU3ODkxMEMzQjdCRkM3MURBRiIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChNYWNpbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MDE4MDExNzQwNzIwNjgxMTgyMkE4QkNBQUYxRkFCMkIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MDE4MDExNzQwNzIwNjgxMTgyMkE4QkNBQUYxRkFCMkIiLz4gPC9yZGY6RGVzY3Jp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') repeat-x 0 100%;\n  background-size: 100% 200%;\n}\n.ph-star-lg {\n  width: 2.16rem;\n  height: 0.36rem;\n}\n.ph-star-lg .ph-star-grey:before {\n  width: 2.16rem;\n}\n.ph-star-md {\n  width: 1.8rem;\n  height: 0.3rem;\n}\n.ph-star-md .ph-star-grey:before {\n  width: 1.8rem;\n}\n.ph-star-5 .ph-star-grey {\n  width: 8.3333%;\n}\n.ph-star-10 .ph-star-grey {\n  width: 16.6667%;\n}\n.ph-star-15 .ph-star-grey {\n  width: 29.1667%;\n}\n.ph-star-20 .ph-star-grey {\n  width: 37.5%;\n}\n.ph-star-25 .ph-star-grey {\n  width: 50%;\n}\n.ph-star-30 .ph-star-grey {\n  width: 58.3333%;\n}\n.ph-star-35 .ph-star-grey {\n  width: 70.8333%;\n}\n.ph-star-40 .ph-star-grey {\n  width: 80%;\n}\n.ph-star-45 .ph-star-grey {\n  width: 91.6667%;\n}\n.ph-star-50 .ph-star-grey {\n  width: 100%;\n}\n", ""]);
 
 	// exports
 
@@ -6923,8 +6938,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./swipe.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./swipe.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./swipe.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./swipe.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -7470,8 +7485,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./animation.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./animation.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./animation.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./animation.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -7510,8 +7525,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./dialog.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./dialog.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./dialog.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./dialog.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -7712,10 +7727,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var content = _props2.content;
 	        var closeButton = _props2.closeButton;
 	        var shadowDisabled = _props2.shadowDisabled;
+	        var className = _props2.className;
 
 	        return _react2['default'].createElement(
 	            _Dialog2['default'],
-	            { className: this.setPhPrefix('dialog-alert', true), visible: visible, closeCallback: closeCallback, closeButton: closeButton, shadowDisabled: shadowDisabled },
+	            { className: _classnames2['default'](this.setPhPrefix('dialog-alert', true), className), visible: visible, closeCallback: closeCallback, closeButton: closeButton, shadowDisabled: shadowDisabled },
 	            _react2['default'].createElement(
 	                _Dialog2['default'].Title,
 	                null,
@@ -7997,10 +8013,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var title = _props2.title;
 	        var closeButton = _props2.closeButton;
 	        var shadowDisabled = _props2.shadowDisabled;
+	        var className = _props2.className;
 
 	        return _react2['default'].createElement(
 	            _Dialog2['default'],
-	            { className: this.setPhPrefix('dialog-prompt', true), visible: visible,
+	            { className: _classnames2['default'](this.setPhPrefix('dialog-prompt', true), className), visible: visible,
 	                closeCallback: closeCallback,
 	                closeButton: closeButton,
 	                shadowDisabled: shadowDisabled
@@ -8270,8 +8287,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./toast.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./toast.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./toast.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./toast.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -8470,7 +8487,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            Component,
-	            { className: _classnames2['default'](this.getProperty(true), className) },
+	            _extends({}, this.otherProps, { className: _classnames2['default'](this.getProperty(true), className) }),
 	            _react2['default'].createElement(
 	                _animate2['default'],
 	                null,
@@ -8510,8 +8527,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./popup.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./popup.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./popup.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./popup.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -8892,8 +8909,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./accordion.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./accordion.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./accordion.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./accordion.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -9111,6 +9128,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        var popoverProps = this.otherProps;
 	        popoverProps.className = _classnames2['default'](this.getProperty(true), this.props.className);
+	        popoverProps.style = this.getStyles(this.props.style);
 	        popoverProps.ref = function (popover) {
 	            _this2.popover = popover;
 	        };
@@ -9305,8 +9323,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	})(_utilsComponent2['default']);
 
 	exports['default'] = Popover;
-
-	console.log(typeof Popover);
 	module.exports = exports['default'];
 
 /***/ }),
@@ -9325,8 +9341,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./popover.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./popover.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./popover.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./popover.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -9737,8 +9753,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./slider.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./slider.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./slider.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./slider.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -10637,9 +10653,32 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/**
 	 * List<br/>
-	 * - 
-	 *
-	 * 主要属性和接口：
+	 * - ListItem：根据需要可添加disabled、error、required、navigate属性。
+	 * - ListCol：根据需要可添加heading(标题样式)、tail(尾部右对齐样式)属性。
+	 * 
+	 * 示例：
+	 * ```
+	 *  <List>
+	 *      <List.Header>标题</List.Header>
+	 *          <List.Item className="clickable">
+	 *              <List.Col>
+	 *                  <label>选择一</label>
+	 *              </List.Col>
+	 *          </List.Item>
+	 *  </List>
+	 * ```
+	 * ```
+	 *  <List>
+	 *      <List.Item navigate>
+	 *          <List.Col heading>
+	 *              <label>性别</label>
+	 *          </List.Col>
+	 *          <List.Col tail>
+	 *              <Input type="text" placeholder="男/女" disabled />
+	 *          </List.Col>
+	 *      </List.Item>
+	 *  </List>
+	 * ```
 	 *
 	 * @class List
 	 * @module 列表组件
@@ -10667,14 +10706,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        enumerable: true
 	    }, {
 	        key: 'defaultProps',
-	        /**
-	         * 是否能加载更多
-	         * @property loading
-	         * @type Boolean
-	         * @default false
-	         * */
-	        // loading: PropTypes.bool,
-	        // mode: PropTypes.oneOf(['auto','button']),
 	        value: {
 	            classPrefix: 'list',
 	            classMapping: {}
@@ -10920,8 +10951,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./list.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./list.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./list.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./list.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -11157,8 +11188,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./menu.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./menu.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./menu.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./menu.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -11176,7 +11207,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.ph-menu-placeholder {\n  position: relative;\n  z-index: 99;\n}\n.ph-menu-placeholder .ph-menu-ceiling {\n  position: fixed;\n  width: 100%;\n}\n.ph-menu-body {\n  overflow: hidden;\n  position: fixed;\n  z-index: 2;\n  height: 100%;\n}\n.ph-menu-body-top {\n  position: absolute;\n  z-index: 0;\n  width: 100%;\n  height: auto;\n}\n.ph-menu-body-left,\n.ph-menu-body-left-full {\n  left: 0;\n}\n.ph-menu-body-right,\n.ph-menu-body-right-full {\n  right: 0;\n}\n.ph-menu-body-left-full,\n.ph-menu-body-right-full,\n.ph-menu-body-full-screen {\n  top: 0;\n}\n.ph-menu-body-full-screen {\n  width: 100%;\n}\n.ph-menu-header {\n  position: relative;\n  z-index: 1;\n  overflow: hidden;\n  height: 0.88rem;\n  padding: 0 0.32rem;\n  background-color: #ff6633;\n  line-height: 0.88rem;\n  color: #fff;\n}\n.ph-menu-body {\n  padding: 0;\n  background-color: #fff;\n}\n.ph-menu-body-left,\n.ph-menu-body-right {\n  height: calc(100% -  0.88rem);\n}\n.ph-menu-close-button {\n  position: absolute;\n  right: 0;\n  top: 0;\n  padding: 0.2rem;\n  font-size: 0.36rem;\n  color: #ff6633;\n}\n.ph-menu-list .ph-menu-item .gfs-icon {\n  vertical-align: top;\n  margin: 0 0.24rem 0 0;\n}\n.ph-menu-list .ph-menu-item.active .ph-col {\n  color: #ff6633;\n}\n", ""]);
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.ph-menu-placeholder {\n  position: relative;\n  z-index: 99;\n}\n.ph-menu-placeholder .ph-menu-ceiling {\n  position: fixed;\n  width: 100%;\n}\n.ph-menu-body {\n  overflow: hidden;\n  position: fixed;\n  z-index: 2;\n  height: 100%;\n}\n.ph-menu-body-top {\n  position: absolute;\n  z-index: 0;\n  width: 100%;\n  height: auto;\n}\n.ph-menu-body-left,\n.ph-menu-body-left-full {\n  left: 0;\n}\n.ph-menu-body-right,\n.ph-menu-body-right-full {\n  right: 0;\n}\n.ph-menu-body-left-full,\n.ph-menu-body-right-full,\n.ph-menu-body-full-screen {\n  top: 0;\n}\n.ph-menu-body-full-screen {\n  width: 100%;\n}\n.ph-menu-header {\n  position: relative;\n  z-index: 1;\n  overflow: hidden;\n  height: 0.88rem;\n  padding: 0 0.32rem;\n  background-color: #ff6633;\n  line-height: 0.88rem;\n  color: #fff;\n}\n.ph-menu-body {\n  padding: 0;\n  background-color: #fff;\n}\n.ph-menu-body-left,\n.ph-menu-body-right {\n  height: calc(100% -  0.88rem);\n}\n.ph-menu-close-button {\n  position: absolute;\n  right: 0;\n  top: 0;\n  z-index: 1;\n  padding: 0.2rem;\n  font-size: 0.36rem;\n  color: #ff6633;\n}\n.ph-menu-list .ph-menu-item .gfs-icon {\n  vertical-align: top;\n  margin: 0 0.24rem 0 0;\n}\n.ph-menu-list .ph-menu-item.active .ph-col {\n  color: #ff6633;\n}\n", ""]);
 
 	// exports
 
@@ -11328,8 +11359,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./image-list.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./image-list.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./image-list.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./image-list.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -11628,7 +11659,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                },
 	                style: this.getStyles(style)
 	            },
-	            _react2['default'].createElement('img', _extends({}, this.otherProps, { src: this.state.src, ref: function (image) {
+	            _react2['default'].createElement('img', _extends({}, this.otherProps, { className: '', src: this.state.src, ref: function (image) {
 	                    _this2.image = image;
 	                } }))
 	        );
@@ -11660,8 +11691,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./image.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./image.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./image.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./image.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -11691,6 +11722,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -11867,7 +11900,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Steps.prototype.renderSteps = function renderSteps() {
 	        return _react2['default'].createElement(
 	            'div',
-	            { className: _classnames2['default'](this.getProperty(true), this.props.className) },
+	            _extends({}, this.otherProps, { className: _classnames2['default'](this.getProperty(true), this.props.className) }),
 	            this.renderLine(),
 	            this.renderContent()
 	        );
@@ -11899,8 +11932,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./steps.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./steps.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./steps.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./steps.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -11930,6 +11963,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	exports.__esModule = true;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -11969,6 +12004,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * - 可通过clickCallback设置点击按钮的回调。
 	 * - 可通过queryCallback设置回车/搜索动作的回调函数。
 	 * - 可通过focusCallback设置聚焦的回调；可通过blurCallback设置失焦的回调。
+	 * - className/style属性加在外层，其余属性均赋予input元素。
 	 *
 	 * 主要属性和接口：
 	 * - buttonText: 按钮文字 <br/>
@@ -12126,14 +12162,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return _react2['default'].createElement(
 	            'div',
 	            { className: _classnames2['default'](this.getProperty(true), className, this.state.focus ? this.setPhPrefix('focus') : ''), style: this.getStyles(style) },
-	            _react2['default'].createElement(_input2['default'], { type: 'search', phIcon: 'search', placeholder: placeholder, clear: true,
+	            _react2['default'].createElement(_input2['default'], _extends({}, this.otherProps, { type: 'search', phIcon: 'search', placeholder: placeholder, clear: true,
 	                ref: function (searchElem) {
 	                    _this2.searchElem = searchElem;
 	                },
 	                onFocus: this.onFocus.bind(this),
 	                onBlur: this.onBlur.bind(this),
 	                onKeyDown: this.onKeyDown.bind(this)
-	            }),
+	            })),
 	            this.renderButton()
 	        );
 	    };
@@ -12168,8 +12204,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./search-bar.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./search-bar.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./search-bar.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./search-bar.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -12518,7 +12554,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            'div',
 	            _extends({}, this.otherProps, { ref: function (pullUp) {
 	                    _this.pullUp = pullUp;
-	                }, className: this.getProperty(true) }),
+	                }, className: _classnames2['default'](this.getProperty(true), this.props.className) }),
 	            this.renderContent()
 	        );
 	    };
@@ -12549,8 +12585,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./pullup.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./pullup.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./pullup.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./pullup.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -12917,7 +12953,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            { className: 'ph-filter-occupy' },
 	            _react2['default'].createElement(
 	                'div',
-	                { className: _classnames2['default']('ph-filter-container', this.state.activeCat == -1 ? '' : 'ph-filter-container-shadow', this.state.fixed ? 'ph-filter-container-fixed' : ''),
+	                { className: _classnames2['default']('ph-filter-container', this.state.activeCat == -1 ? '' : 'ph-filter-container-shadow', this.state.fixed ? 'ph-filter-container-fixed' : '', this.props.className),
 	                    ref: function (filterContainer) {
 	                        _this.filterContainer = filterContainer;
 	                    }
@@ -13621,10 +13657,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var _props4 = this.props;
 	        var active = _props4.active;
 	        var disabled = _props4.disabled;
+	        var className = _props4.className;
 
 	        return _react2['default'].createElement(
 	            'div',
-	            { className: _classnames2['default']('ph-row ph-list-item', active ? 'active' : '', disabled ? 'disabled' : ''),
+	            { className: _classnames2['default']('ph-row ph-list-item', active ? 'active' : '', disabled ? 'disabled' : '', className),
 	                onClick: this.clickCallback.bind(this)
 	            },
 	            this.renderChildren()
@@ -13741,7 +13778,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    FilterItemGroup.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            'div',
-	            { className: _classnames2['default']('item ph-tab-nav', this.props.active ? 'active' : ''),
+	            { className: _classnames2['default']('item ph-tab-nav', this.props.active ? 'active' : '', this.props.className),
 	                onClick: this.itemClickHandle.bind(this)
 	            },
 	            _react2['default'].createElement(
@@ -13802,6 +13839,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _react = __webpack_require__(26);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(28);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
 
 	var _button = __webpack_require__(25);
 
@@ -13874,10 +13915,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var index = _props.index;
 	        var buttons = _props.buttons;
 	        var children = _props.children;
+	        var className = _props.className;
+	        var style = _props.style;
 
 	        return _react2['default'].createElement(
 	            'div',
-	            { className: 'ph-checkbox-filter' },
+	            { className: _classnames2['default']('ph-checkbox-filter', className) },
 	            _react2['default'].createElement(
 	                _FilterContainerJs2['default'],
 	                { index: 0, hideCat: true, choose: choose },
@@ -14241,8 +14284,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../../css-loader/index.js!../../../less-loader/index.js!./ph-filter.less", function() {
-				var newContent = require("!!../../../css-loader/index.js!../../../less-loader/index.js!./ph-filter.less");
+			module.hot.accept("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./ph-filter.less", function() {
+				var newContent = require("!!../../../../../../css-loader/index.js!../../../../../../less-loader/index.js!./ph-filter.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -14260,7 +14303,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.ph-filter-occupy {\n  height: 0.88rem;\n}\n.ph-filter-container {\n  position: relative;\n}\n.ph-filter-container-fixed,\n.ph-filter-container-shadow {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 99;\n  width: 100%;\n}\n.ph-filter-container-shadow {\n  height: 100%;\n}\n.ph-filter-shadow {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 1;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n.ph-filter-header {\n  position: relative;\n  z-index: 2;\n  margin: 0;\n  background-color: #fff;\n  border-bottom: 1PX solid #e1e1e1;\n}\n.ph-filter-header .ph-filter-header-item {\n  position: relative;\n  height: 0.88rem;\n  padding: 0.24rem 0;\n  line-height: 0.4rem;\n  text-align: center;\n  font-size: 0.28rem;\n}\n.ph-filter-header .ph-filter-header-item a {\n  display: block;\n  height: 0.4rem;\n  border-right: 1PX solid #e1e1e1;\n  white-spac: nowrap;\n}\n.ph-filter-header .ph-filter-header-item:last-child a {\n  border-right: none;\n}\n.ph-filter-header .ph-filter-header-item .gfs-icon {\n  display: inline-block;\n  margin-left: 0.08rem;\n  line-height: 0.4rem;\n  font-size: 0.24rem;\n  color: #666;\n  -webkit-transition: all 0.2s;\n  -moz-transition: all 0.2s;\n  transition: all 0.2s;\n  vertical-align: top;\n}\n.ph-filter-header .ph-filter-header-item.active .gfs-icon {\n  -webkit-transform: rotate(-180deg);\n  -ms-transform: rotate(-180deg);\n  transform: rotate(-180deg);\n}\n.ph-filter-header .ph-filter-header-item.active:after {\n  content: \"\";\n  position: absolute;\n  bottom: -0.02rem;\n  left: 50%;\n  width: 0.18rem;\n  height: 0.18rem;\n  background-color: #fff;\n  border-top: 1PX solid #e1e1e1;\n  border-right: 1PX solid #e1e1e1;\n  -webkit-transform: rotate(-45deg) translateX(-50%);\n  -ms-transform: rotate(-45deg) translateX(-50%);\n  transform: rotate(-45deg) translateX(-50%);\n}\n.ph-filter-header .ph-filter-header-text {\n  display: inline-block;\n  overflow: hidden;\n  max-width: calc(100% - .72rem);\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n.ph-filter-selector {\n  position: relative;\n  z-index: 2;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n}\n.ph-filter-selector .ph-list,\n.ph-filter-selector .ph-tab-navs,\n.ph-filter-selector .ph-tab-bd {\n  pointer-events: auto;\n  overflow-y: auto;\n  max-height: 72%;\n}\n.ph-filter-selector .ph-list::-webkit-scrollbar,\n.ph-filter-selector .ph-tab-navs::-webkit-scrollbar,\n.ph-filter-selector .ph-tab-bd::-webkit-scrollbar {\n  display: none;\n}\n.ph-filter-selector .ph-list-item.active {\n  color: #ff6633;\n}\n.ph-filter-selector .ph-button-group {\n  position: relative;\n  z-index: 1;\n}\n.ph-checkbox-filter .ph-filter-selector {\n  z-index: 9;\n}\n.ph-checkbox-filter .ph-filter-selector .ph-list,\n.ph-checkbox-filter .ph-filter-selector .ph-tab-navs,\n.ph-checkbox-filter .ph-filter-selector .ph-tab-bd {\n  max-height: none;\n  height: 100vh;\n}\n.ph-filter-selector-buttons .ph-list,\n.ph-filter-selector-buttons .ph-tab-navs,\n.ph-filter-selector-buttons .ph-tab-bd {\n  padding-bottom: 1.28rem;\n}\n.ph-filter-selector-buttons .ph-button-group {\n  margin-top: -1.28rem;\n}\n", ""]);
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.ph-filter-occupy {\n  height: 0.88rem;\n}\n.ph-filter-container {\n  position: relative;\n}\n.ph-filter-container-fixed,\n.ph-filter-container-shadow {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 99;\n  width: 100%;\n}\n.ph-filter-container-shadow {\n  height: 100%;\n}\n.ph-filter-shadow {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 1;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n.ph-filter-header {\n  position: relative;\n  z-index: 2;\n  margin: 0;\n  background-color: #fff;\n  border-bottom: 1PX solid #e1e1e1;\n}\n.ph-filter-header .ph-filter-header-item {\n  position: relative;\n  height: 0.88rem;\n  padding: 0.24rem 0;\n  line-height: 0.4rem;\n  text-align: center;\n  font-size: 0.28rem;\n}\n.ph-filter-header .ph-filter-header-item a {\n  display: block;\n  height: 0.4rem;\n  border-right: 1PX solid #e1e1e1;\n  white-spac: nowrap;\n}\n.ph-filter-header .ph-filter-header-item:last-child a {\n  border-right: none;\n}\n.ph-filter-header .ph-filter-header-item .gfs-icon {\n  display: inline-block;\n  margin-left: 0.08rem;\n  line-height: 0.4rem;\n  font-size: 0.24rem;\n  color: #666;\n  -webkit-transition: all 0.2s;\n  -moz-transition: all 0.2s;\n  transition: all 0.2s;\n  vertical-align: top;\n}\n.ph-filter-header .ph-filter-header-item.active .gfs-icon {\n  -webkit-transform: rotate(-180deg);\n  -ms-transform: rotate(-180deg);\n  transform: rotate(-180deg);\n}\n.ph-filter-header .ph-filter-header-item.active:after {\n  content: \"\";\n  position: absolute;\n  bottom: -0.02rem;\n  left: 50%;\n  width: 0.18rem;\n  height: 0.18rem;\n  background-color: #fff;\n  border-top: 1PX solid #e1e1e1;\n  border-right: 1PX solid #e1e1e1;\n  -webkit-transform: rotate(-45deg) translateX(-50%);\n  -ms-transform: rotate(-45deg) translateX(-50%);\n  transform: rotate(-45deg) translateX(-50%);\n}\n.ph-filter-header .ph-filter-header-text {\n  display: inline-block;\n  overflow: hidden;\n  max-width: calc(100% - .72rem);\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n.ph-filter-selector {\n  position: relative;\n  z-index: 2;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n}\n.ph-filter-selector > * {\n  max-height: 72%;\n  pointer-events: auto;\n}\n.ph-filter-selector .ph-list,\n.ph-filter-selector .ph-tab-navs,\n.ph-filter-selector .ph-tab-bd {\n  overflow-y: auto;\n}\n.ph-filter-selector .ph-list::-webkit-scrollbar,\n.ph-filter-selector .ph-tab-navs::-webkit-scrollbar,\n.ph-filter-selector .ph-tab-bd::-webkit-scrollbar {\n  display: none;\n}\n.ph-filter-selector .ph-list-item.active {\n  color: #ff6633;\n}\n.ph-filter-selector .ph-button-group {\n  position: relative;\n  z-index: 1;\n}\n.ph-checkbox-filter .ph-filter-selector {\n  z-index: 9;\n}\n.ph-checkbox-filter .ph-filter-selector .ph-list,\n.ph-checkbox-filter .ph-filter-selector .ph-tab-navs,\n.ph-checkbox-filter .ph-filter-selector .ph-tab-bd {\n  max-height: none;\n  height: 100vh;\n}\n.ph-filter-selector-buttons .ph-list,\n.ph-filter-selector-buttons .ph-tab-navs,\n.ph-filter-selector-buttons .ph-tab-bd {\n  padding-bottom: 1.28rem;\n}\n.ph-filter-selector-buttons .ph-button-group {\n  margin-top: -1.28rem;\n}\n", ""]);
 
 	// exports
 

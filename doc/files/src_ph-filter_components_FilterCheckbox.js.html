@@ -545,6 +545,7 @@
 <div class="file">
     <pre class="prettyprint linenums" id='src_code'>
 import React, { Component,PropTypes } from &#x27;react&#x27;
+import classnames from &#x27;classnames&#x27;
 import Button from &#x27;../../button&#x27;
 import Input from &#x27;../../input&#x27;
 
@@ -626,10 +627,10 @@ export default class FilterCheckbox extends Component{
     }
     
     render(){
-        let {choose, index, buttons, children} = this.props
+        let {choose, index, buttons, children, className, style} = this.props
 
         return (
-            &lt;div className=&#x27;ph-checkbox-filter&#x27;&gt;
+            &lt;div className={classnames(&#x27;ph-checkbox-filter&#x27;, className)}&gt;
                 &lt;FilterContainer index={0} hideCat choose={choose}&gt;
                     &lt;CheckboxPanel index={index} buttons={buttons}&gt;
                         {children}
