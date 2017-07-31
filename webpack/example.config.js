@@ -1,6 +1,3 @@
-/**
- * Created by panqianjin on 16/5/19.
- */
 var webpack = require('webpack'),
     glob = require('glob'),
     path = require('path'),
@@ -20,19 +17,23 @@ module.exports = extend({},{
             loaders: ['babel'],
             exclude: /node_modules/
         }, {
-            test: /\.less$/,
+            test: /\.(css|less)$/,
             // loader: "style-loader!css-loader!less-loader"
             loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
-        }, {
+        },{
             test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
             loader: 'file-loader?name=./iconfont/[name].[ext]'
         }]
     },
     resolve: {
-        alias: { "phoenix-ui" : "../../src/index.js" }
+        alias: { 
+            "phoenix-ui/lib" : path.join(process.cwd(), 'src'),
+            "phoenix-styles" : path.join(process.cwd(), 'examples/lib/phoenix-styles')
+        }
     },
     plugins:[
         new webpack.optimize.UglifyJsPlugin(),
-        new ExtractTextPlugin('phoenix-styles.css')
+        new ExtractTextPlugin('phoenix-styles.css'),
+        new webpack.optimize.DedupePlugin()
     ]
 });

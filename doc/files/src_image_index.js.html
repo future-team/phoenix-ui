@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui" />
+    <title>src/image/index.js - phoenix-ui</title>
+  
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+</head>
+<body class="yui3-smart" _assetsPath="../assets">
+ <nav class="navbar navbar-inverse navbar-fixed-top custom-navbar" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+               <a class="navbar-brand mainlogo" href="">
+             
+            <img alt="phoenix-ui" src="../assets/css/logo.png" title="phoenix-ui">
+            
+                phoenix-ui
+          </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                 <ul class="nav navbar-nav">
+                    
+                    <li><a href="index.html">主页</a>
+                    </li>
+                    
+                </ul>
+               <div class="navbar-form navbar-right filterAPi" autocomplete="off">
+                <input type="text" id='txtSearchAPI' class="form-control search-query" placeholder="Search for API" />
+                 <ul id="filterList" class="filterItems dropdown-menu" role="menu"></ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div id="sidebar">
+    <h3>模块/类</h3>
+        <div id="api-tabview-filter">
+            <input id='txtSearch' type="search" class="form-control" placeholder="Type to filter Modules/Classes">
+        </div>
+        <dl id="sidebar_list">
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/列表组件.html">列表组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/List.html">List</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/基础组件.html">基础组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Image.html">Image</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Button.html">Button</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/ButtonGroup.html">ButtonGroup</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Star.html">Star</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/布局组件.html">布局组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Col.html">Col</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Grid.html">Grid</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Row.html">Row</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/弹出框组件.html">弹出框组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Alert.html">Alert</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Dialog.html">Dialog</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Prompt.html">Prompt</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/提示组件.html">提示组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Popover.html">Popover</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/搜索组件.html">搜索组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/SearchBar.html">SearchBar</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/操作类组件.html">操作类组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/ImageList.html">ImageList</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Popup.html">Popup</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Slider.html">Slider</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Steps.html">Steps</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Toast.html">Toast</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Accordion.html">Accordion</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/PullUp.html">PullUp</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Swipe.html">Swipe</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/标签组件.html">标签组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Icon.html">Icon</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Badge.html">Badge</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Label.html">Label</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/筛选控件.html">筛选控件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/FilterCheckbox.html">FilterCheckbox</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterContainer.html">FilterContainer</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterItem.html">FilterItem</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterItemGroup.html">FilterItemGroup</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterPanel.html">FilterPanel</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterPanelSimple.html">FilterPanelSimple</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/菜单组件.html">菜单组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/MenuBody.html">MenuBody</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuHeader.html">MenuHeader</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuItem.html">MenuItem</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuList.html">MenuList</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Menu.html">Menu</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/表单组件.html">表单组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Input.html">Input</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Radio.html">Radio</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Switch.html">Switch</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Checkbox.html">Checkbox</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/TextArea.html">TextArea</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/辅助组件.html">辅助组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Drag.html">Drag</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Animate.html">Animate</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/选项卡.html">选项卡</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Tab.html">Tab</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Tabset.html">Tabset</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+        </dl>
+    <div class="icon-sidebar-btn icon-sidebar-btn-open"><span class="glyphicon glyphicon-chevron-left"></span>收起</div>
+</div>
+   
+    <div class="stdoc-content">
+        <div class="apidocs">
+            <div id="docs-main">
+                <div class="content">
+                    <div class="page-header">
+    <h1>src/image/index.js <small>File</small></h1>
+</div>
+
+<div class="file">
+    <pre class="prettyprint linenums" id='src_code'>
+import React,{PropTypes} from &#x27;react&#x27;
+import Component from &#x27;../utils/Component&#x27;
+import classnames from &#x27;classnames&#x27;
+import {warning,getClientHeight} from &#x27;../utils/Tool&#x27;
+
+import &#x27;../style&#x27;
+import &#x27;phoenix-styles/less/modules/image.less&#x27;
+
+/**
+ * 图片组件&lt;br/&gt;
+ * - 和普通图片使用方式一致，src为必填选项，可自行添加alt属性。
+ * - 可通过defaultSrc添加默认图片地址，在图片未加载出来之前显示。
+ * - 可通过phSize设置图片大小，default为宽高和父级一致；cover为覆盖，不变形，没有空白区域；contain包含，不变形，可能有空白区域。
+ * - 可通过lazy设置图片为懒加载的模式，当图片进入视口之后才开始加载，可配合ImageList使用。
+ * - 可通过loadCallback设置图片加载完成的回调函数。
+ * - cover和contain必须设置定高。
+ *
+ * 主要属性和接口：
+ * - src: 图片地址。&lt;br/&gt;
+ * 如：&#x60;&lt;Image src={IMAGE_URL} alt=&#x27;图片没有加载上的提示语&#x27;/&gt;&#x60;
+ * - defaultSrc: 默认图片地址。&lt;br/&gt;
+ * 如：&#x60;&lt;Image src={IMAGE_URL} defaultSrc={DEFAULT_URL}/&gt;&#x60;
+ * - phSize: 图片大小。&lt;br/&gt;
+ * 如：&#x60;&lt;Image src={IMAGE_URL} phSize=&#x27;cover&#x27;/&gt;&#x60;
+ * - lazy: 是否懒加载&lt;br/&gt;
+ * 如：&#x60;&lt;Image src={IMAGE_URL} lazy/&gt;&#x60;
+ * - loadCallback: 图片加载完成的回调&lt;br/&gt;
+ * 如：&#x60;&lt;Image src={IMAGE_URL} loadCallback={(err)=&gt;{if(!err) console.log(&#x27;success!&#x27;)}}/&gt;&#x60;
+ * 
+ * @class Image
+ * @module 基础组件
+ * @extends Component
+ * @constructor
+ * @since 2.0.0
+ * @demo image|image.js {展示}
+ * @show true
+ * */
+
+export default class Images extends Component{
+    static propTypes = {
+        /**
+         * 样式前缀
+         * @property classPrefix
+         * @type String
+         * @default &#x27;image&#x27;
+         * */
+        classPrefix: PropTypes.string,        
+        /**
+         * 图片地址
+         * @property src
+         * @type String
+         * @default null
+         * */
+        src: PropTypes.string,
+        /**
+         * 默认图片地址
+         * @property defaultSrc
+         * @type String
+         * @default null
+         * */
+        defaultSrc: PropTypes.string,
+        /**
+         * 图片大小，[default, cover, contain]
+         * @property phSize
+         * @type String
+         * @default &#x27;default&#x27;
+         * */
+        phSize: PropTypes.oneOf([&#x27;default&#x27;,&#x27;cover&#x27;,&#x27;contain&#x27;]),
+        /**
+         * 是否懒加载
+         * @property lazy
+         * @type Boolean
+         * @default false
+         * */
+        lazy: PropTypes.bool,
+        /**
+         * 图片加载完成的回调
+         * @property loadCallback
+         * @type Function
+         * @default null
+         * */
+        loadCallback: PropTypes.func
+    };
+
+    static defaultProps ={
+        src: null,
+        defaultSrc: null,
+        lazy: false,
+        phSize: &#x27;default&#x27;,
+        classPrefix:&#x27;image&#x27;,
+        classMapping : {}
+    };
+
+    constructor(props,context){
+        super(props,context)
+
+        this.load = false
+
+        // 对默认图片预加载
+        this.defaultImagePreload()
+
+        this.state = {
+            src: props.defaultSrc || null
+        }
+
+        this.scrollHandle = this.scrollHandle.bind(this)
+        if(props.lazy) window.addEventListener(&#x27;scroll&#x27;, this.scrollHandle, false)
+    }
+
+    defaultImagePreload(){
+        let {defaultSrc} = this.props
+
+        if(defaultSrc){
+            let img = new Image()
+            img.src = defaultSrc
+        }
+    }
+
+    scrollHandle(){
+        this.lazyLoad()
+    }
+
+    lazyLoad(){
+        this.scrollTop = document.body.scrollTop
+        this.bodyHeight = getClientHeight()
+        this.imageTop = this.phImage.offsetTop
+
+        if(this.scrollTop + this.bodyHeight &gt;= this.imageTop){
+            if(!this.load) {
+                this.imageLoad()
+            }
+        }
+    }
+
+    componentDidMount(){
+        let {defaultSrc, lazy} = this.props
+
+        if(!lazy) this.imageLoad()
+        if(lazy) this.lazyLoad()
+    }
+
+    getImageSize(){
+        let {phSize} = this.props
+
+        switch(phSize){
+            case &#x27;cover&#x27;:
+                if(this.imageWidth&gt;this.imageHeight){
+                    this.image.style.height = &#x27;100%&#x27;
+                }else{
+                    this.image.style.width = &#x27;100%&#x27;
+                }
+                break
+            case &#x27;contain&#x27;:
+                if(this.imageWidth&gt;this.imageHeight){
+                    this.image.style.width = &#x27;100%&#x27;
+                }else{
+                    this.image.style.height = &#x27;100%&#x27;
+                }
+                break
+            default:
+                this.image.style.width = &#x27;100%&#x27;
+                this.image.style.height = &#x27;100%&#x27;
+        }
+    }
+
+    imageLoad(){
+        let {src} = this.props
+
+        try{
+            let img = new Image()
+            img.src = src
+
+            this.load = true
+
+            if(img.complete){ // 如果已经存在，直接加载
+                this.loadSuccessCallback(img)
+                return
+            }
+
+            img.onload = (e)=&gt;{ // 否则等到图片加载完成
+                img.onload = null
+                this.loadSuccessCallback(img)
+            }
+        }catch(err){
+            if(loadCallback) loadCallback(err)
+        }
+    }
+
+    loadSuccessCallback(img){
+        let {src, lazy, loadCallback} = this.props
+        if(lazy) window.removeEventListener(&#x27;scroll&#x27;, this.scrollHandle, false)
+
+        this.setState({src: src})
+
+        this.imageWidth = img.width
+        this.imageHeight = img.height
+
+        this.getImageSize()
+        if(loadCallback) loadCallback()
+    }
+
+    componentWillUnmount(){
+        window.removeEventListener(&#x27;scroll&#x27;, this.scrollHandle, false)
+    }
+
+    renderImage(){
+        let {className, style, alt, children} = this.props;
+
+        return (
+            &lt;div className={classnames(this.getProperty(true), className)} 
+                ref={(phImage)=&gt;{this.phImage=phImage}}
+                style={this.getStyles(style)}
+            &gt;
+                &lt;img {...this.otherProps} src={this.state.src} ref={(image)=&gt;{this.image=image}} /&gt;
+            &lt;/div&gt;
+        )
+    }
+
+    render(){
+        return this.renderImage();
+    }
+}
+    </pre>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+<a id="gotoTop" class='well well-small' href='#'>
+</a>
+<script src="../assets/vendor/jquery/jquery-1.8.2.js"></script>
+<script src="../assets/vendor/bootstrap/js/bootstrap.js"></script>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/doc.js"></script>
+
+</body>
+</html>

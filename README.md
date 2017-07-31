@@ -10,9 +10,9 @@
 
 ```
     // CommonJS
-    var Button = require('phoenix-ui/lib/Button');
+    var Button = require('phoenix-ui/lib/button');
     // ES6
-    import {Button} from 'phoenix-ui';
+    import Button from 'phoenix-ui/lib/button';
 
     //react
     <Button phSize="xs" phStyle="primary">按钮</Button>
@@ -42,6 +42,12 @@
     $npm install anywhere -g
     $ anywhere
 ```
+## Browser Support
+Phoenix UI is tested with the following browsers and mobile OS.
+
+- Android 4.4.2 +
+- IOS 8 +
+- Chrome
 
 ## Command
 
@@ -54,6 +60,7 @@
 
 ## Repair
 
+`version 2.0.0` 去掉TableView和ForemGroup，新增List；Popover去掉Whisper的辅助使用；Input拆分成Input、Checkbox、Radio等。<br/>
 `version 1.7.4` Toast增加duration的参数范围; Button增加phIcon属性。 <br/>
 `version 1.7.0` Slider组件功能拓展，新增Steps、ImageList组件; <br/>
 `version 1.6.2` 新增LoadingList组件; <br/>

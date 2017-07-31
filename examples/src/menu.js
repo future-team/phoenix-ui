@@ -1,7 +1,10 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 import classnames from "classnames";
-import {Menu, Button, Icon, Input} from "phoenix-ui";
-import Code from "./code/code";
+
+import Menu from "phoenix-ui/lib/menu"
+import Button from "phoenix-ui/lib/button"
+import Icon from "phoenix-ui/lib/icon"
+import Code from "./code/code"
 
 export default class menu extends Component{
 
@@ -11,27 +14,14 @@ export default class menu extends Component{
         this.state = {
             visible: false,
             placement: 'top',
-            align: 'left',
             width: 40,
             closeButton: false,
-            navAlign: 'top',
-            activeName: 'index',
-            value: 'ha'
+            activeName: 'index' // 对应router名称
         }
     }
 
     onMenuChange(visible){
         console.log(visible);
-    }
-
-    switchAlign(){
-        let newAlign = "left";
-
-        if(this.state.align == "left") newAlign="right";
-
-        this.setState({
-            align: newAlign
-        });
     }
 
     switchPlacement(){
@@ -52,51 +42,42 @@ export default class menu extends Component{
         });
     }
 
-    switchNavAlign(){
-        this.setState({
-            navAlign: 'center'
-        });
-    }
-
     switchActiveName(){
         this.setState({
-            activeName: 'menu'
+            activeName: 'setting'
         });
     }
-
-    // 必需
+    
     setActiveName(name){
+        console.log(name)
+
         this.setState({
-            activeName: name,
             visible: false // 如果需要点击之后关闭false
-        });
+        })
     }
 
     onMenuItemChange(name){
         console.log(name);
     }
 
-    onInputChange(e){
-        this.setState({
-            value: e.target.value
-        });
-    }
-
     render(){
+        // console.log('render', this.state.visible)
         return(
             <div>
-                <Menu visible={this.state.visible} scrollCeiling={100} onMenuChange={::this.onMenuChange}>
-                    <Menu.Header align={this.state.align}>Phoenix</Menu.Header>
-                    <Menu.Body width={this.state.width} placement={this.state.placement} closeButton={this.state.closeButton}>
-                        <Menu.Nav align={this.state.navAlign}>
-                            <div>
-                                <Input placeholder="自定义部分" value={this.state.value} onChange={::this.onInputChange}/>
-                            </div>
-                            <Menu.List activeName={this.state.activeName} onMenulistChange={::this.setActiveName}>
-                                <Menu.Item name="index" phIcon="home">首页</Menu.Item>
-                                <Menu.Item name="menu" href="#menu" phIcon="menu" onChange={::this.onMenuItemChange}>菜单</Menu.Item>
-                            </Menu.List>
-                        </Menu.Nav>
+                <Menu visible={this.state.visible} ceiling={100} clickCallback={this.onMenuChange.bind(this)}>
+                    <Menu.Header ref={(menuHandler)=>{this.menuHandler=menuHandler}}>
+                        <span>Phoenix</span>
+                    </Menu.Header>
+                    <Menu.Body width={this.state.width} 
+                        placement={this.state.placement} 
+                        closeButton={this.state.closeButton} 
+                        getTarget={()=>{return this.menuHandler}}
+                        activeName={this.state.activeName} 
+                    >
+                        <Menu.List clickCallback={this.setActiveName.bind(this)}>
+                            <Menu.Item name="index" phIcon="meidianbao-fill">首页</Menu.Item>
+                            <Menu.Item name="setting" phIcon="shanghuguanli-fill" href="#menu" clickCallback={this.onMenuItemChange.bind(this)}>设置</Menu.Item>
+                        </Menu.List>
                     </Menu.Body>
                 </Menu>
 
@@ -105,58 +86,48 @@ export default class menu extends Component{
                 <h3 className="comp-type">visible(默认false) 初始可见值</h3>
                 <Code target="menu-visible" />
 
-                <h3 className="comp-type">scrollCeiling 滚动吸顶的距离，默认不吸顶</h3>
-                <h3 className="comp-tip">当前设置为100</h3>
-                <Code target="menu-scrollceiling" />
-
-                <h3 className="comp-type">onMenuChange 菜单展开收起的回调函数</h3>
-                <Code target="menu-onmenuchange" />
-
-
-                <h3 className="comp-type"><strong>MenuHeader属性</strong></h3>
-                <h3 className="comp-type">align(默认left) 菜单按钮的位置</h3>
+                <h3 className="comp-type">ceiling 滚动吸顶的距离，默认不吸顶</h3>
                 <div className="content">
-                    <Button onClick={::this.switchAlign}>切换align值:默认left</Button>
+                    <h3 className="comp-tip">当前设置为100</h3>
                 </div>
-                <Code target="menu-header-align" />
+                <Code target="menu-ceiling" />
 
+                <h3 className="comp-type">clickCallback 菜单展开收起的回调函数</h3>
+                <Code target="menu-onmenuchange" />
+                
 
                 <h3 className="comp-type"><strong>MenuBody属性</strong></h3>
+                <h3 className="comp-type">getTarget(必须) 返回点击元素</h3>
+                <div className="content">
+                    <h3 className="comp-tip">当前为MenuHeader</h3>
+                </div>
+
+                <h3 className="comp-type">activeName(默认null) 当前导航选中的菜单项</h3>
+                <div className="content">
+                    <Button onClick={this.switchActiveName.bind(this)}>改变activeName值:index->setting</Button>
+                </div>
+
                 <h3 className="comp-type">placement(默认top) 菜单的位置</h3>
                 <div className="content">
-                    <Button onClick={::this.switchPlacement}>改变placement值:top->left-full</Button>
+                    <Button onClick={this.switchPlacement.bind(this)}>改变placement值:top->left-full</Button>
                 </div>
                 <Code target="menu-body-placement" />
 
                 <h3 className="comp-type">width(默认50) 侧边菜单的宽度</h3>
                 <div className="content">
-                    <Button onClick={::this.switchWidth}>改变width值:40->50</Button>
+                    <Button onClick={this.switchWidth.bind(this)}>改变width值:40->50</Button>
                 </div>
                 <Code target="menu-body-width" />
 
                 <h3 className="comp-type">closeButton 菜单主体的关闭按钮是否显示</h3>
                 <div className="content">
-                    <Button onClick={::this.switchCloseButton}>切换closeButton值:默认false</Button>
+                    <Button onClick={this.switchCloseButton.bind(this)}>切换closeButton值:默认false</Button>
                 </div>
                 <Code target="menu-body-closebutton" />
 
 
-                <h3 className="comp-type"><strong>MenuNav属性</strong></h3>
-                <h3 className="comp-type">align(默认top) 导航的位置</h3>
-                <div className="content">
-                    <Button onClick={::this.switchNavAlign}>改变align值:top->center</Button>
-                </div>
-                <Code target="menu-nav-align" />
-
-
                 <h3 className="comp-type"><strong>MenuList属性</strong></h3>
-                <h3 className="comp-type">activeName(默认null) 当前导航选中的菜单项</h3>
-                <div className="content">
-                    <Button onClick={::this.switchActiveName}>改变activeName值:index->menu</Button>
-                </div>
-                <Code target="menu-list-onmenulistchange" />
-
-                <h3 className="comp-type">onMenulistChange 点击菜单项时的回调，函数内必需手动更改activeName值</h3>
+                <h3 className="comp-type">clickCallback 点击菜单项时的回调</h3>
                 <Code target="menu-list-onmenulistchange" />
 
 
@@ -170,7 +141,7 @@ export default class menu extends Component{
                 <h3 className="comp-type">href(默认无) 菜单项的链接</h3>
                 <Code target="menu-item-href" />
 
-                <h3 className="comp-type">onMenuitemChange 点击菜单项时的回调</h3>
+                <h3 className="comp-type">clickCallback 点击菜单项时的回调</h3>
                 <Code target="menu-item-onmenuitemchange" />
 
             </div>

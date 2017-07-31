@@ -7,45 +7,55 @@ YUI.add("yuidoc-meta", function(Y) {
         "Badge",
         "Button",
         "ButtonGroup",
+        "Checkbox",
         "Col",
         "Dialog",
         "Drag",
-        "FormGroup",
+        "FilterCheckbox",
+        "FilterContainer",
+        "FilterItem",
+        "FilterItemGroup",
+        "FilterPanel",
+        "FilterPanelSimple",
         "Grid",
         "Icon",
+        "Image",
         "ImageList",
         "Input",
         "Label",
-        "LoadingList",
+        "List",
         "Menu",
         "MenuBody",
         "MenuHeader",
         "MenuItem",
         "MenuList",
-        "MenuNav",
         "Popover",
         "Popup",
         "Prompt",
+        "PullUp",
+        "Radio",
         "Row",
+        "SearchBar",
         "Slider",
         "Star",
         "Steps",
         "Swipe",
         "Switch",
         "Tab",
-        "TableView",
         "Tabset",
         "TextArea",
-        "Toast",
-        "Whisper"
+        "Toast"
     ],
     "modules": [
+        "列表组件",
         "基础组件",
         "布局组件",
         "弹出框组件",
         "提示组件",
+        "搜索组件",
         "操作类组件",
         "标签组件",
+        "筛选控件",
         "菜单组件",
         "表单组件",
         "辅助组件",
@@ -53,10 +63,23 @@ YUI.add("yuidoc-meta", function(Y) {
     ],
     "allModules": [
         {
+            "displayName": "列表组件",
+            "name": "列表组件",
+            "description": "List<br/>\n- \n\n主要属性和接口：",
+            "classes": [
+                {
+                    "name": "List"
+                }
+            ]
+        },
+        {
             "displayName": "基础组件",
             "name": "基础组件",
             "description": "<h5>基础组件，主要包括:</h5>\n<strong><a href='../classes/Star.html'>Star 星级</a></strong><br/>\n<strong><a href='../classes/Button.html'>Button 按钮</a></strong><br>\n <strong><a href='../classes/ButtonGroup.html'>ButtonGroup 按钮组</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
             "classes": [
+                {
+                    "name": "Image"
+                },
                 {
                     "name": "Button"
                 },
@@ -74,16 +97,13 @@ YUI.add("yuidoc-meta", function(Y) {
             "description": "<h5>主要栅格化布局组件</h5>\n<strong><a href='../classes/Grid.html'>Grid 外框</a></strong><br>\n<strong><a href='../classes/Row.html'>Row 行排列</a></strong><br>\n<strong><a href='../classes/Col.html'>Col 竖排列</a></strong><br>\n<strong><a href='../classes/TableView.html'>TableView 仿表格组件</a></strong><br>\n<h6>点击以上链接进行相关查看</h6>",
             "classes": [
                 {
-                    "name": "Row"
-                },
-                {
-                    "name": "TableView"
-                },
-                {
                     "name": "Col"
                 },
                 {
                     "name": "Grid"
+                },
+                {
+                    "name": "Row"
                 }
             ]
         },
@@ -106,13 +126,20 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "提示组件",
             "name": "提示组件",
-            "description": "<h5>提示模块，主要包括一下两个组件:</h5>\n<strong><a href='../classes/Whisper.html'>Whisper</a></strong><br/>\n<strong><a href='../classes/Popover.html'>Popover</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
+            "description": "气泡组件<br/>\n- 通过getTarget返回当前点击元素，必需。\n- 可通过placement设置气泡的显示位置, 可选top、bottom、left、right。\n- 当设置的位置不足够放置气泡，以下顺序顺延(top->bottom->left->right, bottom->top->left->right, left->right->top->bottom, right->left->top->bottom)。\n- 可通过distance设置气泡到点击对象的位置。\n- 可通过clickCallback定义气泡显隐时额外的回调函数。\n\n示例:\n```code\n <Button phSize='lg' ref={(button)=>{this.button = button}}>按钮</Button>\n <Popover getTarget={()=>{return this.button}} placement='top'>\n     <div className='ph-popover-text'>\n         一条很长的很长的气泡提示语，为了占位存在的气泡提示语。一条很长的很长的气泡提示语，为了占位存在的气泡提示语。\n     </div>\n </Popover>\n```\n```code\n <Button phSize='lg' ref={(button)=>{this.button1 = button}}>按钮</Button>\n <Popover getTarget={()=>{return this.button1}} placement='right'>\n     <ul className='ph-popover-list'>\n         <li className='ph-popover-item'>未上线单店</li>\n         <li className='ph-popover-item'>未上线连锁店</li>\n     </ul>\n </Popover>\n```",
             "classes": [
                 {
                     "name": "Popover"
-                },
+                }
+            ]
+        },
+        {
+            "displayName": "搜索组件",
+            "name": "搜索组件",
+            "description": "SearchBar<br/>\n- 可通过buttonText设置按钮的文字。\n- 可通过clickCallback设置点击按钮的回调。\n- 可通过queryCallback设置回车/搜索动作的回调函数。\n- 可通过focusCallback设置聚焦的回调；可通过blurCallback设置失焦的回调。\n\n主要属性和接口：\n- buttonText: 按钮文字 <br/>\n如：`<SearchBar buttonText=\"no\" />`\n- clickCallback: 点击按钮的回调 <br/>\n如：`<SearchBar clickCallback={(value)=>{console.log(value)}} />`\n- queryCallback: 回车/搜索动作的回调函数 <br/>\n如：`<SearchBar queryCallback={(value)=>{console.log(value)}} />`\n- focusCallback: 聚焦的回调 <br/>\n如：`<SearchBar focusCallback={()=>{console.log(\"focus\")}} />`\n- blurCallback: 失焦的回调 <br/>\n如：`<SearchBar blurCallback={()=>{console.log(\"blur\")}} />`",
+            "classes": [
                 {
-                    "name": "Whisper"
+                    "name": "SearchBar"
                 }
             ]
         },
@@ -123,9 +150,6 @@ YUI.add("yuidoc-meta", function(Y) {
             "classes": [
                 {
                     "name": "ImageList"
-                },
-                {
-                    "name": "LoadingList"
                 },
                 {
                     "name": "Popup"
@@ -141,6 +165,9 @@ YUI.add("yuidoc-meta", function(Y) {
                 },
                 {
                     "name": "Accordion"
+                },
+                {
+                    "name": "PullUp"
                 },
                 {
                     "name": "Swipe"
@@ -164,13 +191,35 @@ YUI.add("yuidoc-meta", function(Y) {
             ]
         },
         {
-            "displayName": "菜单组件",
-            "name": "菜单组件",
-            "description": "<h5>菜单组件，主要包括组件:</h5>\n<strong><a href='../classes/Menu.html'>Menu 菜单</a></strong><br/>\n<strong><a href='../classes/MenuHeader.html'>MenuHeader 菜单头部</a></strong><br>\n<strong><a href='../classes/MenuBody.html'>MenuBody 菜单主体</a></strong><br>\n<strong><a href='../classes/MenuNav.html'>MenuNav 菜单导航</a></strong><br>\n<strong><a href='../classes/MenuList.html'>MenuList 菜单导航列表</a></strong><br>\n<strong><a href='../classes/MenuItem.html'>MenuItem 菜单导航列表项</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
+            "displayName": "筛选控件",
+            "name": "筛选控件",
+            "description": "<h5>筛选控件，主要包括组件:</h5>\n<strong><a href='../classes/FilterContainer.html'>FilterContainer 单选筛选</a></strong><br/>\n<strong><a href='../classes/FilterCheckbox.html'>FilterCheckbox 多选筛选</a></strong><br>\n<strong><a href='../classes/FilterPanelSimple.html'>FilterPanelSimple 简单面板</a></strong><br>\n<strong><a href='../classes/FilterPanel.html'>FilterPanel 面板</a></strong><br>\n<strong><a href='../classes/FilterItemGroup.html'>FilterItemGroup 主菜单</a></strong><br>\n<strong><a href='../classes/FilterItem.html'>FilterItem 筛选项</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
             "classes": [
                 {
-                    "name": "Menu"
+                    "name": "FilterCheckbox"
                 },
+                {
+                    "name": "FilterContainer"
+                },
+                {
+                    "name": "FilterItem"
+                },
+                {
+                    "name": "FilterItemGroup"
+                },
+                {
+                    "name": "FilterPanel"
+                },
+                {
+                    "name": "FilterPanelSimple"
+                }
+            ]
+        },
+        {
+            "displayName": "菜单组件",
+            "name": "菜单组件",
+            "description": "<h5>菜单组件，主要包括组件:</h5>\n<strong><a href='../classes/Menu.html'>Menu 菜单</a></strong><br/>\n<strong><a href='../classes/MenuHeader.html'>MenuHeader 菜单头部</a></strong><br>\n<strong><a href='../classes/MenuBody.html'>MenuBody 菜单主体</a></strong><br>\n<strong><a href='../classes/MenuList.html'>MenuList 菜单导航列表</a></strong><br>\n<strong><a href='../classes/MenuItem.html'>MenuItem 菜单导航列表项</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
+            "classes": [
                 {
                     "name": "MenuBody"
                 },
@@ -184,7 +233,7 @@ YUI.add("yuidoc-meta", function(Y) {
                     "name": "MenuList"
                 },
                 {
-                    "name": "MenuNav"
+                    "name": "Menu"
                 }
             ]
         },
@@ -197,10 +246,13 @@ YUI.add("yuidoc-meta", function(Y) {
                     "name": "Input"
                 },
                 {
+                    "name": "Radio"
+                },
+                {
                     "name": "Switch"
                 },
                 {
-                    "name": "FormGroup"
+                    "name": "Checkbox"
                 },
                 {
                     "name": "TextArea"
@@ -210,7 +262,7 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "辅助组件",
             "name": "辅助组件",
-            "description": "拖拽组件<br/>\n- 兼容移动端的touch和pc端的mouse事件。\n- 可通过onDrag设置抓取的回调函数, 返回抓取在屏幕上的位置, 分别保存在start和move中, 以x和y的形式展示。\n- 可通过onDrop设置松开瞬间的回调函数, 返回松开时在屏幕上的位置, 保存在end中, 以x和y的形式展示。\n\n示例:\n```code\n    <Drag onDrag={::this.onDrag} onDrop={::this.onDrop} style={{height:0}}>\n        <div className=\"box\" ref={(box)=>{this.box = box}}>Drag</div>\n    </Drag>\n```\n```code\n    onDrag(event,position){\n        this.prePosition = position.start;\n        this.nowPosition = position.move;\n\n        this.distanceX = this.preDistanceX + this.nowPosition.x - this.prePosition.x;\n        this.distanceY = this.preDistanceY + this.nowPosition.y - this.prePosition.y;\n        console.log(this.distanceX, this.distanceY);\n    }\n    onDrop(event,position){\n        this.preDistanceX = this.distanceX;\n        this.preDistanceY = this.distanceY;\n    }\n```",
+            "description": "拖拽组件<br/>\n- 兼容移动端的touch和pc端的mouse事件。\n- 可通过dragCallback设置抓取的回调函数, 返回抓取在屏幕上的位置, 分别保存在start和move中, 以x和y的形式展示。\n- 可通过dropCallback设置松开瞬间的回调函数, 返回松开时在屏幕上的位置, 保存在end中, 以x和y的形式展示。\n\n示例:\n```code\n    <Drag dragCallback={::this.dragCallback} dropCallback={::this.dropCallback} style={{height:0}}>\n        <div className='box' ref={(box)=>{this.box = box}}>Drag</div>\n    </Drag>\n```\n```code\n    dragCallback(event,position){\n        this.prePosition = position.start;\n        this.nowPosition = position.move;\n\n        this.distanceX = this.preDistanceX + this.nowPosition.x - this.prePosition.x;\n        this.distanceY = this.preDistanceY + this.nowPosition.y - this.prePosition.y;\n        console.log(this.distanceX, this.distanceY);\n    }\n    dropCallback(event,position){\n        this.preDistanceX = this.distanceX;\n        this.preDistanceY = this.distanceY;\n    }\n```",
             "classes": [
                 {
                     "name": "Drag"

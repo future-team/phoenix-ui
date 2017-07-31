@@ -1,10 +1,11 @@
-import React,{PropTypes} from 'react';
-import Component from '../utils/Component';
-import classnames from 'classnames';
-import {setPhoenixPrefix} from '../utils/Tool';
+import React,{PropTypes} from 'react'
+import {findDOMNode} from 'react-dom'
+import Component from '../utils/Component'
+import classnames from 'classnames'
+import Tool from '../utils/Tool'
 
-import Animate from '../Animate';
-import Icon from '../Icon';
+import Animate from '../animate'
+import Icon from '../icon'
 
 /**
  * 菜单内容组件<br/>
@@ -19,10 +20,10 @@ import Icon from '../Icon';
  * 如：
  * ```code
  *     <Menu>
- *         <Menu.Header>
+ *         <Menu.Header ref={(menuHandler)=>{this.menuHandler=menuHandler}}>
  *             标题一
  *         </Menu.Header>
- *         <Menu.Body width={60} placement="left" closeButton>
+ *         <Menu.Body width={60} placement='left' closeButton getTarget={()=>{return this.menuHandler}}>
  *             ...
  *         </Menu.Body>
  *     </Menu>
@@ -46,6 +47,12 @@ export default class MenuBody extends Component{
          * */
         classPrefix: PropTypes.string,
         /**
+         * 返回菜单的目标元素
+         * @method getTarget
+         * @type Function
+         * */
+        getTarget: PropTypes.func,
+        /**
          * 菜单位置, 可选[top,left,right,left-full,right-full,full-screen], 默认top
          * @property placement
          * @type String
@@ -66,9 +73,17 @@ export default class MenuBody extends Component{
          * @type Boolean
          * */
         closeButton: PropTypes.bool,
+        /**
+         * 当前选中的项目name，对应item的name属性
+         * @property activeName
+         * @type String
+         * @default null
+         * */
+        activeName: PropTypes.string
     };
 
     static defaultProps = {
+        activeName: null,
         width: 50,
         classPrefix:'menu-body',
         placement: 'top',
@@ -83,38 +98,89 @@ export default class MenuBody extends Component{
     };
 
     constructor(props, context) {
-        super(props, context);
+        super(props, context)
+
+        this.handleDocumentClick = this.handleDocumentClick.bind(this)
+        this.targetClickHandle = this.targetClickHandle.bind(this)
+
+        this.state = {
+            visible: props.visible,
+            activeName: props.activeName
+        }
+    }
+
+    handleDocumentClick(event){
+        if(!this.state.visible) return
+
+        let el = event.target
+        
+        if(!Tool.closest(el,'.ph-menu')){
+            this.targetClickHandle()
+        }
     }
 
     componentDidMount(){
-        this.setSize(); 
+        this.setSize()
+
+        let target = this.props.getTarget()
+        if(!target) Tool.warning('MenuBody 必须传递 getTarget[func]!')
+
+        this.target = findDOMNode(target)
+        this.target.addEventListener('click', this.targetClickHandle, false)
+
+        setTimeout(()=>{
+            document.addEventListener('click', this.handleDocumentClick, false);
+        },0)
     }
 
     componentDidUpdate(){
-        this.setSize();
+        this.setSize()
+    }
+
+    componentWillReceiveProps(nextProps){
+        let {clickCallback} = nextProps.clickCallback
+        
+        if(this.state.visible !== nextProps.visible){
+            this.setState({
+                visible: nextProps.visible
+            }, ()=>{
+                if(clickCallback) clickCallback(nextProps.visible)
+            })
+        }
+        
+        if(nextProps.activeName !== this.state.activeName){
+            this.setState({
+                activeName: nextProps.activeName
+            })
+        }
+    }
+
+    changeActive(name){
+        this.setState({
+            activeName: name
+        })
     }
 
     setSize(){
-        let {visible, placement, width} = this.props;
+        let {visible, placement, width} = this.props
 
-        // if(placement=="top") this.menuBodyParent.style.height = visible? this.menuBody.offsetHeight+'px' : 0;
-
-        if(this.props.visible && width){
-            if(placement=="top") return;
-            if(placement=="full-screen") width = 100;
-            this.menuBodyParent.style.width = width +'%';
+        if(this.state.visible && width){
+            if(placement=='top') return
+            if(placement=='full-screen') width = 100
+            this.menuBodyParent.style.width = width +'%'
         }
     }
 
     renderAnimation(){
-        let {visible,children,className} = this.props;
+        let {children,className,style,width} = this.props,
+            {visible} = this.state
 
         if(visible){
             return (
-                <div {...this.props} className={classnames(this.getProperty(true),className, 'animated')}
+                <div {...this.otherProps} className={classnames(this.getProperty(true),className, 'animated')}
                     ref={(menuBodyParent)=>{this.menuBodyParent = menuBodyParent;}}>
                     {this.renderCloseButton()}
-                    {children}
+                    {this.renderChildren()}
                 </div>
             );
         }else{
@@ -122,30 +188,69 @@ export default class MenuBody extends Component{
         }
     }
 
+    renderChildren(){
+        let _this = this,
+            newChildren = [],
+            {activeName} = this.state
+        
+        React.Children.forEach(this.props.children, function(child, index){
+            let opt = {}
+            
+            // opt.key = index
+            // if(child.type.name=='MenuList'){
+            //     opt.activeName = activeName
+            //     opt.changeActive = _this.changeActive.bind(_this)
+            // } 
+
+            newChildren.push(React.cloneElement(child, {
+                key: index,
+                activeName: activeName,
+                changeActive: _this.changeActive.bind(_this)
+            }));
+        });
+
+        return newChildren;
+    }
+
     renderCloseButton(){
         let {closeButton} = this.props;
 
         if(closeButton){
-            return <Icon phIcon="close" className={classnames(setPhoenixPrefix('menu-close-button'))} onClick={::this.onChange} />;
+            return <Icon phIcon='close' className={classnames(this.setPhPrefix('menu-close-button', true))} onClick={this.targetClickHandle.bind(this)} />;
         }else{
             return '';
         }
     }
 
-    onChange(){
-        this.props.changeVisible();
+    targetClickHandle(){
+        let {clickCallback} = this.props
+
+        this.setState({
+            visible: !this.state.visible
+        }, ()=>{
+            if(clickCallback) clickCallback(this.state.visible)
+        })
     }
 
-    render(){
-        let {placement} = this.props;
-        let animateName = `slide-${this.props.placement}`;
+    renderMenuBody(){
+        let {placement} = this.props,
+            animateName = `slide-${this.props.placement}`;
 
-        if(placement=="full-screen") animateName = "fade";
+        if(placement=='full-screen') animateName = 'fade';
 
         return (
             <Animate transitionName={animateName}>
                 {this.renderAnimation()}
             </Animate>
         );
+    }
+
+    componentWillUnmount(){
+        this.target.removeEventListener('click', this.targetClickHandle, false)
+        document.removeEventListener('click', this.handleDocumentClick, false)
+    }
+
+    render(){
+        return this.renderMenuBody()
     }
 }
