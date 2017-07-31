@@ -157,8 +157,10 @@ export default class Button extends Component{
                     className
                 )}
                 style={this.getStyles(style)} onClick={this.clickCallback.bind(this)}>
-                {this.renderIcon()}
-                {children}
+                <span className={this.setPhPrefix('inner')}>
+                    {this.renderIcon()}
+                    {children}
+                </span>
             </Component>
         );
     }

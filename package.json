@@ -9,7 +9,8 @@
     "test": "karma start",
     "babel": "babel --watch src --out-dir lib",
     "doc": "gfsdoc ||node_modules/.bin/gfsdoc",
-    "docBuild": "node_modules/.bin/gulp  && gfsdoc ||node_modules/.bin/gfsdoc && node docTheme/addFile.js"
+    "docBuild": "node_modules/.bin/gulp  && gfsdoc ||node_modules/.bin/gfsdoc && node docTheme/addFile.js",
+    "postinstall": "node ./node_modules/pmlogger/lib/ModuleReoprt.js"
   },
   "repository": {
     "type": "git",
@@ -74,10 +75,10 @@
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
-    "cat-browser": "^0.1.1",
     "extend": "^3.0.0",
     "fastclick": "^1.0.6",
     "phoenix-styles": "^1.5.2",
+    "pmlogger": "^1.0.0",
     "react-addons-css-transition-group": "^0.14.2"
   }
 }

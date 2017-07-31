@@ -107,8 +107,6 @@ export default class MenuBody extends Component{
             visible: props.visible,
             activeName: props.activeName
         }
-
-        document.documentElement.addEventListener('click', this.handleDocumentClick, false);
     }
 
     handleDocumentClick(event){
@@ -129,6 +127,10 @@ export default class MenuBody extends Component{
 
         this.target = findDOMNode(target)
         this.target.addEventListener('click', this.targetClickHandle, false)
+
+        setTimeout(()=>{
+            document.addEventListener('click', this.handleDocumentClick, false);
+        },0)
     }
 
     componentDidUpdate(){

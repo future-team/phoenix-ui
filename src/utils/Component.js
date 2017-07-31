@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
 import classnames from 'classnames';
-import FastClick from 'fastclick';
 
 import ClassNameMixin from './ClassNameMixin';
 import PropertyMixin from './PropertyMixin';
@@ -11,6 +10,15 @@ import {propsConstants} from './constants'
 
 //import 'babel-polyfill';
 
+import FastClick from 'fastclick'
+import {ModuleLogger} from 'pmlogger'
+
+document.addEventListener('DOMContentLoaded', function() {
+    FastClick.attach(document.body);
+}, false)
+
+new ModuleLogger('phoenix-ui')
+
 
 @ClassNameMixin
 @PropertyMixin
@@ -19,8 +27,6 @@ export default class BaseComponent extends Component{
 
     constructor(props, context,defaultState) {
         super(props, context);
-
-        this.setUp()
 
         if(defaultState){
             this.setDefaultState(defaultState);
@@ -34,12 +40,6 @@ export default class BaseComponent extends Component{
         //注册
         this.registerMethod(this.otherProps);
 
-    }
-
-    setUp(){
-        document.addEventListener('DOMContentLoaded', function() {
-            FastClick.attach(document.body);
-        }, false);
     }
 
     setPhPrefix(name, onlyPh){

@@ -42,6 +42,12 @@
     $npm install anywhere -g
     $ anywhere
 ```
+## Browser Support
+Phoenix UI is tested with the following browsers and mobile OS.
+
+- Android 4.4.2 +
+- IOS 8 +
+- Chrome
 
 ## Command
 

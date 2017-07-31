@@ -75,6 +75,9 @@ header h1{
     padding: .20rem 0 .20rem .48rem;
     border-bottom: 1PX solid #e1e1e1;
 }
+.list-card:active{
+    background-color: #f0f0f0;
+}
 .list-card:last-child{
     border-bottom: none;
 }

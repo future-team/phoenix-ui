@@ -124,7 +124,7 @@ export default class Popover extends Component{
     }
 
     componentDidMount(){
-        document.addEventListener('click', this.documentClickHandle, false);
+        
         // 获取点击的对象target，并绑定点击事件
         let target = this.props.getTarget()
         if(!target) Tool.warning('Popover 必须传递 getTarget[func]!')
@@ -138,6 +138,7 @@ export default class Popover extends Component{
         this.bubble = findDOMNode(this.popoverMain)
 
         setTimeout(()=>{
+            document.addEventListener('click', this.documentClickHandle, false)
             this.getTargetPosition()
         }, 0)
     }
@@ -326,3 +327,4 @@ export default class Popover extends Component{
         return React.DOM.noscript();
     }
 }
+console.log(typeof Popover)

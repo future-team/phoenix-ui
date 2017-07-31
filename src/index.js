@@ -1,5 +1,3 @@
-import catBrowser from './utils/CatBrowser'
-
 export Button from './button'
 export ButtonGroup from './button-group'
 export Input from './input'
@@ -38,8 +36,3 @@ export PullUp from './pullup'
 // 控件
 export PhFilter from './ph-filter'
 
-//接入cat－browser
-catBrowser({
-    moduleName:'phoenix-ui',
-    isOnlyDp:false
-});
