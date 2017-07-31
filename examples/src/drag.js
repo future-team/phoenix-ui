@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import {Drag} from 'phoenix-ui';
-import Code from "./code/code";
+import React, { Component } from "react"
+
+import Drag from "phoenix-ui/lib/drag"
+import Code from "./code/code"
 
 export default class toast extends Component{
 
@@ -13,7 +14,7 @@ export default class toast extends Component{
         this.distanceY = 0;
     }
 
-    onDrag(event,position){
+    dragCallback(event,position){
         this.prePosition = position.start;
         this.nowPosition = position.move;
 
@@ -23,14 +24,14 @@ export default class toast extends Component{
         this.setBoxPosition(this.distanceX, this.distanceY);
     }
 
-    onDrop(event,position){
+    dropCallback(event,position){
         this.preDistanceX = this.distanceX;
         this.preDistanceY = this.distanceY;
     }
 
     setBoxPosition(x,y){
-        this.box.style.webkitTransform = 'translate('+x+'px,'+y+'px)';
-        this.box.style.transform = 'translate('+x+'px,'+y+'px)';
+        this.box.style.webkitTransform = "translate("+x+"px,"+y+"px)";
+        this.box.style.transform = "translate("+x+"px,"+y+"px)";
     }
 
     render(){
@@ -40,7 +41,7 @@ export default class toast extends Component{
                 <h3 className="comp-type">Dragable Box demo</h3>
                 <Code target="drag" />
                 <div className="content-drag">
-                    <Drag onDrag={::this.onDrag} onDrop={::this.onDrop} style={{height:0}}>
+                    <Drag dragCallback={this.dragCallback.bind(this)} dropCallback={this.dropCallback.bind(this)} style={{height:0}}>
                         <div className="box" ref={(box)=>{this.box = box}}>Drag</div>
                     </Drag>
                 </div>

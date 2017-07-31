@@ -1,9 +1,12 @@
-import React,{PropTypes} from 'react';
-import Component from '../utils/Component';
-import classnames from 'classnames';
-import {setPhoenixPrefix} from '../utils/Tool';
+import React,{PropTypes} from 'react'
+import Component from '../utils/Component'
+import classnames from 'classnames'
 
-import Animate from '../Animate';
+import Animate from '../animate'
+import Icon from '../icon'
+
+import '../style'
+import 'phoenix-styles/less/modules/dialog.less'
 
 /**
  * <h5>弹出框组件，主要包括组件:</h5>
@@ -17,27 +20,27 @@ import Animate from '../Animate';
  */
 /**
  * 弹框组件<br/>
- * - 由于弹框的显示操作在组件以外, 所以需要在使用时自定义`visible`、`onClose`函数。
+ * - 由于弹框的显示操作在组件以外, 所以需要在使用时自定义`visible`、`closeCallback`函数。
  * - 通过visible设置弹框是否显示, 可选true/false, 必需。
- * - 可通过onClose配置点击弹框阴影部分以及弹框右上角X按钮来关闭弹框。
+ * - 可通过closeCallback配置点击弹框阴影部分以及弹框右上角X按钮来关闭弹框。
  * - 可通过closeButton来配置弹框右上角X按钮是否显示, 默认不显示。
- * - 默认传了onClose之后阴影部分就具备点击关闭弹框的按钮, 如果需要去掉该功能需要额外传shadowDisabled作为标识。
+ * - 默认传了closeCallback之后阴影部分就具备点击关闭弹框的按钮, 如果需要去掉该功能需要额外传shadowDisabled作为标识。
  *
  * 主要属性和接口：
  * - visible:弹框是否显示标识, 默认false不可见<br/>
- * - onClose:关闭弹框的功能函数<br/>
+ * - closeCallback:关闭弹框的功能函数<br/>
  * - closeButton:右上角关闭按钮是否显示的标识, 默认不显示<br/>
- * - shadowDisabled:阴影部分是否可点击关闭按钮, 默认传了onClose函数就可以关闭<br/>
+ * - shadowDisabled:阴影部分是否可点击关闭按钮, 默认传了closeCallback函数就可以关闭<br/>
  *
  * 示例:
  * ```code
- *     <Dialog visible={this.state.visible} onClose={::this.onClose} closeButton shadowDisabled>
+ *     <Dialog visible={this.state.visible} closeCallback={::this.closeCallback} closeButton shadowDisabled>
  *         <Dialog.Title>标题标题</Dialog.Title>
  *         <Dialog.Body>
  *             <p>可自定义表格内容</p>
  *         </Dialog.Body>
  *         <Dialog.Footer>
- *             <Button hollow phSize="lg" phStyle="gray" onClick={::this.onClose}>取消</Button>
+ *             <Button hollow phSize='lg' phStyle='gray' onClick={::this.closeCallback}>取消</Button>
  *         </Dialog.Footer>
  *     </Dialog>
  * ```
@@ -47,7 +50,7 @@ import Animate from '../Animate';
  *             visible: true
  *         });
  *     }
- *     onClose(){
+ *     closeCallback(){
  *         this.setState({
  *             visible: false
  *         });
@@ -87,10 +90,10 @@ class Dialog extends Component{
         visible: PropTypes.bool,
         /**
          * 关闭弹框的执行函数
-         * @method onClose
+         * @method closeCallback
          * @type Function
          * */
-        onClose: PropTypes.func,
+        closeCallback: PropTypes.func,
         /**
          * 右上角按钮是否可见, 默认不可见
          * @property closeButton
@@ -98,7 +101,7 @@ class Dialog extends Component{
          * */
         closeButton: PropTypes.bool,
         /**
-         * 阴影部分是否点击可关闭弹框, 默认传了onClose之后可关闭
+         * 阴影部分是否点击可关闭弹框, 默认传了closeCallback之后可关闭
          * @property shadowDisabled
          * @type Boolean
          * */
@@ -107,6 +110,7 @@ class Dialog extends Component{
 
     static defaultProps = {
         visible: false,
+        closeButton: false,
         classPrefix:'dialog',
         componentTag:'div',
         classMapping : {}
@@ -117,44 +121,48 @@ class Dialog extends Component{
     }
 
     onShadowClose(){
-        let {shadowDisabled, onClose} = this.props;
+        let {shadowDisabled, closeCallback} = this.props;
 
         if(shadowDisabled) return;
-        onClose();
+        closeCallback();
     }
 
     renderShadow(){
         let {visible} = this.props;
 
         if(visible){
-            return <div className={classnames(setPhoenixPrefix("dialog-shadow"), "animated")} onClick={::this.onShadowClose}></div>;
+            return <div className={classnames(this.setPhPrefix('shadow'), 'animated')} onClick={this.onShadowClose.bind(this)}></div>;
         }else{
             return '';
         }
+    }
+
+    renderIcon(){
+        let {closeButton, closeCallback} = this.props
+        
+        if(closeButton){
+            return <Icon phIcon='close' onClick={closeCallback} className={classnames(this.setPhPrefix('close'))} />
+        }        
     }
 
     renderContent(){
-        let {visible, closeButton, onClose} = this.props;
+        let {visible} = this.props
 
         if(visible){
             return (
-                <div className={classnames(setPhoenixPrefix("dialog-main"), "animated")}>
-                    <div className={classnames(setPhoenixPrefix("dialog-content"), "animated")}>
-                        <a href="javascript:;" onClick={onClose} className={classnames(
-                            setPhoenixPrefix("dialog-close"),
-                            closeButton ? "show":"hide",
-                            "gfs-icon icon-close"
-                        )}></a>
-                        {this.renderDialog()}
+                <div className={classnames(this.setPhPrefix('main'), 'animated')}>
+                    <div className={classnames(this.setPhPrefix('content'), 'animated')}>
+                        {this.renderIcon()}
+                        {this.renderChildren()}
                     </div>
                 </div>
-            );
+            )
         }else{
-            return '';
+            return ''
         }
     }
 
-    renderDialog(){
+    renderChildren(){
         let newChildren = [];
         let {visible, children} = this.props;
 
@@ -170,11 +178,11 @@ class Dialog extends Component{
         return newChildren;
     }
 
-    render(){
+    renderDialog(){
         let {componentTag:Component, className} = this.props;
 
         return (
-            <Component {...this.props} className={classnames(
+            <Component {...this.otherProps} className={classnames(
                 this.getProperty(true),
                 className
             )}>
@@ -185,7 +193,11 @@ class Dialog extends Component{
                     {this.renderContent()}
                 </Animate>
             </Component>
-        );
+        )
+    }
+
+    render(){
+        return this.renderDialog()
     }
 }
 
@@ -195,15 +207,24 @@ class DialogTitle extends Component{
         super(props, context);
     }
 
-    render(){
+    static defaultProps = {
+        classPrefix:'dialog-title',
+        classMapping : {}
+    }
+
+    renderDialogTitle(){
         return (
-            <h2 {...this.props} className={classnames(
-                setPhoenixPrefix('dialog-title'),
+            <h2 {...this.otherProps} className={classnames(
+                this.getProperty(true),
                 this.props.className
             )}>
                 {this.props.children}
             </h2>
-        );
+        )
+    }
+
+    render(){
+        return this.renderDialogTitle()
     }
 }
 
@@ -213,15 +234,24 @@ class DialogBody extends Component{
         super(props, context);
     }
 
-    render(){
+    static defaultProps = {
+        classPrefix:'dialog-body',
+        classMapping : {}
+    }
+
+    renderDialogBody(){
         return (
-            <div {...this.props} className={classnames(
-                setPhoenixPrefix('dialog-body'),
+            <div {...this.otherProps} className={classnames(
+                this.getProperty(true),
                 this.props.className
             )}>
                 {this.props.children}
             </div>
         );
+    }
+
+    render(){
+        return this.renderDialogBody()
     }
 }
 
@@ -231,16 +261,25 @@ class DialogFooter extends Component{
         super(props, context);
     }
 
-    render(){
+    static defaultProps = {
+        classPrefix:'dialog-footer',
+        classMapping : {}
+    }
+
+    renderDialogFooter(){
         return (
-            <div {...this.props} className={classnames(
-                setPhoenixPrefix('dialog-footer'),
+            <div {...this.otherProps} className={classnames(
+                this.getProperty(true),
                 this.props.className,
                 'clearfix'
             )}>
                 {this.props.children}
             </div>
-        );
+        )
+    }
+
+    render(){
+        return this.renderDialogFooter()
     }
 }
 

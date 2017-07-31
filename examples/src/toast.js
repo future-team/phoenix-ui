@@ -1,6 +1,8 @@
-import React, { Component } from "react";
-import {Button, Toast} from "phoenix-ui";
-import Code from "./code/code";
+import React, { Component } from "react"
+
+import Button from "phoenix-ui/lib/button"
+import Toast from "phoenix-ui/lib/toast"
+import Code from "./code/code"
 
 export default class toast extends Component{
 
@@ -9,7 +11,7 @@ export default class toast extends Component{
     }
 
     showToastInfo(){
-        Toast.info("只显示信息的toast！", 2000, ()=>{
+        Toast.info("只显示信息的toast！只显示信息的toast！只显示信息的toast！", 2000, ()=>{
             console.log("额外的执行内容");
         });
     }
@@ -26,8 +28,14 @@ export default class toast extends Component{
         });
     }
 
+    showToastTip(){
+        Toast.tip("操作提示", 2000, ()=>{
+            console.log("额外的执行内容");
+        });
+    }
+
     showToastLoading(){
-        Toast.loading("加载中...", 2000, ()=>{
+        Toast.loading("", 2000, ()=>{
             console.log("额外的执行内容");
         });
     }
@@ -57,6 +65,12 @@ export default class toast extends Component{
                     <Button phSize="lg" onClick={::this.showToastFail}>fail</Button>
                 </div>
                 <Code target="toast-fail" />
+
+                <h3 className="comp-type">Toast.tip(message, duration, callback)</h3>
+                <div className="content">
+                    <Button phSize="lg" onClick={::this.showToastTip}>tip</Button>
+                </div>
+                <Code target="toast-tip" />
 
                 <h3 className="comp-type">Toast.loading(message, duration, callback)</h3>
                 <div className="content">

@@ -1,6 +1,8 @@
-import React, { Component } from "react";
-import {Input} from "phoenix-ui";
-import Code from "./code/code";
+import React, { Component } from "react"
+
+import Input from "phoenix-ui/lib/input"
+import Button from "phoenix-ui/lib/button"
+import Code from "./code/code"
 
 export default class input extends Component{
 
@@ -10,8 +12,7 @@ export default class input extends Component{
 
         this.state = {
             name: "value和onChange配合使用",
-            checkboxChecked: true,
-            radioChecked: true
+            value: ""
         };
     }
 
@@ -21,15 +22,9 @@ export default class input extends Component{
         this.setState(o);
     }
 
-    onCheckboxChange(){
+    getValue(){
         this.setState({
-            checkboxChecked: !this.state.checkboxChecked
-        });
-    }
-
-    onRadioChange(){
-        this.setState({
-            radioChecked: !this.state.radioChecked
+            value: this.inputElem.getValueCallback()
         });
     }
 
@@ -37,44 +32,71 @@ export default class input extends Component{
         return(
             <div>
                 <h2 className="comp-title">Input</h2>
-                <h3 className="comp-type">type(默认text) 类型</h3>
-                <h3 className="comp-type">text 文本框</h3>
+                <h3 className="comp-type">type(text/search/password)</h3>
                 <div className="content">
-                    <Input placeholder="默认text" />
-                    <Input type="text" defaultValue="默认值defaultValue" placeholder="请输入" />
-                    <Input type="text" value={this.state.name} onChange={::this.setValue.bind(this,"name")} placeholder="请输入" />
+                    <h3 className="comp-tip">text</h3>
+                    <Input placeholder="请输入"/>
+                    <Input placeholder="请输入" value="默认值" clear />
+                    <Input placeholder="请输入" value="不可编辑的情况" disabled/>
                 </div>
                 <Code target="input-text" />
 
-                <h3 className="comp-type">checkbox 多选框</h3>
                 <div className="content">
-                    <h3 className="comp-tip">默认</h3>
-                    <Input type="checkbox" label="苹果" />
-                    <h3 className="comp-tip">defaultChecked 初始传值</h3>
-                    <Input type="checkbox" label="香蕉" defaultChecked={true} />
-                    <h3 className="comp-tip">checked和onChange配合使用</h3>
-                    <Input type="checkbox" label="西瓜" checked={this.state.checkboxChecked} onChange={::this.onCheckboxChange} />
-                    <h3 className="comp-tip">disabled</h3>
-                    <Input type="checkbox" label="西瓜" disabled/>
+                    <h3 className="comp-tip">search</h3>
+                    <Input type="search" placeholder="请输入" />
+                    <Input type="search" placeholder="请输入" value="可清空输入的文字" clear />
+                    <Input type="search" placeholder="请输入" value="不可编辑的情况" disabled />
                 </div>
-                <Code target="input-checkbox" />
+                <Code target="input-search" />
 
-                <h3 className="comp-type">radio 单选框</h3>
                 <div className="content">
-                    <h3 className="comp-tip">默认</h3>
-                    <Input type="radio" label="男" name="sex1" />
-                    <Input type="radio" label="女" name="sex1" />
-                    <h3 className="comp-tip">defaultChecked 初始传值</h3>
-                    <Input type="radio" label="男" name="sex2" defaultChecked={true}/>
-                    <Input type="radio" label="女" name="sex2"/>
-                    <h3 className="comp-tip">checked和onChange配合使用</h3>
-                    <Input type="radio" label="男" name="sex3" checked={this.state.radioChecked} onChange={::this.onRadioChange}/>
-                    <Input type="radio" label="女" name="sex3" checked={!this.state.radioChecked} onChange={::this.onRadioChange}/>
-                    <h3 className="comp-tip">disabled</h3>
-                    <Input type="radio" label="男" name="sex4" disabled />
-                    <Input type="radio" label="女" name="sex4" disabled />
+                    <h3 className="comp-tip">password</h3>
+                    <Input type="password" placeholder="请输入" />
+                    <Input type="password" value="123456" clear />
+                    <Input type="password" value="123456" placeholder="请输入" clear visible />
                 </div>
-                <Code target="input-radio" />
+                <Code target="input-password" />
+
+                <h3 className="comp-type">clear 可清除内容</h3>
+                <div className="content">
+                    <Input type="text" value="123456" clear />
+                </div>
+                <Code target="input-clear" />
+
+                <h3 className="comp-type">visible 密码可见</h3>
+                <div className="content">
+                    <Input type="password" value="123456" visible />
+                </div>
+                <Code target="input-visible" />
+
+                <h3 className="comp-type">error 错误</h3>
+                <div className="content">
+                    <Input type="text" value="123456" error />
+                </div>
+                <Code target="input-error" />
+
+                <h3 className="comp-type">phIcon 输入框icon</h3>
+                <div className="content">
+                    <Input type="text" placeholder="请输入" phIcon="search" />
+                    <Input type="search" placeholder="请输入" phIcon="search" />
+                    <Input type="text" value="123456" placeholder="请输入" phIcon="search" />
+                    <Input type="search" value="123456" placeholder="请输入" phIcon="search" />
+                </div>
+                <Code target="input-phicon" />
+
+                <h3 className="comp-type">phReg 正则表达式</h3>
+                <div className="content">
+                    <Input placeholder="6-18位不以数字开头的用户名" phReg={/^[a-zA-Z$_]\w{5,17}$/} />
+                    <Input value="123" placeholder="6-18位不以数字开头的用户名" phReg={/^[a-zA-Z$_]\w{5,17}$/} />
+                </div>
+                <Code target="input-phreg" />
+
+                <h3 className="comp-type">getValueCallback 获取数值</h3>
+                <div className="content">
+                    <Input placeholder="默认text" ref={(inputElem)=>{this.inputElem = inputElem}} />
+                    <div><Button onClick={this.getValue.bind(this)}>点击获取值</Button> <span style={{float:'right'}}>{this.state.value}</span></div>
+                </div>
+                <Code target="input-getvalue" />
             </div>
         );
     }

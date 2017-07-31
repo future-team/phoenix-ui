@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui" />
+    <title>SearchBar - phoenix-ui</title>
+  
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+</head>
+<body class="yui3-smart" _assetsPath="../assets">
+ <nav class="navbar navbar-inverse navbar-fixed-top custom-navbar" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+               <a class="navbar-brand mainlogo" href="">
+             
+            <img alt="phoenix-ui" src="../assets/css/logo.png" title="phoenix-ui">
+            
+                phoenix-ui
+          </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                 <ul class="nav navbar-nav">
+                    
+                    <li><a href="index.html">主页</a>
+                    </li>
+                    
+                </ul>
+               <div class="navbar-form navbar-right filterAPi" autocomplete="off">
+                <input type="text" id='txtSearchAPI' class="form-control search-query" placeholder="Search for API" />
+                 <ul id="filterList" class="filterItems dropdown-menu" role="menu"></ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div id="sidebar">
+    <h3>模块/类</h3>
+        <div id="api-tabview-filter">
+            <input id='txtSearch' type="search" class="form-control" placeholder="Type to filter Modules/Classes">
+        </div>
+        <dl id="sidebar_list">
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/列表组件.html">列表组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/List.html">List</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/基础组件.html">基础组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Image.html">Image</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Button.html">Button</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/ButtonGroup.html">ButtonGroup</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Star.html">Star</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/布局组件.html">布局组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Col.html">Col</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Grid.html">Grid</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Row.html">Row</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/弹出框组件.html">弹出框组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Alert.html">Alert</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Dialog.html">Dialog</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Prompt.html">Prompt</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/提示组件.html">提示组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Popover.html">Popover</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/搜索组件.html">搜索组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/SearchBar.html">SearchBar</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/操作类组件.html">操作类组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/ImageList.html">ImageList</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Popup.html">Popup</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Slider.html">Slider</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Steps.html">Steps</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Toast.html">Toast</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Accordion.html">Accordion</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/PullUp.html">PullUp</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Swipe.html">Swipe</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/标签组件.html">标签组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Icon.html">Icon</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Badge.html">Badge</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Label.html">Label</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/筛选控件.html">筛选控件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/FilterCheckbox.html">FilterCheckbox</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterContainer.html">FilterContainer</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterItem.html">FilterItem</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterItemGroup.html">FilterItemGroup</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterPanel.html">FilterPanel</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterPanelSimple.html">FilterPanelSimple</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/菜单组件.html">菜单组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/MenuBody.html">MenuBody</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuHeader.html">MenuHeader</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuItem.html">MenuItem</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuList.html">MenuList</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Menu.html">Menu</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/表单组件.html">表单组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Input.html">Input</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Radio.html">Radio</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Switch.html">Switch</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Checkbox.html">Checkbox</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/TextArea.html">TextArea</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/辅助组件.html">辅助组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Drag.html">Drag</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Animate.html">Animate</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/选项卡.html">选项卡</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Tab.html">Tab</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Tabset.html">Tabset</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+        </dl>
+    <div class="icon-sidebar-btn icon-sidebar-btn-open"><span class="glyphicon glyphicon-chevron-left"></span>收起</div>
+</div>
+   
+    <div class="stdoc-content">
+        <div class="apidocs">
+            <div id="docs-main">
+                <div class="content">
+                    <div class="page-header">
+    <h1>SearchBar</h1>
+</div>
+ <div class="well well-small sign-left3">
+      <div class="stdoc-code"><p>SearchBar<br/></p>
+<ul>
+<li>可通过buttonText设置按钮的文字。</li>
+<li>可通过clickCallback设置点击按钮的回调。</li>
+<li>可通过queryCallback设置回车/搜索动作的回调函数。</li>
+<li>可通过focusCallback设置聚焦的回调；可通过blurCallback设置失焦的回调。</li>
+</ul>
+<p>主要属性和接口：</p>
+<ul>
+<li>buttonText: 按钮文字 <br/>
+如：<code>&lt;SearchBar buttonText="no" /&gt;</code></li>
+<li>clickCallback: 点击按钮的回调 <br/>
+如：<code>&lt;SearchBar clickCallback={(value)=&gt;{console.log(value)}} /&gt;</code></li>
+<li>queryCallback: 回车/搜索动作的回调函数 <br/>
+如：<code>&lt;SearchBar queryCallback={(value)=&gt;{console.log(value)}} /&gt;</code></li>
+<li>focusCallback: 聚焦的回调 <br/>
+如：<code>&lt;SearchBar focusCallback={()=&gt;{console.log("focus")}} /&gt;</code></li>
+<li>blurCallback: 失焦的回调 <br/>
+如：<code>&lt;SearchBar blurCallback={()=&gt;{console.log("blur")}} /&gt;</code></li>
+</ul>
+</div>
+ </div>
+
+    <div class="well well-small sign-left2 container-fluid" id="classesItems">
+        <div class="row">
+
+            <div class="index-section methods col-sm-4">
+                <h3>方法</h3>
+                
+                    <ul class="index-list methods extends">
+                        
+                            <li class="index-item method">
+                                <a href="#" data-tabid="#method" data-anchor="#method_blurCallback" data-tablink="blurCallback">blurCallback</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#" data-tabid="#method" data-anchor="#method_clickCallback" data-tablink="clickCallback">clickCallback</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#" data-tabid="#method" data-anchor="#method_focusCallback" data-tablink="focusCallback">focusCallback</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#" data-tabid="#method" data-anchor="#method_queryCallback" data-tablink="queryCallback">queryCallback</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                
+            </div>
+
+            <div class="index-section properties col-sm-4">
+                <h3>属性</h3>
+                
+                    <ul class="index-list properties extends">
+                        
+                            <li class="index-item property">
+                                <a href="#" data-tabid="#property" data-anchor="#property_buttonText" data-tablink="buttonText">buttonText</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#" data-tabid="#property" data-anchor="#property_classPrefix" data-tablink="classPrefix">classPrefix</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#" data-tabid="#property" data-anchor="#property_placeholder" data-tablink="placeholder">placeholder</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                
+            </div>
+
+            <div class="index-section events col-sm-4">
+                <h3>事件</h3>
+                
+            </div>
+        </div>
+    </div>
+
+<div class="">
+    
+        <ul id="itemTab" class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#class">详情</a></li>
+            
+                <li class=""><a data-toggle="tab" href="#method">方法</a></li>
+            
+            
+                <li class=""><a data-toggle="tab" href="#property">属性</a></li>
+            
+            
+        </ul>
+    
+    <div class="tab-content">
+        <div id="class" class="tab-pane active">
+            <div class="well well-small classDetail sign-left1">
+            
+
+            
+                <div class="extends">
+                    Extends Component
+                </div>
+            
+
+            
+                <div class="foundat">
+                    Defined in: <a href="../files/src_search-bar_index.js.html#l11"><code>src&#x2F;search-bar&#x2F;index.js:11</code></a>
+                </div>
+            
+
+            
+                
+                    Module: <a href="../modules/搜索组件.html">搜索组件</a>
+                
+            
+
+            
+                <p>Available since 2.0.0</p>
+            
+        </div>
+
+        
+            
+                <div class="constructor">
+                    <h2>Constructor</h2>
+                    <div id="method_SearchBar" class="method item">
+    <h3 class="name">SearchBar</h3>
+    <code>
+    SearchBar
+    
+        <span class="paren">()</span>
+    
+    </code>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_search-bar_index.js.html#l11"><code>src&#x2F;search-bar&#x2F;index.js:11</code></a>
+        
+        </p>
+
+
+        
+
+        
+            <p>Available since 2.0.0</p>
+        
+    </div>
+
+    <div class="description well well-small sign-left3">
+        
+    </div>
+
+    
+
+    
+
+    
+        <div class="example app-example">
+            <h4>Example:</h4>
+            <ul class="nav nav-tabs example-list">
+                
+                <li role="presentation"  class="active"  data-demo="https://future-team.github.io/phoenix-ui/examples/index.html#/search-bar"  _no='0'> <a>展示</a></li>
+                
+            </ul>
+            <div class="example-content  showdemo ">
+                <div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from "react"
+
+import SearchBar from "phoenix-ui/lib/search-bar"
+import Code from "./code/code"
+
+export default class searchBar extends Component{
+
+    render(){
+        return(
+            &lt;div&gt;
+                &lt;h2 className="comp-title"&gt;SearchBar&lt;/h2&gt;
+                &lt;h3 className="comp-type"&gt;buttonText 按钮文字&lt;/h3&gt;
+                &lt;SearchBar buttonText="no" /&gt;
+                &lt;Code target="search-buttontext" /&gt;
+
+                &lt;h3 className="comp-type"&gt;placeholder 输入框占位符&lt;/h3&gt;
+                &lt;SearchBar placeholder="请输入..." /&gt;
+                &lt;Code target="search-placeholder" /&gt;
+
+                &lt;h3 className="comp-type"&gt;clickCallback 点击按钮的回调&lt;/h3&gt;
+                &lt;SearchBar clickCallback={(query)=&gt;{alert(query)}} /&gt;
+                &lt;Code target="search-clickcallback" /&gt;
+
+                &lt;h3 className="comp-type"&gt;queryCallback 搜索的回调(键盘的回车/搜索)&lt;/h3&gt;
+                &lt;SearchBar queryCallback={(query)=&gt;{alert(query)}} /&gt;
+                &lt;Code target="search-querycallback" /&gt;
+
+                &lt;h3 className="comp-type"&gt;focusCallback 聚焦的回调&lt;/h3&gt;
+                &lt;SearchBar focusCallback={()=&gt;{console.log("focus")}} /&gt;
+                &lt;Code target="search-focuscallback" /&gt;
+
+                &lt;h3 className="comp-type"&gt;blurCallback 失焦的回调&lt;/h3&gt;
+                &lt;SearchBar blurCallback={()=&gt;{console.log("blur")}} /&gt;
+                &lt;Code target="search-blurcallback" /&gt;
+            &lt;/div&gt;
+        );
+    }
+}</code></pre>
+</div>
+            </div>
+            <div class="btn-method-box">
+                <button class="btn btn-info btn-viewDemo" type="button">查看示例</button>
+                <button class="btn btn-info btn-editDemo" type="button">编辑代码</button>
+            </div>
+
+            <div class="device"></div>
+        </div>
+    
+</div>
+
+                </div>
+            
+        </div>
+
+        
+            <div id="method" class="tab-pane">
+                <h2 class="off-left">方法</h2>
+
+                
+                    <div id="method_blurCallback" class="method item">
+    <h3 class="name">blurCallback</h3>
+    <code>
+    blurCallback
+    
+        <span class="paren">()</span>
+    
+    </code>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_search-bar_index.js.html#l68"><code>src&#x2F;search-bar&#x2F;index.js:68</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description well well-small sign-left3">
+        <div class="stdoc-code"><p>失焦的回调</p>
+</div>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_clickCallback" class="method item">
+    <h3 class="name">clickCallback</h3>
+    <code>
+    clickCallback
+    
+        <span class="paren">()</span>
+    
+    </code>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_search-bar_index.js.html#l80"><code>src&#x2F;search-bar&#x2F;index.js:80</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description well well-small sign-left3">
+        <div class="stdoc-code"><p>点击按钮的回调</p>
+</div>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_focusCallback" class="method item">
+    <h3 class="name">focusCallback</h3>
+    <code>
+    focusCallback
+    
+        <span class="paren">()</span>
+    
+    </code>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_search-bar_index.js.html#l62"><code>src&#x2F;search-bar&#x2F;index.js:62</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description well well-small sign-left3">
+        <div class="stdoc-code"><p>聚焦的回调</p>
+</div>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_queryCallback" class="method item">
+    <h3 class="name">queryCallback</h3>
+    <code>
+    queryCallback
+    
+        <span class="paren">()</span>
+    
+    </code>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_search-bar_index.js.html#l74"><code>src&#x2F;search-bar&#x2F;index.js:74</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description well well-small sign-left3">
+        <div class="stdoc-code"><p>搜索的回调</p>
+</div>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
+        
+
+        
+            <div id="property" class="tab-pane">
+                <h2 class="off-left">属性</h2>
+
+                
+                    <div id="property_buttonText" class="property item">
+    <h3 class="name"><code>buttonText</code></h3>
+    <span class="type">String</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_search-bar_index.js.html#l48"><code>src&#x2F;search-bar&#x2F;index.js:48</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>按钮文案</p>
+</div>
+    </div>
+
+    
+        <p><strong>Default:</strong></p>
+         <code> &#x27;取消&#x27;</code>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_classPrefix" class="property item">
+    <h3 class="name"><code>classPrefix</code></h3>
+    <span class="type">String</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_search-bar_index.js.html#l41"><code>src&#x2F;search-bar&#x2F;index.js:41</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>样式前缀</p>
+</div>
+    </div>
+
+    
+        <p><strong>Default:</strong></p>
+         <code> &#x27;search-bar&#x27;</code>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_placeholder" class="property item">
+    <h3 class="name"><code>placeholder</code></h3>
+    <span class="type">String</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_search-bar_index.js.html#l55"><code>src&#x2F;search-bar&#x2F;index.js:55</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>输入框占位符</p>
+</div>
+    </div>
+
+    
+        <p><strong>Default:</strong></p>
+         <code> &#x27;搜索&#x27;</code>
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+<a id="gotoTop" class='well well-small' href='#'>
+</a>
+<script src="../assets/vendor/jquery/jquery-1.8.2.js"></script>
+<script src="../assets/vendor/bootstrap/js/bootstrap.js"></script>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/doc.js"></script>
+
+</body>
+</html>

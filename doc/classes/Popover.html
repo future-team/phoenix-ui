@@ -50,11 +50,37 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/列表组件.html">列表组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/List.html">List</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
                     <a href="../modules/基础组件.html">基础组件</a>
                 </dt>
                 <dd>
                     <ul>
                    
+                       <li>
+                            
+                           <a href="../classes/Image.html">Image</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
                        <li>
                             
                            <a href="../classes/Button.html">Button</a>
@@ -91,22 +117,6 @@
                    
                        <li>
                             
-                           <a href="../classes/Row.html">Row</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
-                           <a href="../classes/TableView.html">TableView</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
                            <a href="../classes/Col.html">Col</a>
                            <ul>
                                 
@@ -116,6 +126,14 @@
                        <li>
                             
                            <a href="../classes/Grid.html">Grid</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Row.html">Row</a>
                            <ul>
                                 
                            </ul>
@@ -173,9 +191,19 @@
                            </ul>
                        </li>
                     
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/搜索组件.html">搜索组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
                        <li>
                             
-                           <a href="../classes/Whisper.html">Whisper</a>
+                           <a href="../classes/SearchBar.html">SearchBar</a>
                            <ul>
                                 
                            </ul>
@@ -194,14 +222,6 @@
                        <li>
                             
                            <a href="../classes/ImageList.html">ImageList</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
-                           <a href="../classes/LoadingList.html">LoadingList</a>
                            <ul>
                                 
                            </ul>
@@ -242,6 +262,14 @@
                        <li>
                             
                            <a href="../classes/Accordion.html">Accordion</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/PullUp.html">PullUp</a>
                            <ul>
                                 
                            </ul>
@@ -294,19 +322,69 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
-                    <a href="../modules/菜单组件.html">菜单组件</a>
+                    <a href="../modules/筛选控件.html">筛选控件</a>
                 </dt>
                 <dd>
                     <ul>
                    
                        <li>
                             
-                           <a href="../classes/Menu.html">Menu</a>
+                           <a href="../classes/FilterCheckbox.html">FilterCheckbox</a>
                            <ul>
                                 
                            </ul>
                        </li>
                     
+                       <li>
+                            
+                           <a href="../classes/FilterContainer.html">FilterContainer</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterItem.html">FilterItem</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterItemGroup.html">FilterItemGroup</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterPanel.html">FilterPanel</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterPanelSimple.html">FilterPanelSimple</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/菜单组件.html">菜单组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
                        <li>
                             
                            <a href="../classes/MenuBody.html">MenuBody</a>
@@ -341,7 +419,7 @@
                     
                        <li>
                             
-                           <a href="../classes/MenuNav.html">MenuNav</a>
+                           <a href="../classes/Menu.html">Menu</a>
                            <ul>
                                 
                            </ul>
@@ -367,6 +445,14 @@
                     
                        <li>
                             
+                           <a href="../classes/Radio.html">Radio</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
                            <a href="../classes/Switch.html">Switch</a>
                            <ul>
                                 
@@ -375,7 +461,7 @@
                     
                        <li>
                             
-                           <a href="../classes/FormGroup.html">FormGroup</a>
+                           <a href="../classes/Checkbox.html">Checkbox</a>
                            <ul>
                                 
                            </ul>
@@ -458,18 +544,26 @@
  <div class="well well-small sign-left3">
       <div class="stdoc-code"><p>气泡组件<br/></p>
 <ul>
-<li>配合倾听者组件Whisper使用, 作为Whisper的target。</li>
+<li>通过getTarget返回当前点击元素，必需。</li>
+<li>可通过placement设置气泡的显示位置, 可选top、bottom、left、right。</li>
+<li>当设置的位置不足够放置气泡，以下顺序顺延(top-&gt;bottom-&gt;left-&gt;right, bottom-&gt;top-&gt;left-&gt;right, left-&gt;right-&gt;top-&gt;bottom, right-&gt;left-&gt;top-&gt;bottom)。</li>
+<li>可通过distance设置气泡到点击对象的位置。</li>
+<li>可通过clickCallback定义气泡显隐时额外的回调函数。</li>
 </ul>
 <p>示例:</p>
-<pre><code class="lang-code">    const popover = ( // 可以通过style自定义位置
-        &lt;Popover&gt;
-            &lt;ul className="ph-popover-list"&gt;
-                &lt;li className="ph-popover-item"&gt;未上线单店&lt;/li&gt;
-                &lt;li className="ph-popover-item"&gt;未上线连锁店&lt;/li&gt;
-            &lt;/ul&gt;
-        &lt;/Popover&gt;
-    );</code></pre>
-<pre><code class="lang-code">    &lt;Whisper placement="top" onTargetChange={()=&gt;{console.log(&#39;气泡出现消失时额外的执行函数&#39;);}} target={popover} distance={10} &gt;Top&lt;/Whisper&gt;</code></pre>
+<pre><code class="lang-code"> &lt;Button phSize=&#39;lg&#39; ref={(button)=&gt;{this.button = button}}&gt;按钮&lt;/Button&gt;
+ &lt;Popover getTarget={()=&gt;{return this.button}} placement=&#39;top&#39;&gt;
+     &lt;div className=&#39;ph-popover-text&#39;&gt;
+         一条很长的很长的气泡提示语，为了占位存在的气泡提示语。一条很长的很长的气泡提示语，为了占位存在的气泡提示语。
+     &lt;/div&gt;
+ &lt;/Popover&gt;</code></pre>
+<pre><code class="lang-code"> &lt;Button phSize=&#39;lg&#39; ref={(button)=&gt;{this.button1 = button}}&gt;按钮&lt;/Button&gt;
+ &lt;Popover getTarget={()=&gt;{return this.button1}} placement=&#39;right&#39;&gt;
+     &lt;ul className=&#39;ph-popover-list&#39;&gt;
+         &lt;li className=&#39;ph-popover-item&#39;&gt;未上线单店&lt;/li&gt;
+         &lt;li className=&#39;ph-popover-item&#39;&gt;未上线连锁店&lt;/li&gt;
+     &lt;/ul&gt;
+ &lt;/Popover&gt;</code></pre>
 </div>
  </div>
 
@@ -478,6 +572,24 @@
 
             <div class="index-section methods col-sm-4">
                 <h3>方法</h3>
+                
+                    <ul class="index-list methods extends">
+                        
+                            <li class="index-item method">
+                                <a href="#" data-tabid="#method" data-anchor="#method_clickCallback" data-tablink="clickCallback">clickCallback</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#" data-tabid="#method" data-anchor="#method_getTarget" data-tablink="getTarget">getTarget</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
                 
             </div>
 
@@ -500,6 +612,20 @@
                                 
                             </li>
                         
+                            <li class="index-item property">
+                                <a href="#" data-tabid="#property" data-anchor="#property_distance" data-tablink="distance">distance</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#" data-tabid="#property" data-anchor="#property_placement" data-tablink="placement">placement</a>
+
+                                
+                                
+                            </li>
+                        
                     </ul>
                 
             </div>
@@ -515,6 +641,8 @@
     
         <ul id="itemTab" class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#class">详情</a></li>
+            
+                <li class=""><a data-toggle="tab" href="#method">方法</a></li>
             
             
                 <li class=""><a data-toggle="tab" href="#property">属性</a></li>
@@ -535,7 +663,7 @@
 
             
                 <div class="foundat">
-                    Defined in: <a href="../files/src_Popover.js.html#l6"><code>src&#x2F;Popover.js:6</code></a>
+                    Defined in: <a href="../files/src_popover_index.js.html#l12"><code>src&#x2F;popover&#x2F;index.js:12</code></a>
                 </div>
             
 
@@ -588,7 +716,7 @@
             
         
         
-        <a href="../files/src_Popover.js.html#l6"><code>src&#x2F;Popover.js:6</code></a>
+        <a href="../files/src_popover_index.js.html#l12"><code>src&#x2F;popover&#x2F;index.js:12</code></a>
         
         </p>
 
@@ -617,9 +745,11 @@
                 
             </ul>
             <div class="example-content  showdemo ">
-                <div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from "react";
-import {Whisper, Popover} from "phoenix-ui";
-import Code from "./code/code";
+                <div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from "react"
+
+import Button from "phoenix-ui/lib/button"
+import Popover from "phoenix-ui/lib/popover"
+import Code from "./code/code"
 
 export default class popover extends Component{
 
@@ -627,51 +757,73 @@ export default class popover extends Component{
         super(props,context); 
     }
 
-    onTargetChange(){
-        alert("气泡出现消失时额外的执行函数"); 
-    }
-
     render(){
-        const popover = ( // 可以通过style自定义位置
-            &lt;Popover&gt;
-                &lt;ul className="ph-popover-list"&gt;
-                    &lt;li className="ph-popover-item"&gt;未上线单店&lt;/li&gt;
-                    &lt;li className="ph-popover-item"&gt;未上线连锁店&lt;/li&gt;
-                &lt;/ul&gt;
-            &lt;/Popover&gt;
-        );
-
         return(
             &lt;div&gt;
-                &lt;h2 className="comp-title"&gt;Whisper/Popover&lt;/h2&gt;
-                &lt;h3 className="comp-type"&gt;
-                    target 显示的目标物&lt;br/&gt;
-                    placement(默认bottom) 气泡出现时相对点击对象的位置
-                &lt;/h3&gt;
+                &lt;h2 className="comp-title"&gt;Popover&lt;/h2&gt;
+                &lt;h3 className="comp-type"&gt;getTarget(必需) 返回当前点击元素&lt;/h3&gt;
                 &lt;div className="content"&gt;
-                    &lt;Whisper target={popover}&gt;Bottom&lt;/Whisper&gt;
-                    &lt;Whisper placement="top" target={popover}&gt;Top&lt;/Whisper&gt;
-                    &lt;Whisper placement="right" target={popover}&gt;Right&lt;/Whisper&gt;
-                    &lt;Whisper placement="left" target={popover}&gt;Left&lt;/Whisper&gt;
-                    &lt;Whisper placement="top right" target={popover}&gt;Top Right&lt;/Whisper&gt;
-                    &lt;Whisper placement="top left" target={popover}&gt;Top Left&lt;/Whisper&gt;
-                    &lt;Whisper placement="bottom right" target={popover}&gt;Bottom Right&lt;/Whisper&gt;
-                    &lt;Whisper placement="bottom left" target={popover}&gt;Bottom Left&lt;/Whisper&gt;
+                    &lt;Button phSize="lg" ref={(button)=&gt;{this.button = button}}&gt;纯文字气泡&lt;/Button&gt;
+                    &lt;Popover getTarget={()=&gt;{return this.button}}&gt;
+                        &lt;div className="ph-popover-text"&gt;
+                            一条很长的很长的气泡提示语，为了占位存在的气泡提示语。一条很长的很长的气泡提示语，为了占位存在的气泡提示语。一条很长的很长的气泡提示语，为了占位存在的气泡提示语。一条很长的很长的气泡提示语，为了占位存在的气泡提示语。
+                        &lt;/div&gt;
+                    &lt;/Popover&gt;
+                    &lt;Button phSize="lg" ref={(button)=&gt;{this.button1 = button}}&gt;列表气泡&lt;/Button&gt;
+                    &lt;Popover getTarget={()=&gt;{return this.button1}} placement="right"&gt;
+                        &lt;ul className="ph-popover-list"&gt;
+                            &lt;li className="ph-popover-item"&gt;未上线单店&lt;/li&gt;
+                            &lt;li className="ph-popover-item"&gt;未上线连锁店&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/Popover&gt;
+                &lt;/div&gt;
+                &lt;Code target="popover-gettarget" /&gt;
+
+                &lt;h3 className="comp-type"&gt;placement(默认bottom) 气泡位置 &lt;br/&gt; 可选top、bottom、left、right&lt;/h3&gt;
+                &lt;div className="content"&gt;
+                    &lt;Button phSize="lg" ref={(button)=&gt;{this.button2 = button}}&gt;按钮&lt;/Button&gt;
+                    &lt;Popover getTarget={()=&gt;{return this.button2}} placement="top"&gt;
+                        &lt;div className="ph-popover-text"&gt;
+                            为了占位存在的气泡提示语
+                        &lt;/div&gt;
+                    &lt;/Popover&gt;
                 &lt;/div&gt;
                 &lt;Code target="popover-placement" /&gt;
 
-                &lt;h3 className="comp-type"&gt;distance(默认15) 气泡想对点击对象的距离&lt;/h3&gt;
+                &lt;h3 className="comp-type"&gt;distance(默认5) 气泡和点击元素的距离&lt;/h3&gt;
                 &lt;div className="content"&gt;
-                    &lt;Whisper target={popover} distance={10}&gt;10&lt;/Whisper&gt;
-                    &lt;Whisper target={popover} distance={20}&gt;20&lt;/Whisper&gt;
+                    &lt;Button phSize="lg" ref={(button)=&gt;{this.button3 = button}}&gt;按钮&lt;/Button&gt;
+                    &lt;Popover getTarget={()=&gt;{return this.button3}} distance={20}&gt;
+                        &lt;div className="ph-popover-text"&gt;
+                            为了占位存在的气泡提示语
+                        &lt;/div&gt;
+                    &lt;/Popover&gt;
                 &lt;/div&gt;
-                &lt;Code target="popover-distance" /&gt;
+                &lt;Code target="popover-distance" /&gt;  
 
-                &lt;h3 className="comp-type"&gt;onTargetChange 气泡显隐时额外的回调函数&lt;/h3&gt;
+                &lt;h3 className="comp-type"&gt;clickCallback 点击的回调函数&lt;/h3&gt;
                 &lt;div className="content"&gt;
-                    &lt;Whisper onTargetChange={this.onTargetChange} target={popover}&gt;popover&lt;/Whisper&gt;
+                    &lt;Button phSize="lg" ref={(button)=&gt;{this.button4 = button}}&gt;按钮&lt;/Button&gt;
+                    &lt;Popover getTarget={()=&gt;{return this.button4}} clickCallback={(bool)=&gt;{alert(bool)}}&gt;
+                        &lt;div className="ph-popover-text"&gt;
+                            为了占位存在的气泡提示语
+                        &lt;/div&gt;
+                    &lt;/Popover&gt;
                 &lt;/div&gt;
-                &lt;Code target="popover-ontargetchange" /&gt;
+                &lt;Code target="popover-clickcallback" /&gt;  
+
+                &lt;h3 className="comp-type"&gt;顺延的情况 placement为bottom&lt;/h3&gt;
+                &lt;div className="content"&gt;
+                    &lt;Button phSize="lg" ref={(button)=&gt;{this.button5 = button}}&gt;bottom顺延到top&lt;/Button&gt;
+                    &lt;Popover getTarget={()=&gt;{return this.button5}}&gt;
+                        &lt;div className="ph-popover-text"&gt;
+                            为了占位存在的气泡提示语&lt;br/&gt;
+                            为了占位存在的气泡提示语&lt;br/&gt;
+                            为了占位存在的气泡提示语&lt;br/&gt;
+                            为了占位存在的气泡提示语
+                        &lt;/div&gt;
+                    &lt;/Popover&gt;
+                &lt;/div&gt;             
             &lt;/div&gt;
         );
     }
@@ -692,6 +844,126 @@ export default class popover extends Component{
             
         </div>
 
+        
+            <div id="method" class="tab-pane">
+                <h2 class="off-left">方法</h2>
+
+                
+                    <div id="method_clickCallback" class="method item">
+    <h3 class="name">clickCallback</h3>
+    <code>
+    clickCallback
+    
+        <span class="paren">()</span>
+    
+    </code>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_popover_index.js.html#l81"><code>src&#x2F;popover&#x2F;index.js:81</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description well well-small sign-left3">
+        <div class="stdoc-code"><p>气泡显隐时可执行的额外函数,自定义</p>
+</div>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_getTarget" class="method item">
+    <h3 class="name">getTarget</h3>
+    <code>
+    getTarget
+    
+        <span class="paren">()</span>
+    
+    </code>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_popover_index.js.html#l63"><code>src&#x2F;popover&#x2F;index.js:63</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description well well-small sign-left3">
+        <div class="stdoc-code"><p>返回气泡的目标元素</p>
+</div>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
         
 
         
@@ -722,7 +994,7 @@ export default class popover extends Component{
             
         
         
-        <a href="../files/src_Popover.js.html#l36"><code>src&#x2F;Popover.js:36</code></a>
+        <a href="../files/src_popover_index.js.html#l50"><code>src&#x2F;popover&#x2F;index.js:50</code></a>
         
         </p>
 
@@ -770,7 +1042,7 @@ export default class popover extends Component{
             
         
         
-        <a href="../files/src_Popover.js.html#l43"><code>src&#x2F;Popover.js:43</code></a>
+        <a href="../files/src_popover_index.js.html#l57"><code>src&#x2F;popover&#x2F;index.js:57</code></a>
         
         </p>
 
@@ -781,6 +1053,96 @@ export default class popover extends Component{
 
     <div class="description">
         <div class="stdoc-code"><p>标签tagName</p>
+</div>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_distance" class="property item">
+    <h3 class="name"><code>distance</code></h3>
+    <span class="type">Number</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_popover_index.js.html#l75"><code>src&#x2F;popover&#x2F;index.js:75</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>气泡距离点击物的位置,默认5</p>
+</div>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_placement" class="property item">
+    <h3 class="name"><code>placement</code></h3>
+    <span class="type">String</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_popover_index.js.html#l69"><code>src&#x2F;popover&#x2F;index.js:69</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>气泡的位置,默认bottom</p>
 </div>
     </div>
 
