@@ -123,10 +123,10 @@ export default class Alert extends Component{
     }
 
     renderAlert(){
-        let {visible, closeCallback, title, content, closeButton, shadowDisabled} = this.props;
+        let {visible, closeCallback, title, content, closeButton, shadowDisabled, className} = this.props;
 
         return (
-            <Dialog className={this.setPhPrefix('dialog-alert',true)} visible={visible} closeCallback={closeCallback} closeButton={closeButton} shadowDisabled={shadowDisabled}>
+            <Dialog className={classnames(this.setPhPrefix('dialog-alert',true),className)} visible={visible} closeCallback={closeCallback} closeButton={closeButton} shadowDisabled={shadowDisabled}>
                 <Dialog.Title>{title}</Dialog.Title>
                 <Dialog.Body>{content}</Dialog.Body>
                 <Dialog.Footer>{this.renderButtons()}</Dialog.Footer>

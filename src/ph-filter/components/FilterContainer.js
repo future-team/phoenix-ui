@@ -238,7 +238,8 @@ export default class FilterContainer extends Component{
                 <div className={classnames(
                         'ph-filter-container', 
                         this.state.activeCat==-1? '':'ph-filter-container-shadow',
-                        this.state.fixed? 'ph-filter-container-fixed':''
+                        this.state.fixed? 'ph-filter-container-fixed':'',
+                        this.props.className
                     )}
                     ref={(filterContainer)=>{this.filterContainer = filterContainer}}
                 >

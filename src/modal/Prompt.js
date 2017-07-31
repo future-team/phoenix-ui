@@ -189,10 +189,10 @@ export default class Prompt extends Component{
     }
 
     renderPrompt(){
-        let {visible, closeCallback, title, closeButton, shadowDisabled} = this.props;
+        let {visible, closeCallback, title, closeButton, shadowDisabled, className} = this.props;
 
         return (
-            <Dialog className={this.setPhPrefix('dialog-prompt', true)} visible={visible} 
+            <Dialog className={classnames(this.setPhPrefix('dialog-prompt', true),className)} visible={visible} 
                 closeCallback={closeCallback} 
                 closeButton={closeButton} 
                 shadowDisabled={shadowDisabled}

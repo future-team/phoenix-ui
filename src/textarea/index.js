@@ -21,6 +21,7 @@ import 'phoenix-styles/less/modules/textarea.less'
  * - 可通过valuee设置默认值。 
  * - 可通过设置count判断是否显示当前输入字数，需要配合maxLength配置最大输入字数。
  * - getValueCallback: 获取当前的输入值。
+ * - className属性加在外层，其余属性均赋予input元素。
  *
  * 主要属性和接口：
  * - value:默认值 <br/>
@@ -138,14 +139,14 @@ export default class Textarea extends Component{
     }
 
     renderTextarea(){
-        let {className, disabled} = this.props
+        let {className, disabled, style} = this.props
 
         return (
-            <div className={this.setPhPrefix('field')}>
-                <textarea {...this.otherProps} className={classnames(
-                    this.getProperty(true),
-                    className
-                )} value={this.state.value} onChange={(event)=>{this.onTextareaChange(event)}} disabled={disabled}></textarea>
+            <div className={classnames(this.setPhPrefix('field'),classnames)} style={this.getStyles(style)}>
+                <textarea {...this.otherProps} className={this.getProperty(true)} 
+                    value={this.state.value} 
+                    onChange={(event)=>{this.onTextareaChange(event)}} 
+                    disabled={disabled} style={null}></textarea>
                 {this.renderCount()}
             </div>
         )

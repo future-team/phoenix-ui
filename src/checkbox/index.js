@@ -10,6 +10,7 @@ import 'phoenix-styles/less/modules/checkbox.less'
  * - 使用方式跟原生一致, 支持disabled等原生属性。
  * - 可通过label设置展示的文字。
  * - 可通过defaultChecked设置默认值; 可通过checked和onChange事件配合使用手动设置输入值。
+ * - className属性加在外层，其余属性均赋予input元素。
  *
  * 主要属性和接口：
  * - label:展示的文字信息, 默认空<br/>
@@ -67,12 +68,12 @@ export default class Checkbox extends Component{
     }
 
     renderCheckbox(){
-        let {label, type, disabled} = this.props
+        let {label, type, disabled, className, style} = this.props
 
         return (
-            <label className={this.setPhPrefix('multi-group',true)}>
+            <label className={classnames(this.setPhPrefix('multi-group',true), className)} style={this.getStyles(style)}>
                 <div className={this.getProperty(true)}>
-                    <input {...this.otherProps} disabled={disabled}/>
+                    <input {...this.otherProps} className='' style={null} disabled={disabled}/>
                     <i></i>
                 </div>
                 <span>{label}</span>

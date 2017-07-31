@@ -52,10 +52,10 @@ Phoenix UI is tested with the following browsers and mobile OS.
 ## Command
 
 ```
-	$ npm run demo
-	$ npm run build
-	$ npm run doc
-	$ npm run test
+    $ npm run demo
+    $ npm run build
+    $ npm run doc
+    $ npm run test
 ```
 
 ## Repair

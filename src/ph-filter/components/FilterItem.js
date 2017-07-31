@@ -93,10 +93,10 @@ export default class FilterItem extends Component{
     }
 
     render(){
-        let {active, disabled} = this.props
+        let {active, disabled, className} = this.props
 
         return (
-            <div className={classnames('ph-row ph-list-item', active ? 'active':'', disabled? 'disabled':'')}
+            <div className={classnames('ph-row ph-list-item', active ? 'active':'', disabled? 'disabled':'', className)}
                 onClick={this.clickCallback.bind(this)}
             >
                 {this.renderChildren()}

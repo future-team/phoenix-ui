@@ -92,7 +92,7 @@ export default class FilterItemGroup extends Component{
 
     render(){
         return (
-            <div className={classnames('item ph-tab-nav', this.props.active ? 'active':'')}
+            <div className={classnames('item ph-tab-nav', this.props.active ? 'active':'', this.props.className)}
                 onClick={this.itemClickHandle.bind(this)}
             >
                 <a href='javascript:;'>{this.props.label}</a>

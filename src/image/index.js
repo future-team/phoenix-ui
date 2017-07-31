@@ -211,7 +211,7 @@ export default class Images extends Component{
                 ref={(phImage)=>{this.phImage=phImage}}
                 style={this.getStyles(style)}
             >
-                <img {...this.otherProps} src={this.state.src} ref={(image)=>{this.image=image}} />
+                <img {...this.otherProps} className='' src={this.state.src} ref={(image)=>{this.image=image}} />
             </div>
         )
     }

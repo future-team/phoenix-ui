@@ -137,7 +137,7 @@ export default class Steps extends Component{
 
     renderSteps(){
         return(
-            <div className={classnames(this.getProperty(true),this.props.className)}>
+            <div {...this.otherProps} className={classnames(this.getProperty(true),this.props.className)}>
                 {this.renderLine()}
                 {this.renderContent()}
            </div>

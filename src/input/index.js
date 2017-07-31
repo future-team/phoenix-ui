@@ -17,6 +17,7 @@ import 'phoenix-styles/less/modules/input.less'
  * - 可通过设置error设置当前输入错误。
  * - 可通过getValueCallback获取当前元素的value值，仅适用于text、search。
  * - 可通过设置phReg设置正则表达式，失焦时如果不符合正则显示错误样式。
+ * - className/style属性加在外层，其余属性均赋予input元素。
  *
  * 主要属性和接口：
  * - type:input类型, 默认text <br/>
@@ -150,7 +151,7 @@ export default class Input extends Component{
     }
 
     renderInput(){
-        let {type, clear, visible, placeholder, phIcon, disabled} = this.props,
+        let {type, clear, visible, placeholder, phIcon, disabled, className, style} = this.props,
             {value, focus, error} = this.state;
         let clearStatus = clear && value && focus,
             visibleStatus = visible && type=='password',
@@ -168,8 +169,9 @@ export default class Input extends Component{
                     clearStatus ? this.setPhPrefix('clear'):'',
                     visibleStatus ? this.setPhPrefix('visible'):'',
                     errorState ? this.setPhPrefix('error'):'',
-                )}>
-                    <input {...this.otherProps} type={this.state.type} placeholder='' value={value} disabled={disabled}
+                    className
+                )} style={this.getStyles(style)}>
+                    <input {...this.otherProps} className='' style={null} type={this.state.type} placeholder='' value={value} disabled={disabled}
                         ref={(inputElem)=>{this.inputElem=inputElem}}
                         onChange={this.onChange.bind(this)} 
                         onFocus={this.onFocus.bind(this)} 
@@ -243,7 +245,7 @@ export default class Input extends Component{
 
     renderVisibleButton(visible){
         if(visible){
-            return <Icon className={classnames('gfs-icon-visible', !this.state.cansee? 'gfs-icon-active':'')} 
+            return <Icon className={classnames('gfs-icon-visible gfs-icon-active')} 
                 phIcon={this.visibleIcon[this.state.cansee]} 
                 onClick={this.visibleHandle.bind(this)} />
         }

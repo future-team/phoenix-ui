@@ -1,4 +1,5 @@
 import React, { Component,PropTypes } from 'react'
+import classnames from 'classnames'
 import Button from '../../button'
 import Input from '../../input'
 
@@ -80,10 +81,10 @@ export default class FilterCheckbox extends Component{
     }
     
     render(){
-        let {choose, index, buttons, children} = this.props
+        let {choose, index, buttons, children, className, style} = this.props
 
         return (
-            <div className='ph-checkbox-filter'>
+            <div className={classnames('ph-checkbox-filter', className)}>
                 <FilterContainer index={0} hideCat choose={choose}>
                     <CheckboxPanel index={index} buttons={buttons}>
                         {children}

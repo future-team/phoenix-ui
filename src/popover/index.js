@@ -149,6 +149,7 @@ export default class Popover extends Component{
 
         let popoverProps = this.otherProps
         popoverProps.className = classnames(this.getProperty(true), this.props.className)
+        popoverProps.style = this.getStyles(this.props.style)
         popoverProps.ref = (popover)=>{this.popover = popover}
 
         let element = React.createElement('div', popoverProps , this.popoverArrow(), this.popoverMain())
@@ -327,4 +328,4 @@ export default class Popover extends Component{
         return React.DOM.noscript();
     }
 }
-console.log(typeof Popover)
+

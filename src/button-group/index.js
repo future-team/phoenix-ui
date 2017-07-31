@@ -135,12 +135,13 @@ export default class ButtonGroup extends Component{
     }
 
     renderButtonGroup(){
-        const {componentTag:Component, children} = this.props;
+        const {componentTag:Component, children, className} = this.props;
 
         return (
             <Component {...this.otherProps} className={
                 classnames(
                     this.getProperty(true),
+                    className,
                     'clearfix'
                 )}>
                 {this.renderChildren()}

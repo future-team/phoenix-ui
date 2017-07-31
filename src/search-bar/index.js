@@ -14,6 +14,7 @@ import 'phoenix-styles/less/modules/search-bar.less'
  * - 可通过clickCallback设置点击按钮的回调。
  * - 可通过queryCallback设置回车/搜索动作的回调函数。
  * - 可通过focusCallback设置聚焦的回调；可通过blurCallback设置失焦的回调。
+ * - className/style属性加在外层，其余属性均赋予input元素。
  *
  * 主要属性和接口：
  * - buttonText: 按钮文字 <br/>
@@ -153,7 +154,7 @@ export default class SearchBar extends Component{
                className,
                this.state.focus? this.setPhPrefix('focus'):''
            )} style={this.getStyles(style)}>
-               <Input type='search' phIcon='search' placeholder={placeholder} clear 
+               <Input {...this.otherProps} type='search' phIcon='search' placeholder={placeholder} clear 
                     ref={(searchElem)=>{this.searchElem=searchElem}}
                     onFocus={this.onFocus.bind(this)}
                     onBlur={this.onBlur.bind(this)}

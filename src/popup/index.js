@@ -123,7 +123,7 @@ export default class Popup extends Component{
         let {componentTag:Component, className} = this.props;
 
         return (
-            <Component className={classnames(
+            <Component {...this.otherProps} className={classnames(
                 this.getProperty(true),
                 className
             )}>
