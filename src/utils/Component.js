@@ -11,14 +11,14 @@ import {propsConstants} from './constants'
 //import 'babel-polyfill';
 
 import FastClick from 'fastclick'
-import {ModuleLogger} from 'pmlogger'
+// import {ModuleLogger} from 'pmlogger'
 // import packageJSON from '../../package.json'
 
 document.addEventListener('DOMContentLoaded', function() {
     FastClick.attach(document.body);
 }, false)
 
-new ModuleLogger('phoenix-ui')
+// new ModuleLogger('phoenix-ui')
 
 
 @ClassNameMixin
