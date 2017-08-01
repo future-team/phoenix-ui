@@ -199,8 +199,8 @@ export default class Popover extends Component{
         this.size = {}
         this.bubbleSize = {}
 
-        this.win.width = parseInt(document.body.clientWidth)
-        this.win.height = parseInt(document.body.clientHeight)
+        this.win.width = parseInt(document.documentElement.clientWidth)
+        this.win.height = parseInt(Tool.getClientHeight())
 
         this.position.x = parseInt(this.target.offsetLeft)
         this.position.y = parseInt(this.target.offsetTop)
