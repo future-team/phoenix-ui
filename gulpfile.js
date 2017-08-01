@@ -29,7 +29,7 @@ gulp.task('demoBuild', function (done) {
     wbpk.devtool = 'eval';
     wbpk.entry = [
         'webpack-dev-server/client?http://127.0.0.1:' + devPort,
-        'webpack/hot/only-dev-server',
+        'webpack/hot/dev-server',
         './examples/src/index.js'
     ];
     wbpk.plugins = [
@@ -43,12 +43,12 @@ gulp.task('demoBuild', function (done) {
             loaders: ['babel']
         },
         {
-            test: /\.jsx?$/,
+            test: /\.js?$/,
             loaders: ['react-hot', 'babel-loader?cacheDirectory'],
             exclude: /node_modules/
         },
         {
-            test: /\.less$/,
+            test: /\.(css|less)$/,
             loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
         },
         {
@@ -59,6 +59,9 @@ gulp.task('demoBuild', function (done) {
         {
             test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
             loader: 'file-loader?name=./iconfont/[name].[ext]'
+        },{
+            test: /\.json$/,
+            loader: 'json-loader'
         }
     ];
 
@@ -66,7 +69,9 @@ gulp.task('demoBuild', function (done) {
 
     new WebpackDevServer(compiler, {
         publicPath: '/examples/dist/',
+        disableHostCheck: true,
         hot: true,
+        inline:true,
         historyApiFallback: true,
         port: devPort,
         stats: {
@@ -114,12 +119,7 @@ gulp.task('karma', function (done) {
     }, done).start();
 });
 
-gulp.task('skin', function () {
-  gulp.src(['node_modules/phoenix-styles/dist/ios-skin.css']) //多个文件以数组形式传入
-      .pipe(gulp.dest('dist'));
-});
-
-gulp.task('default', ['babel', 'min-webpack', 'exampleWebpack','skin']);
-gulp.task('demo', ['demoBuild', 'open']);
+gulp.task('default', ['babel', 'min-webpack', 'exampleWebpack']);
+gulp.task('dev', ['demoBuild', 'open']);
 gulp.task('min', ['min-webpack']);
 gulp.task('test',['karma']);

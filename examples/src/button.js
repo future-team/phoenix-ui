@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import {Button} from "phoenix-ui";
-import Code from "./code/code";
+import React, { Component } from "react"
+
+import Button from "phoenix-ui/lib/button"
+import Code from "./code/code"
 
 export default class button extends Component{
     render(){
@@ -10,8 +11,10 @@ export default class button extends Component{
                 <h3 className="comp-type">phSize(默认sm) 按钮大小</h3>
                 <div className="content">
                     <Button>默认sm</Button>
-                    <Button phSize="md">md</Button>
-                    <Button phSize="lg">lg</Button>
+                    <br/>
+                    <Button phSize="md">md 按钮</Button>
+                    <br/>
+                    <Button phSize="lg">lg 按钮</Button>
                 </div>
                 <Code target="button-phsize" />
 
@@ -30,33 +33,46 @@ export default class button extends Component{
 
                 <h3 className="comp-type">hollow属性</h3>
                 <div className="content">
-                    <Button hollow>hollow</Button>
+                    <Button hollow>按钮</Button>
                 </div>
                 <Code target="button-phstyle" />
 
                 <h3 className="comp-type">block属性</h3>
                 <div className="content">
-                    <Button block>block</Button>
+                    <Button block>按钮</Button>
                 </div>
                 <Code target="button-block" />
 
                 <h3 className="comp-type">disabled属性</h3>
                 <div className="content">
-                    <Button disabled>disabled</Button>
+                    <Button hollow disabled>按钮</Button>
+                    <Button disabled>按钮</Button>
                 </div>
                 <Code target="button-disabled" />
 
                 <h3 className="comp-type">active属性</h3>
                 <div className="content">
-                    <Button active>active</Button>
+                    <Button phStyle="gray" hollow active>按钮</Button>
+                    <Button hollow active>按钮</Button>
+                    <Button active>按钮</Button>
                 </div>
                 <Code target="button-active" />
 
                 <h3 className="comp-type">phIcon属性</h3>
                 <div className="content">
-                    <Button phIcon="search">phIcon</Button>
+                    <Button phIcon="search" block>整体居中</Button>
+                    <br/>
+                    <Button phIcon="loading-white" block>整体居中</Button>
                 </div>
                 <Code target="button-phicon" />
+
+                <h3 className="comp-type">stable属性</h3>
+                <div className="content">
+                    <Button phIcon="search" block stable>文字居中</Button>
+                    <br/>
+                    <Button phIcon="loading-white" block stable>文字居中</Button>
+                </div>
+                <Code target="button-stable" />
             </div>
         );
     }

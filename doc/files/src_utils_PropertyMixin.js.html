@@ -50,11 +50,37 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/列表组件.html">列表组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/List.html">List</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
                     <a href="../modules/基础组件.html">基础组件</a>
                 </dt>
                 <dd>
                     <ul>
                    
+                       <li>
+                            
+                           <a href="../classes/Image.html">Image</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
                        <li>
                             
                            <a href="../classes/Button.html">Button</a>
@@ -91,22 +117,6 @@
                    
                        <li>
                             
-                           <a href="../classes/Row.html">Row</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
-                           <a href="../classes/TableView.html">TableView</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
                            <a href="../classes/Col.html">Col</a>
                            <ul>
                                 
@@ -116,6 +126,14 @@
                        <li>
                             
                            <a href="../classes/Grid.html">Grid</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Row.html">Row</a>
                            <ul>
                                 
                            </ul>
@@ -173,9 +191,19 @@
                            </ul>
                        </li>
                     
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/搜索组件.html">搜索组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
                        <li>
                             
-                           <a href="../classes/Whisper.html">Whisper</a>
+                           <a href="../classes/SearchBar.html">SearchBar</a>
                            <ul>
                                 
                            </ul>
@@ -194,14 +222,6 @@
                        <li>
                             
                            <a href="../classes/ImageList.html">ImageList</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
-                           <a href="../classes/LoadingList.html">LoadingList</a>
                            <ul>
                                 
                            </ul>
@@ -242,6 +262,14 @@
                        <li>
                             
                            <a href="../classes/Accordion.html">Accordion</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/PullUp.html">PullUp</a>
                            <ul>
                                 
                            </ul>
@@ -294,19 +322,69 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
-                    <a href="../modules/菜单组件.html">菜单组件</a>
+                    <a href="../modules/筛选控件.html">筛选控件</a>
                 </dt>
                 <dd>
                     <ul>
                    
                        <li>
                             
-                           <a href="../classes/Menu.html">Menu</a>
+                           <a href="../classes/FilterCheckbox.html">FilterCheckbox</a>
                            <ul>
                                 
                            </ul>
                        </li>
                     
+                       <li>
+                            
+                           <a href="../classes/FilterContainer.html">FilterContainer</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterItem.html">FilterItem</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterItemGroup.html">FilterItemGroup</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterPanel.html">FilterPanel</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterPanelSimple.html">FilterPanelSimple</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/菜单组件.html">菜单组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
                        <li>
                             
                            <a href="../classes/MenuBody.html">MenuBody</a>
@@ -341,7 +419,7 @@
                     
                        <li>
                             
-                           <a href="../classes/MenuNav.html">MenuNav</a>
+                           <a href="../classes/Menu.html">Menu</a>
                            <ul>
                                 
                            </ul>
@@ -367,6 +445,14 @@
                     
                        <li>
                             
+                           <a href="../classes/Radio.html">Radio</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
                            <a href="../classes/Switch.html">Switch</a>
                            <ul>
                                 
@@ -375,7 +461,7 @@
                     
                        <li>
                             
-                           <a href="../classes/FormGroup.html">FormGroup</a>
+                           <a href="../classes/Checkbox.html">Checkbox</a>
                            <ul>
                                 
                            </ul>
@@ -461,7 +547,7 @@
 /**
  * Created by mac on 16/1/3.
  */
-import warning from &#x27;./warning&#x27;;
+import {warning} from &#x27;./Tool&#x27;;
 
 export default obj=&gt;{
 
@@ -477,22 +563,22 @@ export default obj=&gt;{
         /*以下属性都是数组里固定值*/
         //类型
         phType:function(val){
-            return getVal([&#x27;tacked&#x27;,&#x27;justify&#x27;],val);
+            return getVal([&#x27;default&#x27;,&#x27;tacked&#x27;,&#x27;justify&#x27;,&#x27;segmente&#x27;,&#x27;footer&#x27;],val);
         },
         phSize:function(val){
-            return getVal([&#x27;lg&#x27;,&#x27;md&#x27;,&#x27;sm&#x27;,&#x27;default&#x27;,&#x27;xs&#x27;],val);
+            return getVal([&#x27;default&#x27;,&#x27;xlg&#x27;,&#x27;lg&#x27;,&#x27;md&#x27;,&#x27;sm&#x27;,&#x27;xs&#x27;,&#x27;cover&#x27;,&#x27;contain&#x27;],val);
         },
         phStyle:function(val){
-            return getVal([&#x27;primary&#x27;,&#x27;info&#x27;,&#x27;success&#x27;,&#x27;error&#x27;,&#x27;warning&#x27;,&#x27;danger&#x27;,&#x27;link&#x27;,&#x27;gray&#x27;,&#x27;light&#x27;,&#x27;positive&#x27;,&#x27;calm&#x27;,&#x27;balanced&#x27;,&#x27;energized&#x27;,&#x27;assertive&#x27;,&#x27;lightbrown&#x27;,&#x27;lightgray&#x27;],val);
+            return getVal([&#x27;default&#x27;,&#x27;primary&#x27;,&#x27;info&#x27;,&#x27;success&#x27;,&#x27;error&#x27;,&#x27;warning&#x27;,&#x27;danger&#x27;,&#x27;link&#x27;,&#x27;gray&#x27;,&#x27;light&#x27;,&#x27;positive&#x27;,&#x27;calm&#x27;,&#x27;balanced&#x27;,&#x27;energized&#x27;,&#x27;assertive&#x27;,&#x27;lightbrown&#x27;,&#x27;lightgray&#x27;,&#x27;tip&#x27;],val);
         },
-        status:val=&gt;{
+        phStatus:val=&gt;{
             getVal([&#x27;diabled&#x27;,&#x27;active&#x27;,&#x27;enable&#x27;],val)
         },
         align:function(val){
-            return getVal([&#x27;center&#x27;,&#x27;left&#x27;,&#x27;middle&#x27;,&#x27;auto&#x27;,&#x27;top&#x27;,&#x27;right&#x27;,&#x27;bottom&#x27;,&#x27;stretch&#x27;,&#x27;baseline&#x27;],val);
+            return getVal([&#x27;center&#x27;,&#x27;left&#x27;,&#x27;middle&#x27;,&#x27;auto&#x27;,&#x27;top&#x27;,&#x27;right&#x27;,&#x27;bottom&#x27;,&#x27;stretch&#x27;,&#x27;baseline&#x27;,&#x27;start&#x27;,&#x27;end&#x27;],val);
         },
         placement:function(val){
-            return getVal([&#x27;top&#x27;,&#x27;bottom&#x27;,&#x27;right&#x27;,&#x27;left&#x27;,&#x27;top left&#x27;,&#x27;top right&#x27;,&#x27;bottom left&#x27;,&#x27;bottom right&#x27;,&#x27;left-full&#x27;,&#x27;right-full&#x27;,&#x27;full-screen&#x27;],val);
+            return getVal([&#x27;top&#x27;,&#x27;bottom&#x27;,&#x27;right&#x27;,&#x27;left&#x27;,&#x27;left-full&#x27;,&#x27;right-full&#x27;,&#x27;full-screen&#x27;],val);
         },
         /*以下属性没有取值，需要的时候添加对应的属性即可*/
         disabled:true,
@@ -500,13 +586,18 @@ export default obj=&gt;{
         radius:true,
         round:true,
         clearfix:true,
-        clear:true,
         phHref:true,
         show:true,
         hide:true,
         block:true,
         hollow: true,
-
+        heading: true,
+        tail: true,
+        required: true,
+        stable:true,
+        // error: true,
+        // clear:true,
+        // visible:true,
 
         /*以下属性相当于css属性的快速赋值，比如设置zIndex=&quot;2&quot;,则会被merge进style里，如果只有属性zIndex没有设置取值，则会被放入props列表中*/
         zIndex:val=&gt;{

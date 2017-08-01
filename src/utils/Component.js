@@ -1,4 +1,4 @@
-import React,{Component,PropTypes} from 'react';
+import React,{Component} from 'react';
 import classnames from 'classnames';
 
 import ClassNameMixin from './ClassNameMixin';
@@ -6,9 +6,19 @@ import PropertyMixin from './PropertyMixin';
 import MethodMixin from './MethodMixin';
 
 import extend from 'extend';
-
+import {propsConstants} from './constants'
 
 //import 'babel-polyfill';
+
+import FastClick from 'fastclick'
+import {ModuleLogger} from 'pmlogger'
+// import packageJSON from '../../package.json'
+
+document.addEventListener('DOMContentLoaded', function() {
+    FastClick.attach(document.body);
+}, false)
+
+new ModuleLogger('phoenix-ui')
 
 
 @ClassNameMixin
@@ -32,6 +42,12 @@ export default class BaseComponent extends Component{
         this.registerMethod(this.otherProps);
 
     }
+
+    setPhPrefix(name, onlyPh){
+        if(onlyPh) return 'ph-'+name
+        else return 'ph-'+this.classPrefix+'-'+name
+    }
+
     setDefaultState(obj){
 
         this.state = extend({},{
@@ -107,52 +123,51 @@ export default class BaseComponent extends Component{
     setProperty(prop,val){
         if(val!== undefined){
             this.properties[prop] = val;
-            if(this.props[prop]!==undefined){
+            if(this.props[prop]!==undefined && !this.props[prop]){
                 this.updateProperty({key:prop,value:val},this._properties,this._styles,this.otherProps);
             }
         }
     }
+
     filterClass(key){
         let value =typeof(key)=='string'?this.props.classMapping[key]:key;
 
         return value ? value : key;
     }
+    
     updateProperty(props,propList,styleList,otherProps){
         let propKey=props.key,
             propValue=props.value,
-            propConfig = this.properties[propKey];
+            propConfig = this.properties[propKey]
+        const type = 'property'
 
-        const type = 'property';
-        if(propConfig ){
-            this.filterClass();
+        if(propConfig){
             switch (typeof(propConfig)){
                 case 'boolean':
                     if(propValue){
-                        propList.push(this.filterClass(propKey) );
+                        propList.push(this.filterClass(propKey))
                     }
-                    break;
+                    break
                 case 'function':
-                    let param = propConfig.call(this,propValue);
-                    if(typeof(param) == 'string' ){
-                        propList.push(this.filterClass(param) );
-                    }else if(param.type && param.type == type){
-                        this[propKey] = param.value;
-                    }else{
-                        //{
-                        //    border:val
-                        //}
-                        styleList.push(param);
-                    }
-                    break;
-                default :
-                    propList.push(this.filterClass(propConfig) );
-                    break;
-            }
+                    let param = propConfig.call(this,propValue)
 
+                    if(typeof(param) == 'string' ){
+                        propList.push(this.filterClass(param))
+                    }else if(param.type && param.type == type){
+                        this[propKey] = param.value
+                    }else{
+                        styleList.push(param)
+                    }
+                    break
+                default :
+                    propList.push(this.filterClass(propConfig))
+                    break
+            }
         }else{
-            otherProps[propKey] = propValue;
+            if(!propsConstants[propKey]) otherProps[propKey] = propValue
         }
     }
+    
     replaceProperties(props){
         // 整体替换
         let propList = [],

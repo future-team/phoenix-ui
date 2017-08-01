@@ -1,7 +1,6 @@
 var webpack = require('webpack'),
     path = require('path'),
     extend = require('extend'),
-    ExtractTextPlugin = require('extract-text-webpack-plugin'),
     projectName = require("../package.json").name;
 
 module.exports = {
@@ -33,6 +32,13 @@ module.exports = {
             commonjs: 'react/lib/ReactDOM',
             amd: 'react/lib/ReactDOM'
         },
+        'react-dom': {
+            root: 'ReactDOM',
+            commonjs2: 'react-dom',
+            commonjs: 'react-dom',
+            amd: 'react-dom',
+            umd: 'react-dom',
+        },
         'react-addons-css-transition-group': 'ReactCSSTransitionGroup'
     }],
     module:{
@@ -41,15 +47,17 @@ module.exports = {
             loaders: ['babel'],
             exclude: /node_modules/
         },{
-            test:/\.less$/,
-            // loader: "style-loader!css-loader!less-loader"
-            loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
+            test:/\.(css|less)$/,
+            loader: "style-loader!css-loader!less-loader"
         },{
             test:/\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
             loader: 'file-loader?name=./iconfont/[name].[ext]'
+        },{
+            test: /\.json$/,
+            loader: 'json-loader'
         }]
     },
     plugins: [
-        new ExtractTextPlugin('phoenix-styles.css')
+        
     ]
 };

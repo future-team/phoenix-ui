@@ -1,7 +1,7 @@
 /**
  * Created by mac on 16/1/3.
  */
-import warning from './warning';
+import {warning} from './Tool';
 
 export default obj=>{
 
@@ -17,22 +17,22 @@ export default obj=>{
         /*以下属性都是数组里固定值*/
         //类型
         phType:function(val){
-            return getVal(['tacked','justify'],val);
+            return getVal(['default','tacked','justify','segmente','footer'],val);
         },
         phSize:function(val){
-            return getVal(['lg','md','sm','default','xs'],val);
+            return getVal(['default','xlg','lg','md','sm','xs','cover','contain'],val);
         },
         phStyle:function(val){
-            return getVal(['primary','info','success','error','warning','danger','link','gray','light','positive','calm','balanced','energized','assertive','lightbrown','lightgray'],val);
+            return getVal(['default','primary','info','success','error','warning','danger','link','gray','light','positive','calm','balanced','energized','assertive','lightbrown','lightgray','tip'],val);
         },
-        status:val=>{
+        phStatus:val=>{
             getVal(['diabled','active','enable'],val)
         },
         align:function(val){
-            return getVal(['center','left','middle','auto','top','right','bottom','stretch','baseline'],val);
+            return getVal(['center','left','middle','auto','top','right','bottom','stretch','baseline','start','end'],val);
         },
         placement:function(val){
-            return getVal(['top','bottom','right','left','top left','top right','bottom left','bottom right','left-full','right-full','full-screen'],val);
+            return getVal(['top','bottom','right','left','left-full','right-full','full-screen'],val);
         },
         /*以下属性没有取值，需要的时候添加对应的属性即可*/
         disabled:true,
@@ -40,13 +40,18 @@ export default obj=>{
         radius:true,
         round:true,
         clearfix:true,
-        clear:true,
         phHref:true,
         show:true,
         hide:true,
         block:true,
         hollow: true,
-
+        heading: true,
+        tail: true,
+        required: true,
+        stable:true,
+        // error: true,
+        // clear:true,
+        // visible:true,
 
         /*以下属性相当于css属性的快速赋值，比如设置zIndex="2",则会被merge进style里，如果只有属性zIndex没有设置取值，则会被放入props列表中*/
         zIndex:val=>{

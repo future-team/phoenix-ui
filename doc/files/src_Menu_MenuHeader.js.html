@@ -50,11 +50,37 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/列表组件.html">列表组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/List.html">List</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
                     <a href="../modules/基础组件.html">基础组件</a>
                 </dt>
                 <dd>
                     <ul>
                    
+                       <li>
+                            
+                           <a href="../classes/Image.html">Image</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
                        <li>
                             
                            <a href="../classes/Button.html">Button</a>
@@ -91,22 +117,6 @@
                    
                        <li>
                             
-                           <a href="../classes/Row.html">Row</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
-                           <a href="../classes/TableView.html">TableView</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
                            <a href="../classes/Col.html">Col</a>
                            <ul>
                                 
@@ -116,6 +126,14 @@
                        <li>
                             
                            <a href="../classes/Grid.html">Grid</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Row.html">Row</a>
                            <ul>
                                 
                            </ul>
@@ -173,9 +191,19 @@
                            </ul>
                        </li>
                     
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/搜索组件.html">搜索组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
                        <li>
                             
-                           <a href="../classes/Whisper.html">Whisper</a>
+                           <a href="../classes/SearchBar.html">SearchBar</a>
                            <ul>
                                 
                            </ul>
@@ -194,14 +222,6 @@
                        <li>
                             
                            <a href="../classes/ImageList.html">ImageList</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
-                           <a href="../classes/LoadingList.html">LoadingList</a>
                            <ul>
                                 
                            </ul>
@@ -242,6 +262,14 @@
                        <li>
                             
                            <a href="../classes/Accordion.html">Accordion</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/PullUp.html">PullUp</a>
                            <ul>
                                 
                            </ul>
@@ -294,19 +322,69 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
-                    <a href="../modules/菜单组件.html">菜单组件</a>
+                    <a href="../modules/筛选控件.html">筛选控件</a>
                 </dt>
                 <dd>
                     <ul>
                    
                        <li>
                             
-                           <a href="../classes/Menu.html">Menu</a>
+                           <a href="../classes/FilterCheckbox.html">FilterCheckbox</a>
                            <ul>
                                 
                            </ul>
                        </li>
                     
+                       <li>
+                            
+                           <a href="../classes/FilterContainer.html">FilterContainer</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterItem.html">FilterItem</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterItemGroup.html">FilterItemGroup</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterPanel.html">FilterPanel</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterPanelSimple.html">FilterPanelSimple</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/菜单组件.html">菜单组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
                        <li>
                             
                            <a href="../classes/MenuBody.html">MenuBody</a>
@@ -341,7 +419,7 @@
                     
                        <li>
                             
-                           <a href="../classes/MenuNav.html">MenuNav</a>
+                           <a href="../classes/Menu.html">Menu</a>
                            <ul>
                                 
                            </ul>
@@ -367,6 +445,14 @@
                     
                        <li>
                             
+                           <a href="../classes/Radio.html">Radio</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
                            <a href="../classes/Switch.html">Switch</a>
                            <ul>
                                 
@@ -375,7 +461,7 @@
                     
                        <li>
                             
-                           <a href="../classes/FormGroup.html">FormGroup</a>
+                           <a href="../classes/Checkbox.html">Checkbox</a>
                            <ul>
                                 
                            </ul>
@@ -458,23 +544,18 @@
 
 <div class="file">
     <pre class="prettyprint linenums" id='src_code'>
-import React,{PropTypes} from &#x27;react&#x27;;
-import Component from &#x27;../utils/Component&#x27;;
-import classnames from &#x27;classnames&#x27;;
-import {setPhoenixPrefix} from &#x27;../utils/Tool&#x27;;
+import React,{PropTypes} from &#x27;react&#x27;
+import Component from &#x27;../utils/Component&#x27;
+import classnames from &#x27;classnames&#x27;
 
-import Icon from &#x27;../Icon&#x27;;
+import Icon from &#x27;../icon&#x27;
 
 /**
  * 菜单头部组件&lt;br/&gt;
- * - 通过align设置菜单按钮的位置, 可选[left, right]。
- *
- * 主要属性和接口：
- * - align:设置菜单按钮的位置,默认left。 &lt;br/&gt;
  * 如：
  * &#x60;&#x60;&#x60;code
  *     &lt;Menu&gt;
- *         &lt;Menu.Header align=&quot;right&quot;&gt;
+ *         &lt;Menu.Header&gt;
  *             标题一
  *         &lt;/Menu.Header&gt;
  *         &lt;Menu.Body&gt;
@@ -503,42 +584,30 @@ export default class MenuHeader extends Component {
          * @type String
          * @default &#x27;menu-header&#x27;
          * */
-        classPrefix: PropTypes.string,
-        /**
-         * 菜单按钮位置, 可选[left,right], left
-         * @property align
-         * @type String
-         * @default &#x27;left&#x27;
-         * */
-        align: PropTypes.string,
+        classPrefix: PropTypes.string
     };
 
     static defaultProps = {
-        align: &#x27;left&#x27;,
         classPrefix:&#x27;menu-header&#x27;,
-        classMapping : {
-            &#x27;left&#x27;:&#x27;left&#x27;,
-            &#x27;right&#x27;:&#x27;right&#x27;
-        }
-    };
-
-    onChange(){
-        this.props.changeVisible();
+        classMapping : {}
     }
 
-    render(){
+    renderMenuHeader(){
         let {className} = this.props;
 
         return (
-            &lt;div {...this.props} className={classnames(
+            &lt;div {...this.otherProps} className={classnames(
                     this.getProperty(true),
                     className
                 )}
             &gt;
-                &lt;Icon phIcon=&quot;menu&quot; onClick={::this.onChange}/&gt;
-                &lt;div className={setPhoenixPrefix(&#x27;menu-header-content&#x27;)}&gt;{this.props.children}&lt;/div&gt;
+                &lt;div className={this.setPhPrefix(&#x27;content&#x27;)}&gt;{this.props.children}&lt;/div&gt;
             &lt;/div&gt;
-        );
+        )
+    }
+
+    render(){
+        return this.renderMenuHeader()
     }
 };
     </pre>

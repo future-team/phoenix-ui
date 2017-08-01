@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import Code from "./code/code";
+import React, { Component } from "react"
+import Code from "./code/code"
 
 export default class icon extends Component{
     constructor(props,context){
@@ -20,7 +20,7 @@ export default class icon extends Component{
         return(
             <div>
             	<h2 className="comp-title">phoenix-styles</h2>
-                <a className="switch-skin ph-button ph-button-primary" href="javascript:;" onClick={::this.skinSwitch}>切换皮肤: {this.skin}</a>
+                <button className="switch-skin ph-button ph-button-primary" href="javascript:;" onClick={::this.skinSwitch}>切换皮肤: {this.skin}</button>
                 <h3 className="comp-type">安装</h3>
                 <div className="content">
                     <code>

@@ -1,6 +1,12 @@
-import React, { Component } from "react";
-import {Row,Col,Input,Button,Animate} from "phoenix-ui";
-import Code from "./code/code";
+import React, { Component } from "react"
+
+import Row from "phoenix-ui/lib/grid/Row"
+import Col from "phoenix-ui/lib/grid/Col"
+import Input from "phoenix-ui/lib/input"
+import Button from "phoenix-ui/lib/button"
+import List from "phoenix-ui/lib/list"
+import Animate from "phoenix-ui/lib/animate"
+import Code from "./code/code"
 
 export default class animate extends Component{
 
@@ -8,40 +14,37 @@ export default class animate extends Component{
         super(props,context); 
 
         this.state = {
-            item: "",
-            list: ["看一本书","睡8个小时"]
+            list: ["看一本书", "睡8个小时"]
         }
     }
 
-    setValue(key,e){
-        let o ={};
-        o[key || e.target.name] = e.target.value;
-        this.setState(o);
-    }
-
     addTodo(){
-        let newList = this.state.list.concat(this.state.item);
+        let newList = this.state.list.concat(this.input.getValueCallback())
         
         this.setState({
-            item: "",
             list: newList
-        });
+        })
     }
 
     removeTodo(index){
-        let newList = this.state.list.slice();
+        let newList = this.state.list.slice()
 
-        newList.splice(index,1);
+        newList.splice(index,1)
+
         this.setState({
             list: newList
-        });
+        })
     }
 
     renderList(){
         const items = this.state.list.map((item,index)=>{
-            return <div key={index} className="animated" onClick={::this.removeTodo.bind(this,index)}>{item}</div>;
-        });
-        return items;
+            return (
+                <List.Item key={index} className="animated" onClick={this.removeTodo.bind(this,index).bind(this)}>
+                    <List.Col>{item}</List.Col>
+                </List.Item>
+            )
+        })
+        return items
     }
 
     render(){
@@ -52,20 +55,21 @@ export default class animate extends Component{
                 <h3 className="comp-type">Todo demo</h3>
                 <div className="content ph-row-no-padding todo-demo">
                     <Row>
-                        <Col className="ph-col-80">
-                            <Input type="text" value={this.state.item} onChange={::this.setValue.bind(this,"item")} />
+                        <Col width="80">
+                            <Input type="text" ref={(input)=>{this.input=input}}/>
                         </Col>
                         <Col>
-                            <Button block phSize="lg" phStyle="primary" onClick={::this.addTodo} >Add</Button>
+                            <Button phStyle="primary" onClick={this.addTodo.bind(this)} >Add</Button>
                         </Col>
                     </Row>
+                </div>
+                <List>
                     <Animate transitionName="fade" className="animate-field">
                         {this.renderList()}
                     </Animate>
-                </div>
-                <br/>
+                </List>
                 <Code target="animate" />             
             </div>
-        );
+        )
     }
 }

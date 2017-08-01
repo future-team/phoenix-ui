@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui" />
+    <title>phoenix-ui</title>
+  
+    <link rel="stylesheet" href="./assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="./assets/vendor/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="./assets/favicon.png">
+</head>
+<body class="yui3-smart" _assetsPath="./assets">
+ <nav class="navbar navbar-inverse navbar-fixed-top custom-navbar" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+               <a class="navbar-brand mainlogo" href="">
+             
+            <img alt="phoenix-ui" src="./assets/css/logo.png" title="phoenix-ui">
+            
+                phoenix-ui
+          </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                 <ul class="nav navbar-nav">
+                    
+                    <li><a href="index.html">主页</a>
+                    </li>
+                    
+                </ul>
+               <div class="navbar-form navbar-right filterAPi" autocomplete="off">
+                <input type="text" id='txtSearchAPI' class="form-control search-query" placeholder="Search for API" />
+                 <ul id="filterList" class="filterItems dropdown-menu" role="menu"></ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div id="sidebar">
+    <h3>模块/类</h3>
+        <div id="api-tabview-filter">
+            <input id='txtSearch' type="search" class="form-control" placeholder="Type to filter Modules/Classes">
+        </div>
+        <dl id="sidebar_list">
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="./modules/基础组件.html">基础组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="./classes/Button.html">Button</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="./classes/ButtonGroup.html">ButtonGroup</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="./classes/Star.html">Star</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="./modules/布局组件.html">布局组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="./classes/Row.html">Row</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="./classes/TableView.html">TableView</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="./classes/Col.html">Col</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="./classes/Grid.html">Grid</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="./modules/弹出框组件.html">弹出框组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="./classes/Alert.html">Alert</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="./classes/Dialog.html">Dialog</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="./classes/Prompt.html">Prompt</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="./modules/提示组件.html">提示组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="./classes/Popover.html">Popover</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="./classes/Whisper.html">Whisper</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="./modules/操作类组件.html">操作类组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="./classes/ImageList.html">ImageList</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="./classes/LoadingList.html">LoadingList</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="./classes/Popup.html">Popup</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="./classes/Slider.html">Slider</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="./classes/Steps.html">Steps</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="./classes/Toast.html">Toast</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="./classes/Accordion.html">Accordion</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="./classes/Swipe.html">Swipe</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="./modules/标签组件.html">标签组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="./classes/Icon.html">Icon</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="./classes/Badge.html">Badge</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="./classes/Label.html">Label</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="./modules/菜单组件.html">菜单组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="./classes/Menu.html">Menu</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="./classes/MenuBody.html">MenuBody</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="./classes/MenuHeader.html">MenuHeader</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="./classes/MenuItem.html">MenuItem</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="./classes/MenuList.html">MenuList</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="./classes/MenuNav.html">MenuNav</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="./modules/表单组件.html">表单组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="./classes/Input.html">Input</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="./classes/Switch.html">Switch</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="./classes/FormGroup.html">FormGroup</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="./classes/TextArea.html">TextArea</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="./modules/辅助组件.html">辅助组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="./classes/Drag.html">Drag</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="./classes/Animate.html">Animate</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="./modules/选项卡.html">选项卡</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="./classes/Tab.html">Tab</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="./classes/Tabset.html">Tabset</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+        </dl>
+    <div class="icon-sidebar-btn icon-sidebar-btn-open"><span class="glyphicon glyphicon-chevron-left"></span>收起</div>
+</div>
+   
+    <div class="stdoc-content">
+        <div class="apidocs">
+            <div id="docs-main">
+                <div class="content">
+                        <div class="apidocs apidocs-index">
+        <div id="docs-main" class="content">
+            
+                <div style="margin: -15px -20px 15px;padding: 50px 24px 60px 24px;box-sizing: border-box;background-color: #38b7ea;overflow: hidden;text-align:center; color:#fff;">
+    <h1>Phoenix-ui</h1>
+    <p style="margin-top:15px">基于React框架实现的移动端UI组件库</p>
+    <p style="margin-top:15px">
+        <a style="color:#fff" href="https://github.com/future-team/phoenix-ui">Github</a> |
+        <a style="color:#fff" href="http://future-team.github.io/phoenix-ui/examples/index.html">Examples</a>
+    </p>
+</div>
+<p class="lead">phoenix-ui是基于React框架实现的移动端UI组件库。</p>
+
+<h2>安装</h2>
+<pre class="well well-small sign-left2">
+$ npm install phoenix-ui --save
+</pre>
+
+<h2>使用</h2>
+<h3>CommonJS & ES6</h3>
+<pre class="well well-small sign-left3">
+// CommonJS
+var Button = require('phoenix-ui/lib/Button')
+// ES6
+import {Button} from 'phoenix-ui'
+...
+render: function() {
+    return (
+        &#60;div&#62;
+            &#60;Button phStyle="info" phSize="lg" active&#62;按钮&#60;/Button&#62;
+        &#60;/div&#62;
+    );
+}
+</pre>
+
+<h3>Browser globals</h3>
+<pre class="well well-small sign-left3">
+&#60;script src="http://future-team.github.io/phoenix-ui/dist/phoenix-ui.min.js"&#62;&#60;/script&#62;
+...
+render: function() {
+    return (
+        &#60;div&#62;
+            &#60;Phoenix.Button phStyle="info" phSize="lg" active&#62;按钮&#60;/Phoenix.Button&#62;
+        &#60;/div&#62;
+    );
+}
+</pre>
+
+<h2>其他</h2>
+<p>和 <a href="https://github.com/future-team/phoenix-styles">phoenix-styles</a> (组件样式库)配合使用最佳。</p>
+<h3>phoenix-styles</h3>
+<p>默认提供阿波罗默认样式phoenix-styles.min.css,如果需要IOS样式同时引入skin-ios.min.css即可。</p>
+<pre class="well well-small sign-left3">
+// Global
+&#60;link rel="stylesheet" href="http://future-team.github.io/phoenix-styles/dist/phoenix-styles.min.css" /&#62;
+// add IOS skin
+&#60;link rel="stylesheet" href="http://future-team.github.io/phoenix-styles/dist/skin-ios.min.css" /&#62;
+
+// ES6
+import 'phoenix-styles/less/phoenix-styles.less';
+import 'phoenix-styles/less/skin-ios.less';
+</pre>
+
+<h3>phoenix系列插件(完善中...)</h3>
+<ul>
+    <li><a href="https://github.com/future-team/ph-picker">ph-picker</a>: 基于Phoenix-ui的移动端的<code>选择(时间、城市等)</code>组件</li>
+    <li><a href="https://github.com/future-team/ph-filter">ph-filter</a>: 基于Phoenix-ui的移动端的<code>下拉筛选</code>组件</li>
+    <li><a href="https://github.com/future-team/ph-cascade-selector">ph-cascade-selector</a>: 基于Phoenix-ui的移动端的<code>级联选择</code>组件</li>
+    <li><a href="https://github.com/future-team/ph-image-list">ph-image-list</a>: 基于Phoenix-ui的移动端的<code>图片列表展示、增删、全屏查看</code>组件</li>
+    <li><a href="https://github.com/future-team/ph-image-upload">ph-image-upload</a>: 基于Phoenix-ui的移动端的<code>图片上传</code>组件</li>
+    <li><a href="https://github.com/future-team/ph-upload">ph-upload</a>: 基于Phoenix-ui的移动端的<code>文件上传</code>组件</li>
+    <li><a href="https://github.com/future-team/ph-selector">ph-selector</a>: 基于Phoenix-ui的移动端的<code>搜索筛选</code>组件</li>
+    <li><a href="https://github.com/future-team/ph-swipe">ph-swipe</a>: 基于Phoenix-ui的移动端的<code>大图滚动</code>组件</li>
+    <li><a href="https://github.com/future-team/ph-scroll">ph-scroll</a>: 基于Phoenix-ui的移动端的<code>滚动刷新</code>组件</li>
+</ul>
+
+<h3>推荐PC端React UI组件库 - eagle-ui</h3>
+<p>Github: <a href="https://github.com/future-team/eagle-ui">https://github.com/future-team/eagle-ui</a></p>
+<p>Document: <a href="http://future-team.github.io/eagle-ui/doc/index.html">http://future-team.github.io/eagle-ui/doc/index.html</a></p>
+
+<h3>推荐Icon库 - gfs-icons</h3>
+<p>Github: <a href="https://github.com/future-team/gfs-icons">https://github.com/future-team/gfs-icons</a></p>
+<p>Document: <a href="https://future-team.github.io/gfs-icons/index.html">https://future-team.github.io/gfs-icons/index.html</a></p>
+
+<div style="margin:25px -20px -15px;padding:50px 24px 60px 24px;box-sizing:border-box;background-color:rgb(238,238,238);text-align:center;">
+    <p class="lead">使用中遇到问题请提交issue: <a href="https://github.com/future-team/phoenix-ui/issues">Phoenix-ui Issues</a></p>
+    <p class="lead">For 点评的小伙伴, 可大象 @chenaibing 或 @min.xiao</p>
+</div>
+
+            
+        </div>
+    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+<a id="gotoTop" class='well well-small' href='#'>
+</a>
+<script src="./assets/vendor/jquery/jquery-1.8.2.js"></script>
+<script src="./assets/vendor/bootstrap/js/bootstrap.js"></script>
+<script src="./assets/vendor/prettify/prettify-min.js"></script>
+<script src="./assets/js/config.js"></script>
+<script src="./assets/js/doc.js"></script>
+
+</body>
+</html>

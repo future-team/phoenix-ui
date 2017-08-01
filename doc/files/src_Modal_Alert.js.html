@@ -50,11 +50,37 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/列表组件.html">列表组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/List.html">List</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
                     <a href="../modules/基础组件.html">基础组件</a>
                 </dt>
                 <dd>
                     <ul>
                    
+                       <li>
+                            
+                           <a href="../classes/Image.html">Image</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
                        <li>
                             
                            <a href="../classes/Button.html">Button</a>
@@ -91,22 +117,6 @@
                    
                        <li>
                             
-                           <a href="../classes/Row.html">Row</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
-                           <a href="../classes/TableView.html">TableView</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
                            <a href="../classes/Col.html">Col</a>
                            <ul>
                                 
@@ -116,6 +126,14 @@
                        <li>
                             
                            <a href="../classes/Grid.html">Grid</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Row.html">Row</a>
                            <ul>
                                 
                            </ul>
@@ -173,9 +191,19 @@
                            </ul>
                        </li>
                     
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/搜索组件.html">搜索组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
                        <li>
                             
-                           <a href="../classes/Whisper.html">Whisper</a>
+                           <a href="../classes/SearchBar.html">SearchBar</a>
                            <ul>
                                 
                            </ul>
@@ -194,14 +222,6 @@
                        <li>
                             
                            <a href="../classes/ImageList.html">ImageList</a>
-                           <ul>
-                                
-                           </ul>
-                       </li>
-                    
-                       <li>
-                            
-                           <a href="../classes/LoadingList.html">LoadingList</a>
                            <ul>
                                 
                            </ul>
@@ -242,6 +262,14 @@
                        <li>
                             
                            <a href="../classes/Accordion.html">Accordion</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/PullUp.html">PullUp</a>
                            <ul>
                                 
                            </ul>
@@ -294,19 +322,69 @@
              
                 <dt>
                     <span class="glyphicon glyphicon-minus"></span>
-                    <a href="../modules/菜单组件.html">菜单组件</a>
+                    <a href="../modules/筛选控件.html">筛选控件</a>
                 </dt>
                 <dd>
                     <ul>
                    
                        <li>
                             
-                           <a href="../classes/Menu.html">Menu</a>
+                           <a href="../classes/FilterCheckbox.html">FilterCheckbox</a>
                            <ul>
                                 
                            </ul>
                        </li>
                     
+                       <li>
+                            
+                           <a href="../classes/FilterContainer.html">FilterContainer</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterItem.html">FilterItem</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterItemGroup.html">FilterItemGroup</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterPanel.html">FilterPanel</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterPanelSimple.html">FilterPanelSimple</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/菜单组件.html">菜单组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
                        <li>
                             
                            <a href="../classes/MenuBody.html">MenuBody</a>
@@ -341,7 +419,7 @@
                     
                        <li>
                             
-                           <a href="../classes/MenuNav.html">MenuNav</a>
+                           <a href="../classes/Menu.html">Menu</a>
                            <ul>
                                 
                            </ul>
@@ -367,6 +445,14 @@
                     
                        <li>
                             
+                           <a href="../classes/Radio.html">Radio</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
                            <a href="../classes/Switch.html">Switch</a>
                            <ul>
                                 
@@ -375,7 +461,7 @@
                     
                        <li>
                             
-                           <a href="../classes/FormGroup.html">FormGroup</a>
+                           <a href="../classes/Checkbox.html">Checkbox</a>
                            <ul>
                                 
                            </ul>
@@ -458,43 +544,42 @@
 
 <div class="file">
     <pre class="prettyprint linenums" id='src_code'>
-import React,{PropTypes} from &#x27;react&#x27;;
-import Component from &#x27;../utils/Component&#x27;;
-import classnames from &#x27;classnames&#x27;;
-import {setPhoenixPrefix} from &#x27;../utils/Tool&#x27;;
+import React,{PropTypes} from &#x27;react&#x27;
+import Component from &#x27;../utils/Component&#x27;
+import classnames from &#x27;classnames&#x27;
 
-import ButtonGroup from &#x27;../ButtonGroup&#x27;;
-import Button from &#x27;../Button&#x27;;
-import Dialog from &#x27;./Dialog&#x27;;
+import ButtonGroup from &#x27;../button-group&#x27;
+import Button from &#x27;../button&#x27;
+import Dialog from &#x27;./Dialog&#x27;
 
 /**
  * Alert组件&lt;br/&gt;
- * - 由于弹框的显示操作在组件以外, 所以需要在使用时自定义&#x60;visible&#x60;、&#x60;onClose&#x60;函数。
+ * - 由于弹框的显示操作在组件以外, 所以需要在使用时自定义&#x60;visible&#x60;、&#x60;closeCallback&#x60;函数。
  * - 可通过title设置弹出框标题，content设置内容，buttons设置尾部按钮。(相对Dialog新增参数)
- * - 默认有[确定]1个按钮，点击[确定]默认的执行函数是onClose直接关闭。
+ * - 默认有[确定]1个按钮，点击[确定]默认的执行函数是closeCallback直接关闭。
  * - 通过visible设置弹框是否显示, 可选true/false, 必需。
- * - 可通过onClose配置点击弹框阴影部分以及弹框右上角X按钮来关闭弹框。
+ * - 可通过closeCallback配置点击弹框阴影部分以及弹框右上角X按钮来关闭弹框。
  * - 可通过closeButton来配置弹框右上角X按钮是否显示, 默认不显示。
- * - 默认传了onClose之后阴影部分就具备点击关闭弹框的按钮, 如果需要去掉该功能需要额外传shadowDisabled作为标识。
+ * - 默认传了closeCallback之后阴影部分就具备点击关闭弹框的按钮, 如果需要去掉该功能需要额外传shadowDisabled作为标识。
  *
  * 主要属性和接口：
  * - title:弹框的标题，必需。
  * - content:弹框的内容，必需。
  * - buttons:尾部按钮的内容，必需是数组的形式，text标识填充的问题，phStyle表示主题，onHandle表示点击的回调，otherProps传递按钮的其他属性，如{active:true, block:true, hollow: true}。
  * - visible:弹框是否显示标识, 默认false不可见。
- * - onClose:关闭弹框的功能函数。
+ * - closeCallback:关闭弹框的功能函数。
  * - closeButton:右上角关闭按钮是否显示的标识, 默认不显示。
- * - shadowDisabled:阴影部分是否可点击关闭按钮, 默认传了onClose函数就可以关闭。
+ * - shadowDisabled:阴影部分是否可点击关闭按钮, 默认传了closeCallback函数就可以关闭。
  *
  * 示例:
  * &#x60;&#x60;&#x60;code
  *      const buttons = [
-            {text: &quot;取消&quot;, phStyle: &quot;gray&quot;, otherProps: {hollow: true}}, // text默认&quot;确定&quot;, phStyle默认primary，onHandle默认onClose
-            {text: &quot;确定&quot;, onHandle: this.onConfirm}
+            {text: &#x27;取消&#x27;, phStyle: &#x27;gray&#x27;, otherProps: {hollow: true}}, // text默认&#x27;确定&#x27;, phStyle默认primary，onHandle默认执行closeCallback
+            {text: &#x27;确定&#x27;, onHandle: this.confirmCallback}
         ];
         ...
- *      &lt;Alert closeButton shadowDisabled visible={this.state.visible} onClose={::this.onClose.bind(this,&#x27;visible&#x27;)} 
- *          title=&quot;这是标题&quot; content=&quot;这里是弹出框的内容...&quot; buttons={buttons} /&gt;
+ *      &lt;Alert closeButton shadowDisabled visible={this.state.visible} closeCallback={this.closeCallback.bind(this,&#x27;visible&#x27;)} 
+ *          title=&#x27;这是标题&#x27; content=&#x27;这里是弹出框的内容...&#x27; buttons={buttons} /&gt;
  * &#x60;&#x60;&#x60;
  *
  * @class Alert
@@ -535,10 +620,10 @@ export default class Alert extends Component{
         visible: PropTypes.bool,
         /**
          * 关闭弹框的执行函数
-         * @method onClose
+         * @method closeCallback
          * @type Function
          * */
-        onClose: PropTypes.func,
+        closeCallback: PropTypes.func,
         /**
          * 右上角按钮是否可见, 默认不可见
          * @property closeButton
@@ -546,7 +631,7 @@ export default class Alert extends Component{
          * */
         closeButton: PropTypes.bool,
         /**
-         * 阴影部分是否点击可关闭弹框, 默认传了onClose之后可关闭
+         * 阴影部分是否点击可关闭弹框, 默认传了closeCallback之后可关闭
          * @property shadowDisabled
          * @type Boolean
          * */
@@ -554,44 +639,49 @@ export default class Alert extends Component{
     };
 
     static defaultProps = {
-        visible: false
+        visible: false,
+        classMapping : {}
     };
 
     constructor(props, context) {
         super(props, context);
 
         this.buttons = [
-            {text: &quot;确定&quot;, onHandle: props.onClose}
+            {text: &#x27;确定&#x27;, onHandle: props.closeCallback}
         ];
     }
 
     renderButtons(){
-        let {buttons, onClose} = this.props;
+        let {buttons, closeCallback} = this.props;
         if(buttons) this.buttons = buttons;
         let buttonsType = this.buttons.length&gt;2;
         
         return (
-            &lt;ButtonGroup phType={buttonsType ? &quot;tacked&quot;:&quot;justify&quot;}&gt;
+            &lt;ButtonGroup phType={buttonsType ? &#x27;tacked&#x27;:&#x27;default&#x27;} clickable={false}&gt;
                 {
                     this.buttons.map((button,index) =&gt; {
-                        return &lt;Button key={index} {...button.otherProps} phSize=&quot;lg&quot; phStyle={button.phStyle || &#x27;primary&#x27;} block={buttonsType}
-                            onClick={button.onHandle || onClose}&gt;{button.text || &quot;确定&quot;}&lt;/Button&gt;
+                        return &lt;Button hollow key={index} {...button.otherProps} phSize=&#x27;lg&#x27; phStyle={button.phStyle || &#x27;primary&#x27;} block={buttonsType}
+                            onClick={button.onHandle || closeCallback}&gt;{button.text || &#x27;确定&#x27;}&lt;/Button&gt;
                     })
                 }
             &lt;/ButtonGroup&gt;
         );
     }
 
-    render(){
-        let {visible, onClose, title, content, closeButton, shadowDisabled} = this.props;
+    renderAlert(){
+        let {visible, closeCallback, title, content, closeButton, shadowDisabled, className} = this.props;
 
         return (
-            &lt;Dialog visible={visible} onClose={onClose} closeButton={closeButton} shadowDisabled={shadowDisabled}&gt;
+            &lt;Dialog className={classnames(this.setPhPrefix(&#x27;dialog-alert&#x27;,true),className)} visible={visible} closeCallback={closeCallback} closeButton={closeButton} shadowDisabled={shadowDisabled}&gt;
                 &lt;Dialog.Title&gt;{title}&lt;/Dialog.Title&gt;
                 &lt;Dialog.Body&gt;{content}&lt;/Dialog.Body&gt;
                 &lt;Dialog.Footer&gt;{this.renderButtons()}&lt;/Dialog.Footer&gt;
             &lt;/Dialog&gt;
-        );
+        )
+    }
+
+    render(){
+        return this.renderAlert()
     }
 }
 

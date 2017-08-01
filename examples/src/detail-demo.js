@@ -1,4 +1,4 @@
-import React,{PropTypes,Component} from "react";
+import React,{Component} from "react";
 import classnames from "classnames";
 import {Star,Label,FormGroup,Input,Switch,Button,Row,Col,Badge,Grid} from "phoenix-ui";
 
