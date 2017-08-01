@@ -12,13 +12,13 @@ import {propsConstants} from './constants'
 
 import FastClick from 'fastclick'
 import {ModuleLogger} from 'pmlogger'
-import packageJSON from '../../package.json'
+// import packageJSON from '../../package.json'
 
 document.addEventListener('DOMContentLoaded', function() {
     FastClick.attach(document.body);
 }, false)
 
-new ModuleLogger(packageJSON.name)
+new ModuleLogger('phoenix-ui')
 
 
 @ClassNameMixin
