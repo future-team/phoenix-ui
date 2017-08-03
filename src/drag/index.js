@@ -1,7 +1,7 @@
 import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
-import {setPhPrefix,getDeviceInfo} from '../utils/Tool'
+import {setPhPrefix, getDeviceInfo, preventDefault} from '../utils/Tool'
 
 /**
  * 拖拽组件<br/>
@@ -78,7 +78,7 @@ export default class Drag extends Component{
     onTouchStart(event){
         let {dragCallback, dragStartCallback} = this.props;
         event.stopPropagation();
-        event.preventDefault();
+        preventDefault(event);
 
         this.state.position.start = {x:event.touches[0].pageX, y: event.touches[0].pageY};
         this.state.position.move = this.state.position.start;
@@ -93,7 +93,7 @@ export default class Drag extends Component{
         let {dragCallback, dragStartCallback} = this.props;
         this.isMouseDown = true;
         event.stopPropagation();
-        event.preventDefault();
+        preventDefault(event);
 
         this.state.position.start = {x:event.pageX, y: event.pageY};
         this.state.position.move = this.state.position.start;
@@ -111,7 +111,7 @@ export default class Drag extends Component{
 
     onTouchMove(event){
         event.stopPropagation();
-        event.preventDefault();
+        preventDefault(event);
 
         this.state.position.move = {x:event.touches[0].pageX, y: event.touches[0].pageY};
 
@@ -123,7 +123,7 @@ export default class Drag extends Component{
     onMouseMove(event){
         if(!this.isMouseDown) return;
         event.stopPropagation();
-        event.preventDefault();
+        preventDefault(event);
 
         this.state.position.move = {x:event.pageX, y: event.pageY};
 
@@ -134,7 +134,7 @@ export default class Drag extends Component{
 
     onTouchEnd(event){
         event.stopPropagation();
-        event.preventDefault();
+        preventDefault(event);
 
         this.state.position.end = {x:event.changedTouches[0].pageX, y: event.changedTouches[0].pageY};
         this.state.position.start = this.state.position.move;
@@ -146,7 +146,7 @@ export default class Drag extends Component{
 
     onMouseEnd(event){
         event.stopPropagation();
-        event.preventDefault();
+        preventDefault(event);
 
         this.state.position.end = {x:event.pageX, y: event.pageY};
         this.state.position.start = this.state.position.move;

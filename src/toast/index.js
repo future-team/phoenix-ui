@@ -74,7 +74,7 @@ class Toast extends Component{
         let {componentTag:Component, className, phIcon} = this.props;
 
         return (
-            <Component {...this.props} className={classnames(
+            <Component {...this.otherProps} className={classnames(
                 this.getProperty(true),
                 className
             )}>

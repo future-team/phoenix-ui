@@ -30,8 +30,7 @@ module.exports = extend({},{
     },
     resolve: {
         alias: { 
-            "phoenix-ui/lib" : path.join(process.cwd(), 'src'),
-            "phoenix-styles" : path.join(process.cwd(), 'examples/lib/phoenix-styles')
+            "phoenix-ui/lib" : path.join(process.cwd(), 'src')
         }
     },
     plugins:[

@@ -97,6 +97,7 @@ export const propsConstants = {
 
     phIcon: 'phIcon',
     phReg: 'phReg',
+    phLabel: 'phLabel',
 
     index: 'index',
     activeIndex: 'activeIndex',
@@ -124,6 +125,9 @@ export const propsConstants = {
     tips: 'tips',
     status: 'status',
     column: 'column',
+    defaultSrc: 'defaultSrc',
+    lazy: 'lazy',
+    buttonText: 'buttonText',
 
     // fn
     closeCallback: 'closeCallback',
@@ -134,6 +138,7 @@ export const propsConstants = {
     dragCallback: 'dragCallback',
     dropCallback: 'dropCallback',
     loadCallback: 'loadCallback',
+    queryCallback: 'queryCallback',
 
     // menu
     ceiling: 'ceiling',

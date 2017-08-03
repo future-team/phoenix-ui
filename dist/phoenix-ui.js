@@ -1120,6 +1120,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    phIcon: 'phIcon',
 	    phReg: 'phReg',
+	    phLabel: 'phLabel',
 
 	    index: 'index',
 	    activeIndex: 'activeIndex',
@@ -1147,6 +1148,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    tips: 'tips',
 	    status: 'status',
 	    column: 'column',
+	    defaultSrc: 'defaultSrc',
+	    lazy: 'lazy',
+	    buttonText: 'buttonText',
 
 	    // fn
 	    closeCallback: 'closeCallback',
@@ -1157,6 +1161,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    dragCallback: 'dragCallback',
 	    dropCallback: 'dropCallback',
 	    loadCallback: 'loadCallback',
+	    queryCallback: 'queryCallback',
 
 	    // menu
 	    ceiling: 'ceiling',
@@ -1409,6 +1414,16 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    getClientHeight: function getClientHeight() {
 	        return document.compatMode == "BackCompat" ? document.body.clientHeight : document.documentElement.clientHeight;
+	    },
+
+	    preventDefault: function preventDefault(event) {
+	        // 判断默认行为是否可以被禁用
+	        if (event.cancelable) {
+	            // 判断默认行为是否已经被禁用
+	            if (!event.defaultPrevented) {
+	                event.preventDefault();
+	            }
+	        }
 	    }
 	};
 
@@ -5967,7 +5982,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var dragStartCallback = _props.dragStartCallback;
 
 	        event.stopPropagation();
-	        event.preventDefault();
+	        _utilsTool.preventDefault(event);
 
 	        this.state.position.start = { x: event.touches[0].pageX, y: event.touches[0].pageY };
 	        this.state.position.move = this.state.position.start;
@@ -5985,7 +6000,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        this.isMouseDown = true;
 	        event.stopPropagation();
-	        event.preventDefault();
+	        _utilsTool.preventDefault(event);
 
 	        this.state.position.start = { x: event.pageX, y: event.pageY };
 	        this.state.position.move = this.state.position.start;
@@ -6003,7 +6018,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    Drag.prototype.onTouchMove = function onTouchMove(event) {
 	        event.stopPropagation();
-	        event.preventDefault();
+	        _utilsTool.preventDefault(event);
 
 	        this.state.position.move = { x: event.touches[0].pageX, y: event.touches[0].pageY };
 
@@ -6015,7 +6030,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Drag.prototype.onMouseMove = function onMouseMove(event) {
 	        if (!this.isMouseDown) return;
 	        event.stopPropagation();
-	        event.preventDefault();
+	        _utilsTool.preventDefault(event);
 
 	        this.state.position.move = { x: event.pageX, y: event.pageY };
 
@@ -6026,7 +6041,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    Drag.prototype.onTouchEnd = function onTouchEnd(event) {
 	        event.stopPropagation();
-	        event.preventDefault();
+	        _utilsTool.preventDefault(event);
 
 	        this.state.position.end = { x: event.changedTouches[0].pageX, y: event.changedTouches[0].pageY };
 	        this.state.position.start = this.state.position.move;
@@ -6038,7 +6053,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    Drag.prototype.onMouseEnd = function onMouseEnd(event) {
 	        event.stopPropagation();
-	        event.preventDefault();
+	        _utilsTool.preventDefault(event);
 
 	        this.state.position.end = { x: event.pageX, y: event.pageY };
 	        this.state.position.start = this.state.position.move;
@@ -7598,7 +7613,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            Component,
-	            _extends({}, this.props, { className: _classnames2['default'](this.getProperty(true), className) }),
+	            _extends({}, this.otherProps, { className: _classnames2['default'](this.getProperty(true), className) }),
 	            _react2['default'].createElement('div', { className: this.setPhPrefix('shadow') }),
 	            _react2['default'].createElement(
 	                'div',
@@ -11887,7 +11902,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    PullUp.prototype.touchStartHandle = function touchStartHandle(e) {
-	        // e.preventDefault()
+	        _utilsTool.preventDefault(e);
 	        if (!this.touchBottom) return;
 
 	        this.distanceY = 0;
@@ -11895,7 +11910,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    PullUp.prototype.touchMoveHandle = function touchMoveHandle(e) {
-	        // e.preventDefault()
+	        _utilsTool.preventDefault(e);
 	        if (!this.touchBottom) return;
 
 	        this.moveY = event.touches[0].pageY;
@@ -11910,7 +11925,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    PullUp.prototype.touchEndHandle = function touchEndHandle(e) {
-	        // e.preventDefault()
+	        _utilsTool.preventDefault(e);
 	        if (!this.touchBottom) return;
 
 	        this.starY = this.moveY;
