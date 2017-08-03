@@ -132,7 +132,7 @@ export default class phFilter extends Component {
                             })
                         }
                     </PanelSimple>
-                    <Panel default='筛选' selected={this.state.selected2} buttons={buttons} index={-1}>
+                    <Panel default='筛选' selected={this.state.selected2} index={-1}>
                         {this.renderPanelList()}
                     </Panel>
                     <PanelSimple readOnly className='panel1' selected={{key:'ljz',value:'陆家嘴'}}>

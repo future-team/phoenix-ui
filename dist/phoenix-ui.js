@@ -1120,6 +1120,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    phIcon: 'phIcon',
 	    phReg: 'phReg',
+	    phLabel: 'phLabel',
 
 	    index: 'index',
 	    activeIndex: 'activeIndex',
@@ -1147,6 +1148,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    tips: 'tips',
 	    status: 'status',
 	    column: 'column',
+	    defaultSrc: 'defaultSrc',
+	    lazy: 'lazy',
+	    buttonText: 'buttonText',
 
 	    // fn
 	    closeCallback: 'closeCallback',
@@ -1157,6 +1161,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    dragCallback: 'dragCallback',
 	    dropCallback: 'dropCallback',
 	    loadCallback: 'loadCallback',
+	    queryCallback: 'queryCallback',
 
 	    // menu
 	    ceiling: 'ceiling',
@@ -1409,6 +1414,16 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    getClientHeight: function getClientHeight() {
 	        return document.compatMode == "BackCompat" ? document.body.clientHeight : document.documentElement.clientHeight;
+	    },
+
+	    preventDefault: function preventDefault(event) {
+	        // 判断默认行为是否可以被禁用
+	        if (event.cancelable) {
+	            // 判断默认行为是否已经被禁用
+	            if (!event.defaultPrevented) {
+	                event.preventDefault();
+	            }
+	        }
 	    }
 	};
 
@@ -5967,7 +5982,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var dragStartCallback = _props.dragStartCallback;
 
 	        event.stopPropagation();
-	        event.preventDefault();
+	        _utilsTool.preventDefault(event);
 
 	        this.state.position.start = { x: event.touches[0].pageX, y: event.touches[0].pageY };
 	        this.state.position.move = this.state.position.start;
@@ -5985,7 +6000,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        this.isMouseDown = true;
 	        event.stopPropagation();
-	        event.preventDefault();
+	        _utilsTool.preventDefault(event);
 
 	        this.state.position.start = { x: event.pageX, y: event.pageY };
 	        this.state.position.move = this.state.position.start;
@@ -6003,7 +6018,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    Drag.prototype.onTouchMove = function onTouchMove(event) {
 	        event.stopPropagation();
-	        event.preventDefault();
+	        _utilsTool.preventDefault(event);
 
 	        this.state.position.move = { x: event.touches[0].pageX, y: event.touches[0].pageY };
 
@@ -6015,7 +6030,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Drag.prototype.onMouseMove = function onMouseMove(event) {
 	        if (!this.isMouseDown) return;
 	        event.stopPropagation();
-	        event.preventDefault();
+	        _utilsTool.preventDefault(event);
 
 	        this.state.position.move = { x: event.pageX, y: event.pageY };
 
@@ -6026,7 +6041,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    Drag.prototype.onTouchEnd = function onTouchEnd(event) {
 	        event.stopPropagation();
-	        event.preventDefault();
+	        _utilsTool.preventDefault(event);
 
 	        this.state.position.end = { x: event.changedTouches[0].pageX, y: event.changedTouches[0].pageY };
 	        this.state.position.start = this.state.position.move;
@@ -6038,7 +6053,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    Drag.prototype.onMouseEnd = function onMouseEnd(event) {
 	        event.stopPropagation();
-	        event.preventDefault();
+	        _utilsTool.preventDefault(event);
 
 	        this.state.position.end = { x: event.pageX, y: event.pageY };
 	        this.state.position.start = this.state.position.move;
@@ -7598,7 +7613,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            Component,
-	            _extends({}, this.props, { className: _classnames2['default'](this.getProperty(true), className) }),
+	            _extends({}, this.otherProps, { className: _classnames2['default'](this.getProperty(true), className) }),
 	            _react2['default'].createElement('div', { className: this.setPhPrefix('shadow') }),
 	            _react2['default'].createElement(
 	                'div',
@@ -11887,7 +11902,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    PullUp.prototype.touchStartHandle = function touchStartHandle(e) {
-	        // e.preventDefault()
+	        _utilsTool.preventDefault(e);
 	        if (!this.touchBottom) return;
 
 	        this.distanceY = 0;
@@ -11895,7 +11910,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    PullUp.prototype.touchMoveHandle = function touchMoveHandle(e) {
-	        // e.preventDefault()
+	        _utilsTool.preventDefault(e);
 	        if (!this.touchBottom) return;
 
 	        this.moveY = event.touches[0].pageY;
@@ -11910,7 +11925,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    PullUp.prototype.touchEndHandle = function touchEndHandle(e) {
-	        // e.preventDefault()
+	        _utilsTool.preventDefault(e);
 	        if (!this.touchBottom) return;
 
 	        this.starY = this.moveY;
@@ -13723,7 +13738,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.ph-filter-occupy {\n  height: 0.88rem;\n}\n.ph-filter-container {\n  position: relative;\n}\n.ph-filter-container-fixed,\n.ph-filter-container-shadow {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 99;\n  width: 100%;\n}\n.ph-filter-container-shadow {\n  height: 100%;\n}\n.ph-filter-shadow {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 1;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n.ph-filter-header {\n  position: relative;\n  z-index: 2;\n  margin: 0;\n  background-color: #fff;\n  border-bottom: 1PX solid #e1e1e1;\n}\n.ph-filter-header .ph-filter-header-item {\n  position: relative;\n  height: 0.88rem;\n  padding: 0.24rem 0;\n  line-height: 0.4rem;\n  text-align: center;\n  font-size: 0.28rem;\n}\n.ph-filter-header .ph-filter-header-item a {\n  display: block;\n  height: 0.4rem;\n  border-right: 1PX solid #e1e1e1;\n  white-spac: nowrap;\n}\n.ph-filter-header .ph-filter-header-item:last-child a {\n  border-right: none;\n}\n.ph-filter-header .ph-filter-header-item .gfs-icon {\n  display: inline-block;\n  margin-left: 0.08rem;\n  line-height: 0.4rem;\n  font-size: 0.24rem;\n  color: #666;\n  -webkit-transition: all 0.2s;\n  -moz-transition: all 0.2s;\n  transition: all 0.2s;\n  vertical-align: top;\n}\n.ph-filter-header .ph-filter-header-item.active .gfs-icon {\n  -webkit-transform: rotate(-180deg);\n  -ms-transform: rotate(-180deg);\n  transform: rotate(-180deg);\n}\n.ph-filter-header .ph-filter-header-item.active:after {\n  content: \"\";\n  position: absolute;\n  bottom: -0.02rem;\n  left: 50%;\n  width: 0.18rem;\n  height: 0.18rem;\n  background-color: #fff;\n  border-top: 1PX solid #e1e1e1;\n  border-right: 1PX solid #e1e1e1;\n  -webkit-transform: rotate(-45deg) translateX(-50%);\n  -ms-transform: rotate(-45deg) translateX(-50%);\n  transform: rotate(-45deg) translateX(-50%);\n}\n.ph-filter-header .ph-filter-header-text {\n  display: inline-block;\n  overflow: hidden;\n  max-width: calc(100% - .72rem);\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n.ph-filter-selector {\n  position: relative;\n  z-index: 2;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n}\n.ph-filter-selector > * {\n  max-height: 72%;\n  pointer-events: auto;\n}\n.ph-filter-selector .ph-list,\n.ph-filter-selector .ph-tab-navs,\n.ph-filter-selector .ph-tab-bd {\n  overflow-y: auto;\n}\n.ph-filter-selector .ph-list::-webkit-scrollbar,\n.ph-filter-selector .ph-tab-navs::-webkit-scrollbar,\n.ph-filter-selector .ph-tab-bd::-webkit-scrollbar {\n  display: none;\n}\n.ph-filter-selector .ph-list-item.active {\n  color: #ff6633;\n}\n.ph-filter-selector .ph-button-group {\n  position: relative;\n  z-index: 1;\n}\n.ph-checkbox-filter .ph-filter-selector {\n  z-index: 9;\n}\n.ph-checkbox-filter .ph-filter-selector .ph-list,\n.ph-checkbox-filter .ph-filter-selector .ph-tab-navs,\n.ph-checkbox-filter .ph-filter-selector .ph-tab-bd {\n  max-height: none;\n  height: 100vh;\n}\n.ph-filter-selector-buttons .ph-list,\n.ph-filter-selector-buttons .ph-tab-navs,\n.ph-filter-selector-buttons .ph-tab-bd {\n  padding-bottom: 1.28rem;\n}\n.ph-filter-selector-buttons .ph-button-group {\n  margin-top: -1.28rem;\n}\n", ""]);
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.ph-filter-occupy {\n  height: 0.88rem;\n}\n.ph-filter-container {\n  position: relative;\n}\n.ph-filter-container-fixed,\n.ph-filter-container-shadow {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 99;\n  width: 100%;\n}\n.ph-filter-container-shadow {\n  height: 100%;\n}\n.ph-filter-shadow {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 1;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n.ph-filter-header {\n  position: relative;\n  z-index: 2;\n  margin: 0;\n  background-color: #fff;\n  border-bottom: 1PX solid #e1e1e1;\n}\n.ph-filter-header .ph-filter-header-item {\n  position: relative;\n  height: 0.88rem;\n  padding: 0.24rem 0;\n  line-height: 0.4rem;\n  text-align: center;\n  font-size: 0.28rem;\n}\n.ph-filter-header .ph-filter-header-item a {\n  display: block;\n  height: 0.4rem;\n  border-right: 1PX solid #e1e1e1;\n  white-spac: nowrap;\n}\n.ph-filter-header .ph-filter-header-item:last-child a {\n  border-right: none;\n}\n.ph-filter-header .ph-filter-header-item .gfs-icon {\n  display: inline-block;\n  margin-left: 0.08rem;\n  line-height: 0.4rem;\n  font-size: 0.24rem;\n  color: #666;\n  -webkit-transition: all 0.2s;\n  -moz-transition: all 0.2s;\n  transition: all 0.2s;\n  vertical-align: top;\n}\n.ph-filter-header .ph-filter-header-item.active .gfs-icon {\n  -webkit-transform: rotate(-180deg);\n  -ms-transform: rotate(-180deg);\n  transform: rotate(-180deg);\n}\n.ph-filter-header .ph-filter-header-item.active:after {\n  content: \"\";\n  position: absolute;\n  bottom: -0.02rem;\n  left: 50%;\n  width: 0.18rem;\n  height: 0.18rem;\n  background-color: #fff;\n  border-top: 1PX solid #e1e1e1;\n  border-right: 1PX solid #e1e1e1;\n  -webkit-transform: rotate(-45deg) translateX(-50%);\n  -ms-transform: rotate(-45deg) translateX(-50%);\n  transform: rotate(-45deg) translateX(-50%);\n}\n.ph-filter-header .ph-filter-header-text {\n  display: inline-block;\n  overflow: hidden;\n  max-width: calc(100% - .72rem);\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n.ph-filter-selector {\n  position: relative;\n  z-index: 2;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n}\n.ph-filter-selector > * {\n  max-height: 72%;\n  pointer-events: auto;\n}\n.ph-filter-selector .ph-list,\n.ph-filter-selector .ph-tab-navs,\n.ph-filter-selector .ph-tab-bd {\n  overflow-y: auto;\n}\n.ph-filter-selector .ph-list::-webkit-scrollbar,\n.ph-filter-selector .ph-tab-navs::-webkit-scrollbar,\n.ph-filter-selector .ph-tab-bd::-webkit-scrollbar {\n  display: none;\n}\n.ph-filter-selector .ph-list-item.active {\n  color: #ff6633;\n}\n.ph-filter-selector .ph-button-group {\n  position: relative;\n  z-index: 1;\n}\n.ph-checkbox-filter .ph-filter-selector {\n  z-index: 9;\n}\n.ph-checkbox-filter .ph-filter-selector > * {\n  max-height: none;\n}\n.ph-checkbox-filter .ph-filter-selector .ph-list,\n.ph-checkbox-filter .ph-filter-selector .ph-tab-navs,\n.ph-checkbox-filter .ph-filter-selector .ph-tab-bd {\n  max-height: none;\n  height: 100vh;\n}\n.ph-filter-selector-buttons .ph-list,\n.ph-filter-selector-buttons .ph-tab-navs,\n.ph-filter-selector-buttons .ph-tab-bd {\n  padding-bottom: 1.28rem;\n}\n.ph-filter-selector-buttons .ph-button-group {\n  margin-top: -1.28rem;\n}\n", ""]);
 
 	// exports
 
