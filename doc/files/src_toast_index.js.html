@@ -620,7 +620,7 @@ class Toast extends Component{
         let {componentTag:Component, className, phIcon} = this.props;
 
         return (
-            &lt;Component {...this.props} className={classnames(
+            &lt;Component {...this.otherProps} className={classnames(
                 this.getProperty(true),
                 className
             )}&gt;

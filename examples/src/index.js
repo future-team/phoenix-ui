@@ -76,7 +76,6 @@ let Index = class index extends Component {
         return (
             <div className="menu ph-transition-index">
                 <header>
-                    <h1><strong>Phoenix-UI</strong></h1>
                     <div className="phoenix-about">
                         <a href="https://github.com/future-team/phoenix-ui"><i className="gfs-icon icon-alert"></i> Github</a>
                         <a href="http://future-team.github.io/phoenix-ui/doc/index.html"><i className="gfs-icon icon-help"></i> Document</a>
