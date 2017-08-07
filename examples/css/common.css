@@ -33,17 +33,14 @@
     overflow: hidden;
     position:relative;
     z-index:2;
-    padding: .4rem 0 .64rem;
+    padding: 2.5rem 0 .5rem;
     margin-bottom: .32rem;
-    background: url(../img/phoenix.jpg) top center;
+    background: url(../img/banner.jpg) center center;
     background-size: cover;
     text-align: center;
     color: #fff;
 }
-header h1{
-    margin-bottom: .32rem;
-    font-size: .48rem;
-}
+
 .phoenix-about a{
     padding: 0 .24rem;
     border-right: 1PX solid #fff;

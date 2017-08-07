@@ -548,7 +548,7 @@ import React,{PropTypes} from &#x27;react&#x27;
 import {findDOMNode} from &#x27;react-dom&#x27;
 import Component from &#x27;../utils/Component&#x27;
 import classnames from &#x27;classnames&#x27;
-import {setPhPrefix, getClientHeight} from &#x27;../utils/Tool&#x27;
+import {setPhPrefix, getClientHeight, preventDefault} from &#x27;../utils/Tool&#x27;
 
 import Button from &#x27;../button&#x27;
 import Icon from &#x27;../icon&#x27;
@@ -738,7 +738,7 @@ export default class PullUp extends Component{
     }
 
     touchStartHandle(e){
-        // e.preventDefault()
+        preventDefault(e)
         if(!this.touchBottom) return
         
         this.distanceY = 0
@@ -746,7 +746,7 @@ export default class PullUp extends Component{
     }
 
     touchMoveHandle(e){
-        // e.preventDefault()
+        preventDefault(e)
         if(!this.touchBottom) return
 
         this.moveY = event.touches[0].pageY
@@ -761,7 +761,7 @@ export default class PullUp extends Component{
     }
 
     touchEndHandle(e){
-        // e.preventDefault()
+        preventDefault(e)
         if(!this.touchBottom) return
 
         this.starY = this.moveY
