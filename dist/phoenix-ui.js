@@ -5212,7 +5212,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    Tabset.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
-	        this.state.activeIndex != nextProps.index && this.changeActive(nextProps.index);
+	        if (this.state.activeIndex != nextProps.index) {
+	            this.setState({
+	                activeIndex: nextProps.index
+	            });
+	        }
 	    };
 
 	    Tabset.prototype.isVertial = function isVertial() {
