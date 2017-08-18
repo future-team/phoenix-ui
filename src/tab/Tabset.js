@@ -114,7 +114,11 @@ export default class Tabset extends Component {
     }
 
     componentWillReceiveProps(nextProps){
-        this.state.activeIndex != nextProps.index && this.changeActive(nextProps.index);
+        if(this.state.activeIndex != nextProps.index){
+            this.setState({
+                activeIndex: nextProps.index
+            })
+        }
     }
 
     isVertial() {

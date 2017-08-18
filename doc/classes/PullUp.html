@@ -775,22 +775,22 @@ export default class pullup extends Component{
         this.count++
     }
 
-    getData(fileName){ // 获取数据方法，ajax方法在下面定义了
-        ajax(fileName).then((json)=&gt;{
-            // 数据处理
+    getData(fileName){ // 获取数据方法，请求状态status必须准确返回
+        ajax(fileName).then((json)=&gt;{// 数据处理
             let data = json.data;
             let loadingData = this.state.loadingData.slice(0);
             for(let i in data){
                 loadingData.push(data[i]);
             }
 
+            // 必需
             this.setState({
                 loadingData: loadingData,
                 status: json.final? 4:2 // 根据final判断是加载成功还是没有更多
             }); 
 
         }, (error)=&gt;{
-            // 加载失败
+            // 加载失败，必需
             this.setState({
                 status: 3
             })

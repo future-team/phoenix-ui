@@ -4246,7 +4246,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            'div',
-	            { className: _classnames2['default'](this.setPhPrefix('field'), _classnames2['default']), style: this.getStyles(style) },
+	            { className: _classnames2['default'](this.setPhPrefix('field'), className), style: this.getStyles(style) },
 	            _react2['default'].createElement('textarea', _extends({}, this.otherProps, { className: this.getProperty(true),
 	                value: this.state.value,
 	                onChange: function (event) {
@@ -5212,7 +5212,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    Tabset.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
-	        this.state.activeIndex != nextProps.index && this.changeActive(nextProps.index);
+	        if (this.state.activeIndex != nextProps.index) {
+	            this.setState({
+	                activeIndex: nextProps.index
+	            });
+	        }
 	    };
 
 	    Tabset.prototype.isVertial = function isVertial() {
