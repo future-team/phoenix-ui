@@ -688,7 +688,7 @@ export default class Textarea extends Component{
         let {className, disabled, style} = this.props
 
         return (
-            &lt;div className={classnames(this.setPhPrefix(&#x27;field&#x27;),classnames)} style={this.getStyles(style)}&gt;
+            &lt;div className={classnames(this.setPhPrefix(&#x27;field&#x27;), className)} style={this.getStyles(style)}&gt;
                 &lt;textarea {...this.otherProps} className={this.getProperty(true)} 
                     value={this.state.value} 
                     onChange={(event)=&gt;{this.onTextareaChange(event)}} 
