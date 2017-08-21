@@ -2,7 +2,7 @@ import React,{PropTypes} from 'react'
 import {findDOMNode} from 'react-dom'
 import Component from '../utils/Component'
 import classnames from 'classnames'
-import {setPhPrefix, getClientHeight, preventDefault} from '../utils/Tool'
+import {setPhPrefix, getClientHeight, getScrollTop, getDocumentHeight, preventDefault} from '../utils/Tool'
 
 import Button from '../button'
 import Icon from '../icon'
@@ -119,9 +119,10 @@ export default class PullUp extends Component{
     scrollHandle(){
         let {status} = this.state
         
-        this.scrollTop = document.body.scrollTop
+        this.scrollTop = getScrollTop()
         this.bodyHeight = getClientHeight()
-        this.pullTop = this.pullUp.offsetTop
+        this.documentHeight = getDocumentHeight()
+        this.pullTop = this.documentHeight - this.pullUp.offsetHeight
         // if(!this.pullHeight) this.pullHeight = this.pullUp.offsetHeight
         
         if(this.scrollTop + this.bodyHeight >= this.pullTop){
@@ -192,7 +193,7 @@ export default class PullUp extends Component{
     }
 
     touchStartHandle(e){
-        preventDefault(e)
+        // preventDefault(e)
         if(!this.touchBottom) return
         
         this.distanceY = 0
@@ -200,7 +201,7 @@ export default class PullUp extends Component{
     }
 
     touchMoveHandle(e){
-        preventDefault(e)
+        // preventDefault(e)
         if(!this.touchBottom) return
 
         this.moveY = event.touches[0].pageY
@@ -215,7 +216,7 @@ export default class PullUp extends Component{
     }
 
     touchEndHandle(e){
-        preventDefault(e)
+        // preventDefault(e)
         if(!this.touchBottom) return
 
         this.starY = this.moveY

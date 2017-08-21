@@ -104,6 +104,14 @@ let Tool = {
         return document.compatMode == "BackCompat" ? document.body.clientHeight : document.documentElement.clientHeight
     },
 
+    getScrollTop(){
+        return document.documentElement.scrollTop || document.body.scrollTop
+    },
+
+    getDocumentHeight(){
+        return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight)
+    },
+
     preventDefault(event){
         // 判断默认行为是否可以被禁用
         if (event.cancelable) {
