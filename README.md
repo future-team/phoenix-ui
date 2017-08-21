@@ -7,7 +7,6 @@
 ```
 
 ## Usage
-
 ```
     // CommonJS
     var Button = require('phoenix-ui/lib/button');
@@ -17,6 +16,21 @@
     //react
     <Button phSize="xs" phStyle="primary">按钮</Button>
 ```
+
+## Attention
+使用phoenix2.0+版本必须在head中引入`gfs-viewport.js`:
+```
+    ...
+    <meta charset="UTF-8">
+    <title>Phoenix-ui Examples</title>
+    <script type="text/javascript" src="https://www.dpfile.com/app/gfs-viewport/gfs-viewport.js"></script>
+    ...
+```
+以上js文件自动生成viewport的meta，需要删掉之前写在头部的`<meta name="viewport" ...>`。
+
+## Layout
+强烈推荐rem布局，布局方式：750规格设计稿提供的px值(像素值)下，除以`100`，得到rem的值。
+配合`gfs-viewport.js`解决px在不同dpr(设备像素比)下的表现差异问题。
 
 ## Documentation
 文档随时更新,请关注:

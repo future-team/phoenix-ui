@@ -548,7 +548,7 @@ import React,{PropTypes} from &#x27;react&#x27;
 import {findDOMNode} from &#x27;react-dom&#x27;
 import Component from &#x27;../utils/Component&#x27;
 import classnames from &#x27;classnames&#x27;
-import {setPhPrefix, getClientHeight, preventDefault} from &#x27;../utils/Tool&#x27;
+import {setPhPrefix, getClientHeight, getScrollTop, getDocumentHeight, preventDefault} from &#x27;../utils/Tool&#x27;
 
 import Button from &#x27;../button&#x27;
 import Icon from &#x27;../icon&#x27;
@@ -665,9 +665,10 @@ export default class PullUp extends Component{
     scrollHandle(){
         let {status} = this.state
         
-        this.scrollTop = document.body.scrollTop
+        this.scrollTop = getScrollTop()
         this.bodyHeight = getClientHeight()
-        this.pullTop = this.pullUp.offsetTop
+        this.documentHeight = getDocumentHeight()
+        this.pullTop = this.documentHeight - this.pullUp.offsetHeight
         // if(!this.pullHeight) this.pullHeight = this.pullUp.offsetHeight
         
         if(this.scrollTop + this.bodyHeight &gt;= this.pullTop){
@@ -732,13 +733,13 @@ export default class PullUp extends Component{
         // 状态置为加载中(状态为0或3时执行)
         this.setState({
             status: 1
+        }, ()=&gt;{
+            if(loadCallback) loadCallback()
         })
-
-        if(loadCallback) loadCallback()     
     }
 
     touchStartHandle(e){
-        preventDefault(e)
+        // preventDefault(e)
         if(!this.touchBottom) return
         
         this.distanceY = 0
@@ -746,7 +747,7 @@ export default class PullUp extends Component{
     }
 
     touchMoveHandle(e){
-        preventDefault(e)
+        // preventDefault(e)
         if(!this.touchBottom) return
 
         this.moveY = event.touches[0].pageY
@@ -761,7 +762,7 @@ export default class PullUp extends Component{
     }
 
     touchEndHandle(e){
-        preventDefault(e)
+        // preventDefault(e)
         if(!this.touchBottom) return
 
         this.starY = this.moveY

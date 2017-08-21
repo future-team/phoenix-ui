@@ -187,9 +187,9 @@ export default class PullUp extends Component{
         // 状态置为加载中(状态为0或3时执行)
         this.setState({
             status: 1
+        }, ()=>{
+            if(loadCallback) loadCallback()
         })
-
-        if(loadCallback) loadCallback()     
     }
 
     touchStartHandle(e){
