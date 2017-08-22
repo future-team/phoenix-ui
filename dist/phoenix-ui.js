@@ -4101,7 +4101,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 	/**
 	 * 多行文本框组件<br/>
-	 * - 可通过valuee设置默认值。 
+	 * - 可通过value设置默认值。 
 	 * - 可通过设置count判断是否显示当前输入字数，需要配合maxLength配置最大输入字数。
 	 * - getValueCallback: 获取当前的输入值。
 	 * - className属性加在外层，其余属性均赋予input元素。
@@ -4175,34 +4175,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.setMethod('getValueCallback', this.getValue.bind(this));
 
 	        this.state = {
-	            value: props.value || props.defaultValue || '',
+	            value: props.value || '',
 	            inputLength: this.getInputLength(props)
 	        };
 	    }
-
-	    Textarea.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
-	        if (nextProps.value && nextProps.value !== this.state.value) {
-	            this.setState({
-	                value: nextProps.value
-	            });
-	        }
-	    };
 
 	    Textarea.prototype.getValue = function getValue() {
 	        return this.state.value;
 	    };
 
 	    Textarea.prototype.getInputLength = function getInputLength(props) {
-	        return props.value ? props.value.length : props.defaultValue ? props.defaultValue.length : 0;
+	        return props.value ? props.value.length : 0;
 	    };
 
 	    Textarea.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
-	        var _props = this.props;
-	        var defaultValue = _props.defaultValue;
-	        var value = _props.value;
+	        var value = this.props.value;
 
-	        if (defaultValue != nextProps.defaultValue || value != nextProps.value) {
+	        if (value != nextProps.value) {
 	            this.setState({
+	                value: nextProps.value,
 	                inputLength: this.getInputLength(nextProps)
 	            });
 	        }
@@ -4221,9 +4212,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    Textarea.prototype.renderCount = function renderCount() {
-	        var _props2 = this.props;
-	        var count = _props2.count;
-	        var maxLength = _props2.maxLength;
+	        var _props = this.props;
+	        var count = _props.count;
+	        var maxLength = _props.maxLength;
 
 	        if (count) {
 	            return _react2['default'].createElement(
@@ -4247,10 +4238,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Textarea.prototype.renderTextarea = function renderTextarea() {
 	        var _this = this;
 
-	        var _props3 = this.props;
-	        var className = _props3.className;
-	        var disabled = _props3.disabled;
-	        var style = _props3.style;
+	        var _props2 = this.props;
+	        var className = _props2.className;
+	        var disabled = _props2.disabled;
+	        var style = _props2.style;
 
 	        return _react2['default'].createElement(
 	            'div',
