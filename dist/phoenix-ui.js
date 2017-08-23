@@ -11860,7 +11860,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var pullUpElem = _reactDom.findDOMNode(this.pullUp);
 
 	        this.dragElem = pullUpElem.parentNode;
-	        this.addClass(this.dragElem, 'animated hardware');
+	        this.prevElem = pullUpElem.previousElementSibling;
+	        this.addClass(this.dragElem, 'animated');
+	        this.addClass(this.prevElem, 'hardware');
 
 	        this.dragEventHandle(this.dragElem);
 	    };
@@ -12111,6 +12113,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.__esModule = true;
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -12151,11 +12155,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * 单选筛选<br/>
 	 * - 可通过index设置筛选默认打开的面板。默认－1，即都不打开。
 	 * - 可通过hideCat选择是否要显示筛选头部。
+	 * - 可通过stable设置面板是否从当前位置展开，默认置顶满屏展开。
 	 * - 可通过clickCallback设置有效选择的回调，当没有按钮时选中即触发，有按钮时点击按钮时触发。
 	 *
 	 * 主要属性和接口：
 	 * - index: 默认打开的面板。
 	 * - hideCat: 是否显示筛选头部。
+	 * - stable: 是否从当前位置展开。
 	 * - clickCallback: 有效选择的回调。
 	 * 
 	 * 有2种形式，其一，简单模式。<br/>
@@ -12170,7 +12176,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *      ]
 	 *  }
 	 * ...
-	 *  <FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)}>
+	 *  <FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)} stable>
 	 *      <PanelSimple readOnly className='panel1' selected={{key:'ljz',value:'陆家嘴'}}>
 	 *          {
 	 *              this.state.panel1.map(function(item){
@@ -12230,6 +12236,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * */
 	            hideCat: _react.PropTypes.bool,
 	            /**
+	             * 展开时是否从顶部展开
+	             * @property stable
+	             * @type Boolean
+	             * @default false
+	             * */
+	            stable: _react.PropTypes.bool,
+	            /**
 	             * 有效选择触发的回调函数
 	             * @method clickCallback
 	             * @type Function
@@ -12242,7 +12255,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        value: {
 	            index: -1,
 	            hideCat: false,
-	            clickCallback: null
+	            clickCallback: null,
+	            stable: false
 	        },
 	        enumerable: true
 	    }]);
@@ -12258,10 +12272,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	        };
 
 	        this.windowScrollHandle = this.windowScrollHandle.bind(this);
+	        this.preventDefault = this.preventDefault.bind(this);
 	        this.containerOffsetTop = 0;
 
 	        window.addEventListener('scroll', this.windowScrollHandle, false);
 	    }
+
+	    FilterContainer.prototype.preventDefault = function preventDefault(e) {
+	        _utilsTool.preventDefault(e);
+	    };
 
 	    FilterContainer.prototype.windowScrollHandle = function windowScrollHandle() {
 	        if (document.body.scrollTop >= this.containerOffsetTop) {
@@ -12272,7 +12291,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    FilterContainer.prototype.componentDidMount = function componentDidMount() {
-	        this.containerOffsetTop = this.filterContainer.offsetTop;
+	        var _this = this;
+
+	        setTimeout(function () {
+	            _this.containerOffsetTop = _this.filterContainer.offsetTop;
+	        }, 0);
 	    };
 
 	    FilterContainer.prototype.componentWillUnmount = function componentWillUnmount() {
@@ -12308,6 +12331,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            activeCat: -1
 	        });
 
+	        this.willScroll();
+
 	        clickCallback && clickCallback(category.key);
 	    };
 
@@ -12315,7 +12340,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        //展开某一个cat
 	        if (index == this.state.activeCat) {
 	            index = -1;
+	            this.willScroll();
+	        } else {
+	            this.noScroll();
 	        }
+
 	        this.setState({
 	            activeCat: index
 	        });
@@ -12378,24 +12407,45 @@ return /******/ (function(modules) { // webpackBootstrap
 	        });
 	    };
 
+	    FilterContainer.prototype.noScroll = function noScroll() {
+	        document.body.classList.add('noscroll');
+	    };
+
+	    FilterContainer.prototype.willScroll = function willScroll() {
+	        document.body.classList.remove('noscroll');
+	    };
+
 	    FilterContainer.prototype.hidePanel = function hidePanel() {
+	        var _this2 = this;
+
 	        this.setState({
 	            activeCat: -1
+	        }, function () {
+	            _this2.willScroll();
 	        });
 	    };
 
 	    FilterContainer.prototype.render = function render() {
-	        var _this = this;
+	        var _this3 = this;
+
+	        var _props = this.props;
+	        var stable = _props.stable;
+	        var className = _props.className;
+	        var style = _props.style;
+	        var _state = this.state;
+	        var activeCat = _state.activeCat;
+	        var fixed = _state.fixed;
 
 	        return _react2['default'].createElement(
 	            'div',
 	            { className: 'ph-filter-occupy' },
 	            _react2['default'].createElement(
 	                'div',
-	                { className: _classnames2['default']('ph-filter-container', this.state.activeCat == -1 ? '' : 'ph-filter-container-shadow', this.state.fixed ? 'ph-filter-container-fixed' : '', this.props.className),
+	                { className: _classnames2['default']('ph-filter-container', activeCat == -1 ? '' : 'ph-filter-container-shadow', fixed ? 'ph-filter-container-fixed' : '', className),
 	                    ref: function (filterContainer) {
-	                        _this.filterContainer = filterContainer;
-	                    }
+	                        _this3.filterContainer = filterContainer;
+	                    },
+	                    style: _extends({ top: stable && !fixed && activeCat > -1 ? this.containerOffsetTop + 'px' : '' }, style)
 	                },
 	                _react2['default'].createElement('div', { className: 'ph-filter-shadow', onClick: this.hidePanel.bind(this) }),
 	                _react2['default'].createElement(

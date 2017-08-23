@@ -1,6 +1,6 @@
 import React, { Component ,PropTypes} from 'react'
 import classnames from 'classnames'
-import {transToArray} from '../../utils/Tool'
+import {transToArray, preventDefault} from '../../utils/Tool'
 
 import Icon from '../../icon'
 
@@ -22,11 +22,13 @@ import Icon from '../../icon'
  * 单选筛选<br/>
  * - 可通过index设置筛选默认打开的面板。默认－1，即都不打开。
  * - 可通过hideCat选择是否要显示筛选头部。
+ * - 可通过stable设置面板是否从当前位置展开，默认置顶满屏展开。
  * - 可通过clickCallback设置有效选择的回调，当没有按钮时选中即触发，有按钮时点击按钮时触发。
  *
  * 主要属性和接口：
  * - index: 默认打开的面板。
  * - hideCat: 是否显示筛选头部。
+ * - stable: 是否从当前位置展开。
  * - clickCallback: 有效选择的回调。
  * 
  * 有2种形式，其一，简单模式。<br/>
@@ -41,7 +43,7 @@ import Icon from '../../icon'
  *      ]
  *  }
  * ...
- *  <FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)}>
+ *  <FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)} stable>
  *      <PanelSimple readOnly className='panel1' selected={{key:'ljz',value:'陆家嘴'}}>
  *          {
  *              this.state.panel1.map(function(item){
@@ -97,6 +99,13 @@ export default class FilterContainer extends Component{
          * */
         hideCat: PropTypes.bool,
         /**
+         * 展开时是否从顶部展开
+         * @property stable
+         * @type Boolean
+         * @default false
+         * */
+        stable: PropTypes.bool,
+        /**
          * 有效选择触发的回调函数
          * @method clickCallback
          * @type Function
@@ -107,7 +116,8 @@ export default class FilterContainer extends Component{
     static defaultProps = {
         index: -1,
         hideCat: false,
-        clickCallback: null
+        clickCallback: null,
+        stable: false
     }
 
     constructor(props,context){
@@ -119,9 +129,14 @@ export default class FilterContainer extends Component{
         };
 
         this.windowScrollHandle = this.windowScrollHandle.bind(this)
+        this.preventDefault = this.preventDefault.bind(this)
         this.containerOffsetTop = 0
 
         window.addEventListener('scroll', this.windowScrollHandle, false)
+    }
+
+    preventDefault(e){
+        preventDefault(e)
     }
 
     windowScrollHandle(){        
@@ -133,7 +148,9 @@ export default class FilterContainer extends Component{
     }
 
     componentDidMount(){
-        this.containerOffsetTop = this.filterContainer.offsetTop
+        setTimeout(()=>{
+            this.containerOffsetTop = this.filterContainer.offsetTop
+        }, 0)        
     }
 
     componentWillUnmount(){
@@ -169,6 +186,8 @@ export default class FilterContainer extends Component{
             activeCat:-1
         })
 
+        this.willScroll()
+
         clickCallback && clickCallback(category.key)
     }
 
@@ -176,7 +195,11 @@ export default class FilterContainer extends Component{
         //展开某一个cat
         if(index==this.state.activeCat){
             index=-1;
+            this.willScroll()
+        }else{
+            this.noScroll()
         }
+
         this.setState({
             activeCat:index
         });
@@ -226,22 +249,36 @@ export default class FilterContainer extends Component{
         })
     }
 
+    noScroll(){
+        document.body.classList.add('noscroll')
+    }
+
+    willScroll(){
+        document.body.classList.remove('noscroll')
+    }
+
     hidePanel(){
         this.setState({
             activeCat: -1
+        }, ()=>{
+            this.willScroll()
         })
     }
 
     render(){
+        let {stable, className, style} = this.props,
+            {activeCat, fixed} = this.state
+
         return(
             <div className='ph-filter-occupy'>
                 <div className={classnames(
                         'ph-filter-container', 
-                        this.state.activeCat==-1? '':'ph-filter-container-shadow',
-                        this.state.fixed? 'ph-filter-container-fixed':'',
-                        this.props.className
+                        activeCat==-1? '':'ph-filter-container-shadow',
+                        fixed? 'ph-filter-container-fixed':'',
+                        className
                     )}
                     ref={(filterContainer)=>{this.filterContainer = filterContainer}}
+                    style={{top: stable && !fixed && activeCat>-1? this.containerOffsetTop+'px':'', ...style}}
                 >
                     <div className='ph-filter-shadow' onClick={this.hidePanel.bind(this)}></div>
                     <ul className='cat ph-row ph-filter-header'>

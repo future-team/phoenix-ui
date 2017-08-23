@@ -124,7 +124,7 @@ export default class phFilter extends Component {
         return (
             <div>
                 <h2 className="comp-title">PhFilter</h2>
-                <Container index={-1} hidecat={false} clickCallback={this.clickCallback.bind(this)}>
+                <Container index={-1} hidecat={false} clickCallback={this.clickCallback.bind(this)} stable>
                     <PanelSimple default='筛选'>
                         {
                             this.state.panel3.map(function(item){
