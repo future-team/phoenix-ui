@@ -144,8 +144,8 @@ export default class Input extends Component{
     componentWillReceiveProps(nextProps){
         let o = {}
 
-        if(nextProps.value && nextProps.value !== this.state.value) o.value = nextProps.value
-        if(nextProps.error && nextProps.error !== this.state.error) o.error = nextProps.error
+        if(nextProps.value!==undefined && nextProps.value !== this.state.value) o.value = nextProps.value
+        if(nextProps.error!==undefined && nextProps.error !== this.state.error) o.error = nextProps.error
 
         this.setState(o)
     }

@@ -3553,8 +3553,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Input.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
 	        var o = {};
 
-	        if (nextProps.value && nextProps.value !== this.state.value) o.value = nextProps.value;
-	        if (nextProps.error && nextProps.error !== this.state.error) o.error = nextProps.error;
+	        if (nextProps.value !== undefined && nextProps.value !== this.state.value) o.value = nextProps.value;
+	        if (nextProps.error !== undefined && nextProps.error !== this.state.error) o.error = nextProps.error;
 
 	        this.setState(o);
 	    };
