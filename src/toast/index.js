@@ -115,7 +115,7 @@ function _renderLayer(layerElement, duration, callback){
             visible = false;
 
             _unrenderLayer();
-            callback();
+            if(callback) callback();
         }, duration);
     }    
 }

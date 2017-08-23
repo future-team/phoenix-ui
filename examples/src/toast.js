@@ -35,9 +35,7 @@ export default class toast extends Component{
     }
 
     showToastLoading(){
-        Toast.loading("", 2000, ()=>{
-            console.log("额外的执行内容");
-        });
+        Toast.loading("", 2000);
     }
 
     removeToastLoading(){
