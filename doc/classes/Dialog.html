@@ -41,7 +41,8 @@
             </div>
         </div>
     </nav>
-    <div id="sidebar">
+    <div class="gfs-wrapper clearfix">
+        <div id="sidebar">
     <h3>模块/类</h3>
         <div id="api-tabview-filter">
             <input id='txtSearch' type="search" class="form-control" placeholder="Type to filter Modules/Classes">
@@ -534,14 +535,20 @@
     <div class="icon-sidebar-btn icon-sidebar-btn-open"><span class="glyphicon glyphicon-chevron-left"></span>收起</div>
 </div>
    
-    <div class="stdoc-content">
-        <div class="apidocs">
-            <div id="docs-main">
-                <div class="content">
-                    <div class="page-header">
+        <div class="stdoc-content">
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <div class="page-header">
     <h1>Dialog</h1>
 </div>
- <div class="well well-small sign-left3">
+
+
+    <p>Available since 0.4.0</p>
+
+
+
+ <div class="gfs-description">
       <div class="stdoc-code"><p>弹框组件<br/></p>
 <ul>
 <li>由于弹框的显示操作在组件以外, 所以需要在使用时自定义<code>visible</code>、<code>closeCallback</code>函数。</li>
@@ -580,601 +587,165 @@
 </div>
  </div>
 
-    <div class="well well-small sign-left2 container-fluid" id="classesItems">
-        <div class="row">
-
-            <div class="index-section methods col-sm-4">
-                <h3>方法</h3>
-                
-                    <ul class="index-list methods extends">
-                        
-                            <li class="index-item method">
-                                <a href="#" data-tabid="#method" data-anchor="#method_closeCallback" data-tablink="closeCallback">closeCallback</a>
-
-                                
-                                
-                            </li>
-                        
-                    </ul>
-                
-            </div>
-
-            <div class="index-section properties col-sm-4">
-                <h3>属性</h3>
-                
-                    <ul class="index-list properties extends">
-                        
-                            <li class="index-item property">
-                                <a href="#" data-tabid="#property" data-anchor="#property_classPrefix" data-tablink="classPrefix">classPrefix</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property">
-                                <a href="#" data-tabid="#property" data-anchor="#property_closeButton" data-tablink="closeButton">closeButton</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property">
-                                <a href="#" data-tabid="#property" data-anchor="#property_componentTag" data-tablink="componentTag">componentTag</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property">
-                                <a href="#" data-tabid="#property" data-anchor="#property_shadowDisabled" data-tablink="shadowDisabled">shadowDisabled</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property">
-                                <a href="#" data-tabid="#property" data-anchor="#property_visible" data-tablink="visible">visible</a>
-
-                                
-                                
-                            </li>
-                        
-                    </ul>
-                
-            </div>
-
-            <div class="index-section events col-sm-4">
-                <h3>事件</h3>
-                
-            </div>
-        </div>
-    </div>
-
 <div class="">
     
-        <ul id="itemTab" class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#class">详情</a></li>
-            
-                <li class=""><a data-toggle="tab" href="#method">方法</a></li>
-            
-            
-                <li class=""><a data-toggle="tab" href="#property">属性</a></li>
-            
-            
-        </ul>
-    
     <div class="tab-content">
-        <div id="class" class="tab-pane active">
-            <div class="well well-small classDetail sign-left1">
-            
+        
+        <div id="method">
+            <h2 class="off-left">方法</h2>
 
-            
-                <div class="extends">
-                    Extends Component
-                </div>
-            
-
-            
-                <div class="foundat">
-                    Defined in: <a href="../files/src_modal_Dialog.js.html#l21"><code>src&#x2F;modal&#x2F;Dialog.js:21</code></a>
-                </div>
-            
-
-            
+            <table class="table table-bordered params-pc-table">
+                <tr class='active'><th>方法名</th><th>说明</th><th>回调参数</th></tr>
                 
-                    Module: <a href="../modules/弹出框组件.html">弹出框组件</a>
-                
+                    <tr class="param">
+     <td> 
+        <code class="param-name">closeCallback</code>
+    </td>
+    <td>
+        <div class="param-description">
             
-
-            
-                <p>Available since 0.4.0</p>
+            <div class="stdoc-code"><p>关闭弹框的执行函数</p>
+</div>
             
         </div>
+    </td>
+    <td>
+        
+    </td>
+    
+</tr>
+
+
+ 
+                
+            </table>
+        </div>
+        
 
         
+        <div id="property">
+            <h2 class="off-left">属性</h2>
+
+            <table class="table table-bordered params-pc-table">
+                <tr class='active'><th>属性名</th><th>类型</th><th>说明</th><th>默认值</th></tr>
+                
+                    <tr class="param">
+     <td> 
+        <code class="param-name">classPrefix</code>
+    </td>
+    <td><span class="type">String</span> </td>
+    <td>
+        <div class="param-description">
             
-                <div class="constructor">
-                    <h2>Constructor</h2>
-                    <div id="method_Dialog" class="method item">
-    <h3 class="name">Dialog</h3>
-    <code>
-    Dialog
-    
-        <span class="paren">()</span>
-    
-    </code>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p class="foundat">
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_modal_Dialog.js.html#l21"><code>src&#x2F;modal&#x2F;Dialog.js:21</code></a>
-        
-        </p>
-
-
-        
-
-        
-            <p>Available since 0.4.0</p>
-        
-    </div>
-
-    <div class="description well well-small sign-left3">
-        
-    </div>
-
-    
-
-    
-
-    
-        <div class="example app-example">
-            <h4>Example:</h4>
-            <ul class="nav nav-tabs example-list">
-                
-                <li role="presentation"  class="active"  data-demo="https://future-team.github.io/phoenix-ui/examples/index.html#/dialog"  _no='0'> <a>展示</a></li>
-                
-            </ul>
-            <div class="example-content  showdemo ">
-                <div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from "react"
-
-import ButtonGroup from "phoenix-ui/lib/button-group"
-import Button from "phoenix-ui/lib/button"
-import Dialog from "phoenix-ui/lib/modal/Dialog"
-import Code from "./code/code"
-
-export default class dialog extends Component{
-
-    constructor(props,context){
-        super(props,context); 
-
-        this.state = {
-            visible1: false,
-            visible2: false,
-            visible3: false
-        }
-    }
-
-    onShow(key){
-        let o = {};
-        o[key] = true;
-        this.setState(o);
-    }
-
-    closeCallback(key){
-        let o = {};
-        o[key] = false;
-        this.setState(o);
-    }
-
-    render(){
-        return(
-            &lt;div&gt;
-                &lt;h2 className="comp-title"&gt;Dialog&lt;/h2&gt;
-                &lt;h3 className="comp-type"&gt;visible(默认false) 弹框是否可见，必需&lt;br/&gt;closeCallback 关闭弹框的执行函数&lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;Button radius phSize="lg" onClick={this.onShow.bind(this,"visible1")} &gt;dialog1&lt;/Button&gt;
-                &lt;/div&gt;
-                &lt;Dialog visible={this.state.visible1} closeCallback={this.closeCallback.bind(this,"visible1")}&gt;
-                    &lt;Dialog.Title&gt;标题1&lt;/Dialog.Title&gt;
-                    &lt;Dialog.Body&gt;
-                        &lt;p&gt;可自定义表格内容&lt;/p&gt;
-                    &lt;/Dialog.Body&gt;
-                    &lt;Dialog.Footer&gt;
-                        &lt;ButtonGroup&gt;
-                            &lt;Button hollow phSize="lg" phStyle="gray" onClick={this.closeCallback.bind(this,"visible1")}&gt;取消&lt;/Button&gt;
-                            &lt;Button hollow phSize="lg" onClick={this.closeCallback.bind(this,"visible1")}&gt;确定&lt;/Button&gt;
-                        &lt;/ButtonGroup&gt; 
-                    &lt;/Dialog.Footer&gt;
-                &lt;/Dialog&gt;
-                &lt;Code target="dialog-closecallback" /&gt;
-
-                &lt;h3 className="comp-type"&gt;closeButton(默认不显示) 是否显示弹框左上角关闭按钮&lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;Button radius phSize="lg" onClick={this.onShow.bind(this,"visible2")}&gt;dialog2&lt;/Button&gt;
-                &lt;/div&gt;
-                &lt;Dialog visible={this.state.visible2} closeCallback={this.closeCallback.bind(this,"visible2")} closeButton&gt;
-                    &lt;Dialog.Title&gt;标题2&lt;/Dialog.Title&gt;
-                    &lt;Dialog.Body&gt;
-                        &lt;p&gt;可自定义表格内容&lt;/p&gt;
-                    &lt;/Dialog.Body&gt;
-                    &lt;Dialog.Footer&gt;
-                        &lt;ButtonGroup&gt;
-                            &lt;Button hollow phSize="lg" phStyle="gray" onClick={this.closeCallback.bind(this,"visible2")}&gt;取消&lt;/Button&gt;
-                            &lt;Button hollow phSize="lg" onClick={this.closeCallback.bind(this,"visible2")}&gt;确定&lt;/Button&gt;
-                        &lt;/ButtonGroup&gt;
-                    &lt;/Dialog.Footer&gt;
-                &lt;/Dialog&gt;
-                &lt;Code target="dialog-closebutton" /&gt;
-
-                &lt;h3 className="comp-type"&gt;shadowDisabled(默认可关闭) 阴影部分是否可点击关闭弹框&lt;/h3&gt;
-                &lt;div className="content"&gt;
-                    &lt;Button radius phSize="lg" onClick={this.onShow.bind(this,"visible3")}&gt;dialog3&lt;/Button&gt;
-                &lt;/div&gt;
-                &lt;Dialog visible={this.state.visible3} closeCallback={this.closeCallback.bind(this,"visible3")} shadowDisabled&gt;
-                    &lt;Dialog.Title&gt;标题3&lt;/Dialog.Title&gt;
-                    &lt;Dialog.Body&gt;
-                        &lt;p&gt;可自定义表格内容&lt;/p&gt;
-                    &lt;/Dialog.Body&gt;
-                    &lt;Dialog.Footer&gt; 
-                        &lt;ButtonGroup&gt;                       
-                            &lt;Button hollow phSize="lg" phStyle="gray" onClick={this.closeCallback.bind(this,"visible3").bind(this)}&gt;取消&lt;/Button&gt;
-                            &lt;Button hollow phSize="lg" onClick={this.closeCallback.bind(this,"visible3")}&gt;确定&lt;/Button&gt;
-                        &lt;/ButtonGroup&gt;
-                    &lt;/Dialog.Footer&gt;
-                &lt;/Dialog&gt;
-                &lt;Code target="dialog-shadowdisabled" /&gt;
-            &lt;/div&gt;
-        );
-    }
-}</code></pre>
+            <div class="stdoc-code"><p>样式前缀</p>
 </div>
-            </div>
-            <div class="btn-method-box">
-                <button class="btn btn-info btn-viewDemo" type="button">查看示例</button>
-                <button class="btn btn-info btn-editDemo" type="button">编辑代码</button>
-            </div>
+        </div>
+    </td>
+    <td>
+        &#x27;dialog&#x27;
+    </td>
+    
+</tr>
+                
+                    <tr class="param">
+     <td> 
+        <code class="param-name">closeButton</code>
+    </td>
+    <td><span class="type">Boolean</span> </td>
+    <td>
+        <div class="param-description">
+            
+            <div class="stdoc-code"><p>右上角按钮是否可见, 默认不可见</p>
+</div>
+        </div>
+    </td>
+    <td>
+        
+    </td>
+    
+</tr>
+                
+                    <tr class="param">
+     <td> 
+        <code class="param-name">componentTag</code>
+    </td>
+    <td><span class="type">String</span> </td>
+    <td>
+        <div class="param-description">
+            
+            <div class="stdoc-code"><p>标签tagName</p>
+</div>
+        </div>
+    </td>
+    <td>
+        
+    </td>
+    
+</tr>
+                
+                    <tr class="param">
+     <td> 
+        <code class="param-name">shadowDisabled</code>
+    </td>
+    <td><span class="type">Boolean</span> </td>
+    <td>
+        <div class="param-description">
+            
+            <div class="stdoc-code"><p>阴影部分是否点击可关闭弹框, 默认传了closeCallback之后可关闭</p>
+</div>
+        </div>
+    </td>
+    <td>
+        
+    </td>
+    
+</tr>
+                
+                    <tr class="param">
+     <td> 
+        <code class="param-name">visible</code>
+    </td>
+    <td><span class="type">Boolean</span> </td>
+    <td>
+        <div class="param-description">
+            
+            <div class="stdoc-code"><p>是否可见标识</p>
+</div>
+        </div>
+    </td>
+    <td>
+        
+    </td>
+    
+</tr>
+                
+            </table>
+            
+        </div>
+        
 
-            <div class="device"></div>
+        
+    </div>
+</div>
+
+<div>
+
+    
+        <div class="example">
+            <h4>示例展示:</h4>
+            <div class="example-content  showdemo " data-demo="https://future-team.github.io/phoenix-ui/examples/index.html#/dialog">
+                
+            </div>
         </div>
     
 </div>
 
-                </div>
-            
-        </div>
-
-        
-            <div id="method" class="tab-pane">
-                <h2 class="off-left">方法</h2>
-
-                
-                    <div id="method_closeCallback" class="method item">
-    <h3 class="name">closeCallback</h3>
-    <code>
-    closeCallback
-    
-        <span class="paren">()</span>
-    
-    </code>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p class="foundat">
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_modal_Dialog.js.html#l91"><code>src&#x2F;modal&#x2F;Dialog.js:91</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description well well-small sign-left3">
-        <div class="stdoc-code"><p>关闭弹框的执行函数</p>
-</div>
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-            </div>
-        
-
-        
-            <div id="property" class="tab-pane">
-                <h2 class="off-left">属性</h2>
-
-                
-                    <div id="property_classPrefix" class="property item">
-    <h3 class="name"><code>classPrefix</code></h3>
-    <span class="type">String</span>
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p class="foundat">
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_modal_Dialog.js.html#l72"><code>src&#x2F;modal&#x2F;Dialog.js:72</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <div class="stdoc-code"><p>样式前缀</p>
-</div>
-    </div>
-
-    
-        <p><strong>Default:</strong></p>
-         <code> &#x27;dialog&#x27;</code>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_closeButton" class="property item">
-    <h3 class="name"><code>closeButton</code></h3>
-    <span class="type">Boolean</span>
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p class="foundat">
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_modal_Dialog.js.html#l97"><code>src&#x2F;modal&#x2F;Dialog.js:97</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <div class="stdoc-code"><p>右上角按钮是否可见, 默认不可见</p>
-</div>
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_componentTag" class="property item">
-    <h3 class="name"><code>componentTag</code></h3>
-    <span class="type">String</span>
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p class="foundat">
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_modal_Dialog.js.html#l79"><code>src&#x2F;modal&#x2F;Dialog.js:79</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <div class="stdoc-code"><p>标签tagName</p>
-</div>
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_shadowDisabled" class="property item">
-    <h3 class="name"><code>shadowDisabled</code></h3>
-    <span class="type">Boolean</span>
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p class="foundat">
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_modal_Dialog.js.html#l103"><code>src&#x2F;modal&#x2F;Dialog.js:103</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <div class="stdoc-code"><p>阴影部分是否点击可关闭弹框, 默认传了closeCallback之后可关闭</p>
-</div>
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_visible" class="property item">
-    <h3 class="name"><code>visible</code></h3>
-    <span class="type">Boolean</span>
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p class="foundat">
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_modal_Dialog.js.html#l85"><code>src&#x2F;modal&#x2F;Dialog.js:85</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <div class="stdoc-code"><p>是否可见标识</p>
-</div>
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-            </div>
-        
-
-        
-    </div>
-</div>
-
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    
 <a id="gotoTop" class='well well-small' href='#'>
 </a>
 <script src="../assets/vendor/jquery/jquery-1.8.2.js"></script>

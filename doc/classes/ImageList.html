@@ -41,7 +41,8 @@
             </div>
         </div>
     </nav>
-    <div id="sidebar">
+    <div class="gfs-wrapper clearfix">
+        <div id="sidebar">
     <h3>模块/类</h3>
         <div id="api-tabview-filter">
             <input id='txtSearch' type="search" class="form-control" placeholder="Type to filter Modules/Classes">
@@ -534,14 +535,20 @@
     <div class="icon-sidebar-btn icon-sidebar-btn-open"><span class="glyphicon glyphicon-chevron-left"></span>收起</div>
 </div>
    
-    <div class="stdoc-content">
-        <div class="apidocs">
-            <div id="docs-main">
-                <div class="content">
-                    <div class="page-header">
+        <div class="stdoc-content">
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <div class="page-header">
     <h1>ImageList</h1>
 </div>
- <div class="well well-small sign-left3">
+
+
+    <p>Available since 1.7.0</p>
+
+
+
+ <div class="gfs-description">
       <div class="stdoc-code"><p>图片列表组件<br/></p>
 <ul>
 <li>通过column设置图片列表的列数，1-8列。</li>
@@ -571,355 +578,81 @@
 </div>
  </div>
 
-    <div class="well well-small sign-left2 container-fluid" id="classesItems">
-        <div class="row">
-
-            <div class="index-section methods col-sm-4">
-                <h3>方法</h3>
-                
-            </div>
-
-            <div class="index-section properties col-sm-4">
-                <h3>属性</h3>
-                
-                    <ul class="index-list properties extends">
-                        
-                            <li class="index-item property">
-                                <a href="#" data-tabid="#property" data-anchor="#property_classPrefix" data-tablink="classPrefix">classPrefix</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property">
-                                <a href="#" data-tabid="#property" data-anchor="#property_column" data-tablink="column">column</a>
-
-                                
-                                
-                            </li>
-                        
-                    </ul>
-                
-            </div>
-
-            <div class="index-section events col-sm-4">
-                <h3>事件</h3>
-                
-            </div>
-        </div>
-    </div>
-
 <div class="">
     
-        <ul id="itemTab" class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#class">详情</a></li>
-            
-            
-                <li class=""><a data-toggle="tab" href="#property">属性</a></li>
-            
-            
-        </ul>
-    
     <div class="tab-content">
-        <div id="class" class="tab-pane active">
-            <div class="well well-small classDetail sign-left1">
-            
+        
 
-            
-                <div class="extends">
-                    Extends Component
-                </div>
-            
+        
+        <div id="property">
+            <h2 class="off-left">属性</h2>
 
-            
-                <div class="foundat">
-                    Defined in: <a href="../files/src_image-list_index.js.html#l8"><code>src&#x2F;image-list&#x2F;index.js:8</code></a>
-                </div>
-            
-
-            
+            <table class="table table-bordered params-pc-table">
+                <tr class='active'><th>属性名</th><th>类型</th><th>说明</th><th>默认值</th></tr>
                 
-                    Module: <a href="../modules/操作类组件.html">操作类组件</a>
+                    <tr class="param">
+     <td> 
+        <code class="param-name">classPrefix</code>
+    </td>
+    <td><span class="type">String</span> </td>
+    <td>
+        <div class="param-description">
+            
+            <div class="stdoc-code"><p>样式前缀</p>
+</div>
+        </div>
+    </td>
+    <td>
+        &#x27;image-list&#x27;
+    </td>
+    
+</tr>
                 
+                    <tr class="param">
+     <td> 
+        <code class="param-name">column</code>
+    </td>
+    <td><span class="type">Number</span> </td>
+    <td>
+        <div class="param-description">
             
-
-            
-                <p>Available since 1.7.0</p>
+            <div class="stdoc-code"><p>图片列数，默认1列</p>
+</div>
+        </div>
+    </td>
+    <td>
+        1
+    </td>
+    
+</tr>
+                
+            </table>
             
         </div>
-
-        
-            
-                <div class="constructor">
-                    <h2>Constructor</h2>
-                    <div id="method_ImageList" class="method item">
-    <h3 class="name">ImageList</h3>
-    <code>
-    ImageList
-    
-        <span class="paren">()</span>
-    
-    </code>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p class="foundat">
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_image-list_index.js.html#l8"><code>src&#x2F;image-list&#x2F;index.js:8</code></a>
-        
-        </p>
-
-
         
 
-        
-            <p>Available since 1.7.0</p>
         
     </div>
-
-    <div class="description well well-small sign-left3">
-        
-    </div>
-
-    
-
-    
-
-    
-        <div class="example app-example">
-            <h4>Example:</h4>
-            <ul class="nav nav-tabs example-list">
-                
-                <li role="presentation"  class="active"  data-demo="https://future-team.github.io/phoenix-ui/examples/index.html#/imagelist"  _no='0'> <a>展示</a></li>
-                
-            </ul>
-            <div class="example-content  showdemo ">
-                <div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from "react"
-
-import ImageList from "phoenix-ui/lib/image-list"
-import Image from "phoenix-ui/lib/image"
-import Code from "./code/code"
-import {ajax} from "./utils/tool.js"
-
-export default class imagelist extends Component{
-    constructor(props,context){
-        super(props,context); 
-
-        this.state = {
-            images: []
-        }
-
-        this.getData("./data/post1.json",0);
-    }
-
-    getData(fileName){ // 获取数据方法，ajax方法在下面定义了
-        ajax(fileName).then((json)=&gt;{
-            let data = json.data;
-
-            this.setState({
-                images: data
-            }); 
-
-        }, (error)=&gt;{// 加载失败
-            console.error("出错了", error)
-        });
-    }
-
-    render(){
-        return(
-            &lt;div&gt;
-                &lt;h2 className="comp-title"&gt;ImageList&lt;/h2&gt;
-                &lt;h3 className="comp-type"&gt;column(默认1) 图片列数&lt;/h3&gt;
-                &lt;ImageList column={4}&gt;
-                    {
-                        this.state.images.map((data,index)=&gt;{
-                            return (
-                                &lt;dl className="ph-image-item" key={index}&gt;
-                                    &lt;dt&gt;
-                                        &lt;Image src={data.image} alt={data.title}/&gt;
-                                    &lt;/dt&gt;
-                                    &lt;dd&gt;
-                                        &lt;p className=&#39;ph-image-title&#39;&gt;{data.title}&lt;/p&gt;
-                                        &lt;p className=&#39;ph-image-desp&#39;&gt;{data.desp}&lt;/p&gt;
-                                    &lt;/dd&gt;
-                                &lt;/dl&gt;
-                            )
-                        })
-                    }
-                &lt;/ImageList&gt;
-                &lt;ImageList column={2}&gt;
-                    {
-                        this.state.images.map((data,index)=&gt;{
-                            return (
-                                &lt;dl className="ph-image-item" key={index}&gt;
-                                    &lt;dt&gt;
-                                        &lt;Image src={data.image} alt={data.title}/&gt;
-                                    &lt;/dt&gt;
-                                    &lt;dd&gt;
-                                        &lt;p className=&#39;ph-image-title&#39;&gt;{data.title}&lt;/p&gt;
-                                        &lt;p className=&#39;ph-image-desp&#39;&gt;{data.desp}&lt;/p&gt;
-                                    &lt;/dd&gt;
-                                &lt;/dl&gt;
-                            )
-                        })
-                    }
-                &lt;/ImageList&gt;
-                &lt;Code target="imagelist-column" /&gt;                
-            &lt;/div&gt;
-        );
-    }
-}</code></pre>
 </div>
-            </div>
-            <div class="btn-method-box">
-                <button class="btn btn-info btn-viewDemo" type="button">查看示例</button>
-                <button class="btn btn-info btn-editDemo" type="button">编辑代码</button>
-            </div>
 
-            <div class="device"></div>
+<div>
+
+    
+        <div class="example">
+            <h4>示例展示:</h4>
+            <div class="example-content  showdemo " data-demo="https://future-team.github.io/phoenix-ui/examples/index.html#/imagelist">
+                
+            </div>
         </div>
     
 </div>
 
-                </div>
-            
-        </div>
-
-        
-
-        
-            <div id="property" class="tab-pane">
-                <h2 class="off-left">属性</h2>
-
-                
-                    <div id="property_classPrefix" class="property item">
-    <h3 class="name"><code>classPrefix</code></h3>
-    <span class="type">String</span>
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p class="foundat">
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_image-list_index.js.html#l46"><code>src&#x2F;image-list&#x2F;index.js:46</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <div class="stdoc-code"><p>样式前缀</p>
-</div>
-    </div>
-
-    
-        <p><strong>Default:</strong></p>
-         <code> &#x27;image-list&#x27;</code>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_column" class="property item">
-    <h3 class="name"><code>column</code></h3>
-    <span class="type">Number</span>
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p class="foundat">
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_image-list_index.js.html#l53"><code>src&#x2F;image-list&#x2F;index.js:53</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <div class="stdoc-code"><p>图片列数，默认1列</p>
-</div>
-    </div>
-
-    
-        <p><strong>Default:</strong></p>
-         <code> 1</code>
-    
-
-    
-
-    
-</div>
-
-                
-            </div>
-        
-
-        
-    </div>
-</div>
-
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    
 <a id="gotoTop" class='well well-small' href='#'>
 </a>
 <script src="../assets/vendor/jquery/jquery-1.8.2.js"></script>
