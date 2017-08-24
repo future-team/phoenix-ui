@@ -120,12 +120,12 @@ export default class Input extends Component{
         this.setMethod('getValueCallback',this.getValue.bind(this))
 
         this.visibleIcon = ['biyan','yinsi']
-
+        
         this.state = {
             type: props.type,
             cansee: 0,
             focus: false,
-            value: props.value || props.defaultValue || '',
+            value: props.value || '',
             error: props.error
         }
     }
@@ -146,7 +146,7 @@ export default class Input extends Component{
 
         if(nextProps.value!==undefined && nextProps.value !== this.state.value) o.value = nextProps.value
         if(nextProps.error!==undefined && nextProps.error !== this.state.error) o.error = nextProps.error
-
+        
         this.setState(o)
     }
 
@@ -209,20 +209,22 @@ export default class Input extends Component{
 
     onFocus(e){
         let {onFocus} = this.props
-        if(onFocus) onFocus()
 
         this.setState({
             focus: true
+        }, ()=>{
+            if(onFocus) onFocus()
         })
     }
 
     onBlur(e){
         let {onBlur} = this.props
-        if(onBlur) onBlur()
 
         this.timer = setTimeout(()=>{
             this.setState({
                 focus: false
+            }, ()=>{
+                if(onBlur) onBlur()
             })
         },0)            
     }
@@ -235,9 +237,13 @@ export default class Input extends Component{
 
     clearHandle(e){
         clearTimeout(this.timer)
+        let {clearCallback} = this.props
+
+        if(clearCallback) clearCallback()
 
         this.setState({
-            value: ''
+            value: '',
+            focus: true
         },()=>{
             this.inputElem.focus()
         })

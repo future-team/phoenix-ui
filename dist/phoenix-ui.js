@@ -2937,7 +2937,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.tl {\n  text-align: left;\n}\n.tr {\n  text-align: right;\n}\n.tc {\n  text-align: center;\n}\n.tj {\n  text-align: justify;\n}\n.tn {\n  white-space: nowrap;\n}\n.text-lowercase {\n  text-transform: lowercase;\n}\n.text-uppercase {\n  text-transform: uppercase;\n}\n.text-capitalize {\n  text-transform: capitalize;\n}\n/**清除浮动*/\n.clearfix:before,\n.clearfix:after {\n  display: table;\n  line-height: 0;\n  content: \"\";\n}\n.clearfix:after {\n  clear: both;\n}\n/**省略号*/\n.ellipsis {\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n/**控制块级、内敛*/\n.inline-block {\n  display: inline-block !important;\n}\n.inline {\n  display: inline !important;\n}\n.block {\n  display: block !important;\n}\n.show {\n  display: block !important;\n}\n.hidden,\n.hide {\n  display: none !important;\n}\n.show-opacity {\n  opacity: 1 !important;\n}\n.hide-opacity {\n  opacity: 0.01 !important;\n}\n.invisible {\n  visibility: hidden;\n}\n.fl {\n  float: left;\n}\n.fr {\n  float: right;\n}\n.pr {\n  position: relative;\n}\n.pa {\n  position: absolute;\n}\n.pf {\n  position: fixed;\n}\n.ps {\n  position: static;\n}\n.color-white {\n  color: #fff;\n}\n.color-primary {\n  color: #ff6633;\n}\n.color-success {\n  color: #49cb67;\n}\n.color-info {\n  color: #4ea3d4;\n}\n.color-warning {\n  color: #e0690c;\n}\n.color-danger {\n  color: #ff3b30;\n}\n.color-error {\n  color: #f64d2e;\n}\n.color-tip {\n  color: #ffad3e;\n}\n.color-gray {\n  color: #333;\n}\n.color-success-dp {\n  color: #199235;\n}\n.color-tip-dp {\n  color: #e08f22;\n}\n.color-error-dp {\n  color: #e2391a;\n}\n.bg-success {\n  background-color: #49cb67;\n}\n.bg-tip {\n  background-color: #ffad3e;\n}\n.bg-error {\n  background-color: #f64d2e;\n}\n.bg-gray {\n  background-color: #f0f0f0;\n}\n.bg-success-lt {\n  background-color: #d4f6dc;\n}\n.bg-tip-lt {\n  background-color: #fff4e3;\n}\n.bg-error-lt {\n  background-color: #fcc9c0;\n}\n.font-symbol {\n  font-size: 0.6rem;\n}\n.font-headline {\n  font-size: 0.36rem;\n}\n.font-title {\n  font-size: 0.34rem;\n}\n.font-subtitle {\n  font-size: 0.32rem;\n}\n.font-mainbody {\n  font-size: 0.3rem;\n}\n.font-text {\n  font-size: 0.28rem;\n}\n.font-tip {\n  font-size: 0.24rem;\n}\n.clickable:active {\n  background-color: #f9f9f9;\n}\n.hardware {\n  -webkit-transform: translateZ(0);\n  transform: translateZ(0);\n  -webkit-transform-style: preserve-3d;\n  transform-style: preserve-3d;\n}\n.user-none {\n  -webkit-user-select: none;\n  user-select: none;\n}\n", ""]);
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.tl {\n  text-align: left;\n}\n.tr {\n  text-align: right;\n}\n.tc {\n  text-align: center;\n}\n.tj {\n  text-align: justify;\n}\n.tn {\n  white-space: nowrap;\n}\n.text-lowercase {\n  text-transform: lowercase;\n}\n.text-uppercase {\n  text-transform: uppercase;\n}\n.text-capitalize {\n  text-transform: capitalize;\n}\n/**清除浮动*/\n.clearfix:before,\n.clearfix:after {\n  display: table;\n  line-height: 0;\n  content: \"\";\n}\n.clearfix:after {\n  clear: both;\n}\n/**省略号*/\n.ellipsis {\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n/**控制块级、内敛*/\n.inline-block {\n  display: inline-block !important;\n}\n.inline {\n  display: inline !important;\n}\n.block {\n  display: block !important;\n}\n.show {\n  display: block !important;\n}\n.hidden,\n.hide {\n  display: none !important;\n}\n.show-opacity {\n  opacity: 1 !important;\n}\n.hide-opacity {\n  opacity: 0.01 !important;\n}\n.invisible {\n  visibility: hidden;\n}\n.fl {\n  float: left;\n}\n.fr {\n  float: right;\n}\n.pr {\n  position: relative;\n}\n.pa {\n  position: absolute;\n}\n.pf {\n  position: fixed;\n}\n.ps {\n  position: static;\n}\n.color-white {\n  color: #fff;\n}\n.color-primary {\n  color: #ff6633;\n}\n.color-success {\n  color: #49cb67;\n}\n.color-info {\n  color: #4ea3d4;\n}\n.color-warning {\n  color: #e0690c;\n}\n.color-danger {\n  color: #ff3b30;\n}\n.color-error {\n  color: #f64d2e;\n}\n.color-tip {\n  color: #ffad3e;\n}\n.color-gray {\n  color: #333;\n}\n.color-success-dp {\n  color: #199235;\n}\n.color-tip-dp {\n  color: #e08f22;\n}\n.color-error-dp {\n  color: #e2391a;\n}\n.bg-success {\n  background-color: #49cb67;\n}\n.bg-tip {\n  background-color: #ffad3e;\n}\n.bg-error {\n  background-color: #f64d2e;\n}\n.bg-gray {\n  background-color: #f0f0f0;\n}\n.bg-success-lt {\n  background-color: #d4f6dc;\n}\n.bg-tip-lt {\n  background-color: #fff4e3;\n}\n.bg-error-lt {\n  background-color: #fcc9c0;\n}\n.font-symbol {\n  font-size: 0.6rem;\n}\n.font-headline {\n  font-size: 0.36rem;\n}\n.font-title {\n  font-size: 0.34rem;\n}\n.font-subtitle {\n  font-size: 0.32rem;\n}\n.font-mainbody {\n  font-size: 0.3rem;\n}\n.font-text {\n  font-size: 0.28rem;\n}\n.font-tip {\n  font-size: 0.24rem;\n}\n.clickable:active {\n  background-color: #f9f9f9;\n}\n.hardware {\n  -webkit-transform: translateZ(0);\n  transform: translateZ(0);\n  -webkit-transform-style: preserve-3d;\n  transform-style: preserve-3d;\n}\n.user-none {\n  -webkit-user-select: none;\n  user-select: none;\n}\n.noscroll {\n  position: fixed;\n  overflow: hidden;\n  width: 100%;\n  height: 100vh;\n}\n", ""]);
 
 	// exports
 
@@ -3534,7 +3534,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            type: props.type,
 	            cansee: 0,
 	            focus: false,
-	            value: props.value || props.defaultValue || '',
+	            value: props.value || '',
 	            error: props.error
 	        };
 	    }
@@ -3633,10 +3633,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Input.prototype.onFocus = function onFocus(e) {
 	        var onFocus = this.props.onFocus;
 
-	        if (onFocus) onFocus();
-
 	        this.setState({
 	            focus: true
+	        }, function () {
+	            if (onFocus) onFocus();
 	        });
 	    };
 
@@ -3645,11 +3645,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        var onBlur = this.props.onBlur;
 
-	        if (onBlur) onBlur();
-
 	        this.timer = setTimeout(function () {
 	            _this2.setState({
 	                focus: false
+	            }, function () {
+	                if (onBlur) onBlur();
 	            });
 	        }, 0);
 	    };
@@ -3664,9 +3664,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var _this3 = this;
 
 	        clearTimeout(this.timer);
+	        var clearCallback = this.props.clearCallback;
+
+	        if (clearCallback) clearCallback();
 
 	        this.setState({
-	            value: ''
+	            value: '',
+	            focus: true
 	        }, function () {
 	            _this3.inputElem.focus();
 	        });
@@ -11535,9 +11539,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _Component.call(this, props, context);
 
 	        this.state = {
-	            focus: false
+	            focus: false,
+	            value: props.value || ''
 	        };
 	    }
+
+	    SearchBar.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+	        var o = {};
+
+	        if (nextProps.value !== undefined && nextProps.value !== this.state.value) o.value = nextProps.value;
+
+	        this.setState(o);
+	    };
 
 	    SearchBar.prototype.renderButton = function renderButton() {
 	        var buttonText = this.props.buttonText;
@@ -11562,9 +11575,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        this.setState({
 	            focus: true
+	        }, function () {
+	            if (focusCallback) focusCallback();
 	        });
-
-	        if (focusCallback) focusCallback();
 	    };
 
 	    SearchBar.prototype.onBlur = function onBlur() {
@@ -11575,10 +11588,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.timer = setTimeout(function () {
 	            _this.setState({
 	                focus: false
+	            }, function () {
+	                if (blurCallback) blurCallback();
 	            });
 	        }, 0);
-
-	        if (blurCallback) blurCallback();
 	    };
 
 	    SearchBar.prototype.onKeyDown = function onKeyDown(e) {
@@ -11587,6 +11600,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (e.keyCode == '13') {
 	            if (queryCallback) queryCallback(this.searchElem.getValueCallback());
 	        }
+	    };
+
+	    SearchBar.prototype.clearCallback = function clearCallback() {
+	        this.setState({
+	            value: ''
+	        });
 	    };
 
 	    SearchBar.prototype.renderSearchBar = function renderSearchBar() {
@@ -11600,13 +11619,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return _react2['default'].createElement(
 	            'div',
 	            { className: _classnames2['default'](this.getProperty(true), className, this.state.focus ? this.setPhPrefix('focus') : ''), style: this.getStyles(style) },
-	            _react2['default'].createElement(_input2['default'], _extends({}, this.otherProps, { type: 'search', phIcon: 'search', placeholder: placeholder, clear: true,
+	            _react2['default'].createElement(_input2['default'], _extends({}, this.otherProps, { type: 'search', phIcon: 'search', value: this.state.value, placeholder: placeholder, clear: true,
 	                ref: function (searchElem) {
 	                    _this2.searchElem = searchElem;
 	                },
 	                onFocus: this.onFocus.bind(this),
 	                onBlur: this.onBlur.bind(this),
-	                onKeyDown: this.onKeyDown.bind(this)
+	                onKeyDown: this.onKeyDown.bind(this),
+	                clearCallback: this.clearCallback.bind(this)
 	            })),
 	            this.renderButton()
 	        );

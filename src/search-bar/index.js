@@ -98,8 +98,17 @@ export default class SearchBar extends Component{
         super(props,context);
 
         this.state = {
-            focus: false
+            focus: false,
+            value: props.value || ''
         }
+    }
+
+    componentWillReceiveProps(nextProps){
+        let o = {}
+
+        if(nextProps.value!==undefined && nextProps.value !== this.state.value) o.value = nextProps.value
+        
+        this.setState(o)
     }
 
     renderButton(){
@@ -120,9 +129,9 @@ export default class SearchBar extends Component{
 
         this.setState({
             focus: true
-        })
-
-        if(focusCallback) focusCallback()
+        }, ()=>{
+            if(focusCallback) focusCallback()
+        })        
     }
 
     onBlur(){
@@ -131,10 +140,11 @@ export default class SearchBar extends Component{
         this.timer = setTimeout(()=>{
             this.setState({
                 focus: false
+            }, ()=>{
+                if(blurCallback) blurCallback()
             })
         },0)
-
-        if(blurCallback) blurCallback()
+        
     }
 
     onKeyDown(e){
@@ -145,20 +155,27 @@ export default class SearchBar extends Component{
         }
     }
 
+    clearCallback(){
+        this.setState({
+            value: ''
+        })
+    }
+
     renderSearchBar(){
         let {className, placeholder, style} = this.props
-
+        
         return(
             <div className={classnames(
                this.getProperty(true),
                className,
                this.state.focus? this.setPhPrefix('focus'):''
            )} style={this.getStyles(style)}>
-               <Input {...this.otherProps} type='search' phIcon='search' placeholder={placeholder} clear 
+               <Input {...this.otherProps} type='search' phIcon='search' value={this.state.value} placeholder={placeholder} clear 
                     ref={(searchElem)=>{this.searchElem=searchElem}}
                     onFocus={this.onFocus.bind(this)}
                     onBlur={this.onBlur.bind(this)}
                     onKeyDown={this.onKeyDown.bind(this)}
+                    clearCallback={this.clearCallback.bind(this)}
                />
                {this.renderButton()}
            </div>

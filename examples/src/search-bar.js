@@ -10,7 +10,7 @@ export default class searchBar extends Component{
             <div>
             	<h2 className="comp-title">SearchBar</h2>
                 <h3 className="comp-type">buttonText 按钮文字</h3>
-                <SearchBar buttonText="no" />
+                <SearchBar value="123" buttonText="no" />
                 <Code target="search-buttontext" />
 
                 <h3 className="comp-type">placeholder 输入框占位符</h3>
