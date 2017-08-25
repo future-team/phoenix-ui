@@ -212,16 +212,17 @@ $(function() {
         // }else{
         //     ifr.height(win.document.body.scrollHeight);
         // }
-        
+        ifr.height(1000);
         try{
-            ifr.height(1000);
-            interval=setInterval(function(){
-                ifr.css('height',ifr.eq(0).contents().find('html').height() + 'px');
-                if(t>=20){
-                    clearInterval(interval);
-                    t+=1;
-                }
-            }, 2000);
+            ifr.height(win.document.body.scrollHeight);
+            // interval=setInterval(function(){
+            //     ifr.css('height',ifr.eq(0).contents().find('html').height() + 'px');
+            //     if(t>=10){
+            //         clearInterval(interval);
+                    
+            //     }
+            //     t+=1;
+            // }, 2000);
         }catch(ex){
             ifr.height(1000);
         }
