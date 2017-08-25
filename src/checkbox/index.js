@@ -36,7 +36,7 @@ export default class Checkbox extends Component{
          * 样式前缀
          * @property classPrefix
          * @type String
-         * @default 'input'
+         * @default 'checkbox'
          * */
         classPrefix:PropTypes.string,
         /**

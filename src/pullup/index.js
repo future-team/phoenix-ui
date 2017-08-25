@@ -77,7 +77,7 @@ export default class PullUp extends Component{
         tips: PropTypes.array,
         /**
          * 按钮颜色，默认primary
-         * @property btnStyle
+         * @property phStyle
          * @type Array
          * @default 'primary'
          **/

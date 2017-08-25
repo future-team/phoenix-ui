@@ -5,6 +5,26 @@ import Code from "./code/code"
 
 export default class searchBar extends Component{
 
+    constructor(props,context){
+        super(props,context);
+
+        this.state = {
+            showButton: false
+        };
+    }
+
+    focusCallback(){
+        this.setState({
+            showButton: true
+        })
+    }
+
+    clickCallback(){
+        this.setState({
+            showButton: false
+        })
+    }
+
     render(){
         return(
             <div>
@@ -16,6 +36,12 @@ export default class searchBar extends Component{
                 <h3 className="comp-type">placeholder 输入框占位符</h3>
                 <SearchBar placeholder="请输入..." />
                 <Code target="search-placeholder" />
+
+                <h3 className="comp-type">showButton 是否显示按钮</h3>
+                <SearchBar placeholder="请输入..." showButton={this.state.showButton} 
+                    focusCallback={this.focusCallback.bind(this)}
+                    clickCallback={this.clickCallback.bind(this)} />
+                <Code target="search-showbutton" />
 
                 <h3 className="comp-type">clickCallback 点击按钮的回调</h3>
                 <SearchBar clickCallback={(query)=>{alert(query)}} />

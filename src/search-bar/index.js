@@ -15,6 +15,7 @@ import 'phoenix-styles/less/modules/search-bar.less'
  * - 可通过queryCallback设置回车/搜索动作的回调函数。
  * - 可通过focusCallback设置聚焦的回调；可通过blurCallback设置失焦的回调。
  * - className/style属性加在外层，其余属性均赋予input元素。
+ * - 可通过showButton设置当前按钮是否显示。
  *
  * 主要属性和接口：
  * - buttonText: 按钮文字 <br/>
@@ -84,9 +85,16 @@ export default class SearchBar extends Component{
          * @type Function
          * */
         clickCallback: PropTypes.func,
+        /**
+         * 当前是否显示按钮
+         * @property showButton
+         * @type Boolean
+         * @default undefined
+         * */
+        showButton: PropTypes.bool
     };
 
-    static defaultProps ={
+    static defaultProps = {
         buttonText: '取消',
         placeholder: '搜索',
         classPrefix:'search-bar',
@@ -98,15 +106,21 @@ export default class SearchBar extends Component{
         super(props,context);
 
         this.state = {
-            focus: false,
+            focus: props.showButton || false,
             value: props.value || ''
         }
+
+        this.timer = null
     }
 
     componentWillReceiveProps(nextProps){
         let o = {}
-
+        
         if(nextProps.value!==undefined && nextProps.value !== this.state.value) o.value = nextProps.value
+        if(nextProps.showButton!==undefined && nextProps.showButton !== this.state.focus){
+            clearTimeout(this.timer)
+            o.focus = nextProps.showButton
+        } 
         
         this.setState(o)
     }
@@ -125,23 +139,23 @@ export default class SearchBar extends Component{
     }
 
     onFocus(){
-        let {focusCallback} = this.props
+        let {showButton, focusCallback} = this.props
 
+        if(focusCallback) focusCallback()
+        
         this.setState({
-            focus: true
-        }, ()=>{
-            if(focusCallback) focusCallback()
-        })        
+            focus: showButton==false? false:true
+        }) 
     }
 
     onBlur(){
-        let {blurCallback} = this.props
+        let {showButton, blurCallback} = this.props
 
+        if(blurCallback) blurCallback()
+        
         this.timer = setTimeout(()=>{
             this.setState({
-                focus: false
-            }, ()=>{
-                if(blurCallback) blurCallback()
+                focus: showButton || false
             })
         },0)
         

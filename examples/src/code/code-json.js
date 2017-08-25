@@ -110,6 +110,7 @@ var code = {
 	'search-querycallback':'<SearchBar queryCallback={(query)=>{alert(query)}} />',
 	'search-focuscallback':'<SearchBar focusCallback={()=>{alert("focus")}} />',
 	'search-blurcallback':'<SearchBar blurCallback={()=>{alert("blur")}} />',
+	'search-showbutton': '<SearchBar placeholder="请输入..." showButton={this.state.showButton}\n\  focusCallback={()=>{this.setState({showButton:true})}}\n\  clickCallback={()=>{this.setState({showButton:false})}} />',
 
 	'slider-progress': '<Slider progress={25} />',
 	'slider-placement': '<Slider />\n<Slider placement="bottom" />',

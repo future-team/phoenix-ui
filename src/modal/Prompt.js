@@ -58,7 +58,7 @@ export default class Prompt extends Component{
         title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
         /**
          * 内容
-         * @property title
+         * @property content
          * @type String
          * */
         content: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
@@ -70,7 +70,7 @@ export default class Prompt extends Component{
         buttons: PropTypes.array,
         /**
          * 内容区域文本框
-         * @property buttons
+         * @property inputs
          * @type Array
          * */
         inputs: PropTypes.array,

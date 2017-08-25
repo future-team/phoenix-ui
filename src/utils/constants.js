@@ -128,6 +128,7 @@ export const propsConstants = {
     defaultSrc: 'defaultSrc',
     lazy: 'lazy',
     buttonText: 'buttonText',
+    showButton: 'showButton',
 
     // fn
     closeCallback: 'closeCallback',
