@@ -41,7 +41,8 @@
             </div>
         </div>
     </nav>
-    <div id="sidebar">
+    <div class="gfs-wrapper clearfix">
+        <div id="sidebar">
     <h3>模块/类</h3>
         <div id="api-tabview-filter">
             <input id='txtSearch' type="search" class="form-control" placeholder="Type to filter Modules/Classes">
@@ -534,14 +535,14 @@
     <div class="icon-sidebar-btn icon-sidebar-btn-open"><span class="glyphicon glyphicon-chevron-left"></span>收起</div>
 </div>
    
-    <div class="stdoc-content">
-        <div class="apidocs">
-            <div id="docs-main">
-                <div class="content">
-                        <div class="apidocs apidocs-index">
+        <div class="stdoc-content">
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                            <div class="apidocs" id="gfs-index">
         <div id="docs-main" class="content">
             
-                <div style="position:relative; margin: -15px -20px 15px;padding: 50px 24px 60px 24px;box-sizing: border-box;background-color: #38b7ea;overflow: hidden;text-align:center; color:#fff;">
+                <div style="position:relative; margin: -15px -20px 15px;padding: 50px 24px 60px 24px;box-sizing: border-box;background-color: #333;overflow: hidden;text-align:center; color:#fff;">
     <a style="color:#fff;position: absolute;right:25px;top:15px;" href="http://future-team.github.io/phoenix-ui/doc_v1/index.html">Version 1.7.4 文档</a>
     <h1>Phoenix-ui</h1>
     <p style="margin-top:15px">Version 2.0.0</p>
@@ -554,18 +555,18 @@
 <p class="lead">phoenix-ui是基于React框架实现的移动端UI组件库。</p>
 
 <h2>安装</h2>
-<pre class="well well-small sign-left2">
+<pre class="prettyprint lang-javascript">  
 $ npm install phoenix-ui --save
 </pre>
 
 <h2 style="color:red">特别注意</h2>
 <h3>针对dpr的屏幕兼容</h3>
 <p>在html文件的head元素中引入gfs-viewport.js文件，兼容不同手机不同dpr带来的适配问题。</p>
-<pre class="well well-small sign-left3">
+<pre class="prettyprint lang-javascript">
 &#60;script src="https://www.dpfile.com/app/gfs-viewport/gfs-viewport.js"&#62;&#60;/script&#62;
 </pre>
 <p>或直接放置代码：</p>
-<pre class="well well-small sign-left3">
+<pre class="prettyprint lang-javascript">
 &#60;script&#62;
     (function(baseFontSize,fontscale){var _baseFontSize=baseFontSize||100;var _fontscale=fontscale||1;var win=window;var doc=win.document;var ua=navigator.userAgent;var matches=ua.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i);var UCversion=ua.match(/U3\/((\d+|\.){5,})/i);var isUCHd=UCversion&&parseInt(UCversion[1].split(".").join(""),10)>=80;var isIos=navigator.appVersion.match(/(iphone|ipad|ipod)/gi);var dpr=win.devicePixelRatio||1;if(!isIos&&!(matches&&matches[1]>534)&&!isUCHd){dpr=1}var scale=1/dpr;var metaEl=doc.querySelector('meta[name="viewport"]');if(!metaEl){metaEl=doc.createElement("meta");metaEl.setAttribute("name","viewport");doc.head.appendChild(metaEl)}metaEl.setAttribute("content","width=device-width,user-scalable=no,initial-scale="+scale+",maximum-scale="+scale+",minimum-scale="+scale);doc.documentElement.style.fontSize=_baseFontSize/2*dpr*_fontscale+"px"})();
 &#60;/script&#62;
@@ -574,7 +575,7 @@ $ npm install phoenix-ui --save
 <h2>使用</h2>
 <h3>CommonJS & ES6</h3>
 <p>从2.0版本开始，建议都使用以下方式引入，可减少冗余代码的打包。</p>
-<pre class="well well-small sign-left3">
+<pre class="prettyprint lang-javascript">
 // CommonJS
 var Button = require('phoenix-ui/lib/button')
 // ES6
@@ -589,7 +590,7 @@ render: function() {
 }
 </pre>
 <h3>Browser globals</h3>
-<pre class="well well-small sign-left3">
+<pre class="prettyprint lang-javascript">
 &#60;script src="http://future-team.github.io/phoenix-ui/dist/phoenix-ui.min.js"&#62;&#60;/script&#62;
 ...
 render: function() {
@@ -630,7 +631,7 @@ render: function() {
 
 <h2>组件拓展</h2>
 <h3>组件继承</h3>
-<pre class="well well-small sign-left3">
+<pre class="prettyprint lang-javascript">
     import Button from 'phoenix-ui/lib/button'
 
     export default class MyButton extends Button{
@@ -652,7 +653,7 @@ render: function() {
     }
 </pre>
 <h3>高阶组件</h3>
-<pre class="well well-small sign-left3">
+<pre class="prettyprint lang-javascript">
     import {Component} from 'react'
     import Button from 'phoenix-ui/lib/button'
 
@@ -675,7 +676,7 @@ render: function() {
 <h3>关于换肤</h3>
 <p>phoenix-ui默认和<a href="https://github.com/future-team/phoenix-styles">phoenix-styles</a> (组件样式库)配合使用。</p>
 <p>如果要换成ios主题的皮肤，在打包之后的css文件后再引入ios-skin.min.css：</p>
-<pre class="well well-small sign-left3">
+<pre class="prettyprint lang-javascript">
 ...
 &#60;link rel="stylesheet" href="http://future-team.github.io/phoenix-styles/dist/ios-skin.min.css" /&#62;
 </pre>
@@ -705,10 +706,12 @@ render: function() {
 
 
 
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    
 <a id="gotoTop" class='well well-small' href='#'>
 </a>
 <script src="./assets/vendor/jquery/jquery-1.8.2.js"></script>

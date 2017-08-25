@@ -1,3 +1,10 @@
+a{
+    color:#f60;
+}
+a:hover{
+    color:#f60;
+    text-decoration: underline;
+}
 body.yui3-smart {
     padding: 50px 0;
     font-family: 'Helvetica Neue', Helvetica, 'Microsoft Yahei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
@@ -50,20 +57,20 @@ div.filterAPi {
     content: "\e113";
     display: block;
     font-family: 'Glyphicons Halflings';
-}
+}/*
 .stdoc-left {} .stdoc-content {
     margin-left: 260px;
     padding:0 30px;
-}
+}*/
 #txtSearch {
-    width: 240px;
+    width: 215px;
 }
 #sidebar_list {
-    overflow-y: auto;
-    overflow-x: hidden;
+    
     width:249px;
     margin-top:10px;
 }
+/*
 #sidebar {
     position: fixed;
     top: 50px;
@@ -73,7 +80,7 @@ div.filterAPi {
     background-color: #fafafa;
     border-right: solid 1px rgba(0,0,0,0.07);
     z-index: 4000;
-}
+}*/
 #sidebar .glyphicon {
     font-size: 12px;
     cursor: pointer;
@@ -88,14 +95,23 @@ div.filterAPi {
     margin-top: 5px;
 }
 #sidebar ul {
-    padding-left: 20px;
+    padding-left: 0;
+    position: relative;
+    left: -12px;
+    width: 240px;
 }
 #sidebar li {
     display: block;
-    margin-top: 7px;
+    /* margin-top: 7px; */
+    padding: 9px 0 9px 40px;
+    /* line-height: 45px; */
 }
-#sidebar a:hover, #sidebar .active {
-    color: #c7254e;
+#sidebar li.active{
+    border-left: 3px solid #f60;
+    background: #fff1ed;
+}
+#sidebar a:hover, #sidebar li.active a {
+    color: #f60;
 }
 .example-content {
     margin-bottom: 10px;
@@ -530,6 +546,7 @@ kbd .cmd {
 }
 body .table-bordered>tbody>tr>td,body .table-bordered>tbody>tr>th{
     border: none;
+    border-bottom: 1px solid #ddd;
 }
 body .apidocs .tab-content .item{
     padding-left: 0px;
@@ -555,7 +572,7 @@ body .mainlogo img{
 /*自定义样式*/
 
 .custom-navbar{
-    background: #fff;
+    background: #3a3a43;
     -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.05);
     box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     border-color: #ccc;
@@ -569,14 +586,14 @@ body .mainlogo img{
     -moz-transition: 0.2s ease;
     -ms-transition: 0.2s ease;
     transition: 0.2s ease;
-    color: #565a5f;
+    
 }
 .custom-navbar .navbar-nav li a:hover,.custom-navbar .mainlogo:hover{
-    color: #38b7ea;
+    
 }
 
 body{
-    background: #f5f8f9;
+    background: #f3f3f3;
     font-size: 14px;
 }
 
@@ -590,10 +607,10 @@ h3{
     font-size: 16px;
 }
 #sidebar{
-    border-right: solid 1px #e2e2e2;
+    /* border-right: solid 1px #e2e2e2;
     -webkit-box-shadow: 0px 0px 1px rgba(0,0,0,0.5);
     -moz-box-shadow: 0px 0px 1px rgba(0,0,0,0.5);
-    box-shadow: 0px 0px 1px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 1px rgba(0,0,0,0.5); */
 }
 .yui3-smart .well,.table,#sidebar{
     background: #fff;
@@ -607,6 +624,7 @@ h3{
     margin-bottom: 15px;
     padding: 10px 15px;
 }
+/*
 body .apidocs .tab-content .item {
     background: #fff;
     border: 1px solid #e2e2e2;
@@ -635,7 +653,7 @@ body .apidocs .tab-content .item h3,body .apidocs .tab-content .item h3 code{
     -moz-transition:all 0.3s ease;
     -ms-transition:all 0.3s ease;
     transition:all 0.3s ease;
-}
+}*/
 body .apidocs .tab-content .item:hover h3{
     color: #38b7ea;
     border-bottom-color: #38b7ea;
@@ -653,6 +671,7 @@ body .apidocs .tab-content #property .item:hover h3,body .apidocs .tab-content #
 }
 #sidebar_list dt {
     margin-top: 0;
+    margin-bottom: 7px;
 }
 .apidocs-index{
     padding: 15px 20px;
@@ -791,4 +810,50 @@ body .apidocs .tab-content #property .item:hover h3,body .apidocs .tab-content #
         text-align: right;
     }
 
+}
+
+
+/*----------------------------------肖敏的分割线------------------------------------------*/
+.gfs-wrapper{
+    width: 1200px;
+    margin: 20px auto 0;
+   
+}
+#sidebar{
+    width: 240px;
+    float: left;
+    border: 1px solid #e2e2e2;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding: 0 10px;
+}
+#sidebar a{
+    color: #333;
+}
+.stdoc-content{
+    width: 940px;
+    float: right;
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #e2e2e2;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.gfs-description{
+    color:#999;
+}
+.navbar-inverse .navbar-brand{
+    color:#fff;
+}
+.navbar-inverse .navbar-nav>li>a{
+    color:#c2c2c2;
+}
+table.table-bordered>tbody>tr>td{
+    line-height: 28px;
+}
+#gfs-index{
+  /* overflow: hidden;   */
 }
