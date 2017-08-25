@@ -212,7 +212,7 @@ $(function() {
         // }else{
         //     ifr.height(win.document.body.scrollHeight);
         // }
-        ifr.height(1000);
+        // ifr.height(1000);
         try{
             ifr.height(win.document.body.scrollHeight);
             // interval=setInterval(function(){
