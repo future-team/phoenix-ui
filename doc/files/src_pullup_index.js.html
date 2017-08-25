@@ -624,7 +624,7 @@ export default class PullUp extends Component{
         tips: PropTypes.array,
         /**
          * 按钮颜色，默认primary
-         * @property btnStyle
+         * @property phStyle
          * @type Array
          * @default &#x27;primary&#x27;
          **/
@@ -694,7 +694,9 @@ export default class PullUp extends Component{
         let pullUpElem = findDOMNode(this.pullUp)
 
         this.dragElem = pullUpElem.parentNode
-        this.addClass(this.dragElem, &#x27;animated hardware&#x27;)
+        this.prevElem = pullUpElem.previousElementSibling
+        this.addClass(this.dragElem, &#x27;animated&#x27;)
+        this.addClass(this.prevElem, &#x27;hardware&#x27;)
 
         this.dragEventHandle(this.dragElem)
     }

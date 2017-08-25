@@ -12337,6 +12337,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    FilterContainer.prototype.componentWillUnmount = function componentWillUnmount() {
+	        this.willScroll();
 	        window.removeEventListener('scroll', this.windowScrollHandle, false);
 	    };
 

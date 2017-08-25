@@ -154,6 +154,7 @@ export default class FilterContainer extends Component{
     }
 
     componentWillUnmount(){
+        this.willScroll()
         window.removeEventListener('scroll', this.windowScrollHandle, false)
     }
 

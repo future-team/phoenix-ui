@@ -565,7 +565,7 @@ import &#x27;phoenix-styles/less/modules/textarea.less&#x27;
  */
 /**
  * 多行文本框组件&lt;br/&gt;
- * - 可通过valuee设置默认值。 
+ * - 可通过value设置默认值。 
  * - 可通过设置count判断是否显示当前输入字数，需要配合maxLength配置最大输入字数。
  * - getValueCallback: 获取当前的输入值。
  * - className属性加在外层，其余属性均赋予input元素。
@@ -630,16 +630,8 @@ export default class Textarea extends Component{
         this.setMethod(&#x27;getValueCallback&#x27;,this.getValue.bind(this))
 
         this.state = {
-            value: props.value || props.defaultValue || &#x27;&#x27;,
+            value: props.value || &#x27;&#x27;,
             inputLength: this.getInputLength(props)
-        }
-    }
-
-    componentWillReceiveProps(nextProps){
-        if(nextProps.value &amp;&amp; nextProps.value !== this.state.value){
-            this.setState({
-                value: nextProps.value
-            })
         }
     }
 
@@ -648,14 +640,15 @@ export default class Textarea extends Component{
     }
 
     getInputLength(props){
-        return props.value? props.value.length: props.defaultValue? props.defaultValue.length:0;
+        return props.value? props.value.length:0;
     }
 
     componentWillReceiveProps(nextProps){
-        let {defaultValue, value} = this.props;
+        let {value} = this.props;
 
-        if(defaultValue != nextProps.defaultValue || value != nextProps.value){
+        if(value != nextProps.value){
             this.setState({
+                value: nextProps.value,
                 inputLength: this.getInputLength(nextProps)
             });
         }        

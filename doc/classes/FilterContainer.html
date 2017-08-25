@@ -553,12 +553,14 @@
 <ul>
 <li>可通过index设置筛选默认打开的面板。默认－1，即都不打开。</li>
 <li>可通过hideCat选择是否要显示筛选头部。</li>
+<li>可通过stable设置面板是否从当前位置展开，默认置顶满屏展开。</li>
 <li>可通过clickCallback设置有效选择的回调，当没有按钮时选中即触发，有按钮时点击按钮时触发。</li>
 </ul>
 <p>主要属性和接口：</p>
 <ul>
 <li>index: 默认打开的面板。</li>
 <li>hideCat: 是否显示筛选头部。</li>
+<li>stable: 是否从当前位置展开。</li>
 <li>clickCallback: 有效选择的回调。</li>
 </ul>
 <p>有2种形式，其一，简单模式。<br/>
@@ -572,7 +574,7 @@
      ]
  }
 ...
- &lt;FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)}&gt;
+ &lt;FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)} stable&gt;
      &lt;PanelSimple readOnly className=&#39;panel1&#39; selected={{key:&#39;ljz&#39;,value:&#39;陆家嘴&#39;}}&gt;
          {
              this.state.panel1.map(function(item){
@@ -675,6 +677,24 @@
     </td>
     <td>
         -1
+    </td>
+    
+</tr>
+                
+                    <tr class="param">
+     <td> 
+        <code class="param-name">stable</code>
+    </td>
+    <td><span class="type">Boolean</span> </td>
+    <td>
+        <div class="param-description">
+            
+            <div class="stdoc-code"><p>展开时是否从顶部展开</p>
+</div>
+        </div>
+    </td>
+    <td>
+        false
     </td>
     
 </tr>

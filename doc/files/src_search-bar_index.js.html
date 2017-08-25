@@ -562,6 +562,7 @@ import &#x27;phoenix-styles/less/modules/search-bar.less&#x27;
  * - 可通过queryCallback设置回车/搜索动作的回调函数。
  * - 可通过focusCallback设置聚焦的回调；可通过blurCallback设置失焦的回调。
  * - className/style属性加在外层，其余属性均赋予input元素。
+ * - 可通过showButton设置当前按钮是否显示。
  *
  * 主要属性和接口：
  * - buttonText: 按钮文字 &lt;br/&gt;
@@ -631,9 +632,16 @@ export default class SearchBar extends Component{
          * @type Function
          * */
         clickCallback: PropTypes.func,
+        /**
+         * 当前是否显示按钮
+         * @property showButton
+         * @type Boolean
+         * @default undefined
+         * */
+        showButton: PropTypes.bool
     };
 
-    static defaultProps ={
+    static defaultProps = {
         buttonText: &#x27;取消&#x27;,
         placeholder: &#x27;搜索&#x27;,
         classPrefix:&#x27;search-bar&#x27;,
@@ -645,8 +653,23 @@ export default class SearchBar extends Component{
         super(props,context);
 
         this.state = {
-            focus: false
+            focus: props.showButton || false,
+            value: props.value || &#x27;&#x27;
         }
+
+        this.timer = null
+    }
+
+    componentWillReceiveProps(nextProps){
+        let o = {}
+        
+        if(nextProps.value!==undefined &amp;&amp; nextProps.value !== this.state.value) o.value = nextProps.value
+        if(nextProps.showButton!==undefined &amp;&amp; nextProps.showButton !== this.state.focus){
+            clearTimeout(this.timer)
+            o.focus = nextProps.showButton
+        } 
+        
+        this.setState(o)
     }
 
     renderButton(){
@@ -663,25 +686,26 @@ export default class SearchBar extends Component{
     }
 
     onFocus(){
-        let {focusCallback} = this.props
-
-        this.setState({
-            focus: true
-        })
+        let {showButton, focusCallback} = this.props
 
         if(focusCallback) focusCallback()
+        
+        this.setState({
+            focus: showButton==false? false:true
+        }) 
     }
 
     onBlur(){
-        let {blurCallback} = this.props
-
-        this.timer = setTimeout(()=&gt;{
-            this.setState({
-                focus: false
-            })
-        },0)
+        let {showButton, blurCallback} = this.props
 
         if(blurCallback) blurCallback()
+        
+        this.timer = setTimeout(()=&gt;{
+            this.setState({
+                focus: showButton || false
+            })
+        },0)
+        
     }
 
     onKeyDown(e){
@@ -692,20 +716,27 @@ export default class SearchBar extends Component{
         }
     }
 
+    clearCallback(){
+        this.setState({
+            value: &#x27;&#x27;
+        })
+    }
+
     renderSearchBar(){
         let {className, placeholder, style} = this.props
-
+        
         return(
             &lt;div className={classnames(
                this.getProperty(true),
                className,
                this.state.focus? this.setPhPrefix(&#x27;focus&#x27;):&#x27;&#x27;
            )} style={this.getStyles(style)}&gt;
-               &lt;Input {...this.otherProps} type=&#x27;search&#x27; phIcon=&#x27;search&#x27; placeholder={placeholder} clear 
+               &lt;Input {...this.otherProps} type=&#x27;search&#x27; phIcon=&#x27;search&#x27; value={this.state.value} placeholder={placeholder} clear 
                     ref={(searchElem)=&gt;{this.searchElem=searchElem}}
                     onFocus={this.onFocus.bind(this)}
                     onBlur={this.onBlur.bind(this)}
                     onKeyDown={this.onKeyDown.bind(this)}
+                    clearCallback={this.clearCallback.bind(this)}
                /&gt;
                {this.renderButton()}
            &lt;/div&gt;
