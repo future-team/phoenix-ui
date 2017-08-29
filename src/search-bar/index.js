@@ -133,7 +133,7 @@ export default class SearchBar extends Component{
     renderButton(){
         let {buttonText} = this.props
         
-        return <Button phStyle='link' onClick={this.buttonHandle.bind(this)} ref={(button)=>{this.button=button}}>{buttonText}</Button>
+        return <Button type="button" phStyle='link' onClick={this.buttonHandle.bind(this)} ref={(button)=>{this.button=button}}>{buttonText}</Button>
     }
 
     buttonHandle(){

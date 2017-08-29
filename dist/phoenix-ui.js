@@ -11590,7 +11590,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            _button2['default'],
-	            { phStyle: 'link', onClick: this.buttonHandle.bind(this), ref: function (button) {
+	            { type: 'button', phStyle: 'link', onClick: this.buttonHandle.bind(this), ref: function (button) {
 	                    _this.button = button;
 	                } },
 	            buttonText
