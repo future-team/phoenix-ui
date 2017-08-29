@@ -1,6 +1,6 @@
 {
   "name": "phoenix-ui",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "description": "future team ui for app with react",
   "main": "lib/",
   "scripts": {
@@ -76,8 +76,12 @@
   "dependencies": {
     "extend": "^3.0.0",
     "fastclick": "^1.0.6",
-    "phoenix-styles": "^2.0.4",
+    "phoenix-styles": "^2.0.6",
     "pmlogger": "^1.0.0",
     "react-addons-css-transition-group": "^0.14.2"
+  },
+  "prism": {
+    "id": "65723430",
+    "url": "http://prism.test.sankuai.com/monitor/logstore/log/"
   }
 }

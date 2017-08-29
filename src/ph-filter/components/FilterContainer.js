@@ -252,10 +252,12 @@ export default class FilterContainer extends Component{
 
     noScroll(){
         document.body.classList.add('noscroll')
+        // this.filterShadow.addEventListener('touchmove', this.preventDefault);
     }
 
     willScroll(){
         document.body.classList.remove('noscroll')
+        // this.filterShadow.removeEventListener('touchmove', this.preventDefault);
     }
 
     hidePanel(){
@@ -281,7 +283,7 @@ export default class FilterContainer extends Component{
                     ref={(filterContainer)=>{this.filterContainer = filterContainer}}
                     style={{top: stable && !fixed && activeCat>-1? this.containerOffsetTop+'px':'', ...style}}
                 >
-                    <div className='ph-filter-shadow' onClick={this.hidePanel.bind(this)}></div>
+                    <div className='ph-filter-shadow' onTouchStart={this.hidePanel.bind(this)}></div>
                     <ul className='cat ph-row ph-filter-header'>
                         {this.renderCatList()}
                     </ul>

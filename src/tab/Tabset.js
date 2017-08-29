@@ -23,12 +23,14 @@ import 'phoenix-styles/less/modules/tab.less'
  * - 当设置为vertical后, 可通过width设置tab标题部分的宽度占比。
  * - 可通过clickCallback设置点击选项卡的回调函数。
  * - 可自定义className等常用属性以及事件。
+ * - 可通过nowrap设置tab标题不换行。
  *
  * 具体属性和接口如下：
  * - index:默认选中的标签卡索引值，默认0第一个tab
  * - vertical:是否竖排，如需要直接添加改属性即可，默认不竖排
  * - width:选项卡头部的宽度，取值0-100之间, 只有设置vertical下生效, 默认20
  * - clickCallback:点击选项卡执行的回调函数
+ * - nowrap:tab标题不换行
  *
  * 示例:
  * - 横排
@@ -93,13 +95,21 @@ export default class Tabset extends Component {
          * @type Function
          * @default null
          * */
-        clickCallback: PropTypes.func
+        clickCallback: PropTypes.func,
+        /**
+         * 标题强制不换行
+         * @property nowrap
+         * @type Boolean
+         * @default false
+         * */
+        nowrap: PropTypes.bool
     };
 
     static defaultProps = {
         index: 0,
         vertical: false,
         width: 33,
+        nowrap: false,
         clickCallback: null,
         classPrefix:'tabs',
         classMapping : {}
@@ -156,7 +166,7 @@ export default class Tabset extends Component {
 
     renderTabset(){
         let panels = [],
-            {className} = this.props
+            {className, nowrap} = this.props
 
         let headings = React.Children.map(this.props.children, (options, index)=> {
             let { vertical } = options.props;
@@ -183,7 +193,8 @@ export default class Tabset extends Component {
             <div {...this.otherProps} className={classnames(
                 this.setPhPrefix('tabs',true),
                 this.isVertial(),
-                className
+                className,
+                nowrap? this.setPhPrefix('tabs-nowrap',true):''
             )}>
                 <ul className={classnames(this.getClass(true), this.setPhPrefix('tab-navs',true))}>
                     {headings}

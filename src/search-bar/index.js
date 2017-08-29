@@ -105,60 +105,67 @@ export default class SearchBar extends Component{
     constructor(props,context){
         super(props,context);
 
-        this.state = {
-            focus: props.showButton || false,
-            value: props.value || ''
-        }
+        this.focus = false
+
+        // this.state = {
+        //     value: props.value || ''
+        // }
 
         this.timer = null
+    }
+
+    componentDidMount(){
+        if(this.searchElem.getValueCallback()) this.dealClass(true)
     }
 
     componentWillReceiveProps(nextProps){
         let o = {}
         
-        if(nextProps.value!==undefined && nextProps.value !== this.state.value) o.value = nextProps.value
-        if(nextProps.showButton!==undefined && nextProps.showButton !== this.state.focus){
+        // if(nextProps.value!==undefined && nextProps.value !== this.state.value) o.value = nextProps.value
+        if(nextProps.showButton!==undefined && nextProps.showButton !== this.focus){
             clearTimeout(this.timer)
-            o.focus = nextProps.showButton
+            this.dealClass(nextProps.showButton)
         } 
         
-        this.setState(o)
+        // this.setState(o)
     }
 
     renderButton(){
         let {buttonText} = this.props
         
-        if(this.state.focus){
-            return <Button phStyle='link' onClick={this.buttonHandle.bind(this)}>{buttonText}</Button>
-        }
+        return <Button phStyle='link' onClick={this.buttonHandle.bind(this)} ref={(button)=>{this.button=button}}>{buttonText}</Button>
     }
 
     buttonHandle(){
-        let {clickCallback} = this.props
+        let {showButton, clickCallback} = this.props
+
+        this.focus = showButton || false
+        this.dealClass(this.focus)
+        
         if(clickCallback) clickCallback(this.searchElem.getValueCallback())
     }
 
     onFocus(){
         let {showButton, focusCallback} = this.props
 
-        if(focusCallback) focusCallback()
+        this.focus = showButton==false? false:true
+
+        if(focusCallback) focusCallback(this.searchElem.getValueCallback())
         
-        this.setState({
-            focus: showButton==false? false:true
-        }) 
+        this.dealClass(this.focus)
     }
 
     onBlur(){
         let {showButton, blurCallback} = this.props
 
-        if(blurCallback) blurCallback()
+        this.focus = showButton || !!this.searchElem.getValueCallback()
+
+        if(blurCallback) blurCallback(this.searchElem.getValueCallback())
         
-        this.timer = setTimeout(()=>{
-            this.setState({
-                focus: showButton || false
-            })
-        },0)
-        
+        // this.timer = setTimeout(()=>{
+        //     this.dealClass(this.focus) 
+        // },0)
+        this.dealClass(this.focus)
     }
 
     onKeyDown(e){
@@ -169,30 +176,32 @@ export default class SearchBar extends Component{
         }
     }
 
-    clearCallback(){
-        this.setState({
-            value: ''
-        })
+    dealClass(focus){
+        if(focus){
+            this.searchBar.classList.add(this.setPhPrefix('focus'))
+        }else{
+            this.searchBar.classList.remove(this.setPhPrefix('focus'))
+        }  
     }
 
     renderSearchBar(){
         let {className, placeholder, style} = this.props
         
         return(
-            <div className={classnames(
-               this.getProperty(true),
-               className,
-               this.state.focus? this.setPhPrefix('focus'):''
-           )} style={this.getStyles(style)}>
-               <Input {...this.otherProps} type='search' phIcon='search' value={this.state.value} placeholder={placeholder} clear 
-                    ref={(searchElem)=>{this.searchElem=searchElem}}
-                    onFocus={this.onFocus.bind(this)}
-                    onBlur={this.onBlur.bind(this)}
-                    onKeyDown={this.onKeyDown.bind(this)}
-                    clearCallback={this.clearCallback.bind(this)}
-               />
-               {this.renderButton()}
-           </div>
+            <form action="javascript:;">
+                <div className={classnames(
+                    this.getProperty(true),
+                    className
+                )} style={this.getStyles(style)} ref={(searchBar)=>{this.searchBar = searchBar}}>
+                    <Input {...this.otherProps} type='search' phIcon='search' placeholder={placeholder} clear 
+                            ref={(searchElem)=>{this.searchElem=searchElem}}
+                            onFocus={this.onFocus.bind(this)}
+                            onBlur={this.onBlur.bind(this)}
+                            onKeyDown={this.onKeyDown.bind(this)}
+                    />
+                    {this.renderButton()}
+                </div>
+           </form>
         )
     }
 

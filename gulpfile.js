@@ -11,7 +11,7 @@ var gulp = require('gulp'),
     WebpackDevServer = require("webpack-dev-server"),
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
     projectName = require("./package.json").name,
-    devPort = 3005;
+    devPort = 3008;
 
 gulp.task('babel', function () {
     return gulp.src('src/**/*.js')

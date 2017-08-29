@@ -551,38 +551,38 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _ClassNameMixin = __webpack_require__(29);
-
-	var _ClassNameMixin2 = _interopRequireDefault(_ClassNameMixin);
-
-	var _PropertyMixin = __webpack_require__(31);
-
-	var _PropertyMixin2 = _interopRequireDefault(_PropertyMixin);
-
-	var _MethodMixin = __webpack_require__(33);
-
-	var _MethodMixin2 = _interopRequireDefault(_MethodMixin);
-
-	var _extend = __webpack_require__(34);
+	var _extend = __webpack_require__(29);
 
 	var _extend2 = _interopRequireDefault(_extend);
 
-	var _constants = __webpack_require__(30);
-
-	//import 'babel-polyfill';
-
-	var _fastclick = __webpack_require__(35);
+	var _fastclick = __webpack_require__(30);
 
 	var _fastclick2 = _interopRequireDefault(_fastclick);
 
-	// import {ModuleLogger} from 'pmlogger'
-	// import packageJSON from '../../package.json'
+	var _ClassNameMixin = __webpack_require__(31);
+
+	var _ClassNameMixin2 = _interopRequireDefault(_ClassNameMixin);
+
+	var _PropertyMixin = __webpack_require__(33);
+
+	var _PropertyMixin2 = _interopRequireDefault(_PropertyMixin);
+
+	var _MethodMixin = __webpack_require__(35);
+
+	var _MethodMixin2 = _interopRequireDefault(_MethodMixin);
+
+	var _constants = __webpack_require__(32);
+
+	// import logger from './logger'
+
+	// logger.info({
+	//     msg: 'phoenix-ui',
+	//     type: logger.type
+	// });
 
 	document.addEventListener('DOMContentLoaded', function () {
 	    _fastclick2['default'].attach(document.body);
 	}, false);
-
-	// new ModuleLogger('phoenix-ui')
 
 	var BaseComponent = (function (_Component) {
 	    _inherits(BaseComponent, _Component);
@@ -878,608 +878,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ }),
 /* 29 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/**
-	 * Created by mac on 15/9/7.
-	 */
-	'use strict';
-
-	exports.__esModule = true;
-
-	var _constantsJs = __webpack_require__(30);
-
-	var consts = _constantsJs.classConstants;
-
-	var PREFIX = 'ph-';
-
-	exports['default'] = function (obj) {
-	    /*
-	     * 给className添加前缀后返回className
-	     * @method getClassName
-	     * @param name {String} 从该字符串中去查找
-	     * @param pre {Boolean} 是否添加Component中定义的class前缀，默认添加
-	     * @return {String}
-	     * */
-	    obj.prototype.getClassName = function (name) {
-	        var pre = arguments.length <= 1 || arguments[1] === undefined ? true : arguments[1];
-	        var constPre = arguments.length <= 2 || arguments[2] === undefined ? true : arguments[2];
-
-	        name = name ? name : '';
-	        name = (name + '').split(' ');
-	        var list = [],
-	            _this = this;
-	        name.forEach(function (item) {
-	            if (item) {
-	                if (constPre) list.push(PREFIX + _this.setPrefix(item, pre));else list.push(_this.setPrefix(item, pre));
-	            }
-	        });
-
-	        return list.join(' ');
-	    };
-	    /*
-	     * 验证props中的样式是否符合规则
-	     * @method getClassNames
-	     * @param props {Object} 从该对象中去查找
-	     * @param pre {Boolean} 是否添加Component中定义的class前缀，默认添加
-	     * @return {String}
-	     * */
-	    obj.prototype.getClassNames = function (props) {
-	        var pre = arguments.length <= 1 || arguments[1] === undefined ? true : arguments[1];
-
-	        var clazz = {};
-	        for (var item in props) {
-	            if (props[item] && item === consts[item]) {
-	                clazz[this.getClassName(item, pre)] = true;
-	            }
-	        }
-	        return clazz;
-	    };
-	    /*
-	     * 给多个className添加前缀后返回
-	     * @method getClassNamesForArguments
-	     * @param arguments {Arguments String} 多个class参数
-	     * @return {String}
-	     * */
-	    obj.prototype.getClassNamesForArguments = function () {
-	        var arg = arguments;
-	        var arr = [];
-	        var _this = this;
-
-	        if (arg && arg.length > 0) {
-	            for (var i = 0, len = arg.length; i < len; i++) {
-	                if (arg[i]) {
-	                    arr.push(_this.getClassName(arg[i]));
-	                }
-	            }
-	        }
-
-	        return arr.join(' ');
-	    };
-	    /*
-	     * 设置css类名前缀
-	     * @method setPrefix
-	     * @param name{String} class名字
-	     * @param pre{Boolean} 是否添加前缀
-	     * @return {String}
-	     * */
-	    obj.prototype.setPrefix = function (name) {
-	        var pre = arguments.length <= 1 || arguments[1] === undefined ? true : arguments[1];
-
-	        var classArray = consts.classNameNamespace ? [consts.classNameNamespace] : [];
-
-	        if (pre && this.props.classPrefix) {
-	            classArray.push(this.props.classPrefix);
-	        }
-	        if (name && name != this.props.classPrefix) {
-	            classArray.push(name);
-	        }
-
-	        return classArray.join(classArray.length > 1 ? '-' : '');
-	    };
-
-	    /*
-	     * 检查元素是否存在样式名
-	     * @method hasClass
-	     * @param obj {Object} 元素
-	     * @param cls {String} 需要检查的样式名
-	     * @return {Boolean}
-	     * */
-	    obj.prototype.hasClass = function (obj, cls) {
-	        return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
-	    };
-
-	    /*
-	     * 给元素增加一个样式名
-	     * @method addClass
-	     * @param obj {Object} 元素
-	     * @param cls {String} 样式名
-	     * */
-	    obj.prototype.addClass = function (obj, cls) {
-	        if (!this.hasClass(obj, cls)) obj.className += " " + cls;
-	    };
-	    /*
-	     * 给元素删除一个样式名
-	     * @method removeClass
-	     * @param obj {Object} 元素
-	     * @param cls {String} 样式名
-	     * */
-	    obj.prototype.removeClass = function (obj, cls) {
-	        if (this.hasClass(obj, cls)) {
-	            var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
-	            obj.className = obj.className.replace(reg, ' ');
-	        }
-	    };
-	};
-
-	module.exports = exports['default'];
-
-/***/ }),
-/* 30 */
-/***/ (function(module, exports) {
-
-	/**
-	 * Created by mac on 15/9/7.
-	 */
-	//classname前缀
-
-	'use strict';
-
-	exports.__esModule = true;
-	function setNamespace(className) {
-	    return '' + className;
-	}
-	var CLASS_NAME_NAMESPACE = '';
-	var classConstants = {
-	    /**
-	     * 状态
-	     * */
-	    //标签新增命名空间
-	    //标签启用
-	    positive: setNamespace('positive'),
-	    //标签灰色
-	    negative: setNamespace('negative'),
-	    //标签灰白
-	    modest: setNamespace('modest'),
-	    //提示框暖色(黄色)
-	    warm: setNamespace('warm'),
-	    //标签灰色
-	    //标签无背景色
-	    neutral: setNamespace('neutral'),
-
-	    //theme
-	    // 白色
-	    light: setNamespace('light'),
-	    // 橘红色
-	    assertive: setNamespace('assertive'),
-	    //绿色
-	    balanced: setNamespace('balanced'),
-	    //按钮是否需要添加边框
-	    outline: setNamespace('outline'),
-	    //按钮是否处于待唤醒状态
-	    awaiting: setNamespace('awaiting'),
-	    //禁用
-	    disabled: setNamespace('disabled'),
-	    //启用
-	    enable: setNamespace('enable'),
-	    block: setNamespace('block'),
-	    //垂直
-	    tacked: setNamespace('tacked'),
-	    //宽度自适应
-	    justify: setNamespace('justify'),
-	    //选中
-	    active: setNamespace('active'),
-	    //行内样式
-	    inline: setNamespace('inline'),
-	    //大小
-	    size: setNamespace('size'),
-	    //圆形样式
-	    radius: setNamespace('radius'),
-	    //隨圆
-	    round: setNamespace('round'),
-	    //向上箭头
-	    'arrow-up': setNamespace('arrow-up'),
-	    //向下箭头
-	    'arrow-down': setNamespace('arrow-down'),
-	    /**
-	     * 颜色
-	     * */
-	    //成功样式
-	    success: setNamespace('success'),
-	    //错误红色
-	    error: setNamespace('error'),
-	    //警告warning
-	    warning: setNamespace('warning'),
-	    //危险danger
-	    danger: setNamespace('danger'),
-	    //展示
-	    show: setNamespace('show'),
-	    white: setNamespace('white'),
-	    /**
-	     * form列表相关
-	     * */
-	    //必填
-	    require: setNamespace('require'),
-	    //跳转链接
-	    jump: setNamespace('link'),
-	    //最后一个item是否浮动
-	    right: setNamespace('lastItem'),
-	    classNameNamespace: CLASS_NAME_NAMESPACE,
-	    /**
-	     * tab
-	     * */
-	    vertical: setNamespace('vertical')
-	};
-
-	exports.classConstants = classConstants;
-	// 自定义属性集合
-	var propsConstants = {
-	    classPrefix: 'classPrefix',
-	    componentTag: 'componentTag',
-	    classMapping: 'classMapping',
-
-	    phIcon: 'phIcon',
-	    phReg: 'phReg',
-	    phLabel: 'phLabel',
-
-	    index: 'index',
-	    activeIndex: 'activeIndex',
-	    vertical: 'vertical',
-	    visible: 'visible',
-	    error: 'error',
-	    clear: 'clear',
-	    closeButton: 'closeButton',
-	    shadowDisabled: 'shadowDisabled',
-	    count: 'count',
-	    navigate: 'navigate',
-	    clickable: 'clickable',
-	    getTarget: 'getTarget',
-	    distance: 'distance',
-	    changeActive: 'changeActive',
-	    hideIcon: 'hideIcon',
-	    changeVisible: 'changeVisible',
-	    progress: 'progress',
-	    range: 'range',
-	    showRange: 'showRange',
-	    duration: 'duration',
-	    tipMode: 'tipMode',
-	    tipStay: 'tipStay',
-	    buttons: 'buttons',
-	    tips: 'tips',
-	    status: 'status',
-	    column: 'column',
-	    defaultSrc: 'defaultSrc',
-	    lazy: 'lazy',
-	    buttonText: 'buttonText',
-	    showButton: 'showButton',
-
-	    // fn
-	    closeCallback: 'closeCallback',
-	    clickCallback: 'clickCallback',
-	    focusCallback: 'focusCallback',
-	    blurCallback: 'blurCallback',
-	    slideCallback: 'slideCallback',
-	    dragCallback: 'dragCallback',
-	    dropCallback: 'dropCallback',
-	    loadCallback: 'loadCallback',
-	    queryCallback: 'queryCallback',
-
-	    // menu
-	    ceiling: 'ceiling',
-	    headerHeight: 'headerHeight',
-	    activeName: 'activeName'
-	};
-	exports.propsConstants = propsConstants;
-
-/***/ }),
-/* 31 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/**
-	 * Created by mac on 16/1/3.
-	 */
-	'use strict';
-
-	exports.__esModule = true;
-
-	var _Tool = __webpack_require__(32);
-
-	exports['default'] = function (obj) {
-
-	    var getVal = function getVal(vals, val) {
-	        var result = (vals.join(',') + ',').match(val.toLowerCase() + ',') != null ? val : '';
-	        if (!result) {
-	            _Tool.warning('属性的取值 %s 不在设定集合 %s 里', val, vals.join(','));
-	        }
-	        return result;
-	    };
-
-	    var properties = {
-	        /*以下属性都是数组里固定值*/
-	        //类型
-	        phType: function phType(val) {
-	            return getVal(['default', 'tacked', 'justify', 'segmente', 'footer'], val);
-	        },
-	        phSize: function phSize(val) {
-	            return getVal(['default', 'xlg', 'lg', 'md', 'sm', 'xs', 'cover', 'contain'], val);
-	        },
-	        phStyle: function phStyle(val) {
-	            return getVal(['default', 'primary', 'info', 'success', 'error', 'warning', 'danger', 'link', 'gray', 'light', 'positive', 'calm', 'balanced', 'energized', 'assertive', 'lightbrown', 'lightgray', 'tip'], val);
-	        },
-	        phStatus: function phStatus(val) {
-	            getVal(['diabled', 'active', 'enable'], val);
-	        },
-	        align: function align(val) {
-	            return getVal(['center', 'left', 'middle', 'auto', 'top', 'right', 'bottom', 'stretch', 'baseline', 'start', 'end'], val);
-	        },
-	        placement: function placement(val) {
-	            return getVal(['top', 'bottom', 'right', 'left', 'left-full', 'right-full', 'full-screen'], val);
-	        },
-	        /*以下属性没有取值，需要的时候添加对应的属性即可*/
-	        disabled: true,
-	        active: true,
-	        radius: true,
-	        round: true,
-	        clearfix: true,
-	        phHref: true,
-	        show: true,
-	        hide: true,
-	        block: true,
-	        hollow: true,
-	        heading: true,
-	        tail: true,
-	        required: true,
-	        stable: true,
-	        // error: true,
-	        // clear:true,
-	        // visible:true,
-
-	        /*以下属性相当于css属性的快速赋值，比如设置zIndex="2",则会被merge进style里，如果只有属性zIndex没有设置取值，则会被放入props列表中*/
-	        zIndex: function zIndex(val) {
-	            if (typeof val == 'string') {
-	                return {
-	                    zIndex: val
-	                };
-	            }
-	            return 'zindex';
-	        },
-	        border: function border(val) {
-	            if (typeof val == 'string') {
-	                return {
-	                    border: val
-	                };
-	            }
-	            return 'border';
-	        },
-	        padding: function padding(val) {
-	            if (typeof val == 'string') {
-	                return {
-	                    padding: val
-	                };
-	            }
-	            return 'padding';
-	        },
-	        margin: function margin(val) {
-	            if (typeof val == 'string') {
-	                return {
-	                    margin: val
-	                };
-	            }
-	            return 'margin';
-	        },
-	        radiusSize: function radiusSize(val) {
-	            return {
-	                WebkitBorderRadius: val,
-	                borderRadius: val
-	            };
-	        },
-	        width: (function (val) {
-	            return '' + val;
-	        }).bind(obj),
-	        offset: (function (val) {
-	            return 'offset-' + val;
-	        }).bind(obj),
-	        /*以下属性会被直接挂载在component上，可以不用通过component.props获取*/
-	        classPrefix: function classPrefix(val) {
-	            return {
-	                type: 'property',
-	                value: val
-	            };
-	        },
-	        componentTag: function componentTag(val) {
-	            return {
-	                type: 'property',
-	                value: val
-	            };
-	        },
-	        params: function params(val) {
-	            return {
-	                type: 'property',
-	                value: val
-	            };
-	        }
-	    };
-
-	    obj.prototype.properties = properties;
-	};
-
-	module.exports = exports['default'];
-
-/***/ }),
-/* 32 */
-/***/ (function(module, exports) {
-
-	/**
-	 * Created by mac on 16/11/28.
-	 */
-
-	'use strict';
-
-	exports.__esModule = true;
-	var _arguments = arguments;
-	var Tool = {
-	    closest: function closest(el, selector) {
-	        var matchesFn;
-
-	        // find vendor prefix
-	        ['matches', 'webkitMatchesSelector', 'mozMatchesSelector', 'msMatchesSelector', 'oMatchesSelector'].some(function (fn) {
-	            if (typeof document.body[fn] == 'function') {
-	                matchesFn = fn;
-	                return true;
-	            }
-	            return false;
-	        });
-
-	        var parent;
-
-	        // traverse parents
-	        while (el) {
-	            if (el[matchesFn](selector)) return el;
-
-	            parent = el.parentElement;
-	            if (parent && parent[matchesFn](selector)) return parent;
-
-	            el = parent;
-	        }
-
-	        return null;
-	    },
-
-	    contains: function contains(root, el) {
-	        if (root.compareDocumentPosition) return root === el || !!(root.compareDocumentPosition(el) & 16);
-	        if (root.contains && el.nodeType === 1) {
-	            return root.contains(el) && root !== el;
-	        }
-
-	        while (el = el.parentNode) if (el === root) return true;
-	        return false;
-	    },
-
-	    setPhPrefix: function setPhPrefix(val) {
-	        return 'ph-' + val;
-	    },
-
-	    getDeviceInfo: function getDeviceInfo(type) {
-	        var u = navigator.userAgent;
-	        var typeList = {
-	            trident: u.indexOf('Trident') > -1, //IE内核 
-	            presto: u.indexOf('Presto') > -1, //opera内核 
-	            webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核 
-	            gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核 
-	            mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端 
-	            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端 
-	            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器 
-	            iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器 
-	            iPad: u.indexOf('iPad') > -1, //是否iPad   
-	            webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
-	        };
-
-	        return typeList[type];
-	    },
-
-	    transToArray: function transToArray(val) {
-	        switch (typeof val) {
-	            case 'string':
-	                var arr = [];
-	                arr = val.split(',');
-	                return arr;
-	            case 'number':
-	                return val.toString();
-	            default:
-	                return val;
-	        }
-	    },
-
-	    warning: function warning(format) {
-	        for (var _len = _arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-	            args[_key - 1] = _arguments[_key];
-	        }
-
-	        if (format === undefined) {
-	            throw new Error('`warning(format, ...args)` requires a warning ' + 'message argument');
-	        }
-	        var argIndex = 0;
-	        var message = 'Warning: ' + format.replace(/%s/g, function () {
-	            return args[argIndex++];
-	        });
-	        if (typeof console !== 'undefined') {
-	            console.warn(message);
-	        }
-	        try {
-	            // --- Welcome to debugging React ---
-	            // This error was thrown as a convenience so that you can use this stack
-	            // to find the callsite that caused this warning to fire.
-	            throw new Error(message);
-	        } catch (x) {}
-	    },
-
-	    getClientHeight: function getClientHeight() {
-	        return document.compatMode == "BackCompat" ? document.body.clientHeight : document.documentElement.clientHeight;
-	    },
-
-	    getScrollTop: function getScrollTop() {
-	        return document.documentElement.scrollTop || document.body.scrollTop;
-	    },
-
-	    getDocumentHeight: function getDocumentHeight() {
-	        return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
-	    },
-
-	    preventDefault: function preventDefault(event) {
-	        // 判断默认行为是否可以被禁用
-	        if (event.cancelable) {
-	            // 判断默认行为是否已经被禁用
-	            if (!event.defaultPrevented) {
-	                event.preventDefault();
-	            }
-	        }
-	    }
-	};
-
-	exports['default'] = Tool;
-	module.exports = exports['default'];
-
-/***/ }),
-/* 33 */
-/***/ (function(module, exports) {
-
-	/**
-	 * Created by mac on 16/1/3.
-	 */
-	"use strict";
-
-	exports.__esModule = true;
-
-	exports["default"] = function (obj) {
-	    var methods = {
-	        initCallback: true,
-	        loadedCallback: true,
-	        closeCallback: true,
-	        successCallback: true,
-	        cancelCallback: true,
-	        checkedCallback: true,
-	        activeCallback: true,
-	        getValueCallback: true,
-
-	        updateCallback: true,
-	        deleteCallback: true,
-	        queryCallback: true,
-	        addCallback: true,
-	        insertCallback: true,
-	        ajaxCallback: true,
-
-	        defaultCallback: true
-
-	        //method
-	    };
-
-	    obj.prototype.methods = methods;
-	};
-
-	module.exports = exports["default"];
-
-/***/ }),
-/* 34 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -1571,7 +969,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 35 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;;(function () {
@@ -2418,6 +1816,608 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/**
+	 * Created by mac on 15/9/7.
+	 */
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _constantsJs = __webpack_require__(32);
+
+	var consts = _constantsJs.classConstants;
+
+	var PREFIX = 'ph-';
+
+	exports['default'] = function (obj) {
+	    /*
+	     * 给className添加前缀后返回className
+	     * @method getClassName
+	     * @param name {String} 从该字符串中去查找
+	     * @param pre {Boolean} 是否添加Component中定义的class前缀，默认添加
+	     * @return {String}
+	     * */
+	    obj.prototype.getClassName = function (name) {
+	        var pre = arguments.length <= 1 || arguments[1] === undefined ? true : arguments[1];
+	        var constPre = arguments.length <= 2 || arguments[2] === undefined ? true : arguments[2];
+
+	        name = name ? name : '';
+	        name = (name + '').split(' ');
+	        var list = [],
+	            _this = this;
+	        name.forEach(function (item) {
+	            if (item) {
+	                if (constPre) list.push(PREFIX + _this.setPrefix(item, pre));else list.push(_this.setPrefix(item, pre));
+	            }
+	        });
+
+	        return list.join(' ');
+	    };
+	    /*
+	     * 验证props中的样式是否符合规则
+	     * @method getClassNames
+	     * @param props {Object} 从该对象中去查找
+	     * @param pre {Boolean} 是否添加Component中定义的class前缀，默认添加
+	     * @return {String}
+	     * */
+	    obj.prototype.getClassNames = function (props) {
+	        var pre = arguments.length <= 1 || arguments[1] === undefined ? true : arguments[1];
+
+	        var clazz = {};
+	        for (var item in props) {
+	            if (props[item] && item === consts[item]) {
+	                clazz[this.getClassName(item, pre)] = true;
+	            }
+	        }
+	        return clazz;
+	    };
+	    /*
+	     * 给多个className添加前缀后返回
+	     * @method getClassNamesForArguments
+	     * @param arguments {Arguments String} 多个class参数
+	     * @return {String}
+	     * */
+	    obj.prototype.getClassNamesForArguments = function () {
+	        var arg = arguments;
+	        var arr = [];
+	        var _this = this;
+
+	        if (arg && arg.length > 0) {
+	            for (var i = 0, len = arg.length; i < len; i++) {
+	                if (arg[i]) {
+	                    arr.push(_this.getClassName(arg[i]));
+	                }
+	            }
+	        }
+
+	        return arr.join(' ');
+	    };
+	    /*
+	     * 设置css类名前缀
+	     * @method setPrefix
+	     * @param name{String} class名字
+	     * @param pre{Boolean} 是否添加前缀
+	     * @return {String}
+	     * */
+	    obj.prototype.setPrefix = function (name) {
+	        var pre = arguments.length <= 1 || arguments[1] === undefined ? true : arguments[1];
+
+	        var classArray = consts.classNameNamespace ? [consts.classNameNamespace] : [];
+
+	        if (pre && this.props.classPrefix) {
+	            classArray.push(this.props.classPrefix);
+	        }
+	        if (name && name != this.props.classPrefix) {
+	            classArray.push(name);
+	        }
+
+	        return classArray.join(classArray.length > 1 ? '-' : '');
+	    };
+
+	    /*
+	     * 检查元素是否存在样式名
+	     * @method hasClass
+	     * @param obj {Object} 元素
+	     * @param cls {String} 需要检查的样式名
+	     * @return {Boolean}
+	     * */
+	    obj.prototype.hasClass = function (obj, cls) {
+	        return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+	    };
+
+	    /*
+	     * 给元素增加一个样式名
+	     * @method addClass
+	     * @param obj {Object} 元素
+	     * @param cls {String} 样式名
+	     * */
+	    obj.prototype.addClass = function (obj, cls) {
+	        if (!this.hasClass(obj, cls)) obj.className += " " + cls;
+	    };
+	    /*
+	     * 给元素删除一个样式名
+	     * @method removeClass
+	     * @param obj {Object} 元素
+	     * @param cls {String} 样式名
+	     * */
+	    obj.prototype.removeClass = function (obj, cls) {
+	        if (this.hasClass(obj, cls)) {
+	            var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+	            obj.className = obj.className.replace(reg, ' ');
+	        }
+	    };
+	};
+
+	module.exports = exports['default'];
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports) {
+
+	/**
+	 * Created by mac on 15/9/7.
+	 */
+	//classname前缀
+
+	'use strict';
+
+	exports.__esModule = true;
+	function setNamespace(className) {
+	    return '' + className;
+	}
+	var CLASS_NAME_NAMESPACE = '';
+	var classConstants = {
+	    /**
+	     * 状态
+	     * */
+	    //标签新增命名空间
+	    //标签启用
+	    positive: setNamespace('positive'),
+	    //标签灰色
+	    negative: setNamespace('negative'),
+	    //标签灰白
+	    modest: setNamespace('modest'),
+	    //提示框暖色(黄色)
+	    warm: setNamespace('warm'),
+	    //标签灰色
+	    //标签无背景色
+	    neutral: setNamespace('neutral'),
+
+	    //theme
+	    // 白色
+	    light: setNamespace('light'),
+	    // 橘红色
+	    assertive: setNamespace('assertive'),
+	    //绿色
+	    balanced: setNamespace('balanced'),
+	    //按钮是否需要添加边框
+	    outline: setNamespace('outline'),
+	    //按钮是否处于待唤醒状态
+	    awaiting: setNamespace('awaiting'),
+	    //禁用
+	    disabled: setNamespace('disabled'),
+	    //启用
+	    enable: setNamespace('enable'),
+	    block: setNamespace('block'),
+	    //垂直
+	    tacked: setNamespace('tacked'),
+	    //宽度自适应
+	    justify: setNamespace('justify'),
+	    //选中
+	    active: setNamespace('active'),
+	    //行内样式
+	    inline: setNamespace('inline'),
+	    //大小
+	    size: setNamespace('size'),
+	    //圆形样式
+	    radius: setNamespace('radius'),
+	    //隨圆
+	    round: setNamespace('round'),
+	    //向上箭头
+	    'arrow-up': setNamespace('arrow-up'),
+	    //向下箭头
+	    'arrow-down': setNamespace('arrow-down'),
+	    /**
+	     * 颜色
+	     * */
+	    //成功样式
+	    success: setNamespace('success'),
+	    //错误红色
+	    error: setNamespace('error'),
+	    //警告warning
+	    warning: setNamespace('warning'),
+	    //危险danger
+	    danger: setNamespace('danger'),
+	    //展示
+	    show: setNamespace('show'),
+	    white: setNamespace('white'),
+	    /**
+	     * form列表相关
+	     * */
+	    //必填
+	    require: setNamespace('require'),
+	    //跳转链接
+	    jump: setNamespace('link'),
+	    //最后一个item是否浮动
+	    right: setNamespace('lastItem'),
+	    classNameNamespace: CLASS_NAME_NAMESPACE,
+	    /**
+	     * tab
+	     * */
+	    vertical: setNamespace('vertical')
+	};
+
+	exports.classConstants = classConstants;
+	// 自定义属性集合
+	var propsConstants = {
+	    classPrefix: 'classPrefix',
+	    componentTag: 'componentTag',
+	    classMapping: 'classMapping',
+
+	    phIcon: 'phIcon',
+	    phReg: 'phReg',
+	    phLabel: 'phLabel',
+
+	    index: 'index',
+	    activeIndex: 'activeIndex',
+	    vertical: 'vertical',
+	    visible: 'visible',
+	    error: 'error',
+	    clear: 'clear',
+	    closeButton: 'closeButton',
+	    shadowDisabled: 'shadowDisabled',
+	    count: 'count',
+	    navigate: 'navigate',
+	    clickable: 'clickable',
+	    getTarget: 'getTarget',
+	    distance: 'distance',
+	    changeActive: 'changeActive',
+	    hideIcon: 'hideIcon',
+	    changeVisible: 'changeVisible',
+	    progress: 'progress',
+	    range: 'range',
+	    showRange: 'showRange',
+	    duration: 'duration',
+	    tipMode: 'tipMode',
+	    tipStay: 'tipStay',
+	    buttons: 'buttons',
+	    tips: 'tips',
+	    status: 'status',
+	    column: 'column',
+	    defaultSrc: 'defaultSrc',
+	    lazy: 'lazy',
+	    buttonText: 'buttonText',
+	    showButton: 'showButton',
+
+	    // fn
+	    closeCallback: 'closeCallback',
+	    clickCallback: 'clickCallback',
+	    focusCallback: 'focusCallback',
+	    blurCallback: 'blurCallback',
+	    slideCallback: 'slideCallback',
+	    dragCallback: 'dragCallback',
+	    dropCallback: 'dropCallback',
+	    loadCallback: 'loadCallback',
+	    queryCallback: 'queryCallback',
+
+	    // menu
+	    ceiling: 'ceiling',
+	    headerHeight: 'headerHeight',
+	    activeName: 'activeName'
+	};
+	exports.propsConstants = propsConstants;
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/**
+	 * Created by mac on 16/1/3.
+	 */
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _Tool = __webpack_require__(34);
+
+	exports['default'] = function (obj) {
+
+	    var getVal = function getVal(vals, val) {
+	        var result = (vals.join(',') + ',').match(val.toLowerCase() + ',') != null ? val : '';
+	        if (!result) {
+	            _Tool.warning('属性的取值 %s 不在设定集合 %s 里', val, vals.join(','));
+	        }
+	        return result;
+	    };
+
+	    var properties = {
+	        /*以下属性都是数组里固定值*/
+	        //类型
+	        phType: function phType(val) {
+	            return getVal(['default', 'tacked', 'justify', 'segmente', 'footer'], val);
+	        },
+	        phSize: function phSize(val) {
+	            return getVal(['default', 'xlg', 'lg', 'md', 'sm', 'xs', 'cover', 'contain'], val);
+	        },
+	        phStyle: function phStyle(val) {
+	            return getVal(['default', 'primary', 'info', 'success', 'error', 'warning', 'danger', 'link', 'gray', 'light', 'positive', 'calm', 'balanced', 'energized', 'assertive', 'lightbrown', 'lightgray', 'tip'], val);
+	        },
+	        phStatus: function phStatus(val) {
+	            getVal(['diabled', 'active', 'enable'], val);
+	        },
+	        align: function align(val) {
+	            return getVal(['center', 'left', 'middle', 'auto', 'top', 'right', 'bottom', 'stretch', 'baseline', 'start', 'end'], val);
+	        },
+	        placement: function placement(val) {
+	            return getVal(['top', 'bottom', 'right', 'left', 'left-full', 'right-full', 'full-screen'], val);
+	        },
+	        /*以下属性没有取值，需要的时候添加对应的属性即可*/
+	        disabled: true,
+	        active: true,
+	        radius: true,
+	        round: true,
+	        clearfix: true,
+	        phHref: true,
+	        show: true,
+	        hide: true,
+	        block: true,
+	        hollow: true,
+	        heading: true,
+	        tail: true,
+	        required: true,
+	        stable: true,
+	        // error: true,
+	        // clear:true,
+	        // visible:true,
+
+	        /*以下属性相当于css属性的快速赋值，比如设置zIndex="2",则会被merge进style里，如果只有属性zIndex没有设置取值，则会被放入props列表中*/
+	        zIndex: function zIndex(val) {
+	            if (typeof val == 'string') {
+	                return {
+	                    zIndex: val
+	                };
+	            }
+	            return 'zindex';
+	        },
+	        border: function border(val) {
+	            if (typeof val == 'string') {
+	                return {
+	                    border: val
+	                };
+	            }
+	            return 'border';
+	        },
+	        padding: function padding(val) {
+	            if (typeof val == 'string') {
+	                return {
+	                    padding: val
+	                };
+	            }
+	            return 'padding';
+	        },
+	        margin: function margin(val) {
+	            if (typeof val == 'string') {
+	                return {
+	                    margin: val
+	                };
+	            }
+	            return 'margin';
+	        },
+	        radiusSize: function radiusSize(val) {
+	            return {
+	                WebkitBorderRadius: val,
+	                borderRadius: val
+	            };
+	        },
+	        width: (function (val) {
+	            return '' + val;
+	        }).bind(obj),
+	        offset: (function (val) {
+	            return 'offset-' + val;
+	        }).bind(obj),
+	        /*以下属性会被直接挂载在component上，可以不用通过component.props获取*/
+	        classPrefix: function classPrefix(val) {
+	            return {
+	                type: 'property',
+	                value: val
+	            };
+	        },
+	        componentTag: function componentTag(val) {
+	            return {
+	                type: 'property',
+	                value: val
+	            };
+	        },
+	        params: function params(val) {
+	            return {
+	                type: 'property',
+	                value: val
+	            };
+	        }
+	    };
+
+	    obj.prototype.properties = properties;
+	};
+
+	module.exports = exports['default'];
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports) {
+
+	/**
+	 * Created by mac on 16/11/28.
+	 */
+
+	'use strict';
+
+	exports.__esModule = true;
+	var _arguments = arguments;
+	var Tool = {
+	    closest: function closest(el, selector) {
+	        var matchesFn;
+
+	        // find vendor prefix
+	        ['matches', 'webkitMatchesSelector', 'mozMatchesSelector', 'msMatchesSelector', 'oMatchesSelector'].some(function (fn) {
+	            if (typeof document.body[fn] == 'function') {
+	                matchesFn = fn;
+	                return true;
+	            }
+	            return false;
+	        });
+
+	        var parent;
+
+	        // traverse parents
+	        while (el) {
+	            if (el[matchesFn](selector)) return el;
+
+	            parent = el.parentElement;
+	            if (parent && parent[matchesFn](selector)) return parent;
+
+	            el = parent;
+	        }
+
+	        return null;
+	    },
+
+	    contains: function contains(root, el) {
+	        if (root.compareDocumentPosition) return root === el || !!(root.compareDocumentPosition(el) & 16);
+	        if (root.contains && el.nodeType === 1) {
+	            return root.contains(el) && root !== el;
+	        }
+
+	        while (el = el.parentNode) if (el === root) return true;
+	        return false;
+	    },
+
+	    setPhPrefix: function setPhPrefix(val) {
+	        return 'ph-' + val;
+	    },
+
+	    getDeviceInfo: function getDeviceInfo(type) {
+	        var u = navigator.userAgent;
+	        var typeList = {
+	            trident: u.indexOf('Trident') > -1, //IE内核 
+	            presto: u.indexOf('Presto') > -1, //opera内核 
+	            webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核 
+	            gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核 
+	            mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端 
+	            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端 
+	            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器 
+	            iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器 
+	            iPad: u.indexOf('iPad') > -1, //是否iPad   
+	            webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+	        };
+
+	        return typeList[type];
+	    },
+
+	    transToArray: function transToArray(val) {
+	        switch (typeof val) {
+	            case 'string':
+	                var arr = [];
+	                arr = val.split(',');
+	                return arr;
+	            case 'number':
+	                return val.toString();
+	            default:
+	                return val;
+	        }
+	    },
+
+	    warning: function warning(format) {
+	        for (var _len = _arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	            args[_key - 1] = _arguments[_key];
+	        }
+
+	        if (format === undefined) {
+	            throw new Error('`warning(format, ...args)` requires a warning ' + 'message argument');
+	        }
+	        var argIndex = 0;
+	        var message = 'Warning: ' + format.replace(/%s/g, function () {
+	            return args[argIndex++];
+	        });
+	        if (typeof console !== 'undefined') {
+	            console.warn(message);
+	        }
+	        try {
+	            // --- Welcome to debugging React ---
+	            // This error was thrown as a convenience so that you can use this stack
+	            // to find the callsite that caused this warning to fire.
+	            throw new Error(message);
+	        } catch (x) {}
+	    },
+
+	    getClientHeight: function getClientHeight() {
+	        return document.compatMode == "BackCompat" ? document.body.clientHeight : document.documentElement.clientHeight;
+	    },
+
+	    getScrollTop: function getScrollTop() {
+	        return document.documentElement.scrollTop || document.body.scrollTop;
+	    },
+
+	    getDocumentHeight: function getDocumentHeight() {
+	        return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+	    },
+
+	    preventDefault: function preventDefault(event) {
+	        // 判断默认行为是否可以被禁用
+	        if (event.cancelable) {
+	            // 判断默认行为是否已经被禁用
+	            if (!event.defaultPrevented) {
+	                event.preventDefault();
+	            }
+	        }
+	    }
+	};
+
+	exports['default'] = Tool;
+	module.exports = exports['default'];
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports) {
+
+	/**
+	 * Created by mac on 16/1/3.
+	 */
+	"use strict";
+
+	exports.__esModule = true;
+
+	exports["default"] = function (obj) {
+	    var methods = {
+	        initCallback: true,
+	        loadedCallback: true,
+	        closeCallback: true,
+	        successCallback: true,
+	        cancelCallback: true,
+	        checkedCallback: true,
+	        activeCallback: true,
+	        getValueCallback: true,
+
+	        updateCallback: true,
+	        deleteCallback: true,
+	        queryCallback: true,
+	        addCallback: true,
+	        insertCallback: true,
+	        ajaxCallback: true,
+
+	        defaultCallback: true
+
+	        //method
+	    };
+
+	    obj.prototype.methods = methods;
+	};
+
+	module.exports = exports["default"];
+
+/***/ }),
 /* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2938,7 +2938,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.tl {\n  text-align: left;\n}\n.tr {\n  text-align: right;\n}\n.tc {\n  text-align: center;\n}\n.tj {\n  text-align: justify;\n}\n.tn {\n  white-space: nowrap;\n}\n.text-lowercase {\n  text-transform: lowercase;\n}\n.text-uppercase {\n  text-transform: uppercase;\n}\n.text-capitalize {\n  text-transform: capitalize;\n}\n/**清除浮动*/\n.clearfix:before,\n.clearfix:after {\n  display: table;\n  line-height: 0;\n  content: \"\";\n}\n.clearfix:after {\n  clear: both;\n}\n/**省略号*/\n.ellipsis {\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n/**控制块级、内敛*/\n.inline-block {\n  display: inline-block !important;\n}\n.inline {\n  display: inline !important;\n}\n.block {\n  display: block !important;\n}\n.show {\n  display: block !important;\n}\n.hidden,\n.hide {\n  display: none !important;\n}\n.show-opacity {\n  opacity: 1 !important;\n}\n.hide-opacity {\n  opacity: 0.01 !important;\n}\n.invisible {\n  visibility: hidden;\n}\n.fl {\n  float: left;\n}\n.fr {\n  float: right;\n}\n.pr {\n  position: relative;\n}\n.pa {\n  position: absolute;\n}\n.pf {\n  position: fixed;\n}\n.ps {\n  position: static;\n}\n.color-white {\n  color: #fff;\n}\n.color-primary {\n  color: #ff6633;\n}\n.color-success {\n  color: #49cb67;\n}\n.color-info {\n  color: #4ea3d4;\n}\n.color-warning {\n  color: #e0690c;\n}\n.color-danger {\n  color: #ff3b30;\n}\n.color-error {\n  color: #f64d2e;\n}\n.color-tip {\n  color: #ffad3e;\n}\n.color-gray {\n  color: #333;\n}\n.color-success-dp {\n  color: #199235;\n}\n.color-tip-dp {\n  color: #e08f22;\n}\n.color-error-dp {\n  color: #e2391a;\n}\n.bg-success {\n  background-color: #49cb67;\n}\n.bg-tip {\n  background-color: #ffad3e;\n}\n.bg-error {\n  background-color: #f64d2e;\n}\n.bg-gray {\n  background-color: #f0f0f0;\n}\n.bg-success-lt {\n  background-color: #d4f6dc;\n}\n.bg-tip-lt {\n  background-color: #fff4e3;\n}\n.bg-error-lt {\n  background-color: #fcc9c0;\n}\n.font-symbol {\n  font-size: 0.6rem;\n}\n.font-headline {\n  font-size: 0.36rem;\n}\n.font-title {\n  font-size: 0.34rem;\n}\n.font-subtitle {\n  font-size: 0.32rem;\n}\n.font-mainbody {\n  font-size: 0.3rem;\n}\n.font-text {\n  font-size: 0.28rem;\n}\n.font-tip {\n  font-size: 0.24rem;\n}\n.clickable:active {\n  background-color: #f9f9f9;\n}\n.hardware {\n  -webkit-transform: translateZ(0);\n  transform: translateZ(0);\n  -webkit-transform-style: preserve-3d;\n  transform-style: preserve-3d;\n}\n.user-none {\n  -webkit-user-select: none;\n  user-select: none;\n}\n.noscroll {\n  position: fixed;\n  overflow: hidden;\n  width: 100%;\n  height: 100vh;\n}\n", ""]);
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.tl {\n  text-align: left;\n}\n.tr {\n  text-align: right;\n}\n.tc {\n  text-align: center;\n}\n.tj {\n  text-align: justify;\n}\n.tn {\n  white-space: nowrap;\n}\n.text-lowercase {\n  text-transform: lowercase;\n}\n.text-uppercase {\n  text-transform: uppercase;\n}\n.text-capitalize {\n  text-transform: capitalize;\n}\n/**清除浮动*/\n.clearfix:before,\n.clearfix:after {\n  display: table;\n  line-height: 0;\n  content: \"\";\n}\n.clearfix:after {\n  clear: both;\n}\n/**省略号*/\n.ellipsis {\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n/**控制块级、内敛*/\n.inline-block {\n  display: inline-block !important;\n}\n.inline {\n  display: inline !important;\n}\n.block {\n  display: block !important;\n}\n.show {\n  display: block !important;\n}\n.hidden,\n.hide {\n  display: none !important;\n}\n.show-opacity {\n  opacity: 1 !important;\n}\n.hide-opacity {\n  opacity: 0.01 !important;\n}\n.invisible {\n  visibility: hidden;\n}\n.fl {\n  float: left;\n}\n.fr {\n  float: right;\n}\n.pr {\n  position: relative;\n}\n.pa {\n  position: absolute;\n}\n.pf {\n  position: fixed;\n}\n.ps {\n  position: static;\n}\n.color-white {\n  color: #fff;\n}\n.color-primary {\n  color: #ff6633;\n}\n.color-success {\n  color: #49cb67;\n}\n.color-info {\n  color: #4ea3d4;\n}\n.color-warning {\n  color: #e0690c;\n}\n.color-danger {\n  color: #ff3b30;\n}\n.color-error {\n  color: #f64d2e;\n}\n.color-tip {\n  color: #ffad3e;\n}\n.color-gray {\n  color: #333;\n}\n.color-success-dp {\n  color: #199235;\n}\n.color-tip-dp {\n  color: #e08f22;\n}\n.color-error-dp {\n  color: #e2391a;\n}\n.bg-success {\n  background-color: #49cb67;\n}\n.bg-tip {\n  background-color: #ffad3e;\n}\n.bg-error {\n  background-color: #f64d2e;\n}\n.bg-gray {\n  background-color: #f0f0f0;\n}\n.bg-success-lt {\n  background-color: #d4f6dc;\n}\n.bg-tip-lt {\n  background-color: #fff4e3;\n}\n.bg-error-lt {\n  background-color: #fcc9c0;\n}\n.font-symbol {\n  font-size: 0.6rem;\n}\n.font-headline {\n  font-size: 0.36rem;\n}\n.font-title {\n  font-size: 0.34rem;\n}\n.font-subtitle {\n  font-size: 0.32rem;\n}\n.font-mainbody {\n  font-size: 0.3rem;\n}\n.font-text {\n  font-size: 0.28rem;\n}\n.font-tip {\n  font-size: 0.24rem;\n}\n.clickable:active {\n  background-color: #f9f9f9;\n}\n.hardware {\n  -webkit-transform: translateZ(0);\n  transform: translateZ(0);\n  -webkit-transform-style: preserve-3d;\n  transform-style: preserve-3d;\n}\n.user-none {\n  -webkit-user-select: none;\n  user-select: none;\n}\n.noscroll {\n  overflow: hidden;\n  width: 100%;\n  height: 100vh;\n  pointer-events: none;\n}\n", ""]);
 
 	// exports
 
@@ -3398,7 +3398,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(32);
+	var _utilsTool = __webpack_require__(34);
 
 	var _icon = __webpack_require__(36);
 
@@ -5116,12 +5116,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * - 当设置为vertical后, 可通过width设置tab标题部分的宽度占比。
 	 * - 可通过clickCallback设置点击选项卡的回调函数。
 	 * - 可自定义className等常用属性以及事件。
+	 * - 可通过nowrap设置tab标题不换行。
 	 *
 	 * 具体属性和接口如下：
 	 * - index:默认选中的标签卡索引值，默认0第一个tab
 	 * - vertical:是否竖排，如需要直接添加改属性即可，默认不竖排
 	 * - width:选项卡头部的宽度，取值0-100之间, 只有设置vertical下生效, 默认20
 	 * - clickCallback:点击选项卡执行的回调函数
+	 * - nowrap:tab标题不换行
 	 *
 	 * 示例:
 	 * - 横排
@@ -5189,7 +5191,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * @type Function
 	             * @default null
 	             * */
-	            clickCallback: _react.PropTypes.func
+	            clickCallback: _react.PropTypes.func,
+	            /**
+	             * 标题强制不换行
+	             * @property nowrap
+	             * @type Boolean
+	             * @default false
+	             * */
+	            nowrap: _react.PropTypes.bool
 	        },
 	        enumerable: true
 	    }, {
@@ -5198,6 +5207,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            index: 0,
 	            vertical: false,
 	            width: 33,
+	            nowrap: false,
 	            clickCallback: null,
 	            classPrefix: 'tabs',
 	            classMapping: {}
@@ -5260,7 +5270,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var _this = this;
 
 	        var panels = [];
-	        var className = this.props.className;
+	        var _props = this.props;
+	        var className = _props.className;
+	        var nowrap = _props.nowrap;
 
 	        var headings = _react2['default'].Children.map(this.props.children, function (options, index) {
 	            var vertical = options.props.vertical;
@@ -5284,7 +5296,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            'div',
-	            _extends({}, this.otherProps, { className: _classnames2['default'](this.setPhPrefix('tabs', true), this.isVertial(), className) }),
+	            _extends({}, this.otherProps, { className: _classnames2['default'](this.setPhPrefix('tabs', true), this.isVertial(), className, nowrap ? this.setPhPrefix('tabs-nowrap', true) : '') }),
 	            _react2['default'].createElement(
 	                'ul',
 	                { className: _classnames2['default'](this.getClass(true), this.setPhPrefix('tab-navs', true)) },
@@ -5343,7 +5355,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.ph-tabs .ph-tab-nav {\n  position: relative;\n  -webkit-tap-highlight-color: transparent;\n  cursor: pointer;\n}\n.ph-tabs .ph-tab-panel {\n  display: none;\n  width: 100%;\n}\n.ph-tabs .ph-tab-panel.active {\n  display: block;\n}\n.ph-tabs-vertical {\n  margin: 0;\n}\n.ph-tabs-vertical .ph-tab-navs {\n  padding: 0;\n}\n.ph-tabs-vertical .ph-tab-bd {\n  position: relative;\n  z-index: 1;\n  padding: 0;\n}\n.ph-tabs {\n  background-color: #fff;\n}\n.ph-tabs .ph-tab-navs {\n  overflow-y: auto;\n  margin: 0;\n  border-bottom: 1PX solid #e1e1e1;\n}\n.ph-tabs .ph-tab-navs::-webkit-scrollbar {\n  display: none;\n}\n.ph-tabs .ph-tab-nav {\n  padding: 0;\n  text-align: center;\n}\n.ph-tabs .ph-tab-nav a {\n  display: block;\n  min-width: 1.16rem;\n  height: 0.88rem;\n  padding: 0 0.32rem;\n  border-bottom-width: 0.04rem;\n  border-bottom-style: solid;\n  border-bottom-color: #fff;\n  line-height: 0.84rem;\n  white-space: nowrap;\n  font-size: 0.28rem;\n}\n.ph-tabs .ph-tab-nav.active a {\n  border-bottom-color: #ff6633;\n  margin-bottom: -0.02rem;\n  margin-right: 0;\n  color: #ff6633;\n}\n.ph-tabs .ph-tab-panel {\n  padding: 0;\n}\n.ph-tabs-short .ph-tab-nav {\n  padding: 0 0.32rem;\n}\n.ph-tabs-short .ph-tab-nav a {\n  display: inline-block;\n  padding: 0 0.16rem;\n}\n.ph-tabs-vertical .ph-tab-navs {\n  background-color: #f0f0f0;\n  border-bottom: none;\n}\n.ph-tabs-vertical .ph-tab-nav {\n  position: relative;\n  text-align: left;\n}\n.ph-tabs-vertical .ph-tab-nav a {\n  padding: 0 0.32rem;\n  border: none;\n  line-height: 0.88rem;\n}\n.ph-tabs-vertical .ph-tab-nav.active a {\n  background-color: #fff;\n  border: none;\n}\n.ph-tabs-vertical .ph-tab-nav.active {\n  z-index: 2;\n  color: #ff6633;\n  border: none;\n  border-right-color: #fff;\n  margin-bottom: 0;\n  margin-right: -0.02rem;\n}\n", ""]);
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.ph-tabs .ph-tab-nav {\n  position: relative;\n  -webkit-tap-highlight-color: transparent;\n  cursor: pointer;\n}\n.ph-tabs .ph-tab-panel {\n  display: none;\n  width: 100%;\n}\n.ph-tabs .ph-tab-panel.active {\n  display: block;\n}\n.ph-tabs-vertical {\n  margin: 0;\n}\n.ph-tabs-vertical .ph-tab-navs {\n  padding: 0;\n}\n.ph-tabs-vertical .ph-tab-bd {\n  position: relative;\n  z-index: 1;\n  padding: 0;\n}\n.ph-tabs {\n  background-color: #fff;\n}\n.ph-tabs .ph-tab-navs {\n  overflow-y: auto;\n  margin: 0;\n  border-bottom: 1PX solid #e1e1e1;\n}\n.ph-tabs .ph-tab-navs::-webkit-scrollbar {\n  display: none;\n}\n.ph-tabs .ph-tab-nav {\n  flex-basis: 0%;\n  padding: 0;\n  text-align: center;\n}\n.ph-tabs .ph-tab-nav a {\n  display: block;\n  min-width: 1.16rem;\n  min-height: 0.88rem;\n  padding: 0.24rem 0.32rem;\n  border-bottom-width: 0.04rem;\n  border-bottom-style: solid;\n  border-bottom-color: #fff;\n  line-height: 0.4rem;\n  font-size: 0.28rem;\n}\n.ph-tabs .ph-tab-nav.active a {\n  border-bottom-color: #ff6633;\n  margin-bottom: -0.02rem;\n  margin-right: 0;\n  color: #ff6633;\n}\n.ph-tabs .ph-tab-panel {\n  padding: 0;\n}\n.ph-tabs-nowrap .ph-tab-nav a {\n  white-space: nowrap;\n}\n.ph-tabs-short .ph-tab-nav {\n  padding: 0 0.32rem;\n}\n.ph-tabs-short .ph-tab-nav a {\n  display: inline-block;\n  padding: 0.24rem 0.16rem;\n}\n.ph-tabs-vertical.ph-tabs {\n  margin: 0;\n}\n.ph-tabs-vertical .ph-tab-navs {\n  background-color: #f0f0f0;\n  border-bottom: none;\n}\n.ph-tabs-vertical .ph-tab-nav {\n  position: relative;\n  text-align: left;\n}\n.ph-tabs-vertical .ph-tab-nav a {\n  padding: 0.24rem 0.32rem;\n  border: none;\n  line-height: 0.4rem;\n}\n.ph-tabs-vertical .ph-tab-nav.active a {\n  background-color: #fff;\n  border: none;\n}\n.ph-tabs-vertical .ph-tab-nav.active {\n  z-index: 2;\n  color: #ff6633;\n  border: none;\n  border-right-color: #fff;\n  margin-bottom: 0;\n  margin-right: -0.02rem;\n}\n", ""]);
 
 	// exports
 
@@ -5901,7 +5913,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(32);
+	var _utilsTool = __webpack_require__(34);
 
 	/**
 	 * 拖拽组件<br/>
@@ -8408,7 +8420,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(32);
+	var _utilsTool = __webpack_require__(34);
 
 	var _utilsTool2 = _interopRequireDefault(_utilsTool);
 
@@ -9250,7 +9262,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(32);
+	var _utilsTool = __webpack_require__(34);
 
 	var _MenuHeader = __webpack_require__(120);
 
@@ -9607,7 +9619,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(32);
+	var _utilsTool = __webpack_require__(34);
 
 	var _utilsTool2 = _interopRequireDefault(_utilsTool);
 
@@ -10855,7 +10867,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(32);
+	var _utilsTool = __webpack_require__(34);
 
 	__webpack_require__(37);
 
@@ -11546,70 +11558,81 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        _Component.call(this, props, context);
 
-	        this.state = {
-	            focus: props.showButton || false,
-	            value: props.value || ''
-	        };
+	        this.focus = false;
+
+	        // this.state = {
+	        //     value: props.value || ''
+	        // }
 
 	        this.timer = null;
 	    }
 
+	    SearchBar.prototype.componentDidMount = function componentDidMount() {
+	        if (this.searchElem.getValueCallback()) this.dealClass(true);
+	    };
+
 	    SearchBar.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
 	        var o = {};
 
-	        if (nextProps.value !== undefined && nextProps.value !== this.state.value) o.value = nextProps.value;
-	        if (nextProps.showButton !== undefined && nextProps.showButton !== this.state.focus) {
+	        // if(nextProps.value!==undefined && nextProps.value !== this.state.value) o.value = nextProps.value
+	        if (nextProps.showButton !== undefined && nextProps.showButton !== this.focus) {
 	            clearTimeout(this.timer);
-	            o.focus = nextProps.showButton;
+	            this.dealClass(nextProps.showButton);
 	        }
 
-	        this.setState(o);
+	        // this.setState(o)
 	    };
 
 	    SearchBar.prototype.renderButton = function renderButton() {
+	        var _this = this;
+
 	        var buttonText = this.props.buttonText;
 
-	        if (this.state.focus) {
-	            return _react2['default'].createElement(
-	                _button2['default'],
-	                { phStyle: 'link', onClick: this.buttonHandle.bind(this) },
-	                buttonText
-	            );
-	        }
+	        return _react2['default'].createElement(
+	            _button2['default'],
+	            { phStyle: 'link', onClick: this.buttonHandle.bind(this), ref: function (button) {
+	                    _this.button = button;
+	                } },
+	            buttonText
+	        );
 	    };
 
 	    SearchBar.prototype.buttonHandle = function buttonHandle() {
-	        var clickCallback = this.props.clickCallback;
+	        var _props = this.props;
+	        var showButton = _props.showButton;
+	        var clickCallback = _props.clickCallback;
+
+	        this.focus = showButton || false;
+	        this.dealClass(this.focus);
 
 	        if (clickCallback) clickCallback(this.searchElem.getValueCallback());
 	    };
 
 	    SearchBar.prototype.onFocus = function onFocus() {
-	        var _props = this.props;
-	        var showButton = _props.showButton;
-	        var focusCallback = _props.focusCallback;
+	        var _props2 = this.props;
+	        var showButton = _props2.showButton;
+	        var focusCallback = _props2.focusCallback;
 
-	        if (focusCallback) focusCallback();
+	        this.focus = showButton == false ? false : true;
 
-	        this.setState({
-	            focus: showButton == false ? false : true
-	        });
+	        if (focusCallback) focusCallback(this.searchElem.getValueCallback());
+
+	        this.dealClass(this.focus);
 	    };
 
 	    SearchBar.prototype.onBlur = function onBlur() {
-	        var _this = this;
+	        var _props3 = this.props;
+	        var showButton = _props3.showButton;
+	        var blurCallback = _props3.blurCallback;
 
-	        var _props2 = this.props;
-	        var showButton = _props2.showButton;
-	        var blurCallback = _props2.blurCallback;
+	        this.focus = showButton || !!this.searchElem.getValueCallback();
 
-	        if (blurCallback) blurCallback();
+	        if (blurCallback) blurCallback(this.searchElem.getValueCallback());
 
-	        this.timer = setTimeout(function () {
-	            _this.setState({
-	                focus: showButton || false
-	            });
-	        }, 0);
+	        // this.timer = setTimeout(()=>{
+	        //     this.dealClass(this.focus)
+	        // },0)
+	        this.dealClass(this.focus);
 	    };
 
 	    SearchBar.prototype.onKeyDown = function onKeyDown(e) {
@@ -11620,33 +11643,40 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    };
 
-	    SearchBar.prototype.clearCallback = function clearCallback() {
-	        this.setState({
-	            value: ''
-	        });
+	    SearchBar.prototype.dealClass = function dealClass(focus) {
+	        if (focus) {
+	            this.searchBar.classList.add(this.setPhPrefix('focus'));
+	        } else {
+	            this.searchBar.classList.remove(this.setPhPrefix('focus'));
+	        }
 	    };
 
 	    SearchBar.prototype.renderSearchBar = function renderSearchBar() {
 	        var _this2 = this;
 
-	        var _props3 = this.props;
-	        var className = _props3.className;
-	        var placeholder = _props3.placeholder;
-	        var style = _props3.style;
+	        var _props4 = this.props;
+	        var className = _props4.className;
+	        var placeholder = _props4.placeholder;
+	        var style = _props4.style;
 
 	        return _react2['default'].createElement(
-	            'div',
-	            { className: _classnames2['default'](this.getProperty(true), className, this.state.focus ? this.setPhPrefix('focus') : ''), style: this.getStyles(style) },
-	            _react2['default'].createElement(_input2['default'], _extends({}, this.otherProps, { type: 'search', phIcon: 'search', value: this.state.value, placeholder: placeholder, clear: true,
-	                ref: function (searchElem) {
-	                    _this2.searchElem = searchElem;
-	                },
-	                onFocus: this.onFocus.bind(this),
-	                onBlur: this.onBlur.bind(this),
-	                onKeyDown: this.onKeyDown.bind(this),
-	                clearCallback: this.clearCallback.bind(this)
-	            })),
-	            this.renderButton()
+	            'form',
+	            { action: 'javascript:;' },
+	            _react2['default'].createElement(
+	                'div',
+	                { className: _classnames2['default'](this.getProperty(true), className), style: this.getStyles(style), ref: function (searchBar) {
+	                        _this2.searchBar = searchBar;
+	                    } },
+	                _react2['default'].createElement(_input2['default'], _extends({}, this.otherProps, { type: 'search', phIcon: 'search', placeholder: placeholder, clear: true,
+	                    ref: function (searchElem) {
+	                        _this2.searchElem = searchElem;
+	                    },
+	                    onFocus: this.onFocus.bind(this),
+	                    onBlur: this.onBlur.bind(this),
+	                    onKeyDown: this.onKeyDown.bind(this)
+	                })),
+	                this.renderButton()
+	            )
 	        );
 	    };
 
@@ -11736,7 +11766,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(32);
+	var _utilsTool = __webpack_require__(34);
 
 	var _button = __webpack_require__(25);
 
@@ -12169,7 +12199,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(32);
+	var _utilsTool = __webpack_require__(34);
 
 	var _icon = __webpack_require__(36);
 
@@ -12448,10 +12478,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    FilterContainer.prototype.noScroll = function noScroll() {
 	        document.body.classList.add('noscroll');
+	        // this.filterShadow.addEventListener('touchmove', this.preventDefault);
 	    };
 
 	    FilterContainer.prototype.willScroll = function willScroll() {
 	        document.body.classList.remove('noscroll');
+	        // this.filterShadow.removeEventListener('touchmove', this.preventDefault);
 	    };
 
 	    FilterContainer.prototype.hidePanel = function hidePanel() {
@@ -12486,7 +12518,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    },
 	                    style: _extends({ top: stable && !fixed && activeCat > -1 ? this.containerOffsetTop + 'px' : '' }, style)
 	                },
-	                _react2['default'].createElement('div', { className: 'ph-filter-shadow', onClick: this.hidePanel.bind(this) }),
+	                _react2['default'].createElement('div', { className: 'ph-filter-shadow', onTouchStart: this.hidePanel.bind(this) }),
 	                _react2['default'].createElement(
 	                    'ul',
 	                    { className: 'cat ph-row ph-filter-header' },
@@ -13527,7 +13559,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _utilsTool = __webpack_require__(32);
+	var _utilsTool = __webpack_require__(34);
 
 	var _FilterItem = __webpack_require__(149);
 
@@ -13831,7 +13863,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.ph-filter-occupy {\n  height: 0.88rem;\n}\n.ph-filter-container {\n  position: relative;\n}\n.ph-filter-container-fixed,\n.ph-filter-container-shadow {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 99;\n  width: 100%;\n}\n.ph-filter-container-shadow {\n  height: 100%;\n}\n.ph-filter-shadow {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 1;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n.ph-filter-header {\n  position: relative;\n  z-index: 2;\n  margin: 0;\n  background-color: #fff;\n  border-bottom: 1PX solid #e1e1e1;\n}\n.ph-filter-header .ph-filter-header-item {\n  position: relative;\n  height: 0.88rem;\n  padding: 0.24rem 0;\n  line-height: 0.4rem;\n  text-align: center;\n  font-size: 0.28rem;\n}\n.ph-filter-header .ph-filter-header-item a {\n  display: block;\n  height: 0.4rem;\n  border-right: 1PX solid #e1e1e1;\n  white-spac: nowrap;\n}\n.ph-filter-header .ph-filter-header-item:last-child a {\n  border-right: none;\n}\n.ph-filter-header .ph-filter-header-item .gfs-icon {\n  display: inline-block;\n  margin-left: 0.08rem;\n  line-height: 0.4rem;\n  font-size: 0.24rem;\n  color: #666;\n  -webkit-transition: all 0.2s;\n  -moz-transition: all 0.2s;\n  transition: all 0.2s;\n  vertical-align: top;\n}\n.ph-filter-header .ph-filter-header-item.active .gfs-icon {\n  -webkit-transform: rotate(-180deg);\n  -ms-transform: rotate(-180deg);\n  transform: rotate(-180deg);\n}\n.ph-filter-header .ph-filter-header-item.active:after {\n  content: \"\";\n  position: absolute;\n  bottom: -0.02rem;\n  left: 50%;\n  width: 0.18rem;\n  height: 0.18rem;\n  background-color: #fff;\n  border-top: 1PX solid #e1e1e1;\n  border-right: 1PX solid #e1e1e1;\n  -webkit-transform: rotate(-45deg) translateX(-50%);\n  -ms-transform: rotate(-45deg) translateX(-50%);\n  transform: rotate(-45deg) translateX(-50%);\n}\n.ph-filter-header .ph-filter-header-text {\n  display: inline-block;\n  overflow: hidden;\n  max-width: calc(100% - .72rem);\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n.ph-filter-selector {\n  position: relative;\n  z-index: 2;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n}\n.ph-filter-selector > * {\n  max-height: 72%;\n  pointer-events: auto;\n}\n.ph-filter-selector .ph-list,\n.ph-filter-selector .ph-tab-navs,\n.ph-filter-selector .ph-tab-bd {\n  overflow-y: auto;\n}\n.ph-filter-selector .ph-list::-webkit-scrollbar,\n.ph-filter-selector .ph-tab-navs::-webkit-scrollbar,\n.ph-filter-selector .ph-tab-bd::-webkit-scrollbar {\n  display: none;\n}\n.ph-filter-selector .ph-list-item.active {\n  color: #ff6633;\n}\n.ph-filter-selector .ph-button-group {\n  position: relative;\n  z-index: 1;\n}\n.ph-checkbox-filter .ph-filter-selector {\n  z-index: 9;\n}\n.ph-checkbox-filter .ph-filter-selector > * {\n  max-height: none;\n}\n.ph-checkbox-filter .ph-filter-selector .ph-list,\n.ph-checkbox-filter .ph-filter-selector .ph-tab-navs,\n.ph-checkbox-filter .ph-filter-selector .ph-tab-bd {\n  max-height: none;\n  height: 100vh;\n}\n.ph-filter-selector-buttons .ph-list,\n.ph-filter-selector-buttons .ph-tab-navs,\n.ph-filter-selector-buttons .ph-tab-bd {\n  padding-bottom: 1.28rem;\n}\n.ph-filter-selector-buttons .ph-button-group {\n  margin-top: -1.28rem;\n}\n", ""]);
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.ph-filter-occupy {\n  height: 0.88rem;\n}\n.ph-filter-container {\n  position: relative;\n}\n.ph-filter-container-fixed,\n.ph-filter-container-shadow {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 99;\n  width: 100%;\n}\n.ph-filter-container-shadow {\n  height: 100%;\n}\n.ph-filter-shadow {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 1;\n  background-color: rgba(0, 0, 0, 0.4);\n  pointer-events: auto;\n}\n.ph-filter-header {\n  position: relative;\n  z-index: 2;\n  margin: 0;\n  background-color: #fff;\n  border-bottom: 1PX solid #e1e1e1;\n}\n.ph-filter-header .ph-filter-header-item {\n  position: relative;\n  height: 0.88rem;\n  padding: 0.24rem 0;\n  line-height: 0.4rem;\n  text-align: center;\n  font-size: 0.28rem;\n}\n.ph-filter-header .ph-filter-header-item a {\n  display: block;\n  height: 0.4rem;\n  border-right: 1PX solid #e1e1e1;\n  white-spac: nowrap;\n}\n.ph-filter-header .ph-filter-header-item:last-child a {\n  border-right: none;\n}\n.ph-filter-header .ph-filter-header-item .gfs-icon {\n  display: inline-block;\n  margin-left: 0.08rem;\n  line-height: 0.4rem;\n  font-size: 0.24rem;\n  color: #666;\n  -webkit-transition: all 0.2s;\n  -moz-transition: all 0.2s;\n  transition: all 0.2s;\n  vertical-align: top;\n}\n.ph-filter-header .ph-filter-header-item.active .gfs-icon {\n  -webkit-transform: rotate(-180deg);\n  -ms-transform: rotate(-180deg);\n  transform: rotate(-180deg);\n}\n.ph-filter-header .ph-filter-header-item.active:after {\n  content: \"\";\n  position: absolute;\n  bottom: -0.02rem;\n  left: 50%;\n  width: 0.18rem;\n  height: 0.18rem;\n  background-color: #fff;\n  border-top: 1PX solid #e1e1e1;\n  border-right: 1PX solid #e1e1e1;\n  -webkit-transform: rotate(-45deg) translateX(-50%);\n  -ms-transform: rotate(-45deg) translateX(-50%);\n  transform: rotate(-45deg) translateX(-50%);\n}\n.ph-filter-header .ph-filter-header-text {\n  display: inline-block;\n  overflow: hidden;\n  max-width: calc(100% - .72rem);\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n.ph-filter-selector {\n  position: relative;\n  z-index: 2;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n}\n.ph-filter-selector > * {\n  max-height: 72%;\n  pointer-events: auto;\n}\n.ph-filter-selector .ph-list,\n.ph-filter-selector .ph-tab-navs,\n.ph-filter-selector .ph-tab-bd {\n  overflow-y: auto;\n}\n.ph-filter-selector .ph-list::-webkit-scrollbar,\n.ph-filter-selector .ph-tab-navs::-webkit-scrollbar,\n.ph-filter-selector .ph-tab-bd::-webkit-scrollbar {\n  display: none;\n}\n.ph-filter-selector .ph-list-item.active {\n  color: #ff6633;\n}\n.ph-filter-selector .ph-button-group {\n  position: relative;\n  z-index: 1;\n}\n.ph-checkbox-filter .ph-filter-selector {\n  z-index: 9;\n}\n.ph-checkbox-filter .ph-filter-selector > * {\n  max-height: none;\n}\n.ph-checkbox-filter .ph-filter-selector .ph-list,\n.ph-checkbox-filter .ph-filter-selector .ph-tab-navs,\n.ph-checkbox-filter .ph-filter-selector .ph-tab-bd {\n  max-height: none;\n  height: 100vh;\n}\n.ph-filter-selector-buttons .ph-list,\n.ph-filter-selector-buttons .ph-tab-navs,\n.ph-filter-selector-buttons .ph-tab-bd {\n  padding-bottom: 1.28rem;\n}\n.ph-filter-selector-buttons .ph-button-group {\n  margin-top: -1.28rem;\n}\n", ""]);
 
 	// exports
 

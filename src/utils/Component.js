@@ -1,24 +1,21 @@
 import React,{Component} from 'react';
 import classnames from 'classnames';
-
+import extend from 'extend';
+import FastClick from 'fastclick'
 import ClassNameMixin from './ClassNameMixin';
 import PropertyMixin from './PropertyMixin';
 import MethodMixin from './MethodMixin';
-
-import extend from 'extend';
 import {propsConstants} from './constants'
+// import logger from './logger'
 
-//import 'babel-polyfill';
-
-import FastClick from 'fastclick'
-// import {ModuleLogger} from 'pmlogger'
-// import packageJSON from '../../package.json'
+// logger.info({
+//     msg: 'phoenix-ui',
+//     type: logger.type
+// });
 
 document.addEventListener('DOMContentLoaded', function() {
     FastClick.attach(document.body);
 }, false)
-
-// new ModuleLogger('phoenix-ui')
 
 
 @ClassNameMixin

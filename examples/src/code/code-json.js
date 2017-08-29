@@ -98,6 +98,7 @@ var code = {
 	'popover-clickcallback':'<Button phSize="lg" ref={(button)=>{this.button4 = button}}>按钮</Button>\n<Popover getTarget={()=>{return this.button4}} clickCallback={(bool)=>{alert(bool)}}>\n\  <div className="ph-popover-text">\n\    为了占位存在的气泡提示语。\n\  </div>\n</Popover>',
 
 	'tabset-index': '<Tabset index={1}>\n\  <Tab heading="标题1">\n\    横向内容1\n\  </Tab>\n\  <Tab heading="标题2">\n\    横向内容2\n\  </Tab>\n</Tabset>',
+	'tabset-nowrap': '<Tabset nowrap>\n\  ...\n</Tabset>', 
 	'tabset-vertical': '<Tabset vertical>\n\  <Tab heading="标题1">\n\    竖向内容1\n\  </Tab>\n\  <Tab heading="标题2">\n\    竖向内容2\n\  </Tab>\n</Tabset>',
 	'tabset-width': '<Tabset vertical width={30}>\n\  <Tab heading="标题1">\n\    竖向内容1\n\  </Tab>\n\  <Tab heading="标题2">\n\    竖向内容2\n\  </Tab>\n</Tabset>',
 	'tabset-clickcallback': '<Tabset clickCallback={(index)=>{alert(index);}}>\n\  <Tab heading="标题1">\n\    横向内容1\n\  </Tab>\n\  <Tab heading="标题2">\n\    横向内容2\n\  </Tab>\n</Tabset>',
@@ -110,7 +111,7 @@ var code = {
 	'search-querycallback':'<SearchBar queryCallback={(query)=>{alert(query)}} />',
 	'search-focuscallback':'<SearchBar focusCallback={()=>{alert("focus")}} />',
 	'search-blurcallback':'<SearchBar blurCallback={()=>{alert("blur")}} />',
-	'search-showbutton': '<SearchBar placeholder="请输入..." showButton={this.state.showButton}\n\  focusCallback={()=>{this.setState({showButton:true})}}\n\  clickCallback={()=>{this.setState({showButton:false})}} />',
+	'search-showbutton': '<SearchBar value={this.state.value} placeholder="请输入..." showButton={this.state.showButton}\n\  focusCallback={(value)=>{this.setState({showButton:true, value:value})}}\n\  clickCallback={()=>{this.setState({showButton:false, value:value})}} />',
 
 	'slider-progress': '<Slider progress={25} />',
 	'slider-placement': '<Slider />\n<Slider placement="bottom" />',

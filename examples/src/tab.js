@@ -26,14 +26,40 @@ export default class tab extends Component{
                 <h3 className="comp-type"><strong>Tabset</strong></h3>
                 <h3 className="comp-type">index(默认0) 默认选中选项卡的索引值</h3>
                 <Tabset index={1}>
-                    <Tab heading="标题1">
-                        横向内容1
+                    <Tab heading="标题（1）">
+                        横向内容1（1）
                     </Tab>
-                    <Tab heading="标题2">
-                        横向内容2
+                    <Tab heading="标题（2）">
+                        横向内容2（2）
+                    </Tab>
+                    <Tab heading="标题（3）">
+                        横向内容2（3）
+                    </Tab>
+                    <Tab heading="标题（4）">
+                        横向内容2（4）
                     </Tab>
                 </Tabset>
-                <Code target="tabset-index" />
+                <Code target="tabset-index"/>
+
+                <h3 className="comp-type">nowrap(默认false) 标题不换行</h3>
+                <Tabset nowrap>
+                    <Tab heading="标题（1）">
+                        横向内容1（1）
+                    </Tab>
+                    <Tab heading="标题（2）">
+                        横向内容2（2）
+                    </Tab>
+                    <Tab heading="标题（3）">
+                        横向内容3（3）
+                    </Tab>
+                    <Tab heading="标题（4）">
+                        横向内容4（4）
+                    </Tab>
+                    <Tab heading="标题（5）">
+                        横向内容5（5）
+                    </Tab>
+                </Tabset>
+                <Code target="tabset-nowrap"/>
 
                 <h3 className="comp-type">vertical(默认false) 设置选项卡竖排</h3>
                 <Tabset vertical>
