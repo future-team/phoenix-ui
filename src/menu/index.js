@@ -2,6 +2,7 @@ import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
 import {closest} from '../utils/Tool'
+import Logger from '../utils/logger'
 
 import MenuHeader from './MenuHeader'
 import MenuBody from './MenuBody'
@@ -100,9 +101,11 @@ class Menu extends Component{
     };
 
     constructor(props, context) {
-        super(props, context);
+        super(props, context)
 
-        this.handleWindowScroll = this.handleWindowScroll.bind(this);
+        new Logger('Menu')
+
+        this.handleWindowScroll = this.handleWindowScroll.bind(this)
 
         this.state = {
             ceiling: !(props.ceiling === undefined || props.ceiling > 0),
@@ -110,9 +113,9 @@ class Menu extends Component{
         }
 
         // 是否滚动吸顶
-        if(props.ceiling === undefined || props.ceiling === 0) return;
+        if(props.ceiling === undefined || props.ceiling === 0) return
         
-        window.addEventListener('scroll', this.handleWindowScroll, false);
+        window.addEventListener('scroll', this.handleWindowScroll, false)
     }
     
     handleWindowScroll(){

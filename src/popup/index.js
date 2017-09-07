@@ -2,6 +2,7 @@ import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
 import Animate from '../animate/'
+import Logger from '../utils/logger'
 
 import '../style'
 import 'phoenix-styles/less/modules/popup.less'
@@ -96,7 +97,8 @@ export default class Popup extends Component{
     };
 
     constructor(props, context) {
-        super(props, context);
+        super(props, context)
+        new Logger('Popup')
     }
 
     renderShadow(){

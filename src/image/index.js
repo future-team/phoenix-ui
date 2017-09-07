@@ -2,6 +2,7 @@ import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
 import {warning,getClientHeight} from '../utils/Tool'
+import Logger from '../utils/logger'
 
 import '../style'
 import 'phoenix-styles/less/modules/image.less'
@@ -93,6 +94,8 @@ export default class Images extends Component{
 
     constructor(props,context){
         super(props,context)
+
+        new Logger('Image')
 
         this.load = false
 

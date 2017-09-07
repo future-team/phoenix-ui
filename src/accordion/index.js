@@ -2,6 +2,7 @@ import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
 import Icon from '../icon'
+import Logger from '../utils/logger'
 
 import '../style'
 import 'phoenix-styles/less/modules/accordion.less'
@@ -112,6 +113,8 @@ class Accordion extends Component{
 
     constructor(props, context) {
         super(props, context);
+
+        new Logger('Accordion');
         
         this.state = {
             visible: props.visible

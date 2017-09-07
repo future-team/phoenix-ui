@@ -1,6 +1,7 @@
 import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
+import Logger from '../utils/logger'
 
 import Drag from '../drag/'
 import Button from '../button/'
@@ -67,7 +68,9 @@ export default class Swipe extends Component{
     };
 
     constructor(props, context) {
-        super(props, context);
+        super(props, context)
+
+        new Logger('Swipe')
 
         this.btnsWidth = 0
         this.translateX = -1

@@ -2,6 +2,7 @@ import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
 import {setPhPrefix, getDeviceInfo, preventDefault} from '../utils/Tool'
+import Logger from '../utils/logger'
 
 /**
  * 拖拽组件<br/>
@@ -62,6 +63,8 @@ export default class Drag extends Component{
 
     constructor(props, context) {
         super(props, context);
+
+        new Logger('Drag'); 
 
         this.mobile = getDeviceInfo('mobile');
 

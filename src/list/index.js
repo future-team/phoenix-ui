@@ -1,6 +1,7 @@
 import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
+import Logger from '../utils/logger'
 
 import Row from '../grid/Row'
 import Col from '../grid/Col'
@@ -63,7 +64,8 @@ class List extends Component{
     };
 
     constructor(props,context){
-        super(props,context);
+        super(props,context)
+        new Logger('List')
     }
 
     renderList(){

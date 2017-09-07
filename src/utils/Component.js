@@ -1,20 +1,17 @@
-import React,{Component} from 'react';
-import classnames from 'classnames';
-import extend from 'extend';
+import React,{Component} from 'react'
+import classnames from 'classnames'
+import extend from 'extend'
 import FastClick from 'fastclick'
-import ClassNameMixin from './ClassNameMixin';
-import PropertyMixin from './PropertyMixin';
-import MethodMixin from './MethodMixin';
+import ClassNameMixin from './ClassNameMixin'
+import PropertyMixin from './PropertyMixin'
+import MethodMixin from './MethodMixin'
 import {propsConstants} from './constants'
-// import logger from './logger'
+import Logger from './logger'
 
-// logger.info({
-//     msg: 'phoenix-ui',
-//     type: logger.type
-// });
+new Logger('phoenix-ui')
 
 document.addEventListener('DOMContentLoaded', function() {
-    FastClick.attach(document.body);
+    FastClick.attach(document.body)
 }, false)
 
 
@@ -27,16 +24,16 @@ export default class BaseComponent extends Component{
         super(props, context);
 
         if(defaultState){
-            this.setDefaultState(defaultState);
+            this.setDefaultState(defaultState)
         }
-        this._properties = [];
-        this._styles = [];
-        this.otherProps = {};
-        this.initCallback(this);
+        this._properties = []
+        this._styles = []
+        this.otherProps = {}
+        this.initCallback(this)
         //验证
-        this.replaceProperties();
+        this.replaceProperties()
         //注册
-        this.registerMethod(this.otherProps);
+        this.registerMethod(this.otherProps)
 
     }
 
@@ -56,11 +53,11 @@ export default class BaseComponent extends Component{
     }
 
     uniqueId(){
-        return (this.classPrefix||'unique')+'_'+(new Date().getTime()+(Math.random()*1e10).toFixed(0) );
+        return (this.classPrefix||'unique')+'_'+(new Date().getTime()+(Math.random()*1e10).toFixed(0) )
     }
 
     initCallback(){
-        this.props.initCallback && this.props.initCallback(this);
+        this.props.initCallback && this.props.initCallback(this)
     }
 
     componentWillMount(){
@@ -68,13 +65,13 @@ export default class BaseComponent extends Component{
     }
 
     shouldComponentUpdate(nextProps, nextState){
-        this.replaceProperties(nextProps);
-        return true;
+        this.replaceProperties(nextProps)
+        return true
     }
 
 
     componentDidMount(){
-        this.loadedCallback && this.loadedCallback(this);
+        this.loadedCallback && this.loadedCallback(this)
     }
 
 
@@ -83,11 +80,11 @@ export default class BaseComponent extends Component{
         //注册回调
         let method = null,
             methodName='',
-            other = {};
+            other = {}
         for(let item in methods){
-            method = this.methods[item];
+            method = this.methods[item]
             if(method){
-                this.setMethod(item,methods[item] );
+                this.setMethod(item,methods[item] )
             }
         }
     }
@@ -95,24 +92,24 @@ export default class BaseComponent extends Component{
     setMethod(methodName,method ){
 
         if(methodName.match('Callback') == null){
-            throw new Error(`The callback method name format is wrong, should be ${methodName}Callback`);
+            throw new Error(`The callback method name format is wrong, should be ${methodName}Callback`)
         }
         if(!this[methodName]){
             this[methodName] =(function(method){
-                let m = method;
+                let m = method
                 return function(){
-                    return m.apply(m,Array.prototype.slice.call(arguments, 0) );
-                };
-            })(method);
+                    return m.apply(m,Array.prototype.slice.call(arguments, 0) )
+                }
+            })(method)
         }
     }
 
     async execMethod(method){
         let data=null;
-        method = method.indexOf('Callback')!=-1?method:method+'Callback';
+        method = method.indexOf('Callback')!=-1?method:method+'Callback'
 
         if(this[method]){
-            data=await this[method].apply(this[method],Array.prototype.slice.call(arguments, 1).concat(this) );
+            data=await this[method].apply(this[method],Array.prototype.slice.call(arguments, 1).concat(this) )
         }
         return data;
     }
@@ -121,15 +118,15 @@ export default class BaseComponent extends Component{
         if(val!== undefined){
             this.properties[prop] = val;
             if(this.props[prop]!==undefined && !this.props[prop]){
-                this.updateProperty({key:prop,value:val},this._properties,this._styles,this.otherProps);
+                this.updateProperty({key:prop,value:val},this._properties,this._styles,this.otherProps)
             }
         }
     }
 
     filterClass(key){
-        let value =typeof(key)=='string'?this.props.classMapping[key]:key;
+        let value =typeof(key)=='string'?this.props.classMapping[key]:key
 
-        return value ? value : key;
+        return value ? value : key
     }
     
     updateProperty(props,propList,styleList,otherProps){

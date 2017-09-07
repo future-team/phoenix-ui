@@ -1,6 +1,7 @@
 import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
+import Logger from '../utils/logger'
 
 import ButtonGroup from '../button-group'
 import Button from '../button'
@@ -98,7 +99,9 @@ export default class Alert extends Component{
     };
 
     constructor(props, context) {
-        super(props, context);
+        super(props, context)
+
+        new Logger('Alert')
 
         this.buttons = [
             {text: '确定', onHandle: props.closeCallback}

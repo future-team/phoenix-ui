@@ -1,6 +1,7 @@
 import React, { Component ,PropTypes} from 'react'
 import classnames from 'classnames'
 import {transToArray, preventDefault} from '../../utils/Tool'
+import Logger from '../../utils/logger'
 
 import Icon from '../../icon'
 
@@ -121,7 +122,10 @@ export default class FilterContainer extends Component{
     }
 
     constructor(props,context){
-        super(props,context);
+        super(props,context)
+
+        new Logger('ph-filter')
+
         this.state={
             catList: this.getCatList(),
             activeCat: props.index,

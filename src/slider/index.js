@@ -1,6 +1,7 @@
 import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
+import Logger from '../utils/logger'
 
 import Drag from '../drag/'
 
@@ -138,7 +139,9 @@ export default class Slider extends Component{
     };
 
     constructor(props, context) {
-        super(props, context);
+        super(props, context)
+        
+        new Logger('Slider')
         
         this.range = this.validateRange();
         this.rangeDiff = this.range[1]-this.range[0];

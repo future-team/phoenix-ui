@@ -3,6 +3,7 @@ import Component from '../utils/Component'
 import classnames from 'classnames'
 import {warning} from '../utils/Tool'
 import Icon from '../icon/'
+import Logger from '../utils/logger'
 
 import '../style'
 import 'phoenix-styles/less/modules/input.less'
@@ -115,7 +116,9 @@ export default class Input extends Component{
     };
 
     constructor(props, context) {
-        super(props, context);
+        super(props, context)
+
+        new Logger('Input')
 
         this.setMethod('getValueCallback',this.getValue.bind(this))
 

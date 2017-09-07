@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
+import Logger from '../utils/logger'
 
 import '../style'
 import 'phoenix-styles/less/modules/grid.less'
@@ -59,6 +60,11 @@ export default class Row extends Component{
             'stretch':'stretch',
             'baseline':'baseline'
         }
+    }
+
+    constructor(props, context) {
+        super(props, context);
+        new Logger('Row');
     }
 
     renderRow(){

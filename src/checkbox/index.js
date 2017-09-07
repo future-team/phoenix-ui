@@ -1,6 +1,7 @@
 import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
+import Logger from '../utils/logger'
 
 import '../style'
 import 'phoenix-styles/less/modules/checkbox.less'
@@ -65,6 +66,7 @@ export default class Checkbox extends Component{
 
     constructor(props, context) {
         super(props, context);
+        new Logger('Checkbox');        
     }
 
     renderCheckbox(){

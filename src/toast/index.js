@@ -2,6 +2,7 @@ import React,{PropTypes} from 'react'
 import ReactDOM from 'react-dom'
 import Component from '../utils/Component'
 import classnames from 'classnames'
+import Logger from '../utils/logger'
 
 import Icon from '../icon'
 
@@ -50,7 +51,8 @@ class Toast extends Component{
     };
 
     constructor(props, context) {
-        super(props, context);
+        super(props, context)
+        new Logger('Toast')
     }
 
     renderChildren(){

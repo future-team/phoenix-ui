@@ -1,6 +1,7 @@
 import React,{Component, PropTypes} from 'react'
 import classnames from 'classnames'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import Logger from '../utils/logger'
 
 import '../style'
 import 'phoenix-styles/less/modules/animation.less'
@@ -70,6 +71,7 @@ export default class Animate extends Component{
 
     constructor(props, context) {
         super(props, context);
+        new Logger('Animate');
     }
 
     renderAnimate(){

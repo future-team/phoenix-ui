@@ -2,6 +2,7 @@ import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
 import Icon from '../icon'
+import Logger from '../utils/logger'
 
 import '../style'
 import 'phoenix-styles/less/modules/buttons.less'
@@ -128,6 +129,8 @@ export default class Button extends Component{
 
     constructor(props, context) {
         super(props, context);
+        
+        new Logger('Button')
     }
 
     clickCallback(e){

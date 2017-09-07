@@ -2,6 +2,7 @@ import React,{PropTypes} from 'react'
 import Component from '../utils/Component'
 import classnames from 'classnames'
 import Tab from './Tab.js'
+import Logger from '../utils/logger'
 
 import '../style'
 import 'phoenix-styles/less/modules/tab.less'
@@ -116,7 +117,9 @@ export default class Tabset extends Component {
     };
 
     constructor(props, context) {
-        super(props, context);
+        super(props, context)
+
+        new Logger('Tab')
 
         this.state = {
             activeIndex: this.props.index
