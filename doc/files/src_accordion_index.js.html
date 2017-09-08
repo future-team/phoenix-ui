@@ -549,6 +549,7 @@ import React,{PropTypes} from &#x27;react&#x27;
 import Component from &#x27;../utils/Component&#x27;
 import classnames from &#x27;classnames&#x27;
 import Icon from &#x27;../icon&#x27;
+import Logger from &#x27;../utils/logger&#x27;
 
 import &#x27;../style&#x27;
 import &#x27;phoenix-styles/less/modules/accordion.less&#x27;
@@ -659,6 +660,8 @@ class Accordion extends Component{
 
     constructor(props, context) {
         super(props, context);
+
+        new Logger(&#x27;Accordion&#x27;);
         
         this.state = {
             visible: props.visible

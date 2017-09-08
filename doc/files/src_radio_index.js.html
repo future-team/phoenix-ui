@@ -548,6 +548,7 @@
 import React,{PropTypes} from &#x27;react&#x27;
 import Component from &#x27;../utils/Component&#x27;
 import Checkbox from &#x27;../checkbox/&#x27;
+import Logger from &#x27;../utils/logger&#x27;
 
 import &#x27;../style&#x27;
 import &#x27;phoenix-styles/less/modules/checkbox.less&#x27;
@@ -610,7 +611,8 @@ export default class Radio extends Component{
     };
 
     constructor(props, context) {
-        super(props, context);
+        super(props, context)
+        new Logger(&#x27;Radio&#x27;)
     }
 
     renderRadio(){

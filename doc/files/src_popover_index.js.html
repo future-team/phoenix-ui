@@ -550,6 +550,7 @@ import ReactDOM, {findDOMNode} from &#x27;react-dom&#x27;
 import Component from &#x27;../utils/Component&#x27;
 import classnames from &#x27;classnames&#x27;
 import Tool from &#x27;../utils/Tool&#x27;
+import Logger from &#x27;../utils/logger&#x27;
 
 import &#x27;../style&#x27;
 import &#x27;phoenix-styles/less/modules/popover.less&#x27;
@@ -647,7 +648,9 @@ export default class Popover extends Component{
     };
 
     constructor(props, context) {
-        super(props, context);
+        super(props, context)
+
+        new Logger(&#x27;Popover&#x27;)
 
         this.documentClickHandle = this.documentClickHandle.bind(this);
         this.targetClickHandle = this.targetClickHandle.bind(this)

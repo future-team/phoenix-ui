@@ -550,6 +550,7 @@ import {findDOMNode} from &#x27;react-dom&#x27;
 import Component from &#x27;../utils/Component&#x27;
 import classnames from &#x27;classnames&#x27;
 import {setPhPrefix, getClientHeight, getScrollTop, getDocumentHeight, preventDefault} from &#x27;../utils/Tool&#x27;
+import Logger from &#x27;../utils/logger&#x27;
 
 import Button from &#x27;../button&#x27;
 import Icon from &#x27;../icon&#x27;
@@ -649,6 +650,7 @@ export default class PullUp extends Component{
 
     constructor(props,context){ // 记得做数据没有触底的判断
         super(props,context)
+        new Logger(&#x27;PullUp&#x27;)
 
         this.state = {
             status: props.status

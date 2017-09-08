@@ -8180,7 +8180,7 @@
             "namespaces": {},
             "tag": "main",
             "file": "src/toast/index.js",
-            "line": 11,
+            "line": 12,
             "description": "<h5>操作类组件，主要包括组件:</h5>\n<strong><a href='../classes/Accordion.html'>Accordion 手风琴</a></strong><br/>\n<strong><a href='../classes/Toast.html'>Toast 飘字</a></strong><br>\n<strong><a href='../classes/Popup.html'>Popup 弹层</a></strong><br>\n<strong><a href='../classes/Slider.html'>Slider 滑动输入条</a></strong><br>\n<strong><a href='../classes/Swipe.html'>Swipe 左滑动</a></strong><br>\n<strong><a href='../classes/Menu.html'>Menu 菜单</a></strong><br>\n<strong><a href='../classes/LoadingList.html'>LoadingList 加载更多</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
             "itemtype": "main"
         },
@@ -8195,7 +8195,7 @@
             "namespaces": {},
             "tag": "module",
             "file": "src/drag/index.js",
-            "line": 6,
+            "line": 7,
             "description": "拖拽组件<br/>\n- 兼容移动端的touch和pc端的mouse事件。\n- 可通过dragCallback设置抓取的回调函数, 返回抓取在屏幕上的位置, 分别保存在start和move中, 以x和y的形式展示。\n- 可通过dropCallback设置松开瞬间的回调函数, 返回松开时在屏幕上的位置, 保存在end中, 以x和y的形式展示。\n\n示例:\n```code\n    <Drag dragCallback={::this.dragCallback} dropCallback={::this.dropCallback} style={{height:0}}>\n        <div className='box' ref={(box)=>{this.box = box}}>Drag</div>\n    </Drag>\n```\n```code\n    dragCallback(event,position){\n        this.prePosition = position.start;\n        this.nowPosition = position.move;\n\n        this.distanceX = this.preDistanceX + this.nowPosition.x - this.prePosition.x;\n        this.distanceY = this.preDistanceY + this.nowPosition.y - this.prePosition.y;\n        console.log(this.distanceX, this.distanceY);\n    }\n    dropCallback(event,position){\n        this.preDistanceX = this.distanceX;\n        this.preDistanceY = this.distanceY;\n    }\n```"
         },
         "标签组件": {
@@ -8210,7 +8210,7 @@
             "namespaces": {},
             "tag": "main",
             "file": "src/label/index.js",
-            "line": 18,
+            "line": 19,
             "description": "<h5>标签组件，主要包括组件:</h5>\n<strong><a href='../classes/Label.html'>Label 标签</a></strong><br/>\n<strong><a href='../classes/Badge.html'>Badge 徽章</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
             "itemtype": "main"
         },
@@ -8227,7 +8227,7 @@
             "namespaces": {},
             "tag": "main",
             "file": "src/star/index.js",
-            "line": 18,
+            "line": 19,
             "description": "<h5>基础组件，主要包括:</h5>\n<strong><a href='../classes/Star.html'>Star 星级</a></strong><br/>\n<strong><a href='../classes/Button.html'>Button 按钮</a></strong><br>\n <strong><a href='../classes/ButtonGroup.html'>ButtonGroup 按钮组</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
             "itemtype": "main"
         },
@@ -8261,7 +8261,7 @@
             "namespaces": {},
             "tag": "main",
             "file": "src/grid/Row.js",
-            "line": 8,
+            "line": 9,
             "description": "<h5>主要栅格化布局组件</h5>\n<strong><a href='../classes/Grid.html'>Grid 外框</a></strong><br>\n<strong><a href='../classes/Row.html'>Row 行排列</a></strong><br>\n<strong><a href='../classes/Col.html'>Col 竖排列</a></strong><br>\n<strong><a href='../classes/TableView.html'>TableView 仿表格组件</a></strong><br>\n<h6>点击以上链接进行相关查看</h6>",
             "itemtype": "main"
         },
@@ -8275,7 +8275,7 @@
             "namespaces": {},
             "tag": "module",
             "file": "src/list/index.js",
-            "line": 11,
+            "line": 12,
             "description": "List<br/>\n- ListItem：根据需要可添加disabled、error、required、navigate属性。\n- ListCol：根据需要可添加heading(标题样式)、tail(尾部右对齐样式)属性。\n\n示例：\n```\n <List>\n     <List.Header>标题</List.Header>\n         <List.Item className=\"clickable\">\n             <List.Col>\n                 <label>选择一</label>\n             </List.Col>\n         </List.Item>\n </List>\n```\n```\n <List>\n     <List.Item navigate>\n         <List.Col heading>\n             <label>性别</label>\n         </List.Col>\n         <List.Col tail>\n             <Input type=\"text\" placeholder=\"男/女\" disabled />\n         </List.Col>\n     </List.Item>\n </List>\n```"
         },
         "菜单组件": {
@@ -8292,7 +8292,7 @@
             "namespaces": {},
             "tag": "main",
             "file": "src/menu/index.js",
-            "line": 26,
+            "line": 27,
             "description": "<h5>菜单组件，主要包括组件:</h5>\n<strong><a href='../classes/Menu.html'>Menu 菜单</a></strong><br/>\n<strong><a href='../classes/MenuHeader.html'>MenuHeader 菜单头部</a></strong><br>\n<strong><a href='../classes/MenuBody.html'>MenuBody 菜单主体</a></strong><br>\n<strong><a href='../classes/MenuList.html'>MenuList 菜单导航列表</a></strong><br>\n<strong><a href='../classes/MenuItem.html'>MenuItem 菜单导航列表项</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
             "itemtype": "main"
         },
@@ -8308,7 +8308,7 @@
             "namespaces": {},
             "tag": "main",
             "file": "src/modal/Prompt.js",
-            "line": 10,
+            "line": 11,
             "description": "<h5>弹出框组件，主要包括组件:</h5>\n<strong><a href='../classes/Dialog.html'>Dialog 基础弹框</a></strong><br/>\n<strong><a href='../classes/Alert.html'>Alert弹框</a></strong><br>\n<strong><a href='../classes/Prompt.html'>Prompt弹框</a></strong>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
             "itemtype": "main"
         },
@@ -8341,7 +8341,7 @@
             "namespaces": {},
             "tag": "module",
             "file": "src/popover/index.js",
-            "line": 12,
+            "line": 13,
             "description": "气泡组件<br/>\n- 通过getTarget返回当前点击元素，必需。\n- 可通过placement设置气泡的显示位置, 可选top、bottom、left、right。\n- 当设置的位置不足够放置气泡，以下顺序顺延(top->bottom->left->right, bottom->top->left->right, left->right->top->bottom, right->left->top->bottom)。\n- 可通过distance设置气泡到点击对象的位置。\n- 可通过clickCallback定义气泡显隐时额外的回调函数。\n\n示例:\n```code\n <Button phSize='lg' ref={(button)=>{this.button = button}}>按钮</Button>\n <Popover getTarget={()=>{return this.button}} placement='top'>\n     <div className='ph-popover-text'>\n         一条很长的很长的气泡提示语，为了占位存在的气泡提示语。一条很长的很长的气泡提示语，为了占位存在的气泡提示语。\n     </div>\n </Popover>\n```\n```code\n <Button phSize='lg' ref={(button)=>{this.button1 = button}}>按钮</Button>\n <Popover getTarget={()=>{return this.button1}} placement='right'>\n     <ul className='ph-popover-list'>\n         <li className='ph-popover-item'>未上线单店</li>\n         <li className='ph-popover-item'>未上线连锁店</li>\n     </ul>\n </Popover>\n```"
         },
         "搜索组件": {
@@ -8354,7 +8354,7 @@
             "namespaces": {},
             "tag": "module",
             "file": "src/search-bar/index.js",
-            "line": 11,
+            "line": 12,
             "description": "SearchBar<br/>\n- 可通过buttonText设置按钮的文字。\n- 可通过clickCallback设置点击按钮的回调。\n- 可通过queryCallback设置回车/搜索动作的回调函数。\n- 可通过focusCallback设置聚焦的回调；可通过blurCallback设置失焦的回调。\n- className/style属性加在外层，其余属性均赋予input元素。\n- 可通过showButton设置当前按钮是否显示。\n\n主要属性和接口：\n- buttonText: 按钮文字 <br/>\n如：`<SearchBar buttonText=\"no\" />`\n- clickCallback: 点击按钮的回调 <br/>\n如：`<SearchBar clickCallback={(value)=>{console.log(value)}} />`\n- queryCallback: 回车/搜索动作的回调函数 <br/>\n如：`<SearchBar queryCallback={(value)=>{console.log(value)}} />`\n- focusCallback: 聚焦的回调 <br/>\n如：`<SearchBar focusCallback={()=>{console.log(\"focus\")}} />`\n- blurCallback: 失焦的回调 <br/>\n如：`<SearchBar blurCallback={()=>{console.log(\"blur\")}} />`"
         },
         "选项卡": {
@@ -8368,7 +8368,7 @@
             "namespaces": {},
             "tag": "main",
             "file": "src/tab/Tabset.js",
-            "line": 19,
+            "line": 20,
             "description": "<h5>tab选项卡，主要包括一下两个组件:</h5>\n<strong><a href='../classes/Tabset.html'>tabset</a></strong><br/>\n<strong><a href='../classes/Tab.html'>tab</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
             "itemtype": "main"
         }
@@ -8385,7 +8385,7 @@
             "module": "操作类组件",
             "namespace": "",
             "file": "src/accordion/index.js",
-            "line": 23,
+            "line": 24,
             "description": "手风琴组件<br/>\n- 通过visible设置初始展开或收起的状态, 可选true/false。\n- 可通过clickCallback设置展开收起时额外的回调函数。\n- 可通过hideIcon设置隐藏向下的箭头。\n\n主要属性和接口：\n- visible:初始展开或收起的状态, 默认false收起。\n= hideIcon:设置隐藏向下的箭头, 默认false可见。<br/>\n如：\n```code\n    <Accordion visible={true} hideIcon>\n        <Accordion.Header>\n            标题一\n        </Accordion.Header>\n        <Accordion.Body>\n            ...\n        </Accordion.Body>\n    </Accordion>\n```\n- clickCallback:点击收起展开的额外的回调执行函数。<br/>\n如：\n```code\n    <Accordion clickCallback={(visible)=>{console.log(visible);}}>\n        <Accordion.Header>\n            标题一\n        </Accordion.Header>\n        <Accordion.Body>\n            ...\n        </Accordion.Body>\n    </Accordion>\n```",
             "extends": "Component",
             "is_constructor": 1,
@@ -8413,7 +8413,7 @@
             "module": "辅助组件",
             "namespace": "",
             "file": "src/animate/index.js",
-            "line": 8,
+            "line": 9,
             "description": "动画外层组件<br/>\n- 使用时需要在子元素增加animated类名实现动画效果, animated定义的是过渡的duration和fill-mode, 默认300ms, 完全可以自定义。\n- 可通过transitionName设置动画名称, 可选fade、slide-top、slide-bottom(还将补充), 默认fade。\n- 可通过transitionEnterTimeout设置进入延迟时间。\n- 可通过transitionLeaveTimeout设置离开延迟时间。\n\n示例:\n```code\n    <Animate className='popup-content' transitionName='slide-top'>\n        {this.renderPopup()}\n    </Animate>\n```\n```code\n    renderPopup(){\n        let {visible,children,className} = this.props;\n        if(visible){\n            return <div {...this.props} className={'popup-main', 'animated', className)}>{children}</div>;\n        }else{\n            return '';\n        }\n    }\n```",
             "extends": "Component",
             "is_constructor": 1,
@@ -8441,7 +8441,7 @@
             "module": "标签组件",
             "namespace": "",
             "file": "src/badge/index.js",
-            "line": 8,
+            "line": 9,
             "description": "Badge标记<br/>\n- 主要是用来提供不同颜色的标识, 通过phStyle来改变颜色, 可选default、primary、warning、danger、info、error、success。\n- 不提供默认回调, 但支持自定义className，事件等操作。\n\n主要属性和接口：\n- phStyle:颜色, 默认primary <br/>\n如：`<Badge phStyle='info'>惠</Badge>`",
             "extends": "Component",
             "is_constructor": 1,
@@ -8469,7 +8469,7 @@
             "module": "基础组件",
             "namespace": "",
             "file": "src/button/index.js",
-            "line": 9,
+            "line": 10,
             "description": "按钮组件<br/>\n- 按钮组件提供所有properties中内置的颜色及字体大小样式供选择。\n- 也可以自定义行内样式和className名字定义UI展示。\n- 通过phSize设置大小, 可选sm、md、lg。\n- 通过phStyle选择按钮颜色，可选primary、info、error、warning、danger、link、gray、success。\n- 支持disabled, active属性定义。\n- 按钮内容默认居中，可通过stable属性设置按钮不占位，只有内容部分居中，适用于动态添加icon且不希望文字移位的情况。\n\n主要属性和接口：\n- phSize:按钮大小, 默认sm <br/>\n如: `<Button phSize='lg'>button</Button>`\n- phStyle:按钮颜色, 默认primary <br/>\n如: `<Button phStyle='info'>button</Button>`\n- block:是否块级显示，默认false <br/>\n如: `<Button block>button</Button>`\n- phIcon:icon符号类型,默认没有符号 <br/>\n如: `<Button phIcon='search'>button</Button>`\n- stable: icon不占位 <br/>\n如: `<Button phIcon='search' stable>button</Button>`",
             "extends": "Component",
             "is_constructor": 1,
@@ -8497,7 +8497,7 @@
             "module": "基础组件",
             "namespace": "",
             "file": "src/button-group/index.js",
-            "line": 8,
+            "line": 9,
             "description": "按钮组组件<br/>\n- 按钮组组件配合Button组件,提供了横、竖两种排列方式, 可选default,justify,segmente,tacked,footer。\n- 可通过index设置默认的选中索引值。\n- 可通过clickCallback实现点击回调，default和footer模式下不支持clickCallback。\n\n主要属性和接口：\n- phType:是否自适应宽度或者垂直排列, 默认default <br/>\n如:\n```code\n    <ButtonGroup phType='tacked'>\n        <Button block>tacked1</Button>\n        <Button block>tacked2</Button>\n    </ButtonGroup>\n```\nindex:默认的选中索引值, 默认0 <br/>\n如:\n```code\n    <ButtonGroup phType='justify' index={1}>\n        <Button>justify</Button>\n        <Button>justify</Button>\n    </ButtonGroup>\n```\n- clickCallback:点击按钮组的回调函数。<br/>\n```code\n    <ButtonGroup clickCallback={(target,html)=>{console.log(target,html);}}>\n        <Button>tacked1</Button>\n        <Button>tacked2</Button>\n    </ButtonGroup>\n```",
             "extends": "Component",
             "is_constructor": 1,
@@ -8525,7 +8525,7 @@
             "module": "表单组件",
             "namespace": "",
             "file": "src/checkbox/index.js",
-            "line": 8,
+            "line": 9,
             "description": "复选框组件<br/>\n- 使用方式跟原生一致, 支持disabled等原生属性。\n- 可通过label设置展示的文字。\n- 可通过defaultChecked设置默认值; 可通过checked和onChange事件配合使用手动设置输入值。\n- className属性加在外层，其余属性均赋予input元素。\n\n主要属性和接口：\n- label:展示的文字信息, 默认空<br/>\n如：`<Checkbox label='测试' />`\n- defaultChecked:默认值<br/>\n如：`<Checkbox defaultChecked={true} />`\n- checked&onChange:<br/>\n如：`<Checkbox checked={this.state.checked} onChange={()=>{this.setState({checked:false})}} />`",
             "extends": "Component",
             "is_constructor": 1,
@@ -8553,7 +8553,7 @@
             "module": "辅助组件",
             "namespace": "",
             "file": "src/drag/index.js",
-            "line": 6,
+            "line": 7,
             "description": "拖拽组件<br/>\n- 兼容移动端的touch和pc端的mouse事件。\n- 可通过dragCallback设置抓取的回调函数, 返回抓取在屏幕上的位置, 分别保存在start和move中, 以x和y的形式展示。\n- 可通过dropCallback设置松开瞬间的回调函数, 返回松开时在屏幕上的位置, 保存在end中, 以x和y的形式展示。\n\n示例:\n```code\n    <Drag dragCallback={::this.dragCallback} dropCallback={::this.dropCallback} style={{height:0}}>\n        <div className='box' ref={(box)=>{this.box = box}}>Drag</div>\n    </Drag>\n```\n```code\n    dragCallback(event,position){\n        this.prePosition = position.start;\n        this.nowPosition = position.move;\n\n        this.distanceX = this.preDistanceX + this.nowPosition.x - this.prePosition.x;\n        this.distanceY = this.preDistanceY + this.nowPosition.y - this.prePosition.y;\n        console.log(this.distanceX, this.distanceY);\n    }\n    dropCallback(event,position){\n        this.preDistanceX = this.distanceX;\n        this.preDistanceY = this.distanceY;\n    }\n```",
             "extends": "Component",
             "is_constructor": 1,
@@ -8581,7 +8581,7 @@
             "module": "布局组件",
             "namespace": "",
             "file": "src/grid/Col.js",
-            "line": 8,
+            "line": 9,
             "description": "列组件<br/>\n- 搭配Row行组件可实现自适应宽度布局。\n- 可通过align定义单个项目在交叉轴上的对齐方式, 可选auto、top、bottom、center。\n- 可通过width设置单个项目宽度的百分比, 目前支持5-100之间5的倍数、33（1\\3）和66(2\\3)。\n- 可通过offset设置单个项目左边外边距。\n\n主要属性和接口：\n- align:单个项目在交叉轴上的对齐方式, 默认auto <br/>\n```code\n    <Row>\n        <Col align='top'>\n            <div className='col-demo'>top</div>\n        </Col>\n        <Col align='center'>\n            <div className='col-demo'>center</div>\n        </Col>\n        <Col align='bottom'>\n            <div className='col-demo'>bottom</div>\n        </Col>\n    </Row>\n```\n- width:单个项目的宽度百分比 <br/>\n```code\n    <Row>\n        <Col width='15'>\n            <div className='col-demo'>15</div>\n        </Col>\n    </Row>\n```\n- offset:单个项目的偏移值,即左边外边距 <br/>\n```code\n    <Row>\n        <Col width='20' offset='10'>\n            <div className='col-demo'>10</div>\n        </Col>\n    </Row>\n```",
             "extends": "Component",
             "is_constructor": 1,
@@ -8609,7 +8609,7 @@
             "module": "布局组件",
             "namespace": "",
             "file": "src/grid/Grid.js",
-            "line": 19,
+            "line": 20,
             "description": "栅格容器组件<br/>\n- 配合Row、Col使用布局。\n- 可自定义className、style等属性以及自定义事件。\n\n示例:\n```code\n    <Grid> //定义栅格\n        <Row> //定义一行\n            <Col> //定义一列，最多12份\n                <div className='col-demo'>内容</div>\n            </Col>\n            <Col>\n                <div className='col-demo'>stretch<br />baseline</div>\n            </Col>\n        </Row>\n    </Grid>\n```",
             "extends": "Component",
             "is_constructor": 1,
@@ -8637,7 +8637,7 @@
             "module": "布局组件",
             "namespace": "",
             "file": "src/grid/Row.js",
-            "line": 8,
+            "line": 9,
             "description": "行组件<br/>\n- 搭配Col列组件可实现自适应宽度布局。\n- 可通过align定义项目在交叉轴上的对齐方式, 可选top、bottom、center、baseline、stretch。\n\n主要属性和接口：\n- align:项目在交叉轴上的对齐方式, 默认stretch\n```code\n    <Row align='baseline'>\n        <Col>\n            <div className='col-demo'>baseline</div>\n        </Col>\n        <Col>\n            <div className='col-demo'>baseline<br />baseline</div>\n        </Col>\n    </Row>\n```",
             "extends": "Component",
             "is_constructor": 1,
@@ -8665,7 +8665,7 @@
             "module": "标签组件",
             "namespace": "",
             "file": "src/icon/index.js",
-            "line": 8,
+            "line": 9,
             "description": "Icon<br/>\n- 可通过phIcon来配置不同类型的符号, 可选[查看所有icon类型](http://future-team.github.io/gfs-icons/index.html)。\n- 支持自定义className，事件等操作。\n\n主要属性和接口：\n- phIcon:配置不同类型的符号 <br/>\n如：`<Icon phIcon='search' />`",
             "extends": "Component",
             "is_constructor": 1,
@@ -8693,13 +8693,13 @@
             "module": "基础组件",
             "namespace": "",
             "file": "src/image/index.js",
-            "line": 9,
+            "line": 10,
             "description": "图片组件<br/>\n- 和普通图片使用方式一致，src为必填选项，可自行添加alt属性。\n- 可通过defaultSrc添加默认图片地址，在图片未加载出来之前显示。\n- 可通过phSize设置图片大小，default为宽高和父级一致；cover为覆盖，不变形，没有空白区域；contain包含，不变形，可能有空白区域。\n- 可通过lazy设置图片为懒加载的模式，当图片进入视口之后才开始加载，可配合ImageList使用。\n- 可通过loadCallback设置图片加载完成的回调函数。\n- cover和contain必须设置定高。\n\n主要属性和接口：\n- src: 图片地址。<br/>\n如：`<Image src={IMAGE_URL} alt='图片没有加载上的提示语'/>`\n- defaultSrc: 默认图片地址。<br/>\n如：`<Image src={IMAGE_URL} defaultSrc={DEFAULT_URL}/>`\n- phSize: 图片大小。<br/>\n如：`<Image src={IMAGE_URL} phSize='cover'/>`\n- lazy: 是否懒加载<br/>\n如：`<Image src={IMAGE_URL} lazy/>`\n- loadCallback: 图片加载完成的回调<br/>\n如：`<Image src={IMAGE_URL} loadCallback={(err)=>{if(!err) console.log('success!')}}/>`",
             "extends": "Component",
             "is_constructor": 1,
             "since": "2.0.0",
             "example": [
-                "\timport React, { Component } from \"react\"\n\t\n\timport Image from \"phoenix-ui/lib/image\"\n\timport Code from \"./code/code\"\n\t\n\tconst DEFULT_IMAGE = 'http://file.digitaling.com/eImg/uimages/20150907/1441607165383971.gif',\n\t      IMAGE_URL = 'http://img5.duitang.com/uploads/item/201602/11/20160211214958_RhdCY.jpeg',\n\t      LAZY_URL = 'http://imglf1.ph.126.net/V0-JUTmkXrb0nkcfTVfH9g==/6630709324908900349.jpg'\n\t\n\texport default class image extends Component{\n\t    constructor(props,context){\n\t        super(props,context); \n\t    }\n\t\n\t    loadCallback(err){\n\t        if(!err){\n\t            console.log('success!')\n\t        }else{\n\t            console.error(err)\n\t        }\n\t    }\n\t                \n\t    render(){\n\t        return(\n\t            <div>\n\t            \t<h2 className=\"comp-title\">Image</h2>\n\t                <h3 className=\"comp-type\">src(必须) 图片地址</h3>\n\t                <div className=\"content\">\n\t                    <Image src={IMAGE_URL} alt=\"...\"/>\n\t                </div>\n\t                <Code target=\"image-src\" />\n\t\n\t                <h3 className=\"comp-type\">defaultSrc 默认图片地址</h3>\n\t                <div className=\"content\">\n\t                    <Image defaultSrc={DEFULT_IMAGE} src={IMAGE_URL} />\n\t                </div>\n\t                <Code target=\"image-defaultsrc\" />\n\t\n\t                <h3 className=\"comp-type\">lazy 是否懒加载(当图片到达视口区域才加载)</h3>\n\t                <div className=\"content\">\n\t                    <Image defaultSrc={DEFULT_IMAGE} src={LAZY_URL} lazy />\n\t                </div>\n\t                <Code target=\"image-lazy\" />\n\t\n\t                <h3 className=\"comp-type\">phSize(默认default) 图片大小(default/cover/contain)</h3>\n\t                <div className=\"content\">\n\t                    <h3 className=\"comp-tip\">default(宽高100%)</h3>\n\t                    <Image src={IMAGE_URL} phSize=\"default\" />\n\t                    <h3 className=\"comp-tip\">cover(短边100%，不变形)</h3>\n\t                    <Image src={IMAGE_URL} phSize=\"cover\" />\n\t                    <h3 className=\"comp-tip\">contain(长边100%，不变形，留有空白区)</h3>\n\t                    <Image src={IMAGE_URL} phSize=\"contain\" />\n\t                </div>\n\t                <Code target=\"image-phsize\" />\n\t\n\t                <h3 className=\"comp-type\">loadCallback 图片加载完成的回调</h3>\n\t                <div className=\"content\">\n\t                    <Image src={IMAGE_URL} loadCallback={this.loadCallback.bind(this)} />\n\t                </div>\n\t                <Code target=\"image-loadcallback\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
+                "\timport React, { Component } from \"react\"\n\t\n\timport Image from \"phoenix-ui/lib/image\"\n\timport Code from \"./code/code\"\n\t\n\tconst DEFULT_IMAGE = 'http://file.digitaling.com/eImg/uimages/20150907/1441607165383971.gif',\n\t      IMAGE_URL = 'http://img5.duitang.com/uploads/item/201602/11/20160211214958_RhdCY.jpeg',\n\t      LAZY_URL = 'http://img.chinatimes.com/newsphoto/2016-05-19/656/20160519005737.jpg'\n\t\n\texport default class image extends Component{\n\t    constructor(props,context){\n\t        super(props,context); \n\t    }\n\t\n\t    loadCallback(err){\n\t        if(!err){\n\t            console.log('success!')\n\t        }else{\n\t            console.error(err)\n\t        }\n\t    }\n\t                \n\t    render(){\n\t        return(\n\t            <div>\n\t            \t<h2 className=\"comp-title\">Image</h2>\n\t                <h3 className=\"comp-type\">src(必须) 图片地址</h3>\n\t                <div className=\"content\">\n\t                    <Image src={IMAGE_URL} alt=\"...\"/>\n\t                </div>\n\t                <Code target=\"image-src\" />\n\t\n\t                <h3 className=\"comp-type\">defaultSrc 默认图片地址</h3>\n\t                <div className=\"content\">\n\t                    <Image defaultSrc={DEFULT_IMAGE} src={IMAGE_URL} />\n\t                </div>\n\t                <Code target=\"image-defaultsrc\" />\n\t\n\t                <h3 className=\"comp-type\">lazy 是否懒加载(当图片到达视口区域才加载)</h3>\n\t                <div className=\"content\">\n\t                    <Image defaultSrc={DEFULT_IMAGE} src={LAZY_URL} lazy />\n\t                </div>\n\t                <Code target=\"image-lazy\" />\n\t\n\t                <h3 className=\"comp-type\">phSize(默认default) 图片大小(default/cover/contain)</h3>\n\t                <div className=\"content\">\n\t                    <h3 className=\"comp-tip\">default(宽高100%)</h3>\n\t                    <Image src={IMAGE_URL} phSize=\"default\" />\n\t                    <h3 className=\"comp-tip\">cover(短边100%，不变形)</h3>\n\t                    <Image src={IMAGE_URL} phSize=\"cover\" />\n\t                    <h3 className=\"comp-tip\">contain(长边100%，不变形，留有空白区)</h3>\n\t                    <Image src={IMAGE_URL} phSize=\"contain\" />\n\t                </div>\n\t                <Code target=\"image-phsize\" />\n\t\n\t                <h3 className=\"comp-type\">loadCallback 图片加载完成的回调</h3>\n\t                <div className=\"content\">\n\t                    <Image src={IMAGE_URL} loadCallback={this.loadCallback.bind(this)} />\n\t                </div>\n\t                <Code target=\"image-loadcallback\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
                 "展示"
@@ -8721,7 +8721,7 @@
             "module": "操作类组件",
             "namespace": "",
             "file": "src/image-list/index.js",
-            "line": 8,
+            "line": 9,
             "description": "图片列表组件<br/>\n- 通过column设置图片列表的列数，1-8列。\n- 若需要懒加载，请配合Image组件使用。\n\n主要属性和接口：\n- column:列表的列数，默认1列。<br>\n```code\n<ImageList column={4}>\n {\n     this.state.images.map((data,index)=>{\n         return (\n             <dl className='ph-image-item' key={index}>\n                 <dt>\n                     <Image src={data.image} alt={data.title} lazy/>\n                 </dt>\n                 <dd>\n                     <p className='ph-image-title'>{data.title}</p>\n                     <p className='ph-image-desp'>{data.desp}</p>\n                 </dd>\n             </dl>\n         )\n     })\n }\n</ImageList>\n```",
             "extends": "Component",
             "is_constructor": 1,
@@ -8749,7 +8749,7 @@
             "module": "表单组件",
             "namespace": "",
             "file": "src/input/index.js",
-            "line": 10,
+            "line": 11,
             "description": "输入框组件<br/>\n- 使用方式跟原生一致, 支持disabled、maxLength等原生属性。\n- 通过type设置input的类型, 可选text,search,password。\n- 可通过value设置默认值。\n- 可通过设置clear属性是否显示清除按钮，默认不显示。\n- 可通过设置visible属性判断password类型是否显示可见密码的按钮，默认不显示。\n- 可通过设置error设置当前输入错误。\n- 可通过getValueCallback获取当前元素的value值，仅适用于text、search。\n- 可通过设置phReg设置正则表达式，失焦时如果不符合正则显示错误样式。\n- className/style属性加在外层，其余属性均赋予input元素。\n\n主要属性和接口：\n- type:input类型, 默认text <br/>\n如：`<Input type='search' disabled/>`\n- value:设置默认值 <br/>\n如：`<Input value='测试' />`\n- clear:是否显示清除按钮 <br/>\n如：`<Input value='测试' clear/>`\n- visible: 是否显示可见密码的按钮(仅适用于password类型)<br/>\n如：`<Input type='password' value='123456' visible />`\n- error: 当前输入错误<br/>\n如：`<Input type='password' value='123456' error />`\n- phReg: 正则表达式<br/>\n如：`<Input type=\"text\" placeholder=\"6-18位不以数字开头的用户名\" phReg={/^[a-zA-Z$_]\\w{5,17}$/} />`\n- getValueCallback: 获取当前input的value。<br/>\n如：`<Input ref={(inputElem)=>{this.inputElem=inputElem}} />`<br/>\n`this.inputElem.getValueCallback();`",
             "extends": "Component",
             "is_constructor": 1,
@@ -8777,7 +8777,7 @@
             "module": "标签组件",
             "namespace": "",
             "file": "src/label/index.js",
-            "line": 18,
+            "line": 19,
             "description": "标签组件<br/>\n- 通过phLabel设置label类型，可选参考[所有label类型](http://future-team.github.io/gfs-icons/index.html#label)\n- 通过phStyle来改变颜色, 可选primary、info、success、calm、light、gray。\n- 通过phSize设置大小, 可选sm、md。\n- 不提供默认回调, 但支持自定义className，事件等操作。\n\n主要属性和接口：\n- phLabel:标签类型 <br/>\n如：`<Label phLabel='zu'/>`\n- phStyle:标签颜色, 默认primary <br/>\n如：`<Label phStyle='info'/>`\n- phSize:标签大小, 默认sm <br/>\n如：`<Label phSize='lg'/>`",
             "extends": "Component",
             "is_constructor": 1,
@@ -8805,7 +8805,7 @@
             "module": "列表组件",
             "namespace": "",
             "file": "src/list/index.js",
-            "line": 11,
+            "line": 12,
             "description": "List<br/>\n- ListItem：根据需要可添加disabled、error、required、navigate属性。\n- ListCol：根据需要可添加heading(标题样式)、tail(尾部右对齐样式)属性。\n\n示例：\n```\n <List>\n     <List.Header>标题</List.Header>\n         <List.Item className=\"clickable\">\n             <List.Col>\n                 <label>选择一</label>\n             </List.Col>\n         </List.Item>\n </List>\n```\n```\n <List>\n     <List.Item navigate>\n         <List.Col heading>\n             <label>性别</label>\n         </List.Col>\n         <List.Col tail>\n             <Input type=\"text\" placeholder=\"男/女\" disabled />\n         </List.Col>\n     </List.Item>\n </List>\n```",
             "extends": "Component",
             "is_constructor": 1,
@@ -8945,7 +8945,7 @@
             "module": "菜单组件",
             "namespace": "",
             "file": "src/menu/index.js",
-            "line": 26,
+            "line": 27,
             "description": "菜单组件<br/>\n- 可通过visible设置菜单初始是否可见，默认不可见。\n- 不设置ceiling时默认菜单不吸顶，设置ceiling为具体数值时表示从当前距离开始吸顶，设置0表示至始至终吸顶。\n- 可通过clickCallback函数设置菜单打开收起的回调函数。\n\n主要属性和接口：\n- visible:初始展开或收起的状态, 默认false收起。\n- ceiling:设置吸顶的距离, 默认不吸顶, 设置0表示始终吸顶。\n- clickCallback:菜单打开关闭时的回调函数。 <br/>\n如：\n```code\n    <Menu ceiling={100} visible={true} clickCallback={(visible)=>{console.log(visible);}}>\n        <Menu.Header>\n            标题一\n        </Menu.Header>\n        <Menu.Body>\n            ...\n        </Menu.Body>\n    </Menu>\n```",
             "extends": "Component",
             "is_constructor": 1,
@@ -8973,7 +8973,7 @@
             "module": "弹出框组件",
             "namespace": "",
             "file": "src/modal/Alert.js",
-            "line": 9,
+            "line": 10,
             "description": "Alert组件<br/>\n- 由于弹框的显示操作在组件以外, 所以需要在使用时自定义`visible`、`closeCallback`函数。\n- 可通过title设置弹出框标题，content设置内容，buttons设置尾部按钮。(相对Dialog新增参数)\n- 默认有[确定]1个按钮，点击[确定]默认的执行函数是closeCallback直接关闭。\n- 通过visible设置弹框是否显示, 可选true/false, 必需。\n- 可通过closeCallback配置点击弹框阴影部分以及弹框右上角X按钮来关闭弹框。\n- 可通过closeButton来配置弹框右上角X按钮是否显示, 默认不显示。\n- 默认传了closeCallback之后阴影部分就具备点击关闭弹框的按钮, 如果需要去掉该功能需要额外传shadowDisabled作为标识。\n\n主要属性和接口：\n- title:弹框的标题，必需。\n- content:弹框的内容，必需。\n- buttons:尾部按钮的内容，必需是数组的形式，text标识填充的问题，phStyle表示主题，onHandle表示点击的回调，otherProps传递按钮的其他属性，如{active:true, block:true, hollow: true}。\n- visible:弹框是否显示标识, 默认false不可见。\n- closeCallback:关闭弹框的功能函数。\n- closeButton:右上角关闭按钮是否显示的标识, 默认不显示。\n- shadowDisabled:阴影部分是否可点击关闭按钮, 默认传了closeCallback函数就可以关闭。\n\n示例:\n```code\n     const buttons = [\n           {text: '取消', phStyle: 'gray', otherProps: {hollow: true}}, // text默认'确定', phStyle默认primary，onHandle默认执行closeCallback\n           {text: '确定', onHandle: this.confirmCallback}\n       ];\n       ...\n     <Alert closeButton shadowDisabled visible={this.state.visible} closeCallback={this.closeCallback.bind(this,'visible')} \n         title='这是标题' content='这里是弹出框的内容...' buttons={buttons} />\n```",
             "extends": "Component",
             "is_constructor": 1,
@@ -9001,7 +9001,7 @@
             "module": "弹出框组件",
             "namespace": "",
             "file": "src/modal/Dialog.js",
-            "line": 21,
+            "line": 22,
             "description": "弹框组件<br/>\n- 由于弹框的显示操作在组件以外, 所以需要在使用时自定义`visible`、`closeCallback`函数。\n- 通过visible设置弹框是否显示, 可选true/false, 必需。\n- 可通过closeCallback配置点击弹框阴影部分以及弹框右上角X按钮来关闭弹框。\n- 可通过closeButton来配置弹框右上角X按钮是否显示, 默认不显示。\n- 默认传了closeCallback之后阴影部分就具备点击关闭弹框的按钮, 如果需要去掉该功能需要额外传shadowDisabled作为标识。\n\n主要属性和接口：\n- visible:弹框是否显示标识, 默认false不可见<br/>\n- closeCallback:关闭弹框的功能函数<br/>\n- closeButton:右上角关闭按钮是否显示的标识, 默认不显示<br/>\n- shadowDisabled:阴影部分是否可点击关闭按钮, 默认传了closeCallback函数就可以关闭<br/>\n\n示例:\n```code\n    <Dialog visible={this.state.visible} closeCallback={::this.closeCallback} closeButton shadowDisabled>\n        <Dialog.Title>标题标题</Dialog.Title>\n        <Dialog.Body>\n            <p>可自定义表格内容</p>\n        </Dialog.Body>\n        <Dialog.Footer>\n            <Button hollow phSize='lg' phStyle='gray' onClick={::this.closeCallback}>取消</Button>\n        </Dialog.Footer>\n    </Dialog>\n```\n```code\n    onShow(){\n        this.setState({\n            visible: true\n        });\n    }\n    closeCallback(){\n        this.setState({\n            visible: false\n        });\n    }\n```",
             "extends": "Component",
             "is_constructor": 1,
@@ -9029,7 +9029,7 @@
             "module": "弹出框组件",
             "namespace": "",
             "file": "src/modal/Prompt.js",
-            "line": 10,
+            "line": 11,
             "description": "Prompt组件<br/>\n- 由于弹框的显示操作在组件以外, 所以需要在使用时自定义`visible`、`closeCallback`函数。\n- 可通过title设置弹出框标题，content设置内容，buttons设置尾部按钮。(相对Dialog新增参数)\n- 按钮默认有[取消, 确定]2个按钮，点击[取消]默认的执行函数是直接关闭，点击[确定]通过传入的confirmCallback函数可获取input的value数组，可自行添加回调。。\n- 通过visible设置弹框是否显示, 可选true/false, 必需。\n- 可通过closeCallback配置点击弹框阴影部分以及弹框右上角X按钮来关闭弹框。\n- 可通过closeButton来配置弹框右上角X按钮是否显示, 默认不显示。\n- 默认传了closeCallback之后阴影部分就具备点击关闭弹框的按钮, 如果需要去掉该功能需要额外传shadowDisabled作为标识。\n\n主要属性和接口：\n- title:弹框的标题，必需。\n- content:弹框的内容，必需。\n- buttons:尾部按钮的内容，必需是数组的形式，text标识填充的问题，phStyle表示主题，onHandle表示点击按钮的回调，otherProps传递按钮的其他属性，如{active:true, block:true, hollow: true}。\n- confirmCallback:点击确定按钮的回调，返回input的value。\n- visible:弹框是否显示标识, 默认false不可见。\n- closeCallback:关闭弹框的功能函数。\n- closeButton:右上角关闭按钮是否显示的标识, 默认不显示。\n- shadowDisabled:阴影部分是否可点击关闭按钮, 默认传了closeCallback函数就可以关闭。\n\n示例:\n```code\n     const buttons = [\n           {text: '取消', phStyle: 'gray', otherProps: {hollow: true}}, // text默认'确定', phStyle默认primary，onHandle默认执行closeCallback\n           {text: '确定', onHandle: this.confirmCallback}\n       ];\n       ...\n     <Prompt closeButton shadowDisabled visible={this.state.visible} closeCallback={this.closeCallback.bind(this,'visible')} \n         title='这是标题' content='这里是弹出框的内容...' buttons={buttons} />\n```",
             "extends": "Component",
             "is_constructor": 1,
@@ -9085,7 +9085,7 @@
             "module": "筛选控件",
             "namespace": "",
             "file": "src/ph-filter/components/FilterContainer.js",
-            "line": 21,
+            "line": 22,
             "description": "单选筛选<br/>\n- 可通过index设置筛选默认打开的面板。默认－1，即都不打开。\n- 可通过hideCat选择是否要显示筛选头部。\n- 可通过stable设置面板是否从当前位置展开，默认置顶满屏展开。\n- 可通过clickCallback设置有效选择的回调，当没有按钮时选中即触发，有按钮时点击按钮时触发。\n\n主要属性和接口：\n- index: 默认打开的面板。\n- hideCat: 是否显示筛选头部。\n- stable: 是否从当前位置展开。\n- clickCallback: 有效选择的回调。\n\n有2种形式，其一，简单模式。<br/>\n如：\n```code\n this.state = {\n     panel1:[\n         {key:'sndq',value:'上南地区'},\n         {key:'ljz',value:'陆家嘴'},\n         {key:'bbb',value:'八佰伴'},\n         {key:'pdxq',value:'浦东新区'}\n     ]\n }\n...\n <FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)} stable>\n     <PanelSimple readOnly className='panel1' selected={{key:'ljz',value:'陆家嘴'}}>\n         {\n             this.state.panel1.map(function(item){\n                 return <Item key={item.key} itemKey={item.key}>{item.value}</Item>\n             })\n         }\n     </PanelSimple>\n </FilterContainer>\n```\n其一，双栏模式。<br/>\n如：\n```code\n <FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)}>\n     <Panel readOnly selected={{key:'s_flower',value:'花店'}}>\n         <ItemGroup label={<span style={{color:'red'}}>美食</span>}>\n             <Item itemKey='f_all'>全部美食</Item>\n             <Item itemKey='f_bbc'>本帮江浙菜</Item>\n             ...\n         </ItemGroup>\n         <ItemGroup  label='电影'>\n             <Item itemKey='m_all'>全部电影</Item>\n             <Item itemKey='m_p'>私人影院</Item>\n             ...\n         </ItemGroup>\n         ...\n     </Panel>\n </FilterContainer>\n```",
             "extends": "Component",
             "is_constructor": 1,
@@ -9225,7 +9225,7 @@
             "module": "提示组件",
             "namespace": "",
             "file": "src/popover/index.js",
-            "line": 12,
+            "line": 13,
             "description": "气泡组件<br/>\n- 通过getTarget返回当前点击元素，必需。\n- 可通过placement设置气泡的显示位置, 可选top、bottom、left、right。\n- 当设置的位置不足够放置气泡，以下顺序顺延(top->bottom->left->right, bottom->top->left->right, left->right->top->bottom, right->left->top->bottom)。\n- 可通过distance设置气泡到点击对象的位置。\n- 可通过clickCallback定义气泡显隐时额外的回调函数。\n\n示例:\n```code\n <Button phSize='lg' ref={(button)=>{this.button = button}}>按钮</Button>\n <Popover getTarget={()=>{return this.button}} placement='top'>\n     <div className='ph-popover-text'>\n         一条很长的很长的气泡提示语，为了占位存在的气泡提示语。一条很长的很长的气泡提示语，为了占位存在的气泡提示语。\n     </div>\n </Popover>\n```\n```code\n <Button phSize='lg' ref={(button)=>{this.button1 = button}}>按钮</Button>\n <Popover getTarget={()=>{return this.button1}} placement='right'>\n     <ul className='ph-popover-list'>\n         <li className='ph-popover-item'>未上线单店</li>\n         <li className='ph-popover-item'>未上线连锁店</li>\n     </ul>\n </Popover>\n```",
             "extends": "Component",
             "is_constructor": 1,
@@ -9253,7 +9253,7 @@
             "module": "操作类组件",
             "namespace": "",
             "file": "src/popup/index.js",
-            "line": 9,
+            "line": 10,
             "description": "弹层组件<br/>\n- 由于弹层的显示操作在组件以外, 所以需要在使用时自定义visible、onShow、closeCallback函数。\n- 通过align设置碳层弹出的位置, 可选top/bottom。\n- 可通过closeCallback配置点击弹层阴影部分来关闭弹层。\n\n主要属性和接口：\n- visible:弹层是否显示标识, 默认false不可见\n- closeCallback:关闭弹层的功能函数\n- align:弹层的位置, 默认top\n\n示例:\n```code\n    <Popup align='top' visible={this.state.visible} closeCallback={::this.closeCallback}>\n        <ul className='ph-popup-list'>\n            <li className='ph-popup-item'>未上线单店</li>\n            <li className='ph-popup-item'>未上线连锁店</li>\n        </ul>\n    </Popup>\n```\n```code\n    onShow(){\n        this.setState({\n            visible: true\n        });\n    }\n    closeCallback(){\n        this.setState({\n            visible: false\n        });\n    }\n```",
             "extends": "Component",
             "is_constructor": 1,
@@ -9281,7 +9281,7 @@
             "module": "操作类组件",
             "namespace": "",
             "file": "src/pullup/index.js",
-            "line": 13,
+            "line": 14,
             "description": "加载更多组件<br/>\n- 书写时PullUp组件在可加载列表的后面。\n- 通过mode设置加载更多的模式，有点击按钮加载更多，以及滑到最底端自动加载，可选 [auto,button] 2种参数。\n- 通过status设置当前状态，只需要在请求结束返回相应状态，包含请求成功返回2，请求成功并再没有数据返回4，请求失败返回3。\n- 可通过tips设置按钮文字和状态提示语，默认['加载更多','','加载成功','加载失败','没有更多']，分别对应status的状态。\n- 可通过phStyle设置按钮的样式，如果当前mode为auto设置无效。\n- 可通过loadCallback设置点击按钮加载或滑到底部自动加载的回调函数，如果状态为4不执行。\n\n主要属性和接口：\n- mode:加载更多的模式，默认auto。\n- status:当前状态:0加载更多, 1加载中, 2数据加载成功, 3数据加载失败, 4没有更多。\n- tips:按钮文字和状态提示语，默认['加载更多','','加载成功','加载失败','没有更多']。\n- phStyle:按钮的样式，默认'primary'。\n- loadCallback:点击按钮加载或滑到底部自动加载的回调函数。\n\n示例：\n```code\n // 可加载列表的位置\n <PullUp mode='button' status={this.state.status} \n     tips={['点击加载更多','加载中...','加载成功！','加载失败！','没有更多']} \n     phStyle='primary' \n     loadCallback={this.loadCallback.bind(this)} />\n```",
             "extends": "Component",
             "is_constructor": 1,
@@ -9309,7 +9309,7 @@
             "module": "表单组件",
             "namespace": "",
             "file": "src/radio/index.js",
-            "line": 8,
+            "line": 9,
             "description": "单选框组件<br/>\n- 使用方式跟原生一致, 支持disabled等原生属性。\n- 可通过label设置展示的文字。\n- 可通过defaultChecked设置默认值; 可通过checked和onChange事件配合使用手动设置输入值。\n- className/style属性加在外层，其余属性均赋予input元素。\n\n主要属性和接口：\n- label:展示的文字信息, 默认空<br/>\n如：`<Radio label='测试' name='test'/>`\n- defaultChecked:默认值<br/>\n如：`<Radio defaultChecked={true} />`\n- checked&onChange:<br/>\n如：`<Radio checked={this.state.checked} onChange={()=>{this.setState({checked:false})}} />`",
             "extends": "Component",
             "is_constructor": 1,
@@ -9337,13 +9337,13 @@
             "module": "搜索组件",
             "namespace": "",
             "file": "src/search-bar/index.js",
-            "line": 11,
+            "line": 12,
             "description": "SearchBar<br/>\n- 可通过buttonText设置按钮的文字。\n- 可通过clickCallback设置点击按钮的回调。\n- 可通过queryCallback设置回车/搜索动作的回调函数。\n- 可通过focusCallback设置聚焦的回调；可通过blurCallback设置失焦的回调。\n- className/style属性加在外层，其余属性均赋予input元素。\n- 可通过showButton设置当前按钮是否显示。\n\n主要属性和接口：\n- buttonText: 按钮文字 <br/>\n如：`<SearchBar buttonText=\"no\" />`\n- clickCallback: 点击按钮的回调 <br/>\n如：`<SearchBar clickCallback={(value)=>{console.log(value)}} />`\n- queryCallback: 回车/搜索动作的回调函数 <br/>\n如：`<SearchBar queryCallback={(value)=>{console.log(value)}} />`\n- focusCallback: 聚焦的回调 <br/>\n如：`<SearchBar focusCallback={()=>{console.log(\"focus\")}} />`\n- blurCallback: 失焦的回调 <br/>\n如：`<SearchBar blurCallback={()=>{console.log(\"blur\")}} />`",
             "extends": "Component",
             "is_constructor": 1,
             "since": "2.0.0",
             "example": [
-                "\timport React, { Component } from \"react\"\n\t\n\timport SearchBar from \"phoenix-ui/lib/search-bar\"\n\timport Code from \"./code/code\"\n\t\n\texport default class searchBar extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context);\n\t\n\t        this.state = {\n\t            showButton: false\n\t        };\n\t    }\n\t\n\t    focusCallback(){\n\t        this.setState({\n\t            showButton: true\n\t        })\n\t    }\n\t\n\t    clickCallback(){\n\t        this.setState({\n\t            showButton: false\n\t        })\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t            \t<h2 className=\"comp-title\">SearchBar</h2>\n\t                <h3 className=\"comp-type\">buttonText 按钮文字</h3>\n\t                <SearchBar value=\"123\" buttonText=\"no\" />\n\t                <Code target=\"search-buttontext\" />\n\t\n\t                <h3 className=\"comp-type\">placeholder 输入框占位符</h3>\n\t                <SearchBar placeholder=\"请输入...\" />\n\t                <Code target=\"search-placeholder\" />\n\t\n\t                <h3 className=\"comp-type\">showButton 是否显示按钮</h3>\n\t                <SearchBar placeholder=\"请输入...\" showButton={this.state.showButton} \n\t                    focusCallback={this.focusCallback.bind(this)}\n\t                    clickCallback={this.clickCallback.bind(this)} />\n\t                <Code target=\"search-showbutton\" />\n\t\n\t                <h3 className=\"comp-type\">clickCallback 点击按钮的回调</h3>\n\t                <SearchBar clickCallback={(query)=>{alert(query)}} />\n\t                <Code target=\"search-clickcallback\" />\n\t\n\t                <h3 className=\"comp-type\">queryCallback 搜索的回调(键盘的回车/搜索)</h3>\n\t                <SearchBar queryCallback={(query)=>{alert(query)}} />\n\t                <Code target=\"search-querycallback\" />\n\t\n\t                <h3 className=\"comp-type\">focusCallback 聚焦的回调</h3>\n\t                <SearchBar focusCallback={()=>{console.log(\"focus\")}} />\n\t                <Code target=\"search-focuscallback\" />\n\t\n\t                <h3 className=\"comp-type\">blurCallback 失焦的回调</h3>\n\t                <SearchBar blurCallback={()=>{console.log(\"blur\")}} />\n\t                <Code target=\"search-blurcallback\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
+                "\timport React, { Component } from \"react\"\n\t\n\timport SearchBar from \"phoenix-ui/lib/search-bar\"\n\timport Button from \"phoenix-ui/lib/button\"\n\timport Code from \"./code/code\"\n\t\n\texport default class searchBar extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context);\n\t\n\t        this.BUTTON_TEXT = [12345, 321, 6758]\n\t\n\t        this.state = {\n\t            showButton: false,\n\t            value: ''\n\t        };\n\t    }\n\t\n\t    focusCallback(value){\n\t        this.setState({\n\t            showButton: true,\n\t            value: value\n\t        })\n\t    }\n\t\n\t    clickCallback(value){\n\t        this.setState({\n\t            showButton: false,\n\t            value: value\n\t        })\n\t    }\n\t\n\t    clickHandle(btnText){\n\t        this.setState({\n\t            value: btnText\n\t        })\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t            \t<h2 className=\"comp-title\">SearchBar</h2>\n\t                <h3 className=\"comp-type\">buttonText 按钮文字</h3>\n\t                <SearchBar value='1234' buttonText=\"no\" />\n\t                <Code target=\"search-buttontext\" />\n\t\n\t                <h3 className=\"comp-type\">placeholder 输入框占位符</h3>\n\t                <SearchBar placeholder=\"请输入...\" />\n\t                <Code target=\"search-placeholder\" />\n\t\n\t                <h3 className=\"comp-type\">showButton 是否显示按钮</h3>\n\t                <SearchBar value={this.state.value} placeholder=\"请输入...\" showButton={this.state.showButton} \n\t                    focusCallback={this.focusCallback.bind(this)}\n\t                    clickCallback={this.clickCallback.bind(this)}/>\n\t                <div className='content'>\n\t                    {\n\t                        this.BUTTON_TEXT.map((btnText,index)=>{\n\t                            return <Button key={index} hollow onClick={this.clickHandle.bind(this, btnText)}>{btnText}</Button>\n\t                        })\n\t                    }\n\t                </div>\n\t                <Code target=\"search-showbutton\" />\n\t\n\t                <h3 className=\"comp-type\">clickCallback 点击按钮的回调</h3>\n\t                <SearchBar clickCallback={(query)=>{alert(query)}} />\n\t                <Code target=\"search-clickcallback\" />\n\t\n\t                <h3 className=\"comp-type\">queryCallback 搜索的回调(键盘的回车/搜索)</h3>\n\t                <SearchBar queryCallback={(query)=>{alert(query)}} />\n\t                <Code target=\"search-querycallback\" />\n\t\n\t                <h3 className=\"comp-type\">focusCallback 聚焦的回调</h3>\n\t                <SearchBar focusCallback={()=>{console.log(\"focus\")}} />\n\t                <Code target=\"search-focuscallback\" />\n\t\n\t                <h3 className=\"comp-type\">blurCallback 失焦的回调</h3>\n\t                <SearchBar blurCallback={()=>{console.log(\"blur\")}} />\n\t                <Code target=\"search-blurcallback\" />\n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
                 "展示"
@@ -9365,7 +9365,7 @@
             "module": "操作类组件",
             "namespace": "",
             "file": "src/slider/index.js",
-            "line": 10,
+            "line": 11,
             "description": "滑动输入条组件<br/>\n- 滑动进度条确定当前进度的百分比。\n- 可通过设置process确定初始进度百分比, 范围从0-100。\n- 可通过tipMode选择当前查看进度的方式，可选default和tooltip。\n- 可通过placement设置当前进度提示框的位置, 可选top/bottoom(tipMode为tooltip时生效)。\n- 可通过tipStay设置初始和松开按钮时提示是否消失，默认false不显示(tipMode为tooltip时生效)。\n- 可通过range制定范围，默认0-100，必需是长度为2的数组，第一个数字表示初始，第二个数字表示终点。\n- 可通过showRange判断是否在进度条前后显示范围，默认不显示。\n- 可通过duration设置固定移动的距离，默认1。\n- 可通过slideCallback设置拖拽进度条松开时的回调函数。\n- 可通过disabled设置进度条只读。\n- 使用Slider前确保父级是有宽度的元素；使用flex需要加一层宽度100%的外壳。\n\n主要属性和接口：\n- process:初始进度百分比, 默认0 <br/>\n如: `<Slider progress={10}/>`\n- placement:进度提示框的位置, 默认top <br/>\n如: `<Slider placement='bottom' />`\n- tipStay:初始和松开按钮时提示是否消失，默认false <br/>\n如: `<Slider tipStay />`\n- range:范围，默认[0,100]。 <br/>\n如: `<Slider range={[20,50]} />`\n- showRange:是否在进度条前后显示范围，默认不显示。 <br/>\n如: `<Slider showRange />`\n- duration:固定移动的距离，默认1。 <br/>\n如: `<Slider duration={20} />`\n- slideCallback:拖拽进度条松开时的回调函数 <br/>\n如: `<Slider slideCallback={(progress)=>{console.log(progress);} />`\n- disabled:进度条只读, 不可操作 <br/>\n如: `<Slider disabled/>`",
             "extends": "Component",
             "is_constructor": 1,
@@ -9393,7 +9393,7 @@
             "module": "基础组件",
             "namespace": "",
             "file": "src/star/index.js",
-            "line": 18,
+            "line": 19,
             "description": "星级评价组件<br />\n- 通过rate设置星级评价的分数, 最低0, 最高50, 5的倍数。\n- 通过phSize设置大小, 可选sm、md、lg。\n\n主要属性和接口：\n- phSize(v1.1.2以下用size):星星的大小。分别为sm、md、lg, 默认sm。 <br/>\n如：`<Star phSize='lg' />`\n- rate:星级评价的分数。最低0, 最高50, 5的倍数递增, 默认0。 <br/>\n如：`<Star rate={10} />`",
             "extends": "Component",
             "is_constructor": 1,
@@ -9421,7 +9421,7 @@
             "module": "操作类组件",
             "namespace": "",
             "file": "src/steps/index.js",
-            "line": 8,
+            "line": 9,
             "description": "步骤组件<br/>\n- 通过list设置步骤过程名称数组，如['合作信息','公司信息','资质信息']，必需。\n- 可通过index设置当前步骤，从0开始计算。\n- 可通过clickCallback设置点击步骤的回调，函数返回步骤名称和索引。\n- 可通过readOnly设置步骤是否只读不可点击，默认可点击。\n\n主要属性和接口：\n- list:初始进度百分比, 默认0。 <br/>\n如: `<Steps list={['合作信息','公司信息','资质信息']} />`\n- index:当前步骤，从0开始计算，默认0。 <br/>\n如: `<Steps index={1} list={['合作信息','公司信息','资质信息']} />`\n- clickCallback:点击步骤的回调，函数返回步骤名称和索引。 <br/>\n如: `<Steps clickCallback={(str,index)=>{console.log(index);}} list={['合作信息','公司信息','资质信息']}/>`\n- readOnly:只读不可点击，默认false。<br/>\n如: `<Steps readOnly list={['合作信息','公司信息','资质信息']} />`",
             "extends": "Component",
             "is_constructor": 1,
@@ -9449,7 +9449,7 @@
             "module": "操作类组件",
             "namespace": "",
             "file": "src/swipe/index.js",
-            "line": 11,
+            "line": 12,
             "description": "左滑组件<br/>\n- 向左滑动出现可操作按钮, 类似IOS列表操作的组件。\n- 通过buttons设置可操作按钮的文字text、样式phStyle以及点击按钮的回调函数onHandle。\n- buttons的phStyle默认'primary', 可选primary、info、error、warning、danger、link、gray、success。\n\n示例:\n```code\n    <Swipe buttons={[\n        {text: '删除', onHandle: this.onDelete, phStyle: 'error'},\n        {text: '取消', onHandle: this.onCancle, phStyle: 'info'}\n    ]}>\n        <div style={{padding: '1rem'}}>\n            // 内容\n        </div>\n    </Swipe>\n```",
             "extends": "Component",
             "is_constructor": 1,
@@ -9477,7 +9477,7 @@
             "module": "表单组件",
             "namespace": "",
             "file": "src/switch/index.js",
-            "line": 8,
+            "line": 9,
             "description": "开关切换组件，仿真ios的开关控件<br/>\n- 可通过defaultChecked设置默认值。\n- 可通过checked和onChange事件配合使用手动设置输入值。\n- className属性加在外层，其余属性均赋予input元素。\n\n主要属性和接口：\n- defaultChecked:默认值<br/>\n如：`<Switch defaultChecked={true} />`\n- checked&onChange:<br/>\n如：`<Switch checked={this.state.checked} onChange={()=>{this.setState({checked:false})}} />`",
             "extends": "Component",
             "is_constructor": 1,
@@ -9511,7 +9511,7 @@
             "is_constructor": 1,
             "since": "0.1.0",
             "example": [
-                "\timport React, { Component } from \"react\";\n\t\n\timport Tabset from \"phoenix-ui/lib/tab/Tabset\"\n\timport Tab from \"phoenix-ui/lib/tab/Tab\"\n\timport List from \"phoenix-ui/lib/list\"\n\timport Code from \"./code/code\"\n\t\n\texport default class tab extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context);\n\t    }\n\t\n\t    clickCallback(index){\n\t        alert(\"测试tabset回调\", \"index: \" + index);\n\t    }\n\t\n\t    clickCallback1(index){\n\t        alert(\"测试tab回调\", \"index: \" + index);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t           <div>\n\t                <h2 className=\"comp-title\">Tabset/Tab</h2>\n\t                <h3 className=\"comp-type\"><strong>Tabset</strong></h3>\n\t                <h3 className=\"comp-type\">index(默认0) 默认选中选项卡的索引值</h3>\n\t                <Tabset index={1}>\n\t                    <Tab heading=\"标题1\">\n\t                        横向内容1\n\t                    </Tab>\n\t                    <Tab heading=\"标题2\">\n\t                        横向内容2\n\t                    </Tab>\n\t                </Tabset>\n\t                <Code target=\"tabset-index\" />\n\t\n\t                <h3 className=\"comp-type\">vertical(默认false) 设置选项卡竖排</h3>\n\t                <Tabset vertical>\n\t                    <Tab heading=\"标题1\">\n\t                        <List>\n\t                            <List.Item>\n\t                                <List.Col>竖向内容1</List.Col>\n\t                            </List.Item>\n\t                            <List.Item>\n\t                                <List.Col>竖向内容1</List.Col>\n\t                            </List.Item>\n\t                        </List>\n\t                    </Tab>\n\t                    <Tab heading=\"标题2\">\n\t                        竖向内容2\n\t                    </Tab>\n\t                    <Tab heading=\"标题3\">\n\t                        竖向内容3\n\t                    </Tab>\n\t                </Tabset>\n\t                <br/>\n\t                <Code target=\"tabset-vertical\" />\n\t\n\t                <h3 className=\"comp-type\">width(默认33) 设置vertical之后标题的占比</h3>\n\t                <Tabset vertical width={20}>\n\t                    <Tab heading=\"标题1\">\n\t                        <List>\n\t                            <List.Item>\n\t                                <List.Col>竖向内容1</List.Col>\n\t                            </List.Item>\n\t                        </List>\n\t                    </Tab>\n\t                    <Tab heading=\"标题2\">\n\t                        <List>\n\t                            <List.Item>\n\t                                <List.Col>竖向内容2</List.Col>\n\t                            </List.Item>\n\t                        </List>\n\t                    </Tab>\n\t                </Tabset>\n\t                <br/>\n\t                <Code target=\"tabset-width\" />\n\t\n\t                <h3 className=\"comp-type\">clickCallback(Tabset) 点击选项卡的回调函数</h3>\n\t                <Tabset clickCallback={this.clickCallback.bind(this)}>\n\t                    <Tab heading=\"标题1\">\n\t                        横向内容1\n\t                    </Tab>\n\t                    <Tab heading=\"标题2\">\n\t                        横向内容2\n\t                    </Tab>\n\t                </Tabset>\n\t                <Code target=\"tabset-clickcallback\" />\n\t\n\t                <h3 className=\"comp-type\"><strong>Tab</strong></h3>\n\t                <h3 className=\"comp-type\">heading 标题</h3>\n\t                <Tabset>\n\t                    <Tab heading=\"Tab heading 1\">\n\t                        横向内容1\n\t                    </Tab>\n\t                    <Tab heading=\"Tab heading 2\">\n\t                        横向内容2\n\t                    </Tab>\n\t                </Tabset>\n\t                <Code target=\"tab-heading\" />\n\t\n\t                <h3 className=\"comp-type\">clickCallback(Tab) 点击单个选项卡的回调函数</h3>\n\t                <Tabset>\n\t                    <Tab heading=\"标题1\" clickCallback={this.clickCallback1.bind(this)}>\n\t                        横向内容1\n\t                    </Tab>\n\t                    <Tab heading=\"标题2\">\n\t                        横向内容2\n\t                    </Tab>\n\t                </Tabset>\n\t                <Code target=\"tab-clickcallback\" />\n\t           </div>\n\t        );\n\t    }\n\t}"
+                "\timport React, { Component } from \"react\";\n\t\n\timport Tabset from \"phoenix-ui/lib/tab/Tabset\"\n\timport Tab from \"phoenix-ui/lib/tab/Tab\"\n\timport List from \"phoenix-ui/lib/list\"\n\timport Code from \"./code/code\"\n\t\n\texport default class tab extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context);\n\t    }\n\t\n\t    clickCallback(index){\n\t        alert(\"测试tabset回调\", \"index: \" + index);\n\t    }\n\t\n\t    clickCallback1(index){\n\t        alert(\"测试tab回调\", \"index: \" + index);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t           <div>\n\t                <h2 className=\"comp-title\">Tabset/Tab</h2>\n\t                <h3 className=\"comp-type\"><strong>Tabset</strong></h3>\n\t                <h3 className=\"comp-type\">index(默认0) 默认选中选项卡的索引值</h3>\n\t                <Tabset index={1}>\n\t                    <Tab heading=\"标题（1）\">\n\t                        横向内容1（1）\n\t                    </Tab>\n\t                    <Tab heading=\"标题（2）\">\n\t                        横向内容2（2）\n\t                    </Tab>\n\t                    <Tab heading=\"标题（3）\">\n\t                        横向内容2（3）\n\t                    </Tab>\n\t                    <Tab heading=\"标题（4）\">\n\t                        横向内容2（4）\n\t                    </Tab>\n\t                </Tabset>\n\t                <Code target=\"tabset-index\"/>\n\t\n\t                <h3 className=\"comp-type\">nowrap(默认false) 标题不换行</h3>\n\t                <Tabset nowrap>\n\t                    <Tab heading=\"标题（1）\">\n\t                        横向内容1（1）\n\t                    </Tab>\n\t                    <Tab heading=\"标题（2）\">\n\t                        横向内容2（2）\n\t                    </Tab>\n\t                    <Tab heading=\"标题（3）\">\n\t                        横向内容3（3）\n\t                    </Tab>\n\t                    <Tab heading=\"标题（4）\">\n\t                        横向内容4（4）\n\t                    </Tab>\n\t                    <Tab heading=\"标题（5）\">\n\t                        横向内容5（5）\n\t                    </Tab>\n\t                </Tabset>\n\t                <Code target=\"tabset-nowrap\"/>\n\t\n\t                <h3 className=\"comp-type\">vertical(默认false) 设置选项卡竖排</h3>\n\t                <Tabset vertical>\n\t                    <Tab heading=\"标题1\">\n\t                        <List>\n\t                            <List.Item>\n\t                                <List.Col>竖向内容1</List.Col>\n\t                            </List.Item>\n\t                            <List.Item>\n\t                                <List.Col>竖向内容1</List.Col>\n\t                            </List.Item>\n\t                        </List>\n\t                    </Tab>\n\t                    <Tab heading=\"标题2\">\n\t                        竖向内容2\n\t                    </Tab>\n\t                    <Tab heading=\"标题3\">\n\t                        竖向内容3\n\t                    </Tab>\n\t                </Tabset>\n\t                <br/>\n\t                <Code target=\"tabset-vertical\" />\n\t\n\t                <h3 className=\"comp-type\">width(默认33) 设置vertical之后标题的占比</h3>\n\t                <Tabset vertical width={20}>\n\t                    <Tab heading=\"标题1\">\n\t                        <List>\n\t                            <List.Item>\n\t                                <List.Col>竖向内容1</List.Col>\n\t                            </List.Item>\n\t                        </List>\n\t                    </Tab>\n\t                    <Tab heading=\"标题2\">\n\t                        <List>\n\t                            <List.Item>\n\t                                <List.Col>竖向内容2</List.Col>\n\t                            </List.Item>\n\t                        </List>\n\t                    </Tab>\n\t                </Tabset>\n\t                <br/>\n\t                <Code target=\"tabset-width\" />\n\t\n\t                <h3 className=\"comp-type\">clickCallback(Tabset) 点击选项卡的回调函数</h3>\n\t                <Tabset clickCallback={this.clickCallback.bind(this)}>\n\t                    <Tab heading=\"标题1\">\n\t                        横向内容1\n\t                    </Tab>\n\t                    <Tab heading=\"标题2\">\n\t                        横向内容2\n\t                    </Tab>\n\t                </Tabset>\n\t                <Code target=\"tabset-clickcallback\" />\n\t\n\t                <h3 className=\"comp-type\"><strong>Tab</strong></h3>\n\t                <h3 className=\"comp-type\">heading 标题</h3>\n\t                <Tabset>\n\t                    <Tab heading=\"Tab heading 1\">\n\t                        横向内容1\n\t                    </Tab>\n\t                    <Tab heading=\"Tab heading 2\">\n\t                        横向内容2\n\t                    </Tab>\n\t                </Tabset>\n\t                <Code target=\"tab-heading\" />\n\t\n\t                <h3 className=\"comp-type\">clickCallback(Tab) 点击单个选项卡的回调函数</h3>\n\t                <Tabset>\n\t                    <Tab heading=\"标题1\" clickCallback={this.clickCallback1.bind(this)}>\n\t                        横向内容1\n\t                    </Tab>\n\t                    <Tab heading=\"标题2\">\n\t                        横向内容2\n\t                    </Tab>\n\t                </Tabset>\n\t                <Code target=\"tab-clickcallback\" />\n\t           </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
                 "展示"
@@ -9533,13 +9533,13 @@
             "module": "选项卡",
             "namespace": "",
             "file": "src/tab/Tabset.js",
-            "line": 19,
-            "description": "tabset选项卡组件<br/>\n- 通过index指定默认的选中tab的索引值。\n- 选项卡默认横排, 可通过vertical设置为竖排。\n- 当设置为vertical后, 可通过width设置tab标题部分的宽度占比。\n- 可通过clickCallback设置点击选项卡的回调函数。\n- 可自定义className等常用属性以及事件。\n\n具体属性和接口如下：\n- index:默认选中的标签卡索引值，默认0第一个tab\n- vertical:是否竖排，如需要直接添加改属性即可，默认不竖排\n- width:选项卡头部的宽度，取值0-100之间, 只有设置vertical下生效, 默认20\n- clickCallback:点击选项卡执行的回调函数\n\n示例:\n- 横排\n```code\n    <Tabset index={this.state.index} clickCallback={(index)=>{console.log(index);}>\n        <Tab heading='标题1' className='tab-test'>\n            横向内容1\n        </Tab>\n        <Tab heading='标题2' clickCallback={(index)=>{console.log(index);}>\n            横向内容2\n        </Tab>\n    </Tabset>\n```\n- 竖排\n```code\n    <Tabset vertical width={30} index={this.state.index} clickCallback={(index)=>{console.log(index);}>\n        <Tab heading='标题1'>\n            竖向内容1\n        </Tab>\n        <Tab heading='标题2' clickCallback={(index)=>{console.log(index);}>\n            竖向内容2\n        </Tab>\n    </Tabset>\n```",
+            "line": 20,
+            "description": "tabset选项卡组件<br/>\n- 通过index指定默认的选中tab的索引值。\n- 选项卡默认横排, 可通过vertical设置为竖排。\n- 当设置为vertical后, 可通过width设置tab标题部分的宽度占比。\n- 可通过clickCallback设置点击选项卡的回调函数。\n- 可自定义className等常用属性以及事件。\n- 可通过nowrap设置tab标题不换行。\n\n具体属性和接口如下：\n- index:默认选中的标签卡索引值，默认0第一个tab\n- vertical:是否竖排，如需要直接添加改属性即可，默认不竖排\n- width:选项卡头部的宽度，取值0-100之间, 只有设置vertical下生效, 默认20\n- clickCallback:点击选项卡执行的回调函数\n- nowrap:tab标题不换行\n\n示例:\n- 横排\n```code\n    <Tabset index={this.state.index} clickCallback={(index)=>{console.log(index);}>\n        <Tab heading='标题1' className='tab-test'>\n            横向内容1\n        </Tab>\n        <Tab heading='标题2' clickCallback={(index)=>{console.log(index);}>\n            横向内容2\n        </Tab>\n    </Tabset>\n```\n- 竖排\n```code\n    <Tabset vertical width={30} index={this.state.index} clickCallback={(index)=>{console.log(index);}>\n        <Tab heading='标题1'>\n            竖向内容1\n        </Tab>\n        <Tab heading='标题2' clickCallback={(index)=>{console.log(index);}>\n            竖向内容2\n        </Tab>\n    </Tabset>\n```",
             "extends": "Component",
             "is_constructor": 1,
             "since": "0.1.0",
             "example": [
-                "\timport React, { Component } from \"react\";\n\t\n\timport Tabset from \"phoenix-ui/lib/tab/Tabset\"\n\timport Tab from \"phoenix-ui/lib/tab/Tab\"\n\timport List from \"phoenix-ui/lib/list\"\n\timport Code from \"./code/code\"\n\t\n\texport default class tab extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context);\n\t    }\n\t\n\t    clickCallback(index){\n\t        alert(\"测试tabset回调\", \"index: \" + index);\n\t    }\n\t\n\t    clickCallback1(index){\n\t        alert(\"测试tab回调\", \"index: \" + index);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t           <div>\n\t                <h2 className=\"comp-title\">Tabset/Tab</h2>\n\t                <h3 className=\"comp-type\"><strong>Tabset</strong></h3>\n\t                <h3 className=\"comp-type\">index(默认0) 默认选中选项卡的索引值</h3>\n\t                <Tabset index={1}>\n\t                    <Tab heading=\"标题1\">\n\t                        横向内容1\n\t                    </Tab>\n\t                    <Tab heading=\"标题2\">\n\t                        横向内容2\n\t                    </Tab>\n\t                </Tabset>\n\t                <Code target=\"tabset-index\" />\n\t\n\t                <h3 className=\"comp-type\">vertical(默认false) 设置选项卡竖排</h3>\n\t                <Tabset vertical>\n\t                    <Tab heading=\"标题1\">\n\t                        <List>\n\t                            <List.Item>\n\t                                <List.Col>竖向内容1</List.Col>\n\t                            </List.Item>\n\t                            <List.Item>\n\t                                <List.Col>竖向内容1</List.Col>\n\t                            </List.Item>\n\t                        </List>\n\t                    </Tab>\n\t                    <Tab heading=\"标题2\">\n\t                        竖向内容2\n\t                    </Tab>\n\t                    <Tab heading=\"标题3\">\n\t                        竖向内容3\n\t                    </Tab>\n\t                </Tabset>\n\t                <br/>\n\t                <Code target=\"tabset-vertical\" />\n\t\n\t                <h3 className=\"comp-type\">width(默认33) 设置vertical之后标题的占比</h3>\n\t                <Tabset vertical width={20}>\n\t                    <Tab heading=\"标题1\">\n\t                        <List>\n\t                            <List.Item>\n\t                                <List.Col>竖向内容1</List.Col>\n\t                            </List.Item>\n\t                        </List>\n\t                    </Tab>\n\t                    <Tab heading=\"标题2\">\n\t                        <List>\n\t                            <List.Item>\n\t                                <List.Col>竖向内容2</List.Col>\n\t                            </List.Item>\n\t                        </List>\n\t                    </Tab>\n\t                </Tabset>\n\t                <br/>\n\t                <Code target=\"tabset-width\" />\n\t\n\t                <h3 className=\"comp-type\">clickCallback(Tabset) 点击选项卡的回调函数</h3>\n\t                <Tabset clickCallback={this.clickCallback.bind(this)}>\n\t                    <Tab heading=\"标题1\">\n\t                        横向内容1\n\t                    </Tab>\n\t                    <Tab heading=\"标题2\">\n\t                        横向内容2\n\t                    </Tab>\n\t                </Tabset>\n\t                <Code target=\"tabset-clickcallback\" />\n\t\n\t                <h3 className=\"comp-type\"><strong>Tab</strong></h3>\n\t                <h3 className=\"comp-type\">heading 标题</h3>\n\t                <Tabset>\n\t                    <Tab heading=\"Tab heading 1\">\n\t                        横向内容1\n\t                    </Tab>\n\t                    <Tab heading=\"Tab heading 2\">\n\t                        横向内容2\n\t                    </Tab>\n\t                </Tabset>\n\t                <Code target=\"tab-heading\" />\n\t\n\t                <h3 className=\"comp-type\">clickCallback(Tab) 点击单个选项卡的回调函数</h3>\n\t                <Tabset>\n\t                    <Tab heading=\"标题1\" clickCallback={this.clickCallback1.bind(this)}>\n\t                        横向内容1\n\t                    </Tab>\n\t                    <Tab heading=\"标题2\">\n\t                        横向内容2\n\t                    </Tab>\n\t                </Tabset>\n\t                <Code target=\"tab-clickcallback\" />\n\t           </div>\n\t        );\n\t    }\n\t}"
+                "\timport React, { Component } from \"react\";\n\t\n\timport Tabset from \"phoenix-ui/lib/tab/Tabset\"\n\timport Tab from \"phoenix-ui/lib/tab/Tab\"\n\timport List from \"phoenix-ui/lib/list\"\n\timport Code from \"./code/code\"\n\t\n\texport default class tab extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context);\n\t    }\n\t\n\t    clickCallback(index){\n\t        alert(\"测试tabset回调\", \"index: \" + index);\n\t    }\n\t\n\t    clickCallback1(index){\n\t        alert(\"测试tab回调\", \"index: \" + index);\n\t    }\n\t\n\t    render(){\n\t        return(\n\t           <div>\n\t                <h2 className=\"comp-title\">Tabset/Tab</h2>\n\t                <h3 className=\"comp-type\"><strong>Tabset</strong></h3>\n\t                <h3 className=\"comp-type\">index(默认0) 默认选中选项卡的索引值</h3>\n\t                <Tabset index={1}>\n\t                    <Tab heading=\"标题（1）\">\n\t                        横向内容1（1）\n\t                    </Tab>\n\t                    <Tab heading=\"标题（2）\">\n\t                        横向内容2（2）\n\t                    </Tab>\n\t                    <Tab heading=\"标题（3）\">\n\t                        横向内容2（3）\n\t                    </Tab>\n\t                    <Tab heading=\"标题（4）\">\n\t                        横向内容2（4）\n\t                    </Tab>\n\t                </Tabset>\n\t                <Code target=\"tabset-index\"/>\n\t\n\t                <h3 className=\"comp-type\">nowrap(默认false) 标题不换行</h3>\n\t                <Tabset nowrap>\n\t                    <Tab heading=\"标题（1）\">\n\t                        横向内容1（1）\n\t                    </Tab>\n\t                    <Tab heading=\"标题（2）\">\n\t                        横向内容2（2）\n\t                    </Tab>\n\t                    <Tab heading=\"标题（3）\">\n\t                        横向内容3（3）\n\t                    </Tab>\n\t                    <Tab heading=\"标题（4）\">\n\t                        横向内容4（4）\n\t                    </Tab>\n\t                    <Tab heading=\"标题（5）\">\n\t                        横向内容5（5）\n\t                    </Tab>\n\t                </Tabset>\n\t                <Code target=\"tabset-nowrap\"/>\n\t\n\t                <h3 className=\"comp-type\">vertical(默认false) 设置选项卡竖排</h3>\n\t                <Tabset vertical>\n\t                    <Tab heading=\"标题1\">\n\t                        <List>\n\t                            <List.Item>\n\t                                <List.Col>竖向内容1</List.Col>\n\t                            </List.Item>\n\t                            <List.Item>\n\t                                <List.Col>竖向内容1</List.Col>\n\t                            </List.Item>\n\t                        </List>\n\t                    </Tab>\n\t                    <Tab heading=\"标题2\">\n\t                        竖向内容2\n\t                    </Tab>\n\t                    <Tab heading=\"标题3\">\n\t                        竖向内容3\n\t                    </Tab>\n\t                </Tabset>\n\t                <br/>\n\t                <Code target=\"tabset-vertical\" />\n\t\n\t                <h3 className=\"comp-type\">width(默认33) 设置vertical之后标题的占比</h3>\n\t                <Tabset vertical width={20}>\n\t                    <Tab heading=\"标题1\">\n\t                        <List>\n\t                            <List.Item>\n\t                                <List.Col>竖向内容1</List.Col>\n\t                            </List.Item>\n\t                        </List>\n\t                    </Tab>\n\t                    <Tab heading=\"标题2\">\n\t                        <List>\n\t                            <List.Item>\n\t                                <List.Col>竖向内容2</List.Col>\n\t                            </List.Item>\n\t                        </List>\n\t                    </Tab>\n\t                </Tabset>\n\t                <br/>\n\t                <Code target=\"tabset-width\" />\n\t\n\t                <h3 className=\"comp-type\">clickCallback(Tabset) 点击选项卡的回调函数</h3>\n\t                <Tabset clickCallback={this.clickCallback.bind(this)}>\n\t                    <Tab heading=\"标题1\">\n\t                        横向内容1\n\t                    </Tab>\n\t                    <Tab heading=\"标题2\">\n\t                        横向内容2\n\t                    </Tab>\n\t                </Tabset>\n\t                <Code target=\"tabset-clickcallback\" />\n\t\n\t                <h3 className=\"comp-type\"><strong>Tab</strong></h3>\n\t                <h3 className=\"comp-type\">heading 标题</h3>\n\t                <Tabset>\n\t                    <Tab heading=\"Tab heading 1\">\n\t                        横向内容1\n\t                    </Tab>\n\t                    <Tab heading=\"Tab heading 2\">\n\t                        横向内容2\n\t                    </Tab>\n\t                </Tabset>\n\t                <Code target=\"tab-heading\" />\n\t\n\t                <h3 className=\"comp-type\">clickCallback(Tab) 点击单个选项卡的回调函数</h3>\n\t                <Tabset>\n\t                    <Tab heading=\"标题1\" clickCallback={this.clickCallback1.bind(this)}>\n\t                        横向内容1\n\t                    </Tab>\n\t                    <Tab heading=\"标题2\">\n\t                        横向内容2\n\t                    </Tab>\n\t                </Tabset>\n\t                <Code target=\"tab-clickcallback\" />\n\t           </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
                 "展示"
@@ -9589,7 +9589,7 @@
             "module": "操作类组件",
             "namespace": "",
             "file": "src/toast/index.js",
-            "line": 11,
+            "line": 12,
             "description": "飘字组件<br/>\n- 由于飘字的使用范围可预估, 为方便使用在原组件的基础上更进一步改为函数式的使用方式。\n- 普通信息: `Toast.info(message, duration, callback)`\n- 成功信息: `Toast.success(message, duration, callback)`\n- 失败信息: `Toast.fail(message, duration, callback)`\n- 加载中: `Toast.loading(message, duration, callback)`\n- 移除: `Toast.remove()`\n- 如果不根据设置的时间移除飘字，`duration`设置为false，`Toast.remove()`移除飘字。\n\n示例: <br/>\n- 显示普通飘字, 如:<br/>\n`Toast.info('只显示信息的toast！', 1000, ()=>{console.log('飘字消失时执行的回调函数');})`\n- 显示成功信息, 如:<br/>\n`Toast.success('操作成功', 1000, ()=>{console.log('飘字消失时执行的回调函数');})`\n- 显示失败信息, 如:<br/>\n`Toast.fail('操作失败', 1000, ()=>{console.log('飘字消失时执行的回调函数');})`\n- 显示加载中, 如:<br/>\n`Toast.loading('加载中...', 1000, ()=>{console.log('飘字消失时执行的回调函数');})`\n- 移除飘字, 如:<br/>\n`Toast.remove()`",
             "extends": "Component",
             "is_constructor": 1,
@@ -9610,7 +9610,7 @@
     "classitems": [
         {
             "file": "src/accordion/index.js",
-            "line": 68,
+            "line": 69,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -9621,7 +9621,7 @@
         },
         {
             "file": "src/accordion/index.js",
-            "line": 75,
+            "line": 76,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
@@ -9631,7 +9631,7 @@
         },
         {
             "file": "src/accordion/index.js",
-            "line": 81,
+            "line": 82,
             "description": "是否可见标识",
             "itemtype": "property",
             "name": "visible",
@@ -9642,7 +9642,7 @@
         },
         {
             "file": "src/accordion/index.js",
-            "line": 88,
+            "line": 89,
             "description": "点击收起展开的回调函数",
             "itemtype": "method",
             "name": "clickCallback",
@@ -9652,7 +9652,7 @@
         },
         {
             "file": "src/accordion/index.js",
-            "line": 94,
+            "line": 95,
             "description": "向下的箭头是否可见， 默认可见",
             "itemtype": "property",
             "name": "hideIcon",
@@ -9663,7 +9663,7 @@
         },
         {
             "file": "src/animate/index.js",
-            "line": 44,
+            "line": 45,
             "description": "动画名称,默认fade",
             "itemtype": "property",
             "name": "transitionName",
@@ -9674,7 +9674,7 @@
         },
         {
             "file": "src/animate/index.js",
-            "line": 51,
+            "line": 52,
             "description": "动画进入延迟时间",
             "itemtype": "property",
             "name": "transitionEnterTimeout",
@@ -9684,7 +9684,7 @@
         },
         {
             "file": "src/animate/index.js",
-            "line": 57,
+            "line": 58,
             "description": "动画退出延迟时间",
             "itemtype": "property",
             "name": "transitionLeaveTimeout",
@@ -9694,7 +9694,7 @@
         },
         {
             "file": "src/badge/index.js",
-            "line": 28,
+            "line": 29,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -9705,7 +9705,7 @@
         },
         {
             "file": "src/badge/index.js",
-            "line": 35,
+            "line": 36,
             "description": "标记颜色[default、primary、warning、danger、info、error、success], 默认primary",
             "itemtype": "property",
             "name": "phStyle",
@@ -9716,7 +9716,7 @@
         },
         {
             "file": "src/button/index.js",
-            "line": 41,
+            "line": 42,
             "description": "按钮尺寸[sm、md、lg], 默认为sm",
             "itemtype": "property",
             "name": "phSize",
@@ -9727,7 +9727,7 @@
         },
         {
             "file": "src/button/index.js",
-            "line": 48,
+            "line": 49,
             "description": "按钮颜色[primary、warning、danger、info、error、success、link、gray], 默认primary",
             "itemtype": "property",
             "name": "phStyle",
@@ -9738,7 +9738,7 @@
         },
         {
             "file": "src/button/index.js",
-            "line": 55,
+            "line": 56,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -9749,7 +9749,7 @@
         },
         {
             "file": "src/button/index.js",
-            "line": 62,
+            "line": 63,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
@@ -9759,7 +9759,7 @@
         },
         {
             "file": "src/button/index.js",
-            "line": 68,
+            "line": 69,
             "description": "块级显示",
             "itemtype": "property",
             "name": "block",
@@ -9770,7 +9770,7 @@
         },
         {
             "file": "src/button/index.js",
-            "line": 75,
+            "line": 76,
             "description": "空背景",
             "itemtype": "property",
             "name": "hollow",
@@ -9781,7 +9781,7 @@
         },
         {
             "file": "src/button/index.js",
-            "line": 82,
+            "line": 83,
             "description": "不可点状态",
             "itemtype": "property",
             "name": "disabled",
@@ -9792,7 +9792,7 @@
         },
         {
             "file": "src/button/index.js",
-            "line": 89,
+            "line": 90,
             "description": "激活状态",
             "itemtype": "property",
             "name": "active",
@@ -9803,7 +9803,7 @@
         },
         {
             "file": "src/button/index.js",
-            "line": 96,
+            "line": 97,
             "description": "icon符号类型",
             "itemtype": "property",
             "name": "phIcon",
@@ -9814,7 +9814,7 @@
         },
         {
             "file": "src/button/index.js",
-            "line": 103,
+            "line": 104,
             "description": "icon占位情况，默认占位，设置之后不影响文字居中",
             "itemtype": "property",
             "name": "stable",
@@ -9825,7 +9825,7 @@
         },
         {
             "file": "src/button-group/index.js",
-            "line": 50,
+            "line": 51,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -9836,7 +9836,7 @@
         },
         {
             "file": "src/button-group/index.js",
-            "line": 57,
+            "line": 58,
             "description": "默认索引值",
             "itemtype": "property",
             "name": "index",
@@ -9847,7 +9847,7 @@
         },
         {
             "file": "src/button-group/index.js",
-            "line": 64,
+            "line": 65,
             "description": "是否有自适应宽度，垂直排列等属性，取值为default(用于双按钮)、justify(水平排列)、tacked(垂直排列)、segmente(分割排列)、footer(尾部按钮)",
             "itemtype": "property",
             "name": "phType",
@@ -9858,7 +9858,7 @@
         },
         {
             "file": "src/button-group/index.js",
-            "line": 71,
+            "line": 72,
             "description": "按钮被按下后的回调",
             "itemtype": "method",
             "name": "clickCallback",
@@ -9868,7 +9868,7 @@
         },
         {
             "file": "src/checkbox/index.js",
-            "line": 35,
+            "line": 36,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -9879,7 +9879,7 @@
         },
         {
             "file": "src/checkbox/index.js",
-            "line": 42,
+            "line": 43,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
@@ -9889,7 +9889,7 @@
         },
         {
             "file": "src/checkbox/index.js",
-            "line": 48,
+            "line": 49,
             "description": "展示的文字信息",
             "itemtype": "property",
             "name": "label",
@@ -9900,7 +9900,7 @@
         },
         {
             "file": "src/drag/index.js",
-            "line": 45,
+            "line": 46,
             "description": "抓取的执行函数,对应TouchStart/TouchMove",
             "itemtype": "method",
             "name": "dragCallback",
@@ -9910,7 +9910,7 @@
         },
         {
             "file": "src/drag/index.js",
-            "line": 51,
+            "line": 52,
             "description": "放开的执行函数,对应TouchEnd",
             "itemtype": "method",
             "name": "dropCallback",
@@ -9920,7 +9920,7 @@
         },
         {
             "file": "src/grid/Col.js",
-            "line": 59,
+            "line": 60,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -9931,7 +9931,7 @@
         },
         {
             "file": "src/grid/Col.js",
-            "line": 66,
+            "line": 67,
             "description": "占100份的多少份，目前支持5-100之间5的倍数、33（1\\3）和66(2\\3)",
             "itemtype": "property",
             "name": "width",
@@ -9941,7 +9941,7 @@
         },
         {
             "file": "src/grid/Col.js",
-            "line": 72,
+            "line": 73,
             "description": "偏移多少，目前支持5-100之间5的倍数、33（1\\3）和66(2\\3)，默认不偏移",
             "itemtype": "property",
             "name": "offset",
@@ -9951,7 +9951,7 @@
         },
         {
             "file": "src/grid/Col.js",
-            "line": 78,
+            "line": 79,
             "description": "竖直方向的排列是靠上、居中还是靠下",
             "itemtype": "property",
             "name": "align",
@@ -9961,7 +9961,7 @@
         },
         {
             "file": "src/grid/Grid.js",
-            "line": 49,
+            "line": 50,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -9972,7 +9972,7 @@
         },
         {
             "file": "src/grid/Row.js",
-            "line": 38,
+            "line": 39,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -9983,7 +9983,7 @@
         },
         {
             "file": "src/grid/Row.js",
-            "line": 45,
+            "line": 46,
             "description": "竖直方向的排列是靠上、居中、靠下、拉伸至父容器最大高度还是基于text的baseline对齐",
             "itemtype": "property",
             "name": "align",
@@ -9993,7 +9993,7 @@
         },
         {
             "file": "src/icon/index.js",
-            "line": 28,
+            "line": 29,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -10004,7 +10004,7 @@
         },
         {
             "file": "src/icon/index.js",
-            "line": 35,
+            "line": 36,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
@@ -10015,7 +10015,7 @@
         },
         {
             "file": "src/icon/index.js",
-            "line": 42,
+            "line": 43,
             "description": "icon符号类型",
             "itemtype": "property",
             "name": "phIcon",
@@ -10026,7 +10026,7 @@
         },
         {
             "file": "src/icon/index.js",
-            "line": 49,
+            "line": 50,
             "description": "按钮尺寸[xs、sm、md、lg、xlg], 默认为sm",
             "itemtype": "property",
             "name": "phSize",
@@ -10037,7 +10037,7 @@
         },
         {
             "file": "src/icon/index.js",
-            "line": 56,
+            "line": 57,
             "description": "按钮颜色[default, primary、warning、danger、info、error、success], 默认default",
             "itemtype": "property",
             "name": "phStyle",
@@ -10048,7 +10048,7 @@
         },
         {
             "file": "src/image/index.js",
-            "line": 41,
+            "line": 42,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -10059,7 +10059,7 @@
         },
         {
             "file": "src/image/index.js",
-            "line": 48,
+            "line": 49,
             "description": "图片地址",
             "itemtype": "property",
             "name": "src",
@@ -10070,7 +10070,7 @@
         },
         {
             "file": "src/image/index.js",
-            "line": 55,
+            "line": 56,
             "description": "默认图片地址",
             "itemtype": "property",
             "name": "defaultSrc",
@@ -10081,7 +10081,7 @@
         },
         {
             "file": "src/image/index.js",
-            "line": 62,
+            "line": 63,
             "description": "图片大小，[default, cover, contain]",
             "itemtype": "property",
             "name": "phSize",
@@ -10092,7 +10092,7 @@
         },
         {
             "file": "src/image/index.js",
-            "line": 69,
+            "line": 70,
             "description": "是否懒加载",
             "itemtype": "property",
             "name": "lazy",
@@ -10103,7 +10103,7 @@
         },
         {
             "file": "src/image/index.js",
-            "line": 76,
+            "line": 77,
             "description": "图片加载完成的回调",
             "itemtype": "property",
             "name": "loadCallback",
@@ -10114,7 +10114,7 @@
         },
         {
             "file": "src/image-list/index.js",
-            "line": 46,
+            "line": 47,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -10125,7 +10125,7 @@
         },
         {
             "file": "src/image-list/index.js",
-            "line": 53,
+            "line": 54,
             "description": "图片列数，默认1列",
             "itemtype": "property",
             "name": "column",
@@ -10136,7 +10136,7 @@
         },
         {
             "file": "src/input/index.js",
-            "line": 51,
+            "line": 52,
             "description": "input类型, 可选[text,search,password], 默认text",
             "itemtype": "property",
             "name": "type",
@@ -10147,7 +10147,7 @@
         },
         {
             "file": "src/input/index.js",
-            "line": 58,
+            "line": 59,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -10158,7 +10158,7 @@
         },
         {
             "file": "src/input/index.js",
-            "line": 65,
+            "line": 66,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
@@ -10168,7 +10168,7 @@
         },
         {
             "file": "src/input/index.js",
-            "line": 71,
+            "line": 72,
             "description": "是否显示[清除已经输入的内容按钮]，仅适用于text,search,password的类型",
             "itemtype": "property",
             "name": "clear",
@@ -10178,7 +10178,7 @@
         },
         {
             "file": "src/input/index.js",
-            "line": 77,
+            "line": 78,
             "description": "是否显示[密码是否可见按钮]，仅适用于password的类型",
             "itemtype": "property",
             "name": "visible",
@@ -10188,7 +10188,7 @@
         },
         {
             "file": "src/input/index.js",
-            "line": 83,
+            "line": 84,
             "description": "是否错误",
             "itemtype": "property",
             "name": "error",
@@ -10198,7 +10198,7 @@
         },
         {
             "file": "src/input/index.js",
-            "line": 89,
+            "line": 90,
             "description": "正则表达式",
             "itemtype": "property",
             "name": "phReg",
@@ -10208,7 +10208,7 @@
         },
         {
             "file": "src/input/index.js",
-            "line": 95,
+            "line": 96,
             "description": "icon符号类型",
             "itemtype": "property",
             "name": "phIcon",
@@ -10219,7 +10219,7 @@
         },
         {
             "file": "src/label/index.js",
-            "line": 44,
+            "line": 45,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -10230,7 +10230,7 @@
         },
         {
             "file": "src/label/index.js",
-            "line": 51,
+            "line": 52,
             "description": "label类型",
             "itemtype": "property",
             "name": "phLabel",
@@ -10241,7 +10241,7 @@
         },
         {
             "file": "src/label/index.js",
-            "line": 58,
+            "line": 59,
             "description": "label标签大小[sm、md], 默认为sm",
             "itemtype": "property",
             "name": "phSize",
@@ -10252,7 +10252,7 @@
         },
         {
             "file": "src/label/index.js",
-            "line": 65,
+            "line": 66,
             "description": "label标签颜色[primary、info、success、calm、light、gray], 默认primary",
             "itemtype": "property",
             "name": "phStyle",
@@ -10263,7 +10263,7 @@
         },
         {
             "file": "src/list/index.js",
-            "line": 51,
+            "line": 52,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -10274,7 +10274,7 @@
         },
         {
             "file": "src/list/index.js",
-            "line": 87,
+            "line": 89,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -10285,7 +10285,7 @@
         },
         {
             "file": "src/list/index.js",
-            "line": 123,
+            "line": 125,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -10296,7 +10296,7 @@
         },
         {
             "file": "src/list/index.js",
-            "line": 130,
+            "line": 132,
             "description": "是否不可用",
             "itemtype": "property",
             "name": "disabled",
@@ -10307,7 +10307,7 @@
         },
         {
             "file": "src/list/index.js",
-            "line": 137,
+            "line": 139,
             "description": "是否是输入有误",
             "itemtype": "property",
             "name": "error",
@@ -10318,7 +10318,7 @@
         },
         {
             "file": "src/list/index.js",
-            "line": 144,
+            "line": 146,
             "description": "是否必选项",
             "itemtype": "property",
             "name": "required",
@@ -10329,7 +10329,7 @@
         },
         {
             "file": "src/list/index.js",
-            "line": 151,
+            "line": 153,
             "description": "是否需要右箭头",
             "itemtype": "property",
             "name": "navigate",
@@ -10340,7 +10340,7 @@
         },
         {
             "file": "src/list/index.js",
-            "line": 201,
+            "line": 203,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -10351,7 +10351,7 @@
         },
         {
             "file": "src/list/index.js",
-            "line": 208,
+            "line": 210,
             "description": "是否为标题，表现为仿行内元素",
             "itemtype": "property",
             "name": "heading",
@@ -10361,7 +10361,7 @@
         },
         {
             "file": "src/list/index.js",
-            "line": 214,
+            "line": 216,
             "description": "是否为右边的项目，表现为内部的元素全部靠右",
             "itemtype": "property",
             "name": "tail",
@@ -10523,7 +10523,7 @@
         },
         {
             "file": "src/menu/index.js",
-            "line": 60,
+            "line": 61,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -10534,7 +10534,7 @@
         },
         {
             "file": "src/menu/index.js",
-            "line": 67,
+            "line": 68,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
@@ -10544,7 +10544,7 @@
         },
         {
             "file": "src/menu/index.js",
-            "line": 73,
+            "line": 74,
             "description": "是否可见标识",
             "itemtype": "property",
             "name": "visible",
@@ -10555,7 +10555,7 @@
         },
         {
             "file": "src/menu/index.js",
-            "line": 80,
+            "line": 81,
             "description": "点击收起展开的回调函数",
             "itemtype": "method",
             "name": "clickCallback",
@@ -10565,7 +10565,7 @@
         },
         {
             "file": "src/menu/index.js",
-            "line": 86,
+            "line": 87,
             "description": "是否滚动吸顶, 默认不吸顶(false); 设置确定的数字从当前距离开始吸顶",
             "itemtype": "property",
             "name": "ceiling",
@@ -10576,7 +10576,7 @@
         },
         {
             "file": "src/modal/Alert.js",
-            "line": 51,
+            "line": 52,
             "description": "标题",
             "itemtype": "property",
             "name": "title",
@@ -10586,7 +10586,7 @@
         },
         {
             "file": "src/modal/Alert.js",
-            "line": 57,
+            "line": 58,
             "description": "内容",
             "itemtype": "property",
             "name": "content",
@@ -10596,7 +10596,7 @@
         },
         {
             "file": "src/modal/Alert.js",
-            "line": 63,
+            "line": 64,
             "description": "尾部按钮",
             "itemtype": "property",
             "name": "buttons",
@@ -10606,7 +10606,7 @@
         },
         {
             "file": "src/modal/Alert.js",
-            "line": 69,
+            "line": 70,
             "description": "是否可见标识",
             "itemtype": "property",
             "name": "visible",
@@ -10616,7 +10616,7 @@
         },
         {
             "file": "src/modal/Alert.js",
-            "line": 75,
+            "line": 76,
             "description": "关闭弹框的执行函数",
             "itemtype": "method",
             "name": "closeCallback",
@@ -10626,7 +10626,7 @@
         },
         {
             "file": "src/modal/Alert.js",
-            "line": 81,
+            "line": 82,
             "description": "右上角按钮是否可见, 默认不可见",
             "itemtype": "property",
             "name": "closeButton",
@@ -10636,7 +10636,7 @@
         },
         {
             "file": "src/modal/Alert.js",
-            "line": 87,
+            "line": 88,
             "description": "阴影部分是否点击可关闭弹框, 默认传了closeCallback之后可关闭",
             "itemtype": "property",
             "name": "shadowDisabled",
@@ -10646,7 +10646,7 @@
         },
         {
             "file": "src/modal/Dialog.js",
-            "line": 72,
+            "line": 73,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -10657,7 +10657,7 @@
         },
         {
             "file": "src/modal/Dialog.js",
-            "line": 79,
+            "line": 80,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
@@ -10667,7 +10667,7 @@
         },
         {
             "file": "src/modal/Dialog.js",
-            "line": 85,
+            "line": 86,
             "description": "是否可见标识",
             "itemtype": "property",
             "name": "visible",
@@ -10677,7 +10677,7 @@
         },
         {
             "file": "src/modal/Dialog.js",
-            "line": 91,
+            "line": 92,
             "description": "关闭弹框的执行函数",
             "itemtype": "method",
             "name": "closeCallback",
@@ -10687,7 +10687,7 @@
         },
         {
             "file": "src/modal/Dialog.js",
-            "line": 97,
+            "line": 98,
             "description": "右上角按钮是否可见, 默认不可见",
             "itemtype": "property",
             "name": "closeButton",
@@ -10697,7 +10697,7 @@
         },
         {
             "file": "src/modal/Dialog.js",
-            "line": 103,
+            "line": 104,
             "description": "阴影部分是否点击可关闭弹框, 默认传了closeCallback之后可关闭",
             "itemtype": "property",
             "name": "shadowDisabled",
@@ -10707,7 +10707,7 @@
         },
         {
             "file": "src/modal/Prompt.js",
-            "line": 53,
+            "line": 54,
             "description": "标题",
             "itemtype": "property",
             "name": "title",
@@ -10717,7 +10717,7 @@
         },
         {
             "file": "src/modal/Prompt.js",
-            "line": 59,
+            "line": 60,
             "description": "内容",
             "itemtype": "property",
             "name": "content",
@@ -10727,7 +10727,7 @@
         },
         {
             "file": "src/modal/Prompt.js",
-            "line": 65,
+            "line": 66,
             "description": "尾部按钮",
             "itemtype": "property",
             "name": "buttons",
@@ -10737,7 +10737,7 @@
         },
         {
             "file": "src/modal/Prompt.js",
-            "line": 71,
+            "line": 72,
             "description": "内容区域文本框",
             "itemtype": "property",
             "name": "inputs",
@@ -10747,7 +10747,7 @@
         },
         {
             "file": "src/modal/Prompt.js",
-            "line": 77,
+            "line": 78,
             "description": "是否可见标识",
             "itemtype": "property",
             "name": "visible",
@@ -10757,7 +10757,7 @@
         },
         {
             "file": "src/modal/Prompt.js",
-            "line": 83,
+            "line": 84,
             "description": "关闭弹框的执行函数",
             "itemtype": "method",
             "name": "closeCallback",
@@ -10767,7 +10767,7 @@
         },
         {
             "file": "src/modal/Prompt.js",
-            "line": 89,
+            "line": 90,
             "description": "点击确定的回调函数",
             "itemtype": "method",
             "name": "confirmCallback",
@@ -10777,7 +10777,7 @@
         },
         {
             "file": "src/modal/Prompt.js",
-            "line": 95,
+            "line": 96,
             "description": "右上角按钮是否可见, 默认不可见",
             "itemtype": "property",
             "name": "closeButton",
@@ -10787,7 +10787,7 @@
         },
         {
             "file": "src/modal/Prompt.js",
-            "line": 101,
+            "line": 102,
             "description": "阴影部分是否点击可关闭弹框, 默认传了closeCallback之后可关闭",
             "itemtype": "property",
             "name": "shadowDisabled",
@@ -10829,7 +10829,7 @@
         },
         {
             "file": "src/ph-filter/components/FilterContainer.js",
-            "line": 87,
+            "line": 88,
             "description": "默认展开筛选的索引，默认－1，即都不展开",
             "itemtype": "property",
             "name": "index",
@@ -10840,7 +10840,7 @@
         },
         {
             "file": "src/ph-filter/components/FilterContainer.js",
-            "line": 94,
+            "line": 95,
             "description": "是否隐藏头部",
             "itemtype": "property",
             "name": "hideCat",
@@ -10851,7 +10851,7 @@
         },
         {
             "file": "src/ph-filter/components/FilterContainer.js",
-            "line": 101,
+            "line": 102,
             "description": "展开时是否从顶部展开",
             "itemtype": "property",
             "name": "stable",
@@ -10862,7 +10862,7 @@
         },
         {
             "file": "src/ph-filter/components/FilterContainer.js",
-            "line": 108,
+            "line": 109,
             "description": "有效选择触发的回调函数",
             "itemtype": "method",
             "name": "clickCallback",
@@ -11004,7 +11004,7 @@
         },
         {
             "file": "src/popover/index.js",
-            "line": 50,
+            "line": 51,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -11015,7 +11015,7 @@
         },
         {
             "file": "src/popover/index.js",
-            "line": 57,
+            "line": 58,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
@@ -11025,7 +11025,7 @@
         },
         {
             "file": "src/popover/index.js",
-            "line": 63,
+            "line": 64,
             "description": "返回气泡的目标元素",
             "itemtype": "method",
             "name": "getTarget",
@@ -11035,7 +11035,7 @@
         },
         {
             "file": "src/popover/index.js",
-            "line": 69,
+            "line": 70,
             "description": "气泡的位置,默认bottom",
             "itemtype": "property",
             "name": "placement",
@@ -11045,7 +11045,7 @@
         },
         {
             "file": "src/popover/index.js",
-            "line": 75,
+            "line": 76,
             "description": "气泡距离点击物的位置,默认5",
             "itemtype": "property",
             "name": "distance",
@@ -11055,7 +11055,7 @@
         },
         {
             "file": "src/popover/index.js",
-            "line": 81,
+            "line": 82,
             "description": "气泡显隐时可执行的额外函数,自定义",
             "itemtype": "method",
             "name": "clickCallback",
@@ -11065,7 +11065,7 @@
         },
         {
             "file": "src/popup/index.js",
-            "line": 54,
+            "line": 55,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -11076,7 +11076,7 @@
         },
         {
             "file": "src/popup/index.js",
-            "line": 61,
+            "line": 62,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
@@ -11086,7 +11086,7 @@
         },
         {
             "file": "src/popup/index.js",
-            "line": 67,
+            "line": 68,
             "description": "是否可见标识",
             "itemtype": "property",
             "name": "visible",
@@ -11096,7 +11096,7 @@
         },
         {
             "file": "src/popup/index.js",
-            "line": 73,
+            "line": 74,
             "description": "弹层的位置,默认top",
             "itemtype": "property",
             "name": "align",
@@ -11106,7 +11106,7 @@
         },
         {
             "file": "src/popup/index.js",
-            "line": 79,
+            "line": 80,
             "description": "关闭的执行函数",
             "itemtype": "method",
             "name": "closeCallback",
@@ -11116,7 +11116,7 @@
         },
         {
             "file": "src/pullup/index.js",
-            "line": 50,
+            "line": 51,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -11127,7 +11127,7 @@
         },
         {
             "file": "src/pullup/index.js",
-            "line": 57,
+            "line": 58,
             "description": "加载更多的模式，可选[auto,buttons], 默认auto",
             "itemtype": "property",
             "name": "mode",
@@ -11138,7 +11138,7 @@
         },
         {
             "file": "src/pullup/index.js",
-            "line": 64,
+            "line": 65,
             "description": "加载状态：0初始状态, 1加载中, 2数据加载成功, 3数据加载失败, 4没有更多",
             "itemtype": "property",
             "name": "status",
@@ -11149,7 +11149,7 @@
         },
         {
             "file": "src/pullup/index.js",
-            "line": 71,
+            "line": 72,
             "description": "加载5个状态的文字描述，默认['加载更多','','加载成功','加载失败','没有更多']",
             "itemtype": "property",
             "name": "tips",
@@ -11160,7 +11160,7 @@
         },
         {
             "file": "src/pullup/index.js",
-            "line": 78,
+            "line": 79,
             "description": "按钮颜色，默认primary",
             "itemtype": "property",
             "name": "phStyle",
@@ -11171,7 +11171,7 @@
         },
         {
             "file": "src/pullup/index.js",
-            "line": 85,
+            "line": 86,
             "description": "滑到底部自动加载的回调函数，用户在该函数内自定义请求",
             "itemtype": "method",
             "name": "loadCallback",
@@ -11182,7 +11182,7 @@
         },
         {
             "file": "src/radio/index.js",
-            "line": 35,
+            "line": 36,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -11193,7 +11193,7 @@
         },
         {
             "file": "src/radio/index.js",
-            "line": 42,
+            "line": 43,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
@@ -11203,7 +11203,7 @@
         },
         {
             "file": "src/radio/index.js",
-            "line": 48,
+            "line": 49,
             "description": "展示的文字信息",
             "itemtype": "property",
             "name": "label",
@@ -11214,7 +11214,7 @@
         },
         {
             "file": "src/search-bar/index.js",
-            "line": 43,
+            "line": 44,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -11225,7 +11225,7 @@
         },
         {
             "file": "src/search-bar/index.js",
-            "line": 50,
+            "line": 51,
             "description": "按钮文案",
             "itemtype": "property",
             "name": "buttonText",
@@ -11236,7 +11236,7 @@
         },
         {
             "file": "src/search-bar/index.js",
-            "line": 57,
+            "line": 58,
             "description": "输入框占位符",
             "itemtype": "property",
             "name": "placeholder",
@@ -11247,7 +11247,7 @@
         },
         {
             "file": "src/search-bar/index.js",
-            "line": 64,
+            "line": 65,
             "description": "聚焦的回调",
             "itemtype": "method",
             "name": "focusCallback",
@@ -11257,7 +11257,7 @@
         },
         {
             "file": "src/search-bar/index.js",
-            "line": 70,
+            "line": 71,
             "description": "失焦的回调",
             "itemtype": "method",
             "name": "blurCallback",
@@ -11267,7 +11267,7 @@
         },
         {
             "file": "src/search-bar/index.js",
-            "line": 76,
+            "line": 77,
             "description": "搜索的回调",
             "itemtype": "method",
             "name": "queryCallback",
@@ -11277,7 +11277,7 @@
         },
         {
             "file": "src/search-bar/index.js",
-            "line": 82,
+            "line": 83,
             "description": "点击按钮的回调",
             "itemtype": "method",
             "name": "clickCallback",
@@ -11287,7 +11287,7 @@
         },
         {
             "file": "src/search-bar/index.js",
-            "line": 88,
+            "line": 89,
             "description": "当前是否显示按钮",
             "itemtype": "property",
             "name": "showButton",
@@ -11298,7 +11298,7 @@
         },
         {
             "file": "src/slider/index.js",
-            "line": 54,
+            "line": 55,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -11309,7 +11309,7 @@
         },
         {
             "file": "src/slider/index.js",
-            "line": 61,
+            "line": 62,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
@@ -11319,7 +11319,7 @@
         },
         {
             "file": "src/slider/index.js",
-            "line": 67,
+            "line": 68,
             "description": "初始进程,默认0",
             "itemtype": "property",
             "name": "progress",
@@ -11329,7 +11329,7 @@
         },
         {
             "file": "src/slider/index.js",
-            "line": 73,
+            "line": 74,
             "description": "进程提示的位置,默认top",
             "itemtype": "property",
             "name": "placement",
@@ -11340,7 +11340,7 @@
         },
         {
             "file": "src/slider/index.js",
-            "line": 80,
+            "line": 81,
             "description": "范围，默认0-100，可传固定范围的数组如：[25,50]",
             "itemtype": "property",
             "name": "range",
@@ -11351,7 +11351,7 @@
         },
         {
             "file": "src/slider/index.js",
-            "line": 87,
+            "line": 88,
             "description": "是否在进度条前后显示范围",
             "itemtype": "property",
             "name": "showRange",
@@ -11362,7 +11362,7 @@
         },
         {
             "file": "src/slider/index.js",
-            "line": 94,
+            "line": 95,
             "description": "显示提示的模式，可选[default,tooltip]",
             "itemtype": "property",
             "name": "tipMode",
@@ -11373,7 +11373,7 @@
         },
         {
             "file": "src/slider/index.js",
-            "line": 101,
+            "line": 102,
             "description": "每次移动的固定距离，默认1",
             "itemtype": "property",
             "name": "duration",
@@ -11384,7 +11384,7 @@
         },
         {
             "file": "src/slider/index.js",
-            "line": 108,
+            "line": 109,
             "description": "初始及松开按钮时是否显示tooltip",
             "itemtype": "property",
             "name": "tipStay",
@@ -11395,7 +11395,7 @@
         },
         {
             "file": "src/slider/index.js",
-            "line": 115,
+            "line": 116,
             "description": "改变进程时的回调函数",
             "itemtype": "method",
             "name": "slideCallback",
@@ -11405,7 +11405,7 @@
         },
         {
             "file": "src/star/index.js",
-            "line": 40,
+            "line": 41,
             "description": "星级评价分数",
             "itemtype": "property",
             "name": "rate",
@@ -11416,7 +11416,7 @@
         },
         {
             "file": "src/star/index.js",
-            "line": 47,
+            "line": 48,
             "description": "星星大小",
             "itemtype": "property",
             "name": "phSize",
@@ -11427,7 +11427,7 @@
         },
         {
             "file": "src/star/index.js",
-            "line": 54,
+            "line": 55,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -11438,7 +11438,7 @@
         },
         {
             "file": "src/steps/index.js",
-            "line": 36,
+            "line": 37,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -11449,7 +11449,7 @@
         },
         {
             "file": "src/steps/index.js",
-            "line": 43,
+            "line": 44,
             "description": "是否为只读模式（只读模式不会触发点击回调），默认为false",
             "itemtype": "property",
             "name": "readOnly",
@@ -11460,7 +11460,7 @@
         },
         {
             "file": "src/steps/index.js",
-            "line": 50,
+            "line": 51,
             "description": "steps内容数组，把每一步的文案放入数组中作为list的值",
             "itemtype": "property",
             "name": "list",
@@ -11471,7 +11471,7 @@
         },
         {
             "file": "src/steps/index.js",
-            "line": 57,
+            "line": 58,
             "description": "当前处于第几步，默认为0，也就是说所有的步骤都没有开始，如果到第一步的话将index设置为1即可，注意index不可以超过list数组长度",
             "itemtype": "property",
             "name": "index",
@@ -11482,7 +11482,7 @@
         },
         {
             "file": "src/steps/index.js",
-            "line": 64,
+            "line": 65,
             "description": "点击每一步的回调，function(str,index){} str为步骤名称，index为第几步（从1开始计数）",
             "itemtype": "method",
             "name": "clickCallback",
@@ -11493,7 +11493,7 @@
         },
         {
             "file": "src/swipe/index.js",
-            "line": 41,
+            "line": 42,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -11504,7 +11504,7 @@
         },
         {
             "file": "src/swipe/index.js",
-            "line": 48,
+            "line": 49,
             "description": "标签tagName",
             "itemtype": "property",
             "name": "componentTag",
@@ -11514,7 +11514,7 @@
         },
         {
             "file": "src/swipe/index.js",
-            "line": 54,
+            "line": 55,
             "description": "按钮组",
             "itemtype": "property",
             "name": "buttons",
@@ -11524,7 +11524,7 @@
         },
         {
             "file": "src/switch/index.js",
-            "line": 32,
+            "line": 33,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -11535,7 +11535,7 @@
         },
         {
             "file": "src/switch/index.js",
-            "line": 39,
+            "line": 40,
             "description": "默认开关值",
             "itemtype": "property",
             "name": "defaultChecked",
@@ -11545,7 +11545,7 @@
         },
         {
             "file": "src/switch/index.js",
-            "line": 45,
+            "line": 46,
             "description": "开关值",
             "itemtype": "property",
             "name": "checked",
@@ -11555,7 +11555,7 @@
         },
         {
             "file": "src/switch/index.js",
-            "line": 51,
+            "line": 52,
             "description": "更改值时触发的回调",
             "itemtype": "event",
             "name": "onChange",
@@ -11587,7 +11587,7 @@
         },
         {
             "file": "src/tab/Tabset.js",
-            "line": 69,
+            "line": 72,
             "description": "指定默认选中的选项卡，默认为0",
             "itemtype": "property",
             "name": "index",
@@ -11598,7 +11598,7 @@
         },
         {
             "file": "src/tab/Tabset.js",
-            "line": 76,
+            "line": 79,
             "description": "是否竖排",
             "itemtype": "property",
             "name": "vertical",
@@ -11609,7 +11609,7 @@
         },
         {
             "file": "src/tab/Tabset.js",
-            "line": 83,
+            "line": 86,
             "description": "设置选项卡头部的宽度，只有竖排的情况下才起作用",
             "itemtype": "property",
             "name": "width",
@@ -11620,12 +11620,23 @@
         },
         {
             "file": "src/tab/Tabset.js",
-            "line": 90,
+            "line": 93,
             "description": "点击事件的回调函数,返回当前选中项",
             "itemtype": "method",
             "name": "clickCallback",
             "type": "Function",
             "default": "null",
+            "class": "Tabset",
+            "module": "选项卡"
+        },
+        {
+            "file": "src/tab/Tabset.js",
+            "line": 100,
+            "description": "标题强制不换行",
+            "itemtype": "property",
+            "name": "nowrap",
+            "type": "Boolean",
+            "default": "false",
             "class": "Tabset",
             "module": "选项卡"
         },
@@ -11754,131 +11765,131 @@
     "warnings": [
         {
             "message": "unknown tag: demo",
-            "line": " src/accordion/index.js:23"
+            "line": " src/accordion/index.js:24"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/accordion/index.js:23"
+            "line": " src/accordion/index.js:24"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/animate/index.js:8"
+            "line": " src/animate/index.js:9"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/animate/index.js:8"
+            "line": " src/animate/index.js:9"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/badge/index.js:8"
+            "line": " src/badge/index.js:9"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/badge/index.js:8"
+            "line": " src/badge/index.js:9"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/button/index.js:9"
+            "line": " src/button/index.js:10"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/button/index.js:9"
+            "line": " src/button/index.js:10"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/button-group/index.js:8"
+            "line": " src/button-group/index.js:9"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/button-group/index.js:8"
+            "line": " src/button-group/index.js:9"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/checkbox/index.js:8"
+            "line": " src/checkbox/index.js:9"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/checkbox/index.js:8"
+            "line": " src/checkbox/index.js:9"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/drag/index.js:6"
+            "line": " src/drag/index.js:7"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/drag/index.js:6"
+            "line": " src/drag/index.js:7"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/grid/Col.js:8"
+            "line": " src/grid/Col.js:9"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/grid/Col.js:8"
+            "line": " src/grid/Col.js:9"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/grid/Grid.js:19"
+            "line": " src/grid/Grid.js:20"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/grid/Grid.js:19"
+            "line": " src/grid/Grid.js:20"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/grid/Row.js:8"
+            "line": " src/grid/Row.js:9"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/grid/Row.js:8"
+            "line": " src/grid/Row.js:9"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/icon/index.js:8"
+            "line": " src/icon/index.js:9"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/icon/index.js:8"
+            "line": " src/icon/index.js:9"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/image/index.js:9"
+            "line": " src/image/index.js:10"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/image/index.js:9"
+            "line": " src/image/index.js:10"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/image-list/index.js:8"
+            "line": " src/image-list/index.js:9"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/image-list/index.js:8"
+            "line": " src/image-list/index.js:9"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/input/index.js:10"
+            "line": " src/input/index.js:11"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/input/index.js:10"
+            "line": " src/input/index.js:11"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/label/index.js:18"
+            "line": " src/label/index.js:19"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/label/index.js:18"
+            "line": " src/label/index.js:19"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/list/index.js:11"
+            "line": " src/list/index.js:12"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/list/index.js:11"
+            "line": " src/list/index.js:12"
         },
         {
             "message": "unknown tag: demo",
@@ -11914,35 +11925,35 @@
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/menu/index.js:26"
+            "line": " src/menu/index.js:27"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/menu/index.js:26"
+            "line": " src/menu/index.js:27"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/modal/Alert.js:9"
+            "line": " src/modal/Alert.js:10"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/modal/Alert.js:9"
+            "line": " src/modal/Alert.js:10"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/modal/Dialog.js:21"
+            "line": " src/modal/Dialog.js:22"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/modal/Dialog.js:21"
+            "line": " src/modal/Dialog.js:22"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/modal/Prompt.js:10"
+            "line": " src/modal/Prompt.js:11"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/modal/Prompt.js:10"
+            "line": " src/modal/Prompt.js:11"
         },
         {
             "message": "unknown tag: demo",
@@ -11954,11 +11965,11 @@
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/ph-filter/components/FilterContainer.js:21"
+            "line": " src/ph-filter/components/FilterContainer.js:22"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/ph-filter/components/FilterContainer.js:21"
+            "line": " src/ph-filter/components/FilterContainer.js:22"
         },
         {
             "message": "unknown tag: demo",
@@ -11994,83 +12005,83 @@
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/popover/index.js:12"
+            "line": " src/popover/index.js:13"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/popover/index.js:12"
+            "line": " src/popover/index.js:13"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/popup/index.js:9"
+            "line": " src/popup/index.js:10"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/popup/index.js:9"
+            "line": " src/popup/index.js:10"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/pullup/index.js:13"
+            "line": " src/pullup/index.js:14"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/pullup/index.js:13"
+            "line": " src/pullup/index.js:14"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/radio/index.js:8"
+            "line": " src/radio/index.js:9"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/radio/index.js:8"
+            "line": " src/radio/index.js:9"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/search-bar/index.js:11"
+            "line": " src/search-bar/index.js:12"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/search-bar/index.js:11"
+            "line": " src/search-bar/index.js:12"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/slider/index.js:10"
+            "line": " src/slider/index.js:11"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/slider/index.js:10"
+            "line": " src/slider/index.js:11"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/star/index.js:18"
+            "line": " src/star/index.js:19"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/star/index.js:18"
+            "line": " src/star/index.js:19"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/steps/index.js:8"
+            "line": " src/steps/index.js:9"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/steps/index.js:8"
+            "line": " src/steps/index.js:9"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/swipe/index.js:11"
+            "line": " src/swipe/index.js:12"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/swipe/index.js:11"
+            "line": " src/swipe/index.js:12"
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/switch/index.js:8"
+            "line": " src/switch/index.js:9"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/switch/index.js:8"
+            "line": " src/switch/index.js:9"
         },
         {
             "message": "unknown tag: demo",
@@ -12082,11 +12093,11 @@
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/tab/Tabset.js:19"
+            "line": " src/tab/Tabset.js:20"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/tab/Tabset.js:19"
+            "line": " src/tab/Tabset.js:20"
         },
         {
             "message": "unknown tag: demo",
@@ -12098,11 +12109,11 @@
         },
         {
             "message": "unknown tag: demo",
-            "line": " src/toast/index.js:11"
+            "line": " src/toast/index.js:12"
         },
         {
             "message": "unknown tag: show",
-            "line": " src/toast/index.js:11"
+            "line": " src/toast/index.js:12"
         },
         {
             "message": "Missing item type\nCreated by mac on 15/9/7.",

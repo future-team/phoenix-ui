@@ -556,6 +556,7 @@
 <li>当设置为vertical后, 可通过width设置tab标题部分的宽度占比。</li>
 <li>可通过clickCallback设置点击选项卡的回调函数。</li>
 <li>可自定义className等常用属性以及事件。</li>
+<li>可通过nowrap设置tab标题不换行。</li>
 </ul>
 <p>具体属性和接口如下：</p>
 <ul>
@@ -563,6 +564,7 @@
 <li>vertical:是否竖排，如需要直接添加改属性即可，默认不竖排</li>
 <li>width:选项卡头部的宽度，取值0-100之间, 只有设置vertical下生效, 默认20</li>
 <li>clickCallback:点击选项卡执行的回调函数</li>
+<li>nowrap:tab标题不换行</li>
 </ul>
 <p>示例:</p>
 <ul>
@@ -644,6 +646,24 @@
     </td>
     <td>
         0
+    </td>
+    
+</tr>
+                
+                    <tr class="param">
+     <td> 
+        <code class="param-name">nowrap</code>
+    </td>
+    <td><span class="type">Boolean</span> </td>
+    <td>
+        <div class="param-description">
+            
+            <div class="stdoc-code"><p>标题强制不换行</p>
+</div>
+        </div>
+    </td>
+    <td>
+        false
     </td>
     
 </tr>

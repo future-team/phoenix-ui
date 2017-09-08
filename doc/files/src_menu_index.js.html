@@ -549,6 +549,7 @@ import React,{PropTypes} from &#x27;react&#x27;
 import Component from &#x27;../utils/Component&#x27;
 import classnames from &#x27;classnames&#x27;
 import {closest} from &#x27;../utils/Tool&#x27;
+import Logger from &#x27;../utils/logger&#x27;
 
 import MenuHeader from &#x27;./MenuHeader&#x27;
 import MenuBody from &#x27;./MenuBody&#x27;
@@ -647,9 +648,11 @@ class Menu extends Component{
     };
 
     constructor(props, context) {
-        super(props, context);
+        super(props, context)
 
-        this.handleWindowScroll = this.handleWindowScroll.bind(this);
+        new Logger(&#x27;Menu&#x27;)
+
+        this.handleWindowScroll = this.handleWindowScroll.bind(this)
 
         this.state = {
             ceiling: !(props.ceiling === undefined || props.ceiling &gt; 0),
@@ -657,9 +660,9 @@ class Menu extends Component{
         }
 
         // 是否滚动吸顶
-        if(props.ceiling === undefined || props.ceiling === 0) return;
+        if(props.ceiling === undefined || props.ceiling === 0) return
         
-        window.addEventListener(&#x27;scroll&#x27;, this.handleWindowScroll, false);
+        window.addEventListener(&#x27;scroll&#x27;, this.handleWindowScroll, false)
     }
     
     handleWindowScroll(){

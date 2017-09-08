@@ -548,6 +548,7 @@
 import React,{PropTypes} from &#x27;react&#x27;
 import Component from &#x27;../utils/Component&#x27;
 import classnames from &#x27;classnames&#x27;
+import Logger from &#x27;../utils/logger&#x27;
 
 import Animate from &#x27;../animate&#x27;
 import Icon from &#x27;../icon&#x27;
@@ -664,7 +665,9 @@ class Dialog extends Component{
     };
 
     constructor(props, context) {
-        super(props, context);
+        super(props, context)
+
+        new Logger(&#x27;Dialog&#x27;)
     }
 
     onShadowClose(){
