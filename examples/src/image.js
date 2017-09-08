@@ -5,7 +5,7 @@ import Code from "./code/code"
 
 const DEFULT_IMAGE = 'http://file.digitaling.com/eImg/uimages/20150907/1441607165383971.gif',
       IMAGE_URL = 'http://img5.duitang.com/uploads/item/201602/11/20160211214958_RhdCY.jpeg',
-      LAZY_URL = 'http://imglf1.ph.126.net/V0-JUTmkXrb0nkcfTVfH9g==/6630709324908900349.jpg'
+      LAZY_URL = 'http://img.chinatimes.com/newsphoto/2016-05-19/656/20160519005737.jpg'
 
 export default class image extends Component{
     constructor(props,context){

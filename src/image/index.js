@@ -110,6 +110,21 @@ export default class Images extends Component{
         if(props.lazy) window.addEventListener('scroll', this.scrollHandle, false)
     }
 
+    componentWillReceiveProps(nextProps){
+        let {src, defaultSrc, lazy} = nextProps
+
+        if(this.state.src !== src){
+            this.load = false
+
+            this.setState({
+                src: defaultSrc || null
+            }, ()=>{
+                if(nextProps.lazy) window.addEventListener('scroll', this.scrollHandle, false)
+                this.isLazyCallback(nextProps)
+            })
+        }
+    }
+
     defaultImagePreload(){
         let {defaultSrc} = this.props
 
@@ -130,16 +145,23 @@ export default class Images extends Component{
 
         if(this.scrollTop + this.bodyHeight >= this.imageTop){
             if(!this.load) {
-                this.imageLoad()
+                this.imageLoad(true)
             }
         }
     }
 
     componentDidMount(){
-        let {defaultSrc, lazy} = this.props
+        this.isLazyCallback(this.props)
+    }
 
-        if(!lazy) this.imageLoad()
-        if(lazy) this.lazyLoad()
+    isLazyCallback(props){
+        let {lazy} = props
+        
+        if(lazy && !this.load){
+            this.lazyLoad()
+        }else{
+            this.imageLoad()
+        }
     }
 
     getImageSize(){
@@ -166,7 +188,7 @@ export default class Images extends Component{
         }
     }
 
-    imageLoad(){
+    imageLoad(isLazy){
         let {src} = this.props
 
         try{
@@ -176,22 +198,24 @@ export default class Images extends Component{
             this.load = true
 
             if(img.complete){ // 如果已经存在，直接加载
-                this.loadSuccessCallback(img)
+                this.loadSuccessCallback(img, isLazy)
                 return
             }
 
             img.onload = (e)=>{ // 否则等到图片加载完成
                 img.onload = null
-                this.loadSuccessCallback(img)
+                this.loadSuccessCallback(img, isLazy)
             }
         }catch(err){
             if(loadCallback) loadCallback(err)
         }
     }
 
-    loadSuccessCallback(img){
+    loadSuccessCallback(img, isLazy){console.log(123)
         let {src, lazy, loadCallback} = this.props
         if(lazy) window.removeEventListener('scroll', this.scrollHandle, false)
+
+        this.isLazy = isLazy
 
         this.setState({src: src})
 
