@@ -23,13 +23,11 @@ import Icon from '../../icon'
  * 单选筛选<br/>
  * - 可通过index设置筛选默认打开的面板。默认－1，即都不打开。
  * - 可通过hideCat选择是否要显示筛选头部。
- * - 可通过stable设置面板是否从当前位置展开，默认置顶满屏展开。
  * - 可通过clickCallback设置有效选择的回调，当没有按钮时选中即触发，有按钮时点击按钮时触发。
  *
  * 主要属性和接口：
  * - index: 默认打开的面板。
  * - hideCat: 是否显示筛选头部。
- * - stable: 是否从当前位置展开。
  * - clickCallback: 有效选择的回调。
  * 
  * 有2种形式，其一，简单模式。<br/>
@@ -99,13 +97,6 @@ export default class FilterContainer extends Component{
          * @default false
          * */
         hideCat: PropTypes.bool,
-        /**
-         * 展开时是否从顶部展开
-         * @property stable
-         * @type Boolean
-         * @default false
-         * */
-        stable: PropTypes.bool,
         /**
          * 有效选择触发的回调函数
          * @method clickCallback
@@ -287,7 +278,7 @@ export default class FilterContainer extends Component{
                     ref={(filterContainer)=>{this.filterContainer = filterContainer}}
                     style={{top: stable && !fixed && activeCat>-1? this.containerOffsetTop+'px':'', ...style}}
                 >
-                    <div className='ph-filter-shadow' onTouchStart={this.hidePanel.bind(this)}></div>
+                    <div className='ph-filter-shadow' onClick={this.hidePanel.bind(this)}></div>
                     <ul className='cat ph-row ph-filter-header'>
                         {this.renderCatList()}
                     </ul>

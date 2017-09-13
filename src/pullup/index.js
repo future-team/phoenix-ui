@@ -56,7 +56,7 @@ export default class PullUp extends Component{
          * */
         classPrefix: PropTypes.string,
          /**
-         * 加载更多的模式，可选[auto,buttons], 默认auto
+         * 加载更多的模式，可选[auto,button], 默认auto
          * @property mode
          * @type String
          * @default 'auto'

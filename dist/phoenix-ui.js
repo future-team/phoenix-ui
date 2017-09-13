@@ -12538,7 +12538,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * */
 	            classPrefix: _react.PropTypes.string,
 	            /**
-	            * 加载更多的模式，可选[auto,buttons], 默认auto
+	            * 加载更多的模式，可选[auto,button], 默认auto
 	            * @property mode
 	            * @type String
 	            * @default 'auto'
@@ -12937,13 +12937,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * 单选筛选<br/>
 	 * - 可通过index设置筛选默认打开的面板。默认－1，即都不打开。
 	 * - 可通过hideCat选择是否要显示筛选头部。
-	 * - 可通过stable设置面板是否从当前位置展开，默认置顶满屏展开。
 	 * - 可通过clickCallback设置有效选择的回调，当没有按钮时选中即触发，有按钮时点击按钮时触发。
 	 *
 	 * 主要属性和接口：
 	 * - index: 默认打开的面板。
 	 * - hideCat: 是否显示筛选头部。
-	 * - stable: 是否从当前位置展开。
 	 * - clickCallback: 有效选择的回调。
 	 * 
 	 * 有2种形式，其一，简单模式。<br/>
@@ -13017,13 +13015,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * @default false
 	             * */
 	            hideCat: _react.PropTypes.bool,
-	            /**
-	             * 展开时是否从顶部展开
-	             * @property stable
-	             * @type Boolean
-	             * @default false
-	             * */
-	            stable: _react.PropTypes.bool,
 	            /**
 	             * 有效选择触发的回调函数
 	             * @method clickCallback
@@ -13235,7 +13226,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    },
 	                    style: _extends({ top: stable && !fixed && activeCat > -1 ? this.containerOffsetTop + 'px' : '' }, style)
 	                },
-	                _react2['default'].createElement('div', { className: 'ph-filter-shadow', onTouchStart: this.hidePanel.bind(this) }),
+	                _react2['default'].createElement('div', { className: 'ph-filter-shadow', onClick: this.hidePanel.bind(this) }),
 	                _react2['default'].createElement(
 	                    'ul',
 	                    { className: 'cat ph-row ph-filter-header' },
