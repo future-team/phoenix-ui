@@ -19,6 +19,7 @@ import 'phoenix-styles/less/modules/pullup.less'
  * - 可通过tips设置按钮文字和状态提示语，默认['加载更多','','加载成功','加载失败','没有更多']，分别对应status的状态。
  * - 可通过phStyle设置按钮的样式，如果当前mode为auto设置无效。
  * - 可通过loadCallback设置点击按钮加载或滑到底部自动加载的回调函数，如果状态为4不执行。
+ * - 如果当前列表存在自定义的滚动条，需要通过getTarget传递滚动的目标，且滚动元素的子元素必须只有一个。
  *
  * 主要属性和接口：
  * - mode:加载更多的模式，默认auto。
@@ -26,14 +27,20 @@ import 'phoenix-styles/less/modules/pullup.less'
  * - tips:按钮文字和状态提示语，默认['加载更多','','加载成功','加载失败','没有更多']。
  * - phStyle:按钮的样式，默认'primary'。
  * - loadCallback:点击按钮加载或滑到底部自动加载的回调函数。
+ * - getTarget: 如果当前列表存在自定义的滚动条，需要传递滚动的目标。
  * 
  * 示例：
  * ```code
- *  // 可加载列表的位置
- *  <PullUp mode='button' status={this.state.status} 
- *      tips={['点击加载更多','加载中...','加载成功！','加载失败！','没有更多']} 
- *      phStyle='primary' 
- *      loadCallback={this.loadCallback.bind(this)} />
+ *  <div style={{height:'300px',overflow:'auto'}} ref={(list)=>this.list=list}>
+ *      <div> // 用到getTarget需要保证只有一个子元素，包裹住滚动的所有内容
+ *          <List>...</List> // 可加载列表的位置
+ *          <PullUp mode='button' status={this.state.status} 
+ *              tips={['点击加载更多','加载中...','加载成功！','加载失败！','没有更多']} 
+ *              phStyle='primary' 
+ *              loadCallback={this.loadCallback.bind(this)}
+ *              getTarget={()=>{return list;}} />
+ *      </div>
+ *  </div>
  * ```
  * 
  * @class PullUp
@@ -89,7 +96,14 @@ export default class PullUp extends Component{
          * @type Function
          * @default null
          **/
-        loadCallback: PropTypes.func
+        loadCallback: PropTypes.func,
+        /**
+         * 如果当前列表存在自定义的滚动条，需要传递滚动的目标
+         * @method getTarget
+         * @type Function
+         * @default null
+         **/
+        getTarget: PropTypes.func
     }
 
     static defaultProps ={
@@ -115,15 +129,27 @@ export default class PullUp extends Component{
         this.distanceY = 0
 
         this.scrollHandle = this.scrollHandle.bind(this)
-        window.addEventListener('scroll', this.scrollHandle, false)
+        this.scrollElem = window
     }
 
-    scrollHandle(){
-        let {status} = this.state
+    scrollHandle(e){
+        let {status} = this.state,
+            {getTarget} = this.props,
+            target = e.target
         
-        this.scrollTop = getScrollTop()
-        this.bodyHeight = getClientHeight()
-        this.documentHeight = getDocumentHeight()
+        if(getTarget){
+            this.scrollTop = target.scrollTop
+            this.bodyHeight = target.clientHeight
+            this.documentHeight = target.children[0].offsetHeight
+        }else{
+            this.scrollTop = getScrollTop()
+            this.bodyHeight = getClientHeight()
+            this.documentHeight = getDocumentHeight()
+        }
+        // console.log('this.scrollTop', this.scrollTop)
+        // console.log('this.bodyHeight', this.bodyHeight)
+        // console.log('this.documentHeight', this.documentHeight)
+
         this.pullTop = this.documentHeight - this.pullUp.offsetHeight
         // if(!this.pullHeight) this.pullHeight = this.pullUp.offsetHeight
         
@@ -154,6 +180,15 @@ export default class PullUp extends Component{
         this.addClass(this.prevElem, 'hardware')
 
         this.dragEventHandle(this.dragElem)
+
+        if(this.props.getTarget){
+            setTimeout(()=>{
+                this.scrollElem = this.props.getTarget()
+                this.scrollElem.addEventListener('scroll', this.scrollHandle, false)
+            },0);  
+        }else{
+            this.scrollElem.addEventListener('scroll', this.scrollHandle, false)
+        }              
     }
 
     dragEventHandle(elem){
@@ -239,7 +274,7 @@ export default class PullUp extends Component{
     componentWillUnmount(){
         if(this.props.mode=='button') return
 
-        window.removeEventListener('scroll', this.scrollHandle, false)
+        this.scrollElem.removeEventListener('scroll', this.scrollHandle, false)
 
         this.dragElem.removeEventListener('touchstart', this.touchStartHandle, false)
         this.dragElem.removeEventListener('touchmove', this.touchMoveHandle, false)

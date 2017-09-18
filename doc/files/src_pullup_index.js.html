@@ -566,6 +566,7 @@ import &#x27;phoenix-styles/less/modules/pullup.less&#x27;
  * - 可通过tips设置按钮文字和状态提示语，默认[&#x27;加载更多&#x27;,&#x27;&#x27;,&#x27;加载成功&#x27;,&#x27;加载失败&#x27;,&#x27;没有更多&#x27;]，分别对应status的状态。
  * - 可通过phStyle设置按钮的样式，如果当前mode为auto设置无效。
  * - 可通过loadCallback设置点击按钮加载或滑到底部自动加载的回调函数，如果状态为4不执行。
+ * - 如果当前列表存在自定义的滚动条，需要通过getTarget传递滚动的目标，且滚动元素的子元素必须只有一个。
  *
  * 主要属性和接口：
  * - mode:加载更多的模式，默认auto。
@@ -573,14 +574,20 @@ import &#x27;phoenix-styles/less/modules/pullup.less&#x27;
  * - tips:按钮文字和状态提示语，默认[&#x27;加载更多&#x27;,&#x27;&#x27;,&#x27;加载成功&#x27;,&#x27;加载失败&#x27;,&#x27;没有更多&#x27;]。
  * - phStyle:按钮的样式，默认&#x27;primary&#x27;。
  * - loadCallback:点击按钮加载或滑到底部自动加载的回调函数。
+ * - getTarget: 如果当前列表存在自定义的滚动条，需要传递滚动的目标。
  * 
  * 示例：
  * &#x60;&#x60;&#x60;code
- *  // 可加载列表的位置
- *  &lt;PullUp mode=&#x27;button&#x27; status={this.state.status} 
- *      tips={[&#x27;点击加载更多&#x27;,&#x27;加载中...&#x27;,&#x27;加载成功！&#x27;,&#x27;加载失败！&#x27;,&#x27;没有更多&#x27;]} 
- *      phStyle=&#x27;primary&#x27; 
- *      loadCallback={this.loadCallback.bind(this)} /&gt;
+ *  &lt;div style={{height:&#x27;300px&#x27;,overflow:&#x27;auto&#x27;}} ref={(list)=&gt;this.list=list}&gt;
+ *      &lt;div&gt; // 用到getTarget需要保证只有一个子元素，包裹住滚动的所有内容
+ *          &lt;List&gt;...&lt;/List&gt; // 可加载列表的位置
+ *          &lt;PullUp mode=&#x27;button&#x27; status={this.state.status} 
+ *              tips={[&#x27;点击加载更多&#x27;,&#x27;加载中...&#x27;,&#x27;加载成功！&#x27;,&#x27;加载失败！&#x27;,&#x27;没有更多&#x27;]} 
+ *              phStyle=&#x27;primary&#x27; 
+ *              loadCallback={this.loadCallback.bind(this)}
+ *              getTarget={()=&gt;{return list;}} /&gt;
+ *      &lt;/div&gt;
+ *  &lt;/div&gt;
  * &#x60;&#x60;&#x60;
  * 
  * @class PullUp
@@ -636,7 +643,14 @@ export default class PullUp extends Component{
          * @type Function
          * @default null
          **/
-        loadCallback: PropTypes.func
+        loadCallback: PropTypes.func,
+        /**
+         * 如果当前列表存在自定义的滚动条，需要传递滚动的目标
+         * @method getTarget
+         * @type Function
+         * @default null
+         **/
+        getTarget: PropTypes.func
     }
 
     static defaultProps ={
@@ -662,15 +676,27 @@ export default class PullUp extends Component{
         this.distanceY = 0
 
         this.scrollHandle = this.scrollHandle.bind(this)
-        window.addEventListener(&#x27;scroll&#x27;, this.scrollHandle, false)
+        this.scrollElem = window
     }
 
-    scrollHandle(){
-        let {status} = this.state
+    scrollHandle(e){
+        let {status} = this.state,
+            {getTarget} = this.props,
+            target = e.target
         
-        this.scrollTop = getScrollTop()
-        this.bodyHeight = getClientHeight()
-        this.documentHeight = getDocumentHeight()
+        if(getTarget){
+            this.scrollTop = target.scrollTop
+            this.bodyHeight = target.clientHeight
+            this.documentHeight = target.children[0].offsetHeight
+        }else{
+            this.scrollTop = getScrollTop()
+            this.bodyHeight = getClientHeight()
+            this.documentHeight = getDocumentHeight()
+        }
+        // console.log(&#x27;this.scrollTop&#x27;, this.scrollTop)
+        // console.log(&#x27;this.bodyHeight&#x27;, this.bodyHeight)
+        // console.log(&#x27;this.documentHeight&#x27;, this.documentHeight)
+
         this.pullTop = this.documentHeight - this.pullUp.offsetHeight
         // if(!this.pullHeight) this.pullHeight = this.pullUp.offsetHeight
         
@@ -701,6 +727,15 @@ export default class PullUp extends Component{
         this.addClass(this.prevElem, &#x27;hardware&#x27;)
 
         this.dragEventHandle(this.dragElem)
+
+        if(this.props.getTarget){
+            setTimeout(()=&gt;{
+                this.scrollElem = this.props.getTarget()
+                this.scrollElem.addEventListener(&#x27;scroll&#x27;, this.scrollHandle, false)
+            },0);  
+        }else{
+            this.scrollElem.addEventListener(&#x27;scroll&#x27;, this.scrollHandle, false)
+        }              
     }
 
     dragEventHandle(elem){
@@ -786,7 +821,7 @@ export default class PullUp extends Component{
     componentWillUnmount(){
         if(this.props.mode==&#x27;button&#x27;) return
 
-        window.removeEventListener(&#x27;scroll&#x27;, this.scrollHandle, false)
+        this.scrollElem.removeEventListener(&#x27;scroll&#x27;, this.scrollHandle, false)
 
         this.dragElem.removeEventListener(&#x27;touchstart&#x27;, this.touchStartHandle, false)
         this.dragElem.removeEventListener(&#x27;touchmove&#x27;, this.touchMoveHandle, false)

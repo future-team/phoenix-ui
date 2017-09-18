@@ -557,6 +557,7 @@
 <li>可通过tips设置按钮文字和状态提示语，默认[&#39;加载更多&#39;,&#39;&#39;,&#39;加载成功&#39;,&#39;加载失败&#39;,&#39;没有更多&#39;]，分别对应status的状态。</li>
 <li>可通过phStyle设置按钮的样式，如果当前mode为auto设置无效。</li>
 <li>可通过loadCallback设置点击按钮加载或滑到底部自动加载的回调函数，如果状态为4不执行。</li>
+<li>如果当前列表存在自定义的滚动条，需要通过getTarget传递滚动的目标，且滚动元素的子元素必须只有一个。</li>
 </ul>
 <p>主要属性和接口：</p>
 <ul>
@@ -565,13 +566,19 @@
 <li>tips:按钮文字和状态提示语，默认[&#39;加载更多&#39;,&#39;&#39;,&#39;加载成功&#39;,&#39;加载失败&#39;,&#39;没有更多&#39;]。</li>
 <li>phStyle:按钮的样式，默认&#39;primary&#39;。</li>
 <li>loadCallback:点击按钮加载或滑到底部自动加载的回调函数。</li>
+<li>getTarget: 如果当前列表存在自定义的滚动条，需要传递滚动的目标。</li>
 </ul>
 <p>示例：</p>
-<pre><code class="lang-code"> // 可加载列表的位置
- &lt;PullUp mode=&#39;button&#39; status={this.state.status} 
-     tips={[&#39;点击加载更多&#39;,&#39;加载中...&#39;,&#39;加载成功！&#39;,&#39;加载失败！&#39;,&#39;没有更多&#39;]} 
-     phStyle=&#39;primary&#39; 
-     loadCallback={this.loadCallback.bind(this)} /&gt;</code></pre>
+<pre><code class="lang-code"> &lt;div style={{height:&#39;300px&#39;,overflow:&#39;auto&#39;}} ref={(list)=&gt;this.list=list}&gt;
+     &lt;div&gt; // 用到getTarget需要保证只有一个子元素，包裹住滚动的所有内容
+         &lt;List&gt;...&lt;/List&gt; // 可加载列表的位置
+         &lt;PullUp mode=&#39;button&#39; status={this.state.status} 
+             tips={[&#39;点击加载更多&#39;,&#39;加载中...&#39;,&#39;加载成功！&#39;,&#39;加载失败！&#39;,&#39;没有更多&#39;]} 
+             phStyle=&#39;primary&#39; 
+             loadCallback={this.loadCallback.bind(this)}
+             getTarget={()=&gt;{return list;}} /&gt;
+     &lt;/div&gt;
+ &lt;/div&gt;</code></pre>
 </div>
  </div>
 
@@ -584,6 +591,27 @@
 
             <table class="table table-bordered params-pc-table">
                 <tr class='active'><th>方法名</th><th>说明</th><th>回调参数</th></tr>
+                
+                    <tr class="param">
+     <td> 
+        <code class="param-name">getTarget</code>
+    </td>
+    <td>
+        <div class="param-description">
+            
+            <div class="stdoc-code"><p>如果当前列表存在自定义的滚动条，需要传递滚动的目标</p>
+</div>
+            
+        </div>
+    </td>
+    <td>
+        
+    </td>
+    
+</tr>
+
+
+ 
                 
                     <tr class="param">
      <td> 

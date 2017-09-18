@@ -9282,12 +9282,12 @@
             "namespace": "",
             "file": "src/pullup/index.js",
             "line": 14,
-            "description": "加载更多组件<br/>\n- 书写时PullUp组件在可加载列表的后面。\n- 通过mode设置加载更多的模式，有点击按钮加载更多，以及滑到最底端自动加载，可选 [auto,button] 2种参数。\n- 通过status设置当前状态，只需要在请求结束返回相应状态，包含请求成功返回2，请求成功并再没有数据返回4，请求失败返回3。\n- 可通过tips设置按钮文字和状态提示语，默认['加载更多','','加载成功','加载失败','没有更多']，分别对应status的状态。\n- 可通过phStyle设置按钮的样式，如果当前mode为auto设置无效。\n- 可通过loadCallback设置点击按钮加载或滑到底部自动加载的回调函数，如果状态为4不执行。\n\n主要属性和接口：\n- mode:加载更多的模式，默认auto。\n- status:当前状态:0加载更多, 1加载中, 2数据加载成功, 3数据加载失败, 4没有更多。\n- tips:按钮文字和状态提示语，默认['加载更多','','加载成功','加载失败','没有更多']。\n- phStyle:按钮的样式，默认'primary'。\n- loadCallback:点击按钮加载或滑到底部自动加载的回调函数。\n\n示例：\n```code\n // 可加载列表的位置\n <PullUp mode='button' status={this.state.status} \n     tips={['点击加载更多','加载中...','加载成功！','加载失败！','没有更多']} \n     phStyle='primary' \n     loadCallback={this.loadCallback.bind(this)} />\n```",
+            "description": "加载更多组件<br/>\n- 书写时PullUp组件在可加载列表的后面。\n- 通过mode设置加载更多的模式，有点击按钮加载更多，以及滑到最底端自动加载，可选 [auto,button] 2种参数。\n- 通过status设置当前状态，只需要在请求结束返回相应状态，包含请求成功返回2，请求成功并再没有数据返回4，请求失败返回3。\n- 可通过tips设置按钮文字和状态提示语，默认['加载更多','','加载成功','加载失败','没有更多']，分别对应status的状态。\n- 可通过phStyle设置按钮的样式，如果当前mode为auto设置无效。\n- 可通过loadCallback设置点击按钮加载或滑到底部自动加载的回调函数，如果状态为4不执行。\n- 如果当前列表存在自定义的滚动条，需要通过getTarget传递滚动的目标，且滚动元素的子元素必须只有一个。\n\n主要属性和接口：\n- mode:加载更多的模式，默认auto。\n- status:当前状态:0加载更多, 1加载中, 2数据加载成功, 3数据加载失败, 4没有更多。\n- tips:按钮文字和状态提示语，默认['加载更多','','加载成功','加载失败','没有更多']。\n- phStyle:按钮的样式，默认'primary'。\n- loadCallback:点击按钮加载或滑到底部自动加载的回调函数。\n- getTarget: 如果当前列表存在自定义的滚动条，需要传递滚动的目标。\n\n示例：\n```code\n <div style={{height:'300px',overflow:'auto'}} ref={(list)=>this.list=list}>\n     <div> // 用到getTarget需要保证只有一个子元素，包裹住滚动的所有内容\n         <List>...</List> // 可加载列表的位置\n         <PullUp mode='button' status={this.state.status} \n             tips={['点击加载更多','加载中...','加载成功！','加载失败！','没有更多']} \n             phStyle='primary' \n             loadCallback={this.loadCallback.bind(this)}\n             getTarget={()=>{return list;}} />\n     </div>\n </div>\n```",
             "extends": "Component",
             "is_constructor": 1,
             "since": "2.0.0",
             "example": [
-                "\timport React, { Component } from \"react\"\n\t\n\timport PullUp from \"phoenix-ui/lib/pullup\"\n\timport List from \"phoenix-ui/lib/list\"\n\t\n\timport Code from \"./code/code\"\n\timport {ajax} from \"./utils/tool.js\"\n\t\n\texport default class pullup extends Component{\n\t    constructor(props,context){\n\t        super(props,context); \n\t\n\t        this.count = 0;\n\t\n\t        this.state = {\n\t            loadingData : [],\n\t            status: 1, // 状态：0\"加载更多\",1\"加载中\",2\"加载成功\",3\"加载失败\",4\"没有更多\"\n\t            visible1: false,\n\t        }\n\t\n\t        this.loadCallback();\n\t    }\n\t\n\t    // 加载更多的执行回调(点击按钮刷新或滑倒屏幕最下方自动刷新)\n\t    loadCallback(){\n\t        this.getData(\"./data/post\"+(this.count?this.count:'')+\".json\") // 开始请求数据\n\t        this.count++\n\t    }\n\t\n\t    getData(fileName){ // 获取数据方法，请求状态status必须准确返回\n\t        ajax(fileName).then((json)=>{// 数据处理\n\t            let data = json.data;\n\t            let loadingData = this.state.loadingData.slice(0);\n\t            for(let i in data){\n\t                loadingData.push(data[i]);\n\t            }\n\t\n\t            // 必需\n\t            this.setState({\n\t                loadingData: loadingData,\n\t                status: json.final? 4:2 // 根据final判断是加载成功还是没有更多\n\t            }); \n\t\n\t        }, (error)=>{\n\t            // 加载失败，必需\n\t            this.setState({\n\t                status: 3\n\t            })\n\t        });\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">PullUp</h2>\n\t                <h3 className=\"comp-type\">mode(默认auto) 加载的模式(自动加载或按钮)</h3>\n\t                <h3 className=\"comp-type\">status 当前状态(0加载更多, 1加载中, 2数据加载成功, 3数据加载失败, 4没有更多)</h3>\n\t                <h3 className=\"comp-type\">tips 设置按钮文字和状态提示语</h3>\n\t                <h3 className=\"comp-type\">phStyle(默认primary) 按钮的样式</h3>\n\t                <h3 className=\"comp-type\">loadCallback 加载更多的回调函数</h3>\n\t                <div>\n\t                    <List>\n\t                        <List.Header>加载更多</List.Header>\n\t                        {\n\t                            this.state.loadingData.map((item,index)=>{\n\t                                return (\n\t                                    <List.Item key={index}>\n\t                                        <List.Col>{item.title}</List.Col>\n\t                                    </List.Item>\n\t                                )\n\t                            })\n\t                        }\n\t                    </List>\n\t                    <PullUp status={this.state.status} loadCallback={this.loadCallback.bind(this)} />\n\t                </div>            \t\n\t            </div>\n\t        );\n\t    }\n\t}\n\t"
+                "\timport React, { Component } from \"react\"\n\t\n\timport PullUp from \"phoenix-ui/lib/pullup\"\n\timport List from \"phoenix-ui/lib/list\"\n\t\n\timport Code from \"./code/code\"\n\timport {ajax} from \"./utils/tool.js\"\n\t\n\texport default class pullup extends Component{\n\t    constructor(props,context){\n\t        super(props,context); \n\t\n\t        this.count = 0;\n\t\n\t        this.state = {\n\t            loadingData : [],\n\t            status: 1, // 状态：0\"加载更多\",1\"加载中\",2\"加载成功\",3\"加载失败\",4\"没有更多\"\n\t            visible1: false,\n\t        }\n\t\n\t        this.loadCallback();\n\t    }\n\t\n\t    // 加载更多的执行回调(点击按钮刷新或滑倒屏幕最下方自动刷新)\n\t    loadCallback(){\n\t        this.getData(\"./data/post\"+(this.count?this.count:'')+\".json\") // 开始请求数据\n\t        this.count++\n\t    }\n\t\n\t    getData(fileName){ // 获取数据方法，请求状态status必须准确返回\n\t        ajax(fileName).then((json)=>{// 数据处理\n\t            let data = json.data;\n\t            let loadingData = this.state.loadingData.slice(0);\n\t            for(let i in data){\n\t                loadingData.push(data[i]);\n\t            }\n\t\n\t            // 必需\n\t            this.setState({\n\t                loadingData: loadingData,\n\t                status: json.final? 4:2 // 根据final判断是加载成功还是没有更多\n\t            }); \n\t\n\t        }, (error)=>{\n\t            // 加载失败，必需\n\t            this.setState({\n\t                status: 3\n\t            })\n\t        });\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">PullUp</h2>\n\t                <h3 className=\"comp-type\">mode(默认auto) 加载的模式(自动加载或按钮)</h3>\n\t                <h3 className=\"comp-type\">status 当前状态(0加载更多, 1加载中, 2数据加载成功, 3数据加载失败, 4没有更多)</h3>\n\t                <h3 className=\"comp-type\">tips 设置按钮文字和状态提示语</h3>\n\t                <h3 className=\"comp-type\">phStyle(默认primary) 按钮的样式</h3>\n\t                <h3 className=\"comp-type\">loadCallback 加载更多的回调函数</h3>\n\t                <h3 className=\"comp-type\">getTarget 如果当前列表存在自定义的滚动条，需要传递滚动的目标</h3>\n\t                <div style={{height:'300px',overflow:'auto'}} ref={(list)=>this.list=list}>\n\t                    <div>\n\t                        <List>\n\t                            <List.Header>加载更多</List.Header>\n\t                            {\n\t                                this.state.loadingData.map((item,index)=>{\n\t                                    return (\n\t                                        <List.Item key={index}>\n\t                                            <List.Col>{item.title}</List.Col>\n\t                                        </List.Item>\n\t                                    )\n\t                                })\n\t                            }\n\t                        </List>\n\t                        <PullUp status={this.state.status} loadCallback={this.loadCallback.bind(this)} getTarget={()=>{return this.list}}/>\n\t                    </div>\n\t                </div>            \t\n\t            </div>\n\t        );\n\t    }\n\t}\n\t"
             ],
             "exampleTitles": [
                 "展示"
@@ -11105,7 +11105,7 @@
         },
         {
             "file": "src/pullup/index.js",
-            "line": 51,
+            "line": 58,
             "description": "样式前缀",
             "itemtype": "property",
             "name": "classPrefix",
@@ -11116,7 +11116,7 @@
         },
         {
             "file": "src/pullup/index.js",
-            "line": 58,
+            "line": 65,
             "description": "加载更多的模式，可选[auto,button], 默认auto",
             "itemtype": "property",
             "name": "mode",
@@ -11127,7 +11127,7 @@
         },
         {
             "file": "src/pullup/index.js",
-            "line": 65,
+            "line": 72,
             "description": "加载状态：0初始状态, 1加载中, 2数据加载成功, 3数据加载失败, 4没有更多",
             "itemtype": "property",
             "name": "status",
@@ -11138,7 +11138,7 @@
         },
         {
             "file": "src/pullup/index.js",
-            "line": 72,
+            "line": 79,
             "description": "加载5个状态的文字描述，默认['加载更多','','加载成功','加载失败','没有更多']",
             "itemtype": "property",
             "name": "tips",
@@ -11149,7 +11149,7 @@
         },
         {
             "file": "src/pullup/index.js",
-            "line": 79,
+            "line": 86,
             "description": "按钮颜色，默认primary",
             "itemtype": "property",
             "name": "phStyle",
@@ -11160,10 +11160,21 @@
         },
         {
             "file": "src/pullup/index.js",
-            "line": 86,
+            "line": 93,
             "description": "滑到底部自动加载的回调函数，用户在该函数内自定义请求",
             "itemtype": "method",
             "name": "loadCallback",
+            "type": "Function",
+            "default": "null",
+            "class": "PullUp",
+            "module": "操作类组件"
+        },
+        {
+            "file": "src/pullup/index.js",
+            "line": 100,
+            "description": "如果当前列表存在自定义的滚动条，需要传递滚动的目标",
+            "itemtype": "method",
+            "name": "getTarget",
             "type": "Function",
             "default": "null",
             "class": "PullUp",
