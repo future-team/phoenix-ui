@@ -1,6 +1,6 @@
 {
   "name": "phoenix-ui",
-  "version": "2.0.17",
+  "version": "2.0.18",
   "description": "future team ui for app with react",
   "main": "lib/",
   "scripts": {
