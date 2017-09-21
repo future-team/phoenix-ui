@@ -62,7 +62,7 @@ class Toast extends Component{
             let loading = phIcon.indexOf('loading')!=-1
 
             return (
-                <div className={this.setPhPrefix('body')}>
+                <div className={classnames(this.setPhPrefix('body'), children? '':this.setPhPrefix('only-icon'))}>
                     {phIcon? <Icon phIcon={phIcon} phSize={loading?'lg':'xlg'} /> :null}
                     {children? <p>{children}</p>:null}
                 </div>

@@ -17,7 +17,7 @@ export default class toast extends Component{
     }
 
     showToastSuccess(){
-        Toast.success("操作成功", 2000, ()=>{
+        Toast.success("操作成功操作成功操作成功操作成功操作成功操作成功操作成功操作成功", 2000, ()=>{
             console.log("额外的执行内容");
         });
     }
