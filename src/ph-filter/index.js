@@ -7,6 +7,7 @@ import FilterCheckbox from './components/FilterCheckbox.js'
 import PanelCheckbox from './components/FilterPanelCheckbox.js'
 
 import '../style'
+import 'phoenix-styles/less/modules/tab.less'
 import 'phoenix-styles/less/modules/ph-filter.less'
 
 let PhFilter = {}

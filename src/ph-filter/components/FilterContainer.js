@@ -1,6 +1,6 @@
 import React, { Component ,PropTypes} from 'react'
 import classnames from 'classnames'
-import {transToArray, preventDefault} from '../../utils/Tool'
+import {transToArray, preventDefault, getScrollTop} from '../../utils/Tool'
 import Logger from '../../utils/logger'
 
 import Icon from '../../icon'
@@ -134,8 +134,8 @@ export default class FilterContainer extends Component{
         preventDefault(e)
     }
 
-    windowScrollHandle(){        
-        if(document.body.scrollTop >= this.containerOffsetTop){
+    windowScrollHandle(){
+        if(getScrollTop() >= this.containerOffsetTop){
             if(!this.state.fixed) this.setState({fixed: true})
         }else{
             if(this.state.fixed) this.setState({fixed: false})

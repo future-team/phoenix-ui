@@ -17,6 +17,9 @@ if(isLocal){ // beta
 }
 
 opt.repeat = 1
+opt.combo = true
+opt.delay = 5000 
+// opt.level = 2
 
 let pmlogger = null;
 
