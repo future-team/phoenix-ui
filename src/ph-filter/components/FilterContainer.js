@@ -135,7 +135,7 @@ export default class FilterContainer extends Component{
     }
 
     windowScrollHandle(){
-        if(getScrollTop() >= this.containerOffsetTop){
+        if(getScrollTop() > this.containerOffsetTop){
             if(!this.state.fixed) this.setState({fixed: true})
         }else{
             if(this.state.fixed) this.setState({fixed: false})
@@ -145,7 +145,7 @@ export default class FilterContainer extends Component{
     componentDidMount(){
         setTimeout(()=>{
             this.containerOffsetTop = this.filterContainer.offsetTop
-        }, 0)        
+        }, 0)
     }
 
     componentWillUnmount(){

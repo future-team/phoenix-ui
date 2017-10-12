@@ -13106,7 +13106,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    FilterContainer.prototype.windowScrollHandle = function windowScrollHandle() {
-	        if (_utilsTool.getScrollTop() >= this.containerOffsetTop) {
+	        if (_utilsTool.getScrollTop() > this.containerOffsetTop) {
 	            if (!this.state.fixed) this.setState({ fixed: true });
 	        } else {
 	            if (this.state.fixed) this.setState({ fixed: false });
