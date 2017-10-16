@@ -612,24 +612,28 @@ export default class SearchBar extends Component{
         /**
          * 聚焦的回调
          * @method focusCallback
+         * @param {string} value 输入框的值
          * @type Function
          * */
         focusCallback: PropTypes.func,
         /**
          * 失焦的回调
          * @method blurCallback
+         * @param {string} value 输入框的值
          * @type Function
          * */
         blurCallback: PropTypes.func,
         /**
          * 搜索的回调
          * @method queryCallback
+         * @param {string} value 输入框的值
          * @type Function
          * */
         queryCallback: PropTypes.func,
         /**
          * 点击按钮的回调
          * @method clickCallback
+         * @param {string} value 输入框的值
          * @type Function
          * */
         clickCallback: PropTypes.func,

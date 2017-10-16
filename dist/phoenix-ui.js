@@ -3802,6 +3802,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            /**
 	             * 按钮被按下后的回调
 	             * @method clickCallback
+	             * @param {number} index 选中的索引值
 	             * @type Function
 	             * */
 	            clickCallback: _react.PropTypes.func
@@ -5568,6 +5569,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            /**
 	             * 点击事件的回调函数
 	             * @method clickCallback
+	             * @param {number} index 索引值
 	             * @type Function
 	             * @default null
 	             * */
@@ -5761,6 +5763,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            /**
 	             * 点击事件的回调函数,返回当前选中项
 	             * @method clickCallback
+	             * @param {number} index 索引值
 	             * @type Function
 	             * @default null
 	             * */
@@ -6554,12 +6557,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	            /**
 	             * 抓取的执行函数,对应TouchStart/TouchMove
 	             * @method dragCallback
+	             * @param {object} event
+	             * @param {object} position 位置坐标
 	             * @type Function
 	             * */
 	            dragCallback: _react.PropTypes.func,
 	            /**
 	             * 放开的执行函数,对应TouchEnd
 	             * @method dropCallback
+	             * @param {object} event
+	             * @param {object} position 位置坐标
 	             * @type Function
 	             * */
 	            dropCallback: _react.PropTypes.func
@@ -7969,6 +7976,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            /**
 	            * 点击确定的回调函数
 	            * @method confirmCallback
+	            * @param {array} value 输入框的值数组
 	            * @type Function
 	            * */
 	            confirmCallback: _react.PropTypes.func,
@@ -8242,7 +8250,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	            return _react2['default'].createElement(
 	                'div',
-	                { className: _classnames2['default'](this.setPhPrefix('body'), children ? '' : this.setPhPrefix('only-icon')) },
+	                { className: _classnames2['default'](this.setPhPrefix('body'), loading ? this.setPhPrefix('loading') : '', children ? '' : this.setPhPrefix('only-icon')) },
 	                phIcon ? _react2['default'].createElement(_icon2['default'], { phIcon: phIcon, phSize: loading ? 'lg' : 'xlg' }) : null,
 	                children ? _react2['default'].createElement(
 	                    'p',
@@ -8391,7 +8399,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.ph-toast-shadow,\n.ph-toast-main {\n  position: fixed;\n  left: 0;\n  width: 100%;\n}\n.ph-toast-shadow {\n  top: 0;\n  height: 100%;\n  z-index: 99;\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.01);\n}\n.ph-toast-main {\n  padding: 0 0.32rem;\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n  -moz-transform: translateY(-50%);\n  transform: translateY(-50%);\n  z-index: 100;\n  text-align: center;\n}\n.ph-toast-content {\n  display: inline-block;\n  min-width: 2.4rem;\n  padding: 0.28rem 0.48rem;\n  background-color: rgba(0, 0, 0, 0.7);\n  -webkit-border-radius: 0.08rem;\n  -moz-border-radius: 0.08rem;\n  border-radius: 0.08rem;\n  background-clip: padding-box;\n  font-size: 0.32rem;\n  color: #fff;\n}\n.ph-toast-rect {\n  position: relative;\n  min-height: 2.4rem;\n  padding: 0;\n}\n.ph-toast-body {\n  padding: 0.4rem 0.16rem;\n}\n.ph-toast-only-icon {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n  -ms-transform: translate(-50%, -50%);\n  transform: translate(-50%, -50%);\n}\n.ph-toast-body .gfs-icon {\n  display: block;\n  margin: 0 auto;\n}\n.ph-toast-body p {\n  margin-top: 0.28rem;\n  line-height: 1;\n}\n", ""]);
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.ph-toast-shadow,\n.ph-toast-main {\n  position: fixed;\n  left: 0;\n  width: 100%;\n}\n.ph-toast-shadow {\n  top: 0;\n  height: 100%;\n  z-index: 99;\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.01);\n}\n.ph-toast-main {\n  padding: 0 0.32rem;\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n  -moz-transform: translateY(-50%);\n  transform: translateY(-50%);\n  z-index: 100;\n  text-align: center;\n}\n.ph-toast-content {\n  display: inline-block;\n  min-width: 2.4rem;\n  padding: 0.28rem 0.48rem;\n  background-color: rgba(0, 0, 0, 0.7);\n  -webkit-border-radius: 0.08rem;\n  -moz-border-radius: 0.08rem;\n  border-radius: 0.08rem;\n  background-clip: padding-box;\n  font-size: 0.32rem;\n  color: #fff;\n}\n.ph-toast-rect {\n  position: relative;\n  min-height: 2.4rem;\n  padding: 0;\n}\n.ph-toast-body {\n  padding: 0.4rem 0.16rem;\n}\n.ph-toast-loading {\n  margin-top: .3rem;\n}\n.ph-toast-only-icon {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  margin-top: 0;\n  -webkit-transform: translate(-50%, -50%);\n  -ms-transform: translate(-50%, -50%);\n  transform: translate(-50%, -50%);\n}\n.ph-toast-body .gfs-icon {\n  display: block;\n  margin: 0 auto;\n}\n.ph-toast-body p {\n  margin-top: 0.28rem;\n  line-height: 1;\n}\n", ""]);
 
 	// exports
 
@@ -8768,6 +8776,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            /**
 	             * 点击收起展开的回调函数
 	             * @method clickCallback
+	             * @param {boolean} visible 当前收起展开的状态
 	             * @type Function
 	             * */
 	            clickCallback: _react.PropTypes.func,
@@ -9134,6 +9143,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * 返回气泡的目标元素
 	             * @method getTarget
 	             * @type Function
+	             * @return {object} 目标元素的ref
 	             * */
 	            getTarget: _react.PropTypes.func,
 	            /**
@@ -9151,6 +9161,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            /**
 	             * 气泡显隐时可执行的额外函数,自定义
 	             * @method clickCallback
+	             * @param {boolean} visible 当前显隐的状态
 	             * @type Function
 	             * */
 	            clickCallback: _react.PropTypes.func
@@ -9620,6 +9631,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            /**
 	             * 改变进程时的回调函数
 	             * @method slideCallback
+	             * @param {number} progress 进度
 	             * @type Function
 	             * */
 	            slideCallback: _react.PropTypes.func
@@ -10013,6 +10025,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            /**
 	             * 点击收起展开的回调函数
 	             * @method clickCallback
+	             * @param {boolean} visible 当前收起展开的状态
 	             * @type Function
 	             * */
 	            clickCallback: _react.PropTypes.func,
@@ -10338,6 +10351,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * 返回菜单的目标元素
 	             * @method getTarget
 	             * @type Function
+	             * @return {object} 目标元素的ref
 	             * */
 	            getTarget: _react.PropTypes.func,
 	            /**
@@ -10653,6 +10667,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            /**
 	             * 点击事件的回调函数
 	             * @method clickCallback
+	             * @param {string} name 菜单项的name值
 	             * @type Function
 	             * @default null
 	             * */
@@ -11266,6 +11281,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            /**
 	             * 点击事件的回调函数
 	             * @method clickCallback
+	             * @param {string} name 菜单项的name值
 	             * @type Function
 	             * @default null
 	             * */
@@ -11972,6 +11988,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            /**
 	             * 点击每一步的回调，function(str,index){} str为步骤名称，index为第几步（从1开始计数）
 	             * @method clickCallback
+	             * @param {string} name 步骤名称
+	             * @param {number} index 第几步
 	             * @type Function
 	             * @default null
 	             **/
@@ -12224,24 +12242,28 @@ return /******/ (function(modules) { // webpackBootstrap
 	            /**
 	             * 聚焦的回调
 	             * @method focusCallback
+	             * @param {string} value 输入框的值
 	             * @type Function
 	             * */
 	            focusCallback: _react.PropTypes.func,
 	            /**
 	             * 失焦的回调
 	             * @method blurCallback
+	             * @param {string} value 输入框的值
 	             * @type Function
 	             * */
 	            blurCallback: _react.PropTypes.func,
 	            /**
 	             * 搜索的回调
 	             * @method queryCallback
+	             * @param {string} value 输入框的值
 	             * @type Function
 	             * */
 	            queryCallback: _react.PropTypes.func,
 	            /**
 	             * 点击按钮的回调
 	             * @method clickCallback
+	             * @param {string} value 输入框的值
 	             * @type Function
 	             * */
 	            clickCallback: _react.PropTypes.func,
@@ -12592,6 +12614,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * @method getTarget
 	             * @type Function
 	             * @default null
+	             * @return {object} 目标元素的ref
 	             **/
 	            getTarget: _react.PropTypes.func
 	        },
@@ -13065,6 +13088,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            /**
 	             * 有效选择触发的回调函数
 	             * @method clickCallback
+	             * @param {string} key 返回选中的key值
 	             * @type Function
 	             * */
 	            clickCallback: _react.PropTypes.func

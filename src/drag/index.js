@@ -46,12 +46,16 @@ export default class Drag extends Component{
         /**
          * 抓取的执行函数,对应TouchStart/TouchMove
          * @method dragCallback
+         * @param {object} event
+         * @param {object} position 位置坐标
          * @type Function
          * */
         dragCallback: PropTypes.func,
         /**
          * 放开的执行函数,对应TouchEnd
          * @method dropCallback
+         * @param {object} event
+         * @param {object} position 位置坐标
          * @type Function
          * */
         dropCallback: PropTypes.func

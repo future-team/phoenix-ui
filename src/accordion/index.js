@@ -89,6 +89,7 @@ class Accordion extends Component{
         /**
          * 点击收起展开的回调函数
          * @method clickCallback
+         * @param {boolean} visible 当前收起展开的状态
          * @type Function
          * */
         clickCallback: PropTypes.func,

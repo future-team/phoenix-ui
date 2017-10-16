@@ -609,7 +609,11 @@ class Toast extends Component{
             let loading = phIcon.indexOf(&#x27;loading&#x27;)!=-1
 
             return (
-                &lt;div className={this.setPhPrefix(&#x27;body&#x27;)}&gt;
+                &lt;div className={classnames(
+                    this.setPhPrefix(&#x27;body&#x27;), 
+                    loading? this.setPhPrefix(&#x27;loading&#x27;):&#x27;&#x27;,
+                    children? &#x27;&#x27;:this.setPhPrefix(&#x27;only-icon&#x27;)                    
+                )}&gt;
                     {phIcon? &lt;Icon phIcon={phIcon} phSize={loading?&#x27;lg&#x27;:&#x27;xlg&#x27;} /&gt; :null}
                     {children? &lt;p&gt;{children}&lt;/p&gt;:null}
                 &lt;/div&gt;

@@ -90,6 +90,7 @@ export default class Prompt extends Component{
          /**
          * 点击确定的回调函数
          * @method confirmCallback
+         * @param {array} value 输入框的值数组
          * @type Function
          * */
         confirmCallback: PropTypes.func, 

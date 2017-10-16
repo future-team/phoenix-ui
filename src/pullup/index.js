@@ -102,6 +102,7 @@ export default class PullUp extends Component{
          * @method getTarget
          * @type Function
          * @default null
+         * @return {object} 目标元素的ref
          **/
         getTarget: PropTypes.func
     }

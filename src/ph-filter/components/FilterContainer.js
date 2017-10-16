@@ -100,6 +100,7 @@ export default class FilterContainer extends Component{
         /**
          * 有效选择触发的回调函数
          * @method clickCallback
+         * @param {string} key 返回选中的key值
          * @type Function
          * */
         clickCallback: PropTypes.func

@@ -78,6 +78,7 @@ export default class MenuItem extends Component {
         /**
          * 点击事件的回调函数
          * @method clickCallback
+         * @param {string} name 菜单项的name值
          * @type Function
          * @default null
          * */

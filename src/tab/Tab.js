@@ -45,6 +45,7 @@ export default class Tab extends Component {
         /**
          * 点击事件的回调函数
          * @method clickCallback
+         * @param {number} index 索引值
          * @type Function
          * @default null
          * */

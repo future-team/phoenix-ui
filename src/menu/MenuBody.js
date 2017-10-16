@@ -50,6 +50,7 @@ export default class MenuBody extends Component{
          * 返回菜单的目标元素
          * @method getTarget
          * @type Function
+         * @return {object} 目标元素的ref
          * */
         getTarget: PropTypes.func,
         /**

@@ -9595,7 +9595,7 @@
             "is_constructor": 1,
             "since": "0.3.0",
             "example": [
-                "\timport React, { Component } from \"react\"\n\t\n\timport Button from \"phoenix-ui/lib/button\"\n\timport Toast from \"phoenix-ui/lib/toast\"\n\timport Code from \"./code/code\"\n\t\n\texport default class toast extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context);\n\t    }\n\t\n\t    showToastInfo(){\n\t        Toast.info(\"只显示信息的toast！只显示信息的toast！只显示信息的toast！\", 2000, ()=>{\n\t            console.log(\"额外的执行内容\");\n\t        });\n\t    }\n\t\n\t    showToastSuccess(){\n\t        Toast.success(\"操作成功\", 2000, ()=>{\n\t            console.log(\"额外的执行内容\");\n\t        });\n\t    }\n\t\n\t    showToastFail(){\n\t        Toast.fail(\"操作失败\", 2000, ()=>{\n\t            console.log(\"额外的执行内容\");\n\t        });\n\t    }\n\t\n\t    showToastTip(){\n\t        Toast.tip(\"操作提示\", 2000, ()=>{\n\t            console.log(\"额外的执行内容\");\n\t        });\n\t    }\n\t\n\t    showToastLoading(){\n\t        Toast.loading(\"\", 2000);\n\t    }\n\t\n\t    removeToastLoading(){\n\t        Toast.remove();\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Toast</h2>\n\t                <h3 className=\"comp-type\">Toast.info(message, duration, callback)</h3>\n\t                <div className=\"content\">\n\t                    <Button phSize=\"lg\" onClick={::this.showToastInfo}>info</Button>\n\t                </div>\n\t                <Code target=\"toast-info\" />\n\t\n\t                <h3 className=\"comp-type\">Toast.success(message, duration, callback)</h3>\n\t                <div className=\"content\">\n\t                    <Button phSize=\"lg\" onClick={::this.showToastSuccess}>success</Button>\n\t                </div>\n\t                <Code target=\"toast-success\" />\n\t\n\t                <h3 className=\"comp-type\">Toast.fail(message, duration, callback)</h3>\n\t                <div className=\"content\">\n\t                    <Button phSize=\"lg\" onClick={::this.showToastFail}>fail</Button>\n\t                </div>\n\t                <Code target=\"toast-fail\" />\n\t\n\t                <h3 className=\"comp-type\">Toast.tip(message, duration, callback)</h3>\n\t                <div className=\"content\">\n\t                    <Button phSize=\"lg\" onClick={::this.showToastTip}>tip</Button>\n\t                </div>\n\t                <Code target=\"toast-tip\" />\n\t\n\t                <h3 className=\"comp-type\">Toast.loading(message, duration, callback)</h3>\n\t                <div className=\"content\">\n\t                    <Button phSize=\"lg\" onClick={::this.showToastLoading}>loading</Button>\n\t                </div>\n\t                <Code target=\"toast-loading\" />\n\t\n\t                <h3 className=\"comp-type\">Toast.remove()<br/>自定义消失的情况：Toast出现函数设置duration为false</h3>\n\t                <div className=\"content\">\n\t                    <Button phSize=\"lg\" onClick={::this.removeToastLoading}>remove</Button>\n\t                </div>\n\t                <Code target=\"toast-remove\" />     \n\t            </div>\n\t        );\n\t    }\n\t}"
+                "\timport React, { Component } from \"react\"\n\t\n\timport Button from \"phoenix-ui/lib/button\"\n\timport Toast from \"phoenix-ui/lib/toast\"\n\timport Code from \"./code/code\"\n\t\n\texport default class toast extends Component{\n\t\n\t    constructor(props,context){\n\t        super(props,context);\n\t    }\n\t\n\t    showToastInfo(){\n\t        Toast.info(\"只显示信息的toast！只显示信息的toast！只显示信息的toast！\", 2000, ()=>{\n\t            console.log(\"额外的执行内容\");\n\t        });\n\t    }\n\t\n\t    showToastSuccess(){\n\t        Toast.success(\"操作成功操作成功操作成功操作成功操作成功操作成功操作成功操作成功\", 2000, ()=>{\n\t            console.log(\"额外的执行内容\");\n\t        });\n\t    }\n\t\n\t    showToastFail(){\n\t        Toast.fail(\"操作失败\", 2000, ()=>{\n\t            console.log(\"额外的执行内容\");\n\t        });\n\t    }\n\t\n\t    showToastTip(){\n\t        Toast.tip(\"操作提示\", 2000, ()=>{\n\t            console.log(\"额外的执行内容\");\n\t        });\n\t    }\n\t\n\t    showToastLoading(){\n\t        Toast.loading(\"\", 2000);\n\t    }\n\t\n\t    removeToastLoading(){\n\t        Toast.remove();\n\t    }\n\t\n\t    render(){\n\t        return(\n\t            <div>\n\t                <h2 className=\"comp-title\">Toast</h2>\n\t                <h3 className=\"comp-type\">Toast.info(message, duration, callback)</h3>\n\t                <div className=\"content\">\n\t                    <Button phSize=\"lg\" onClick={::this.showToastInfo}>info</Button>\n\t                </div>\n\t                <Code target=\"toast-info\" />\n\t\n\t                <h3 className=\"comp-type\">Toast.success(message, duration, callback)</h3>\n\t                <div className=\"content\">\n\t                    <Button phSize=\"lg\" onClick={::this.showToastSuccess}>success</Button>\n\t                </div>\n\t                <Code target=\"toast-success\" />\n\t\n\t                <h3 className=\"comp-type\">Toast.fail(message, duration, callback)</h3>\n\t                <div className=\"content\">\n\t                    <Button phSize=\"lg\" onClick={::this.showToastFail}>fail</Button>\n\t                </div>\n\t                <Code target=\"toast-fail\" />\n\t\n\t                <h3 className=\"comp-type\">Toast.tip(message, duration, callback)</h3>\n\t                <div className=\"content\">\n\t                    <Button phSize=\"lg\" onClick={::this.showToastTip}>tip</Button>\n\t                </div>\n\t                <Code target=\"toast-tip\" />\n\t\n\t                <h3 className=\"comp-type\">Toast.loading(message, duration, callback)</h3>\n\t                <div className=\"content\">\n\t                    <Button phSize=\"lg\" onClick={::this.showToastLoading}>loading</Button>\n\t                </div>\n\t                <Code target=\"toast-loading\" />\n\t\n\t                <h3 className=\"comp-type\">Toast.remove()<br/>自定义消失的情况：Toast出现函数设置duration为false</h3>\n\t                <div className=\"content\">\n\t                    <Button phSize=\"lg\" onClick={::this.removeToastLoading}>remove</Button>\n\t                </div>\n\t                <Code target=\"toast-remove\" />     \n\t            </div>\n\t        );\n\t    }\n\t}"
             ],
             "exampleTitles": [
                 "toast"
@@ -9646,13 +9646,20 @@
             "description": "点击收起展开的回调函数",
             "itemtype": "method",
             "name": "clickCallback",
+            "params": [
+                {
+                    "name": "visible",
+                    "description": "当前收起展开的状态",
+                    "type": "Boolean"
+                }
+            ],
             "type": "Function",
             "class": "Accordion",
             "module": "操作类组件"
         },
         {
             "file": "src/accordion/index.js",
-            "line": 95,
+            "line": 96,
             "description": "向下的箭头是否可见， 默认可见",
             "itemtype": "property",
             "name": "hideIcon",
@@ -9862,6 +9869,13 @@
             "description": "按钮被按下后的回调",
             "itemtype": "method",
             "name": "clickCallback",
+            "params": [
+                {
+                    "name": "index",
+                    "description": "选中的索引值",
+                    "type": "Number"
+                }
+            ],
             "type": "Function",
             "class": "ButtonGroup",
             "module": "基础组件"
@@ -9904,16 +9918,40 @@
             "description": "抓取的执行函数,对应TouchStart/TouchMove",
             "itemtype": "method",
             "name": "dragCallback",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "position",
+                    "description": "位置坐标",
+                    "type": "Object"
+                }
+            ],
             "type": "Function",
             "class": "Drag",
             "module": "辅助组件"
         },
         {
             "file": "src/drag/index.js",
-            "line": 52,
+            "line": 54,
             "description": "放开的执行函数,对应TouchEnd",
             "itemtype": "method",
             "name": "dropCallback",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "position",
+                    "description": "位置坐标",
+                    "type": "Object"
+                }
+            ],
             "type": "Function",
             "class": "Drag",
             "module": "辅助组件"
@@ -10387,12 +10425,16 @@
             "itemtype": "method",
             "name": "getTarget",
             "type": "Function",
+            "return": {
+                "description": "目标元素的ref",
+                "type": "Object"
+            },
             "class": "MenuBody",
             "module": "菜单组件"
         },
         {
             "file": "src/menu/MenuBody.js",
-            "line": 55,
+            "line": 56,
             "description": "菜单位置, 可选[top,left,right,left-full,right-full,full-screen], 默认top",
             "itemtype": "property",
             "name": "placement",
@@ -10403,7 +10445,7 @@
         },
         {
             "file": "src/menu/MenuBody.js",
-            "line": 62,
+            "line": 63,
             "description": "自定义菜单宽度百分比（限左右）",
             "itemtype": "property",
             "name": "width",
@@ -10414,7 +10456,7 @@
         },
         {
             "file": "src/menu/MenuBody.js",
-            "line": 69,
+            "line": 70,
             "description": "右上角按钮是否可见, 默认不可见",
             "itemtype": "property",
             "name": "closeButton",
@@ -10424,7 +10466,7 @@
         },
         {
             "file": "src/menu/MenuBody.js",
-            "line": 75,
+            "line": 76,
             "description": "当前选中的项目name，对应item的name属性",
             "itemtype": "property",
             "name": "activeName",
@@ -10494,6 +10536,13 @@
             "description": "点击事件的回调函数",
             "itemtype": "method",
             "name": "clickCallback",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "菜单项的name值",
+                    "type": "String"
+                }
+            ],
             "type": "Function",
             "default": "null",
             "class": "MenuItem",
@@ -10516,6 +10565,13 @@
             "description": "点击事件的回调函数",
             "itemtype": "method",
             "name": "clickCallback",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "菜单项的name值",
+                    "type": "String"
+                }
+            ],
             "type": "Function",
             "default": "null",
             "class": "MenuList",
@@ -10559,13 +10615,20 @@
             "description": "点击收起展开的回调函数",
             "itemtype": "method",
             "name": "clickCallback",
+            "params": [
+                {
+                    "name": "visible",
+                    "description": "当前收起展开的状态",
+                    "type": "Boolean"
+                }
+            ],
             "type": "Function",
             "class": "Menu",
             "module": "菜单组件"
         },
         {
             "file": "src/menu/index.js",
-            "line": 87,
+            "line": 88,
             "description": "是否滚动吸顶, 默认不吸顶(false); 设置确定的数字从当前距离开始吸顶",
             "itemtype": "property",
             "name": "ceiling",
@@ -10771,13 +10834,20 @@
             "description": "点击确定的回调函数",
             "itemtype": "method",
             "name": "confirmCallback",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "输入框的值数组",
+                    "type": "Array"
+                }
+            ],
             "type": "Function",
             "class": "Prompt",
             "module": "弹出框组件"
         },
         {
             "file": "src/modal/Prompt.js",
-            "line": 96,
+            "line": 97,
             "description": "右上角按钮是否可见, 默认不可见",
             "itemtype": "property",
             "name": "closeButton",
@@ -10787,7 +10857,7 @@
         },
         {
             "file": "src/modal/Prompt.js",
-            "line": 102,
+            "line": 103,
             "description": "阴影部分是否点击可关闭弹框, 默认传了closeCallback之后可关闭",
             "itemtype": "property",
             "name": "shadowDisabled",
@@ -10855,6 +10925,13 @@
             "description": "有效选择触发的回调函数",
             "itemtype": "method",
             "name": "clickCallback",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "返回选中的key值",
+                    "type": "String"
+                }
+            ],
             "type": "Function",
             "class": "FilterContainer",
             "module": "筛选控件"
@@ -11019,12 +11096,16 @@
             "itemtype": "method",
             "name": "getTarget",
             "type": "Function",
+            "return": {
+                "description": "目标元素的ref",
+                "type": "Object"
+            },
             "class": "Popover",
             "module": "提示组件"
         },
         {
             "file": "src/popover/index.js",
-            "line": 70,
+            "line": 71,
             "description": "气泡的位置,默认bottom",
             "itemtype": "property",
             "name": "placement",
@@ -11034,7 +11115,7 @@
         },
         {
             "file": "src/popover/index.js",
-            "line": 76,
+            "line": 77,
             "description": "气泡距离点击物的位置,默认5",
             "itemtype": "property",
             "name": "distance",
@@ -11044,10 +11125,17 @@
         },
         {
             "file": "src/popover/index.js",
-            "line": 82,
+            "line": 83,
             "description": "气泡显隐时可执行的额外函数,自定义",
             "itemtype": "method",
             "name": "clickCallback",
+            "params": [
+                {
+                    "name": "visible",
+                    "description": "当前显隐的状态",
+                    "type": "Boolean"
+                }
+            ],
             "type": "Function",
             "class": "Popover",
             "module": "提示组件"
@@ -11177,6 +11265,10 @@
             "name": "getTarget",
             "type": "Function",
             "default": "null",
+            "return": {
+                "description": "目标元素的ref",
+                "type": "Object"
+            },
             "class": "PullUp",
             "module": "操作类组件"
         },
@@ -11251,43 +11343,71 @@
             "description": "聚焦的回调",
             "itemtype": "method",
             "name": "focusCallback",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "输入框的值",
+                    "type": "String"
+                }
+            ],
             "type": "Function",
             "class": "SearchBar",
             "module": "搜索组件"
         },
         {
             "file": "src/search-bar/index.js",
-            "line": 71,
+            "line": 72,
             "description": "失焦的回调",
             "itemtype": "method",
             "name": "blurCallback",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "输入框的值",
+                    "type": "String"
+                }
+            ],
             "type": "Function",
             "class": "SearchBar",
             "module": "搜索组件"
         },
         {
             "file": "src/search-bar/index.js",
-            "line": 77,
+            "line": 79,
             "description": "搜索的回调",
             "itemtype": "method",
             "name": "queryCallback",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "输入框的值",
+                    "type": "String"
+                }
+            ],
             "type": "Function",
             "class": "SearchBar",
             "module": "搜索组件"
         },
         {
             "file": "src/search-bar/index.js",
-            "line": 83,
+            "line": 86,
             "description": "点击按钮的回调",
             "itemtype": "method",
             "name": "clickCallback",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "输入框的值",
+                    "type": "String"
+                }
+            ],
             "type": "Function",
             "class": "SearchBar",
             "module": "搜索组件"
         },
         {
             "file": "src/search-bar/index.js",
-            "line": 89,
+            "line": 93,
             "description": "当前是否显示按钮",
             "itemtype": "property",
             "name": "showButton",
@@ -11399,6 +11519,13 @@
             "description": "改变进程时的回调函数",
             "itemtype": "method",
             "name": "slideCallback",
+            "params": [
+                {
+                    "name": "progress",
+                    "description": "进度",
+                    "type": "Number"
+                }
+            ],
             "type": "Function",
             "class": "Slider",
             "module": "操作类组件"
@@ -11486,6 +11613,18 @@
             "description": "点击每一步的回调，function(str,index){} str为步骤名称，index为第几步（从1开始计数）",
             "itemtype": "method",
             "name": "clickCallback",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "步骤名称",
+                    "type": "String"
+                },
+                {
+                    "name": "index",
+                    "description": "第几步",
+                    "type": "Number"
+                }
+            ],
             "type": "Function",
             "default": "null",
             "class": "Steps",
@@ -11580,6 +11719,13 @@
             "description": "点击事件的回调函数",
             "itemtype": "method",
             "name": "clickCallback",
+            "params": [
+                {
+                    "name": "index",
+                    "description": "索引值",
+                    "type": "Number"
+                }
+            ],
             "type": "Function",
             "default": "null",
             "class": "Tab",
@@ -11624,6 +11770,13 @@
             "description": "点击事件的回调函数,返回当前选中项",
             "itemtype": "method",
             "name": "clickCallback",
+            "params": [
+                {
+                    "name": "index",
+                    "description": "索引值",
+                    "type": "Number"
+                }
+            ],
             "type": "Function",
             "default": "null",
             "class": "Tabset",
@@ -11631,7 +11784,7 @@
         },
         {
             "file": "src/tab/Tabset.js",
-            "line": 100,
+            "line": 101,
             "description": "标题强制不换行",
             "itemtype": "property",
             "name": "nowrap",

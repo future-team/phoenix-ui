@@ -65,6 +65,7 @@ export default class Popover extends Component{
          * 返回气泡的目标元素
          * @method getTarget
          * @type Function
+         * @return {object} 目标元素的ref
          * */
         getTarget: PropTypes.func,
         /**
@@ -82,6 +83,7 @@ export default class Popover extends Component{
         /**
          * 气泡显隐时可执行的额外函数,自定义
          * @method clickCallback
+         * @param {boolean} visible 当前显隐的状态
          * @type Function
          * */
         clickCallback: PropTypes.func

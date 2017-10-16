@@ -116,6 +116,7 @@ export default class Slider extends Component{
         /**
          * 改变进程时的回调函数
          * @method slideCallback
+         * @param {number} progress 进度
          * @type Function
          * */
         slideCallback: PropTypes.func

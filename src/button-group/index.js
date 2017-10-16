@@ -72,6 +72,7 @@ export default class ButtonGroup extends Component{
         /**
          * 按钮被按下后的回调
          * @method clickCallback
+         * @param {number} index 选中的索引值
          * @type Function
          * */
         clickCallback:PropTypes.func
