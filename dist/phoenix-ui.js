@@ -4784,9 +4784,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    Textarea.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
-	        var value = this.props.value;
-
-	        if (value != nextProps.value) {
+	        if (this.state.value != nextProps.value) {
 	            this.setState({
 	                value: nextProps.value,
 	                inputLength: this.getInputLength(nextProps)

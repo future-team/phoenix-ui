@@ -97,9 +97,7 @@ export default class Textarea extends Component{
     }
 
     componentWillReceiveProps(nextProps){
-        let {value} = this.props;
-
-        if(value != nextProps.value){
+        if(this.state.value != nextProps.value){
             this.setState({
                 value: nextProps.value,
                 inputLength: this.getInputLength(nextProps)
