@@ -28,6 +28,12 @@ export default class input extends Component{
         });
     }
 
+    clickHandle(){
+        this.setState({
+            value: 0
+        })
+    }
+
     render(){
         return(
             <div>
@@ -35,9 +41,10 @@ export default class input extends Component{
                 <h3 className="comp-type">type(text/search/password)</h3>
                 <div className="content">
                     <h3 className="comp-tip">text</h3>
-                    <Input placeholder="请输入"/>
+                    <Input placeholder="请输入" value={this.state.value}/>
                     <Input placeholder="请输入" value="默认值" clear />
                     <Input placeholder="请输入" value="不可编辑的情况" disabled/>
+                    <button onClick={this.clickHandle.bind(this)}>按钮</button>
                 </div>
                 <Code target="input-text" />
 

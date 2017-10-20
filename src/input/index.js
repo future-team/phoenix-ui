@@ -159,7 +159,7 @@ export default class Input extends Component{
         let clearStatus = clear && value && focus,
             visibleStatus = visible && type=='password',
             errorState = error && !focus,
-            placeholderShow = !focus && !value;
+            placeholderShow = !focus && value==='';
         
         if(['checkbox', 'radio'].indexOf(type) >= 0){
             warning('Input组件: type 为 checkbox|radio 请对应使用 Checkbox|Radio 组件!')
