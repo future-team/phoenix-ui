@@ -9202,14 +9202,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.placementCount = 0;
 	    }
 
-	    Popover.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
-	        if (this.state.visible != nextProps.visible) {
-	            this.setState({
-	                visible: nextProps.visible
-	            });
-	        }
-	    };
-
 	    Popover.prototype.componentDidMount = function componentDidMount() {
 	        var _this = this;
 
@@ -9228,7 +9220,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        setTimeout(function () {
 	            document.addEventListener('click', _this.documentClickHandle, false);
 	            _this.getTargetPosition();
-	        }, 0);
+	        }, 300);
 	    };
 
 	    Popover.prototype.renderPortal = function renderPortal() {

@@ -120,14 +120,6 @@ export default class Popover extends Component{
         this.placementCount = 0
     }
 
-    componentWillReceiveProps(nextProps){
-        if(this.state.visible != nextProps.visible){
-            this.setState({
-                visible: nextProps.visible
-            });
-        }
-    }
-
     componentDidMount(){
         
         // 获取点击的对象target，并绑定点击事件
@@ -145,7 +137,7 @@ export default class Popover extends Component{
         setTimeout(()=>{
             document.addEventListener('click', this.documentClickHandle, false)
             this.getTargetPosition()
-        }, 0)
+        }, 300)
     }
 
     renderPortal() {
