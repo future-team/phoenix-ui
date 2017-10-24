@@ -2449,7 +2449,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (isLocal) {
 	    // beta
 	    opt.id = '65723430';
-	    opt.url = '//future.test.sankuai.com/monitor/logstore/log/';
+	    opt.url = 'http://future.test.sankuai.com/monitor/logstore/log/';
 	} else {
 	    // online
 	    opt.id = '66032663';
