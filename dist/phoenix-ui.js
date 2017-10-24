@@ -2449,16 +2449,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (isLocal) {
 	    // beta
 	    opt.id = '65723430';
-	    opt.url = 'http://prism.test.sankuai.com/monitor/logstore/log/';
+	    opt.url = '//future.test.sankuai.com/monitor/logstore/log/';
 	} else {
 	    // online
 	    opt.id = '66032663';
-	    opt.url = 'http://future.sankuai.com/monitor/logstore/log/';
+	    opt.url = '//future.sankuai.com/monitor/logstore/log/';
 	}
 
 	opt.repeat = 1;
 	opt.combo = true;
-	opt.delay = 5000;
+	opt.delay = 2000;
 	// opt.level = 2
 
 	var pmlogger = null;
