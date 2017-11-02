@@ -1,4 +1,5 @@
-import React, { Component ,PropTypes} from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import {transToArray, preventDefault, getScrollTop} from '../../utils/Tool'
 import Logger from '../../utils/logger'
@@ -189,14 +190,14 @@ export default class FilterContainer extends Component{
     }
 
     activeCat(index){
+        if(getScrollTop() < this.filterContainer.offsetTop){ // 打开时滚动到顶部
+            document.documentElement.scrollTop = this.filterContainer.offsetTop
+        }
         //展开某一个cat
         if(index==this.state.activeCat){
             index=-1;
-            this.willScroll()
-        }else{
-            this.noScroll()
         }
-
+        // console.log(index)
         this.setState({
             activeCat:index
         });

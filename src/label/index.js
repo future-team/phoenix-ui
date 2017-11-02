@@ -1,4 +1,5 @@
-import React,{PropTypes} from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import Component from '../utils/Component'
 import classnames from 'classnames'
 import Icon from '../icon'

@@ -26,44 +26,44 @@ gulp.task('open', function () {
 
 gulp.task('demoBuild', function (done) {
     var wbpk = Object.create(exampleConfig);
-    wbpk.devtool = 'eval';
-    wbpk.entry = [
-        'webpack-dev-server/client?http://127.0.0.1:' + devPort,
-        'webpack/hot/dev-server',
-        './examples/src/index.js'
-    ];
-    wbpk.plugins = [
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin(),
-        new ExtractTextPlugin('phoenix-styles.css')
-    ];
-    wbpk.module.loaders = [
-        {
-            test: /date-time\.js$/,
-            loaders: ['babel']
-        },
-        {
-            test: /\.js?$/,
-            loaders: ['react-hot', 'babel-loader?cacheDirectory'],
-            exclude: /node_modules/
-        },
-        {
-            test: /\.(css|less)$/,
-            loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
-        },
-        {
-            test: /\.png$/,
-            loader: "url-loader",
-            query: {mimetype: "image/png"}
-        },
-        {
-            test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-            loader: 'file-loader?name=./iconfont/[name].[ext]'
-        },{
-            test: /\.json$/,
-            loader: 'json-loader'
-        }
-    ];
+    // wbpk.devtool = 'eval';
+    // wbpk.entry = [
+    //     'webpack-dev-server/client?http://127.0.0.1:' + devPort,
+    //     'webpack/hot/dev-server',
+    //     './examples/src/index.js'
+    // ];
+    // wbpk.plugins = [
+    //     new webpack.HotModuleReplacementPlugin(),
+    //     new webpack.NoErrorsPlugin(),
+    //     new ExtractTextPlugin('phoenix-styles.css')
+    // ];
+    // wbpk.module.loaders = [
+    //     {
+    //         test: /date-time\.js$/,
+    //         loaders: ['babel']
+    //     },
+    //     {
+    //         test: /\.js?$/,
+    //         loaders: ['react-hot', 'babel-loader?cacheDirectory'],
+    //         exclude: /node_modules/
+    //     },
+    //     {
+    //         test: /\.(css|less)$/,
+    //         loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
+    //     },
+    //     {
+    //         test: /\.png$/,
+    //         loader: "url-loader",
+    //         query: {mimetype: "image/png"}
+    //     },
+    //     {
+    //         test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+    //         loader: 'file-loader?name=./iconfont/[name].[ext]'
+    //     },{
+    //         test: /\.json$/,
+    //         loader: 'json-loader'
+    //     }
+    // ];
 
     var compiler = webpack(wbpk);
 
@@ -78,9 +78,9 @@ gulp.task('demoBuild', function (done) {
             colors: true
         }
     }).listen(devPort, '127.0.0.1', function (err) {
-            if (err) throw new gutil.PluginError("webpack-dev-server", err);
-            gutil.log("[webpack-dev-server]", "http://127.0.0.1:" + devPort + "/webpack-dev-server/index.html");
-        });
+        if (err) throw new gutil.PluginError("webpack-dev-server", err);
+        gutil.log("[webpack-dev-server]", "http://127.0.0.1:" + devPort + "/webpack-dev-server/index.html");
+    });
 });
 
 gulp.task('webpack', function (done) {

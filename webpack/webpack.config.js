@@ -33,7 +33,8 @@ module.exports = {
             amd: 'react-dom',
             umd: 'react-dom',
         },
-        'react-addons-css-transition-group': 'ReactCSSTransitionGroup'
+        // 'react-addons-css-transition-group': 'ReactCSSTransitionGroup',
+        'react-transition-group': 'CSSTransitionGroup'
     }],
     module:{
         loaders:[{

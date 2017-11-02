@@ -129,6 +129,7 @@ export const propsConstants = {
     lazy: 'lazy',
     buttonText: 'buttonText',
     showButton: 'showButton',
+    nowrap: 'nowrap',
 
     // fn
     closeCallback: 'closeCallback',

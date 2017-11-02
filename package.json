@@ -1,6 +1,6 @@
 {
   "name": "phoenix-ui",
-  "version": "2.0.24",
+  "version": "3.0.0",
   "description": "future team ui for app with react",
   "main": "lib/",
   "scripts": {
@@ -62,11 +62,12 @@
     "karma-jasmine": "^0.3.6",
     "karma-webpack": "^1.7.0",
     "less-loader": "^2.2.0",
+    "prop-types": "^15.6.0",
     "raw-loader": "^0.5.1",
-    "react": "^0.14.2",
-    "react-dom": "^0.14.3",
-    "react-hot-loader": "^1.3.0",
-    "react-router": "^2.8.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-hot-loader": "^3.1.1",
+    "react-router": "^3.2.0",
     "style-loader": "^0.12.3",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.1",
@@ -78,7 +79,7 @@
     "fastclick": "^1.0.6",
     "phoenix-styles": "^2.0.11",
     "pmlogger": "^1.0.5",
-    "react-addons-css-transition-group": "^0.14.2"
+    "react-transition-group": "^1.2.1"
   },
   "prism": "66032663"
 }

@@ -2,10 +2,15 @@ var webpack = require('webpack'),
     glob = require('glob'),
     path = require('path'),
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
-    extend = require('extend');
+    extend = require('extend'),
+    devPort = 3008;
 
 module.exports = extend({},{
-    entry: [path.join(process.cwd(), 'examples/src/index.js')],
+    entry: [
+        'webpack-dev-server/client?http://127.0.0.1:' + devPort,
+        'webpack/hot/dev-server',
+        './examples/src/index.js'
+    ],
     output: {
         libraryTarget: 'umd',
         path: path.join(process.cwd(), 'examples/dist'),
@@ -15,12 +20,29 @@ module.exports = extend({},{
         loaders: [{
             test: /\.js$/,
             loaders: ['babel'],
-            exclude: /node_modules/
-        }, {
+            exclude: /node_modules/,
+            options: {
+                cacheDirectory: true,
+                plugins: [
+                    'react-hot-loader/babel'
+                ]
+            }
+        },
+        // {
+        //     test: /\.js?$/,
+        //     loaders: ['react-hot', 'babel-loader?cacheDirectory'],
+        //     exclude: /node_modules/
+        // },
+        {
             test: /\.(css|less)$/,
-            // loader: "style-loader!css-loader!less-loader"
             loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
-        },{
+        },
+        {
+            test: /\.png$/,
+            loader: "url-loader",
+            query: {mimetype: "image/png"}
+        },
+        {
             test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
             loader: 'file-loader?name=./iconfont/[name].[ext]'
         },{
@@ -35,8 +57,9 @@ module.exports = extend({},{
         }
     },
     plugins:[
-        new webpack.optimize.UglifyJsPlugin(),
-        new ExtractTextPlugin('phoenix-styles.css'),
-        new webpack.optimize.DedupePlugin()
-    ]
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin(),
+        new ExtractTextPlugin('phoenix-styles.css')
+    ],
+    devtool: 'eval'
 });

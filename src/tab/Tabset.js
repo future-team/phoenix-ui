@@ -1,4 +1,5 @@
-import React,{PropTypes} from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import Component from '../utils/Component'
 import classnames from 'classnames'
 import Tab from './Tab.js'
@@ -171,7 +172,7 @@ export default class Tabset extends Component {
     renderTabset(){
         let panels = [],
             {className, nowrap} = this.props
-
+        
         let headings = React.Children.map(this.props.children, (options, index)=> {
             let { vertical } = options.props;
             let opt = React.cloneElement(options, {

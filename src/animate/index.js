@@ -1,6 +1,7 @@
-import React,{Component, PropTypes} from 'react'
+import React,{Component} from 'react'
+import PropTypes from 'prop-types'
 import classnames from 'classnames'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import {CSSTransitionGroup} from 'react-transition-group'
 import Logger from '../utils/logger'
 
 import '../style'
@@ -67,7 +68,7 @@ export default class Animate extends Component{
         transitionName: 'fade',
         transitionEnterTimeout: 100,
         transitionLeaveTimeout: 300
-    };
+    }
 
     constructor(props, context) {
         super(props, context);
@@ -75,17 +76,17 @@ export default class Animate extends Component{
     }
 
     renderAnimate(){
-        let {transitionName, transitionEnterTimeout, transitionLeaveTimeout, children} = this.props;
+        let {transitionName, transitionEnterTimeout, transitionLeaveTimeout, children} = this.props
 
         return (
-            <ReactCSSTransitionGroup {...this.props}
+            <CSSTransitionGroup {...this.props}
                 transitionName={transitionName}
                 transitionEnterTimeout={transitionEnterTimeout}
                 transitionLeaveTimeout={transitionLeaveTimeout}
             >
                 {children}
-            </ReactCSSTransitionGroup>
-        );
+            </CSSTransitionGroup>
+        )
     }
 
     render(){

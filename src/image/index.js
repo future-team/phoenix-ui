@@ -1,7 +1,8 @@
-import React,{PropTypes} from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import Component from '../utils/Component'
 import classnames from 'classnames'
-import {warning,getClientHeight} from '../utils/Tool'
+import {warning,getScrollTop,getClientHeight} from '../utils/Tool'
 import Logger from '../utils/logger'
 
 import '../style'
@@ -139,11 +140,12 @@ export default class Images extends Component{
     }
 
     lazyLoad(){
-        this.scrollTop = document.body.scrollTop
+        this.scrollTop = getScrollTop()
         this.bodyHeight = getClientHeight()
         this.imageTop = this.phImage.offsetTop
 
         if(this.scrollTop + this.bodyHeight >= this.imageTop){
+            console.log('lazyLoad')
             if(!this.load) {
                 this.imageLoad(true)
             }
@@ -189,14 +191,14 @@ export default class Images extends Component{
     }
 
     imageLoad(isLazy){
-        let {src} = this.props
+        let {src, loadCallback} = this.props
 
         try{
             let img = new Image()
             img.src = src
 
             this.load = true
-
+            console.log(src)
             if(img.complete){ // 如果已经存在，直接加载
                 this.loadSuccessCallback(img, isLazy)
                 return
@@ -211,7 +213,7 @@ export default class Images extends Component{
         }
     }
 
-    loadSuccessCallback(img, isLazy){console.log(123)
+    loadSuccessCallback(img, isLazy){
         let {src, lazy, loadCallback} = this.props
         if(lazy) window.removeEventListener('scroll', this.scrollHandle, false)
 

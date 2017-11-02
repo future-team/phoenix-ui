@@ -1,4 +1,5 @@
-import React,{PropTypes} from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import ReactDOM, {findDOMNode} from 'react-dom'
 import Component from '../utils/Component'
 import classnames from 'classnames'
@@ -45,6 +46,7 @@ const SHOW_CLASS = 'show'
  * @demo popover|popover.js {展示}
  * @show true
  * */
+
 export default class Popover extends Component{
 
     static propTypes = {
@@ -118,6 +120,8 @@ export default class Popover extends Component{
         }
         this.placement = this.adaptePlacement[props.placement]
         this.placementCount = 0
+
+        this.el = document.createElement('div')
     }
 
     componentDidMount(){
@@ -130,10 +134,11 @@ export default class Popover extends Component{
         this.target.addEventListener('click', this.targetClickHandle, false)
         
         // 将popover动态插入body
-        this.renderPortal();
-
+        // this.renderPortal();
+        document.body.appendChild(this.el)
+        
         this.bubble = findDOMNode(this.popoverMain)
-
+        
         setTimeout(()=>{
             document.addEventListener('click', this.documentClickHandle, false)
             this.getTargetPosition()
@@ -207,7 +212,7 @@ export default class Popover extends Component{
 
         this.bubbleSize.width = parseInt(this.bubble.offsetWidth)
         this.bubbleSize.height = parseInt(this.bubble.offsetHeight)
-        
+        console.log(this.bubble.offsetWidth)
         this.calcTooltipPosition(this.props.placement)
     }
 
@@ -318,11 +323,31 @@ export default class Popover extends Component{
     componentWillUnmount(){
         this.target.removeEventListener('click', this.targetClickHandle, false)
         document.removeEventListener('click', this.documentClickHandle, false);
-        document.body.removeChild(this.node);
+        document.body.removeChild(this.el)
+    }
+
+    renderPopover(props) {
+        let {className, style, children} = props
+
+        return ReactDOM.createPortal(
+            (
+                <div className={classnames(this.getProperty(true), className)} 
+                    style={this.getStyles(style)} 
+                    ref={(popover)=>{this.popover = popover}}>
+                    <div className={Tool.setPhPrefix('popover-arrow')} ref={(popover)=>{this.popoverArrow=popover}}></div>
+                    <div className={Tool.setPhPrefix('popover-main')} ref={(popover)=>{this.popoverMain=popover}}>
+                        <div className={Tool.setPhPrefix('popover-content')}>
+                            {this.props.children}
+                        </div>
+                    </div>
+                </div>
+            ),
+            this.el
+        )
     }
 
     render() {
-        return React.DOM.noscript();
+        return this.renderPopover(this.props)
     }
 }
 

@@ -10,7 +10,7 @@ import Badge from "phoenix-ui/lib/badge"
 import Image from "phoenix-ui/lib/image"
 import Code from "./code/code"
 
-const IMAGE_URL = 'http://img5.duitang.com/uploads/item/201602/11/20160211214958_RhdCY.jpeg'
+const IMAGE_URL = 'http://p0.meituan.net/future/dec9588cf2fe6687ebb593762c2fc5878936.png'
 
 export default class star extends Component{
     render(){

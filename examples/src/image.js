@@ -3,9 +3,9 @@ import React, { Component } from "react"
 import Image from "phoenix-ui/lib/image"
 import Code from "./code/code"
 
-const DEFULT_IMAGE = 'http://file.digitaling.com/eImg/uimages/20150907/1441607165383971.gif',
-      IMAGE_URL = 'http://img5.duitang.com/uploads/item/201602/11/20160211214958_RhdCY.jpeg',
-      LAZY_URL = 'http://img.chinatimes.com/newsphoto/2016-05-19/656/20160519005737.jpg'
+const DEFULT_IMAGE = 'http://p0.meituan.net/future/e810685f6c386c507bcb12e337f2a6982017.png', // star
+      IMAGE_URL = 'http://p0.meituan.net/future/fe2b68c5aec9e3142c0acee1611afaf957492.png', // yes no
+      LAZY_URL = 'http://p0.meituan.net/future/dec9588cf2fe6687ebb593762c2fc5878936.png' // cat
 
 export default class image extends Component{
     constructor(props,context){
