@@ -173,6 +173,7 @@ export default class Input extends Component{
                     clearStatus ? this.setPhPrefix('clear'):'',
                     visibleStatus ? this.setPhPrefix('visible'):'',
                     errorState ? this.setPhPrefix('error'):'',
+                    this.setPhPrefix(type),
                     className
                 )} style={this.getStyles(style)}>
                     <input {...this.otherProps} className='' style={null} type={this.state.type} placeholder='' value={value} disabled={disabled}

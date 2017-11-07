@@ -7,8 +7,8 @@
     top: 0;
     left: 0;
     z-index:1;
-    padding: .24rem;
-    font-size: .40rem;
+    padding: 12px;
+    font-size: 20px;
     text-align: right;
     color: #fff;
 }
@@ -33,8 +33,8 @@
     overflow: hidden;
     position:relative;
     z-index:2;
-    padding: 2.5rem 0 .5rem;
-    margin-bottom: .32rem;
+    padding: 125px 0 25px;
+    margin-bottom: 16px;
     background: url(../img/banner.jpg) center center;
     background-size: cover;
     text-align: center;
@@ -42,7 +42,7 @@
 }
 
 .phoenix-about a{
-    padding: 0 .24rem;
+    padding: 0 12px;
     border-right: 1PX solid #fff;
     color: #fff;
 }
@@ -51,25 +51,25 @@
 }
 
 .menu>h2{
-    padding: .08rem .32rem;
+    padding: 4px 16px;
     background-color: #ccc;
-    font-size: .30rem;
+    font-size: 15px;
     color: #fff;
 }
 
 .menu>h3{
-    padding: .16rem .32rem;
+    padding: 8px 16px;
     border-top: 1PX solid #e1e1e1;
     border-bottom: 1PX solid #e1e1e1;
-    font-size: .28rem;
+    font-size: 14px;
     color: #999cad;
 }
 
 .list-card{
     display: block;
     position: relative;
-    margin: 0 .32rem;
-    padding: .20rem 0 .20rem .48rem;
+    margin: 0 16px;
+    padding: 10px 0 10px 24px;
     border-bottom: 1PX solid #e1e1e1;
 }
 .list-card:active{
@@ -79,17 +79,17 @@
     border-bottom: none;
 }
 .menu-panel h3{
-    margin-bottom: .28rem;
-    font-size: .32rem;
+    margin-bottom: 14px;
+    font-size: 16px;
 }
 .menu-panel p{
-    font-size: .28rem;
+    font-size: 14px;
     color: #777;
 }
 /*** phoenix-styles ***/
 .phoenix-styles{
     display: block;
-    padding: .20rem .32rem;
+    padding: 10px 16px;
 }
 .phoenix-styles:hover{
     text-decoration: underline;
@@ -97,30 +97,30 @@
 
 .switch-skin{
     display: inline-block;
-    margin: .32rem;
+    margin: 16px;
 }
 
 /*** content common ***/
 .comp-title{
-    padding: .16rem;
+    padding: 8px;
     background: url(../img/phoenix.jpg) center center;
     background-size: cover;
-    font-size: .48rem;
+    font-size: 24px;
     text-align: center;
     color: #fff;
 }
 .comp-type{
-    padding: .20rem .32rem;
+    padding: 10px 16px;
     background-color: #fff;
     border-top: 1PX solid #ddd;
     border-bottom: 1PX solid #ddd;
-    font-size: .30rem;
+    font-size: 15px;
     color: #777;
 }
 .comp-type:before{
     content: "\e68b";
     display: inline-block;
-    margin-right: .20rem;
+    margin-right: 10px;
     font-family:"iconfont" !important;
 }
 .comp-type a{
@@ -129,8 +129,8 @@
 }
 
 .comp-tip{
-    padding-bottom: .20rem;
-    font-size: .30rem;
+    padding-bottom: 10px;
+    font-size: 15px;
     color: #999cad;
 }
 
@@ -140,27 +140,27 @@
 
 .code-mark{
     display: inline-block;
-    padding: .16rem .32rem;
+    padding: 8px 16px;
     background-color: transparent;
     border: none;
     text-decoration: underline;
-    font-size: .30rem;
+    font-size: 15px;
 }
 
 .code-dialog .ph-dialog-content{
-    padding: .32rem;
+    padding: 16px;
 }
 
 .code-dialog .ph-dialog-body.code-body{
     overflow-x: auto;
-    margin: .16rem 0;
+    margin: 8px 0;
     text-align: left;
     white-space: pre;
 }
 
 /*** content example ***/
 .content, .contents{
-    padding: .32rem .32rem .16rem;
+    padding: 16px 16px 8px;
     background-color: #fff;
 }
 .content > .ph-button:not(.ph-button-block),
@@ -170,7 +170,7 @@
 .content .ph-multi-group,
 .content .ph-switch,
 .content > .gfs-icon{
-    margin: 0 .16rem .16rem 0;
+    margin: 0 8px 8px 0;
 }
 
 .content :not(.ph-button) .gfs-icon{
@@ -183,12 +183,12 @@
 .contents .ph-form-group,
 .contents .ph-swipe,
 .content code{
-    margin: 0 0 .16rem 0;
+    margin: 0 0 8px 0;
 }
 
 .content .ph-steps,
 .content .ph-input{
-    margin-bottom: .16rem;
+    margin-bottom: 8px;
 }
 
 .content .ph-tabs{
@@ -196,33 +196,33 @@
 }
 
 .content .ph-image{
-    width: 4rem;
-    height: 4rem;
+    width: 200px;
+    height: 200px;
     background-color: #f0f0f0;
 }
 
 .todo-demo .ph-button.ph-button-lg{
-    height: .40rem;
+    height: 20px;
     border-radius: 0;
 }
 
 .animate-field>div{
-    padding: .12rem .32rem;
+    padding: 6px 16px;
     background-color: #fff;
     border-bottom: 1PX solid #ddd;
 }
 
 .content-drag .box{
-    width: 2rem;
-    height: 2rem;
+    width: 100px;
+    height: 100px;
     background-color: #000;
-    line-height: 2rem;
+    line-height: 100px;
     text-align: center;
     color: #fff;
 }
 
 .col-demo {
-    padding: .08rem;
+    padding: 4px;
     width: 100%;
     border: 1PX solid #ddd;
     border-radius: 2PX;
@@ -234,14 +234,14 @@
     display: block;
     overflow-x: auto;
     white-space: nowrap;
-    padding: .32rem;
+    padding: 16px;
     background-color: #fff;
-    font-size: .24rem;
+    font-size: 12px;
 }
 
 .ph-loading-list li{
-    padding: .32rem;
-    margin-top: .32rem;
+    padding: 16px;
+    margin-top: 16px;
     background-color: #fff;
 }
 .ph-loading-list li img{
@@ -250,8 +250,8 @@
 
 .ph-filter-code{
     position: fixed;
-    top: .16rem;
-    right: .16rem;
+    top: 8px;
+    right: 8px;
     z-index:999;
     color: #ff6633;
     text-decoration: underline;
@@ -263,17 +263,17 @@
 
 /*** 列表页demo ***/
 .list-demo{
-    padding: .16rem .32rem 0;
+    padding: 8px 16px 0;
     background-color: #fff;
 }
 .list-item{
     border-bottom: 1px solid #ccc;
 }
 .row-label .label{
-    margin-right: .08rem;
+    margin-right: 4px;
 }
 .row-address{
-    font-size: 0.24rem;
+    font-size: 12px;
     color: #999;
 }
 
