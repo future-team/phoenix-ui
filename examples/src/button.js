@@ -35,7 +35,7 @@ export default class button extends Component{
                 <div className="content">
                     <Button hollow>按钮</Button>
                 </div>
-                <Code target="button-phstyle" />
+                <Code target="button-hollow" />
 
                 <h3 className="comp-type">block属性</h3>
                 <div className="content">
