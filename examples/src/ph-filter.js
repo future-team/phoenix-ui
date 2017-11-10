@@ -96,8 +96,8 @@ export default class phFilter extends Component {
         return newPanel
     }
 
-    clickCallback(key){
-        console.log(key);
+    clickCallback(key, index){
+        console.log(key, index);
     }
 
     resetFilter(key){

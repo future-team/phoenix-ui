@@ -185,7 +185,7 @@ export default class FilterContainer extends Component{
 
         this.willScroll()
 
-        clickCallback && clickCallback(category.key)
+        clickCallback && clickCallback(category.key, this.state.activeCat)
     }
 
     activeCat(index){

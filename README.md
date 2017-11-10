@@ -74,6 +74,7 @@ Phoenix UI is tested with the following browsers and mobile OS.
 
 ## Repair
 
+`version 2.1.0` ph-filter的点击回调新增第二个参数，头部点击的索引值。<br/>
 `version 2.0.13` 接入pmlogger@1.0.5记录数据。<br/>
 `version 2.0.10` 解决ph-filter、input等多组件问题。<br/>
 `version 2.0.0` 去掉TableView和ForemGroup，新增List；Popover去掉Whisper的辅助使用；Input拆分成Input、Checkbox、Radio等。<br/>
