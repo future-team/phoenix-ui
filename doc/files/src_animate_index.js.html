@@ -545,9 +545,10 @@
 
 <div class="file">
     <pre class="prettyprint linenums" id='src_code'>
-import React,{Component, PropTypes} from &#x27;react&#x27;
+import React,{Component} from &#x27;react&#x27;
+import PropTypes from &#x27;prop-types&#x27;
 import classnames from &#x27;classnames&#x27;
-import ReactCSSTransitionGroup from &#x27;react-addons-css-transition-group&#x27;
+import {CSSTransitionGroup} from &#x27;react-transition-group&#x27;
 import Logger from &#x27;../utils/logger&#x27;
 
 import &#x27;../style&#x27;
@@ -614,7 +615,7 @@ export default class Animate extends Component{
         transitionName: &#x27;fade&#x27;,
         transitionEnterTimeout: 100,
         transitionLeaveTimeout: 300
-    };
+    }
 
     constructor(props, context) {
         super(props, context);
@@ -622,17 +623,17 @@ export default class Animate extends Component{
     }
 
     renderAnimate(){
-        let {transitionName, transitionEnterTimeout, transitionLeaveTimeout, children} = this.props;
+        let {transitionName, transitionEnterTimeout, transitionLeaveTimeout, children} = this.props
 
         return (
-            &lt;ReactCSSTransitionGroup {...this.props}
+            &lt;CSSTransitionGroup {...this.props}
                 transitionName={transitionName}
                 transitionEnterTimeout={transitionEnterTimeout}
                 transitionLeaveTimeout={transitionLeaveTimeout}
             &gt;
                 {children}
-            &lt;/ReactCSSTransitionGroup&gt;
-        );
+            &lt;/CSSTransitionGroup&gt;
+        )
     }
 
     render(){

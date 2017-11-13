@@ -545,7 +545,8 @@
 
 <div class="file">
     <pre class="prettyprint linenums" id='src_code'>
-import React,{PropTypes} from &#x27;react&#x27;
+import React from &#x27;react&#x27;
+import PropTypes from &#x27;prop-types&#x27;
 import Component from &#x27;../utils/Component&#x27;
 import classnames from &#x27;classnames&#x27;
 import {warning} from &#x27;../utils/Tool&#x27;
@@ -706,7 +707,7 @@ export default class Input extends Component{
         let clearStatus = clear &amp;&amp; value &amp;&amp; focus,
             visibleStatus = visible &amp;&amp; type==&#x27;password&#x27;,
             errorState = error &amp;&amp; !focus,
-            placeholderShow = !focus &amp;&amp; !value;
+            placeholderShow = !focus &amp;&amp; value===&#x27;&#x27;;
         
         if([&#x27;checkbox&#x27;, &#x27;radio&#x27;].indexOf(type) &gt;= 0){
             warning(&#x27;Input组件: type 为 checkbox|radio 请对应使用 Checkbox|Radio 组件!&#x27;)
@@ -719,6 +720,7 @@ export default class Input extends Component{
                     clearStatus ? this.setPhPrefix(&#x27;clear&#x27;):&#x27;&#x27;,
                     visibleStatus ? this.setPhPrefix(&#x27;visible&#x27;):&#x27;&#x27;,
                     errorState ? this.setPhPrefix(&#x27;error&#x27;):&#x27;&#x27;,
+                    this.setPhPrefix(type),
                     className
                 )} style={this.getStyles(style)}&gt;
                     &lt;input {...this.otherProps} className=&#x27;&#x27; style={null} type={this.state.type} placeholder=&#x27;&#x27; value={value} disabled={disabled}

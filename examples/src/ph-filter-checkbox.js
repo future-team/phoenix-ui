@@ -35,11 +35,17 @@ export default class phFilterCheckbox extends Component {
         });
     }
 
+    itemClickCallback(key, disabled){
+        console.log(key)
+        console.log(disabled)
+    }
+
     onSubmit(choose){
         console.log(choose)
     }
 
     render(){
+        let self = this;
         const buttons = [
             {onHandle: this.onSubmit.bind(this)}
         ]
@@ -54,7 +60,7 @@ export default class phFilterCheckbox extends Component {
                                     {
                                         cityShopList.shopInfoDTOList.map((shopInfo)=>{
                                             return (
-                                                <Item disabled={shopInfo.status==1} key={shopInfo.shopId} itemKey={shopInfo.shopId}>
+                                                <Item disabled={shopInfo.status==1} key={shopInfo.shopId} itemKey={shopInfo.shopId} clickCallback={self.itemClickCallback.bind(self)}>
                                                     {shopInfo.shopName}
                                                 </Item>
                                             );

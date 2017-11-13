@@ -857,3 +857,9 @@ table.table-bordered>tbody>tr>td{
 #gfs-index{
   /* overflow: hidden;   */
 }
+.gfsdoc-stdoc-code .gfs-code{
+   display: none;
+}
+.gfsdoc-source-code{
+    margin-left: 0;
+}

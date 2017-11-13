@@ -545,7 +545,8 @@
 
 <div class="file">
     <pre class="prettyprint linenums" id='src_code'>
-import React,{PropTypes} from &#x27;react&#x27;
+import React from &#x27;react&#x27;
+import PropTypes from &#x27;prop-types&#x27;
 import Component from &#x27;../utils/Component&#x27;
 import classnames from &#x27;classnames&#x27;
 import Tab from &#x27;./Tab.js&#x27;
@@ -718,7 +719,7 @@ export default class Tabset extends Component {
     renderTabset(){
         let panels = [],
             {className, nowrap} = this.props
-
+        
         let headings = React.Children.map(this.props.children, (options, index)=&gt; {
             let { vertical } = options.props;
             let opt = React.cloneElement(options, {

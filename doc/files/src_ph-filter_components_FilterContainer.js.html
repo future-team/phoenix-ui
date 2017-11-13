@@ -545,7 +545,8 @@
 
 <div class="file">
     <pre class="prettyprint linenums" id='src_code'>
-import React, { Component ,PropTypes} from &#x27;react&#x27;
+import React, { Component } from &#x27;react&#x27;
+import PropTypes from &#x27;prop-types&#x27;
 import classnames from &#x27;classnames&#x27;
 import {transToArray, preventDefault, getScrollTop} from &#x27;../../utils/Tool&#x27;
 import Logger from &#x27;../../utils/logger&#x27;
@@ -736,14 +737,14 @@ export default class FilterContainer extends Component{
     }
 
     activeCat(index){
+        if(getScrollTop() &lt; this.filterContainer.offsetTop){ // 打开时滚动到顶部
+            document.documentElement.scrollTop = this.filterContainer.offsetTop
+        }
         //展开某一个cat
         if(index==this.state.activeCat){
             index=-1;
-            this.willScroll()
-        }else{
-            this.noScroll()
         }
-
+        // console.log(index)
         this.setState({
             activeCat:index
         });

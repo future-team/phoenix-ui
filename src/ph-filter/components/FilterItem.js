@@ -54,7 +54,14 @@ export default class FilterItem extends Component{
          * @type Boolean
          * @default false
          * */
-        disabled: PropTypes.bool
+        disabled: PropTypes.bool,
+        /**
+         * 点击的回调
+         * @property clickCallback
+         * @type func
+         * @default null
+         * */
+        clickCallback: PropTypes.func
     }
 
     static defaultProps = {
@@ -66,7 +73,9 @@ export default class FilterItem extends Component{
     }
 
     clickCallback(){
-        let {readOnly, filterType, onItemChange, categoryChange, panelIndex, itemKey, children} = this.props
+        let {readOnly, filterType, onItemChange, categoryChange, panelIndex, itemKey, children, clickCallback, disabled} = this.props
+
+        if(clickCallback) clickCallback(itemKey, disabled)
 
         if(readOnly || filterType) return
 

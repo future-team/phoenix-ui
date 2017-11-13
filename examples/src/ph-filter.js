@@ -100,6 +100,11 @@ export default class phFilter extends Component {
         console.log(key);
     }
 
+    itemClickCallback(key, disabled){
+        console.log(key)
+        console.log(disabled)
+    }
+
     resetFilter(key){
         this.setState({
             selected2: null
@@ -116,6 +121,7 @@ export default class phFilter extends Component {
     }
 
     render(){
+        let self = this;
         const buttons = [
             {text:'重置', phStyle:'gray', onHandle: this.resetFilter.bind(this), otherProps: {hollow:true}},
             {onHandle: this.confirmFilter.bind(this)},
@@ -128,7 +134,7 @@ export default class phFilter extends Component {
                     <PanelSimple default='筛选'>
                         {
                             this.state.panel3.map(function(item){
-                                return <Item key={item.key} itemKey={item.key}>{item.value}</Item>
+                                return <Item key={item.key} itemKey={item.key} clickCallback={self.itemClickCallback.bind(self)}>{item.value}</Item>
                             })
                         }
                     </PanelSimple>

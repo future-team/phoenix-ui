@@ -545,7 +545,8 @@
 
 <div class="file">
     <pre class="prettyprint linenums" id='src_code'>
-import React, { Component ,PropTypes} from &#x27;react&#x27;
+import React, { Component } from &#x27;react&#x27;
+import PropTypes from &#x27;prop-types&#x27;
 import classnames from &#x27;classnames&#x27;
 import Checkbox from &#x27;../../checkbox&#x27;
 import List from &#x27;../../list&#x27;
@@ -600,7 +601,14 @@ export default class FilterItem extends Component{
          * @type Boolean
          * @default false
          * */
-        disabled: PropTypes.bool
+        disabled: PropTypes.bool,
+        /**
+         * 点击的回调
+         * @property clickCallback
+         * @type func
+         * @default null
+         * */
+        clickCallback: PropTypes.func
     }
 
     static defaultProps = {
@@ -612,7 +620,9 @@ export default class FilterItem extends Component{
     }
 
     clickCallback(){
-        let {readOnly, filterType, onItemChange, categoryChange, panelIndex, itemKey, children} = this.props
+        let {readOnly, filterType, onItemChange, categoryChange, panelIndex, itemKey, children, clickCallback, disabled} = this.props
+
+        if(clickCallback) clickCallback(itemKey, disabled)
 
         if(readOnly || filterType) return
 
