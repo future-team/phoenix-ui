@@ -6,11 +6,7 @@ var webpack = require('webpack'),
     devPort = 3008;
 
 module.exports = extend({},{
-    entry: [
-        'webpack-dev-server/client?http://127.0.0.1:' + devPort,
-        'webpack/hot/dev-server',
-        './examples/src/index.js'
-    ],
+    entry: [path.join(process.cwd(), 'examples/src/index.js')],
     output: {
         libraryTarget: 'umd',
         path: path.join(process.cwd(), 'examples/dist'),

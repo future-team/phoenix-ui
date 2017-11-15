@@ -26,12 +26,12 @@ gulp.task('open', function () {
 
 gulp.task('demoBuild', function (done) {
     var wbpk = Object.create(exampleConfig);
-    // wbpk.devtool = 'eval';
-    // wbpk.entry = [
-    //     'webpack-dev-server/client?http://127.0.0.1:' + devPort,
-    //     'webpack/hot/dev-server',
-    //     './examples/src/index.js'
-    // ];
+    wbpk.devtool = 'eval';
+    wbpk.entry = [
+        'webpack-dev-server/client?http://127.0.0.1:' + devPort,
+        'webpack/hot/dev-server',
+        './examples/src/index.js'
+    ];
     // wbpk.plugins = [
     //     new webpack.HotModuleReplacementPlugin(),
     //     new webpack.NoErrorsPlugin(),
