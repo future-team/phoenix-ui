@@ -7,7 +7,9 @@ const Container = PhFilter.Container,
       PanelSimple = PhFilter.PanelSimple,
       Panel = PhFilter.Panel,
       Item = PhFilter.Item,
-      ItemGroup = PhFilter.ItemGroup
+      ItemGroup = PhFilter.ItemGroup,
+      PanelCheckbox = PhFilter.PanelCheckbox,
+      PanelCustom = PhFilter.PanelCustom
 
 export default class phFilter extends Component {
 
@@ -16,8 +18,11 @@ export default class phFilter extends Component {
         this.state={
             panel1:[],
             panel2:{},
-            selected2: {key:'m_sryy',value:'私人影院'},
+            selected2: {key:'ljz',value:'陆家嘴'},
+            selected3: {key:'f_hg,m_sryy',value:'火锅,私人影院'},
             panel3:[],
+            panel4:{},
+            noShadow: false
         }
     }
 
@@ -68,18 +73,31 @@ export default class phFilter extends Component {
                     {key:'zb1',value:'闸北1'},
                     {key:'ja1',value:'静安1'},
                     {key:'yp1',value:'杨浦1'}
-                ]
+                ],
+                panel4:{
+                    '美食':[
+                        {key:'f_bbc',value:'本帮江浙菜'},
+                        {key:'f_rhll',value:'日韩料理'},
+                        {key:'f_hg',value:'火锅'},
+                        {key:'f_zzc',value:'自助餐'},
+                        {key:'f_xyxc',value:'宵夜小吃'}
+                    ],
+                    '电影':[
+                        {key:'m_sryy',value:'私人影院'},
+                        {key:'m_fyt',value:'放映厅'}
+                    ]
+                },
             })
-        },0)
+        }, 0)
     }
 
-    renderPanelList(){
+    renderPanelList(panelName){
         let newPanel = []
 
-        for(let i in this.state.panel2){
-            let itemGroup = this.state.panel2[i]
+        for(let i in this.state[panelName]){
+            let itemGroup = this.state[panelName][i]
             newPanel.push(
-                <ItemGroup key={i} label={i}>
+                <ItemGroup key={i} label={i} mainKey={i}>
                     {
                         itemGroup.map((item)=>{
                             return (
@@ -106,25 +124,41 @@ export default class phFilter extends Component {
         })
     }
 
-    confirmFilter(key){
-        console.log(key);
+    confirmFilter2(key, value){
+        this.setState({
+            selected2: {
+                key: key,
+                value: value
+            }
+        })
+    }
+
+    confirmFilter3(key, value){
+        this.setState({
+            selected3: {
+                key: key,
+                value: value
+            }
+        })
     }
 
     test(){
-        console.log(this.state.selected2)
-        return ''
+        console.log('test!!!')
     }
 
     render(){
-        const buttons = [
+        const buttons2 = [
             {text:'重置', phStyle:'gray', onHandle: this.resetFilter.bind(this), otherProps: {hollow:true}},
-            {onHandle: this.confirmFilter.bind(this)},
+            {onHandle: this.confirmFilter2.bind(this), close:true},
+        ],
+        buttons3 = [
+            {onHandle: this.confirmFilter3.bind(this), close:true}
         ]
 
         return (
             <div>
                 <h2 className="comp-title">PhFilter</h2>
-                <Container index={-1} hidecat={false} clickCallback={this.clickCallback.bind(this)}>
+                <Container index={-1} hidecat={false} clickCallback={this.clickCallback.bind(this)} choose='f_hg,m_sryy' noShadow={this.state.noShadow}>
                     <PanelSimple default='筛选'>
                         {
                             this.state.panel3.map(function(item){
@@ -132,16 +166,21 @@ export default class phFilter extends Component {
                             })
                         }
                     </PanelSimple>
-                    <Panel default='筛选' selected={this.state.selected2} index={-1}>
-                        {this.renderPanelList()}
+                    <Panel default='筛选' selected={{key:'m_sryy',value:'私人影院'}} index={-1}>
+                        {this.renderPanelList('panel2')}
                     </Panel>
-                    <PanelSimple readOnly className='panel1' selected={{key:'ljz',value:'陆家嘴'}}>
+                    <PanelCheckbox type='simple' checkAll={false} default='筛选' index={0} buttons={buttons2} selected={this.state.selected2}>
                         {
                             this.state.panel1.map(function(item){
                                 return <Item key={item.key} itemKey={item.key}>{item.value}</Item>
                             })
                         }
-                    </PanelSimple>
+                    </PanelCheckbox>
+                    <PanelCheckbox default='筛选' index={0} buttons={buttons3} selected={this.state.selected3}>
+                        {this.renderPanelList('panel4')}
+                    </PanelCheckbox>
+                    <PanelCustom default='筛选' clickCallback={this.test.bind(this)}>
+                    </PanelCustom>
                 </Container>
 
                 <h3 className="comp-type"><strong>FilterContainer</strong></h3>

@@ -12924,11 +12924,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _componentsFilterPanelCheckboxJs2 = _interopRequireDefault(_componentsFilterPanelCheckboxJs);
 
+	var _componentsFilterPanelCustomJs = __webpack_require__(157);
+
+	var _componentsFilterPanelCustomJs2 = _interopRequireDefault(_componentsFilterPanelCustomJs);
+
 	__webpack_require__(41);
 
 	__webpack_require__(83);
 
-	__webpack_require__(157);
+	__webpack_require__(158);
 
 	var PhFilter = {};
 
@@ -12939,6 +12943,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	PhFilter.ItemGroup = _componentsFilterItemGroupJs2['default'];
 	PhFilter.CheckboxContainer = _componentsFilterCheckboxJs2['default'];
 	PhFilter.PanelCheckbox = _componentsFilterPanelCheckboxJs2['default'];
+	PhFilter.PanelCustom = _componentsFilterPanelCustomJs2['default'];
 
 	exports['default'] = PhFilter;
 	module.exports = exports['default'];
@@ -13076,6 +13081,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * */
 	            hideCat: _react.PropTypes.bool,
 	            /**
+	             * 是否显示阴影
+	             * @property noShadow
+	             * @type Boolean
+	             * @default false
+	             * */
+	            noShadow: _react.PropTypes.bool,
+	            /**
 	             * 有效选择触发的回调函数
 	             * @method clickCallback
 	             * @param {string} key 返回选中的key值
@@ -13103,21 +13115,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	        new _utilsLogger2['default']('ph-filter');
 
 	        this.state = {
-	            catList: this.getCatList(),
+	            catList: this.getCatList(props),
+	            activeIndex: props.index,
 	            activeCat: props.index,
 	            fixed: false
 	        };
 
 	        this.windowScrollHandle = this.windowScrollHandle.bind(this);
-	        this.preventDefault = this.preventDefault.bind(this);
 	        this.containerOffsetTop = 0;
 
 	        window.addEventListener('scroll', this.windowScrollHandle, false);
 	    }
-
-	    FilterContainer.prototype.preventDefault = function preventDefault(e) {
-	        _utilsTool.preventDefault(e);
-	    };
 
 	    FilterContainer.prototype.windowScrollHandle = function windowScrollHandle() {
 	        if (_utilsTool.getScrollTop() > this.containerOffsetTop) {
@@ -13136,24 +13144,37 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    FilterContainer.prototype.componentWillUnmount = function componentWillUnmount() {
-	        this.willScroll();
 	        window.removeEventListener('scroll', this.windowScrollHandle, false);
 	    };
 
-	    FilterContainer.prototype.getCatList = function getCatList() {
-	        var catList = _react2['default'].Children.map(this.props.children, function (panel, index) {
+	    FilterContainer.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+	        var self = this,
+	            setted = false; // 解决map无法跳出的问题
+
+	        _react2['default'].Children.map(nextProps.children, function (panel, index) {
+	            if (setted) return;
+	            if (self.state.catList[index] !== panel.props.selected) {
+	                self.setState({
+	                    catList: self.getCatList(nextProps)
+	                });
+	                setted = true;
+	            }
+	        });
+	    };
+
+	    FilterContainer.prototype.getCatList = function getCatList(props) {
+	        return _react2['default'].Children.map(props.children, function (panel, index) {
 	            //如果panel设置了selected属性的话直接读取selected属性；如果panel没有设置selected属性，则读取default用来展示在cat列表中
 	            return panel.props.selected ? panel.props.selected : {
 	                key: '',
 	                value: panel.props['default'] ? panel.props['default'] : ''
 	            };
 	        });
-	        return catList;
 	    };
 
 	    FilterContainer.prototype.setCatList = function setCatList() {
 	        this.setState({
-	            catList: this.getCatList()
+	            catList: this.getCatList(this.props)
 	        });
 	    };
 
@@ -13166,25 +13187,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	        catList[index] = category;
 	        this.setState({
 	            catList: catList,
-	            activeCat: -1
+	            activeCat: -1,
+	            activeIndex: -1
 	        });
-
-	        this.willScroll();
 
 	        clickCallback && clickCallback(category.key, this.state.activeCat);
 	    };
 
 	    FilterContainer.prototype.activeCat = function activeCat(index) {
 	        //展开某一个cat
+	        var activeIndex = index;
 	        if (index == this.state.activeCat) {
 	            index = -1;
-	            this.willScroll();
-	        } else {
-	            this.noScroll();
 	        }
 
 	        this.setState({
-	            activeCat: index
+	            activeCat: index,
+	            activeIndex: activeIndex
 	        });
 	    };
 
@@ -13193,23 +13212,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var _self$state = self.state;
 	        var catList = _self$state.catList;
 	        var activeCat = _self$state.activeCat;
+	        var activeIndex = _self$state.activeIndex;
 
 	        return _react2['default'].Children.map(this.props.children, function (panel, index) {
+	            var _self$props = self.props;
+	            var choose = _self$props.choose;
+	            var getChooseData = _self$props.getChooseData;
+	            var hideCat = _self$props.hideCat;
+	            var clickCallback = panel.props.clickCallback;
 	            var show = index == activeCat;
 
-	            if (self.props.hideCat && index == 0) {
-	                show = true;
-	            }
+	            if (hideCat && index == 0) show = true;
+	            if (activeIndex == index) clickCallback && clickCallback();
 
-	            return _react2['default'].cloneElement(panel, {
+	            var panelProps = {
 	                categoryChange: self.categoryChange.bind(self),
 	                // selected: catList[index],
 	                setCatList: self.setCatList.bind(self),
 	                panelIndex: index,
 	                show: show,
-	                choose: _utilsTool.transToArray(self.props.choose),
-	                getChooseData: self.props.getChooseData
-	            });
+	                getChooseData: _utilsTool.transToArray(getChooseData)
+	            };
+
+	            return _react2['default'].cloneElement(panel, panelProps);
 	        });
 	    };
 
@@ -13247,30 +13272,25 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    FilterContainer.prototype.noScroll = function noScroll() {
 	        document.body.classList.add('noscroll');
-	        // this.filterShadow.addEventListener('touchmove', this.preventDefault);
 	    };
 
 	    FilterContainer.prototype.willScroll = function willScroll() {
 	        document.body.classList.remove('noscroll');
-	        // this.filterShadow.removeEventListener('touchmove', this.preventDefault);
 	    };
 
 	    FilterContainer.prototype.hidePanel = function hidePanel() {
-	        var _this2 = this;
-
 	        this.setState({
 	            activeCat: -1
-	        }, function () {
-	            _this2.willScroll();
 	        });
 	    };
 
 	    FilterContainer.prototype.render = function render() {
-	        var _this3 = this;
+	        var _this2 = this;
 
 	        var _props = this.props;
 	        var stable = _props.stable;
 	        var className = _props.className;
+	        var noShadow = _props.noShadow;
 	        var style = _props.style;
 	        var _state = this.state;
 	        var activeCat = _state.activeCat;
@@ -13281,9 +13301,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	            { className: 'ph-filter-occupy' },
 	            _react2['default'].createElement(
 	                'div',
-	                { className: _classnames2['default']('ph-filter-container', activeCat == -1 ? '' : 'ph-filter-container-shadow', fixed ? 'ph-filter-container-fixed' : '', className),
+	                { className: _classnames2['default']('ph-filter-container', activeCat == -1 ? '' : 'ph-filter-container-shadow', noShadow ? 'ph-filter-container-noshadow' : '', fixed ? 'ph-filter-container-fixed' : '', className),
 	                    ref: function (filterContainer) {
-	                        _this3.filterContainer = filterContainer;
+	                        _this2.filterContainer = filterContainer;
 	                    },
 	                    style: _extends({ top: stable && !fixed && activeCat > -1 ? this.containerOffsetTop + 'px' : '' }, style)
 	                },
@@ -13925,7 +13945,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * @type Boolean
 	             * @default false
 	             * */
-	            disabled: _react.PropTypes.bool
+	            disabled: _react.PropTypes.bool,
+	            /**
+	             * 点击的回调
+	             * @property clickCallback
+	             * @type func
+	             * @default null
+	             * */
+	            clickCallback: _react.PropTypes.func
 	        },
 	        enumerable: true
 	    }, {
@@ -13951,6 +13978,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var panelIndex = _props.panelIndex;
 	        var itemKey = _props.itemKey;
 	        var children = _props.children;
+	        var clickCallback = _props.clickCallback;
+	        var disabled = _props.disabled;
+
+	        if (clickCallback) clickCallback(itemKey, disabled);
 
 	        if (readOnly || filterType) return;
 
@@ -13964,8 +13995,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var mainKey = _props2.mainKey;
 	        var itemKey = _props2.itemKey;
 	        var onItemChange = _props2.onItemChange;
+	        var children = _props2.children;
 
-	        onItemChange(mainKey, itemKey, e);
+	        onItemChange(mainKey, itemKey, children, e);
 	    };
 
 	    FilterItem.prototype.renderChildren = function renderChildren() {
@@ -14252,10 +14284,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	            { className: _classnames2['default']('ph-checkbox-filter', className) },
 	            _react2['default'].createElement(
 	                _FilterContainerJs2['default'],
-	                { index: 0, hideCat: true, choose: choose },
+	                { index: 0, hideCat: true },
 	                _react2['default'].createElement(
 	                    _FilterPanelCheckboxJs2['default'],
-	                    { index: index, buttons: buttons },
+	                    { index: index, buttons: buttons, selected: { key: choose, value: '' }, choose: choose },
 	                    children
 	                )
 	            )
@@ -14345,33 +14377,47 @@ return /******/ (function(modules) { // webpackBootstrap
 	var FilterPanelCheckbox = (function (_Component) {
 	    _inherits(FilterPanelCheckbox, _Component);
 
-	    _createClass(FilterPanelCheckbox, null, [{
-	        key: 'defaulrProps',
-	        value: {},
-	        enumerable: true
-	    }]);
-
 	    function FilterPanelCheckbox(props, context) {
 	        _classCallCheck(this, FilterPanelCheckbox);
 
 	        _Component.call(this, props, context);
 
-	        this.init = 0;
-	        this.choose = props.choose;
+	        this.choose = this.dealWithSelected(props);
+	        this.nameList = {};
 
 	        this.state = {
 	            activeGroupIndex: props.index,
 	            allChecked: {},
 	            itemChecked: {},
-	            itemDisabled: {}
+	            itemDisabled: {},
+	            selected: this.dealWithSelected(props),
+	            selectedName: this.dealWithSelected(props, 'value')
 	        };
 	    }
 
+	    FilterPanelCheckbox.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+	        if (this.state.selected !== this.dealWithSelected(nextProps)) {
+	            this.setState({
+	                selected: this.dealWithSelected(nextProps),
+	                selectedName: this.dealWithSelected(nextProps, 'value')
+	            });
+	        }
+	    };
+
+	    FilterPanelCheckbox.prototype.dealWithSelected = function dealWithSelected(props, param) {
+	        var key = param || 'key';
+	        if (props.selected && props.selected[key]) return _utilsTool.transToArray(props.selected[key]);else return [];
+	    };
+
 	    FilterPanelCheckbox.prototype.deleteFromArray = function deleteFromArray(val) {
-	        var choose = this.props.choose;var _index = choose.indexOf(val);
+	        var _state = this.state;
+	        var selected = _state.selected;
+	        var selectedName = _state.selectedName;
+	        var _index = selected.indexOf(val);
 
 	        if (_index > -1) {
-	            choose.splice(_index, 1);
+	            selected.splice(_index, 1);
+	            selectedName.splice(_index, 1);
 	        }
 	    };
 
@@ -14381,11 +14427,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        });
 	    };
 
-	    FilterPanelCheckbox.prototype.onAllItemChange = function onAllItemChange(mainKey, itemKey, e) {
-	        var choose = this.props.choose;
-
-	        var allChecked = this.state.allChecked,
-	            itemChecked = this.state.itemChecked;
+	    FilterPanelCheckbox.prototype.onAllItemChange = function onAllItemChange(mainKey, itemKey, name, e) {
+	        var _state2 = this.state;
+	        var selected = _state2.selected;
+	        var selectedName = _state2.selectedName;
+	        var allChecked = _state2.allChecked;
+	        var itemChecked = _state2.itemChecked;
 
 	        allChecked[mainKey] = e.target.checked;
 	        // 全选或全不选
@@ -14394,7 +14441,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	            if (e.target.checked) {
 	                // 全选
-	                if (choose.indexOf(i) == -1 && !this.state.itemDisabled[mainKey][i]) choose.push(i.toString());
+	                if (selected.indexOf(i) == -1 && !this.state.itemDisabled[mainKey][i]) {
+	                    selected.push(i.toString());
+	                    selectedName.push(this.nameList[mainKey][i]);
+	                }
 	            } else {
 	                // 全不选
 	                this.deleteFromArray(i);
@@ -14406,16 +14456,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	            itemChecked: itemChecked
 	        });
 
-	        this.choosed = choose.join();
-
 	        // if(this.props.getChooseData) this.props.getChooseData(choose.join());
 	    };
 
-	    FilterPanelCheckbox.prototype.onItemChange = function onItemChange(mainKey, itemKey, e) {
-	        var choose = this.props.choose;
-
-	        var allChecked = this.state.allChecked,
-	            itemChecked = this.state.itemChecked;
+	    FilterPanelCheckbox.prototype.onItemChange = function onItemChange(mainKey, itemKey, name, e) {
+	        var _state3 = this.state;
+	        var selected = _state3.selected;
+	        var selectedName = _state3.selectedName;
+	        var allChecked = _state3.allChecked;
+	        var itemChecked = _state3.itemChecked;
+	        var itemDisabled = _state3.itemDisabled;
 
 	        itemChecked[mainKey][itemKey] = e.target.checked;
 
@@ -14427,9 +14477,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        if (e.target.checked) {
 	            var count = true;
-	            if (choose.indexOf(itemKey) == -1) choose.push(itemKey.toString());
+	            if (selected.indexOf(itemKey) == -1) {
+	                selected.push(itemKey.toString());
+	                selectedName.push(name);
+	            }
 	            for (var i in itemChecked[mainKey]) {
-	                if (!itemChecked[mainKey][i] && !this.state.itemDisabled[mainKey][i]) {
+	                if (!itemChecked[mainKey][i] && !itemDisabled[mainKey][i]) {
 	                    count = false;
 	                    break;
 	                }
@@ -14442,9 +14495,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            itemChecked: itemChecked
 	        });
 
-	        this.choosed = choose.join();
-
-	        // if(this.props.getChooseData) this.props.getChooseData(choose.join());
+	        // if(this.props.getChooseData) this.props.getChooseData(selected.join());
 	    };
 
 	    FilterPanelCheckbox.prototype.renderMainMenuList = function renderMainMenuList() {
@@ -14461,89 +14512,31 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    FilterPanelCheckbox.prototype.renderSubMenuList = function renderSubMenuList(mainMenuList) {
-	        var choose = this.props.choose;
-
-	        var mainMenu,
-	            self = this;
+	        var selected = this.state.selected;
+	        var _state4 = this.state;
+	        var itemChecked = _state4.itemChecked;
+	        var itemDisabled = _state4.itemDisabled;
+	        var mainMenu;var self = this;var checkAll = this.props.checkAll;
 
 	        mainMenu = _react2['default'].Children.map(mainMenuList, function (menu) {
-	            var mainKey = menu.props.mainKey;
+	            var mainKey = menu.props.mainKey || 0;
 
 	            if (menu.props.groupIndex == self.state.activeGroupIndex) {
-	                var _ret = (function () {
-	                    var subMenu = [],
-	                        checkedCount = 0,
-	                        disabledCount = 0,
-	                        sum = 0;
-
-	                    _react2['default'].Children.map(menu.props.children, function (item) {
-	                        var key = item.props.itemKey,
-	                            disabled = item.props.disabled;
-
-	                        self.state.itemChecked[mainKey] = self.state.itemChecked[mainKey] || {};
-	                        self.state.itemDisabled[mainKey] = self.state.itemDisabled[mainKey] || {};
-
-	                        if (self.state.itemChecked[mainKey][key] == undefined || self.choose != choose) {
-	                            // 兼容通过请求获取choose的情况
-	                            self.state.itemChecked[mainKey][key] = choose.indexOf(key.toString()) != -1;
-	                        }
-	                        if (self.state.itemDisabled[mainKey][key] == undefined || self.choose != choose) {
-	                            self.state.itemDisabled[mainKey][key] = disabled;
-	                        }
-
-	                        if (self.state.itemChecked[mainKey][key]) checkedCount++;
-	                        if (disabled) {
-	                            self.deleteFromArray(key.toString());
-	                            disabledCount++;
-	                        }
-	                        sum++;
-
-	                        subMenu.push(_react2['default'].cloneElement(item, {
-	                            active: false,
-	                            readOnly: self.props.readOnly,
-	                            categoryChange: self.props.categoryChange,
-	                            panelIndex: self.props.panelIndex,
-	                            // new props
-	                            checked: self.state.itemChecked[mainKey][key],
-	                            choose: self.props.choose,
-	                            filterType: 'checkbox',
-	                            mainKey: mainKey,
-	                            onItemChange: self.onItemChange.bind(self)
-	                        }));
-	                    });
-
-	                    // new一个全部的elemecontext
-	                    if (self.state.allChecked[mainKey] == undefined || self.choose != choose) {
-	                        if (checkedCount + disabledCount == sum) self.state.allChecked[mainKey] = true;else self.state.allChecked[mainKey] = false;
-	                    }
-
-	                    subMenu.unshift(_react2['default'].createElement(
-	                        _FilterItem2['default'],
-	                        { active: false, key: mainKey, itemKey: mainKey, mainKey: mainKey, disabled: disabledCount == sum,
-	                            filterType: 'checkbox', choose: self.props.choose, checked: self.state.allChecked[mainKey],
-	                            onItemChange: self.onAllItemChange.bind(self) },
-	                        '全部'
-	                    ));
-
-	                    return {
-	                        v: subMenu
-	                    };
-	                })();
-
-	                if (typeof _ret === 'object') return _ret.v;
+	                return self.renderSubMenuCore(menu.props.children, selected, mainKey);
 	            }
 	        });
-	        self.init = 1;
 
-	        this.choosed = choose.join();
-	        // console.log(this.props.choose.join());
 	        return mainMenu;
 	    };
 
 	    FilterPanelCheckbox.prototype.renderButtons = function renderButtons() {
-	        var _this = this;
-
-	        var buttons = this.props.buttons;
+	        var _props = this.props;
+	        var buttons = _props.buttons;
+	        var panelIndex = _props.panelIndex;
+	        var _state5 = this.state;
+	        var selected = _state5.selected;
+	        var selectedName = _state5.selectedName;
+	        var self = this;
 
 	        return buttons ? _react2['default'].createElement(
 	            _buttonGroup2['default'],
@@ -14554,7 +14547,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    _extends({ key: index }, button.otherProps, { phSize: 'lg', phStyle: button.phStyle || 'primary',
 	                        onClick: function () {
 	                            if (button.onHandle) {
-	                                button.onHandle(_this.choosed);
+	                                button.onHandle(selected.join(), selectedName.join());
+	                                if (button.close) self.props.categoryChange(panelIndex, { key: selected.join(), value: selectedName.join() });
 	                            }
 	                        } }),
 	                    button.text || '确定'
@@ -14563,33 +14557,184 @@ return /******/ (function(modules) { // webpackBootstrap
 	        ) : null;
 	    };
 
-	    FilterPanelCheckbox.prototype.render = function render() {
-	        var _props = this.props;
-	        var className = _props.className;
-	        var buttons = _props.buttons;
-	        var mainMenuList = this.renderMainMenuList();
-	        var subMenuList = this.renderSubMenuList(mainMenuList);
+	    FilterPanelCheckbox.prototype.renderMenuList = function renderMenuList() {
+	        var selected = this.state.selected;
+	        var menuList = this.renderSubMenuCore(this.props.children, selected, 0);
+	        return menuList;
+	    };
+
+	    FilterPanelCheckbox.prototype.renderSubMenuCore = function renderSubMenuCore(children, selected, mainKey) {
+	        var _state6 = this.state;
+	        var itemChecked = _state6.itemChecked;
+	        var itemDisabled = _state6.itemDisabled;
+	        var allChecked = _state6.allChecked;
+	        var checkAll = this.props.checkAll;
+
+	        var subMenu = [],
+	            checkedCount = 0,
+	            disabledCount = 0,
+	            sum = 0,
+	            self = this;
+
+	        _react2['default'].Children.map(children, function (item) {
+	            var key = item.props.itemKey,
+	                disabled = item.props.disabled;
+
+	            itemChecked[mainKey] = itemChecked[mainKey] || {};
+	            itemDisabled[mainKey] = itemDisabled[mainKey] || {};
+	            self.nameList[mainKey] = self.nameList[mainKey] || {};
+
+	            if (itemChecked[mainKey][key] == undefined || self.choose != selected) {
+	                // 兼容通过请求获取choose的情况
+	                itemChecked[mainKey][key] = selected.indexOf(key.toString()) != -1;
+	            }
+	            if (itemDisabled[mainKey][key] == undefined || self.choose != selected) {
+	                itemDisabled[mainKey][key] = disabled;
+	            }
+	            if (self.nameList[mainKey][key] == undefined || self.choose != selected) {
+	                self.nameList[mainKey][key] = item.props.children;
+	            }
+
+	            if (itemChecked[mainKey][key]) checkedCount++;
+	            if (disabled) {
+	                self.deleteFromArray(key.toString());
+	                disabledCount++;
+	            }
+	            sum++;
+
+	            subMenu.push(_react2['default'].cloneElement(item, {
+	                active: false,
+	                readOnly: self.props.readOnly,
+	                categoryChange: self.props.categoryChange,
+	                panelIndex: self.props.panelIndex,
+	                // new props
+	                checked: itemChecked[mainKey][key],
+	                // selected:self.props.selected,
+	                filterType: 'checkbox',
+	                mainKey: mainKey,
+	                onItemChange: self.onItemChange.bind(self)
+	            }));
+	        });
+
+	        // new一个全部的elemecontext
+	        if (allChecked[mainKey] == undefined || self.choose != selected) {
+	            if (checkedCount + disabledCount == sum) allChecked[mainKey] = true;else allChecked[mainKey] = false;
+	        }
+
+	        if (checkAll) subMenu.unshift(_react2['default'].createElement(
+	            _FilterItem2['default'],
+	            { active: false, key: mainKey, itemKey: mainKey, mainKey: mainKey, disabled: disabledCount == sum,
+	                filterType: 'checkbox', checked: allChecked[mainKey],
+	                onItemChange: self.onAllItemChange.bind(self) },
+	            '全部'
+	        ));
+
+	        return subMenu;
+	    };
+
+	    FilterPanelCheckbox.prototype.isSimple = function isSimple() {
+	        var type = this.props.type;
+
+	        return type == 'simple';
+	    };
+
+	    FilterPanelCheckbox.prototype.renderSimpleMenu = function renderSimpleMenu(className) {
+	        var menuList = this.renderMenuList();
 
 	        return _react2['default'].createElement(
 	            'div',
-	            { className: _classnames2['default']('ph-filter-selector', buttons ? 'ph-filter-selector-buttons' : '') },
+	            { className: _classnames2['default']('ph-row ph-tabs ph-tabs-vertical', className) },
 	            _react2['default'].createElement(
 	                'div',
-	                { className: _classnames2['default']('ph-row ph-tabs ph-tabs-vertical', className ? className : '') },
-	                _react2['default'].createElement(
-	                    'div',
-	                    { className: 'ph-col ph-col-33 ph-tab-navs' },
-	                    mainMenuList
-	                ),
-	                _react2['default'].createElement(
-	                    'div',
-	                    { className: 'ph-col ph-tab-bd' },
-	                    subMenuList
-	                )
-	            ),
-	            this.renderButtons()
+	                { className: 'ph-col ph-tab-bd' },
+	                menuList
+	            )
 	        );
 	    };
+
+	    FilterPanelCheckbox.prototype.renderMenu = function renderMenu(className) {
+	        var mainMenuList = this.renderMainMenuList(),
+	            subMenuList = this.renderSubMenuList(mainMenuList);
+
+	        return _react2['default'].createElement(
+	            'div',
+	            { className: _classnames2['default']('ph-row ph-tabs ph-tabs-vertical', className) },
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'ph-col ph-col-33 ph-tab-navs' },
+	                mainMenuList
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'ph-col ph-tab-bd' },
+	                subMenuList
+	            )
+	        );
+	    };
+
+	    FilterPanelCheckbox.prototype.render = function render() {
+	        var _props2 = this.props;
+	        var className = _props2.className;
+	        var buttons = _props2.buttons;
+	        var show = _props2.show;
+	        var type = _props2.type;
+	        var children = _props2.children;
+
+	        return show ? _react2['default'].createElement(
+	            'div',
+	            { className: _classnames2['default']('ph-filter-selector', buttons ? 'ph-filter-selector-buttons' : '') },
+	            this.isSimple() ? this.renderSimpleMenu(className) : this.renderMenu(className),
+	            this.renderButtons()
+	        ) : null;
+	    };
+
+	    _createClass(FilterPanelCheckbox, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * panel下选中的item的key、value组成的对象，用于设置该panel初始状态下选中的item项
+	             * @property selected
+	             * @type Object 如{key:'ljz,xjh',value:'陆家嘴,徐家汇'}
+	             * */
+	            selected: _react.PropTypes.shape({
+	                key: _react.PropTypes.string,
+	                value: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.element])
+	            }),
+	            /**
+	             * 当不设置panel的选中项时（不选择任何item），可以设置一个默认字符展示在filter上
+	             * @property default
+	             * @type String
+	             * */
+	            'default': _react.PropTypes.string,
+	            /**
+	             * panel是否为只读模式
+	             * @property readOnly
+	             * @type Boolean
+	             * */
+	            readOnly: _react.PropTypes.bool,
+	            /**
+	            * 按钮数组
+	            * @property buttons
+	            * @type Array
+	            * */
+	            buttons: _react.PropTypes.array,
+	            /**
+	            * 是否可以全选
+	            * @property checkAll
+	            * @type Boolean
+	            * @default true
+	            * */
+	            checkAll: _react.PropTypes.bool
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            selected: {},
+	            checkAll: true
+	        },
+	        enumerable: true
+	    }]);
 
 	    return FilterPanelCheckbox;
 	})(_react.Component);
@@ -14601,10 +14746,149 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(26);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(28);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _FilterPanelBase = __webpack_require__(151);
+
+	var _FilterPanelBase2 = _interopRequireDefault(_FilterPanelBase);
+
+	/**
+	 * 简单面板<br/>
+	 * - 可通过selected设置选中的项目，格式如`{key:'ljz',value:'陆家嘴'}`。
+	 * - 可通过default设置没有选项时的默认显示文字。
+	 * - 可通过readOnly设置当前面板是否为只读模式。
+	 * - 可通过buttons设置底部按钮组的样式、文字、回调等，格式如`[{text:'取消', phStyle:'info', onHandle:this.cancelChoose.bind(this), otherProps: {hollow:true}}]`。
+	 *
+	 * 主要属性和接口：
+	 * - selected: 默认打开的面板。
+	 * - default: 是否显示筛选头部。
+	 * - readOnly: 有效选择的回调。
+	 * - buttons: 有效选择的回调。
+	 * 
+	 * 如：
+	 * ```code
+	 *  this.state = {
+	 *      panel1:[
+	 *          {key:'sndq',value:'上南地区'},
+	 *          {key:'ljz',value:'陆家嘴'},
+	 *          {key:'bbb',value:'八佰伴'},
+	 *          {key:'pdxq',value:'浦东新区'}
+	 *      ]
+	 *  }
+	 * ...
+	 *  const buttons = [
+	 *      {onHandle: this.onSubmit.bind(this)}
+	 *  ]
+	 * ...
+	 *  <FilterContainer>
+	 *      <PanelSimple readOnly selected={{key:'ljz',value:'陆家嘴'}} buttons={buttons}>
+	 *          {
+	 *              this.state.panel1.map(function(item){
+	 *                  return <Item key={item.key} itemKey={item.key}>{item.value}</Item>
+	 *              })
+	 *          }
+	 *      </PanelSimple>
+	 *  </FilterContainer>
+	 * ```
+	 *
+	 * @class FilterPanelCustom
+	 * @module 筛选控件
+	 * @extends Component
+	 * @constructor
+	 * @since 2.2.0
+	 * @demo ph-filter|ph-filter.js {展示}
+	 * @show true
+	 * */
+
+	var FilterPanelCustom = (function (_PanelBase) {
+	    _inherits(FilterPanelCustom, _PanelBase);
+
+	    _createClass(FilterPanelCustom, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 当不设置panel的选中项时（不选择任何item），可以设置一个默认字符展示在filter上
+	             * @property default
+	             * @type String
+	             * */
+	            'default': _react.PropTypes.string,
+	            /**
+	             * panel是否为只读模式
+	             * @property readOnly
+	             * @type Boolean
+	             * */
+	            readOnly: _react.PropTypes.bool,
+	            /**
+	            * 按钮数组
+	            * @property buttons
+	            * @type Array
+	            * */
+	            buttons: _react.PropTypes.array
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            selected: null,
+	            readOnly: false,
+	            buttons: null,
+	            'default': ''
+	        },
+	        enumerable: true
+	    }]);
+
+	    function FilterPanelCustom(props, context) {
+	        _classCallCheck(this, FilterPanelCustom);
+
+	        _PanelBase.call(this, props, context);
+	    }
+
+	    FilterPanelCustom.prototype.render = function render() {
+	        var _props = this.props;
+	        var className = _props.className;
+	        var buttons = _props.buttons;
+	        var children = _props.children;
+
+	        return this.props.show ? _react2['default'].createElement(
+	            'div',
+	            { className: _classnames2['default'](className ? className : '', 'ph-filter-selector', buttons ? 'ph-filter-selector-buttons' : '') },
+	            children,
+	            this.renderButtons()
+	        ) : null;
+	    };
+
+	    return FilterPanelCustom;
+	})(_FilterPanelBase2['default']);
+
+	exports['default'] = FilterPanelCustom;
+	module.exports = exports['default'];
+
+/***/ }),
+/* 158 */
+/***/ (function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(158);
+	var content = __webpack_require__(159);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(45)(content, {});
@@ -14624,7 +14908,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 158 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(44)();
@@ -14632,7 +14916,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.ph-filter-occupy {\n  height: 0.88rem;\n}\n.ph-filter-container {\n  position: relative;\n}\n.ph-filter-container-fixed,\n.ph-filter-container-shadow {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 99;\n  width: 100%;\n}\n.ph-filter-container-shadow {\n  height: 100%;\n}\n.ph-filter-shadow {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 1;\n  background-color: rgba(0, 0, 0, 0.4);\n  pointer-events: auto;\n}\n.ph-filter-header {\n  position: relative;\n  z-index: 2;\n  margin: 0;\n  background-color: #fff;\n  border-bottom: 1PX solid #e1e1e1;\n}\n.ph-filter-header .ph-filter-header-item {\n  position: relative;\n  height: 0.88rem;\n  padding: 0.24rem 0;\n  line-height: 0.4rem;\n  text-align: center;\n  font-size: 0.28rem;\n}\n.ph-filter-header .ph-filter-header-item a {\n  display: block;\n  height: 0.4rem;\n  border-right: 1PX solid #e1e1e1;\n  white-spac: nowrap;\n}\n.ph-filter-header .ph-filter-header-item:last-child a {\n  border-right: none;\n}\n.ph-filter-header .ph-filter-header-item .gfs-icon {\n  display: inline-block;\n  margin-left: 0.08rem;\n  line-height: 0.4rem;\n  font-size: 0.24rem;\n  color: #666;\n  -webkit-transition: all 0.2s;\n  -moz-transition: all 0.2s;\n  transition: all 0.2s;\n  vertical-align: top;\n}\n.ph-filter-header .ph-filter-header-item.active .gfs-icon {\n  -webkit-transform: rotate(-180deg);\n  -ms-transform: rotate(-180deg);\n  transform: rotate(-180deg);\n}\n.ph-filter-header .ph-filter-header-item.active:after {\n  content: \"\";\n  position: absolute;\n  bottom: -0.02rem;\n  left: 50%;\n  width: 0.18rem;\n  height: 0.18rem;\n  background-color: #fff;\n  border-top: 1PX solid #e1e1e1;\n  border-right: 1PX solid #e1e1e1;\n  -webkit-transform: rotate(-45deg) translateX(-50%);\n  -ms-transform: rotate(-45deg) translateX(-50%);\n  transform: rotate(-45deg) translateX(-50%);\n}\n.ph-filter-header .ph-filter-header-text {\n  display: inline-block;\n  overflow: hidden;\n  max-width: calc(100% - .72rem);\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n.ph-filter-selector {\n  position: relative;\n  z-index: 2;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n}\n.ph-filter-selector > * {\n  max-height: 72%;\n  pointer-events: auto;\n}\n.ph-filter-selector .ph-list,\n.ph-filter-selector .ph-tab-navs,\n.ph-filter-selector .ph-tab-bd {\n  overflow-y: auto;\n}\n.ph-filter-selector .ph-list::-webkit-scrollbar,\n.ph-filter-selector .ph-tab-navs::-webkit-scrollbar,\n.ph-filter-selector .ph-tab-bd::-webkit-scrollbar {\n  display: none;\n}\n.ph-filter-selector .ph-list-item.active {\n  color: #ff6633;\n}\n.ph-filter-selector .ph-button-group {\n  position: relative;\n  z-index: 1;\n}\n.ph-checkbox-filter .ph-filter-selector {\n  z-index: 9;\n}\n.ph-checkbox-filter .ph-filter-selector > * {\n  max-height: none;\n}\n.ph-checkbox-filter .ph-filter-selector .ph-list,\n.ph-checkbox-filter .ph-filter-selector .ph-tab-navs,\n.ph-checkbox-filter .ph-filter-selector .ph-tab-bd {\n  max-height: none;\n  height: 100vh;\n}\n.ph-filter-selector-buttons .ph-list,\n.ph-filter-selector-buttons .ph-tab-navs,\n.ph-filter-selector-buttons .ph-tab-bd {\n  padding-bottom: 1.28rem;\n}\n.ph-filter-selector-buttons .ph-button-group {\n  margin-top: -1.28rem;\n}\n", ""]);
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.ph-filter-occupy {\n  height: 0.88rem;\n}\n.ph-filter-container {\n  position: relative;\n}\n.ph-filter-container-fixed,\n.ph-filter-container-shadow {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 99;\n  width: 100%;\n}\n.ph-filter-container-shadow {\n  height: 100%;\n}\n.ph-filter-shadow {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 1;\n  background-color: rgba(0, 0, 0, 0.4);\n  pointer-events: auto;\n}\n.ph-filter-container-noshadow .ph-filter-shadow {\n  background-color: transparent;\n}\n.ph-filter-header {\n  position: relative;\n  z-index: 2;\n  margin: 0;\n  background-color: #fff;\n  border-bottom: 1PX solid #e1e1e1;\n}\n.ph-filter-header .ph-filter-header-item {\n  position: relative;\n  height: 0.88rem;\n  padding: 0.24rem 0;\n  line-height: 0.4rem;\n  text-align: center;\n  font-size: 0.28rem;\n}\n.ph-filter-header .ph-filter-header-item a {\n  display: block;\n  height: 0.4rem;\n  border-right: 1PX solid #e1e1e1;\n  white-spac: nowrap;\n}\n.ph-filter-header .ph-filter-header-item:last-child a {\n  border-right: none;\n}\n.ph-filter-header .ph-filter-header-item .gfs-icon {\n  display: inline-block;\n  margin-left: 0.08rem;\n  line-height: 0.4rem;\n  font-size: 0.24rem;\n  color: #666;\n  -webkit-transition: all 0.2s;\n  -moz-transition: all 0.2s;\n  transition: all 0.2s;\n  vertical-align: top;\n}\n.ph-filter-header .ph-filter-header-item.active .gfs-icon {\n  -webkit-transform: rotate(-180deg);\n  -ms-transform: rotate(-180deg);\n  transform: rotate(-180deg);\n}\n.ph-filter-header .ph-filter-header-item.active:after {\n  content: \"\";\n  position: absolute;\n  bottom: -0.02rem;\n  left: 50%;\n  width: 0.18rem;\n  height: 0.18rem;\n  background-color: #fff;\n  border-top: 1PX solid #e1e1e1;\n  border-right: 1PX solid #e1e1e1;\n  -webkit-transform: rotate(-45deg) translateX(-50%);\n  -ms-transform: rotate(-45deg) translateX(-50%);\n  transform: rotate(-45deg) translateX(-50%);\n}\n.ph-filter-header .ph-filter-header-text {\n  display: inline-block;\n  overflow: hidden;\n  max-width: calc(100% - .72rem);\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n.ph-filter-selector {\n  position: relative;\n  z-index: 2;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n}\n.ph-filter-selector > * {\n  max-height: 72%;\n  pointer-events: auto;\n}\n.ph-filter-selector .ph-list,\n.ph-filter-selector .ph-tab-navs,\n.ph-filter-selector .ph-tab-bd {\n  overflow-y: auto;\n}\n.ph-filter-selector .ph-list::-webkit-scrollbar,\n.ph-filter-selector .ph-tab-navs::-webkit-scrollbar,\n.ph-filter-selector .ph-tab-bd::-webkit-scrollbar {\n  display: none;\n}\n.ph-filter-selector .ph-list-item.active {\n  color: #ff6633;\n}\n.ph-filter-selector .ph-button-group {\n  position: relative;\n  z-index: 1;\n}\n.ph-checkbox-filter .ph-filter-selector {\n  z-index: 9;\n}\n.ph-checkbox-filter .ph-filter-selector > * {\n  max-height: none;\n}\n.ph-checkbox-filter .ph-filter-selector .ph-list,\n.ph-checkbox-filter .ph-filter-selector .ph-tab-navs,\n.ph-checkbox-filter .ph-filter-selector .ph-tab-bd {\n  max-height: none;\n  height: 100vh;\n  padding-bottom: 1.28rem;\n}\n.ph-checkbox-filter .ph-filter-selector .ph-button-group {\n  margin-top: -1.28rem;\n}\n", ""]);
 
 	// exports
 

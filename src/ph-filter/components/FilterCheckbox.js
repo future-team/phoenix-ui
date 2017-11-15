@@ -82,11 +82,11 @@ export default class FilterCheckbox extends Component{
     
     render(){
         let {choose, index, buttons, children, className, style} = this.props
-
+        
         return (
             <div className={classnames('ph-checkbox-filter', className)}>
-                <FilterContainer index={0} hideCat choose={choose}>
-                    <CheckboxPanel index={index} buttons={buttons}>
+                <FilterContainer index={0} hideCat>
+                    <CheckboxPanel index={index} buttons={buttons} selected={{key:choose, value:''}} choose={choose}>
                         {children}
                     </CheckboxPanel>
                 </FilterContainer>

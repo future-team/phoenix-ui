@@ -53,7 +53,14 @@ export default class FilterItem extends Component{
          * @type Boolean
          * @default false
          * */
-        disabled: PropTypes.bool
+        disabled: PropTypes.bool,
+        /**
+         * 点击的回调
+         * @property clickCallback
+         * @type func
+         * @default null
+         * */
+        clickCallback: PropTypes.func
     }
 
     static defaultProps = {
@@ -65,7 +72,9 @@ export default class FilterItem extends Component{
     }
 
     clickCallback(){
-        let {readOnly, filterType, onItemChange, categoryChange, panelIndex, itemKey, children} = this.props
+        let {readOnly, filterType, onItemChange, categoryChange, panelIndex, itemKey, children, clickCallback, disabled} = this.props
+
+        if(clickCallback) clickCallback(itemKey, disabled)
 
         if(readOnly || filterType) return
 
@@ -75,9 +84,9 @@ export default class FilterItem extends Component{
     }
 
     onChange(e){
-        let {mainKey, itemKey, onItemChange} = this.props
-
-        onItemChange(mainKey, itemKey, e)
+        let {mainKey, itemKey, onItemChange, children} = this.props
+        
+        onItemChange(mainKey, itemKey, children, e)
     }
 
     renderChildren(){
@@ -96,7 +105,13 @@ export default class FilterItem extends Component{
         let {active, disabled, className} = this.props
 
         return (
-            <div className={classnames('ph-row ph-list-item', active ? 'active':'', disabled? 'disabled':'', className)}
+            <div className={
+                classnames(
+                    'ph-row ph-list-item', 
+                    active ? 'active':'', 
+                    disabled? 'disabled':'', 
+                    className
+                )}
                 onClick={this.clickCallback.bind(this)}
             >
                 {this.renderChildren()}

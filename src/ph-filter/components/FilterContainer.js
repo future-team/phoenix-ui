@@ -1,6 +1,6 @@
 import React, { Component ,PropTypes} from 'react'
 import classnames from 'classnames'
-import {transToArray, preventDefault, getScrollTop} from '../../utils/Tool'
+import {transToArray, getScrollTop} from '../../utils/Tool'
 import Logger from '../../utils/logger'
 
 import Icon from '../../icon'
@@ -98,6 +98,13 @@ export default class FilterContainer extends Component{
          * */
         hideCat: PropTypes.bool,
         /**
+         * 是否显示阴影
+         * @property noShadow
+         * @type Boolean
+         * @default false
+         * */
+        noShadow: PropTypes.bool,
+        /**
          * 有效选择触发的回调函数
          * @method clickCallback
          * @param {string} key 返回选中的key值
@@ -119,20 +126,16 @@ export default class FilterContainer extends Component{
         new Logger('ph-filter')
 
         this.state={
-            catList: this.getCatList(),
+            catList: this.getCatList(props),
+            activeIndex: props.index,
             activeCat: props.index,
             fixed: false
         };
 
         this.windowScrollHandle = this.windowScrollHandle.bind(this)
-        this.preventDefault = this.preventDefault.bind(this)
         this.containerOffsetTop = 0
 
         window.addEventListener('scroll', this.windowScrollHandle, false)
-    }
-
-    preventDefault(e){
-        preventDefault(e)
     }
 
     windowScrollHandle(){
@@ -150,24 +153,37 @@ export default class FilterContainer extends Component{
     }
 
     componentWillUnmount(){
-        this.willScroll()
         window.removeEventListener('scroll', this.windowScrollHandle, false)
     }
 
-    getCatList(){
-        let catList = React.Children.map(this.props.children,function(panel,index){
+    componentWillReceiveProps(nextProps){
+        let self = this,
+            setted = false // 解决map无法跳出的问题
+
+        React.Children.map(nextProps.children, function(panel,index){
+            if(setted) return
+            if(self.state.catList[index] !== panel.props.selected){
+                self.setState({
+                    catList: self.getCatList(nextProps)
+                })
+                setted = true
+            }
+        })
+    }
+
+    getCatList(props){
+        return React.Children.map(props.children, function(panel,index){
             //如果panel设置了selected属性的话直接读取selected属性；如果panel没有设置selected属性，则读取default用来展示在cat列表中
             return panel.props.selected ? panel.props.selected:{
                 key:'',
                 value: panel.props.default ? panel.props.default:''
             }
         })
-        return catList
     }
 
     setCatList(){
         this.setState({
-            catList: this.getCatList()
+            catList: this.getCatList(this.props)
         })
     }
 
@@ -180,48 +196,49 @@ export default class FilterContainer extends Component{
         catList[index] = category
         this.setState({
             catList,
-            activeCat:-1
+            activeCat: -1,
+            activeIndex: -1
         })
-
-        this.willScroll()
 
         clickCallback && clickCallback(category.key, this.state.activeCat)
     }
 
     activeCat(index){
         //展开某一个cat
+        let activeIndex = index
         if(index==this.state.activeCat){
             index=-1;
-            this.willScroll()
-        }else{
-            this.noScroll()
         }
 
         this.setState({
-            activeCat:index
+            activeCat:index,
+            activeIndex: activeIndex
         });
     }
 
     renderPanelList(){
         let self=this,
-            {catList,activeCat}=self.state;
+            {catList,activeCat,activeIndex}=self.state
+        
         return React.Children.map(this.props.children,function(panel,index){
-            let show = (index==activeCat)
+            let {choose, getChooseData, hideCat} = self.props,
+                {clickCallback} = panel.props,
+                show = (index==activeCat)
             
-            if(self.props.hideCat&&index==0){
-                show=true;
-            }
-
-            return  React.cloneElement(panel,{
+            if(hideCat && index==0) show=true;
+            if(activeIndex==index) clickCallback && clickCallback();
+            
+            let panelProps = {
                 categoryChange: self.categoryChange.bind(self),
                 // selected: catList[index],
                 setCatList: self.setCatList.bind(self),
                 panelIndex: index,
                 show: show,
-                choose: transToArray(self.props.choose),
-                getChooseData: self.props.getChooseData
-            })
-        });
+                getChooseData: transToArray(getChooseData)
+            }
+            
+            return  React.cloneElement(panel, panelProps)
+        })
     }
 
     renderCatList(){
@@ -229,8 +246,8 @@ export default class FilterContainer extends Component{
             return null;
         }
         let self=this,
-            {catList,activeCat}=self.state;
-
+            {catList,activeCat}=self.state
+            
         return catList.map(function(catCfg,index){
             return (
                 <li key={'cat-'+index} 
@@ -248,31 +265,28 @@ export default class FilterContainer extends Component{
 
     noScroll(){
         document.body.classList.add('noscroll')
-        // this.filterShadow.addEventListener('touchmove', this.preventDefault);
     }
 
     willScroll(){
         document.body.classList.remove('noscroll')
-        // this.filterShadow.removeEventListener('touchmove', this.preventDefault);
     }
 
     hidePanel(){
         this.setState({
             activeCat: -1
-        }, ()=>{
-            this.willScroll()
         })
     }
 
     render(){
-        let {stable, className, style} = this.props,
+        let {stable, className, noShadow, style} = this.props,
             {activeCat, fixed} = this.state
-
+        
         return(
             <div className='ph-filter-occupy'>
                 <div className={classnames(
                         'ph-filter-container', 
                         activeCat==-1? '':'ph-filter-container-shadow',
+                        noShadow? 'ph-filter-container-noshadow':'',
                         fixed? 'ph-filter-container-fixed':'',
                         className
                     )}
