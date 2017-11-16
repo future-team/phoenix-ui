@@ -142,8 +142,8 @@ export default class phFilter extends Component {
         })
     }
 
-    test(){
-        console.log('test!!!')
+    test(show){
+        console.log(show)
     }
 
     render(){

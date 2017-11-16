@@ -226,7 +226,7 @@ export default class FilterContainer extends Component{
                 show = (index==activeCat)
             
             if(hideCat && index==0) show=true;
-            if(activeIndex==index) clickCallback && clickCallback();
+            if(activeIndex==index) clickCallback && clickCallback(activeCat==index);
             
             let panelProps = {
                 categoryChange: self.categoryChange.bind(self),

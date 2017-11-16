@@ -13223,7 +13223,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var show = index == activeCat;
 
 	            if (hideCat && index == 0) show = true;
-	            if (activeIndex == index) clickCallback && clickCallback();
+	            if (activeIndex == index) clickCallback && clickCallback(activeCat == index);
 
 	            var panelProps = {
 	                categoryChange: self.categoryChange.bind(self),
