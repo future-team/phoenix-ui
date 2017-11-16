@@ -13114,9 +13114,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        new _utilsLogger2['default']('ph-filter');
 
+	        this.catClick = false;
+	        this.activeIndex = props.index;
+
 	        this.state = {
 	            catList: this.getCatList(props),
-	            activeIndex: props.index,
 	            activeCat: props.index,
 	            fixed: false
 	        };
@@ -13187,23 +13189,32 @@ return /******/ (function(modules) { // webpackBootstrap
 	        catList[index] = category;
 	        this.setState({
 	            catList: catList,
-	            activeCat: -1,
-	            activeIndex: -1
+	            activeCat: -1
 	        });
 
 	        clickCallback && clickCallback(category.key, this.state.activeCat);
 	    };
 
 	    FilterContainer.prototype.activeCat = function activeCat(index) {
+	        var _this2 = this;
+
 	        //展开某一个cat
-	        var activeIndex = index;
+	        if (this.filterContainer.offsetTop && _utilsTool.getScrollTop() < this.filterContainer.offsetTop) {
+	            // 打开时滚动到顶部
+	            document.documentElement.scrollTop = this.filterContainer.offsetTop;
+	        }
+
+	        this.catClick = true;
+	        this.activeIndex = index;
+
 	        if (index == this.state.activeCat) {
 	            index = -1;
 	        }
 
 	        this.setState({
-	            activeCat: index,
-	            activeIndex: activeIndex
+	            activeCat: index
+	        }, function () {
+	            _this2.catClick = false;
 	        });
 	    };
 
@@ -13212,7 +13223,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var _self$state = self.state;
 	        var catList = _self$state.catList;
 	        var activeCat = _self$state.activeCat;
-	        var activeIndex = _self$state.activeIndex;
 
 	        return _react2['default'].Children.map(this.props.children, function (panel, index) {
 	            var _self$props = self.props;
@@ -13222,8 +13232,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var clickCallback = panel.props.clickCallback;
 	            var show = index == activeCat;
 
-	            if (hideCat && index == 0) show = true;
-	            if (activeIndex == index) clickCallback && clickCallback(activeCat == index);
+	            if (hideCat && index == 0) show = true;console.log('self.catClick', self.catClick);
+	            if (self.catClick && self.activeIndex == index) clickCallback && clickCallback(activeCat == index);
 
 	            var panelProps = {
 	                categoryChange: self.categoryChange.bind(self),
@@ -13285,7 +13295,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    FilterContainer.prototype.render = function render() {
-	        var _this2 = this;
+	        var _this3 = this;
 
 	        var _props = this.props;
 	        var stable = _props.stable;
@@ -13303,7 +13313,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                'div',
 	                { className: _classnames2['default']('ph-filter-container', activeCat == -1 ? '' : 'ph-filter-container-shadow', noShadow ? 'ph-filter-container-noshadow' : '', fixed ? 'ph-filter-container-fixed' : '', className),
 	                    ref: function (filterContainer) {
-	                        _this2.filterContainer = filterContainer;
+	                        _this3.filterContainer = filterContainer;
 	                    },
 	                    style: _extends({ top: stable && !fixed && activeCat > -1 ? this.containerOffsetTop + 'px' : '' }, style)
 	                },

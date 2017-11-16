@@ -125,12 +125,14 @@ export default class FilterContainer extends Component{
 
         new Logger('ph-filter')
 
+        this.catClick = false
+        this.activeIndex = props.index
+
         this.state={
             catList: this.getCatList(props),
-            activeIndex: props.index,
             activeCat: props.index,
             fixed: false
-        };
+        }
 
         this.windowScrollHandle = this.windowScrollHandle.bind(this)
         this.containerOffsetTop = 0
@@ -196,8 +198,7 @@ export default class FilterContainer extends Component{
         catList[index] = category
         this.setState({
             catList,
-            activeCat: -1,
-            activeIndex: -1
+            activeCat: -1
         })
 
         clickCallback && clickCallback(category.key, this.state.activeCat)
@@ -205,28 +206,35 @@ export default class FilterContainer extends Component{
 
     activeCat(index){
         //展开某一个cat
-        let activeIndex = index
+        if(this.filterContainer.offsetTop && getScrollTop() < this.filterContainer.offsetTop){ // 打开时滚动到顶部
+            document.documentElement.scrollTop = this.filterContainer.offsetTop
+        }
+
+        this.catClick = true
+        this.activeIndex = index
+
         if(index==this.state.activeCat){
-            index=-1;
+            index = -1
         }
 
         this.setState({
-            activeCat:index,
-            activeIndex: activeIndex
+            activeCat:index
+        }, ()=>{
+            this.catClick = false
         });
     }
 
     renderPanelList(){
         let self=this,
-            {catList,activeCat,activeIndex}=self.state
+            {catList,activeCat}=self.state
         
         return React.Children.map(this.props.children,function(panel,index){
             let {choose, getChooseData, hideCat} = self.props,
                 {clickCallback} = panel.props,
                 show = (index==activeCat)
             
-            if(hideCat && index==0) show=true;
-            if(activeIndex==index) clickCallback && clickCallback(activeCat==index);
+            if(hideCat && index==0) show=true;console.log('self.catClick', self.catClick)
+            if(self.catClick && self.activeIndex==index) clickCallback && clickCallback(activeCat==index);
             
             let panelProps = {
                 categoryChange: self.categoryChange.bind(self),
