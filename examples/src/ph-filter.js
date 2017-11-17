@@ -144,6 +144,9 @@ export default class phFilter extends Component {
 
     test(show){
         console.log(show)
+        // setTimeout(()=>{
+        //     this.filterContainer.hideCallback();
+        // }, 2000)
     }
 
     render(){
@@ -158,7 +161,7 @@ export default class phFilter extends Component {
         return (
             <div>
                 <h2 className="comp-title">PhFilter</h2>
-                <Container index={-1} hidecat={false} clickCallback={this.clickCallback.bind(this)} choose='f_hg,m_sryy' noShadow={this.state.noShadow}>
+                <Container index={-1} hidecat={false} clickCallback={this.clickCallback.bind(this)} noShadow={this.state.noShadow} ref={(filterContainer)=>{this.filterContainer=filterContainer}}>
                     <PanelSimple default='筛选'>
                         {
                             this.state.panel3.map(function(item){
@@ -187,6 +190,7 @@ export default class phFilter extends Component {
                 <h3 className="comp-type">index(默认-1) 初始打开的面板</h3>
                 <h3 className="comp-type">hideCat 是否隐藏头部</h3>
                 <h3 className="comp-type">clickCallback 项目选择的回调</h3>
+                <h3 className="comp-type">noShadow 是否显示阴影，默认显示</h3>
                 <Code target="filter-container" />
 
                 <h3 className="comp-type"><strong>PanelSimple</strong></h3>
@@ -194,6 +198,7 @@ export default class phFilter extends Component {
                 <h3 className="comp-type">selected 选中的项目</h3>
                 <h3 className="comp-type">readOnly 不可选的状态</h3>
                 <h3 className="comp-type">buttons 传入的按钮数组</h3>
+                <h3 className="comp-type">clickCallback 打开隐藏的回调</h3>
                 <Code target="filter-panelsimple" />
 
                 <h3 className="comp-type"><strong>Panel</strong></h3>

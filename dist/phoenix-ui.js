@@ -13232,7 +13232,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var clickCallback = panel.props.clickCallback;
 	            var show = index == activeCat;
 
-	            if (hideCat && index == 0) show = true;console.log('self.catClick', self.catClick);
+	            if (hideCat && index == 0) show = true;
 	            if (self.catClick && self.activeIndex == index) clickCallback && clickCallback(activeCat == index);
 
 	            var panelProps = {
@@ -13292,6 +13292,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.setState({
 	            activeCat: -1
 	        });
+	    };
+
+	    FilterContainer.prototype.hideCallback = function hideCallback() {
+	        this.hidePanel();
 	    };
 
 	    FilterContainer.prototype.render = function render() {

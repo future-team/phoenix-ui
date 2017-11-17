@@ -233,7 +233,7 @@ export default class FilterContainer extends Component{
                 {clickCallback} = panel.props,
                 show = (index==activeCat)
             
-            if(hideCat && index==0) show=true;console.log('self.catClick', self.catClick)
+            if(hideCat && index==0) show=true;
             if(self.catClick && self.activeIndex==index) clickCallback && clickCallback(activeCat==index);
             
             let panelProps = {
@@ -283,6 +283,10 @@ export default class FilterContainer extends Component{
         this.setState({
             activeCat: -1
         })
+    }
+
+    hideCallback(){
+        this.hidePanel()
     }
 
     render(){
