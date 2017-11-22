@@ -19,9 +19,9 @@
     margin: 0 auto;
 }
 
-::-webkit-scrollbar{  
+/* ::-webkit-scrollbar{  
     width: 0; 
-}  
+}   */
 
 /*** List ***/
 .menu{
@@ -257,9 +257,9 @@
     text-decoration: underline;
 }
 
-::-webkit-scrollbar{
+/* ::-webkit-scrollbar{
     height: 0;
-}
+} */
 
 /*** 列表页demo ***/
 .list-demo{
