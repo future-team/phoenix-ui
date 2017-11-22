@@ -11,6 +11,7 @@ import Icon from '../../icon'
  * <strong><a href='../classes/FilterCheckbox.html'>FilterCheckbox 多选筛选</a></strong><br>
  * <strong><a href='../classes/FilterPanelSimple.html'>FilterPanelSimple 简单面板</a></strong><br>
  * <strong><a href='../classes/FilterPanel.html'>FilterPanel 面板</a></strong><br>
+ * <strong><a href='../classes/FilterPanelCheckbox.html'>FilterPanelCheckbox 多选面板</a></strong><br>
  * <strong><a href='../classes/FilterItemGroup.html'>FilterItemGroup 主菜单</a></strong><br>
  * <strong><a href='../classes/FilterItem.html'>FilterItem 筛选项</a></strong><br>
  * <h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>
@@ -24,13 +25,17 @@ import Icon from '../../icon'
  * - 可通过index设置筛选默认打开的面板。默认－1，即都不打开。
  * - 可通过hideCat选择是否要显示筛选头部。
  * - 可通过clickCallback设置有效选择的回调，当没有按钮时选中即触发，有按钮时点击按钮时触发。
+ * - 可通过noShadow设置是否显示阴影，默认显示。
+ * - 可通过hideCallback手动调用隐藏panel。
  *
  * 主要属性和接口：
  * - index: 默认打开的面板。
  * - hideCat: 是否显示筛选头部。
  * - clickCallback: 有效选择的回调。
+ * - noShadow: 是否显示阴影。
+ * - hideCallback: 手动调用隐藏panel。
  * 
- * 有2种形式，其一，简单模式。<br/>
+ * 有4种形式，其一，简单单选模式。<br/>
  * 如：
  * ```code
  *  this.state = {
@@ -42,7 +47,7 @@ import Icon from '../../icon'
  *      ]
  *  }
  * ...
- *  <FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)} stable>
+ *  <FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)} ref={(container)=>{this.container=container}} noShadow={true}>
  *      <PanelSimple readOnly className='panel1' selected={{key:'ljz',value:'陆家嘴'}}>
  *          {
  *              this.state.panel1.map(function(item){
@@ -51,24 +56,54 @@ import Icon from '../../icon'
  *          }
  *      </PanelSimple>
  *  </FilterContainer>
+ * ...
+ * this.container.hideCallback();
  * ```
- * 其一，双栏模式。<br/>
+ * 其二，简单多选模式。<br/>
+ * 如：
+ * ```code
+ *  <FilterContainer index={0} clickCallback={this.clickCallback.bind(this)}>
+ *      <PanelCheckbox readOnly className='panel1' selected={{key:'ljz',value:'陆家嘴'}} type='simple'>
+ *          {
+ *              this.state.panel1.map(function(item){
+ *                  return <Item key={item.key} itemKey={item.key}>{item.value}</Item>
+ *              })
+ *          }
+ *      </PanelCheckbox>
+ *  </FilterContainer>
+ * ```
+ * 其三，双栏单选模式。<br/>
  * 如：
  * ```code
  *  <FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)}>
  *      <Panel readOnly selected={{key:'s_flower',value:'花店'}}>
  *          <ItemGroup label={<span style={{color:'red'}}>美食</span>}>
- *              <Item itemKey='f_all'>全部美食</Item>
  *              <Item itemKey='f_bbc'>本帮江浙菜</Item>
  *              ...
  *          </ItemGroup>
  *          <ItemGroup  label='电影'>
- *              <Item itemKey='m_all'>全部电影</Item>
  *              <Item itemKey='m_p'>私人影院</Item>
  *              ...
  *          </ItemGroup>
  *          ...
  *      </Panel>
+ *  </FilterContainer>
+ * ```
+ * 其三，双栏多选模式。<br/>
+ * 如：
+ * ```code
+ *  <FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)}>
+ *      <PanelCheckbox readOnly selected={{key:'s_flower',value:'花店'}}>
+ *          <ItemGroup mainKey='ms' label={<span style={{color:'red'}}>美食</span>}>
+ *              <Item itemKey='f_bbc'>本帮江浙菜</Item>
+ *              ...
+ *          </ItemGroup>
+ *          <ItemGroup mainKey='dy' label='电影'>
+ *              <Item itemKey='m_p'>私人影院</Item>
+ *              ...
+ *          </ItemGroup>
+ *          ...
+ *      </PanelCheckbox>
  *  </FilterContainer>
  * ```
  *
@@ -110,7 +145,13 @@ export default class FilterContainer extends Component{
          * @param {string} key 返回选中的key值
          * @type Function
          * */
-        clickCallback: PropTypes.func
+        clickCallback: PropTypes.func,
+        /**
+         * 手动隐藏panel
+         * @method hideCallback
+         * @type Function
+         * */
+        hideCallback: PropTypes.func
     }
 
     static defaultProps = {
@@ -141,6 +182,7 @@ export default class FilterContainer extends Component{
     }
 
     windowScrollHandle(){
+        if(this.state.activeCat>-1) return
         if(getScrollTop() > this.containerOffsetTop){
             if(!this.state.fixed) this.setState({fixed: true})
         }else{
@@ -176,7 +218,7 @@ export default class FilterContainer extends Component{
     getCatList(props){
         return React.Children.map(props.children, function(panel,index){
             //如果panel设置了selected属性的话直接读取selected属性；如果panel没有设置selected属性，则读取default用来展示在cat列表中
-            return panel.props.selected ? panel.props.selected:{
+            return panel.props.selected && panel.props.selected.key ? panel.props.selected:{
                 key:'',
                 value: panel.props.default ? panel.props.default:''
             }

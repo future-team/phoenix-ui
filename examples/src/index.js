@@ -40,6 +40,7 @@ import Image from './image.js'
 import Steps from './steps.js'
 import SearchBar from './search-bar.js'
 import PullUp from './pullup.js'
+import PullDown from './pulldown.js'
 
 import Animate from './animate.js'
 import Drag from './drag.js'
@@ -180,6 +181,7 @@ let AppRouter = class AppRouter extends Component {
                 <Route path="/star" name="star" component={Star} />
                 <Route path="/swipe" name="swipe" component={Swipe} />
                 <Route path="/pullup" name="pullup" component={PullUp} />
+                <Route path="/pulldown" name="pulldown" component={PullDown} />
                 <Route path="/slider" name="slider" component={Slider} />
                 <Route path="/steps" name="steps" component={Steps} />
                 <Route path="/dialog" name="dialog" component={Dialog} />

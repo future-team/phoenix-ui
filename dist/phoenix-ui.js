@@ -12529,8 +12529,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * 
 	 * 示例：
 	 * ```code
-	 *  <div style={{height:'300px',overflow:'auto'}} ref={(list)=>this.list=list}>
-	 *      <div> // 用到getTarget需要保证只有一个子元素，包裹住滚动的所有内容
+	 *  <div style={{height:'300px',overflow:'auto'}} ref={(list)=>this.list=list}> // 用到getTarget需要保证只有一个子元素，包裹住滚动的所有内容
+	 *      <div> 
 	 *          <List>...</List> // 可加载列表的位置
 	 *          <PullUp mode='button' status={this.state.status} 
 	 *              tips={['点击加载更多','加载中...','加载成功！','加载失败！','没有更多']} 
@@ -12881,7 +12881,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.ph-pullup {\n  text-align: center;\n}\n.ph-pullup-tip {\n  padding: 0.24rem 0;\n  font-size: 0.28rem;\n  color: #999;\n}\n.ph-pullup-tip .gfs-icon-loading {\n  width: 0.36rem;\n  height: 0.36rem;\n  font-size: 0.36rem;\n}\n", ""]);
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.ph-pullup,\n.ph-pulldown {\n  text-align: center;\n}\n.ph-pulldown {\n  position: relative;\n  margin-top: -88px;\n  z-index: -1;\n}\n.ph-pullup-tip,\n.ph-pulldown-tip {\n  padding: 0.24rem 0;\n  font-size: 0.28rem;\n  color: #999;\n}\n.ph-pullup-tip .gfs-icon-loading,\n.ph-pulldown-tip .gfs-icon-loading {\n  width: 0.36rem;\n  height: 0.36rem;\n  font-size: 0.36rem;\n}\n", ""]);
 
 	// exports
 
@@ -12990,6 +12990,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * <strong><a href='../classes/FilterCheckbox.html'>FilterCheckbox 多选筛选</a></strong><br>
 	 * <strong><a href='../classes/FilterPanelSimple.html'>FilterPanelSimple 简单面板</a></strong><br>
 	 * <strong><a href='../classes/FilterPanel.html'>FilterPanel 面板</a></strong><br>
+	 * <strong><a href='../classes/FilterPanelCheckbox.html'>FilterPanelCheckbox 多选面板</a></strong><br>
 	 * <strong><a href='../classes/FilterItemGroup.html'>FilterItemGroup 主菜单</a></strong><br>
 	 * <strong><a href='../classes/FilterItem.html'>FilterItem 筛选项</a></strong><br>
 	 * <h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>
@@ -13003,13 +13004,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * - 可通过index设置筛选默认打开的面板。默认－1，即都不打开。
 	 * - 可通过hideCat选择是否要显示筛选头部。
 	 * - 可通过clickCallback设置有效选择的回调，当没有按钮时选中即触发，有按钮时点击按钮时触发。
+	 * - 可通过noShadow设置是否显示阴影，默认显示。
+	 * - 可通过hideCallback手动调用隐藏panel。
 	 *
 	 * 主要属性和接口：
 	 * - index: 默认打开的面板。
 	 * - hideCat: 是否显示筛选头部。
 	 * - clickCallback: 有效选择的回调。
+	 * - noShadow: 是否显示阴影。
+	 * - hideCallback: 手动调用隐藏panel。
 	 * 
-	 * 有2种形式，其一，简单模式。<br/>
+	 * 有4种形式，其一，简单单选模式。<br/>
 	 * 如：
 	 * ```code
 	 *  this.state = {
@@ -13021,7 +13026,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *      ]
 	 *  }
 	 * ...
-	 *  <FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)} stable>
+	 *  <FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)} ref={(container)=>{this.container=container}} noShadow={true}>
 	 *      <PanelSimple readOnly className='panel1' selected={{key:'ljz',value:'陆家嘴'}}>
 	 *          {
 	 *              this.state.panel1.map(function(item){
@@ -13030,24 +13035,54 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *          }
 	 *      </PanelSimple>
 	 *  </FilterContainer>
+	 * ...
+	 * this.container.hideCallback();
 	 * ```
-	 * 其一，双栏模式。<br/>
+	 * 其二，简单多选模式。<br/>
+	 * 如：
+	 * ```code
+	 *  <FilterContainer index={0} clickCallback={this.clickCallback.bind(this)}>
+	 *      <PanelCheckbox readOnly className='panel1' selected={{key:'ljz',value:'陆家嘴'}} type='simple'>
+	 *          {
+	 *              this.state.panel1.map(function(item){
+	 *                  return <Item key={item.key} itemKey={item.key}>{item.value}</Item>
+	 *              })
+	 *          }
+	 *      </PanelCheckbox>
+	 *  </FilterContainer>
+	 * ```
+	 * 其三，双栏单选模式。<br/>
 	 * 如：
 	 * ```code
 	 *  <FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)}>
 	 *      <Panel readOnly selected={{key:'s_flower',value:'花店'}}>
 	 *          <ItemGroup label={<span style={{color:'red'}}>美食</span>}>
-	 *              <Item itemKey='f_all'>全部美食</Item>
 	 *              <Item itemKey='f_bbc'>本帮江浙菜</Item>
 	 *              ...
 	 *          </ItemGroup>
 	 *          <ItemGroup  label='电影'>
-	 *              <Item itemKey='m_all'>全部电影</Item>
 	 *              <Item itemKey='m_p'>私人影院</Item>
 	 *              ...
 	 *          </ItemGroup>
 	 *          ...
 	 *      </Panel>
+	 *  </FilterContainer>
+	 * ```
+	 * 其三，双栏多选模式。<br/>
+	 * 如：
+	 * ```code
+	 *  <FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)}>
+	 *      <PanelCheckbox readOnly selected={{key:'s_flower',value:'花店'}}>
+	 *          <ItemGroup mainKey='ms' label={<span style={{color:'red'}}>美食</span>}>
+	 *              <Item itemKey='f_bbc'>本帮江浙菜</Item>
+	 *              ...
+	 *          </ItemGroup>
+	 *          <ItemGroup mainKey='dy' label='电影'>
+	 *              <Item itemKey='m_p'>私人影院</Item>
+	 *              ...
+	 *          </ItemGroup>
+	 *          ...
+	 *      </PanelCheckbox>
 	 *  </FilterContainer>
 	 * ```
 	 *
@@ -13093,7 +13128,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * @param {string} key 返回选中的key值
 	             * @type Function
 	             * */
-	            clickCallback: _react.PropTypes.func
+	            clickCallback: _react.PropTypes.func,
+	            /**
+	             * 手动隐藏panel
+	             * @method hideCallback
+	             * @type Function
+	             * */
+	            hideCallback: _react.PropTypes.func
 	        },
 	        enumerable: true
 	    }, {
@@ -13130,6 +13171,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    FilterContainer.prototype.windowScrollHandle = function windowScrollHandle() {
+	        if (this.state.activeCat > -1) return;
 	        if (_utilsTool.getScrollTop() > this.containerOffsetTop) {
 	            if (!this.state.fixed) this.setState({ fixed: true });
 	        } else {
@@ -13167,7 +13209,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    FilterContainer.prototype.getCatList = function getCatList(props) {
 	        return _react2['default'].Children.map(props.children, function (panel, index) {
 	            //如果panel设置了selected属性的话直接读取selected属性；如果panel没有设置selected属性，则读取default用来展示在cat列表中
-	            return panel.props.selected ? panel.props.selected : {
+	            return panel.props.selected && panel.props.selected.key ? panel.props.selected : {
 	                key: '',
 	                value: panel.props['default'] ? panel.props['default'] : ''
 	            };
@@ -13371,22 +13413,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * - 可通过selected设置选中的项目，格式如`{key:'ljz',value:'陆家嘴'}`。
 	 * - 可通过default设置没有选项时的默认显示文字。
 	 * - 可通过readOnly设置当前面板是否为只读模式。
-	 * - 可通过buttons设置底部按钮组的样式、文字、回调等，格式如`[{text:'取消', phStyle:'info', onHandle:this.cancelChoose.bind(this), otherProps: {hollow:true}}]`。
-	 *
+	 * - 可通过clickCallBack设置点击显隐panel的回调。
+	 * 
 	 * 主要属性和接口：
 	 * - selected: 默认打开的面板。
 	 * - default: 是否显示筛选头部。
-	 * - readOnly: 有效选择的回调。
-	 * - buttons: 有效选择的回调。
+	 * - readOnly: 是否只读
+	 * - clickCallBack: 点击panel显隐的回调。
 	 * 
 	 * 如：
 	 * ```code
-	 *  const buttons = [
-	 *      {onHandle: this.onSubmit.bind(this)}
-	 *  ]
 	 * ...
 	 *  <FilterContainer>
-	 *      <Panel readOnly selected={{key:'s_flower',value:'花店'}} buttons={buttons}>
+	 *      <Panel readOnly selected={{key:'s_flower',value:'花店'}} clickCallBack={(show)=>{console.log(show)}}>
 	 *          <ItemGroup label={<span style={{color:'red'}}>美食</span>}>
 	 *              <Item itemKey='f_all'>全部美食</Item>
 	 *              <Item itemKey='f_bbc'>本帮江浙菜</Item>
@@ -13439,18 +13478,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * */
 	            readOnly: _react.PropTypes.bool,
 	            /**
-	            * 按钮数组
-	            * @property buttons
-	            * @type Array
-	            * */
-	            buttons: _react.PropTypes.array,
-	            /**
 	            * 主菜单默认选中项
 	            * @property index
 	            * @type Number
 	            * @default 0
 	            * */
-	            index: _react.PropTypes.number
+	            index: _react.PropTypes.number,
+	            /**
+	             * 点击panel显隐的回调
+	             * @method clickCallback
+	             * @param {string} show 是否显示
+	             * @type Function
+	             * */
+	            clickCallBack: _react.PropTypes.func
 	        },
 	        enumerable: true
 	    }, {
@@ -13754,13 +13794,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * - 可通过selected设置选中的项目，格式如`{key:'ljz',value:'陆家嘴'}`。
 	 * - 可通过default设置没有选项时的默认显示文字。
 	 * - 可通过readOnly设置当前面板是否为只读模式。
-	 * - 可通过buttons设置底部按钮组的样式、文字、回调等，格式如`[{text:'取消', phStyle:'info', onHandle:this.cancelChoose.bind(this), otherProps: {hollow:true}}]`。
-	 *
+	 * - 可通过clickCallBack设置点击显隐panel的回调。
+	 * 
 	 * 主要属性和接口：
 	 * - selected: 默认打开的面板。
 	 * - default: 是否显示筛选头部。
 	 * - readOnly: 有效选择的回调。
-	 * - buttons: 有效选择的回调。
+	 * - clickCallBack: 点击panel显隐的回调。
 	 * 
 	 * 如：
 	 * ```code
@@ -13773,12 +13813,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *      ]
 	 *  }
 	 * ...
-	 *  const buttons = [
-	 *      {onHandle: this.onSubmit.bind(this)}
-	 *  ]
-	 * ...
 	 *  <FilterContainer>
-	 *      <PanelSimple readOnly selected={{key:'ljz',value:'陆家嘴'}} buttons={buttons}>
+	 *      <PanelSimple readOnly selected={{key:'ljz',value:'陆家嘴'}} clickCallBack={(show)=>{console.log(show)}}>
 	 *          {
 	 *              this.state.panel1.map(function(item){
 	 *                  return <Item key={item.key} itemKey={item.key}>{item.value}</Item>
@@ -13825,11 +13861,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * */
 	            readOnly: _react.PropTypes.bool,
 	            /**
-	            * 按钮数组
-	            * @property buttons
-	            * @type Array
-	            * */
-	            buttons: _react.PropTypes.array
+	             * 点击panel显隐的回调
+	             * @method clickCallback
+	             * @param {string} show 是否显示
+	             * @type Function
+	             * */
+	            clickCallBack: _react.PropTypes.func
 	        },
 	        enumerable: true
 	    }, {
@@ -14388,6 +14425,62 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _button2 = _interopRequireDefault(_button);
 
+	/**
+	 * 多选面板<br/>
+	 * - 可通过selected设置选中的项目，格式如`{key:'ljz',value:'陆家嘴'}`。
+	 * - 可通过default设置没有选项时的默认显示文字。
+	 * - 可通过readOnly设置当前面板是否为只读模式。
+	 * - 可通过buttons设置底部按钮组的样式、文字、回调等，格式如`[{text:'取消', phStyle:'info', onHandle:this.cancelChoose.bind(this), close:true, otherProps: {hollow:true}}]`。
+	 * - 可通过clickCallBack设置点击显隐panel的回调。
+	 * - 可通过checkAll设置是否显示全选，默认显示。
+	 * - 可通过type来判断当前的模式是否简单。
+	 * 
+	 * 主要属性和接口：
+	 * - selected: 默认打开的面板。
+	 * - default: 是否显示筛选头部。
+	 * - readOnly: 是否只读。
+	 * - buttons: 按钮组。
+	 * - clickCallBack: 点击panel显隐的回调。
+	 * - checkAll: 是否显示全选。
+	 * - type: 简单模式。
+	 * 
+	 * 如：
+	 * ```code
+	 *  const buttons = [
+	 *      {onHandle: this.onSubmit.bind(this)}
+	 *  ]
+	 * ...
+	 *  <FilterContainer>
+	 *      <PanelCheckbox readOnly selected={{key:'s_flower,f_bbc',value:'花店,本帮江浙菜'}} buttons={buttons} checkAll={false} clickCallBack={(show)=>{console.log(show)}}>
+	 *          <ItemGroup mainKey='ms' label={<span style={{color:'red'}}>美食</span>}>
+	 *              <Item itemKey='f_bbc'>本帮江浙菜</Item>
+	 *              ...
+	 *          </ItemGroup>
+	 *          <ItemGroup mainKey='dy' label='电影'>
+	 *              <Item itemKey='m_p'>私人影院</Item>
+	 *              ...
+	 *          </ItemGroup>
+	 *          ...
+	 *      </PanelCheckbox>
+	 *  </FilterContainer>
+	 * 或
+	 * <FilterContainer>
+	 *      <PanelCheckbox readOnly selected={{key:'s_flower,f_bbc',value:'花店,本帮江浙菜'}} buttons={buttons} type='simple'>
+	 *          <Item itemKey='f_bbc'>本帮江浙菜</Item>
+	 *          ...
+	 *      </PanelCheckbox>
+	 *  </FilterContainer>
+	 * ```
+	 *
+	 * @class FilterPanelCheckbox
+	 * @module 筛选控件
+	 * @extends Component
+	 * @constructor
+	 * @since 2.2.0
+	 * @demo ph-filter|ph-filter.js {展示}
+	 * @show true
+	 * */
+
 	var FilterPanelCheckbox = (function (_Component) {
 	    _inherits(FilterPanelCheckbox, _Component);
 
@@ -14786,40 +14879,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/**
 	 * 简单面板<br/>
-	 * - 可通过selected设置选中的项目，格式如`{key:'ljz',value:'陆家嘴'}`。
-	 * - 可通过default设置没有选项时的默认显示文字。
-	 * - 可通过readOnly设置当前面板是否为只读模式。
-	 * - 可通过buttons设置底部按钮组的样式、文字、回调等，格式如`[{text:'取消', phStyle:'info', onHandle:this.cancelChoose.bind(this), otherProps: {hollow:true}}]`。
+	 * - - 可通过clickCallBack设置点击显隐panel的回调。
 	 *
 	 * 主要属性和接口：
-	 * - selected: 默认打开的面板。
-	 * - default: 是否显示筛选头部。
-	 * - readOnly: 有效选择的回调。
-	 * - buttons: 有效选择的回调。
+	 * - - clickCallBack: 点击panel显隐的回调。
 	 * 
 	 * 如：
 	 * ```code
-	 *  this.state = {
-	 *      panel1:[
-	 *          {key:'sndq',value:'上南地区'},
-	 *          {key:'ljz',value:'陆家嘴'},
-	 *          {key:'bbb',value:'八佰伴'},
-	 *          {key:'pdxq',value:'浦东新区'}
-	 *      ]
-	 *  }
-	 * ...
-	 *  const buttons = [
-	 *      {onHandle: this.onSubmit.bind(this)}
-	 *  ]
-	 * ...
 	 *  <FilterContainer>
-	 *      <PanelSimple readOnly selected={{key:'ljz',value:'陆家嘴'}} buttons={buttons}>
-	 *          {
-	 *              this.state.panel1.map(function(item){
-	 *                  return <Item key={item.key} itemKey={item.key}>{item.value}</Item>
-	 *              })
-	 *          }
-	 *      </PanelSimple>
+	 *      <PanelCustom clickCallback={(show)=>{console.log(show)}}>
+	 *          ...
+	 *      </PanelCustom>
 	 *  </FilterContainer>
 	 * ```
 	 *
@@ -14930,7 +15000,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.ph-filter-occupy {\n  height: 0.88rem;\n}\n.ph-filter-container {\n  position: relative;\n}\n.ph-filter-container-fixed,\n.ph-filter-container-shadow {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 99;\n  width: 100%;\n}\n.ph-filter-container-shadow {\n  height: 100%;\n}\n.ph-filter-shadow {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 1;\n  background-color: rgba(0, 0, 0, 0.4);\n  pointer-events: auto;\n}\n.ph-filter-container-noshadow .ph-filter-shadow {\n  background-color: transparent;\n}\n.ph-filter-header {\n  position: relative;\n  z-index: 2;\n  margin: 0;\n  background-color: #fff;\n  border-bottom: 1PX solid #e1e1e1;\n}\n.ph-filter-header .ph-filter-header-item {\n  position: relative;\n  height: 0.88rem;\n  padding: 0.24rem 0;\n  line-height: 0.4rem;\n  text-align: center;\n  font-size: 0.28rem;\n}\n.ph-filter-header .ph-filter-header-item a {\n  display: block;\n  height: 0.4rem;\n  border-right: 1PX solid #e1e1e1;\n  white-spac: nowrap;\n}\n.ph-filter-header .ph-filter-header-item:last-child a {\n  border-right: none;\n}\n.ph-filter-header .ph-filter-header-item .gfs-icon {\n  display: inline-block;\n  margin-left: 0.08rem;\n  line-height: 0.4rem;\n  font-size: 0.24rem;\n  color: #666;\n  -webkit-transition: all 0.2s;\n  -moz-transition: all 0.2s;\n  transition: all 0.2s;\n  vertical-align: top;\n}\n.ph-filter-header .ph-filter-header-item.active .gfs-icon {\n  -webkit-transform: rotate(-180deg);\n  -ms-transform: rotate(-180deg);\n  transform: rotate(-180deg);\n}\n.ph-filter-header .ph-filter-header-item.active:after {\n  content: \"\";\n  position: absolute;\n  bottom: -0.02rem;\n  left: 50%;\n  width: 0.18rem;\n  height: 0.18rem;\n  background-color: #fff;\n  border-top: 1PX solid #e1e1e1;\n  border-right: 1PX solid #e1e1e1;\n  -webkit-transform: rotate(-45deg) translateX(-50%);\n  -ms-transform: rotate(-45deg) translateX(-50%);\n  transform: rotate(-45deg) translateX(-50%);\n}\n.ph-filter-header .ph-filter-header-text {\n  display: inline-block;\n  overflow: hidden;\n  max-width: calc(100% - .72rem);\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n.ph-filter-selector {\n  position: relative;\n  z-index: 2;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n}\n.ph-filter-selector > * {\n  max-height: 72%;\n  pointer-events: auto;\n}\n.ph-filter-selector .ph-list,\n.ph-filter-selector .ph-tab-navs,\n.ph-filter-selector .ph-tab-bd {\n  overflow-y: auto;\n}\n.ph-filter-selector .ph-list::-webkit-scrollbar,\n.ph-filter-selector .ph-tab-navs::-webkit-scrollbar,\n.ph-filter-selector .ph-tab-bd::-webkit-scrollbar {\n  display: none;\n}\n.ph-filter-selector .ph-list-item.active {\n  color: #ff6633;\n}\n.ph-filter-selector .ph-button-group {\n  position: relative;\n  z-index: 1;\n}\n.ph-checkbox-filter .ph-filter-selector {\n  z-index: 9;\n}\n.ph-checkbox-filter .ph-filter-selector > * {\n  max-height: none;\n}\n.ph-checkbox-filter .ph-filter-selector .ph-list,\n.ph-checkbox-filter .ph-filter-selector .ph-tab-navs,\n.ph-checkbox-filter .ph-filter-selector .ph-tab-bd {\n  max-height: none;\n  height: 100vh;\n  padding-bottom: 1.28rem;\n}\n.ph-checkbox-filter .ph-filter-selector .ph-button-group {\n  margin-top: -1.28rem;\n}\n", ""]);
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.ph-filter-occupy {\n  height: 0.88rem;\n}\n.ph-filter-container {\n  position: relative;\n}\n.ph-filter-container-fixed,\n.ph-filter-container-shadow {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 99;\n  width: 100%;\n}\n.ph-filter-container-shadow {\n  height: 100%;\n}\n.ph-filter-shadow {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 1;\n  background-color: rgba(0, 0, 0, 0.4);\n  pointer-events: auto;\n}\n.ph-filter-container-noshadow .ph-filter-shadow {\n  background-color: transparent;\n}\n.ph-filter-header {\n  position: relative;\n  z-index: 2;\n  margin: 0;\n  background-color: #fff;\n  border-bottom: 1PX solid #e1e1e1;\n}\n.ph-filter-header .ph-filter-header-item {\n  position: relative;\n  height: 0.88rem;\n  padding: 0.24rem 0;\n  line-height: 0.4rem;\n  text-align: center;\n  font-size: 0.28rem;\n}\n.ph-filter-header .ph-filter-header-item a {\n  display: block;\n  height: 0.4rem;\n  border-right: 1PX solid #e1e1e1;\n  white-spac: nowrap;\n}\n.ph-filter-header .ph-filter-header-item:last-child a {\n  border-right: none;\n}\n.ph-filter-header .ph-filter-header-item .gfs-icon {\n  display: inline-block;\n  margin-left: 0.08rem;\n  line-height: 0.4rem;\n  font-size: 0.24rem;\n  color: #666;\n  -webkit-transition: all 0.2s;\n  -moz-transition: all 0.2s;\n  transition: all 0.2s;\n  vertical-align: top;\n}\n.ph-filter-header .ph-filter-header-item.active .gfs-icon {\n  -webkit-transform: rotate(-180deg);\n  -ms-transform: rotate(-180deg);\n  transform: rotate(-180deg);\n}\n.ph-filter-header .ph-filter-header-item.active:after {\n  content: \"\";\n  position: absolute;\n  bottom: -0.02rem;\n  left: 50%;\n  width: 0.18rem;\n  height: 0.18rem;\n  background-color: #fff;\n  border-top: 1PX solid #e1e1e1;\n  border-right: 1PX solid #e1e1e1;\n  -webkit-transform: rotate(-45deg) translateX(-50%);\n  -ms-transform: rotate(-45deg) translateX(-50%);\n  transform: rotate(-45deg) translateX(-50%);\n}\n.ph-filter-header .ph-filter-header-text {\n  display: inline-block;\n  overflow: hidden;\n  max-width: calc(100% - .72rem);\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n.ph-filter-selector {\n  position: relative;\n  z-index: 2;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n}\n.ph-filter-selector > * {\n  max-height: 72%;\n  pointer-events: auto;\n}\n.ph-filter-selector .ph-list,\n.ph-filter-selector .ph-tab-navs,\n.ph-filter-selector .ph-tab-bd {\n  overflow-y: auto;\n}\n.ph-filter-selector .ph-list-item.active {\n  color: #ff6633;\n}\n.ph-filter-selector .ph-button-group {\n  position: relative;\n  z-index: 1;\n}\n.ph-checkbox-filter .ph-filter-selector {\n  z-index: 9;\n}\n.ph-checkbox-filter .ph-filter-selector > * {\n  max-height: none;\n}\n.ph-checkbox-filter .ph-filter-selector .ph-list,\n.ph-checkbox-filter .ph-filter-selector .ph-tab-navs,\n.ph-checkbox-filter .ph-filter-selector .ph-tab-bd {\n  max-height: none;\n  height: 100vh;\n  padding-bottom: 1.28rem;\n}\n.ph-checkbox-filter .ph-filter-selector .ph-button-group {\n  margin-top: -1.28rem;\n}\n", ""]);
 
 	// exports
 

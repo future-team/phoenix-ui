@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui" />
+    <title>src/ph-filter/components/FilterPanelCheckbox.js - phoenix-ui</title>
+  
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+</head>
+<body class="yui3-smart" _assetsPath="../assets">
+ <nav class="navbar navbar-inverse navbar-fixed-top custom-navbar" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+               <a class="navbar-brand mainlogo" href="">
+             
+            <img alt="phoenix-ui" src="../assets/css/logo.png" title="phoenix-ui">
+            
+                phoenix-ui
+          </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                 <ul class="nav navbar-nav">
+                    
+                    <li><a href="index.html">主页</a>
+                    </li>
+                    
+                </ul>
+               <div class="navbar-form navbar-right filterAPi" autocomplete="off">
+                <input type="text" id='txtSearchAPI' class="form-control search-query" placeholder="Search for API" />
+                 <ul id="filterList" class="filterItems dropdown-menu" role="menu"></ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="gfs-wrapper clearfix">
+        <div id="sidebar">
+    <h3>模块/类</h3>
+        <div id="api-tabview-filter">
+            <input id='txtSearch' type="search" class="form-control" placeholder="Type to filter Modules/Classes">
+        </div>
+        <dl id="sidebar_list">
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/列表组件.html">列表组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/List.html">List</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/基础组件.html">基础组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Image.html">Image</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Button.html">Button</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/ButtonGroup.html">ButtonGroup</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Star.html">Star</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/布局组件.html">布局组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Col.html">Col</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Grid.html">Grid</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Row.html">Row</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/弹出框组件.html">弹出框组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Alert.html">Alert</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Dialog.html">Dialog</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Prompt.html">Prompt</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/提示组件.html">提示组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Popover.html">Popover</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/搜索组件.html">搜索组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/SearchBar.html">SearchBar</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/操作类组件.html">操作类组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/ImageList.html">ImageList</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Popup.html">Popup</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Slider.html">Slider</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Steps.html">Steps</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Toast.html">Toast</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Accordion.html">Accordion</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/PullUp.html">PullUp</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Swipe.html">Swipe</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/标签组件.html">标签组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Icon.html">Icon</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Badge.html">Badge</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Label.html">Label</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/筛选控件.html">筛选控件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/FilterCheckbox.html">FilterCheckbox</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterContainer.html">FilterContainer</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterItem.html">FilterItem</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterItemGroup.html">FilterItemGroup</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterPanel.html">FilterPanel</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterPanelCheckbox.html">FilterPanelCheckbox</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterPanelCustom.html">FilterPanelCustom</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterPanelSimple.html">FilterPanelSimple</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/菜单组件.html">菜单组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/MenuBody.html">MenuBody</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuHeader.html">MenuHeader</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuItem.html">MenuItem</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/MenuList.html">MenuList</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Menu.html">Menu</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/表单组件.html">表单组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Input.html">Input</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Radio.html">Radio</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Switch.html">Switch</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Checkbox.html">Checkbox</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/TextArea.html">TextArea</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/辅助组件.html">辅助组件</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Drag.html">Drag</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Animate.html">Animate</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+                <dt>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <a href="../modules/选项卡.html">选项卡</a>
+                </dt>
+                <dd>
+                    <ul>
+                   
+                       <li>
+                            
+                           <a href="../classes/Tab.html">Tab</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/Tabset.html">Tabset</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                    </ul>
+                </dd>
+             
+        </dl>
+    <div class="icon-sidebar-btn icon-sidebar-btn-open"><span class="glyphicon glyphicon-chevron-left"></span>收起</div>
+</div>
+   
+        <div class="stdoc-content">
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <div class="page-header">
+    <h1>src/ph-filter/components/FilterPanelCheckbox.js <small>File</small></h1>
+</div>
+
+<div class="file">
+    <pre class="prettyprint linenums" id='src_code'>
+import React, { Component ,PropTypes} from &#x27;react&#x27;
+import classnames from &#x27;classnames&#x27;
+import {transToArray} from &#x27;../../utils/Tool&#x27;
+
+import Item from &#x27;./FilterItem&#x27;
+import ButtonGroup from &#x27;../../button-group&#x27;
+import Button from &#x27;../../button&#x27;
+
+/**
+ * 多选面板&lt;br/&gt;
+ * - 可通过selected设置选中的项目，格式如&#x60;{key:&#x27;ljz&#x27;,value:&#x27;陆家嘴&#x27;}&#x60;。
+ * - 可通过default设置没有选项时的默认显示文字。
+ * - 可通过readOnly设置当前面板是否为只读模式。
+ * - 可通过buttons设置底部按钮组的样式、文字、回调等，格式如&#x60;[{text:&#x27;取消&#x27;, phStyle:&#x27;info&#x27;, onHandle:this.cancelChoose.bind(this), close:true, otherProps: {hollow:true}}]&#x60;。
+ * - 可通过clickCallBack设置点击显隐panel的回调。
+ * - 可通过checkAll设置是否显示全选，默认显示。
+ * - 可通过type来判断当前的模式是否简单。
+ * 
+ * 主要属性和接口：
+ * - selected: 默认打开的面板。
+ * - default: 是否显示筛选头部。
+ * - readOnly: 是否只读。
+ * - buttons: 按钮组。
+ * - clickCallBack: 点击panel显隐的回调。
+ * - checkAll: 是否显示全选。
+ * - type: 简单模式。
+ * 
+ * 如：
+ * &#x60;&#x60;&#x60;code
+ *  const buttons = [
+ *      {onHandle: this.onSubmit.bind(this)}
+ *  ]
+ * ...
+ *  &lt;FilterContainer&gt;
+ *      &lt;PanelCheckbox readOnly selected={{key:&#x27;s_flower,f_bbc&#x27;,value:&#x27;花店,本帮江浙菜&#x27;}} buttons={buttons} checkAll={false} clickCallBack={(show)=&gt;{console.log(show)}}&gt;
+ *          &lt;ItemGroup mainKey=&#x27;ms&#x27; label={&lt;span style={{color:&#x27;red&#x27;}}&gt;美食&lt;/span&gt;}&gt;
+ *              &lt;Item itemKey=&#x27;f_bbc&#x27;&gt;本帮江浙菜&lt;/Item&gt;
+ *              ...
+ *          &lt;/ItemGroup&gt;
+ *          &lt;ItemGroup mainKey=&#x27;dy&#x27; label=&#x27;电影&#x27;&gt;
+ *              &lt;Item itemKey=&#x27;m_p&#x27;&gt;私人影院&lt;/Item&gt;
+ *              ...
+ *          &lt;/ItemGroup&gt;
+ *          ...
+ *      &lt;/PanelCheckbox&gt;
+ *  &lt;/FilterContainer&gt;
+ * 或
+ * &lt;FilterContainer&gt;
+ *      &lt;PanelCheckbox readOnly selected={{key:&#x27;s_flower,f_bbc&#x27;,value:&#x27;花店,本帮江浙菜&#x27;}} buttons={buttons} type=&#x27;simple&#x27;&gt;
+ *          &lt;Item itemKey=&#x27;f_bbc&#x27;&gt;本帮江浙菜&lt;/Item&gt;
+ *          ...
+ *      &lt;/PanelCheckbox&gt;
+ *  &lt;/FilterContainer&gt;
+ * &#x60;&#x60;&#x60;
+ *
+ * @class FilterPanelCheckbox
+ * @module 筛选控件
+ * @extends Component
+ * @constructor
+ * @since 2.2.0
+ * @demo ph-filter|ph-filter.js {展示}
+ * @show true
+ * */
+export default class FilterPanelCheckbox extends Component{
+    constructor(props,context){
+        super(props,context);
+
+        this.choose = this.dealWithSelected(props)
+        this.nameList = {}
+
+        this.state={
+            activeGroupIndex: props.index,
+            allChecked: {},
+            itemChecked: {},
+            itemDisabled: {},
+            selected: this.dealWithSelected(props),
+            selectedName: this.dealWithSelected(props, &#x27;value&#x27;)
+        };
+    }
+
+    static propTypes= {
+        /**
+         * panel下选中的item的key、value组成的对象，用于设置该panel初始状态下选中的item项
+         * @property selected
+         * @type Object 如{key:&#x27;ljz,xjh&#x27;,value:&#x27;陆家嘴,徐家汇&#x27;}
+         * */
+        selected: PropTypes.shape({
+            key: PropTypes.string,
+            value: PropTypes.oneOfType([PropTypes.string,PropTypes.element])
+        }),
+        /**
+         * 当不设置panel的选中项时（不选择任何item），可以设置一个默认字符展示在filter上
+         * @property default
+         * @type String
+         * */
+        default: PropTypes.string,
+        /**
+         * panel是否为只读模式
+         * @property readOnly
+         * @type Boolean
+         * */
+        readOnly: PropTypes.bool,
+         /**
+         * 按钮数组
+         * @property buttons
+         * @type Array
+         * */
+        buttons: PropTypes.array,
+         /**
+         * 是否可以全选
+         * @property checkAll
+         * @type Boolean
+         * @default true
+         * */
+        checkAll: PropTypes.bool
+    }
+
+    static defaultProps = {
+        selected: {},
+        checkAll: true
+    }
+
+    componentWillReceiveProps(nextProps){
+        if(this.state.selected !== this.dealWithSelected(nextProps)){
+            this.setState({
+                selected: this.dealWithSelected(nextProps),
+                selectedName: this.dealWithSelected(nextProps, &#x27;value&#x27;)
+            })
+        }
+    }
+
+    dealWithSelected(props, param){
+        let key = param || &#x27;key&#x27;
+        if(props.selected &amp;&amp; props.selected[key]) return transToArray(props.selected[key])
+        else return []
+    }
+
+    deleteFromArray(val){
+        let {selected, selectedName} = this.state,
+            _index = selected.indexOf(val)
+
+        if(_index&gt;-1){
+            selected.splice(_index, 1)
+            selectedName.splice(_index, 1)
+        }
+    }
+ 
+    mainKeyChange(key){
+        this.setState({
+            activeGroupIndex: key
+        });
+    }
+
+    onAllItemChange(mainKey, itemKey, name, e){
+        let {selected, selectedName, allChecked, itemChecked} = this.state
+        
+        allChecked[mainKey] = e.target.checked
+        // 全选或全不选
+        for(let i in itemChecked[mainKey]){
+            itemChecked[mainKey][i] = e.target.checked
+
+            if(e.target.checked){ // 全选
+                if(selected.indexOf(i)==-1 &amp;&amp; !this.state.itemDisabled[mainKey][i]){
+                    selected.push(i.toString())
+                    selectedName.push(this.nameList[mainKey][i])
+                }
+            }else{ // 全不选
+                this.deleteFromArray(i)
+            }
+        }
+        
+        this.setState({
+            allChecked: allChecked,
+            itemChecked: itemChecked
+        });
+
+        // if(this.props.getChooseData) this.props.getChooseData(choose.join());
+    }
+
+    onItemChange(mainKey, itemKey, name, e){
+        let {selected, selectedName, allChecked, itemChecked, itemDisabled} = this.state
+
+        itemChecked[mainKey][itemKey] = e.target.checked
+        
+        if(!e.target.checked){ // 其中一个不选时去掉全选
+            allChecked[mainKey] = false;
+            this.deleteFromArray(itemKey.toString())
+        }
+
+        if(e.target.checked){
+            let count = true;
+            if(selected.indexOf(itemKey)==-1){
+                selected.push(itemKey.toString())
+                selectedName.push(name)
+            }
+            for(let i in itemChecked[mainKey]){
+                if(!itemChecked[mainKey][i] &amp;&amp; !itemDisabled[mainKey][i]){
+                    count = false;
+                    break;
+                }
+            }
+            if(count) allChecked[mainKey] = true;
+        }
+        
+        this.setState({
+            allChecked: allChecked,
+            itemChecked: itemChecked
+        });
+
+        // if(this.props.getChooseData) this.props.getChooseData(selected.join());
+    }
+
+    renderMainMenuList(){
+        let self = this;
+        
+        return React.Children.map(this.props.children,function(menu,index){
+            return (
+                React.cloneElement(menu,{
+                    active:self.state.activeGroupIndex==index,
+                    groupIndex:index,
+                    readOnly:self.props.readOnly,
+                    mainKeyChange:self.mainKeyChange.bind(self)
+                })
+            );
+        })
+    }
+
+    renderSubMenuList(mainMenuList){
+        let {selected} = this.state,
+            {itemChecked, itemDisabled} = this.state;
+        var mainMenu, self=this, {checkAll} = this.props;
+
+        mainMenu = React.Children.map(mainMenuList,function(menu){
+            let mainKey = menu.props.mainKey || 0;
+            
+            if(menu.props.groupIndex==self.state.activeGroupIndex){
+                return self.renderSubMenuCore(menu.props.children, selected, mainKey);
+            }
+        });
+
+        return mainMenu;
+    }
+
+    renderButtons(){
+        let {buttons, panelIndex} = this.props,
+            {selected, selectedName} = this.state,
+            self = this
+        
+        return buttons? (
+            &lt;ButtonGroup phType=&#x27;footer&#x27;&gt;
+                {
+                    buttons.map((button, index)=&gt;{
+                        return (
+                            &lt;Button key={index} {...button.otherProps} phSize=&#x27;lg&#x27; phStyle={button.phStyle || &#x27;primary&#x27;}
+                                onClick={()=&gt;{
+                                    if(button.onHandle){
+                                        button.onHandle(selected.join(), selectedName.join())
+                                        if(button.close) self.props.categoryChange(panelIndex, {key:selected.join(), value: selectedName.join()})
+                                    }
+                                }
+                            }&gt;
+                                {button.text || &#x27;确定&#x27;}
+                            &lt;/Button&gt;
+                        )
+                    })
+                }
+            &lt;/ButtonGroup&gt;
+        ): null
+    }
+
+    renderMenuList(){
+        let {selected} = this.state,
+            menuList = this.renderSubMenuCore(this.props.children, selected, 0)
+        return menuList
+    }
+
+    renderSubMenuCore(children, selected, mainKey){
+        let {itemChecked, itemDisabled, allChecked} = this.state,
+            {checkAll} = this.props
+        let subMenu = [], checkedCount = 0, disabledCount = 0, sum = 0, self = this
+
+        React.Children.map(children,function(item){
+            let key = item.props.itemKey, disabled = item.props.disabled
+            
+            itemChecked[mainKey] = itemChecked[mainKey] || {}
+            itemDisabled[mainKey] = itemDisabled[mainKey] || {}
+            self.nameList[mainKey] = self.nameList[mainKey] || {}
+
+            if(itemChecked[mainKey][key]==undefined || self.choose != selected){ // 兼容通过请求获取choose的情况
+                itemChecked[mainKey][key] = selected.indexOf(key.toString())!=-1
+            } 
+            if(itemDisabled[mainKey][key]==undefined || self.choose != selected){
+                itemDisabled[mainKey][key] = disabled
+            }
+            if(self.nameList[mainKey][key]==undefined || self.choose != selected){
+                self.nameList[mainKey][key] = item.props.children
+            }
+            
+            if(itemChecked[mainKey][key]) checkedCount++
+            if(disabled){
+                self.deleteFromArray(key.toString())
+                disabledCount++
+            } 
+            sum ++
+            
+            subMenu.push(React.cloneElement(item,{
+                active:false,
+                readOnly:self.props.readOnly,
+                categoryChange:self.props.categoryChange,
+                panelIndex:self.props.panelIndex,
+                // new props
+                checked: itemChecked[mainKey][key],
+                // selected:self.props.selected,
+                filterType: &#x27;checkbox&#x27;,
+                mainKey: mainKey,
+                onItemChange:self.onItemChange.bind(self)
+            }));
+        });
+        
+        // new一个全部的elemecontext
+        if(allChecked[mainKey]==undefined || self.choose != selected){
+            if(checkedCount+disabledCount==sum) allChecked[mainKey] = true
+            else allChecked[mainKey] = false
+        }
+        
+        if(checkAll) subMenu.unshift(&lt;Item active={false} key={mainKey} itemKey={mainKey} mainKey={mainKey} disabled={disabledCount==sum}
+            filterType=&#x27;checkbox&#x27; checked={allChecked[mainKey]} 
+            onItemChange={self.onAllItemChange.bind(self)}&gt;全部&lt;/Item&gt;)
+
+        return subMenu
+    }
+
+    isSimple(){
+        let {type} = this.props
+        return type==&#x27;simple&#x27;
+    }
+
+    renderSimpleMenu(className){
+        let menuList = this.renderMenuList()
+
+        return (
+            &lt;div className={classnames(&#x27;ph-row ph-tabs ph-tabs-vertical&#x27;, className)} &gt;
+                &lt;div className=&#x27;ph-col ph-tab-bd&#x27;&gt;{menuList}&lt;/div&gt;
+            &lt;/div&gt;
+        )
+    }
+
+    renderMenu(className){
+        let mainMenuList = this.renderMainMenuList(),
+            subMenuList = this.renderSubMenuList(mainMenuList)
+
+        return (
+            &lt;div className={classnames(&#x27;ph-row ph-tabs ph-tabs-vertical&#x27;, className)} &gt;
+                &lt;div className=&#x27;ph-col ph-col-33 ph-tab-navs&#x27;&gt;{mainMenuList}&lt;/div&gt;
+                &lt;div className=&#x27;ph-col ph-tab-bd&#x27;&gt;{subMenuList}&lt;/div&gt;
+            &lt;/div&gt;
+        )
+    }
+
+    render(){
+        let {className, buttons, show, type, children} = this.props
+        
+        return show? (
+            &lt;div className={classnames(&#x27;ph-filter-selector&#x27;, buttons? &#x27;ph-filter-selector-buttons&#x27;:&#x27;&#x27;)}&gt;
+                {this.isSimple()? this.renderSimpleMenu(className) : this.renderMenu(className)}
+                {this.renderButtons()}
+            &lt;/div&gt;
+        ): null
+    }
+}
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<a id="gotoTop" class='well well-small' href='#'>
+</a>
+<script src="../assets/vendor/jquery/jquery-1.8.2.js"></script>
+<script src="../assets/vendor/bootstrap/js/bootstrap.js"></script>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/doc.js"></script>
+
+</body>
+</html>

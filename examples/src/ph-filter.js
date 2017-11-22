@@ -144,9 +144,10 @@ export default class phFilter extends Component {
 
     test(show){
         console.log(show)
-        // setTimeout(()=>{
-        //     this.filterContainer.hideCallback();
-        // }, 2000)
+        
+        setTimeout(()=>{
+            this.filterContainer.hideCallback();
+        }, 2000)
     }
 
     render(){
@@ -172,7 +173,7 @@ export default class phFilter extends Component {
                     <Panel default='筛选' selected={{key:'m_sryy',value:'私人影院'}} index={-1}>
                         {this.renderPanelList('panel2')}
                     </Panel>
-                    <PanelCheckbox type='simple' checkAll={false} default='筛选' index={0} buttons={buttons2} selected={this.state.selected2}>
+                    <PanelCheckbox type='simple' checkAll={false} default='筛选' index={0} buttons={buttons2}>
                         {
                             this.state.panel1.map(function(item){
                                 return <Item key={item.key} itemKey={item.key}>{item.value}</Item>
@@ -190,6 +191,7 @@ export default class phFilter extends Component {
                 <h3 className="comp-type">index(默认-1) 初始打开的面板</h3>
                 <h3 className="comp-type">hideCat 是否隐藏头部</h3>
                 <h3 className="comp-type">clickCallback 项目选择的回调</h3>
+                <h3 className="comp-type">hideCallback 手动隐藏panel</h3>
                 <h3 className="comp-type">noShadow 是否显示阴影，默认显示</h3>
                 <Code target="filter-container" />
 
@@ -197,16 +199,34 @@ export default class phFilter extends Component {
                 <h3 className="comp-type">default 没有选中项时的默认显示文字</h3>
                 <h3 className="comp-type">selected 选中的项目</h3>
                 <h3 className="comp-type">readOnly 不可选的状态</h3>
-                <h3 className="comp-type">buttons 传入的按钮数组</h3>
                 <h3 className="comp-type">clickCallback 打开隐藏的回调</h3>
                 <Code target="filter-panelsimple" />
 
                 <h3 className="comp-type"><strong>Panel</strong></h3>
                 <h3 className="comp-type">index 主菜单选中项索引值</h3>
-                <h3 className="comp-type">其他属性同PanelSimple</h3>
+                <h3 className="comp-type">default 没有选中项时的默认显示文字</h3>
+                <h3 className="comp-type">selected 选中的项目</h3>
+                <h3 className="comp-type">readOnly 不可选的状态</h3>
+                <h3 className="comp-type">clickCallback 打开隐藏的回调</h3>
                 <Code target="filter-panel"/>
 
+                <h3 className="comp-type"><strong>PanelCheckbox</strong></h3>
+                <h3 className="comp-type">index 主菜单选中项索引值</h3>
+                <h3 className="comp-type">type simple表示单栏</h3>
+                <h3 className="comp-type">default 没有选中项时的默认显示文字</h3>
+                <h3 className="comp-type">selected 选中的项目</h3>
+                <h3 className="comp-type">readOnly 不可选的状态</h3>
+                <h3 className="comp-type">buttons 传入的按钮数组</h3>
+                <h3 className="comp-type">clickCallback 打开隐藏的回调</h3>
+                <Code target="filter-panel"/>
+
+                <h3 className="comp-type"><strong>PanelCustom</strong></h3>
+                <h3 className="comp-type">clickCallback 打开隐藏的回调</h3>
+                <h3 className="comp-type">其他完全自定义</h3>
+                <Code target="filter-panel"/>                
+
                 <h3 className="comp-type"><strong>ItemGroup(配合Panel使用)</strong></h3>
+                <h3 className="comp-type">mainKey(必须) 唯一标识</h3>
                 <h3 className="comp-type">label 显示的文字</h3>
                 <Code target="filter-itemgroup" />
 

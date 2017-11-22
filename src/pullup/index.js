@@ -31,8 +31,8 @@ import 'phoenix-styles/less/modules/pullup.less'
  * 
  * 示例：
  * ```code
- *  <div style={{height:'300px',overflow:'auto'}} ref={(list)=>this.list=list}>
- *      <div> // 用到getTarget需要保证只有一个子元素，包裹住滚动的所有内容
+ *  <div style={{height:'300px',overflow:'auto'}} ref={(list)=>this.list=list}> // 用到getTarget需要保证只有一个子元素，包裹住滚动的所有内容
+ *      <div> 
  *          <List>...</List> // 可加载列表的位置
  *          <PullUp mode='button' status={this.state.status} 
  *              tips={['点击加载更多','加载中...','加载成功！','加载失败！','没有更多']} 

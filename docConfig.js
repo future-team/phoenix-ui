@@ -9,7 +9,7 @@ module.exports = {
     demoDir: 'examples/src/',
     //文档页面输出路径
     demoUrl: 'https://future-team.github.io/phoenix-ui/examples/index.html#/',
-    outdir: 'doc/',
+    outdir: 'doc_v2/',
     //内置主题
     // theme:'ui',
     //自定义主题目录

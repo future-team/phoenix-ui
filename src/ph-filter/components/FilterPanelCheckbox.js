@@ -6,6 +6,61 @@ import Item from './FilterItem'
 import ButtonGroup from '../../button-group'
 import Button from '../../button'
 
+/**
+ * 多选面板<br/>
+ * - 可通过selected设置选中的项目，格式如`{key:'ljz',value:'陆家嘴'}`。
+ * - 可通过default设置没有选项时的默认显示文字。
+ * - 可通过readOnly设置当前面板是否为只读模式。
+ * - 可通过buttons设置底部按钮组的样式、文字、回调等，格式如`[{text:'取消', phStyle:'info', onHandle:this.cancelChoose.bind(this), close:true, otherProps: {hollow:true}}]`。
+ * - 可通过clickCallBack设置点击显隐panel的回调。
+ * - 可通过checkAll设置是否显示全选，默认显示。
+ * - 可通过type来判断当前的模式是否简单。
+ * 
+ * 主要属性和接口：
+ * - selected: 默认打开的面板。
+ * - default: 是否显示筛选头部。
+ * - readOnly: 是否只读。
+ * - buttons: 按钮组。
+ * - clickCallBack: 点击panel显隐的回调。
+ * - checkAll: 是否显示全选。
+ * - type: 简单模式。
+ * 
+ * 如：
+ * ```code
+ *  const buttons = [
+ *      {onHandle: this.onSubmit.bind(this)}
+ *  ]
+ * ...
+ *  <FilterContainer>
+ *      <PanelCheckbox readOnly selected={{key:'s_flower,f_bbc',value:'花店,本帮江浙菜'}} buttons={buttons} checkAll={false} clickCallBack={(show)=>{console.log(show)}}>
+ *          <ItemGroup mainKey='ms' label={<span style={{color:'red'}}>美食</span>}>
+ *              <Item itemKey='f_bbc'>本帮江浙菜</Item>
+ *              ...
+ *          </ItemGroup>
+ *          <ItemGroup mainKey='dy' label='电影'>
+ *              <Item itemKey='m_p'>私人影院</Item>
+ *              ...
+ *          </ItemGroup>
+ *          ...
+ *      </PanelCheckbox>
+ *  </FilterContainer>
+ * 或
+ * <FilterContainer>
+ *      <PanelCheckbox readOnly selected={{key:'s_flower,f_bbc',value:'花店,本帮江浙菜'}} buttons={buttons} type='simple'>
+ *          <Item itemKey='f_bbc'>本帮江浙菜</Item>
+ *          ...
+ *      </PanelCheckbox>
+ *  </FilterContainer>
+ * ```
+ *
+ * @class FilterPanelCheckbox
+ * @module 筛选控件
+ * @extends Component
+ * @constructor
+ * @since 2.2.0
+ * @demo ph-filter|ph-filter.js {展示}
+ * @show true
+ * */
 export default class FilterPanelCheckbox extends Component{
     constructor(props,context){
         super(props,context);
