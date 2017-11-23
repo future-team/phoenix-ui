@@ -153,7 +153,7 @@ export default class PullUp extends Component{
 
         this.pullTop = this.documentHeight - this.pullUp.offsetHeight
         // if(!this.pullHeight) this.pullHeight = this.pullUp.offsetHeight
-        
+
         if(this.scrollTop + this.bodyHeight >= this.pullTop){
             this.touchBottom = true
             
@@ -218,9 +218,11 @@ export default class PullUp extends Component{
     }
 
     loadCallback(){
+        this.touchBottom = false
+
         let {loadCallback} = this.props,
             {status} = this.state
-        
+
         // 如果已经没有更多，不再继续请求数据的操作
         if(status==4 || status==1) return
 

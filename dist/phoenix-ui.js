@@ -12729,6 +12729,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    PullUp.prototype.loadCallback = function loadCallback() {
+	        this.touchBottom = false;
+
 	        var loadCallback = this.props.loadCallback;
 	        var status = this.state.status;
 
