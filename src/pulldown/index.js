@@ -40,7 +40,8 @@ import 'phoenix-styles/less/modules/pullup.less'
  * @demo pulldown|pulldown.js {展示}
  * @show true
  * */
-const MAX_HEIGHT = 800
+const MAX_HEIGHT = 800,
+      MAX_DISTANCE = 200
 
 export default class PullDown extends Component{
     static propTypes = {
@@ -77,7 +78,7 @@ export default class PullDown extends Component{
         super(props,context)
         new Logger('PullDown')
 
-        this.touchTop = false
+        this.touchTop = true
         this.distanceY = 0
 
         this.scrollHandle = this.scrollHandle.bind(this)
@@ -85,27 +86,21 @@ export default class PullDown extends Component{
     }
 
     scrollHandle(e){
-        // let {getTarget} = this.props,
-        //     target = e.target
+        let {getTarget} = this.props,
+            offsetTop = this.nextElem.offsetTop,
+            scrollTop = getScrollTop()
         
-        // if(getTarget){
-        //     this.scrollTop = target.scrollTop
-        //     this.bodyHeight = target.clientHeight
-        //     this.documentHeight = target.children[0].offsetHeight
-        // }else{
-        //     this.scrollTop = getScrollTop()
-        //     this.bodyHeight = getClientHeight()
-        //     this.documentHeight = getDocumentHeight()
-        // }
+        if(getTarget){
+            scrollTop = target.scrollTop
+        }
+        console.log('offsetTop', offsetTop)
+        console.log('this.scrollTop', scrollTop)
 
-        // this.pullTop = this.documentHeight - this.pullDown.offsetHeight
-        
-        // if(this.scrollTop + this.bodyHeight >= this.pullTop){
-        //     this.touchTop = true
-        //     this.loadCallback()
-        // }else{
-        //     this.touchTop = false
-        // }
+        if(offsetTop < scrollTop){
+            this.touchTop = false
+        }else{
+            this.touchTop = true
+        }
     }
 
     componentDidMount(){
@@ -150,34 +145,35 @@ export default class PullDown extends Component{
     }
 
     touchStartHandle(e){
-        // if(!this.touchTop) return
+        if(!this.touchTop) return
         
         this.distanceY = 0
         this.starY = event.touches[0].pageY
     }
 
     touchMoveHandle(e){
-        // if(!this.touchTop) return
+        if(!this.touchTop) return
 
         this.moveY = event.touches[0].pageY
         this.distanceY = this.moveY - this.starY
-
+        
         if(this.distanceY<=0) return
-
+        console.log(this.distanceY)
         this.distanceY = Math.abs(this.distanceY)
+        if(this.distanceY >= MAX_DISTANCE) this.distanceY = MAX_DISTANCE
 
         this.transform = Math.min(1, MAX_HEIGHT/this.distanceY) * Math.min(MAX_HEIGHT, this.distanceY)
-        this.dragElem.style.transform = 'translateY('+(this.transform)+'px)'   
+        this.dragElem.style.marginTop = this.transform+'px'
     }
 
     touchEndHandle(e){
-        // if(!this.touchTop) return
+        if(!this.touchTop) return
 
         this.starY = this.moveY
 
-        this.dragElem.style.transform = 'translateY(0)'
+        this.dragElem.style.marginTop = '0'
         
-        if(Math.abs(this.distanceY) <= 80) return
+        if(Math.abs(this.distanceY) <= 80 || this.distanceY<=0) return
 
         this.loadCallback()
     }

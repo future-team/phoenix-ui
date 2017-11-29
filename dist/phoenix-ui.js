@@ -3465,7 +3465,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.tl {\n  text-align: left;\n}\n.tr {\n  text-align: right;\n}\n.tc {\n  text-align: center;\n}\n.tj {\n  text-align: justify;\n}\n.tn {\n  white-space: nowrap;\n}\n.text-lowercase {\n  text-transform: lowercase;\n}\n.text-uppercase {\n  text-transform: uppercase;\n}\n.text-capitalize {\n  text-transform: capitalize;\n}\n/**清除浮动*/\n.clearfix:before,\n.clearfix:after {\n  display: table;\n  line-height: 0;\n  content: \"\";\n}\n.clearfix:after {\n  clear: both;\n}\n/**省略号*/\n.ellipsis {\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n/**控制块级、内敛*/\n.inline-block {\n  display: inline-block !important;\n}\n.inline {\n  display: inline !important;\n}\n.block {\n  display: block !important;\n}\n.show {\n  display: block !important;\n}\n.hidden,\n.hide {\n  display: none !important;\n}\n.show-opacity {\n  opacity: 1 !important;\n}\n.hide-opacity {\n  opacity: 0.01 !important;\n}\n.invisible {\n  visibility: hidden;\n}\n.fl {\n  float: left;\n}\n.fr {\n  float: right;\n}\n.pr {\n  position: relative;\n}\n.pa {\n  position: absolute;\n}\n.pf {\n  position: fixed;\n}\n.ps {\n  position: static;\n}\n.color-white {\n  color: #fff;\n}\n.color-primary {\n  color: #ff6633;\n}\n.color-success {\n  color: #49cb67;\n}\n.color-info {\n  color: #4ea3d4;\n}\n.color-warning {\n  color: #e0690c;\n}\n.color-danger {\n  color: #ff3b30;\n}\n.color-error {\n  color: #f64d2e;\n}\n.color-tip {\n  color: #ffad3e;\n}\n.color-gray {\n  color: #333;\n}\n.color-success-dp {\n  color: #199235;\n}\n.color-tip-dp {\n  color: #e08f22;\n}\n.color-error-dp {\n  color: #e2391a;\n}\n.bg-success {\n  background-color: #49cb67;\n}\n.bg-tip {\n  background-color: #ffad3e;\n}\n.bg-error {\n  background-color: #f64d2e;\n}\n.bg-gray {\n  background-color: #f0f0f0;\n}\n.bg-success-lt {\n  background-color: #d4f6dc;\n}\n.bg-tip-lt {\n  background-color: #fff4e3;\n}\n.bg-error-lt {\n  background-color: #fcc9c0;\n}\n.font-symbol {\n  font-size: 0.6rem;\n}\n.font-headline {\n  font-size: 0.36rem;\n}\n.font-title {\n  font-size: 0.34rem;\n}\n.font-subtitle {\n  font-size: 0.32rem;\n}\n.font-mainbody {\n  font-size: 0.3rem;\n}\n.font-text {\n  font-size: 0.28rem;\n}\n.font-tip {\n  font-size: 0.24rem;\n}\n.clickable:active {\n  background-color: #f9f9f9;\n}\n.hardware {\n  -webkit-transform: translateZ(0);\n  transform: translateZ(0);\n  -webkit-transform-style: preserve-3d;\n  transform-style: preserve-3d;\n}\n.user-none {\n  -webkit-user-select: none;\n  user-select: none;\n}\n.noscroll {\n  overflow: hidden;\n  width: 100%;\n  height: 100vh;\n  pointer-events: none;\n}\n", ""]);
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.tl {\n  text-align: left;\n}\n.tr {\n  text-align: right;\n}\n.tc {\n  text-align: center;\n}\n.tj {\n  text-align: justify;\n}\n.tn {\n  white-space: nowrap;\n}\n.text-lowercase {\n  text-transform: lowercase;\n}\n.text-uppercase {\n  text-transform: uppercase;\n}\n.text-capitalize {\n  text-transform: capitalize;\n}\n/**清除浮动*/\n.clearfix:before,\n.clearfix:after {\n  display: table;\n  line-height: 0;\n  content: \"\";\n}\n.clearfix:after {\n  clear: both;\n}\n/**省略号*/\n.ellipsis {\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n/**控制块级、内敛*/\n.inline-block {\n  display: inline-block !important;\n}\n.inline {\n  display: inline !important;\n}\n.block {\n  display: block !important;\n}\n.show {\n  display: block !important;\n}\n.hidden,\n.hide {\n  display: none !important;\n}\n.show-opacity {\n  opacity: 1 !important;\n}\n.hide-opacity {\n  opacity: 0.01 !important;\n}\n.invisible {\n  visibility: hidden;\n}\n.fl {\n  float: left;\n}\n.fr {\n  float: right;\n}\n.pr {\n  position: relative;\n}\n.pa {\n  position: absolute;\n}\n.pf {\n  position: fixed;\n}\n.ps {\n  position: static;\n}\n.color-white {\n  color: #fff;\n}\n.color-primary {\n  color: #ff6633;\n}\n.color-success {\n  color: #49cb67;\n}\n.color-info {\n  color: #4ea3d4;\n}\n.color-warning {\n  color: #e0690c;\n}\n.color-danger {\n  color: #ff3b30;\n}\n.color-error {\n  color: #f64d2e;\n}\n.color-tip {\n  color: #ffad3e;\n}\n.color-gray {\n  color: #333;\n}\n.color-success-dp {\n  color: #199235;\n}\n.color-tip-dp {\n  color: #e08f22;\n}\n.color-error-dp {\n  color: #e2391a;\n}\n.bg-success {\n  background-color: #49cb67;\n}\n.bg-tip {\n  background-color: #ffad3e;\n}\n.bg-error {\n  background-color: #f64d2e;\n}\n.bg-gray {\n  background-color: #f0f0f0;\n}\n.bg-success-lt {\n  background-color: #d4f6dc;\n}\n.bg-tip-lt {\n  background-color: #fff4e3;\n}\n.bg-error-lt {\n  background-color: #fcc9c0;\n}\n.font-symbol {\n  font-size: 0.6rem;\n}\n.font-headline {\n  font-size: 0.36rem;\n}\n.font-title {\n  font-size: 0.34rem;\n}\n.font-subtitle {\n  font-size: 0.32rem;\n}\n.font-mainbody {\n  font-size: 0.3rem;\n}\n.font-text {\n  font-size: 0.28rem;\n}\n.font-tip {\n  font-size: 0.24rem;\n}\n.clickable:active {\n  background-color: #f9f9f9;\n}\n.hardware {\n  -webkit-transform: translateZ(0);\n  transform: translateZ(0);\n  -webkit-transform-style: preserve-3d;\n  transform-style: preserve-3d;\n}\n.user-none {\n  -webkit-user-select: none;\n  user-select: none;\n}\n.noscroll {\n  position: fixed;\n  width: 100%;\n}\n", ""]);
 
 	// exports
 
@@ -9089,6 +9089,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * - 当设置的位置不足够放置气泡，以下顺序顺延(top->bottom->left->right, bottom->top->left->right, left->right->top->bottom, right->left->top->bottom)。
 	 * - 可通过distance设置气泡到点击对象的位置。
 	 * - 可通过clickCallback定义气泡显隐时额外的回调函数。
+	 * - 可通过hideCallback手动调用隐藏popover。
 	 *
 	 * 示例:
 	 * ```code
@@ -9162,7 +9163,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * @param {boolean} visible 当前显隐的状态
 	             * @type Function
 	             * */
-	            clickCallback: _react.PropTypes.func
+	            clickCallback: _react.PropTypes.func,
+	            /**
+	             * 手动隐藏popover
+	             * @method hideCallback
+	             * @type Function
+	             * */
+	            hideCallback: _react.PropTypes.func
 	        },
 	        enumerable: true
 	    }, {
@@ -9263,6 +9270,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	                this.props.children
 	            )
 	        );
+	    };
+
+	    Popover.prototype.hideCallback = function hideCallback() {
+	        this.removeClass(this.popover, SHOW_CLASS);
 	    };
 
 	    Popover.prototype.targetClickHandle = function targetClickHandle() {
@@ -9655,11 +9666,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        new _utilsLogger2['default']('Slider');
 
-	        this.range = this.validateRange();
-	        this.rangeDiff = this.range[1] - this.range[0];
-
-	        this.duration = this.validateDuration();
-	        this.eachDur = (this.range[1] - this.range[0]) / this.duration;
+	        this.init(props);
 
 	        this.state = {
 	            realProgress: props.progress || this.range[0],
@@ -9667,8 +9674,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	        };
 	    }
 
-	    Slider.prototype.validateRange = function validateRange() {
-	        var range = this.props.range;var defaultRange = [0, 100];
+	    Slider.prototype.init = function init(props) {
+	        this.range = this.validateRange(props);
+	        this.rangeDiff = this.range[1] - this.range[0];
+
+	        this.duration = this.validateDuration(props);
+	        this.eachDur = (this.range[1] - this.range[0]) / this.duration;
+	    };
+
+	    Slider.prototype.validateRange = function validateRange(props) {
+	        var range = props.range;
+	        var progress = props.progress;
+	        var defaultRange = [0, 100];
 	        if (!range instanceof Array) return defaultRange;
 	        if (range.length != 2) {
 	            console.error('Invalid prop `range` of length not equal to 2.');
@@ -9678,11 +9695,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	            console.error('Invalid prop `range[0]` must be less than or equal to `range[1]`.');
 	            return defaultRange;
 	        }
+	        if (progress) if (progress < range[0] || progress > range[1]) {
+	            console.error('`Progress prop` have to between `range[0]` and `range[1]`.');
+	            return range;
+	        }
 	        return range;
 	    };
 
-	    Slider.prototype.validateDuration = function validateDuration() {
-	        var duration = this.props.duration;var defaultDuration = 1;
+	    Slider.prototype.validateDuration = function validateDuration(props) {
+	        var duration = props.duration;
+	        var defaultDuration = 1;
+
 	        if (duration <= 0) {
 	            console.error('Invalid prop `duration` have to be Positive.');
 	            return defaultDuration;
@@ -9705,19 +9728,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    Slider.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
-	        if (this.state.realProgress != nextProps.progress) {
+	        if (nextProps.progress != undefined && this.state.realProgress != nextProps.progress) {
 	            this.setState({
 	                realProgress: nextProps.progress
 	            });
-
-	            this.newProgressWidth = this.getNewProgressWidth(nextProps.progress);
-	            this.setSliderPosition(this.newProgressWidth + 'px');
+	            this.setNewProgress(nextProps);
 	        }
+	        if (nextProps.range != undefined && this.range != nextProps.range) {
+	            this.init(nextProps);
+	            this.setNewProgress(nextProps);
+	        }
+	    };
+
+	    Slider.prototype.setNewProgress = function setNewProgress(props) {
+	        this.newProgressWidth = this.getNewProgressWidth(props.progress);
+	        this.setSliderPosition(this.newProgressWidth + 'px');
 	    };
 
 	    Slider.prototype.getNewProgressWidth = function getNewProgressWidth(realProgress) {
 	        // 保留2位小数
-	        return this.sliderLength * (Math.round((realProgress - this.range[0]) / this.rangeDiff * 100) / 100);
+	        var per = Math.round((realProgress - this.range[0]) / this.rangeDiff * 100) / 100;
+	        if (per >= 1) per = 1;
+	        if (per <= 0) per = 0;
+	        return this.sliderLength * per;
 	    };
 
 	    Slider.prototype.setSliderPosition = function setSliderPosition(distance) {
@@ -12776,7 +12809,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        this.dragElem.style.transform = 'translateY(0)';
 
-	        if (Math.abs(this.distanceY) <= 80) return;
+	        if (Math.abs(this.distanceY) <= 80 || this.distanceY >= 0) return;
 
 	        this.loadCallback();
 	    };
@@ -13174,6 +13207,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    FilterContainer.prototype.windowScrollHandle = function windowScrollHandle() {
 	        if (this.state.activeCat > -1) return;
+
 	        if (_utilsTool.getScrollTop() > this.containerOffsetTop) {
 	            if (!this.state.fixed) this.setState({ fixed: true });
 	        } else {
@@ -13191,6 +13225,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    FilterContainer.prototype.componentWillUnmount = function componentWillUnmount() {
 	        window.removeEventListener('scroll', this.windowScrollHandle, false);
+	        this.fixScroll(null);
 	    };
 
 	    FilterContainer.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
@@ -13225,29 +13260,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    FilterContainer.prototype.categoryChange = function categoryChange(index, category, hasButtons) {
+	        var _this2 = this;
+
 	        var catList = this.state.catList.slice();
 	        var clickCallback = this.props.clickCallback;
 
 	        if (hasButtons) return;
 
 	        catList[index] = category;
+
 	        this.setState({
 	            catList: catList,
 	            activeCat: -1
+	        }, function () {
+	            _this2.fixScroll(-1);
 	        });
 
 	        clickCallback && clickCallback(category.key, this.state.activeCat);
 	    };
 
 	    FilterContainer.prototype.activeCat = function activeCat(index) {
-	        var _this2 = this;
+	        var _this3 = this;
 
 	        //展开某一个cat
-	        if (this.filterContainer.offsetTop && _utilsTool.getScrollTop() < this.filterContainer.offsetTop) {
-	            // 打开时滚动到顶部
-	            document.documentElement.scrollTop = this.filterContainer.offsetTop;
-	        }
-
 	        this.catClick = true;
 	        this.activeIndex = index;
 
@@ -13258,7 +13293,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.setState({
 	            activeCat: index
 	        }, function () {
-	            _this2.catClick = false;
+	            _this3.catClick = false;
+	            _this3.fixScroll(index);
 	        });
 	    };
 
@@ -13324,17 +13360,41 @@ return /******/ (function(modules) { // webpackBootstrap
 	        });
 	    };
 
-	    FilterContainer.prototype.noScroll = function noScroll() {
-	        document.body.classList.add('noscroll');
-	    };
+	    FilterContainer.prototype.fixScroll = function fixScroll(index) {
+	        var elem = document.body,
+	            classList = elem.classList,
+	            scrollingElement = document.scrollingElement || elem;
 
-	    FilterContainer.prototype.willScroll = function willScroll() {
-	        document.body.classList.remove('noscroll');
+	        if (index == null) {
+	            classList.remove('noscroll');
+	            return;
+	        }
+
+	        if (index == -1) {
+	            classList.remove('noscroll');
+	            scrollingElement.scrollTop = this.scrollTop;
+	        } else {
+	            if (elem.className.indexOf('noscroll') == -1) {
+	                this.scrollTop = scrollingElement.scrollTop;
+
+	                // if(this.filterContainer.offsetTop && this.scrollTop < this.filterContainer.offsetTop){ // 打开时滚动到顶部
+	                //     this.scrollTop = this.filterContainer.offsetTop
+	                // }
+
+	                classList.add('noscroll');
+
+	                elem.style.top = -this.scrollTop + 'px';
+	            }
+	        }
 	    };
 
 	    FilterContainer.prototype.hidePanel = function hidePanel() {
+	        var _this4 = this;
+
 	        this.setState({
 	            activeCat: -1
+	        }, function () {
+	            _this4.fixScroll(-1);
 	        });
 	    };
 
@@ -13343,7 +13403,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    FilterContainer.prototype.render = function render() {
-	        var _this3 = this;
+	        var _this5 = this;
 
 	        var _props = this.props;
 	        var stable = _props.stable;
@@ -13361,7 +13421,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                'div',
 	                { className: _classnames2['default']('ph-filter-container', activeCat == -1 ? '' : 'ph-filter-container-shadow', noShadow ? 'ph-filter-container-noshadow' : '', fixed ? 'ph-filter-container-fixed' : '', className),
 	                    ref: function (filterContainer) {
-	                        _this3.filterContainer = filterContainer;
+	                        _this5.filterContainer = filterContainer;
 	                    },
 	                    style: _extends({ top: stable && !fixed && activeCat > -1 ? this.containerOffsetTop + 'px' : '' }, style)
 	                },
@@ -15002,7 +15062,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.ph-filter-occupy {\n  height: 0.88rem;\n}\n.ph-filter-container {\n  position: relative;\n}\n.ph-filter-container-fixed,\n.ph-filter-container-shadow {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 99;\n  width: 100%;\n}\n.ph-filter-container-shadow {\n  height: 100%;\n}\n.ph-filter-shadow {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 1;\n  background-color: rgba(0, 0, 0, 0.4);\n  pointer-events: auto;\n}\n.ph-filter-container-noshadow .ph-filter-shadow {\n  background-color: transparent;\n}\n.ph-filter-header {\n  position: relative;\n  z-index: 2;\n  margin: 0;\n  background-color: #fff;\n  border-bottom: 1PX solid #e1e1e1;\n}\n.ph-filter-header .ph-filter-header-item {\n  position: relative;\n  height: 0.88rem;\n  padding: 0.24rem 0;\n  line-height: 0.4rem;\n  text-align: center;\n  font-size: 0.28rem;\n}\n.ph-filter-header .ph-filter-header-item a {\n  display: block;\n  height: 0.4rem;\n  border-right: 1PX solid #e1e1e1;\n  white-spac: nowrap;\n}\n.ph-filter-header .ph-filter-header-item:last-child a {\n  border-right: none;\n}\n.ph-filter-header .ph-filter-header-item .gfs-icon {\n  display: inline-block;\n  margin-left: 0.08rem;\n  line-height: 0.4rem;\n  font-size: 0.24rem;\n  color: #666;\n  -webkit-transition: all 0.2s;\n  -moz-transition: all 0.2s;\n  transition: all 0.2s;\n  vertical-align: top;\n}\n.ph-filter-header .ph-filter-header-item.active .gfs-icon {\n  -webkit-transform: rotate(-180deg);\n  -ms-transform: rotate(-180deg);\n  transform: rotate(-180deg);\n}\n.ph-filter-header .ph-filter-header-item.active:after {\n  content: \"\";\n  position: absolute;\n  bottom: -0.02rem;\n  left: 50%;\n  width: 0.18rem;\n  height: 0.18rem;\n  background-color: #fff;\n  border-top: 1PX solid #e1e1e1;\n  border-right: 1PX solid #e1e1e1;\n  -webkit-transform: rotate(-45deg) translateX(-50%);\n  -ms-transform: rotate(-45deg) translateX(-50%);\n  transform: rotate(-45deg) translateX(-50%);\n}\n.ph-filter-header .ph-filter-header-text {\n  display: inline-block;\n  overflow: hidden;\n  max-width: calc(100% - .72rem);\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n.ph-filter-selector {\n  position: relative;\n  z-index: 2;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n}\n.ph-filter-selector > * {\n  max-height: 72%;\n  pointer-events: auto;\n}\n.ph-filter-selector .ph-list,\n.ph-filter-selector .ph-tab-navs,\n.ph-filter-selector .ph-tab-bd {\n  overflow-y: auto;\n}\n.ph-filter-selector .ph-list-item.active {\n  color: #ff6633;\n}\n.ph-filter-selector .ph-button-group {\n  position: relative;\n  z-index: 1;\n}\n.ph-checkbox-filter .ph-filter-selector {\n  z-index: 9;\n}\n.ph-checkbox-filter .ph-filter-selector > * {\n  max-height: none;\n}\n.ph-checkbox-filter .ph-filter-selector .ph-list,\n.ph-checkbox-filter .ph-filter-selector .ph-tab-navs,\n.ph-checkbox-filter .ph-filter-selector .ph-tab-bd {\n  max-height: none;\n  height: 100vh;\n  padding-bottom: 1.28rem;\n}\n.ph-checkbox-filter .ph-filter-selector .ph-button-group {\n  margin-top: -1.28rem;\n}\n", ""]);
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.ph-filter-occupy {\n  height: 0.88rem;\n}\n.ph-filter-container {\n  position: relative;\n}\n.ph-filter-container-fixed,\n.ph-filter-container-shadow {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 99;\n  width: 100%;\n}\n.ph-filter-container-shadow {\n  height: 100%;\n}\n.ph-filter-shadow {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 1;\n  background-color: rgba(0, 0, 0, 0.4);\n  pointer-events: auto;\n}\n.ph-filter-container-noshadow .ph-filter-shadow {\n  background-color: transparent;\n}\n.ph-filter-header {\n  position: relative;\n  z-index: 2;\n  margin: 0;\n  background-color: #fff;\n  border-bottom: 1PX solid #e1e1e1;\n}\n.ph-filter-header .ph-filter-header-item {\n  position: relative;\n  height: 0.88rem;\n  padding: 0.24rem 0;\n  line-height: 0.4rem;\n  text-align: center;\n  font-size: 0.28rem;\n}\n.ph-filter-header .ph-filter-header-item a {\n  display: block;\n  height: 0.4rem;\n  border-right: 1PX solid #e1e1e1;\n  white-space: nowrap;\n}\n.ph-filter-header .ph-filter-header-item:last-child a {\n  border-right: none;\n}\n.ph-filter-header .ph-filter-header-item .gfs-icon {\n  display: inline-block;\n  margin-left: 0.08rem;\n  line-height: 0.4rem;\n  font-size: 0.24rem;\n  color: #666;\n  -webkit-transition: all 0.2s;\n  -moz-transition: all 0.2s;\n  transition: all 0.2s;\n  vertical-align: top;\n}\n.ph-filter-header .ph-filter-header-item.active .gfs-icon {\n  -webkit-transform: rotate(-180deg);\n  -ms-transform: rotate(-180deg);\n  transform: rotate(-180deg);\n}\n.ph-filter-header .ph-filter-header-item.active:after {\n  content: \"\";\n  position: absolute;\n  bottom: -0.02rem;\n  left: 50%;\n  width: 0.18rem;\n  height: 0.18rem;\n  background-color: #fff;\n  border-top: 1PX solid #e1e1e1;\n  border-right: 1PX solid #e1e1e1;\n  -webkit-transform: rotate(-45deg) translateX(-50%);\n  -ms-transform: rotate(-45deg) translateX(-50%);\n  transform: rotate(-45deg) translateX(-50%);\n}\n.ph-filter-header .ph-filter-header-text {\n  display: inline-block;\n  overflow: hidden;\n  max-width: calc(100% - .72rem);\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n.ph-filter-selector {\n  position: relative;\n  z-index: 2;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n}\n.ph-filter-selector > * {\n  max-height: 72%;\n  pointer-events: auto;\n}\n.ph-filter-selector .ph-list,\n.ph-filter-selector .ph-tab-navs,\n.ph-filter-selector .ph-tab-bd {\n  overflow-y: auto;\n  -webkit-overflow-scrolling: touch;\n}\n.ph-filter-selector .ph-list-item.active {\n  color: #ff6633;\n}\n.ph-filter-selector .ph-button-group {\n  position: relative;\n  z-index: 1;\n}\n.ph-checkbox-filter .ph-filter-selector {\n  z-index: 9;\n}\n.ph-checkbox-filter .ph-filter-selector > * {\n  max-height: none;\n}\n.ph-checkbox-filter .ph-filter-selector .ph-list,\n.ph-checkbox-filter .ph-filter-selector .ph-tab-navs,\n.ph-checkbox-filter .ph-filter-selector .ph-tab-bd {\n  max-height: none;\n  height: 100vh;\n  padding-bottom: 1.28rem;\n}\n.ph-checkbox-filter .ph-filter-selector .ph-button-group {\n  margin-top: -1.28rem;\n}\n", ""]);
 
 	// exports
 

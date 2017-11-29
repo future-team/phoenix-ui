@@ -35,7 +35,15 @@ export default class phFilter extends Component {
                     {key:'sndq',value:'上南地区'},
                     {key:'ljz',value:'陆家嘴'},
                     {key:'bbb',value:'八佰伴'},
-                    {key:'pdxq',value:'浦东新区'}
+                    {key:'pdxq',value:'浦东新区'},
+                    {key:'sndq1',value:'上南地区'},
+                    {key:'ljz1',value:'陆家嘴'},
+                    {key:'bbb1',value:'八佰伴'},
+                    {key:'pdxq1',value:'浦东新区'},
+                    {key:'sndq2',value:'上南地区'},
+                    {key:'ljz2',value:'陆家嘴'},
+                    {key:'bbb2',value:'八佰伴'},
+                    {key:'pdxq2',value:'浦东新区'}
                 ],
                 panel2:{
                     '美食':[

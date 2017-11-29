@@ -46,22 +46,20 @@ export default class pulldown extends Component{
                 <h2 className="comp-title">PullDown</h2>
                 <h3 className="comp-type">loadCallback 加载更多的回调函数</h3>
                 <h3 className="comp-type">getTarget 如果当前列表存在自定义的滚动条，需要传递滚动的目标</h3>
-                <div style={{minHeight:'100vh', overflow:'auto'}} ref={(list)=>this.list=list}>
-                    <div>
-                        <PullDown loadCallback={this.loadCallback.bind(this)}/>
-                        <List>
-                            {
-                                this.state.loadingData.map((item,index)=>{
-                                    return (
-                                        <List.Item key={index}>
-                                            <List.Col>{item.title}</List.Col>
-                                        </List.Item>
-                                    )
-                                })
-                            }
-                        </List>
-                    </div>
-                </div>            	
+                <div>
+                    <PullDown loadCallback={this.loadCallback.bind(this)}/>
+                    <List>
+                        {
+                            this.state.loadingData.map((item,index)=>{
+                                return (
+                                    <List.Item key={index}>
+                                        <List.Col>{item.title}</List.Col>
+                                    </List.Item>
+                                )
+                            })
+                        }
+                    </List>
+                </div>           	
             </div>
         );
     }

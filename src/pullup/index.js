@@ -265,7 +265,7 @@ export default class PullUp extends Component{
 
         this.dragElem.style.transform = 'translateY(0)'
         
-        if(Math.abs(this.distanceY) <= 80) return
+        if(Math.abs(this.distanceY) <= 80 || this.distanceY>=0) return
 
         this.loadCallback()
     }

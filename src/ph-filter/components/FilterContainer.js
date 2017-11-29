@@ -183,6 +183,7 @@ export default class FilterContainer extends Component{
 
     windowScrollHandle(){
         if(this.state.activeCat>-1) return
+        
         if(getScrollTop() > this.containerOffsetTop){
             if(!this.state.fixed) this.setState({fixed: true})
         }else{
@@ -198,6 +199,7 @@ export default class FilterContainer extends Component{
 
     componentWillUnmount(){
         window.removeEventListener('scroll', this.windowScrollHandle, false)
+        this.fixScroll(null)
     }
 
     componentWillReceiveProps(nextProps){
@@ -238,9 +240,12 @@ export default class FilterContainer extends Component{
         if(hasButtons) return
         
         catList[index] = category
+
         this.setState({
             catList,
             activeCat: -1
+        }, ()=>{
+            this.fixScroll(-1)
         })
 
         clickCallback && clickCallback(category.key, this.state.activeCat)
@@ -248,10 +253,6 @@ export default class FilterContainer extends Component{
 
     activeCat(index){
         //展开某一个cat
-        if(this.filterContainer.offsetTop && getScrollTop() < this.filterContainer.offsetTop){ // 打开时滚动到顶部
-            document.documentElement.scrollTop = this.filterContainer.offsetTop
-        }
-
         this.catClick = true
         this.activeIndex = index
 
@@ -263,6 +264,7 @@ export default class FilterContainer extends Component{
             activeCat:index
         }, ()=>{
             this.catClick = false
+            this.fixScroll(index)
         });
     }
 
@@ -313,17 +315,39 @@ export default class FilterContainer extends Component{
         })
     }
 
-    noScroll(){
-        document.body.classList.add('noscroll')
-    }
+    fixScroll(index){
+        let elem = document.body,
+            classList = elem.classList,
+            scrollingElement = document.scrollingElement || elem
 
-    willScroll(){
-        document.body.classList.remove('noscroll')
+        if(index==null){
+            classList.remove('noscroll')
+            return
+        }
+        
+        if(index==-1){
+            classList.remove('noscroll')
+            scrollingElement.scrollTop = this.scrollTop
+        }else{
+            if(elem.className.indexOf('noscroll')==-1) {
+                this.scrollTop = scrollingElement.scrollTop
+        
+                // if(this.filterContainer.offsetTop && this.scrollTop < this.filterContainer.offsetTop){ // 打开时滚动到顶部
+                //     this.scrollTop = this.filterContainer.offsetTop
+                // }
+                
+                classList.add('noscroll')
+                
+                elem.style.top = -this.scrollTop + 'px'
+            }
+        }
     }
 
     hidePanel(){
         this.setState({
             activeCat: -1
+        }, ()=>{
+            this.fixScroll(-1)
         })
     }
 

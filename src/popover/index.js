@@ -17,6 +17,7 @@ const SHOW_CLASS = 'show'
  * - 当设置的位置不足够放置气泡，以下顺序顺延(top->bottom->left->right, bottom->top->left->right, left->right->top->bottom, right->left->top->bottom)。
  * - 可通过distance设置气泡到点击对象的位置。
  * - 可通过clickCallback定义气泡显隐时额外的回调函数。
+ * - 可通过hideCallback手动调用隐藏popover。
  *
  * 示例:
  * ```code
@@ -86,7 +87,13 @@ export default class Popover extends Component{
          * @param {boolean} visible 当前显隐的状态
          * @type Function
          * */
-        clickCallback: PropTypes.func
+        clickCallback: PropTypes.func,
+        /**
+         * 手动隐藏popover
+         * @method hideCallback
+         * @type Function
+         * */
+        hideCallback: PropTypes.func
     };
 
     static defaultProps = {
@@ -166,6 +173,10 @@ export default class Popover extends Component{
                 </div>
             </div>
         )
+    }
+
+    hideCallback(){
+        this.removeClass(this.popover, SHOW_CLASS)
     }
 
     targetClickHandle(){
