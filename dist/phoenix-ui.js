@@ -3649,7 +3649,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	opt.repeat = 1;
 	opt.combo = true;
-	opt.delay = 2000;
+	opt.delay = 1000;
+	opt.isGlobalError = false;
 	// opt.level = 2
 
 	var pmlogger = null;
@@ -3719,65 +3720,81 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var Logger = (function () {
 	    function Logger() {
-	        var _this = this,
-	            _arguments = arguments;
+	        var _this = this;
 
 	        var config = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
 	        _classCallCheck(this, Logger);
 
-	        this.config = _extend2['default']({
-	            //id,没有id是不上报的
-	            id: '',
-	            //上报地址
-	            url: 'http://future.sankuai.com/monitor/logstore/log/',
-	            //合并上报
-	            combo: false,
-	            //当 combo 为 true 可用，延迟多少毫秒，合并缓冲区中的上报（默认）
-	            delay: '',
-	            //抽样上报
-	            random: 1,
-	            //重复上报次数
-	            repeat: 10,
-	            //错误级别 1-debug 2-info 4-error
-	            level: 4,
-	            onReport: function onReport(id, errObj) {},
-	            submit: null
+	        try {
+	            var id;
 
-	        }, config);
+	            (function () {
+	                _this.config = _extend2['default']({
+	                    //id,没有id是不上报的
+	                    id: '',
+	                    //上报地址
+	                    url: '//future.sankuai.com/monitor/logstore/log/',
+	                    //合并上报
+	                    combo: false,
+	                    //当 combo 为 true 可用，延迟多少毫秒，合并缓冲区中的上报（默认）
+	                    delay: '',
+	                    //抽样上报
+	                    random: 1,
+	                    //重复上报次数
+	                    repeat: 10,
+	                    //错误级别 1-debug 2-info 4-error
+	                    level: 4,
+	                    onReport: function onReport(id, errObj) {},
+	                    submit: null,
+	                    //是否开启全局捕获，对于组件统计不需要开启
+	                    isGlobalError: true
 
-	        this.errors = [];
-	        this.errorMap = {};
-	        this.errorList = [];
-	        this.imgs = [];
-	        this.comboTimeout = null;
-	        var orgError = window.onerror;
+	                }, config);
 
-	        this.types = ['jsError', 'globalError', 'catchError', 'ajaxError', '404', '500', 'cssError', 'htmlError', 'component', 'install', 'info'];
+	                _this.errors = [];
+	                _this.errorMap = {};
+	                _this.errorList = [];
+	                _this.imgs = [];
+	                _this.comboTimeout = null;
+	                var orgError = window.onerror;
 
-	        var id = parseInt(this.config.id, 10);
-	        if (id) {
-	            this.config.report = (this.config.url || "") + "?applyId=" + id +
-	            // "&from=" + encodeURIComponent(location.href) +
-	            "&";
-	        }
-	        // if had error in cache , report now
-	        if (this.errors.length) {
-	            this.send();
-	        }
+	                _this.types = ['jsError', 'globalError', 'catchError', 'ajaxError', '404', '500', 'cssError', 'htmlError', 'component', 'install', 'info'];
 
-	        this.dom = {};
-	        if (!isBindError) {
-	            window.onerror = function () {
-	                _this.onerror.apply(_this, _arguments);
-	                orgError && orgError.apply(window, _arguments);
-	            };
-	            _helper2['default'].addEvent(document.body, 'mousedown', function (e) {
-	                var target = e.target;
-	                if (target.nodeType === 1) {
-	                    _this.dom = _helper2['default'].getPosition(e);
+	                id = parseInt(_this.config.id, 10);
+
+	                if (id) {
+	                    _this.config.report = (_this.config.url || "") + "?applyId=" + id +
+	                    // "&from=" + encodeURIComponent(location.href) +
+	                    "&";
 	                }
-	            });
+	                // if had error in cache , report now
+	                if (_this.errors.length) {
+	                    _this.send();
+	                }
+
+	                _this.dom = {};
+	                if (isBindError != true) {
+	                    if (_this.config.isGlobalError) {
+	                        window.onerror = function (msg, url, line, col, error) {
+	                            _this.onerror(msg, url, line, col, error);
+	                            orgError && orgError(msg, url, line, col, error);
+	                        };
+	                        _helper2['default'].addEvent(window, 'DOMContentLoaded', function () {
+	                            // 请求script地址时dom加载停止，document.body未加载
+	                            _helper2['default'].addEvent(document.body, 'mousedown', function (e) {
+	                                var target = e.target;
+	                                if (target.nodeType === 1) {
+	                                    _this.dom = _helper2['default'].getPosition(e);
+	                                }
+	                            });
+	                        });
+	                        isBindError = true;
+	                    }
+	                }
+	            })();
+	        } catch (err) {
+	            console.log(err);
 	        }
 	    }
 
@@ -3835,6 +3852,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return this;
 	    };
 
+	    // 立即上报数据
+
 	    Logger.prototype.report = function report(msg) {
 	        msg && this.pushMessage(msg);
 	        this.send(true);
@@ -3887,7 +3906,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        while (this.errors.length) {
 	            var error = this.errors.shift();
 	            // 重复上报
-	            if (this.isRepert(error)) continue;
+	            if (this.isRepeat(error)) continue;
 	            var errorStr = this.errorTostring(error, this.errorList.length);
 
 	            if (this.config.combo) {
@@ -3916,7 +3935,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    };
 
-	    Logger.prototype.isRepert = function isRepert(error) {
+	    Logger.prototype.isRepeat = function isRepeat(error) {
 	        if (!this.isObject(error)) return true;
 	        var msg = error.msg;
 	        var times = this.errorMap[msg] = (parseInt(this.errorMap[msg], 10) || 0) + 1;
@@ -4660,7 +4679,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n/**\n * 方案一 background-image: linear-gradient(...)\n * 调用: .border-top(#000);\n * 缺点: 无法设置圆角; 占用背景色的属性; 代码量大\n **/\n/**\n * 方案二 伪类和transform\n * 调用: .onepx(border-top, 1px solid #000);\n * 缺点: 占用after伪类; 仅适用于有after伪元素的元素\n **/\n.tl {\n  text-align: left;\n}\n.tr {\n  text-align: right;\n}\n.tc {\n  text-align: center;\n}\n.tj {\n  text-align: justify;\n}\n.tn {\n  white-space: nowrap;\n}\n.text-lowercase {\n  text-transform: lowercase;\n}\n.text-uppercase {\n  text-transform: uppercase;\n}\n.text-capitalize {\n  text-transform: capitalize;\n}\n/**清除浮动*/\n.clearfix:before,\n.clearfix:after {\n  display: table;\n  line-height: 0;\n  content: \"\";\n}\n.clearfix:after {\n  clear: both;\n}\n/**省略号*/\n.ellipsis {\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n/**控制块级、内敛*/\n.inline-block {\n  display: inline-block !important;\n}\n.inline {\n  display: inline !important;\n}\n.block {\n  display: block !important;\n}\n.show {\n  display: block !important;\n}\n.hidden,\n.hide {\n  display: none !important;\n}\n.show-opacity {\n  opacity: 1 !important;\n}\n.hide-opacity {\n  opacity: 0.01 !important;\n}\n.invisible {\n  visibility: hidden;\n}\n.fl {\n  float: left;\n}\n.fr {\n  float: right;\n}\n.pr {\n  position: relative;\n}\n.pa {\n  position: absolute;\n}\n.pf {\n  position: fixed;\n}\n.ps {\n  position: static;\n}\n.color-white {\n  color: #fff;\n}\n.color-primary {\n  color: #ff6633;\n}\n.color-success {\n  color: #49cb67;\n}\n.color-info {\n  color: #4ea3d4;\n}\n.color-warning {\n  color: #e0690c;\n}\n.color-danger {\n  color: #ff3b30;\n}\n.color-error {\n  color: #f64d2e;\n}\n.color-tip {\n  color: #ffad3e;\n}\n.color-gray {\n  color: #333;\n}\n.color-success-dp {\n  color: #199235;\n}\n.color-tip-dp {\n  color: #e08f22;\n}\n.color-error-dp {\n  color: #e2391a;\n}\n.bg-success {\n  background-color: #49cb67;\n}\n.bg-tip {\n  background-color: #ffad3e;\n}\n.bg-error {\n  background-color: #f64d2e;\n}\n.bg-gray {\n  background-color: #f0f0f0;\n}\n.bg-success-lt {\n  background-color: #d4f6dc;\n}\n.bg-tip-lt {\n  background-color: #fff4e3;\n}\n.bg-error-lt {\n  background-color: #fcc9c0;\n}\n.font-symbol {\n  font-size: 30px;\n}\n.font-headline {\n  font-size: 18px;\n}\n.font-title {\n  font-size: 17px;\n}\n.font-subtitle {\n  font-size: 16px;\n}\n.font-mainbody {\n  font-size: 15px;\n}\n.font-text {\n  font-size: 14px;\n}\n.font-tip {\n  font-size: 12px;\n}\n.clickable:active {\n  background-color: #f9f9f9;\n}\n.hardware {\n  -webkit-transform: translateZ(0);\n  transform: translateZ(0);\n  -webkit-transform-style: preserve-3d;\n  transform-style: preserve-3d;\n}\n.user-none {\n  -webkit-user-select: none;\n  user-select: none;\n}\n.noscroll {\n  overflow: hidden;\n  width: 100%;\n  height: 100vh;\n  pointer-events: none;\n}\n.onepx-primary {\n  position: relative;\n  border: 1px solid #ff6633;\n}\n@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {\n  .onepx-primary {\n    border: none;\n  }\n  .onepx-primary:after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 200%;\n    height: 200%;\n    border: 1px solid #ff6633;\n    -webkit-transform: scale(0.5);\n    -ms-transform: scale(0.5);\n    transform: scale(0.5);\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n    -webkit-transform-origin: left top;\n    -ms-transform-origin: left top;\n    transform-origin: left top;\n    pointer-events: none;\n  }\n}\n.onepx-top-primary {\n  position: relative;\n  border-top: 1px solid #ff6633;\n}\n@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {\n  .onepx-top-primary {\n    border: none;\n  }\n  .onepx-top-primary:after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 200%;\n    height: 200%;\n    border-top: 1px solid #ff6633;\n    -webkit-transform: scale(0.5);\n    -ms-transform: scale(0.5);\n    transform: scale(0.5);\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n    -webkit-transform-origin: left top;\n    -ms-transform-origin: left top;\n    transform-origin: left top;\n    pointer-events: none;\n  }\n}\n.onepx-bottom-primary {\n  position: relative;\n  border-bottom: 1px solid #ff6633;\n}\n@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {\n  .onepx-bottom-primary {\n    border: none;\n  }\n  .onepx-bottom-primary:after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 200%;\n    height: 200%;\n    border-bottom: 1px solid #ff6633;\n    -webkit-transform: scale(0.5);\n    -ms-transform: scale(0.5);\n    transform: scale(0.5);\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n    -webkit-transform-origin: left top;\n    -ms-transform-origin: left top;\n    transform-origin: left top;\n    pointer-events: none;\n  }\n}\n.onepx-left-primary {\n  position: relative;\n  border-left: 1px solid #ff6633;\n}\n@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {\n  .onepx-left-primary {\n    border: none;\n  }\n  .onepx-left-primary:after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 200%;\n    height: 200%;\n    border-left: 1px solid #ff6633;\n    -webkit-transform: scale(0.5);\n    -ms-transform: scale(0.5);\n    transform: scale(0.5);\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n    -webkit-transform-origin: left top;\n    -ms-transform-origin: left top;\n    transform-origin: left top;\n    pointer-events: none;\n  }\n}\n.onepx-right-primary {\n  position: relative;\n  border-right: 1px solid #ff6633;\n}\n@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {\n  .onepx-right-primary {\n    border: none;\n  }\n  .onepx-right-primary:after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 200%;\n    height: 200%;\n    border-right: 1px solid #ff6633;\n    -webkit-transform: scale(0.5);\n    -ms-transform: scale(0.5);\n    transform: scale(0.5);\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n    -webkit-transform-origin: left top;\n    -ms-transform-origin: left top;\n    transform-origin: left top;\n    pointer-events: none;\n  }\n}\n.onepx-gray {\n  position: relative;\n  border: 1px solid #f0f0f0;\n}\n@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {\n  .onepx-gray {\n    border: none;\n  }\n  .onepx-gray:after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 200%;\n    height: 200%;\n    border: 1px solid #f0f0f0;\n    -webkit-transform: scale(0.5);\n    -ms-transform: scale(0.5);\n    transform: scale(0.5);\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n    -webkit-transform-origin: left top;\n    -ms-transform-origin: left top;\n    transform-origin: left top;\n    pointer-events: none;\n  }\n}\n.onepx-top-gray {\n  position: relative;\n  border-top: 1px solid #f0f0f0;\n}\n@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {\n  .onepx-top-gray {\n    border: none;\n  }\n  .onepx-top-gray:after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 200%;\n    height: 200%;\n    border-top: 1px solid #f0f0f0;\n    -webkit-transform: scale(0.5);\n    -ms-transform: scale(0.5);\n    transform: scale(0.5);\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n    -webkit-transform-origin: left top;\n    -ms-transform-origin: left top;\n    transform-origin: left top;\n    pointer-events: none;\n  }\n}\n.onepx-bottom-gray {\n  position: relative;\n  border-bottom: 1px solid #f0f0f0;\n}\n@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {\n  .onepx-bottom-gray {\n    border: none;\n  }\n  .onepx-bottom-gray:after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 200%;\n    height: 200%;\n    border-bottom: 1px solid #f0f0f0;\n    -webkit-transform: scale(0.5);\n    -ms-transform: scale(0.5);\n    transform: scale(0.5);\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n    -webkit-transform-origin: left top;\n    -ms-transform-origin: left top;\n    transform-origin: left top;\n    pointer-events: none;\n  }\n}\n.onepx-left-gray {\n  position: relative;\n  border-left: 1px solid #f0f0f0;\n}\n@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {\n  .onepx-left-gray {\n    border: none;\n  }\n  .onepx-left-gray:after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 200%;\n    height: 200%;\n    border-left: 1px solid #f0f0f0;\n    -webkit-transform: scale(0.5);\n    -ms-transform: scale(0.5);\n    transform: scale(0.5);\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n    -webkit-transform-origin: left top;\n    -ms-transform-origin: left top;\n    transform-origin: left top;\n    pointer-events: none;\n  }\n}\n.onepx-right-gray {\n  position: relative;\n  border-right: 1px solid #f0f0f0;\n}\n@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {\n  .onepx-right-gray {\n    border: none;\n  }\n  .onepx-right-gray:after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 200%;\n    height: 200%;\n    border-right: 1px solid #f0f0f0;\n    -webkit-transform: scale(0.5);\n    -ms-transform: scale(0.5);\n    transform: scale(0.5);\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n    -webkit-transform-origin: left top;\n    -ms-transform-origin: left top;\n    transform-origin: left top;\n    pointer-events: none;\n  }\n}\n", ""]);
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n.tl {\n  text-align: left;\n}\n.tr {\n  text-align: right;\n}\n.tc {\n  text-align: center;\n}\n.tj {\n  text-align: justify;\n}\n.tn {\n  white-space: nowrap;\n}\n.text-lowercase {\n  text-transform: lowercase;\n}\n.text-uppercase {\n  text-transform: uppercase;\n}\n.text-capitalize {\n  text-transform: capitalize;\n}\n/**清除浮动*/\n.clearfix:before,\n.clearfix:after {\n  display: table;\n  line-height: 0;\n  content: \"\";\n}\n.clearfix:after {\n  clear: both;\n}\n/**省略号*/\n.ellipsis {\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n/**控制块级、内敛*/\n.inline-block {\n  display: inline-block !important;\n}\n.inline {\n  display: inline !important;\n}\n.block {\n  display: block !important;\n}\n.show {\n  display: block !important;\n}\n.hidden,\n.hide {\n  display: none !important;\n}\n.show-opacity {\n  opacity: 1 !important;\n}\n.hide-opacity {\n  opacity: 0.01 !important;\n}\n.invisible {\n  visibility: hidden;\n}\n.fl {\n  float: left;\n}\n.fr {\n  float: right;\n}\n.pr {\n  position: relative;\n}\n.pa {\n  position: absolute;\n}\n.pf {\n  position: fixed;\n}\n.ps {\n  position: static;\n}\n.color-white {\n  color: #fff;\n}\n.color-primary {\n  color: #ff6633;\n}\n.color-success {\n  color: #49cb67;\n}\n.color-info {\n  color: #4ea3d4;\n}\n.color-warning {\n  color: #e0690c;\n}\n.color-danger {\n  color: #ff3b30;\n}\n.color-error {\n  color: #f64d2e;\n}\n.color-tip {\n  color: #ffad3e;\n}\n.color-gray {\n  color: #333;\n}\n.color-success-dp {\n  color: #199235;\n}\n.color-tip-dp {\n  color: #e08f22;\n}\n.color-error-dp {\n  color: #e2391a;\n}\n.bg-success {\n  background-color: #49cb67;\n}\n.bg-tip {\n  background-color: #ffad3e;\n}\n.bg-error {\n  background-color: #f64d2e;\n}\n.bg-gray {\n  background-color: #f0f0f0;\n}\n.bg-success-lt {\n  background-color: #d4f6dc;\n}\n.bg-tip-lt {\n  background-color: #fff4e3;\n}\n.bg-error-lt {\n  background-color: #fcc9c0;\n}\n.font-symbol {\n  font-size: 30px;\n}\n.font-headline {\n  font-size: 18px;\n}\n.font-title {\n  font-size: 17px;\n}\n.font-subtitle {\n  font-size: 16px;\n}\n.font-mainbody {\n  font-size: 15px;\n}\n.font-text {\n  font-size: 14px;\n}\n.font-tip {\n  font-size: 12px;\n}\n.clickable:active {\n  background-color: #f9f9f9;\n}\n.hardware {\n  -webkit-transform: translateZ(0);\n  transform: translateZ(0);\n}\n.user-none {\n  -webkit-user-select: none;\n  user-select: none;\n}\n.noscroll {\n  position: fixed;\n  width: 100%;\n}\n", ""]);
 
 	// exports
 
@@ -10378,6 +10397,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * - 当设置的位置不足够放置气泡，以下顺序顺延(top->bottom->left->right, bottom->top->left->right, left->right->top->bottom, right->left->top->bottom)。
 	 * - 可通过distance设置气泡到点击对象的位置。
 	 * - 可通过clickCallback定义气泡显隐时额外的回调函数。
+	 * - 可通过hideCallback手动调用隐藏popover。
 	 *
 	 * 示例:
 	 * ```code
@@ -10451,7 +10471,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * @param {boolean} visible 当前显隐的状态
 	             * @type Function
 	             * */
-	            clickCallback: _propTypes2['default'].func
+	            clickCallback: _propTypes2['default'].func,
+	            /**
+	             * 手动隐藏popover
+	             * @method hideCallback
+	             * @type Function
+	             * */
+	            hideCallback: _propTypes2['default'].func
 	        },
 	        enumerable: true
 	    }, {
@@ -10555,6 +10581,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	                this.props.children
 	            )
 	        );
+	    };
+
+	    Popover.prototype.hideCallback = function hideCallback() {
+	        this.removeClass(this.popover, SHOW_CLASS);
 	    };
 
 	    Popover.prototype.targetClickHandle = function targetClickHandle() {
@@ -10982,11 +11012,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        new _utilsLogger2['default']('Slider');
 
-	        this.range = this.validateRange();
-	        this.rangeDiff = this.range[1] - this.range[0];
-
-	        this.duration = this.validateDuration();
-	        this.eachDur = (this.range[1] - this.range[0]) / this.duration;
+	        this.init(props);
 
 	        this.state = {
 	            realProgress: props.progress || this.range[0],
@@ -10994,8 +11020,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	        };
 	    }
 
-	    Slider.prototype.validateRange = function validateRange() {
-	        var range = this.props.range;var defaultRange = [0, 100];
+	    Slider.prototype.init = function init(props) {
+	        this.range = this.validateRange(props);
+	        this.rangeDiff = this.range[1] - this.range[0];
+
+	        this.duration = this.validateDuration(props);
+	        this.eachDur = (this.range[1] - this.range[0]) / this.duration;
+	    };
+
+	    Slider.prototype.validateRange = function validateRange(props) {
+	        var range = props.range;
+	        var progress = props.progress;
+	        var defaultRange = [0, 100];
 	        if (!range instanceof Array) return defaultRange;
 	        if (range.length != 2) {
 	            console.error('Invalid prop `range` of length not equal to 2.');
@@ -11005,11 +11041,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	            console.error('Invalid prop `range[0]` must be less than or equal to `range[1]`.');
 	            return defaultRange;
 	        }
+	        if (progress) if (progress < range[0] || progress > range[1]) {
+	            console.error('`Progress prop` have to between `range[0]` and `range[1]`.');
+	            return range;
+	        }
 	        return range;
 	    };
 
-	    Slider.prototype.validateDuration = function validateDuration() {
-	        var duration = this.props.duration;var defaultDuration = 1;
+	    Slider.prototype.validateDuration = function validateDuration(props) {
+	        var duration = props.duration;
+	        var defaultDuration = 1;
+
 	        if (duration <= 0) {
 	            console.error('Invalid prop `duration` have to be Positive.');
 	            return defaultDuration;
@@ -11032,19 +11074,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    Slider.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
-	        if (this.state.realProgress != nextProps.progress) {
+	        if (nextProps.progress != undefined && this.state.realProgress != nextProps.progress) {
 	            this.setState({
 	                realProgress: nextProps.progress
 	            });
-
-	            this.newProgressWidth = this.getNewProgressWidth(nextProps.progress);
-	            this.setSliderPosition(this.newProgressWidth + 'px');
+	            this.setNewProgress(nextProps);
 	        }
+	        if (nextProps.range != undefined && this.range != nextProps.range) {
+	            this.init(nextProps);
+	            this.setNewProgress(nextProps);
+	        }
+	    };
+
+	    Slider.prototype.setNewProgress = function setNewProgress(props) {
+	        this.newProgressWidth = this.getNewProgressWidth(props.progress);
+	        this.setSliderPosition(this.newProgressWidth + 'px');
 	    };
 
 	    Slider.prototype.getNewProgressWidth = function getNewProgressWidth(realProgress) {
 	        // 保留2位小数
-	        return this.sliderLength * (Math.round((realProgress - this.range[0]) / this.rangeDiff * 100) / 100);
+	        var per = Math.round((realProgress - this.range[0]) / this.rangeDiff * 100) / 100;
+	        if (per >= 1) per = 1;
+	        if (per <= 0) per = 0;
+	        return this.sliderLength * per;
 	    };
 
 	    Slider.prototype.setSliderPosition = function setSliderPosition(distance) {
@@ -13902,8 +13954,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * 
 	 * 示例：
 	 * ```code
-	 *  <div style={{height:'300px',overflow:'auto'}} ref={(list)=>this.list=list}>
-	 *      <div> // 用到getTarget需要保证只有一个子元素，包裹住滚动的所有内容
+	 *  <div style={{height:'300px',overflow:'auto'}} ref={(list)=>this.list=list}> // 用到getTarget需要保证只有一个子元素，包裹住滚动的所有内容
+	 *      <div> 
 	 *          <List>...</List> // 可加载列表的位置
 	 *          <PullUp mode='button' status={this.state.status} 
 	 *              tips={['点击加载更多','加载中...','加载成功！','加载失败！','没有更多']} 
@@ -14102,6 +14154,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    PullUp.prototype.loadCallback = function loadCallback() {
+	        this.touchBottom = false;
+
 	        var loadCallback = this.props.loadCallback;
 	        var status = this.state.status;
 
@@ -14147,7 +14201,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        this.dragElem.style.transform = 'translateY(0)';
 
-	        if (Math.abs(this.distanceY) <= 80) return;
+	        if (Math.abs(this.distanceY) <= 80 || this.distanceY >= 0) return;
 
 	        this.loadCallback();
 	    };
@@ -14254,7 +14308,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n/**\n * 方案一 background-image: linear-gradient(...)\n * 调用: .border-top(#000);\n * 缺点: 无法设置圆角; 占用背景色的属性; 代码量大\n **/\n/**\n * 方案二 伪类和transform\n * 调用: .onepx(border-top, 1px solid #000);\n * 缺点: 占用after伪类; 仅适用于有after伪元素的元素\n **/\n.ph-pullup {\n  text-align: center;\n}\n.ph-pullup-tip {\n  padding: 12px 0;\n  font-size: 14px;\n  color: #999;\n}\n.ph-pullup-tip .gfs-icon-loading {\n  width: 18px;\n  height: 18px;\n  font-size: 18px;\n}\n", ""]);
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n/**\n * 方案一 background-image: linear-gradient(...)\n * 调用: .border-top(#000);\n * 缺点: 无法设置圆角; 占用背景色的属性; 代码量大\n **/\n/**\n * 方案二 伪类和transform\n * 调用: .onepx(border-top, 1px solid #000);\n * 缺点: 占用after伪类; 仅适用于有after伪元素的元素\n **/\n.ph-pullup,\n.ph-pulldown {\n  text-align: center;\n}\n.ph-pulldown {\n  position: relative;\n  width: 100%;\n  margin-top: -88px;\n  z-index: -1;\n  background-color: transparent;\n  pointer-events: none;\n}\n.ph-pullup-tip,\n.ph-pulldown-tip {\n  padding: 12px 0;\n  font-size: 14px;\n  color: #999;\n}\n.ph-pullup-tip .gfs-icon-loading,\n.ph-pulldown-tip .gfs-icon-loading {\n  width: 18px;\n  height: 18px;\n  font-size: 18px;\n}\n", ""]);
 
 	// exports
 
@@ -14297,11 +14351,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _componentsFilterPanelCheckboxJs2 = _interopRequireDefault(_componentsFilterPanelCheckboxJs);
 
+	var _componentsFilterPanelCustomJs = __webpack_require__(167);
+
+	var _componentsFilterPanelCustomJs2 = _interopRequireDefault(_componentsFilterPanelCustomJs);
+
 	__webpack_require__(51);
 
 	__webpack_require__(93);
 
-	__webpack_require__(167);
+	__webpack_require__(168);
 
 	var PhFilter = {};
 
@@ -14312,6 +14370,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	PhFilter.ItemGroup = _componentsFilterItemGroupJs2['default'];
 	PhFilter.CheckboxContainer = _componentsFilterCheckboxJs2['default'];
 	PhFilter.PanelCheckbox = _componentsFilterPanelCheckboxJs2['default'];
+	PhFilter.PanelCustom = _componentsFilterPanelCustomJs2['default'];
 
 	exports['default'] = PhFilter;
 	module.exports = exports['default'];
@@ -14362,6 +14421,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * <strong><a href='../classes/FilterCheckbox.html'>FilterCheckbox 多选筛选</a></strong><br>
 	 * <strong><a href='../classes/FilterPanelSimple.html'>FilterPanelSimple 简单面板</a></strong><br>
 	 * <strong><a href='../classes/FilterPanel.html'>FilterPanel 面板</a></strong><br>
+	 * <strong><a href='../classes/FilterPanelCheckbox.html'>FilterPanelCheckbox 多选面板</a></strong><br>
 	 * <strong><a href='../classes/FilterItemGroup.html'>FilterItemGroup 主菜单</a></strong><br>
 	 * <strong><a href='../classes/FilterItem.html'>FilterItem 筛选项</a></strong><br>
 	 * <h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>
@@ -14375,13 +14435,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * - 可通过index设置筛选默认打开的面板。默认－1，即都不打开。
 	 * - 可通过hideCat选择是否要显示筛选头部。
 	 * - 可通过clickCallback设置有效选择的回调，当没有按钮时选中即触发，有按钮时点击按钮时触发。
+	 * - 可通过noShadow设置是否显示阴影，默认显示。
+	 * - 可通过hideCallback手动调用隐藏panel。
 	 *
 	 * 主要属性和接口：
 	 * - index: 默认打开的面板。
 	 * - hideCat: 是否显示筛选头部。
 	 * - clickCallback: 有效选择的回调。
+	 * - noShadow: 是否显示阴影。
+	 * - hideCallback: 手动调用隐藏panel。
 	 * 
-	 * 有2种形式，其一，简单模式。<br/>
+	 * 有4种形式，其一，简单单选模式。<br/>
 	 * 如：
 	 * ```code
 	 *  this.state = {
@@ -14393,7 +14457,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *      ]
 	 *  }
 	 * ...
-	 *  <FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)} stable>
+	 *  <FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)} ref={(container)=>{this.container=container}} noShadow={true}>
 	 *      <PanelSimple readOnly className='panel1' selected={{key:'ljz',value:'陆家嘴'}}>
 	 *          {
 	 *              this.state.panel1.map(function(item){
@@ -14402,24 +14466,54 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *          }
 	 *      </PanelSimple>
 	 *  </FilterContainer>
+	 * ...
+	 * this.container.hideCallback();
 	 * ```
-	 * 其一，双栏模式。<br/>
+	 * 其二，简单多选模式。<br/>
+	 * 如：
+	 * ```code
+	 *  <FilterContainer index={0} clickCallback={this.clickCallback.bind(this)}>
+	 *      <PanelCheckbox readOnly className='panel1' selected={{key:'ljz',value:'陆家嘴'}} type='simple'>
+	 *          {
+	 *              this.state.panel1.map(function(item){
+	 *                  return <Item key={item.key} itemKey={item.key}>{item.value}</Item>
+	 *              })
+	 *          }
+	 *      </PanelCheckbox>
+	 *  </FilterContainer>
+	 * ```
+	 * 其三，双栏单选模式。<br/>
 	 * 如：
 	 * ```code
 	 *  <FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)}>
 	 *      <Panel readOnly selected={{key:'s_flower',value:'花店'}}>
 	 *          <ItemGroup label={<span style={{color:'red'}}>美食</span>}>
-	 *              <Item itemKey='f_all'>全部美食</Item>
 	 *              <Item itemKey='f_bbc'>本帮江浙菜</Item>
 	 *              ...
 	 *          </ItemGroup>
 	 *          <ItemGroup  label='电影'>
-	 *              <Item itemKey='m_all'>全部电影</Item>
 	 *              <Item itemKey='m_p'>私人影院</Item>
 	 *              ...
 	 *          </ItemGroup>
 	 *          ...
 	 *      </Panel>
+	 *  </FilterContainer>
+	 * ```
+	 * 其三，双栏多选模式。<br/>
+	 * 如：
+	 * ```code
+	 *  <FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)}>
+	 *      <PanelCheckbox readOnly selected={{key:'s_flower',value:'花店'}}>
+	 *          <ItemGroup mainKey='ms' label={<span style={{color:'red'}}>美食</span>}>
+	 *              <Item itemKey='f_bbc'>本帮江浙菜</Item>
+	 *              ...
+	 *          </ItemGroup>
+	 *          <ItemGroup mainKey='dy' label='电影'>
+	 *              <Item itemKey='m_p'>私人影院</Item>
+	 *              ...
+	 *          </ItemGroup>
+	 *          ...
+	 *      </PanelCheckbox>
 	 *  </FilterContainer>
 	 * ```
 	 *
@@ -14453,12 +14547,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * */
 	            hideCat: _propTypes2['default'].bool,
 	            /**
+	             * 是否显示阴影
+	             * @property noShadow
+	             * @type Boolean
+	             * @default false
+	             * */
+	            noShadow: _propTypes2['default'].bool,
+	            /**
 	             * 有效选择触发的回调函数
 	             * @method clickCallback
 	             * @param {string} key 返回选中的key值
 	             * @type Function
 	             * */
-	            clickCallback: _propTypes2['default'].func
+	            clickCallback: _propTypes2['default'].func,
+	            /**
+	             * 手动隐藏panel
+	             * @method hideCallback
+	             * @type Function
+	             * */
+	            hideCallback: _propTypes2['default'].func
 	        },
 	        enumerable: true
 	    }, {
@@ -14479,24 +14586,24 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        new _utilsLogger2['default']('ph-filter');
 
+	        this.catClick = false;
+	        this.activeIndex = props.index;
+
 	        this.state = {
-	            catList: this.getCatList(),
+	            catList: this.getCatList(props),
 	            activeCat: props.index,
 	            fixed: false
 	        };
 
 	        this.windowScrollHandle = this.windowScrollHandle.bind(this);
-	        this.preventDefault = this.preventDefault.bind(this);
 	        this.containerOffsetTop = 0;
 
 	        window.addEventListener('scroll', this.windowScrollHandle, false);
 	    }
 
-	    FilterContainer.prototype.preventDefault = function preventDefault(e) {
-	        _utilsTool.preventDefault(e);
-	    };
-
 	    FilterContainer.prototype.windowScrollHandle = function windowScrollHandle() {
+	        if (this.state.activeCat > -1) return;
+
 	        if (_utilsTool.getScrollTop() > this.containerOffsetTop) {
 	            if (!this.state.fixed) this.setState({ fixed: true });
 	        } else {
@@ -14513,56 +14620,77 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    FilterContainer.prototype.componentWillUnmount = function componentWillUnmount() {
-	        this.willScroll();
 	        window.removeEventListener('scroll', this.windowScrollHandle, false);
+	        this.fixScroll(null);
 	    };
 
-	    FilterContainer.prototype.getCatList = function getCatList() {
-	        var catList = _react2['default'].Children.map(this.props.children, function (panel, index) {
+	    FilterContainer.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+	        var self = this,
+	            setted = false; // 解决map无法跳出的问题
+
+	        _react2['default'].Children.map(nextProps.children, function (panel, index) {
+	            if (setted) return;
+	            if (self.state.catList[index] !== panel.props.selected) {
+	                self.setState({
+	                    catList: self.getCatList(nextProps)
+	                });
+	                setted = true;
+	            }
+	        });
+	    };
+
+	    FilterContainer.prototype.getCatList = function getCatList(props) {
+	        return _react2['default'].Children.map(props.children, function (panel, index) {
 	            //如果panel设置了selected属性的话直接读取selected属性；如果panel没有设置selected属性，则读取default用来展示在cat列表中
-	            return panel.props.selected ? panel.props.selected : {
+	            return panel.props.selected && panel.props.selected.key ? panel.props.selected : {
 	                key: '',
 	                value: panel.props['default'] ? panel.props['default'] : ''
 	            };
 	        });
-	        return catList;
 	    };
 
 	    FilterContainer.prototype.setCatList = function setCatList() {
 	        this.setState({
-	            catList: this.getCatList()
+	            catList: this.getCatList(this.props)
 	        });
 	    };
 
 	    FilterContainer.prototype.categoryChange = function categoryChange(index, category, hasButtons) {
+	        var _this2 = this;
+
 	        var catList = this.state.catList.slice();
 	        var clickCallback = this.props.clickCallback;
 
 	        if (hasButtons) return;
 
 	        catList[index] = category;
+
 	        this.setState({
 	            catList: catList,
 	            activeCat: -1
+	        }, function () {
+	            _this2.fixScroll(-1);
 	        });
 
-	        this.willScroll();
-
-	        clickCallback && clickCallback(category.key);
+	        clickCallback && clickCallback(category.key, this.state.activeCat);
 	    };
 
 	    FilterContainer.prototype.activeCat = function activeCat(index) {
-	        if (_utilsTool.getScrollTop() < this.filterContainer.offsetTop) {
-	            // 打开时滚动到顶部
-	            document.documentElement.scrollTop = this.filterContainer.offsetTop;
-	        }
+	        var _this3 = this;
+
 	        //展开某一个cat
+	        this.catClick = true;
+	        this.activeIndex = index;
+
 	        if (index == this.state.activeCat) {
 	            index = -1;
 	        }
-	        // console.log(index)
+
 	        this.setState({
 	            activeCat: index
+	        }, function () {
+	            _this3.catClick = false;
+	            _this3.fixScroll(index);
 	        });
 	    };
 
@@ -14573,21 +14701,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var activeCat = _self$state.activeCat;
 
 	        return _react2['default'].Children.map(this.props.children, function (panel, index) {
+	            var _self$props = self.props;
+	            var choose = _self$props.choose;
+	            var getChooseData = _self$props.getChooseData;
+	            var hideCat = _self$props.hideCat;
+	            var clickCallback = panel.props.clickCallback;
 	            var show = index == activeCat;
 
-	            if (self.props.hideCat && index == 0) {
-	                show = true;
-	            }
+	            if (hideCat && index == 0) show = true;
+	            if (self.catClick && self.activeIndex == index) clickCallback && clickCallback(activeCat == index);
 
-	            return _react2['default'].cloneElement(panel, {
+	            var panelProps = {
 	                categoryChange: self.categoryChange.bind(self),
 	                // selected: catList[index],
 	                setCatList: self.setCatList.bind(self),
 	                panelIndex: index,
 	                show: show,
-	                choose: _utilsTool.transToArray(self.props.choose),
-	                getChooseData: self.props.getChooseData
-	            });
+	                getChooseData: _utilsTool.transToArray(getChooseData)
+	            };
+
+	            return _react2['default'].cloneElement(panel, panelProps);
 	        });
 	    };
 
@@ -14623,32 +14756,55 @@ return /******/ (function(modules) { // webpackBootstrap
 	        });
 	    };
 
-	    FilterContainer.prototype.noScroll = function noScroll() {
-	        document.body.classList.add('noscroll');
-	        // this.filterShadow.addEventListener('touchmove', this.preventDefault);
-	    };
+	    FilterContainer.prototype.fixScroll = function fixScroll(index) {
+	        var elem = document.body,
+	            classList = elem.classList,
+	            scrollingElement = document.scrollingElement || elem;
 
-	    FilterContainer.prototype.willScroll = function willScroll() {
-	        document.body.classList.remove('noscroll');
-	        // this.filterShadow.removeEventListener('touchmove', this.preventDefault);
+	        if (index == null) {
+	            classList.remove('noscroll');
+	            return;
+	        }
+
+	        if (index == -1) {
+	            classList.remove('noscroll');
+	            scrollingElement.scrollTop = this.scrollTop;
+	        } else {
+	            if (elem.className.indexOf('noscroll') == -1) {
+	                this.scrollTop = scrollingElement.scrollTop;
+
+	                // if(this.filterContainer.offsetTop && this.scrollTop < this.filterContainer.offsetTop){ // 打开时滚动到顶部
+	                //     this.scrollTop = this.filterContainer.offsetTop
+	                // }
+
+	                classList.add('noscroll');
+
+	                elem.style.top = -this.scrollTop + 'px';
+	            }
+	        }
 	    };
 
 	    FilterContainer.prototype.hidePanel = function hidePanel() {
-	        var _this2 = this;
+	        var _this4 = this;
 
 	        this.setState({
 	            activeCat: -1
 	        }, function () {
-	            _this2.willScroll();
+	            _this4.fixScroll(-1);
 	        });
 	    };
 
+	    FilterContainer.prototype.hideCallback = function hideCallback() {
+	        this.hidePanel();
+	    };
+
 	    FilterContainer.prototype.render = function render() {
-	        var _this3 = this;
+	        var _this5 = this;
 
 	        var _props = this.props;
 	        var stable = _props.stable;
 	        var className = _props.className;
+	        var noShadow = _props.noShadow;
 	        var style = _props.style;
 	        var _state = this.state;
 	        var activeCat = _state.activeCat;
@@ -14659,9 +14815,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	            { className: 'ph-filter-occupy' },
 	            _react2['default'].createElement(
 	                'div',
-	                { className: _classnames2['default']('ph-filter-container', activeCat == -1 ? '' : 'ph-filter-container-shadow', fixed ? 'ph-filter-container-fixed' : '', className),
+	                { className: _classnames2['default']('ph-filter-container', activeCat == -1 ? '' : 'ph-filter-container-shadow', noShadow ? 'ph-filter-container-noshadow' : '', fixed ? 'ph-filter-container-fixed' : '', className),
 	                    ref: function (filterContainer) {
-	                        _this3.filterContainer = filterContainer;
+	                        _this5.filterContainer = filterContainer;
 	                    },
 	                    style: _extends({ top: stable && !fixed && activeCat > -1 ? this.containerOffsetTop + 'px' : '' }, style)
 	                },
@@ -14719,22 +14875,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * - 可通过selected设置选中的项目，格式如`{key:'ljz',value:'陆家嘴'}`。
 	 * - 可通过default设置没有选项时的默认显示文字。
 	 * - 可通过readOnly设置当前面板是否为只读模式。
-	 * - 可通过buttons设置底部按钮组的样式、文字、回调等，格式如`[{text:'取消', phStyle:'info', onHandle:this.cancelChoose.bind(this), otherProps: {hollow:true}}]`。
-	 *
+	 * - 可通过clickCallBack设置点击显隐panel的回调。
+	 * 
 	 * 主要属性和接口：
 	 * - selected: 默认打开的面板。
 	 * - default: 是否显示筛选头部。
-	 * - readOnly: 有效选择的回调。
-	 * - buttons: 有效选择的回调。
+	 * - readOnly: 是否只读
+	 * - clickCallBack: 点击panel显隐的回调。
 	 * 
 	 * 如：
 	 * ```code
-	 *  const buttons = [
-	 *      {onHandle: this.onSubmit.bind(this)}
-	 *  ]
 	 * ...
 	 *  <FilterContainer>
-	 *      <Panel readOnly selected={{key:'s_flower',value:'花店'}} buttons={buttons}>
+	 *      <Panel readOnly selected={{key:'s_flower',value:'花店'}} clickCallBack={(show)=>{console.log(show)}}>
 	 *          <ItemGroup label={<span style={{color:'red'}}>美食</span>}>
 	 *              <Item itemKey='f_all'>全部美食</Item>
 	 *              <Item itemKey='f_bbc'>本帮江浙菜</Item>
@@ -14787,18 +14940,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * */
 	            readOnly: _propTypes2['default'].bool,
 	            /**
-	            * 按钮数组
-	            * @property buttons
-	            * @type Array
-	            * */
-	            buttons: _propTypes2['default'].array,
-	            /**
 	            * 主菜单默认选中项
 	            * @property index
 	            * @type Number
 	            * @default 0
 	            * */
-	            index: _propTypes2['default'].number
+	            index: _propTypes2['default'].number,
+	            /**
+	             * 点击panel显隐的回调
+	             * @method clickCallback
+	             * @param {string} show 是否显示
+	             * @type Function
+	             * */
+	            clickCallBack: _propTypes2['default'].func
 	        },
 	        enumerable: true
 	    }, {
@@ -15110,13 +15264,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * - 可通过selected设置选中的项目，格式如`{key:'ljz',value:'陆家嘴'}`。
 	 * - 可通过default设置没有选项时的默认显示文字。
 	 * - 可通过readOnly设置当前面板是否为只读模式。
-	 * - 可通过buttons设置底部按钮组的样式、文字、回调等，格式如`[{text:'取消', phStyle:'info', onHandle:this.cancelChoose.bind(this), otherProps: {hollow:true}}]`。
-	 *
+	 * - 可通过clickCallBack设置点击显隐panel的回调。
+	 * 
 	 * 主要属性和接口：
 	 * - selected: 默认打开的面板。
 	 * - default: 是否显示筛选头部。
 	 * - readOnly: 有效选择的回调。
-	 * - buttons: 有效选择的回调。
+	 * - clickCallBack: 点击panel显隐的回调。
 	 * 
 	 * 如：
 	 * ```code
@@ -15129,12 +15283,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *      ]
 	 *  }
 	 * ...
-	 *  const buttons = [
-	 *      {onHandle: this.onSubmit.bind(this)}
-	 *  ]
-	 * ...
 	 *  <FilterContainer>
-	 *      <PanelSimple readOnly selected={{key:'ljz',value:'陆家嘴'}} buttons={buttons}>
+	 *      <PanelSimple readOnly selected={{key:'ljz',value:'陆家嘴'}} clickCallBack={(show)=>{console.log(show)}}>
 	 *          {
 	 *              this.state.panel1.map(function(item){
 	 *                  return <Item key={item.key} itemKey={item.key}>{item.value}</Item>
@@ -15181,11 +15331,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * */
 	            readOnly: _propTypes2['default'].bool,
 	            /**
-	            * 按钮数组
-	            * @property buttons
-	            * @type Array
-	            * */
-	            buttons: _propTypes2['default'].array
+	             * 点击panel显隐的回调
+	             * @method clickCallback
+	             * @param {string} show 是否显示
+	             * @type Function
+	             * */
+	            clickCallBack: _propTypes2['default'].func
 	        },
 	        enumerable: true
 	    }, {
@@ -15369,8 +15520,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var mainKey = _props2.mainKey;
 	        var itemKey = _props2.itemKey;
 	        var onItemChange = _props2.onItemChange;
+	        var children = _props2.children;
 
-	        onItemChange(mainKey, itemKey, e);
+	        onItemChange(mainKey, itemKey, children, e);
 	    };
 
 	    FilterItem.prototype.renderChildren = function renderChildren() {
@@ -15665,10 +15817,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	            { className: _classnames2['default']('ph-checkbox-filter', className) },
 	            _react2['default'].createElement(
 	                _FilterContainerJs2['default'],
-	                { index: 0, hideCat: true, choose: choose },
+	                { index: 0, hideCat: true },
 	                _react2['default'].createElement(
 	                    _FilterPanelCheckboxJs2['default'],
-	                    { index: index, buttons: buttons },
+	                    { index: index, buttons: buttons, selected: { key: choose, value: '' }, choose: choose },
 	                    children
 	                )
 	            )
@@ -15759,36 +15911,106 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _button2 = _interopRequireDefault(_button);
 
+	/**
+	 * 多选面板<br/>
+	 * - 可通过selected设置选中的项目，格式如`{key:'ljz',value:'陆家嘴'}`。
+	 * - 可通过default设置没有选项时的默认显示文字。
+	 * - 可通过readOnly设置当前面板是否为只读模式。
+	 * - 可通过buttons设置底部按钮组的样式、文字、回调等，格式如`[{text:'取消', phStyle:'info', onHandle:this.cancelChoose.bind(this), close:true, otherProps: {hollow:true}}]`。
+	 * - 可通过clickCallBack设置点击显隐panel的回调。
+	 * - 可通过checkAll设置是否显示全选，默认显示。
+	 * - 可通过type来判断当前的模式是否简单。
+	 * 
+	 * 主要属性和接口：
+	 * - selected: 默认打开的面板。
+	 * - default: 是否显示筛选头部。
+	 * - readOnly: 是否只读。
+	 * - buttons: 按钮组。
+	 * - clickCallBack: 点击panel显隐的回调。
+	 * - checkAll: 是否显示全选。
+	 * - type: 简单模式。
+	 * 
+	 * 如：
+	 * ```code
+	 *  const buttons = [
+	 *      {onHandle: this.onSubmit.bind(this)}
+	 *  ]
+	 * ...
+	 *  <FilterContainer>
+	 *      <PanelCheckbox readOnly selected={{key:'s_flower,f_bbc',value:'花店,本帮江浙菜'}} buttons={buttons} checkAll={false} clickCallBack={(show)=>{console.log(show)}}>
+	 *          <ItemGroup mainKey='ms' label={<span style={{color:'red'}}>美食</span>}>
+	 *              <Item itemKey='f_bbc'>本帮江浙菜</Item>
+	 *              ...
+	 *          </ItemGroup>
+	 *          <ItemGroup mainKey='dy' label='电影'>
+	 *              <Item itemKey='m_p'>私人影院</Item>
+	 *              ...
+	 *          </ItemGroup>
+	 *          ...
+	 *      </PanelCheckbox>
+	 *  </FilterContainer>
+	 * 或
+	 * <FilterContainer>
+	 *      <PanelCheckbox readOnly selected={{key:'s_flower,f_bbc',value:'花店,本帮江浙菜'}} buttons={buttons} type='simple'>
+	 *          <Item itemKey='f_bbc'>本帮江浙菜</Item>
+	 *          ...
+	 *      </PanelCheckbox>
+	 *  </FilterContainer>
+	 * ```
+	 *
+	 * @class FilterPanelCheckbox
+	 * @module 筛选控件
+	 * @extends Component
+	 * @constructor
+	 * @since 2.2.0
+	 * @demo ph-filter|ph-filter.js {展示}
+	 * @show true
+	 * */
+
 	var FilterPanelCheckbox = (function (_Component) {
 	    _inherits(FilterPanelCheckbox, _Component);
-
-	    _createClass(FilterPanelCheckbox, null, [{
-	        key: 'defaulrProps',
-	        value: {},
-	        enumerable: true
-	    }]);
 
 	    function FilterPanelCheckbox(props, context) {
 	        _classCallCheck(this, FilterPanelCheckbox);
 
 	        _Component.call(this, props, context);
 
-	        this.init = 0;
-	        this.choose = props.choose;
+	        this.choose = this.dealWithSelected(props);
+	        this.nameList = {};
 
 	        this.state = {
 	            activeGroupIndex: props.index,
 	            allChecked: {},
 	            itemChecked: {},
-	            itemDisabled: {}
+	            itemDisabled: {},
+	            selected: this.dealWithSelected(props),
+	            selectedName: this.dealWithSelected(props, 'value')
 	        };
 	    }
 
+	    FilterPanelCheckbox.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+	        if (this.state.selected !== this.dealWithSelected(nextProps)) {
+	            this.setState({
+	                selected: this.dealWithSelected(nextProps),
+	                selectedName: this.dealWithSelected(nextProps, 'value')
+	            });
+	        }
+	    };
+
+	    FilterPanelCheckbox.prototype.dealWithSelected = function dealWithSelected(props, param) {
+	        var key = param || 'key';
+	        if (props.selected && props.selected[key]) return _utilsTool.transToArray(props.selected[key]);else return [];
+	    };
+
 	    FilterPanelCheckbox.prototype.deleteFromArray = function deleteFromArray(val) {
-	        var choose = this.props.choose;var _index = choose.indexOf(val);
+	        var _state = this.state;
+	        var selected = _state.selected;
+	        var selectedName = _state.selectedName;
+	        var _index = selected.indexOf(val);
 
 	        if (_index > -1) {
-	            choose.splice(_index, 1);
+	            selected.splice(_index, 1);
+	            selectedName.splice(_index, 1);
 	        }
 	    };
 
@@ -15798,11 +16020,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        });
 	    };
 
-	    FilterPanelCheckbox.prototype.onAllItemChange = function onAllItemChange(mainKey, itemKey, e) {
-	        var choose = this.props.choose;
-
-	        var allChecked = this.state.allChecked,
-	            itemChecked = this.state.itemChecked;
+	    FilterPanelCheckbox.prototype.onAllItemChange = function onAllItemChange(mainKey, itemKey, name, e) {
+	        var _state2 = this.state;
+	        var selected = _state2.selected;
+	        var selectedName = _state2.selectedName;
+	        var allChecked = _state2.allChecked;
+	        var itemChecked = _state2.itemChecked;
 
 	        allChecked[mainKey] = e.target.checked;
 	        // 全选或全不选
@@ -15811,7 +16034,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	            if (e.target.checked) {
 	                // 全选
-	                if (choose.indexOf(i) == -1 && !this.state.itemDisabled[mainKey][i]) choose.push(i.toString());
+	                if (selected.indexOf(i) == -1 && !this.state.itemDisabled[mainKey][i]) {
+	                    selected.push(i.toString());
+	                    selectedName.push(this.nameList[mainKey][i]);
+	                }
 	            } else {
 	                // 全不选
 	                this.deleteFromArray(i);
@@ -15823,16 +16049,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	            itemChecked: itemChecked
 	        });
 
-	        this.choosed = choose.join();
-
 	        // if(this.props.getChooseData) this.props.getChooseData(choose.join());
 	    };
 
-	    FilterPanelCheckbox.prototype.onItemChange = function onItemChange(mainKey, itemKey, e) {
-	        var choose = this.props.choose;
-
-	        var allChecked = this.state.allChecked,
-	            itemChecked = this.state.itemChecked;
+	    FilterPanelCheckbox.prototype.onItemChange = function onItemChange(mainKey, itemKey, name, e) {
+	        var _state3 = this.state;
+	        var selected = _state3.selected;
+	        var selectedName = _state3.selectedName;
+	        var allChecked = _state3.allChecked;
+	        var itemChecked = _state3.itemChecked;
+	        var itemDisabled = _state3.itemDisabled;
 
 	        itemChecked[mainKey][itemKey] = e.target.checked;
 
@@ -15844,9 +16070,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        if (e.target.checked) {
 	            var count = true;
-	            if (choose.indexOf(itemKey) == -1) choose.push(itemKey.toString());
+	            if (selected.indexOf(itemKey) == -1) {
+	                selected.push(itemKey.toString());
+	                selectedName.push(name);
+	            }
 	            for (var i in itemChecked[mainKey]) {
-	                if (!itemChecked[mainKey][i] && !this.state.itemDisabled[mainKey][i]) {
+	                if (!itemChecked[mainKey][i] && !itemDisabled[mainKey][i]) {
 	                    count = false;
 	                    break;
 	                }
@@ -15859,9 +16088,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            itemChecked: itemChecked
 	        });
 
-	        this.choosed = choose.join();
-
-	        // if(this.props.getChooseData) this.props.getChooseData(choose.join());
+	        // if(this.props.getChooseData) this.props.getChooseData(selected.join());
 	    };
 
 	    FilterPanelCheckbox.prototype.renderMainMenuList = function renderMainMenuList() {
@@ -15878,89 +16105,31 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    FilterPanelCheckbox.prototype.renderSubMenuList = function renderSubMenuList(mainMenuList) {
-	        var choose = this.props.choose;
-
-	        var mainMenu,
-	            self = this;
+	        var selected = this.state.selected;
+	        var _state4 = this.state;
+	        var itemChecked = _state4.itemChecked;
+	        var itemDisabled = _state4.itemDisabled;
+	        var mainMenu;var self = this;var checkAll = this.props.checkAll;
 
 	        mainMenu = _react2['default'].Children.map(mainMenuList, function (menu) {
-	            var mainKey = menu.props.mainKey;
+	            var mainKey = menu.props.mainKey || 0;
 
 	            if (menu.props.groupIndex == self.state.activeGroupIndex) {
-	                var _ret = (function () {
-	                    var subMenu = [],
-	                        checkedCount = 0,
-	                        disabledCount = 0,
-	                        sum = 0;
-
-	                    _react2['default'].Children.map(menu.props.children, function (item) {
-	                        var key = item.props.itemKey,
-	                            disabled = item.props.disabled;
-
-	                        self.state.itemChecked[mainKey] = self.state.itemChecked[mainKey] || {};
-	                        self.state.itemDisabled[mainKey] = self.state.itemDisabled[mainKey] || {};
-
-	                        if (self.state.itemChecked[mainKey][key] == undefined || self.choose != choose) {
-	                            // 兼容通过请求获取choose的情况
-	                            self.state.itemChecked[mainKey][key] = choose.indexOf(key.toString()) != -1;
-	                        }
-	                        if (self.state.itemDisabled[mainKey][key] == undefined || self.choose != choose) {
-	                            self.state.itemDisabled[mainKey][key] = disabled;
-	                        }
-
-	                        if (self.state.itemChecked[mainKey][key]) checkedCount++;
-	                        if (disabled) {
-	                            self.deleteFromArray(key.toString());
-	                            disabledCount++;
-	                        }
-	                        sum++;
-
-	                        subMenu.push(_react2['default'].cloneElement(item, {
-	                            active: false,
-	                            readOnly: self.props.readOnly,
-	                            categoryChange: self.props.categoryChange,
-	                            panelIndex: self.props.panelIndex,
-	                            // new props
-	                            checked: self.state.itemChecked[mainKey][key],
-	                            choose: self.props.choose,
-	                            filterType: 'checkbox',
-	                            mainKey: mainKey,
-	                            onItemChange: self.onItemChange.bind(self)
-	                        }));
-	                    });
-
-	                    // new一个全部的elemecontext
-	                    if (self.state.allChecked[mainKey] == undefined || self.choose != choose) {
-	                        if (checkedCount + disabledCount == sum) self.state.allChecked[mainKey] = true;else self.state.allChecked[mainKey] = false;
-	                    }
-
-	                    subMenu.unshift(_react2['default'].createElement(
-	                        _FilterItem2['default'],
-	                        { active: false, key: mainKey, itemKey: mainKey, mainKey: mainKey, disabled: disabledCount == sum,
-	                            filterType: 'checkbox', choose: self.props.choose, checked: self.state.allChecked[mainKey],
-	                            onItemChange: self.onAllItemChange.bind(self) },
-	                        '全部'
-	                    ));
-
-	                    return {
-	                        v: subMenu
-	                    };
-	                })();
-
-	                if (typeof _ret === 'object') return _ret.v;
+	                return self.renderSubMenuCore(menu.props.children, selected, mainKey);
 	            }
 	        });
-	        self.init = 1;
 
-	        this.choosed = choose.join();
-	        // console.log(this.props.choose.join());
 	        return mainMenu;
 	    };
 
 	    FilterPanelCheckbox.prototype.renderButtons = function renderButtons() {
-	        var _this = this;
-
-	        var buttons = this.props.buttons;
+	        var _props = this.props;
+	        var buttons = _props.buttons;
+	        var panelIndex = _props.panelIndex;
+	        var _state5 = this.state;
+	        var selected = _state5.selected;
+	        var selectedName = _state5.selectedName;
+	        var self = this;
 
 	        return buttons ? _react2['default'].createElement(
 	            _buttonGroup2['default'],
@@ -15971,7 +16140,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    _extends({ key: index }, button.otherProps, { phSize: 'lg', phStyle: button.phStyle || 'primary',
 	                        onClick: function () {
 	                            if (button.onHandle) {
-	                                button.onHandle(_this.choosed);
+	                                button.onHandle(selected.join(), selectedName.join());
+	                                if (button.close) self.props.categoryChange(panelIndex, { key: selected.join(), value: selectedName.join() });
 	                            }
 	                        } }),
 	                    button.text || '确定'
@@ -15980,33 +16150,184 @@ return /******/ (function(modules) { // webpackBootstrap
 	        ) : null;
 	    };
 
-	    FilterPanelCheckbox.prototype.render = function render() {
-	        var _props = this.props;
-	        var className = _props.className;
-	        var buttons = _props.buttons;
-	        var mainMenuList = this.renderMainMenuList();
-	        var subMenuList = this.renderSubMenuList(mainMenuList);
+	    FilterPanelCheckbox.prototype.renderMenuList = function renderMenuList() {
+	        var selected = this.state.selected;
+	        var menuList = this.renderSubMenuCore(this.props.children, selected, 0);
+	        return menuList;
+	    };
+
+	    FilterPanelCheckbox.prototype.renderSubMenuCore = function renderSubMenuCore(children, selected, mainKey) {
+	        var _state6 = this.state;
+	        var itemChecked = _state6.itemChecked;
+	        var itemDisabled = _state6.itemDisabled;
+	        var allChecked = _state6.allChecked;
+	        var checkAll = this.props.checkAll;
+
+	        var subMenu = [],
+	            checkedCount = 0,
+	            disabledCount = 0,
+	            sum = 0,
+	            self = this;
+
+	        _react2['default'].Children.map(children, function (item) {
+	            var key = item.props.itemKey,
+	                disabled = item.props.disabled;
+
+	            itemChecked[mainKey] = itemChecked[mainKey] || {};
+	            itemDisabled[mainKey] = itemDisabled[mainKey] || {};
+	            self.nameList[mainKey] = self.nameList[mainKey] || {};
+
+	            if (itemChecked[mainKey][key] == undefined || self.choose != selected) {
+	                // 兼容通过请求获取choose的情况
+	                itemChecked[mainKey][key] = selected.indexOf(key.toString()) != -1;
+	            }
+	            if (itemDisabled[mainKey][key] == undefined || self.choose != selected) {
+	                itemDisabled[mainKey][key] = disabled;
+	            }
+	            if (self.nameList[mainKey][key] == undefined || self.choose != selected) {
+	                self.nameList[mainKey][key] = item.props.children;
+	            }
+
+	            if (itemChecked[mainKey][key]) checkedCount++;
+	            if (disabled) {
+	                self.deleteFromArray(key.toString());
+	                disabledCount++;
+	            }
+	            sum++;
+
+	            subMenu.push(_react2['default'].cloneElement(item, {
+	                active: false,
+	                readOnly: self.props.readOnly,
+	                categoryChange: self.props.categoryChange,
+	                panelIndex: self.props.panelIndex,
+	                // new props
+	                checked: itemChecked[mainKey][key],
+	                // selected:self.props.selected,
+	                filterType: 'checkbox',
+	                mainKey: mainKey,
+	                onItemChange: self.onItemChange.bind(self)
+	            }));
+	        });
+
+	        // new一个全部的elemecontext
+	        if (allChecked[mainKey] == undefined || self.choose != selected) {
+	            if (checkedCount + disabledCount == sum) allChecked[mainKey] = true;else allChecked[mainKey] = false;
+	        }
+
+	        if (checkAll) subMenu.unshift(_react2['default'].createElement(
+	            _FilterItem2['default'],
+	            { active: false, key: mainKey, itemKey: mainKey, mainKey: mainKey, disabled: disabledCount == sum,
+	                filterType: 'checkbox', checked: allChecked[mainKey],
+	                onItemChange: self.onAllItemChange.bind(self) },
+	            '全部'
+	        ));
+
+	        return subMenu;
+	    };
+
+	    FilterPanelCheckbox.prototype.isSimple = function isSimple() {
+	        var type = this.props.type;
+
+	        return type == 'simple';
+	    };
+
+	    FilterPanelCheckbox.prototype.renderSimpleMenu = function renderSimpleMenu(className) {
+	        var menuList = this.renderMenuList();
 
 	        return _react2['default'].createElement(
 	            'div',
-	            { className: _classnames2['default']('ph-filter-selector', buttons ? 'ph-filter-selector-buttons' : '') },
+	            { className: _classnames2['default']('ph-row ph-tabs ph-tabs-vertical', className) },
 	            _react2['default'].createElement(
 	                'div',
-	                { className: _classnames2['default']('ph-row ph-tabs ph-tabs-vertical', className ? className : '') },
-	                _react2['default'].createElement(
-	                    'div',
-	                    { className: 'ph-col ph-col-33 ph-tab-navs' },
-	                    mainMenuList
-	                ),
-	                _react2['default'].createElement(
-	                    'div',
-	                    { className: 'ph-col ph-tab-bd' },
-	                    subMenuList
-	                )
-	            ),
-	            this.renderButtons()
+	                { className: 'ph-col ph-tab-bd' },
+	                menuList
+	            )
 	        );
 	    };
+
+	    FilterPanelCheckbox.prototype.renderMenu = function renderMenu(className) {
+	        var mainMenuList = this.renderMainMenuList(),
+	            subMenuList = this.renderSubMenuList(mainMenuList);
+
+	        return _react2['default'].createElement(
+	            'div',
+	            { className: _classnames2['default']('ph-row ph-tabs ph-tabs-vertical', className) },
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'ph-col ph-col-33 ph-tab-navs' },
+	                mainMenuList
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'ph-col ph-tab-bd' },
+	                subMenuList
+	            )
+	        );
+	    };
+
+	    FilterPanelCheckbox.prototype.render = function render() {
+	        var _props2 = this.props;
+	        var className = _props2.className;
+	        var buttons = _props2.buttons;
+	        var show = _props2.show;
+	        var type = _props2.type;
+	        var children = _props2.children;
+
+	        return show ? _react2['default'].createElement(
+	            'div',
+	            { className: _classnames2['default']('ph-filter-selector', buttons ? 'ph-filter-selector-buttons' : '') },
+	            this.isSimple() ? this.renderSimpleMenu(className) : this.renderMenu(className),
+	            this.renderButtons()
+	        ) : null;
+	    };
+
+	    _createClass(FilterPanelCheckbox, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * panel下选中的item的key、value组成的对象，用于设置该panel初始状态下选中的item项
+	             * @property selected
+	             * @type Object 如{key:'ljz,xjh',value:'陆家嘴,徐家汇'}
+	             * */
+	            selected: _propTypes2['default'].shape({
+	                key: _propTypes2['default'].string,
+	                value: _propTypes2['default'].oneOfType([_propTypes2['default'].string, _propTypes2['default'].element])
+	            }),
+	            /**
+	             * 当不设置panel的选中项时（不选择任何item），可以设置一个默认字符展示在filter上
+	             * @property default
+	             * @type String
+	             * */
+	            'default': _propTypes2['default'].string,
+	            /**
+	             * panel是否为只读模式
+	             * @property readOnly
+	             * @type Boolean
+	             * */
+	            readOnly: _propTypes2['default'].bool,
+	            /**
+	            * 按钮数组
+	            * @property buttons
+	            * @type Array
+	            * */
+	            buttons: _propTypes2['default'].array,
+	            /**
+	            * 是否可以全选
+	            * @property checkAll
+	            * @type Boolean
+	            * @default true
+	            * */
+	            checkAll: _propTypes2['default'].bool
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            selected: {},
+	            checkAll: true
+	        },
+	        enumerable: true
+	    }]);
 
 	    return FilterPanelCheckbox;
 	})(_react.Component);
@@ -16018,10 +16339,130 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(26);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _propTypes = __webpack_require__(27);
+
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+
+	var _classnames = __webpack_require__(38);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _FilterPanelBase = __webpack_require__(161);
+
+	var _FilterPanelBase2 = _interopRequireDefault(_FilterPanelBase);
+
+	/**
+	 * 简单面板<br/>
+	 * - - 可通过clickCallBack设置点击显隐panel的回调。
+	 *
+	 * 主要属性和接口：
+	 * - - clickCallBack: 点击panel显隐的回调。
+	 * 
+	 * 如：
+	 * ```code
+	 *  <FilterContainer>
+	 *      <PanelCustom clickCallback={(show)=>{console.log(show)}}>
+	 *          ...
+	 *      </PanelCustom>
+	 *  </FilterContainer>
+	 * ```
+	 *
+	 * @class FilterPanelCustom
+	 * @module 筛选控件
+	 * @extends Component
+	 * @constructor
+	 * @since 3.2.0
+	 * @demo ph-filter|ph-filter.js {展示}
+	 * @show true
+	 * */
+
+	var FilterPanelCustom = (function (_PanelBase) {
+	    _inherits(FilterPanelCustom, _PanelBase);
+
+	    _createClass(FilterPanelCustom, null, [{
+	        key: 'propTypes',
+	        value: {
+	            /**
+	             * 当不设置panel的选中项时（不选择任何item），可以设置一个默认字符展示在filter上
+	             * @property default
+	             * @type String
+	             * */
+	            'default': _propTypes2['default'].string,
+	            /**
+	             * panel是否为只读模式
+	             * @property readOnly
+	             * @type Boolean
+	             * */
+	            readOnly: _propTypes2['default'].bool,
+	            /**
+	            * 按钮数组
+	            * @property buttons
+	            * @type Array
+	            * */
+	            buttons: _propTypes2['default'].array
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            selected: null,
+	            readOnly: false,
+	            buttons: null,
+	            'default': ''
+	        },
+	        enumerable: true
+	    }]);
+
+	    function FilterPanelCustom(props, context) {
+	        _classCallCheck(this, FilterPanelCustom);
+
+	        _PanelBase.call(this, props, context);
+	    }
+
+	    FilterPanelCustom.prototype.render = function render() {
+	        var _props = this.props;
+	        var className = _props.className;
+	        var buttons = _props.buttons;
+	        var children = _props.children;
+
+	        return this.props.show ? _react2['default'].createElement(
+	            'div',
+	            { className: _classnames2['default'](className ? className : '', 'ph-filter-selector', buttons ? 'ph-filter-selector-buttons' : '') },
+	            children,
+	            this.renderButtons()
+	        ) : null;
+	    };
+
+	    return FilterPanelCustom;
+	})(_FilterPanelBase2['default']);
+
+	exports['default'] = FilterPanelCustom;
+	module.exports = exports['default'];
+
+/***/ }),
+/* 168 */
+/***/ (function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(168);
+	var content = __webpack_require__(169);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(55)(content, {});
@@ -16041,7 +16482,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 168 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(54)();
@@ -16049,7 +16490,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n/**\n * 方案一 background-image: linear-gradient(...)\n * 调用: .border-top(#000);\n * 缺点: 无法设置圆角; 占用背景色的属性; 代码量大\n **/\n/**\n * 方案二 伪类和transform\n * 调用: .onepx(border-top, 1px solid #000);\n * 缺点: 占用after伪类; 仅适用于有after伪元素的元素\n **/\n.ph-filter-occupy {\n  height: 44px;\n}\n.ph-filter-container {\n  position: relative;\n}\n.ph-filter-container-fixed,\n.ph-filter-container-shadow {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 99;\n  width: 100%;\n}\n.ph-filter-container-shadow {\n  height: 100%;\n}\n.ph-filter-shadow {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 1;\n  background-color: rgba(0, 0, 0, 0.4);\n  pointer-events: auto;\n}\n.ph-filter-header {\n  z-index: 2;\n  margin: 0;\n  background-color: #fff;\n  position: relative;\n  border-bottom: 1PX solid #e1e1e1;\n}\n@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {\n  .ph-filter-header {\n    border: none;\n  }\n  .ph-filter-header:after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 200%;\n    height: 200%;\n    border-bottom: 1PX solid #e1e1e1;\n    -webkit-transform: scale(0.5);\n    -ms-transform: scale(0.5);\n    transform: scale(0.5);\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n    -webkit-transform-origin: left top;\n    -ms-transform-origin: left top;\n    transform-origin: left top;\n    pointer-events: none;\n  }\n}\n.ph-filter-header .ph-filter-header-item {\n  position: relative;\n  height: 44px;\n  padding: 12px 0;\n  line-height: 20px;\n  text-align: center;\n  font-size: 14px;\n}\n.ph-filter-header .ph-filter-header-item a {\n  display: block;\n  height: 20px;\n  position: relative;\n  border-right: 1PX solid #e1e1e1;\n  white-spac: nowrap;\n}\n@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {\n  .ph-filter-header .ph-filter-header-item a {\n    border: none;\n  }\n  .ph-filter-header .ph-filter-header-item a:after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 200%;\n    height: 200%;\n    border-right: 1PX solid #e1e1e1;\n    -webkit-transform: scale(0.5);\n    -ms-transform: scale(0.5);\n    transform: scale(0.5);\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n    -webkit-transform-origin: left top;\n    -ms-transform-origin: left top;\n    transform-origin: left top;\n    pointer-events: none;\n  }\n}\n.ph-filter-header .ph-filter-header-item:last-child a {\n  position: relative;\n  border-right: none;\n}\n@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {\n  .ph-filter-header .ph-filter-header-item:last-child a {\n    border: none;\n  }\n  .ph-filter-header .ph-filter-header-item:last-child a:after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 200%;\n    height: 200%;\n    border-right: none;\n    -webkit-transform: scale(0.5);\n    -ms-transform: scale(0.5);\n    transform: scale(0.5);\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n    -webkit-transform-origin: left top;\n    -ms-transform-origin: left top;\n    transform-origin: left top;\n    pointer-events: none;\n  }\n}\n.ph-filter-header .ph-filter-header-item .gfs-icon {\n  display: inline-block;\n  margin-left: 4px;\n  line-height: 20px;\n  font-size: 12px;\n  color: #666;\n  -webkit-transition: all 0.2s;\n  -moz-transition: all 0.2s;\n  transition: all 0.2s;\n  vertical-align: top;\n}\n.ph-filter-header .ph-filter-header-item.active .gfs-icon {\n  -webkit-transform: rotate(-180deg);\n  -ms-transform: rotate(-180deg);\n  transform: rotate(-180deg);\n}\n.ph-filter-header .ph-filter-header-item.active:after {\n  content: \"\";\n  position: absolute;\n  bottom: -2px;\n  left: 50%;\n  z-index: 1;\n  width: 18px;\n  height: 18px;\n  background-color: #fff;\n  border-top: 1PX solid #e1e1e1;\n  border-right: 1PX solid #e1e1e1;\n  -webkit-transform: rotate(-45deg) translateX(-50%) scale(0.5);\n  -ms-transform: rotate(-45deg) translateX(-50%) scale(0.5);\n  transform: rotate(-45deg) translateX(-50%) scale(0.5);\n}\n@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {\n  .ph-filter-header .ph-filter-header-item.active:after {\n    width: 18px;\n    height: 18px;\n    -webkit-transform: rotate(-45deg) translateX(-50%) scale(0.5);\n    -ms-transform: rotate(-45deg) translateX(-50%) scale(0.5);\n    transform: rotate(-45deg) translateX(-50%) scale(0.5);\n  }\n}\n.ph-filter-header .ph-filter-header-text {\n  display: inline-block;\n  overflow: hidden;\n  max-width: calc(100% - 36px);\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n.ph-filter-selector {\n  position: relative;\n  z-index: 2;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n}\n.ph-filter-selector > * {\n  max-height: 72%;\n  pointer-events: auto;\n}\n.ph-filter-selector .ph-list,\n.ph-filter-selector .ph-tab-navs,\n.ph-filter-selector .ph-tab-bd {\n  overflow-y: auto;\n}\n.ph-filter-selector .ph-list::-webkit-scrollbar,\n.ph-filter-selector .ph-tab-navs::-webkit-scrollbar,\n.ph-filter-selector .ph-tab-bd::-webkit-scrollbar {\n  display: none;\n}\n.ph-filter-selector .ph-list-item.active {\n  color: #ff6633;\n}\n.ph-filter-selector .ph-button-group {\n  position: relative;\n  z-index: 1;\n}\n.ph-checkbox-filter .ph-filter-selector {\n  z-index: 9;\n}\n.ph-checkbox-filter .ph-filter-selector > * {\n  max-height: none;\n}\n.ph-checkbox-filter .ph-filter-selector .ph-list,\n.ph-checkbox-filter .ph-filter-selector .ph-tab-navs,\n.ph-checkbox-filter .ph-filter-selector .ph-tab-bd {\n  max-height: none;\n  height: 100vh;\n}\n.ph-filter-selector-buttons .ph-list,\n.ph-filter-selector-buttons .ph-tab-navs,\n.ph-filter-selector-buttons .ph-tab-bd {\n  padding-bottom: 64px;\n}\n.ph-filter-selector-buttons .ph-button-group {\n  margin-top: -64px;\n}\n", ""]);
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n/**\n * 方案一 background-image: linear-gradient(...)\n * 调用: .border-top(#000);\n * 缺点: 无法设置圆角; 占用背景色的属性; 代码量大\n **/\n/**\n * 方案二 伪类和transform\n * 调用: .onepx(border-top, 1px solid #000);\n * 缺点: 占用after伪类; 仅适用于有after伪元素的元素\n **/\n.ph-filter-occupy {\n  height: 44px;\n}\n.ph-filter-container {\n  position: relative;\n}\n.ph-filter-container-fixed,\n.ph-filter-container-shadow {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 99;\n  width: 100%;\n}\n.ph-filter-container-shadow {\n  height: 100%;\n}\n.ph-filter-shadow {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 1;\n  background-color: rgba(0, 0, 0, 0.4);\n  pointer-events: auto;\n}\n.ph-filter-container-noshadow .ph-filter-shadow {\n  background-color: transparent;\n}\n.ph-filter-header {\n  position: relative;\n  z-index: 2;\n  margin: 0;\n  background-color: #fff;\n  border-bottom: 1PX solid #e1e1e1;\n}\n.ph-filter-header .ph-filter-header-item {\n  position: relative;\n  height: 44px;\n  padding: 12px 0;\n  line-height: 20px;\n  text-align: center;\n  font-size: 14px;\n}\n.ph-filter-header .ph-filter-header-item a {\n  display: block;\n  height: 20px;\n  border-right: 1PX solid #e1e1e1;\n  white-space: nowrap;\n}\n.ph-filter-header .ph-filter-header-item:last-child a {\n  border-right: none;\n}\n.ph-filter-header .ph-filter-header-item .gfs-icon {\n  display: inline-block;\n  margin-left: 4px;\n  line-height: 20px;\n  font-size: 12px;\n  color: #666;\n  -webkit-transition: all 0.2s;\n  -moz-transition: all 0.2s;\n  transition: all 0.2s;\n  vertical-align: top;\n}\n.ph-filter-header .ph-filter-header-item.active .gfs-icon {\n  -webkit-transform: rotate(-180deg);\n  -ms-transform: rotate(-180deg);\n  transform: rotate(-180deg);\n}\n.ph-filter-header .ph-filter-header-item.active:after {\n  content: \"\";\n  position: absolute;\n  bottom: -2px;\n  left: 50%;\n  width: 9px;\n  height: 9px;\n  background-color: #fff;\n  border-top: 1PX solid #e1e1e1;\n  border-right: 1PX solid #e1e1e1;\n  -webkit-transform: rotate(-45deg) translateX(-50%);\n  -ms-transform: rotate(-45deg) translateX(-50%);\n  transform: rotate(-45deg) translateX(-50%);\n}\n.ph-filter-header .ph-filter-header-text {\n  display: inline-block;\n  overflow: hidden;\n  max-width: calc(100% - 36px);\n  white-space: nowrap;\n  text-overflow: ellipsis;\n}\n.ph-filter-selector {\n  position: relative;\n  z-index: 2;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n}\n.ph-filter-selector > * {\n  max-height: 72%;\n  pointer-events: auto;\n}\n.ph-filter-selector .ph-list,\n.ph-filter-selector .ph-tab-navs,\n.ph-filter-selector .ph-tab-bd {\n  overflow-y: auto;\n  -webkit-overflow-scrolling: touch;\n}\n.ph-filter-selector .ph-list-item.active {\n  color: #ff6633;\n}\n.ph-filter-selector .ph-button-group {\n  position: relative;\n  z-index: 1;\n}\n.ph-checkbox-filter .ph-filter-selector {\n  z-index: 9;\n}\n.ph-checkbox-filter .ph-filter-selector > * {\n  max-height: none;\n}\n.ph-checkbox-filter .ph-filter-selector .ph-list,\n.ph-checkbox-filter .ph-filter-selector .ph-tab-navs,\n.ph-checkbox-filter .ph-filter-selector .ph-tab-bd {\n  max-height: none;\n  height: 100vh;\n  padding-bottom: 64px;\n}\n.ph-checkbox-filter .ph-filter-selector .ph-button-group {\n  margin-top: -64px;\n}\n", ""]);
 
 	// exports
 

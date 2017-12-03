@@ -398,16 +398,6 @@ h6 {
 /*15pt*/
 /*14pt*/
 /*12pt*/
-/**
- * 方案一 background-image: linear-gradient(...)
- * 调用: .border-top(#000);
- * 缺点: 无法设置圆角; 占用背景色的属性; 代码量大
- **/
-/**
- * 方案二 伪类和transform
- * 调用: .onepx(border-top, 1px solid #000);
- * 缺点: 占用after伪类; 仅适用于有after伪元素的元素
- **/
 .tl {
   text-align: left;
 }
@@ -576,298 +566,14 @@ h6 {
 .hardware {
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
 }
 .user-none {
   -webkit-user-select: none;
   user-select: none;
 }
 .noscroll {
-  overflow: hidden;
+  position: fixed;
   width: 100%;
-  height: 100vh;
-  pointer-events: none;
-}
-.onepx-primary {
-  position: relative;
-  border: 1px solid #ff6633;
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
-  .onepx-primary {
-    border: none;
-  }
-  .onepx-primary:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    border: 1px solid #ff6633;
-    -webkit-transform: scale(0.5);
-    -ms-transform: scale(0.5);
-    transform: scale(0.5);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transform-origin: left top;
-    -ms-transform-origin: left top;
-    transform-origin: left top;
-    pointer-events: none;
-  }
-}
-.onepx-top-primary {
-  position: relative;
-  border-top: 1px solid #ff6633;
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
-  .onepx-top-primary {
-    border: none;
-  }
-  .onepx-top-primary:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    border-top: 1px solid #ff6633;
-    -webkit-transform: scale(0.5);
-    -ms-transform: scale(0.5);
-    transform: scale(0.5);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transform-origin: left top;
-    -ms-transform-origin: left top;
-    transform-origin: left top;
-    pointer-events: none;
-  }
-}
-.onepx-bottom-primary {
-  position: relative;
-  border-bottom: 1px solid #ff6633;
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
-  .onepx-bottom-primary {
-    border: none;
-  }
-  .onepx-bottom-primary:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    border-bottom: 1px solid #ff6633;
-    -webkit-transform: scale(0.5);
-    -ms-transform: scale(0.5);
-    transform: scale(0.5);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transform-origin: left top;
-    -ms-transform-origin: left top;
-    transform-origin: left top;
-    pointer-events: none;
-  }
-}
-.onepx-left-primary {
-  position: relative;
-  border-left: 1px solid #ff6633;
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
-  .onepx-left-primary {
-    border: none;
-  }
-  .onepx-left-primary:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    border-left: 1px solid #ff6633;
-    -webkit-transform: scale(0.5);
-    -ms-transform: scale(0.5);
-    transform: scale(0.5);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transform-origin: left top;
-    -ms-transform-origin: left top;
-    transform-origin: left top;
-    pointer-events: none;
-  }
-}
-.onepx-right-primary {
-  position: relative;
-  border-right: 1px solid #ff6633;
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
-  .onepx-right-primary {
-    border: none;
-  }
-  .onepx-right-primary:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    border-right: 1px solid #ff6633;
-    -webkit-transform: scale(0.5);
-    -ms-transform: scale(0.5);
-    transform: scale(0.5);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transform-origin: left top;
-    -ms-transform-origin: left top;
-    transform-origin: left top;
-    pointer-events: none;
-  }
-}
-.onepx-gray {
-  position: relative;
-  border: 1px solid #f0f0f0;
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
-  .onepx-gray {
-    border: none;
-  }
-  .onepx-gray:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    border: 1px solid #f0f0f0;
-    -webkit-transform: scale(0.5);
-    -ms-transform: scale(0.5);
-    transform: scale(0.5);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transform-origin: left top;
-    -ms-transform-origin: left top;
-    transform-origin: left top;
-    pointer-events: none;
-  }
-}
-.onepx-top-gray {
-  position: relative;
-  border-top: 1px solid #f0f0f0;
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
-  .onepx-top-gray {
-    border: none;
-  }
-  .onepx-top-gray:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    border-top: 1px solid #f0f0f0;
-    -webkit-transform: scale(0.5);
-    -ms-transform: scale(0.5);
-    transform: scale(0.5);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transform-origin: left top;
-    -ms-transform-origin: left top;
-    transform-origin: left top;
-    pointer-events: none;
-  }
-}
-.onepx-bottom-gray {
-  position: relative;
-  border-bottom: 1px solid #f0f0f0;
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
-  .onepx-bottom-gray {
-    border: none;
-  }
-  .onepx-bottom-gray:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    border-bottom: 1px solid #f0f0f0;
-    -webkit-transform: scale(0.5);
-    -ms-transform: scale(0.5);
-    transform: scale(0.5);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transform-origin: left top;
-    -ms-transform-origin: left top;
-    transform-origin: left top;
-    pointer-events: none;
-  }
-}
-.onepx-left-gray {
-  position: relative;
-  border-left: 1px solid #f0f0f0;
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
-  .onepx-left-gray {
-    border: none;
-  }
-  .onepx-left-gray:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    border-left: 1px solid #f0f0f0;
-    -webkit-transform: scale(0.5);
-    -ms-transform: scale(0.5);
-    transform: scale(0.5);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transform-origin: left top;
-    -ms-transform-origin: left top;
-    transform-origin: left top;
-    pointer-events: none;
-  }
-}
-.onepx-right-gray {
-  position: relative;
-  border-right: 1px solid #f0f0f0;
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
-  .onepx-right-gray {
-    border: none;
-  }
-  .onepx-right-gray:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    border-right: 1px solid #f0f0f0;
-    -webkit-transform: scale(0.5);
-    -ms-transform: scale(0.5);
-    transform: scale(0.5);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transform-origin: left top;
-    -ms-transform-origin: left top;
-    transform-origin: left top;
-    pointer-events: none;
-  }
 }
 /*30pt*/
 /*18pt*/
@@ -8332,15 +8038,26 @@ dl.ph-image-item dd p:last-child {
  * 调用: .onepx(border-top, 1px solid #000);
  * 缺点: 占用after伪类; 仅适用于有after伪元素的元素
  **/
-.ph-pullup {
+.ph-pullup,
+.ph-pulldown {
   text-align: center;
 }
-.ph-pullup-tip {
+.ph-pulldown {
+  position: relative;
+  width: 100%;
+  margin-top: -88px;
+  z-index: -1;
+  background-color: transparent;
+  pointer-events: none;
+}
+.ph-pullup-tip,
+.ph-pulldown-tip {
   padding: 12px 0;
   font-size: 14px;
   color: #999;
 }
-.ph-pullup-tip .gfs-icon-loading {
+.ph-pullup-tip .gfs-icon-loading,
+.ph-pulldown-tip .gfs-icon-loading {
   width: 18px;
   height: 18px;
   font-size: 18px;
@@ -8389,36 +8106,15 @@ dl.ph-image-item dd p:last-child {
   background-color: rgba(0, 0, 0, 0.4);
   pointer-events: auto;
 }
+.ph-filter-container-noshadow .ph-filter-shadow {
+  background-color: transparent;
+}
 .ph-filter-header {
+  position: relative;
   z-index: 2;
   margin: 0;
   background-color: #fff;
-  position: relative;
   border-bottom: 1PX solid #e1e1e1;
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
-  .ph-filter-header {
-    border: none;
-  }
-  .ph-filter-header:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    border-bottom: 1PX solid #e1e1e1;
-    -webkit-transform: scale(0.5);
-    -ms-transform: scale(0.5);
-    transform: scale(0.5);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transform-origin: left top;
-    -ms-transform-origin: left top;
-    transform-origin: left top;
-    pointer-events: none;
-  }
 }
 .ph-filter-header .ph-filter-header-item {
   position: relative;
@@ -8431,61 +8127,11 @@ dl.ph-image-item dd p:last-child {
 .ph-filter-header .ph-filter-header-item a {
   display: block;
   height: 20px;
-  position: relative;
   border-right: 1PX solid #e1e1e1;
-  white-spac: nowrap;
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
-  .ph-filter-header .ph-filter-header-item a {
-    border: none;
-  }
-  .ph-filter-header .ph-filter-header-item a:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    border-right: 1PX solid #e1e1e1;
-    -webkit-transform: scale(0.5);
-    -ms-transform: scale(0.5);
-    transform: scale(0.5);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transform-origin: left top;
-    -ms-transform-origin: left top;
-    transform-origin: left top;
-    pointer-events: none;
-  }
+  white-space: nowrap;
 }
 .ph-filter-header .ph-filter-header-item:last-child a {
-  position: relative;
   border-right: none;
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
-  .ph-filter-header .ph-filter-header-item:last-child a {
-    border: none;
-  }
-  .ph-filter-header .ph-filter-header-item:last-child a:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    border-right: none;
-    -webkit-transform: scale(0.5);
-    -ms-transform: scale(0.5);
-    transform: scale(0.5);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transform-origin: left top;
-    -ms-transform-origin: left top;
-    transform-origin: left top;
-    pointer-events: none;
-  }
 }
 .ph-filter-header .ph-filter-header-item .gfs-icon {
   display: inline-block;
@@ -8508,24 +8154,14 @@ dl.ph-image-item dd p:last-child {
   position: absolute;
   bottom: -2px;
   left: 50%;
-  z-index: 1;
-  width: 18px;
-  height: 18px;
+  width: 9px;
+  height: 9px;
   background-color: #fff;
   border-top: 1PX solid #e1e1e1;
   border-right: 1PX solid #e1e1e1;
-  -webkit-transform: rotate(-45deg) translateX(-50%) scale(0.5);
-  -ms-transform: rotate(-45deg) translateX(-50%) scale(0.5);
-  transform: rotate(-45deg) translateX(-50%) scale(0.5);
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
-  .ph-filter-header .ph-filter-header-item.active:after {
-    width: 18px;
-    height: 18px;
-    -webkit-transform: rotate(-45deg) translateX(-50%) scale(0.5);
-    -ms-transform: rotate(-45deg) translateX(-50%) scale(0.5);
-    transform: rotate(-45deg) translateX(-50%) scale(0.5);
-  }
+  -webkit-transform: rotate(-45deg) translateX(-50%);
+  -ms-transform: rotate(-45deg) translateX(-50%);
+  transform: rotate(-45deg) translateX(-50%);
 }
 .ph-filter-header .ph-filter-header-text {
   display: inline-block;
@@ -8549,11 +8185,7 @@ dl.ph-image-item dd p:last-child {
 .ph-filter-selector .ph-tab-navs,
 .ph-filter-selector .ph-tab-bd {
   overflow-y: auto;
-}
-.ph-filter-selector .ph-list::-webkit-scrollbar,
-.ph-filter-selector .ph-tab-navs::-webkit-scrollbar,
-.ph-filter-selector .ph-tab-bd::-webkit-scrollbar {
-  display: none;
+  -webkit-overflow-scrolling: touch;
 }
 .ph-filter-selector .ph-list-item.active {
   color: #ff6633;
@@ -8573,12 +8205,8 @@ dl.ph-image-item dd p:last-child {
 .ph-checkbox-filter .ph-filter-selector .ph-tab-bd {
   max-height: none;
   height: 100vh;
-}
-.ph-filter-selector-buttons .ph-list,
-.ph-filter-selector-buttons .ph-tab-navs,
-.ph-filter-selector-buttons .ph-tab-bd {
   padding-bottom: 64px;
 }
-.ph-filter-selector-buttons .ph-button-group {
+.ph-checkbox-filter .ph-filter-selector .ph-button-group {
   margin-top: -64px;
 }

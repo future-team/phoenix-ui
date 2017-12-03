@@ -1,6 +1,7 @@
-/*html, body{
-    height: 100%;
-}*/
+/* #root{
+    height: 100vh;
+    overflow: auto;
+} */
 
 #Back{
     position: absolute;
@@ -19,9 +20,9 @@
     margin: 0 auto;
 }
 
-::-webkit-scrollbar{  
+/* ::-webkit-scrollbar{  
     width: 0; 
-}  
+}   */
 
 /*** List ***/
 .menu{
@@ -255,10 +256,6 @@
     z-index:999;
     color: #ff6633;
     text-decoration: underline;
-}
-
-::-webkit-scrollbar{
-    height: 0;
 }
 
 /*** 列表页demo ***/

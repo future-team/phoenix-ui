@@ -10,6 +10,10 @@ export default class popover extends Component{
         super(props,context); 
     }
 
+    hidePopover(){
+        this.popover.hideCallback();
+    }
+
     render(){
         return(
             <div>
@@ -23,9 +27,9 @@ export default class popover extends Component{
                         </div>
                     </Popover>
                     <Button phSize="lg" ref={(button)=>{this.button1 = button}}>列表气泡</Button>
-                    <Popover getTarget={()=>{return this.button1}} placement="right">
+                    <Popover getTarget={()=>{return this.button1}} placement="right" ref={(popover)=>{this.popover=popover}}>
                         <ul className="ph-popover-list">
-                            <li className="ph-popover-item">未上线单店</li>
+                            <li className="ph-popover-item" onClick={this.hidePopover.bind(this)}>未上线单店</li>
                             <li className="ph-popover-item">未上线连锁店</li>
                         </ul>
                     </Popover>

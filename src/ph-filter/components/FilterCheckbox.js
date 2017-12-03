@@ -7,6 +7,7 @@ import Input from '../../input'
 import FilterContainer from './FilterContainer.js'
 import CheckboxPanel from './FilterPanelCheckbox.js'
 
+
 /**
  * 多条件筛选组件<br/>
  * - 可通过groupIndex设置主菜单索引值，默认0，即第一个。
@@ -46,7 +47,7 @@ import CheckboxPanel from './FilterPanelCheckbox.js'
  * */
 
 export default class FilterCheckbox extends Component{
-
+    
     constructor(props,context){
         super(props,context);
 
@@ -83,11 +84,11 @@ export default class FilterCheckbox extends Component{
     
     render(){
         let {choose, index, buttons, children, className, style} = this.props
-
+        
         return (
             <div className={classnames('ph-checkbox-filter', className)}>
-                <FilterContainer index={0} hideCat choose={choose}>
-                    <CheckboxPanel index={index} buttons={buttons}>
+                <FilterContainer index={0} hideCat>
+                    <CheckboxPanel index={index} buttons={buttons} selected={{key:choose, value:''}} choose={choose}>
                         {children}
                     </CheckboxPanel>
                 </FilterContainer>

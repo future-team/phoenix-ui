@@ -1,6 +1,6 @@
 {
   "name": "phoenix-ui",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "future team ui for app with react",
   "main": "lib/",
   "scripts": {
@@ -78,7 +78,7 @@
     "extend": "^3.0.0",
     "fastclick": "^1.0.6",
     "phoenix-styles": "^3.0.0",
-    "pmlogger": "^1.0.5",
+    "pmlogger": "^1.0.7",
     "react-transition-group": "^1.2.1"
   },
   "prism": "66032663"

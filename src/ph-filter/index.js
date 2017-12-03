@@ -5,6 +5,7 @@ import Item from './components/FilterItem.js'
 import ItemGroup from './components/FilterItemGroup.js'
 import FilterCheckbox from './components/FilterCheckbox.js'
 import PanelCheckbox from './components/FilterPanelCheckbox.js'
+import PanelCustom from './components/FilterPanelCustom.js'
 
 import '../style'
 import 'phoenix-styles/less/modules/tab.less'
@@ -19,5 +20,6 @@ PhFilter.Item = Item
 PhFilter.ItemGroup = ItemGroup
 PhFilter.CheckboxContainer = FilterCheckbox
 PhFilter.PanelCheckbox = PanelCheckbox
+PhFilter.PanelCustom = PanelCustom
 
 export default PhFilter

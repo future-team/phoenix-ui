@@ -12,6 +12,7 @@ import Icon from '../../icon'
  * <strong><a href='../classes/FilterCheckbox.html'>FilterCheckbox 多选筛选</a></strong><br>
  * <strong><a href='../classes/FilterPanelSimple.html'>FilterPanelSimple 简单面板</a></strong><br>
  * <strong><a href='../classes/FilterPanel.html'>FilterPanel 面板</a></strong><br>
+ * <strong><a href='../classes/FilterPanelCheckbox.html'>FilterPanelCheckbox 多选面板</a></strong><br>
  * <strong><a href='../classes/FilterItemGroup.html'>FilterItemGroup 主菜单</a></strong><br>
  * <strong><a href='../classes/FilterItem.html'>FilterItem 筛选项</a></strong><br>
  * <h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>
@@ -25,13 +26,17 @@ import Icon from '../../icon'
  * - 可通过index设置筛选默认打开的面板。默认－1，即都不打开。
  * - 可通过hideCat选择是否要显示筛选头部。
  * - 可通过clickCallback设置有效选择的回调，当没有按钮时选中即触发，有按钮时点击按钮时触发。
+ * - 可通过noShadow设置是否显示阴影，默认显示。
+ * - 可通过hideCallback手动调用隐藏panel。
  *
  * 主要属性和接口：
  * - index: 默认打开的面板。
  * - hideCat: 是否显示筛选头部。
  * - clickCallback: 有效选择的回调。
+ * - noShadow: 是否显示阴影。
+ * - hideCallback: 手动调用隐藏panel。
  * 
- * 有2种形式，其一，简单模式。<br/>
+ * 有4种形式，其一，简单单选模式。<br/>
  * 如：
  * ```code
  *  this.state = {
@@ -43,7 +48,7 @@ import Icon from '../../icon'
  *      ]
  *  }
  * ...
- *  <FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)} stable>
+ *  <FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)} ref={(container)=>{this.container=container}} noShadow={true}>
  *      <PanelSimple readOnly className='panel1' selected={{key:'ljz',value:'陆家嘴'}}>
  *          {
  *              this.state.panel1.map(function(item){
@@ -52,24 +57,54 @@ import Icon from '../../icon'
  *          }
  *      </PanelSimple>
  *  </FilterContainer>
+ * ...
+ * this.container.hideCallback();
  * ```
- * 其一，双栏模式。<br/>
+ * 其二，简单多选模式。<br/>
+ * 如：
+ * ```code
+ *  <FilterContainer index={0} clickCallback={this.clickCallback.bind(this)}>
+ *      <PanelCheckbox readOnly className='panel1' selected={{key:'ljz',value:'陆家嘴'}} type='simple'>
+ *          {
+ *              this.state.panel1.map(function(item){
+ *                  return <Item key={item.key} itemKey={item.key}>{item.value}</Item>
+ *              })
+ *          }
+ *      </PanelCheckbox>
+ *  </FilterContainer>
+ * ```
+ * 其三，双栏单选模式。<br/>
  * 如：
  * ```code
  *  <FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)}>
  *      <Panel readOnly selected={{key:'s_flower',value:'花店'}}>
  *          <ItemGroup label={<span style={{color:'red'}}>美食</span>}>
- *              <Item itemKey='f_all'>全部美食</Item>
  *              <Item itemKey='f_bbc'>本帮江浙菜</Item>
  *              ...
  *          </ItemGroup>
  *          <ItemGroup  label='电影'>
- *              <Item itemKey='m_all'>全部电影</Item>
  *              <Item itemKey='m_p'>私人影院</Item>
  *              ...
  *          </ItemGroup>
  *          ...
  *      </Panel>
+ *  </FilterContainer>
+ * ```
+ * 其三，双栏多选模式。<br/>
+ * 如：
+ * ```code
+ *  <FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)}>
+ *      <PanelCheckbox readOnly selected={{key:'s_flower',value:'花店'}}>
+ *          <ItemGroup mainKey='ms' label={<span style={{color:'red'}}>美食</span>}>
+ *              <Item itemKey='f_bbc'>本帮江浙菜</Item>
+ *              ...
+ *          </ItemGroup>
+ *          <ItemGroup mainKey='dy' label='电影'>
+ *              <Item itemKey='m_p'>私人影院</Item>
+ *              ...
+ *          </ItemGroup>
+ *          ...
+ *      </PanelCheckbox>
  *  </FilterContainer>
  * ```
  *
@@ -99,12 +134,25 @@ export default class FilterContainer extends Component{
          * */
         hideCat: PropTypes.bool,
         /**
+         * 是否显示阴影
+         * @property noShadow
+         * @type Boolean
+         * @default false
+         * */
+        noShadow: PropTypes.bool,
+        /**
          * 有效选择触发的回调函数
          * @method clickCallback
          * @param {string} key 返回选中的key值
          * @type Function
          * */
-        clickCallback: PropTypes.func
+        clickCallback: PropTypes.func,
+        /**
+         * 手动隐藏panel
+         * @method hideCallback
+         * @type Function
+         * */
+        hideCallback: PropTypes.func
     }
 
     static defaultProps = {
@@ -119,24 +167,24 @@ export default class FilterContainer extends Component{
 
         new Logger('ph-filter')
 
+        this.catClick = false
+        this.activeIndex = props.index
+
         this.state={
-            catList: this.getCatList(),
+            catList: this.getCatList(props),
             activeCat: props.index,
             fixed: false
-        };
+        }
 
         this.windowScrollHandle = this.windowScrollHandle.bind(this)
-        this.preventDefault = this.preventDefault.bind(this)
         this.containerOffsetTop = 0
 
         window.addEventListener('scroll', this.windowScrollHandle, false)
     }
 
-    preventDefault(e){
-        preventDefault(e)
-    }
-
     windowScrollHandle(){
+        if(this.state.activeCat>-1) return
+        
         if(getScrollTop() > this.containerOffsetTop){
             if(!this.state.fixed) this.setState({fixed: true})
         }else{
@@ -151,24 +199,38 @@ export default class FilterContainer extends Component{
     }
 
     componentWillUnmount(){
-        this.willScroll()
         window.removeEventListener('scroll', this.windowScrollHandle, false)
+        this.fixScroll(null)
     }
 
-    getCatList(){
-        let catList = React.Children.map(this.props.children,function(panel,index){
+    componentWillReceiveProps(nextProps){
+        let self = this,
+            setted = false // 解决map无法跳出的问题
+
+        React.Children.map(nextProps.children, function(panel,index){
+            if(setted) return
+            if(self.state.catList[index] !== panel.props.selected){
+                self.setState({
+                    catList: self.getCatList(nextProps)
+                })
+                setted = true
+            }
+        })
+    }
+
+    getCatList(props){
+        return React.Children.map(props.children, function(panel,index){
             //如果panel设置了selected属性的话直接读取selected属性；如果panel没有设置selected属性，则读取default用来展示在cat列表中
-            return panel.props.selected ? panel.props.selected:{
+            return panel.props.selected && panel.props.selected.key ? panel.props.selected:{
                 key:'',
                 value: panel.props.default ? panel.props.default:''
             }
         })
-        return catList
     }
 
     setCatList(){
         this.setState({
-            catList: this.getCatList()
+            catList: this.getCatList(this.props)
         })
     }
 
@@ -179,50 +241,57 @@ export default class FilterContainer extends Component{
         if(hasButtons) return
         
         catList[index] = category
+
         this.setState({
             catList,
-            activeCat:-1
+            activeCat: -1
+        }, ()=>{
+            this.fixScroll(-1)
         })
 
-        this.willScroll()
-
-        clickCallback && clickCallback(category.key)
+        clickCallback && clickCallback(category.key, this.state.activeCat)
     }
 
     activeCat(index){
-        if(getScrollTop() < this.filterContainer.offsetTop){ // 打开时滚动到顶部
-            document.documentElement.scrollTop = this.filterContainer.offsetTop
-        }
         //展开某一个cat
+        this.catClick = true
+        this.activeIndex = index
+
         if(index==this.state.activeCat){
-            index=-1;
+            index = -1
         }
-        // console.log(index)
+
         this.setState({
             activeCat:index
+        }, ()=>{
+            this.catClick = false
+            this.fixScroll(index)
         });
     }
 
     renderPanelList(){
         let self=this,
-            {catList,activeCat}=self.state;
+            {catList,activeCat}=self.state
+        
         return React.Children.map(this.props.children,function(panel,index){
-            let show = (index==activeCat)
+            let {choose, getChooseData, hideCat} = self.props,
+                {clickCallback} = panel.props,
+                show = (index==activeCat)
             
-            if(self.props.hideCat&&index==0){
-                show=true;
-            }
-
-            return  React.cloneElement(panel,{
+            if(hideCat && index==0) show=true;
+            if(self.catClick && self.activeIndex==index) clickCallback && clickCallback(activeCat==index);
+            
+            let panelProps = {
                 categoryChange: self.categoryChange.bind(self),
                 // selected: catList[index],
                 setCatList: self.setCatList.bind(self),
                 panelIndex: index,
                 show: show,
-                choose: transToArray(self.props.choose),
-                getChooseData: self.props.getChooseData
-            })
-        });
+                getChooseData: transToArray(getChooseData)
+            }
+            
+            return  React.cloneElement(panel, panelProps)
+        })
     }
 
     renderCatList(){
@@ -230,8 +299,8 @@ export default class FilterContainer extends Component{
             return null;
         }
         let self=this,
-            {catList,activeCat}=self.state;
-
+            {catList,activeCat}=self.state
+            
         return catList.map(function(catCfg,index){
             return (
                 <li key={'cat-'+index} 
@@ -247,33 +316,56 @@ export default class FilterContainer extends Component{
         })
     }
 
-    noScroll(){
-        document.body.classList.add('noscroll')
-        // this.filterShadow.addEventListener('touchmove', this.preventDefault);
-    }
+    fixScroll(index){
+        let elem = document.body,
+            classList = elem.classList,
+            scrollingElement = document.scrollingElement || elem
 
-    willScroll(){
-        document.body.classList.remove('noscroll')
-        // this.filterShadow.removeEventListener('touchmove', this.preventDefault);
+        if(index==null){
+            classList.remove('noscroll')
+            return
+        }
+        
+        if(index==-1){
+            classList.remove('noscroll')
+            scrollingElement.scrollTop = this.scrollTop
+        }else{
+            if(elem.className.indexOf('noscroll')==-1) {
+                this.scrollTop = scrollingElement.scrollTop
+        
+                // if(this.filterContainer.offsetTop && this.scrollTop < this.filterContainer.offsetTop){ // 打开时滚动到顶部
+                //     this.scrollTop = this.filterContainer.offsetTop
+                // }
+                
+                classList.add('noscroll')
+                
+                elem.style.top = -this.scrollTop + 'px'
+            }
+        }
     }
 
     hidePanel(){
         this.setState({
             activeCat: -1
         }, ()=>{
-            this.willScroll()
+            this.fixScroll(-1)
         })
     }
 
-    render(){
-        let {stable, className, style} = this.props,
-            {activeCat, fixed} = this.state
+    hideCallback(){
+        this.hidePanel()
+    }
 
+    render(){
+        let {stable, className, noShadow, style} = this.props,
+            {activeCat, fixed} = this.state
+        
         return(
             <div className='ph-filter-occupy'>
                 <div className={classnames(
                         'ph-filter-container', 
                         activeCat==-1? '':'ph-filter-container-shadow',
+                        noShadow? 'ph-filter-container-noshadow':'',
                         fixed? 'ph-filter-container-fixed':'',
                         className
                     )}

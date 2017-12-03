@@ -85,9 +85,9 @@ export default class FilterItem extends Component{
     }
 
     onChange(e){
-        let {mainKey, itemKey, onItemChange} = this.props
-
-        onItemChange(mainKey, itemKey, e)
+        let {mainKey, itemKey, onItemChange, children} = this.props
+        
+        onItemChange(mainKey, itemKey, children, e)
     }
 
     renderChildren(){

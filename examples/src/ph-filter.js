@@ -7,7 +7,9 @@ const Container = PhFilter.Container,
       PanelSimple = PhFilter.PanelSimple,
       Panel = PhFilter.Panel,
       Item = PhFilter.Item,
-      ItemGroup = PhFilter.ItemGroup
+      ItemGroup = PhFilter.ItemGroup,
+      PanelCheckbox = PhFilter.PanelCheckbox,
+      PanelCustom = PhFilter.PanelCustom
 
 export default class phFilter extends Component {
 
@@ -16,8 +18,11 @@ export default class phFilter extends Component {
         this.state={
             panel1:[],
             panel2:{},
-            selected2: {key:'m_sryy',value:'私人影院'},
+            selected2: {key:'ljz',value:'陆家嘴'},
+            selected3: {key:'f_hg,m_sryy',value:'火锅,私人影院'},
             panel3:[],
+            panel4:{},
+            noShadow: false
         }
     }
 
@@ -68,18 +73,31 @@ export default class phFilter extends Component {
                     {key:'zb1',value:'闸北1'},
                     {key:'ja1',value:'静安1'},
                     {key:'yp1',value:'杨浦1'}
-                ]
+                ],
+                panel4:{
+                    '美食':[
+                        {key:'f_bbc',value:'本帮江浙菜'},
+                        {key:'f_rhll',value:'日韩料理'},
+                        {key:'f_hg',value:'火锅'},
+                        {key:'f_zzc',value:'自助餐'},
+                        {key:'f_xyxc',value:'宵夜小吃'}
+                    ],
+                    '电影':[
+                        {key:'m_sryy',value:'私人影院'},
+                        {key:'m_fyt',value:'放映厅'}
+                    ]
+                },
             })
-        },0)
+        }, 0)
     }
 
-    renderPanelList(){
+    renderPanelList(panelName){
         let newPanel = []
 
-        for(let i in this.state.panel2){
-            let itemGroup = this.state.panel2[i]
+        for(let i in this.state[panelName]){
+            let itemGroup = this.state[panelName][i]
             newPanel.push(
-                <ItemGroup key={i} label={i}>
+                <ItemGroup key={i} label={i} mainKey={i}>
                     {
                         itemGroup.map((item)=>{
                             return (
@@ -96,13 +114,8 @@ export default class phFilter extends Component {
         return newPanel
     }
 
-    clickCallback(key){
-        console.log(key);
-    }
-
-    itemClickCallback(key, disabled){
-        console.log(key)
-        console.log(disabled)
+    clickCallback(key, index){
+        console.log(key, index);
     }
 
     resetFilter(key){
@@ -111,64 +124,109 @@ export default class phFilter extends Component {
         })
     }
 
-    confirmFilter(key){
-        console.log(key);
+    confirmFilter2(key, value){
+        this.setState({
+            selected2: {
+                key: key,
+                value: value
+            }
+        })
     }
 
-    test(){
-        console.log(this.state.selected2)
-        return ''
+    confirmFilter3(key, value){
+        this.setState({
+            selected3: {
+                key: key,
+                value: value
+            }
+        })
+    }
+
+    test(show){
+        console.log(show)
+        
+        setTimeout(()=>{
+            this.filterContainer.hideCallback();
+        }, 2000)
     }
 
     render(){
-        let self = this;
-        const buttons = [
+        const buttons2 = [
             {text:'重置', phStyle:'gray', onHandle: this.resetFilter.bind(this), otherProps: {hollow:true}},
-            {onHandle: this.confirmFilter.bind(this)},
+            {onHandle: this.confirmFilter2.bind(this), close:true},
+        ],
+        buttons3 = [
+            {onHandle: this.confirmFilter3.bind(this), close:true}
         ]
 
         return (
             <div>
                 <h2 className="comp-title">PhFilter</h2>
-                <Container index={-1} hidecat={false} clickCallback={this.clickCallback.bind(this)}>
+                <Container index={-1} hidecat={false} clickCallback={this.clickCallback.bind(this)} noShadow={this.state.noShadow} ref={(filterContainer)=>{this.filterContainer=filterContainer}}>
                     <PanelSimple default='筛选'>
                         {
                             this.state.panel3.map(function(item){
-                                return <Item key={item.key} itemKey={item.key} clickCallback={self.itemClickCallback.bind(self)}>{item.value}</Item>
+                                return <Item key={item.key} itemKey={item.key}>{item.value}</Item>
                             })
                         }
                     </PanelSimple>
-                    <Panel default='筛选' selected={this.state.selected2} index={-1}>
-                        {this.renderPanelList()}
+                    <Panel default='筛选' selected={{key:'m_sryy',value:'私人影院'}} index={-1}>
+                        {this.renderPanelList('panel2')}
                     </Panel>
-                    <PanelSimple readOnly className='panel1' selected={{key:'ljz',value:'陆家嘴'}}>
+                    <PanelCheckbox type='simple' checkAll={false} default='筛选' index={0} buttons={buttons2} selected={this.state.selected2}>
                         {
                             this.state.panel1.map(function(item){
                                 return <Item key={item.key} itemKey={item.key}>{item.value}</Item>
                             })
                         }
-                    </PanelSimple>
+                    </PanelCheckbox>
+                    <PanelCheckbox default='筛选' index={0} buttons={buttons3} selected={this.state.selected3}>
+                        {this.renderPanelList('panel4')}
+                    </PanelCheckbox>
+                    <PanelCustom default='筛选' clickCallback={this.test.bind(this)}>
+                    </PanelCustom>
                 </Container>
 
                 <h3 className="comp-type"><strong>FilterContainer</strong></h3>
                 <h3 className="comp-type">index(默认-1) 初始打开的面板</h3>
                 <h3 className="comp-type">hideCat 是否隐藏头部</h3>
                 <h3 className="comp-type">clickCallback 项目选择的回调</h3>
+                <h3 className="comp-type">hideCallback 手动隐藏panel</h3>
+                <h3 className="comp-type">noShadow 是否显示阴影，默认显示</h3>
                 <Code target="filter-container" />
 
                 <h3 className="comp-type"><strong>PanelSimple</strong></h3>
                 <h3 className="comp-type">default 没有选中项时的默认显示文字</h3>
                 <h3 className="comp-type">selected 选中的项目</h3>
                 <h3 className="comp-type">readOnly 不可选的状态</h3>
-                <h3 className="comp-type">buttons 传入的按钮数组</h3>
+                <h3 className="comp-type">clickCallback 打开隐藏的回调</h3>
                 <Code target="filter-panelsimple" />
 
                 <h3 className="comp-type"><strong>Panel</strong></h3>
                 <h3 className="comp-type">index 主菜单选中项索引值</h3>
-                <h3 className="comp-type">其他属性同PanelSimple</h3>
+                <h3 className="comp-type">default 没有选中项时的默认显示文字</h3>
+                <h3 className="comp-type">selected 选中的项目</h3>
+                <h3 className="comp-type">readOnly 不可选的状态</h3>
+                <h3 className="comp-type">clickCallback 打开隐藏的回调</h3>
                 <Code target="filter-panel"/>
 
+                <h3 className="comp-type"><strong>PanelCheckbox</strong></h3>
+                <h3 className="comp-type">index 主菜单选中项索引值</h3>
+                <h3 className="comp-type">type simple表示单栏</h3>
+                <h3 className="comp-type">default 没有选中项时的默认显示文字</h3>
+                <h3 className="comp-type">selected 选中的项目</h3>
+                <h3 className="comp-type">readOnly 不可选的状态</h3>
+                <h3 className="comp-type">buttons 传入的按钮数组</h3>
+                <h3 className="comp-type">clickCallback 打开隐藏的回调</h3>
+                <Code target="filter-panel"/>
+
+                <h3 className="comp-type"><strong>PanelCustom</strong></h3>
+                <h3 className="comp-type">clickCallback 打开隐藏的回调</h3>
+                <h3 className="comp-type">其他完全自定义</h3>
+                <Code target="filter-panel"/>                
+
                 <h3 className="comp-type"><strong>ItemGroup(配合Panel使用)</strong></h3>
+                <h3 className="comp-type">mainKey(必须) 唯一标识</h3>
                 <h3 className="comp-type">label 显示的文字</h3>
                 <Code target="filter-itemgroup" />
 

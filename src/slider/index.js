@@ -51,7 +51,7 @@ import 'phoenix-styles/less/modules/slider.less'
  * */
 
 export default class Slider extends Component{
-
+    
     static propTypes = {
         /**
          * 样式前缀
@@ -79,7 +79,7 @@ export default class Slider extends Component{
          * @default 'top'
          * */
         placement: PropTypes.string,
-         /**
+            /**
          * 范围，默认0-100，可传固定范围的数组如：[25,50]
          * @property range
          * @type Array
@@ -100,7 +100,7 @@ export default class Slider extends Component{
          * @default 'default'
          * */
         tipMode: PropTypes.string,
-         /**
+            /**
          * 每次移动的固定距离，默认1
          * @property duration
          * @type Number
@@ -145,11 +145,7 @@ export default class Slider extends Component{
         
         new Logger('Slider')
         
-        this.range = this.validateRange();
-        this.rangeDiff = this.range[1]-this.range[0];
-
-        this.duration = this.validateDuration();
-        this.eachDur = (this.range[1]-this.range[0])/this.duration;
+        this.init(props);
         
         this.state = {
             realProgress: props.progress || this.range[0],
@@ -158,8 +154,17 @@ export default class Slider extends Component{
         
     }
 
-    validateRange(){
-        let {range} = this.props, defaultRange = [0,100];
+    init(props){
+        this.range = this.validateRange(props);
+        this.rangeDiff = this.range[1]-this.range[0];
+
+        this.duration = this.validateDuration(props);
+        this.eachDur = (this.range[1]-this.range[0])/this.duration;
+    }
+
+    validateRange(props){
+        let {range, progress} = props, 
+            defaultRange = [0,100];
         if(!range instanceof Array) return defaultRange;
         if(range.length != 2){
             console.error('Invalid prop `range` of length not equal to 2.');
@@ -168,12 +173,19 @@ export default class Slider extends Component{
         if(range[0] >= range[1]){
             console.error('Invalid prop `range[0]` must be less than or equal to `range[1]`.');
             return defaultRange;
-        } 
+        }
+        if(progress)
+            if(progress<range[0] || progress>range[1]){
+                console.error('`Progress prop` have to between `range[0]` and `range[1]`.');
+                return range;
+            }
         return range;
     }
 
-    validateDuration(){
-        let {duration} = this.props, defaultDuration = 1;
+    validateDuration(props){
+        let {duration} = props, 
+            defaultDuration = 1;
+        
         if(duration<=0) {
             console.error('Invalid prop `duration` have to be Positive.');
             return defaultDuration;
@@ -195,18 +207,28 @@ export default class Slider extends Component{
     }
 
     componentWillReceiveProps(nextProps){
-        if(this.state.realProgress != nextProps.progress){
+        if(nextProps.progress!=undefined && this.state.realProgress != nextProps.progress){
             this.setState({
                 realProgress: nextProps.progress
             });
-
-            this.newProgressWidth = this.getNewProgressWidth(nextProps.progress);
-            this.setSliderPosition(this.newProgressWidth + 'px');
+            this.setNewProgress(nextProps)
+        }
+        if(nextProps.range!=undefined && this.range != nextProps.range){
+            this.init(nextProps)
+            this.setNewProgress(nextProps)
         }
     }
 
+    setNewProgress(props){
+        this.newProgressWidth = this.getNewProgressWidth(props.progress);
+        this.setSliderPosition(this.newProgressWidth + 'px');
+    }
+
     getNewProgressWidth(realProgress){ // 保留2位小数
-        return this.sliderLength * (Math.round((realProgress-this.range[0])/this.rangeDiff*100)/100);
+        let per = Math.round((realProgress-this.range[0])/this.rangeDiff*100)/100
+        if(per>=1) per = 1
+        if(per<=0) per = 0
+        return this.sliderLength * per
     }
 
     setSliderPosition(distance){

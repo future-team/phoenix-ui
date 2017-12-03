@@ -8,13 +8,13 @@ import PanelBase from './FilterPanelBase'
  * - 可通过selected设置选中的项目，格式如`{key:'ljz',value:'陆家嘴'}`。
  * - 可通过default设置没有选项时的默认显示文字。
  * - 可通过readOnly设置当前面板是否为只读模式。
- * - 可通过buttons设置底部按钮组的样式、文字、回调等，格式如`[{text:'取消', phStyle:'info', onHandle:this.cancelChoose.bind(this), otherProps: {hollow:true}}]`。
- *
+ * - 可通过clickCallBack设置点击显隐panel的回调。
+ * 
  * 主要属性和接口：
  * - selected: 默认打开的面板。
  * - default: 是否显示筛选头部。
  * - readOnly: 有效选择的回调。
- * - buttons: 有效选择的回调。
+ * - clickCallBack: 点击panel显隐的回调。
  * 
  * 如：
  * ```code
@@ -27,12 +27,8 @@ import PanelBase from './FilterPanelBase'
  *      ]
  *  }
  * ...
- *  const buttons = [
- *      {onHandle: this.onSubmit.bind(this)}
- *  ]
- * ...
  *  <FilterContainer>
- *      <PanelSimple readOnly selected={{key:'ljz',value:'陆家嘴'}} buttons={buttons}>
+ *      <PanelSimple readOnly selected={{key:'ljz',value:'陆家嘴'}} clickCallBack={(show)=>{console.log(show)}}>
  *          {
  *              this.state.panel1.map(function(item){
  *                  return <Item key={item.key} itemKey={item.key}>{item.value}</Item>
@@ -74,12 +70,13 @@ export default class FilterPanelSimple extends PanelBase{
          * @type Boolean
          * */
         readOnly: PropTypes.bool,
-         /**
-         * 按钮数组
-         * @property buttons
-         * @type Array
+        /**
+         * 点击panel显隐的回调
+         * @method clickCallback
+         * @param {string} show 是否显示
+         * @type Function
          * */
-        buttons: PropTypes.array
+        clickCallBack: PropTypes.func
     }
 
     static defaultProps = {
