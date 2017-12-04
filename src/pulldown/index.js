@@ -14,8 +14,9 @@ import 'phoenix-styles/less/modules/pullup.less'
 /**
  * 加载更多组件<br/>
  * - 书写时PullDown组件在可加载列表的前面。
- * - 可通过loadCallback设置点击按钮加载或滑到底部自动加载的回调函数，如果状态为4不执行。
+ * - 可通过loadCallback设置下拉的执行回调。
  * - 如果当前列表存在自定义的滚动条，需要通过getTarget传递滚动的目标，且滚动元素的子元素必须只有一个。
+ * - 只有getTarget的元素(默认window)滚到最顶端的时候，才能触发下拉。
  *
  * 主要属性和接口：
  * - loadCallback:点击按钮加载或滑到底部自动加载的回调函数。
@@ -80,6 +81,7 @@ export default class PullDown extends Component{
 
         this.touchTop = true
         this.distanceY = 0
+        this.start = false
 
         this.scrollHandle = this.scrollHandle.bind(this)
         this.scrollElem = window
@@ -93,10 +95,10 @@ export default class PullDown extends Component{
         if(getTarget){
             scrollTop = target.scrollTop
         }
-        console.log('offsetTop', offsetTop)
-        console.log('this.scrollTop', scrollTop)
+        // console.log('offsetTop', offsetTop)
+        // console.log('scrollTop', scrollTop)
 
-        if(offsetTop < scrollTop){
+        if(scrollTop>0){
             this.touchTop = false
         }else{
             this.touchTop = true
@@ -105,7 +107,6 @@ export default class PullDown extends Component{
 
     componentDidMount(){
         let pullDownElem = findDOMNode(this.pullDown)
-        console.log('pullDownElem', pullDownElem)
         
         this.dragElem = pullDownElem.parentNode
         this.nextElem = pullDownElem.nextElementSibling
@@ -146,19 +147,21 @@ export default class PullDown extends Component{
 
     touchStartHandle(e){
         if(!this.touchTop) return
+        this.start = true
         
         this.distanceY = 0
         this.starY = event.touches[0].pageY
     }
 
     touchMoveHandle(e){
-        if(!this.touchTop) return
+        if(!this.touchTop || !this.start) return
 
         this.moveY = event.touches[0].pageY
         this.distanceY = this.moveY - this.starY
         
         if(this.distanceY<=0) return
-        console.log(this.distanceY)
+        else preventDefault(e)
+        
         this.distanceY = Math.abs(this.distanceY)
         if(this.distanceY >= MAX_DISTANCE) this.distanceY = MAX_DISTANCE
 
@@ -166,20 +169,25 @@ export default class PullDown extends Component{
         this.dragElem.style.marginTop = this.transform+'px'
     }
 
-    touchEndHandle(e){
-        if(!this.touchTop) return
-
+    touchEndHandle(){
+        if(!this.touchTop || !this.start) return
+        
         this.starY = this.moveY
 
-        this.dragElem.style.marginTop = '0'
+        this.resetDragElem()
         
         if(Math.abs(this.distanceY) <= 80 || this.distanceY<=0) return
 
         this.loadCallback()
+        this.start = false
     }
 
     touchCancelHandle(){
-        this.dragElem.style.transform = 'translateY(0)'
+        this.resetDragElem()
+    }
+
+    resetDragElem(){
+        this.dragElem.style.marginTop = '0'
     }
 
     componentWillUnmount(){
