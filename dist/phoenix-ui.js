@@ -2459,6 +2459,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	opt.repeat = 1;
 	opt.combo = true;
 	opt.delay = 2000;
+	opt.isGlobalError = false;
 	// opt.level = 2
 
 	var pmlogger = null;
@@ -2528,65 +2529,81 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var Logger = (function () {
 	    function Logger() {
-	        var _this = this,
-	            _arguments = arguments;
+	        var _this = this;
 
 	        var config = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
 	        _classCallCheck(this, Logger);
 
-	        this.config = _extend2['default']({
-	            //id,没有id是不上报的
-	            id: '',
-	            //上报地址
-	            url: 'http://future.sankuai.com/monitor/logstore/log/',
-	            //合并上报
-	            combo: false,
-	            //当 combo 为 true 可用，延迟多少毫秒，合并缓冲区中的上报（默认）
-	            delay: '',
-	            //抽样上报
-	            random: 1,
-	            //重复上报次数
-	            repeat: 10,
-	            //错误级别 1-debug 2-info 4-error
-	            level: 4,
-	            onReport: function onReport(id, errObj) {},
-	            submit: null
+	        try {
+	            var id;
 
-	        }, config);
+	            (function () {
+	                _this.config = _extend2['default']({
+	                    //id,没有id是不上报的
+	                    id: '',
+	                    //上报地址
+	                    url: '//future.sankuai.com/monitor/logstore/log/',
+	                    //合并上报
+	                    combo: false,
+	                    //当 combo 为 true 可用，延迟多少毫秒，合并缓冲区中的上报（默认）
+	                    delay: '',
+	                    //抽样上报
+	                    random: 1,
+	                    //重复上报次数
+	                    repeat: 10,
+	                    //错误级别 1-debug 2-info 4-error
+	                    level: 4,
+	                    onReport: function onReport(id, errObj) {},
+	                    submit: null,
+	                    //是否开启全局捕获，对于组件统计不需要开启
+	                    isGlobalError: true
 
-	        this.errors = [];
-	        this.errorMap = {};
-	        this.errorList = [];
-	        this.imgs = [];
-	        this.comboTimeout = null;
-	        var orgError = window.onerror;
+	                }, config);
 
-	        this.types = ['jsError', 'globalError', 'catchError', 'ajaxError', '404', '500', 'cssError', 'htmlError', 'component', 'install', 'info'];
+	                _this.errors = [];
+	                _this.errorMap = {};
+	                _this.errorList = [];
+	                _this.imgs = [];
+	                _this.comboTimeout = null;
+	                var orgError = window.onerror;
 
-	        var id = parseInt(this.config.id, 10);
-	        if (id) {
-	            this.config.report = (this.config.url || "") + "?applyId=" + id +
-	            // "&from=" + encodeURIComponent(location.href) +
-	            "&";
-	        }
-	        // if had error in cache , report now
-	        if (this.errors.length) {
-	            this.send();
-	        }
+	                _this.types = ['jsError', 'globalError', 'catchError', 'ajaxError', '404', '500', 'cssError', 'htmlError', 'component', 'install', 'info'];
 
-	        this.dom = {};
-	        if (!isBindError) {
-	            window.onerror = function () {
-	                _this.onerror.apply(_this, _arguments);
-	                orgError && orgError.apply(window, _arguments);
-	            };
-	            _helper2['default'].addEvent(document.body, 'mousedown', function (e) {
-	                var target = e.target;
-	                if (target.nodeType === 1) {
-	                    _this.dom = _helper2['default'].getPosition(e);
+	                id = parseInt(_this.config.id, 10);
+
+	                if (id) {
+	                    _this.config.report = (_this.config.url || "") + "?applyId=" + id +
+	                    // "&from=" + encodeURIComponent(location.href) +
+	                    "&";
 	                }
-	            });
+	                // if had error in cache , report now
+	                if (_this.errors.length) {
+	                    _this.send();
+	                }
+
+	                _this.dom = {};
+	                if (isBindError != true) {
+	                    if (_this.config.isGlobalError) {
+	                        window.onerror = function (msg, url, line, col, error) {
+	                            _this.onerror(msg, url, line, col, error);
+	                            orgError && orgError(msg, url, line, col, error);
+	                        };
+	                        _helper2['default'].addEvent(window, 'DOMContentLoaded', function () {
+	                            // 请求script地址时dom加载停止，document.body未加载
+	                            _helper2['default'].addEvent(document.body, 'mousedown', function (e) {
+	                                var target = e.target;
+	                                if (target.nodeType === 1) {
+	                                    _this.dom = _helper2['default'].getPosition(e);
+	                                }
+	                            });
+	                        });
+	                        isBindError = true;
+	                    }
+	                }
+	            })();
+	        } catch (err) {
+	            console.log(err);
 	        }
 	    }
 
@@ -2644,6 +2661,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return this;
 	    };
 
+	    // 立即上报数据
+
 	    Logger.prototype.report = function report(msg) {
 	        msg && this.pushMessage(msg);
 	        this.send(true);
@@ -2696,7 +2715,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        while (this.errors.length) {
 	            var error = this.errors.shift();
 	            // 重复上报
-	            if (this.isRepert(error)) continue;
+	            if (this.isRepeat(error)) continue;
 	            var errorStr = this.errorTostring(error, this.errorList.length);
 
 	            if (this.config.combo) {
@@ -2725,7 +2744,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    };
 
-	    Logger.prototype.isRepert = function isRepert(error) {
+	    Logger.prototype.isRepeat = function isRepeat(error) {
 	        if (!this.isObject(error)) return true;
 	        var msg = error.msg;
 	        var times = this.errorMap[msg] = (parseInt(this.errorMap[msg], 10) || 0) + 1;
