@@ -40,6 +40,7 @@ import Image from './image.js'
 import Steps from './steps.js'
 import SearchBar from './search-bar.js'
 import PullUp from './pullup.js'
+import PullDown from './pulldown.js'
 
 import Animate from './animate.js'
 import Drag from './drag.js'
@@ -121,7 +122,8 @@ let Index = class index extends Component {
                     <Card href="#/accordion" title="Accordion" desp="手风琴" />
                     <Card href="#/slider" title="Slider" desp="滑块" />
                     <Card href="#/swipe" title="Swipe" desp="左刷操作" />
-                    <Card href="#/pullup" title="PullUp" desp="上拉刷新" />
+                    <Card href="#/pullup" title="PullUp" desp="上拉加载更多" />
+                    <Card href="#/pulldown" title="PullDown" desp="下拉刷新" />
                 </div>
                 <h3>组合类</h3>
                 <div className="menu-panel">
@@ -180,6 +182,7 @@ let AppRouter = class AppRouter extends Component {
                 <Route path="/star" name="star" component={Star} />
                 <Route path="/swipe" name="swipe" component={Swipe} />
                 <Route path="/pullup" name="pullup" component={PullUp} />
+                <Route path="/pulldown" name="pulldown" component={PullDown} />
                 <Route path="/slider" name="slider" component={Slider} />
                 <Route path="/steps" name="steps" component={Steps} />
                 <Route path="/dialog" name="dialog" component={Dialog} />

@@ -2,6 +2,7 @@ import React, { Component } from "react"
 
 import PullUp from "phoenix-ui/lib/pullup"
 import List from "phoenix-ui/lib/list"
+import PullDown from "phoenix-ui/lib/pulldown"
 
 import Code from "./code/code"
 import {ajax} from "./utils/tool.js"
@@ -49,6 +50,10 @@ export default class pullup extends Component{
         });
     }
 
+    refreshCallback(){
+        console.log('refresh!!!')
+    }
+
     render(){
         return(
             <div>
@@ -59,7 +64,8 @@ export default class pullup extends Component{
                 <h3 className="comp-type">phStyle(默认primary) 按钮的样式</h3>
                 <h3 className="comp-type">loadCallback 加载更多的回调函数</h3>
                 <h3 className="comp-type">getTarget 如果当前列表存在自定义的滚动条，需要传递滚动的目标</h3>
-                <div  ref={(list)=>this.list=list}>
+                <div ref={(list)=>this.list=list}>
+                    <PullDown loadCallback={this.refreshCallback.bind(this)}/>
                     <div>
                         <List>
                             <List.Header>加载更多</List.Header>
@@ -73,7 +79,7 @@ export default class pullup extends Component{
                                 })
                             }
                         </List>
-                        <PullUp status={this.state.status} loadCallback={this.loadCallback.bind(this)} getTarget={()=>{return document.querySelector('#root')}}/>
+                        <PullUp status={this.state.status} loadCallback={this.loadCallback.bind(this)}/>
                     </div>
                 </div>            	
             </div>

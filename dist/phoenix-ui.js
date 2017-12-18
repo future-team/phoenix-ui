@@ -14308,7 +14308,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n/**\n * 方案一 background-image: linear-gradient(...)\n * 调用: .border-top(#000);\n * 缺点: 无法设置圆角; 占用背景色的属性; 代码量大\n **/\n/**\n * 方案二 伪类和transform\n * 调用: .onepx(border-top, 1px solid #000);\n * 缺点: 占用after伪类; 仅适用于有after伪元素的元素\n **/\n.ph-pullup,\n.ph-pulldown {\n  text-align: center;\n}\n.ph-pulldown {\n  position: relative;\n  width: 100%;\n  margin-top: -88px;\n  z-index: -1;\n  background-color: transparent;\n  pointer-events: none;\n}\n.ph-pullup-tip,\n.ph-pulldown-tip {\n  padding: 12px 0;\n  font-size: 14px;\n  color: #999;\n}\n.ph-pullup-tip .gfs-icon-loading,\n.ph-pulldown-tip .gfs-icon-loading {\n  width: 18px;\n  height: 18px;\n  font-size: 18px;\n}\n", ""]);
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n/**\n * 方案一 background-image: linear-gradient(...)\n * 调用: .border-top(#000);\n * 缺点: 无法设置圆角; 占用背景色的属性; 代码量大\n **/\n/**\n * 方案二 伪类和transform\n * 调用: .onepx(border-top, 1px solid #000);\n * 缺点: 占用after伪类; 仅适用于有after伪元素的元素\n **/\n.ph-pullup,\n.ph-pulldown {\n  text-align: center;\n}\n.ph-pulldown {\n  position: relative;\n  width: 100%;\n  margin-top: -44px;\n  z-index: -1;\n  background-color: transparent;\n  pointer-events: none;\n}\n.ph-pullup-tip,\n.ph-pulldown-tip {\n  padding: 12px 0;\n  font-size: 14px;\n  color: #999;\n}\n.ph-pullup-tip .gfs-icon-loading,\n.ph-pulldown-tip .gfs-icon-loading {\n  width: 18px;\n  height: 18px;\n  font-size: 18px;\n}\n", ""]);
 
 	// exports
 
