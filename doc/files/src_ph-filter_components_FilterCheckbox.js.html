@@ -270,6 +270,14 @@
                     
                        <li>
                             
+                           <a href="../classes/PullDown.html">PullDown</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
                            <a href="../classes/PullUp.html">PullUp</a>
                            <ul>
                                 
@@ -363,6 +371,22 @@
                        <li>
                             
                            <a href="../classes/FilterPanel.html">FilterPanel</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterPanelCheckbox.html">FilterPanelCheckbox</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterPanelCustom.html">FilterPanelCustom</a>
                            <ul>
                                 
                            </ul>
@@ -554,6 +578,7 @@ import Input from &#x27;../../input&#x27;
 import FilterContainer from &#x27;./FilterContainer.js&#x27;
 import CheckboxPanel from &#x27;./FilterPanelCheckbox.js&#x27;
 
+
 /**
  * 多条件筛选组件&lt;br/&gt;
  * - 可通过groupIndex设置主菜单索引值，默认0，即第一个。
@@ -593,7 +618,7 @@ import CheckboxPanel from &#x27;./FilterPanelCheckbox.js&#x27;
  * */
 
 export default class FilterCheckbox extends Component{
-
+    
     constructor(props,context){
         super(props,context);
 
@@ -630,11 +655,11 @@ export default class FilterCheckbox extends Component{
     
     render(){
         let {choose, index, buttons, children, className, style} = this.props
-
+        
         return (
             &lt;div className={classnames(&#x27;ph-checkbox-filter&#x27;, className)}&gt;
-                &lt;FilterContainer index={0} hideCat choose={choose}&gt;
-                    &lt;CheckboxPanel index={index} buttons={buttons}&gt;
+                &lt;FilterContainer index={0} hideCat&gt;
+                    &lt;CheckboxPanel index={index} buttons={buttons} selected={{key:choose, value:&#x27;&#x27;}} choose={choose}&gt;
                         {children}
                     &lt;/CheckboxPanel&gt;
                 &lt;/FilterContainer&gt;

@@ -270,6 +270,14 @@
                     
                        <li>
                             
+                           <a href="../classes/PullDown.html">PullDown</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
                            <a href="../classes/PullUp.html">PullUp</a>
                            <ul>
                                 
@@ -363,6 +371,22 @@
                        <li>
                             
                            <a href="../classes/FilterPanel.html">FilterPanel</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterPanelCheckbox.html">FilterPanelCheckbox</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterPanelCustom.html">FilterPanelCustom</a>
                            <ul>
                                 
                            </ul>
@@ -555,13 +579,13 @@ import PanelBase from &#x27;./FilterPanelBase&#x27;
  * - 可通过selected设置选中的项目，格式如&#x60;{key:&#x27;ljz&#x27;,value:&#x27;陆家嘴&#x27;}&#x60;。
  * - 可通过default设置没有选项时的默认显示文字。
  * - 可通过readOnly设置当前面板是否为只读模式。
- * - 可通过buttons设置底部按钮组的样式、文字、回调等，格式如&#x60;[{text:&#x27;取消&#x27;, phStyle:&#x27;info&#x27;, onHandle:this.cancelChoose.bind(this), otherProps: {hollow:true}}]&#x60;。
- *
+ * - 可通过clickCallBack设置点击显隐panel的回调。
+ * 
  * 主要属性和接口：
  * - selected: 默认打开的面板。
  * - default: 是否显示筛选头部。
  * - readOnly: 有效选择的回调。
- * - buttons: 有效选择的回调。
+ * - clickCallBack: 点击panel显隐的回调。
  * 
  * 如：
  * &#x60;&#x60;&#x60;code
@@ -574,12 +598,8 @@ import PanelBase from &#x27;./FilterPanelBase&#x27;
  *      ]
  *  }
  * ...
- *  const buttons = [
- *      {onHandle: this.onSubmit.bind(this)}
- *  ]
- * ...
  *  &lt;FilterContainer&gt;
- *      &lt;PanelSimple readOnly selected={{key:&#x27;ljz&#x27;,value:&#x27;陆家嘴&#x27;}} buttons={buttons}&gt;
+ *      &lt;PanelSimple readOnly selected={{key:&#x27;ljz&#x27;,value:&#x27;陆家嘴&#x27;}} clickCallBack={(show)=&gt;{console.log(show)}}&gt;
  *          {
  *              this.state.panel1.map(function(item){
  *                  return &lt;Item key={item.key} itemKey={item.key}&gt;{item.value}&lt;/Item&gt;
@@ -621,12 +641,13 @@ export default class FilterPanelSimple extends PanelBase{
          * @type Boolean
          * */
         readOnly: PropTypes.bool,
-         /**
-         * 按钮数组
-         * @property buttons
-         * @type Array
+        /**
+         * 点击panel显隐的回调
+         * @method clickCallback
+         * @param {string} show 是否显示
+         * @type Function
          * */
-        buttons: PropTypes.array
+        clickCallBack: PropTypes.func
     }
 
     static defaultProps = {

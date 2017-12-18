@@ -270,6 +270,14 @@
                     
                        <li>
                             
+                           <a href="../classes/PullDown.html">PullDown</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
                            <a href="../classes/PullUp.html">PullUp</a>
                            <ul>
                                 
@@ -363,6 +371,22 @@
                        <li>
                             
                            <a href="../classes/FilterPanel.html">FilterPanel</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterPanelCheckbox.html">FilterPanelCheckbox</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterPanelCustom.html">FilterPanelCustom</a>
                            <ul>
                                 
                            </ul>
@@ -554,22 +578,19 @@
 <li>可通过selected设置选中的项目，格式如<code>{key:&#39;ljz&#39;,value:&#39;陆家嘴&#39;}</code>。</li>
 <li>可通过default设置没有选项时的默认显示文字。</li>
 <li>可通过readOnly设置当前面板是否为只读模式。</li>
-<li>可通过buttons设置底部按钮组的样式、文字、回调等，格式如<code>[{text:&#39;取消&#39;, phStyle:&#39;info&#39;, onHandle:this.cancelChoose.bind(this), otherProps: {hollow:true}}]</code>。</li>
+<li>可通过clickCallBack设置点击显隐panel的回调。</li>
 </ul>
 <p>主要属性和接口：</p>
 <ul>
 <li>selected: 默认打开的面板。</li>
 <li>default: 是否显示筛选头部。</li>
-<li>readOnly: 有效选择的回调。</li>
-<li>buttons: 有效选择的回调。</li>
+<li>readOnly: 是否只读</li>
+<li>clickCallBack: 点击panel显隐的回调。</li>
 </ul>
 <p>如：</p>
-<pre><code class="lang-code"> const buttons = [
-     {onHandle: this.onSubmit.bind(this)}
- ]
-...
+<pre><code class="lang-code">...
  &lt;FilterContainer&gt;
-     &lt;Panel readOnly selected={{key:&#39;s_flower&#39;,value:&#39;花店&#39;}} buttons={buttons}&gt;
+     &lt;Panel readOnly selected={{key:&#39;s_flower&#39;,value:&#39;花店&#39;}} clickCallBack={(show)=&gt;{console.log(show)}}&gt;
          &lt;ItemGroup label={&lt;span style={{color:&#39;red&#39;}}&gt;美食&lt;/span&gt;}&gt;
              &lt;Item itemKey=&#39;f_all&#39;&gt;全部美食&lt;/Item&gt;
              &lt;Item itemKey=&#39;f_bbc&#39;&gt;本帮江浙菜&lt;/Item&gt;
@@ -590,6 +611,41 @@
     
     <div class="tab-content">
         
+        <div id="method">
+            <h2 class="off-left">方法</h2>
+
+            <table class="table table-bordered params-pc-table">
+                <tr class='active'><th>方法名</th><th>说明</th><th>回调参数</th></tr>
+                
+                    <tr class="param">
+     <td> 
+        <code class="param-name">clickCallback</code>
+    </td>
+    <td>
+        <div class="param-description">
+            
+            <div class="stdoc-code"><p>点击panel显隐的回调</p>
+</div>
+            
+        </div>
+    </td>
+    <td>
+        
+            <div>show<span class="type">String</span><span class="param-description"><p>是否显示</p>
+</span></div>
+            
+            
+        
+    </td>
+    
+</tr>
+
+
+ 
+                
+            </table>
+        </div>
+        
 
         
         <div id="property">
@@ -597,24 +653,6 @@
 
             <table class="table table-bordered params-pc-table">
                 <tr class='active'><th>属性名</th><th>类型</th><th>说明</th><th>默认值</th></tr>
-                
-                    <tr class="param">
-     <td> 
-        <code class="param-name">buttons</code>
-    </td>
-    <td><span class="type">Array</span> </td>
-    <td>
-        <div class="param-description">
-            
-            <div class="stdoc-code"><p>按钮数组</p>
-</div>
-        </div>
-    </td>
-    <td>
-        
-    </td>
-    
-</tr>
                 
                     <tr class="param">
      <td> 

@@ -270,6 +270,14 @@
                     
                        <li>
                             
+                           <a href="../classes/PullDown.html">PullDown</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
                            <a href="../classes/PullUp.html">PullUp</a>
                            <ul>
                                 
@@ -363,6 +371,22 @@
                        <li>
                             
                            <a href="../classes/FilterPanel.html">FilterPanel</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterPanelCheckbox.html">FilterPanelCheckbox</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterPanelCustom.html">FilterPanelCustom</a>
                            <ul>
                                 
                            </ul>
@@ -598,7 +622,7 @@ import &#x27;phoenix-styles/less/modules/slider.less&#x27;
  * */
 
 export default class Slider extends Component{
-
+    
     static propTypes = {
         /**
          * 样式前缀
@@ -626,7 +650,7 @@ export default class Slider extends Component{
          * @default &#x27;top&#x27;
          * */
         placement: PropTypes.string,
-         /**
+            /**
          * 范围，默认0-100，可传固定范围的数组如：[25,50]
          * @property range
          * @type Array
@@ -647,7 +671,7 @@ export default class Slider extends Component{
          * @default &#x27;default&#x27;
          * */
         tipMode: PropTypes.string,
-         /**
+            /**
          * 每次移动的固定距离，默认1
          * @property duration
          * @type Number
@@ -692,11 +716,7 @@ export default class Slider extends Component{
         
         new Logger(&#x27;Slider&#x27;)
         
-        this.range = this.validateRange();
-        this.rangeDiff = this.range[1]-this.range[0];
-
-        this.duration = this.validateDuration();
-        this.eachDur = (this.range[1]-this.range[0])/this.duration;
+        this.init(props);
         
         this.state = {
             realProgress: props.progress || this.range[0],
@@ -705,8 +725,17 @@ export default class Slider extends Component{
         
     }
 
-    validateRange(){
-        let {range} = this.props, defaultRange = [0,100];
+    init(props){
+        this.range = this.validateRange(props);
+        this.rangeDiff = this.range[1]-this.range[0];
+
+        this.duration = this.validateDuration(props);
+        this.eachDur = (this.range[1]-this.range[0])/this.duration;
+    }
+
+    validateRange(props){
+        let {range, progress} = props, 
+            defaultRange = [0,100];
         if(!range instanceof Array) return defaultRange;
         if(range.length != 2){
             console.error(&#x27;Invalid prop &#x60;range&#x60; of length not equal to 2.&#x27;);
@@ -715,12 +744,19 @@ export default class Slider extends Component{
         if(range[0] &gt;= range[1]){
             console.error(&#x27;Invalid prop &#x60;range[0]&#x60; must be less than or equal to &#x60;range[1]&#x60;.&#x27;);
             return defaultRange;
-        } 
+        }
+        if(progress)
+            if(progress&lt;range[0] || progress&gt;range[1]){
+                console.error(&#x27;&#x60;Progress prop&#x60; have to between &#x60;range[0]&#x60; and &#x60;range[1]&#x60;.&#x27;);
+                return range;
+            }
         return range;
     }
 
-    validateDuration(){
-        let {duration} = this.props, defaultDuration = 1;
+    validateDuration(props){
+        let {duration} = props, 
+            defaultDuration = 1;
+        
         if(duration&lt;=0) {
             console.error(&#x27;Invalid prop &#x60;duration&#x60; have to be Positive.&#x27;);
             return defaultDuration;
@@ -742,18 +778,28 @@ export default class Slider extends Component{
     }
 
     componentWillReceiveProps(nextProps){
-        if(this.state.realProgress != nextProps.progress){
+        if(nextProps.progress!=undefined &amp;&amp; this.state.realProgress != nextProps.progress){
             this.setState({
                 realProgress: nextProps.progress
             });
-
-            this.newProgressWidth = this.getNewProgressWidth(nextProps.progress);
-            this.setSliderPosition(this.newProgressWidth + &#x27;px&#x27;);
+            this.setNewProgress(nextProps)
+        }
+        if(nextProps.range!=undefined &amp;&amp; this.range != nextProps.range){
+            this.init(nextProps)
+            this.setNewProgress(nextProps)
         }
     }
 
+    setNewProgress(props){
+        this.newProgressWidth = this.getNewProgressWidth(props.progress);
+        this.setSliderPosition(this.newProgressWidth + &#x27;px&#x27;);
+    }
+
     getNewProgressWidth(realProgress){ // 保留2位小数
-        return this.sliderLength * (Math.round((realProgress-this.range[0])/this.rangeDiff*100)/100);
+        let per = Math.round((realProgress-this.range[0])/this.rangeDiff*100)/100
+        if(per&gt;=1) per = 1
+        if(per&lt;=0) per = 0
+        return this.sliderLength * per
     }
 
     setSliderPosition(distance){

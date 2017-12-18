@@ -270,6 +270,14 @@
                     
                        <li>
                             
+                           <a href="../classes/PullDown.html">PullDown</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
                            <a href="../classes/PullUp.html">PullUp</a>
                            <ul>
                                 
@@ -363,6 +371,22 @@
                        <li>
                             
                            <a href="../classes/FilterPanel.html">FilterPanel</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterPanelCheckbox.html">FilterPanelCheckbox</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterPanelCustom.html">FilterPanelCustom</a>
                            <ul>
                                 
                            </ul>
@@ -565,6 +589,7 @@ const SHOW_CLASS = &#x27;show&#x27;
  * - 当设置的位置不足够放置气泡，以下顺序顺延(top-&gt;bottom-&gt;left-&gt;right, bottom-&gt;top-&gt;left-&gt;right, left-&gt;right-&gt;top-&gt;bottom, right-&gt;left-&gt;top-&gt;bottom)。
  * - 可通过distance设置气泡到点击对象的位置。
  * - 可通过clickCallback定义气泡显隐时额外的回调函数。
+ * - 可通过hideCallback手动调用隐藏popover。
  *
  * 示例:
  * &#x60;&#x60;&#x60;code
@@ -635,7 +660,13 @@ export default class Popover extends Component{
          * @param {boolean} visible 当前显隐的状态
          * @type Function
          * */
-        clickCallback: PropTypes.func
+        clickCallback: PropTypes.func,
+        /**
+         * 手动隐藏popover
+         * @method hideCallback
+         * @type Function
+         * */
+        hideCallback: PropTypes.func
     };
 
     static defaultProps = {
@@ -718,6 +749,10 @@ export default class Popover extends Component{
                 &lt;/div&gt;
             &lt;/div&gt;
         )
+    }
+
+    hideCallback(){
+        this.removeClass(this.popover, SHOW_CLASS)
     }
 
     targetClickHandle(){

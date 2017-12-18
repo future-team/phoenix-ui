@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui" />
-    <title>src/accordion/index.js - phoenix-ui</title>
+    <title>FilterPanelCheckbox - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css">
@@ -564,284 +564,184 @@
                 <div id="docs-main">
                     <div class="content">
                         <div class="page-header">
-    <h1>src/accordion/index.js <small>File</small></h1>
+    <h1>FilterPanelCheckbox</h1>
 </div>
 
-<div class="file">
-    <pre class="prettyprint linenums" id='src_code'>
-import React from &#x27;react&#x27;
-import PropTypes from &#x27;prop-types&#x27;
-import Component from &#x27;../utils/Component&#x27;
-import classnames from &#x27;classnames&#x27;
-import Icon from &#x27;../icon&#x27;
-import Logger from &#x27;../utils/logger&#x27;
 
-import &#x27;../style&#x27;
-import &#x27;phoenix-styles/less/modules/accordion.less&#x27;
+    <p>Available since 2.2.0</p>
 
-/**
- * &lt;h5&gt;操作类组件，主要包括组件:&lt;/h5&gt;
- * &lt;strong&gt;&lt;a href=&#x27;../classes/Accordion.html&#x27;&gt;Accordion 手风琴&lt;/a&gt;&lt;/strong&gt;&lt;br/&gt;
- * &lt;strong&gt;&lt;a href=&#x27;../classes/Toast.html&#x27;&gt;Toast 飘字&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
- * &lt;strong&gt;&lt;a href=&#x27;../classes/Popup.html&#x27;&gt;Popup 弹层&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
- * &lt;strong&gt;&lt;a href=&#x27;../classes/Slider.html&#x27;&gt;Slider 滑动输入条&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
- * &lt;strong&gt;&lt;a href=&#x27;../classes/Swipe.html&#x27;&gt;Swipe 左滑动&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
- * &lt;strong&gt;&lt;a href=&#x27;../classes/Menu.html&#x27;&gt;Menu 菜单&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
- * &lt;strong&gt;&lt;a href=&#x27;../classes/LoadingList.html&#x27;&gt;LoadingList 加载更多&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
- * &lt;h6&gt;点击以上链接或者左侧导航栏的组件名称链接进行查看&lt;/h6&gt;
- * @module 操作类组件
- * @main 操作类组件
- * @static
- */
-/**
- * 手风琴组件&lt;br/&gt;
- * - 通过visible设置初始展开或收起的状态, 可选true/false。
- * - 可通过clickCallback设置展开收起时额外的回调函数。
- * - 可通过hideIcon设置隐藏向下的箭头。
- *
- * 主要属性和接口：
- * - visible:初始展开或收起的状态, 默认false收起。
- * = hideIcon:设置隐藏向下的箭头, 默认false可见。&lt;br/&gt;
- * 如：
- * &#x60;&#x60;&#x60;code
- *     &lt;Accordion visible={true} hideIcon&gt;
- *         &lt;Accordion.Header&gt;
- *             标题一
- *         &lt;/Accordion.Header&gt;
- *         &lt;Accordion.Body&gt;
- *             ...
- *         &lt;/Accordion.Body&gt;
- *     &lt;/Accordion&gt;
- * &#x60;&#x60;&#x60;
- * - clickCallback:点击收起展开的额外的回调执行函数。&lt;br/&gt;
- * 如：
- * &#x60;&#x60;&#x60;code
- *     &lt;Accordion clickCallback={(visible)=&gt;{console.log(visible);}}&gt;
- *         &lt;Accordion.Header&gt;
- *             标题一
- *         &lt;/Accordion.Header&gt;
- *         &lt;Accordion.Body&gt;
- *             ...
- *         &lt;/Accordion.Body&gt;
- *     &lt;/Accordion&gt;
- * &#x60;&#x60;&#x60;
- *
- * @class Accordion
- * @module 操作类组件
- * @extends Component
- * @constructor
- * @since 0.4.0
- * @demo accordion|accordion.js {展示}
- * @show true
- * */
 
-class Accordion extends Component{
 
-    static propTypes = {
-        /**
-         * 样式前缀
-         * @property classPrefix
-         * @type String
-         * @default &#x27;accordion&#x27;
-         * */
-        classPrefix: PropTypes.string,
-        /**
-         * 标签tagName
-         * @property componentTag
-         * @type String
-         * */
-        componentTag:PropTypes.string,
-        /**
-         * 是否可见标识
-         * @property visible
-         * @type Boolean
-         * @default false
-         * */
-        visible: PropTypes.bool,
-        /**
-         * 点击收起展开的回调函数
-         * @method clickCallback
-         * @param {boolean} visible 当前收起展开的状态
-         * @type Function
-         * */
-        clickCallback: PropTypes.func,
-        /**
-         * 向下的箭头是否可见， 默认可见
-         * @property hideIcon
-         * @type Boolean
-         * @default false
-         * */
-        hideIcon: PropTypes.bool
-    };
+ <div class="gfs-description">
+      <div class="stdoc-code"><p>多选面板<br/></p>
+<ul>
+<li>可通过selected设置选中的项目，格式如<code>{key:&#39;ljz&#39;,value:&#39;陆家嘴&#39;}</code>。</li>
+<li>可通过default设置没有选项时的默认显示文字。</li>
+<li>可通过readOnly设置当前面板是否为只读模式。</li>
+<li>可通过buttons设置底部按钮组的样式、文字、回调等，格式如<code>[{text:&#39;取消&#39;, phStyle:&#39;info&#39;, onHandle:this.cancelChoose.bind(this), close:true, otherProps: {hollow:true}}]</code>。</li>
+<li>可通过clickCallBack设置点击显隐panel的回调。</li>
+<li>可通过checkAll设置是否显示全选，默认显示。</li>
+<li>可通过type来判断当前的模式是否简单。</li>
+</ul>
+<p>主要属性和接口：</p>
+<ul>
+<li>selected: 默认打开的面板。</li>
+<li>default: 是否显示筛选头部。</li>
+<li>readOnly: 是否只读。</li>
+<li>buttons: 按钮组。</li>
+<li>clickCallBack: 点击panel显隐的回调。</li>
+<li>checkAll: 是否显示全选。</li>
+<li>type: 简单模式。</li>
+</ul>
+<p>如：</p>
+<pre><code class="lang-code"> const buttons = [
+     {onHandle: this.onSubmit.bind(this)}
+ ]
+...
+ &lt;FilterContainer&gt;
+     &lt;PanelCheckbox readOnly selected={{key:&#39;s_flower,f_bbc&#39;,value:&#39;花店,本帮江浙菜&#39;}} buttons={buttons} checkAll={false} clickCallBack={(show)=&gt;{console.log(show)}}&gt;
+         &lt;ItemGroup mainKey=&#39;ms&#39; label={&lt;span style={{color:&#39;red&#39;}}&gt;美食&lt;/span&gt;}&gt;
+             &lt;Item itemKey=&#39;f_bbc&#39;&gt;本帮江浙菜&lt;/Item&gt;
+             ...
+         &lt;/ItemGroup&gt;
+         &lt;ItemGroup mainKey=&#39;dy&#39; label=&#39;电影&#39;&gt;
+             &lt;Item itemKey=&#39;m_p&#39;&gt;私人影院&lt;/Item&gt;
+             ...
+         &lt;/ItemGroup&gt;
+         ...
+     &lt;/PanelCheckbox&gt;
+ &lt;/FilterContainer&gt;
+或
+&lt;FilterContainer&gt;
+     &lt;PanelCheckbox readOnly selected={{key:&#39;s_flower,f_bbc&#39;,value:&#39;花店,本帮江浙菜&#39;}} buttons={buttons} type=&#39;simple&#39;&gt;
+         &lt;Item itemKey=&#39;f_bbc&#39;&gt;本帮江浙菜&lt;/Item&gt;
+         ...
+     &lt;/PanelCheckbox&gt;
+ &lt;/FilterContainer&gt;</code></pre>
+</div>
+ </div>
 
-    static defaultProps = {
-        visible: false,
-        hideIcon: false,
-        classPrefix:&#x27;accordion&#x27;,
-        componentTag:&#x27;div&#x27;,
-        classMapping : {
-            &#x27;visible&#x27;: &#x27;visible&#x27;
-        }
-    };
-
-    constructor(props, context) {
-        super(props, context);
-
-        new Logger(&#x27;Accordion&#x27;);
+<div class="">
+    
+    <div class="tab-content">
         
-        this.state = {
-            visible: props.visible
-        }
-    }
 
-    componentWillReceiveProps(nextProps){
-         if(this.state.visible != nextProps.visible) this.setState({visible: nextProps.visible});
-    }
+        
+        <div id="property">
+            <h2 class="off-left">属性</h2>
 
-    changeVisible(){
-        this.setState({
-            visible: !this.state.visible
-        }, ()=&gt;{
-            if(this.props.clickCallback) this.props.clickCallback(this.state.visible);
-        });
-    }
+            <table class="table table-bordered params-pc-table">
+                <tr class='active'><th>属性名</th><th>类型</th><th>说明</th><th>默认值</th></tr>
+                
+                    <tr class="param">
+     <td> 
+        <code class="param-name">buttons</code>
+    </td>
+    <td><span class="type">Array</span> </td>
+    <td>
+        <div class="param-description">
+            
+            <div class="stdoc-code"><p>按钮数组</p>
+</div>
+        </div>
+    </td>
+    <td>
+        
+    </td>
+    
+</tr>
+                
+                    <tr class="param">
+     <td> 
+        <code class="param-name">checkAll</code>
+    </td>
+    <td><span class="type">Boolean</span> </td>
+    <td>
+        <div class="param-description">
+            
+            <div class="stdoc-code"><p>是否可以全选</p>
+</div>
+        </div>
+    </td>
+    <td>
+        true
+    </td>
+    
+</tr>
+                
+                    <tr class="param">
+     <td> 
+        <code class="param-name">default</code>
+    </td>
+    <td><span class="type">String</span> </td>
+    <td>
+        <div class="param-description">
+            
+            <div class="stdoc-code"><p>当不设置panel的选中项时（不选择任何item），可以设置一个默认字符展示在filter上</p>
+</div>
+        </div>
+    </td>
+    <td>
+        
+    </td>
+    
+</tr>
+                
+                    <tr class="param">
+     <td> 
+        <code class="param-name">readOnly</code>
+    </td>
+    <td><span class="type">Boolean</span> </td>
+    <td>
+        <div class="param-description">
+            
+            <div class="stdoc-code"><p>panel是否为只读模式</p>
+</div>
+        </div>
+    </td>
+    <td>
+        
+    </td>
+    
+</tr>
+                
+                    <tr class="param">
+     <td> 
+        <code class="param-name">selected</code>
+    </td>
+    <td><span class="type">Object 如key:'ljz,xjh',value:'陆家嘴,徐家汇'</span> </td>
+    <td>
+        <div class="param-description">
+            
+            <div class="stdoc-code"><p>panel下选中的item的key、value组成的对象，用于设置该panel初始状态下选中的item项</p>
+</div>
+        </div>
+    </td>
+    <td>
+        
+    </td>
+    
+</tr>
+                
+            </table>
+            
+        </div>
+        
 
-    renderChildren(){
-        let _this = this;
-        let newChildren = [];
-        let {hideIcon} = this.props;
+        
+    </div>
+</div>
 
-        React.Children.forEach(this.props.children, function(child, index){
-            newChildren.push(React.cloneElement(child,{
-                key: index,
-                hideIcon: hideIcon,
-                visible: _this.state.visible,
-                changeVisible: _this.changeVisible.bind(_this)
-            }));
-        });
+<div>
 
-        return newChildren;
-    }
-
-    renderAccordion(){
-        let {componentTag:Component, className} = this.props;
-
-        return (
-            &lt;Component {...this.otherProps} className={classnames(
-                this.getProperty(true),
-                className
-            )}&gt;
-                {this.renderChildren()}
-            &lt;/Component&gt;
-        )
-    }
-
-    render(){
-        return this.renderAccordion()
-    }
-}
-
-class AccordionHeader extends Component {
-    constructor(props, context){
-        super(props, context);
-    }
-
-    static defaultProps = {
-        classPrefix:&#x27;accordion-header&#x27;,
-        classMapping : {}
-    };
-
-    clickHandle(){
-        let {changeVisible, onClick} = this.props
-        this.props.changeVisible()
-        if(onClick) onClick()
-    }
-
-    renderIcon(){
-        let {visible, hideIcon} = this.props;
-
-        if(!hideIcon){
-            return &lt;Icon phIcon=&#x27;expand-more&#x27; className={visible? &#x27;active&#x27;:&#x27;&#x27;} /&gt;;
-        }else{
-            return &#x27;&#x27;;
-        }        
-    }
-
-    renderAccordionHeader(){
-        let {className} = this.props;
-
-        return (
-            &lt;div {...this.otherProps} className={classnames(
-                    this.getProperty(true),
-                    className
-                )}
-                onClick={this.clickHandle.bind(this)}
-            &gt;
-                {this.props.children}
-                {this.renderIcon()}
-            &lt;/div&gt;
-        )
-    }
-
-    render(){
-        return this.renderAccordionHeader()
-    }
-};
-
-class AccordionBody extends Component{
-
-    constructor(props, context) {
-        super(props, context);
-
-        this.height = 0;
-    }
-
-    static defaultProps = {
-        classPrefix:&#x27;accordion-body&#x27;,
-        classMapping : {}
-    };
-
-    componentDidMount(){
-        setTimeout(()=&gt;{
-            this.height =  this.accordionBody.offsetHeight+&#x27;px&#x27;
-            this.setHeight()
-        },0)
-    }
-
-    componentDidUpdate(){
-        this.setHeight();
-    }
-
-    setHeight(){
-        this.accordionBodyParent.style.height = this.props.visible ? this.height : 0
-    }
-
-    renderAccordionBody(){
-        let {children,className} = this.props;
-
-        return (
-            &lt;div {...this.otherProps} className={classnames(
-                    this.getProperty(true),
-                    &#x27;animated&#x27;,
-                    className
-                )} ref={(accordionBodyParent)=&gt;{this.accordionBodyParent = accordionBodyParent}}&gt;
-                &lt;div ref={(accordionBody)=&gt;{this.accordionBody = accordionBody}}&gt;
-                    {children}
-                &lt;/div&gt;
-            &lt;/div&gt;
-        )
-    }
-
-    render(){
-        return this.renderAccordionBody()
-    }
-}
-
-Accordion.Header = AccordionHeader;
-Accordion.Body = AccordionBody;
-
-export default Accordion;
-    </pre>
+    
+        <div class="example">
+            <h4>示例展示:</h4>
+            <div class="example-content  showdemo " data-demo="https://future-team.github.io/phoenix-ui/examples/index.html#/ph-filter"> 
+            </div>
+            
+        </div>
+    
 </div>
 
                     </div>

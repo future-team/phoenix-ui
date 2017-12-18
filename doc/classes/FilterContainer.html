@@ -270,6 +270,14 @@
                     
                        <li>
                             
+                           <a href="../classes/PullDown.html">PullDown</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
                            <a href="../classes/PullUp.html">PullUp</a>
                            <ul>
                                 
@@ -363,6 +371,22 @@
                        <li>
                             
                            <a href="../classes/FilterPanel.html">FilterPanel</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterPanelCheckbox.html">FilterPanelCheckbox</a>
+                           <ul>
+                                
+                           </ul>
+                       </li>
+                    
+                       <li>
+                            
+                           <a href="../classes/FilterPanelCustom.html">FilterPanelCustom</a>
                            <ul>
                                 
                            </ul>
@@ -554,14 +578,18 @@
 <li>可通过index设置筛选默认打开的面板。默认－1，即都不打开。</li>
 <li>可通过hideCat选择是否要显示筛选头部。</li>
 <li>可通过clickCallback设置有效选择的回调，当没有按钮时选中即触发，有按钮时点击按钮时触发。</li>
+<li>可通过noShadow设置是否显示阴影，默认显示。</li>
+<li>可通过hideCallback手动调用隐藏panel。</li>
 </ul>
 <p>主要属性和接口：</p>
 <ul>
 <li>index: 默认打开的面板。</li>
 <li>hideCat: 是否显示筛选头部。</li>
 <li>clickCallback: 有效选择的回调。</li>
+<li>noShadow: 是否显示阴影。</li>
+<li>hideCallback: 手动调用隐藏panel。</li>
 </ul>
-<p>有2种形式，其一，简单模式。<br/>
+<p>有4种形式，其一，简单单选模式。<br/>
 如：</p>
 <pre><code class="lang-code"> this.state = {
      panel1:[
@@ -572,7 +600,7 @@
      ]
  }
 ...
- &lt;FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)} stable&gt;
+ &lt;FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)} ref={(container)=&gt;{this.container=container}} noShadow={true}&gt;
      &lt;PanelSimple readOnly className=&#39;panel1&#39; selected={{key:&#39;ljz&#39;,value:&#39;陆家嘴&#39;}}&gt;
          {
              this.state.panel1.map(function(item){
@@ -580,23 +608,49 @@
              })
          }
      &lt;/PanelSimple&gt;
+ &lt;/FilterContainer&gt;
+...
+this.container.hideCallback();</code></pre>
+<p>其二，简单多选模式。<br/>
+如：</p>
+<pre><code class="lang-code"> &lt;FilterContainer index={0} clickCallback={this.clickCallback.bind(this)}&gt;
+     &lt;PanelCheckbox readOnly className=&#39;panel1&#39; selected={{key:&#39;ljz&#39;,value:&#39;陆家嘴&#39;}} type=&#39;simple&#39;&gt;
+         {
+             this.state.panel1.map(function(item){
+                 return &lt;Item key={item.key} itemKey={item.key}&gt;{item.value}&lt;/Item&gt;
+             })
+         }
+     &lt;/PanelCheckbox&gt;
  &lt;/FilterContainer&gt;</code></pre>
-<p>其一，双栏模式。<br/>
+<p>其三，双栏单选模式。<br/>
 如：</p>
 <pre><code class="lang-code"> &lt;FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)}&gt;
      &lt;Panel readOnly selected={{key:&#39;s_flower&#39;,value:&#39;花店&#39;}}&gt;
          &lt;ItemGroup label={&lt;span style={{color:&#39;red&#39;}}&gt;美食&lt;/span&gt;}&gt;
-             &lt;Item itemKey=&#39;f_all&#39;&gt;全部美食&lt;/Item&gt;
              &lt;Item itemKey=&#39;f_bbc&#39;&gt;本帮江浙菜&lt;/Item&gt;
              ...
          &lt;/ItemGroup&gt;
          &lt;ItemGroup  label=&#39;电影&#39;&gt;
-             &lt;Item itemKey=&#39;m_all&#39;&gt;全部电影&lt;/Item&gt;
              &lt;Item itemKey=&#39;m_p&#39;&gt;私人影院&lt;/Item&gt;
              ...
          &lt;/ItemGroup&gt;
          ...
      &lt;/Panel&gt;
+ &lt;/FilterContainer&gt;</code></pre>
+<p>其三，双栏多选模式。<br/>
+如：</p>
+<pre><code class="lang-code"> &lt;FilterContainer index={0} hideCat={false} clickCallback={this.clickCallback.bind(this)}&gt;
+     &lt;PanelCheckbox readOnly selected={{key:&#39;s_flower&#39;,value:&#39;花店&#39;}}&gt;
+         &lt;ItemGroup mainKey=&#39;ms&#39; label={&lt;span style={{color:&#39;red&#39;}}&gt;美食&lt;/span&gt;}&gt;
+             &lt;Item itemKey=&#39;f_bbc&#39;&gt;本帮江浙菜&lt;/Item&gt;
+             ...
+         &lt;/ItemGroup&gt;
+         &lt;ItemGroup mainKey=&#39;dy&#39; label=&#39;电影&#39;&gt;
+             &lt;Item itemKey=&#39;m_p&#39;&gt;私人影院&lt;/Item&gt;
+             ...
+         &lt;/ItemGroup&gt;
+         ...
+     &lt;/PanelCheckbox&gt;
  &lt;/FilterContainer&gt;</code></pre>
 </div>
  </div>
@@ -629,6 +683,27 @@
 </span></div>
             
             
+        
+    </td>
+    
+</tr>
+
+
+ 
+                
+                    <tr class="param">
+     <td> 
+        <code class="param-name">hideCallback</code>
+    </td>
+    <td>
+        <div class="param-description">
+            
+            <div class="stdoc-code"><p>手动隐藏panel</p>
+</div>
+            
+        </div>
+    </td>
+    <td>
         
     </td>
     
@@ -680,6 +755,24 @@
     </td>
     <td>
         -1
+    </td>
+    
+</tr>
+                
+                    <tr class="param">
+     <td> 
+        <code class="param-name">noShadow</code>
+    </td>
+    <td><span class="type">Boolean</span> </td>
+    <td>
+        <div class="param-description">
+            
+            <div class="stdoc-code"><p>是否显示阴影</p>
+</div>
+        </div>
+    </td>
+    <td>
+        false
     </td>
     
 </tr>

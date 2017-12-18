@@ -16,6 +16,8 @@ YUI.add("yuidoc-meta", function(Y) {
         "FilterItem",
         "FilterItemGroup",
         "FilterPanel",
+        "FilterPanelCheckbox",
+        "FilterPanelCustom",
         "FilterPanelSimple",
         "Grid",
         "Icon",
@@ -32,6 +34,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Popover",
         "Popup",
         "Prompt",
+        "PullDown",
         "PullUp",
         "Radio",
         "Row",
@@ -126,7 +129,7 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "提示组件",
             "name": "提示组件",
-            "description": "气泡组件<br/>\n- 通过getTarget返回当前点击元素，必需。\n- 可通过placement设置气泡的显示位置, 可选top、bottom、left、right。\n- 当设置的位置不足够放置气泡，以下顺序顺延(top->bottom->left->right, bottom->top->left->right, left->right->top->bottom, right->left->top->bottom)。\n- 可通过distance设置气泡到点击对象的位置。\n- 可通过clickCallback定义气泡显隐时额外的回调函数。\n\n示例:\n```code\n <Button phSize='lg' ref={(button)=>{this.button = button}}>按钮</Button>\n <Popover getTarget={()=>{return this.button}} placement='top'>\n     <div className='ph-popover-text'>\n         一条很长的很长的气泡提示语，为了占位存在的气泡提示语。一条很长的很长的气泡提示语，为了占位存在的气泡提示语。\n     </div>\n </Popover>\n```\n```code\n <Button phSize='lg' ref={(button)=>{this.button1 = button}}>按钮</Button>\n <Popover getTarget={()=>{return this.button1}} placement='right'>\n     <ul className='ph-popover-list'>\n         <li className='ph-popover-item'>未上线单店</li>\n         <li className='ph-popover-item'>未上线连锁店</li>\n     </ul>\n </Popover>\n```",
+            "description": "气泡组件<br/>\n- 通过getTarget返回当前点击元素，必需。\n- 可通过placement设置气泡的显示位置, 可选top、bottom、left、right。\n- 当设置的位置不足够放置气泡，以下顺序顺延(top->bottom->left->right, bottom->top->left->right, left->right->top->bottom, right->left->top->bottom)。\n- 可通过distance设置气泡到点击对象的位置。\n- 可通过clickCallback定义气泡显隐时额外的回调函数。\n- 可通过hideCallback手动调用隐藏popover。\n\n示例:\n```code\n <Button phSize='lg' ref={(button)=>{this.button = button}}>按钮</Button>\n <Popover getTarget={()=>{return this.button}} placement='top'>\n     <div className='ph-popover-text'>\n         一条很长的很长的气泡提示语，为了占位存在的气泡提示语。一条很长的很长的气泡提示语，为了占位存在的气泡提示语。\n     </div>\n </Popover>\n```\n```code\n <Button phSize='lg' ref={(button)=>{this.button1 = button}}>按钮</Button>\n <Popover getTarget={()=>{return this.button1}} placement='right'>\n     <ul className='ph-popover-list'>\n         <li className='ph-popover-item'>未上线单店</li>\n         <li className='ph-popover-item'>未上线连锁店</li>\n     </ul>\n </Popover>\n```",
             "classes": [
                 {
                     "name": "Popover"
@@ -167,6 +170,9 @@ YUI.add("yuidoc-meta", function(Y) {
                     "name": "Accordion"
                 },
                 {
+                    "name": "PullDown"
+                },
+                {
                     "name": "PullUp"
                 },
                 {
@@ -193,7 +199,7 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "筛选控件",
             "name": "筛选控件",
-            "description": "<h5>筛选控件，主要包括组件:</h5>\n<strong><a href='../classes/FilterContainer.html'>FilterContainer 单选筛选</a></strong><br/>\n<strong><a href='../classes/FilterCheckbox.html'>FilterCheckbox 多选筛选</a></strong><br>\n<strong><a href='../classes/FilterPanelSimple.html'>FilterPanelSimple 简单面板</a></strong><br>\n<strong><a href='../classes/FilterPanel.html'>FilterPanel 面板</a></strong><br>\n<strong><a href='../classes/FilterItemGroup.html'>FilterItemGroup 主菜单</a></strong><br>\n<strong><a href='../classes/FilterItem.html'>FilterItem 筛选项</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
+            "description": "<h5>筛选控件，主要包括组件:</h5>\n<strong><a href='../classes/FilterContainer.html'>FilterContainer 单选筛选</a></strong><br/>\n<strong><a href='../classes/FilterCheckbox.html'>FilterCheckbox 多选筛选</a></strong><br>\n<strong><a href='../classes/FilterPanelSimple.html'>FilterPanelSimple 简单面板</a></strong><br>\n<strong><a href='../classes/FilterPanel.html'>FilterPanel 面板</a></strong><br>\n<strong><a href='../classes/FilterPanelCheckbox.html'>FilterPanelCheckbox 多选面板</a></strong><br>\n<strong><a href='../classes/FilterItemGroup.html'>FilterItemGroup 主菜单</a></strong><br>\n<strong><a href='../classes/FilterItem.html'>FilterItem 筛选项</a></strong><br>\n<h6>点击以上链接或者左侧导航栏的组件名称链接进行查看</h6>",
             "classes": [
                 {
                     "name": "FilterCheckbox"
@@ -209,6 +215,12 @@ YUI.add("yuidoc-meta", function(Y) {
                 },
                 {
                     "name": "FilterPanel"
+                },
+                {
+                    "name": "FilterPanelCheckbox"
+                },
+                {
+                    "name": "FilterPanelCustom"
                 },
                 {
                     "name": "FilterPanelSimple"

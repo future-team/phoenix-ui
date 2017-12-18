@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui" />
-    <title>src/accordion/index.js - phoenix-ui</title>
+    <title>src/ph-filter/components/FilterPanelCheckbox.js - phoenix-ui</title>
   
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css">
@@ -564,283 +564,382 @@
                 <div id="docs-main">
                     <div class="content">
                         <div class="page-header">
-    <h1>src/accordion/index.js <small>File</small></h1>
+    <h1>src/ph-filter/components/FilterPanelCheckbox.js <small>File</small></h1>
 </div>
 
 <div class="file">
     <pre class="prettyprint linenums" id='src_code'>
-import React from &#x27;react&#x27;
+import React, { Component } from &#x27;react&#x27;
 import PropTypes from &#x27;prop-types&#x27;
-import Component from &#x27;../utils/Component&#x27;
 import classnames from &#x27;classnames&#x27;
-import Icon from &#x27;../icon&#x27;
-import Logger from &#x27;../utils/logger&#x27;
+import {transToArray} from &#x27;../../utils/Tool&#x27;
 
-import &#x27;../style&#x27;
-import &#x27;phoenix-styles/less/modules/accordion.less&#x27;
+import Item from &#x27;./FilterItem&#x27;
+import ButtonGroup from &#x27;../../button-group&#x27;
+import Button from &#x27;../../button&#x27;
 
 /**
- * &lt;h5&gt;操作类组件，主要包括组件:&lt;/h5&gt;
- * &lt;strong&gt;&lt;a href=&#x27;../classes/Accordion.html&#x27;&gt;Accordion 手风琴&lt;/a&gt;&lt;/strong&gt;&lt;br/&gt;
- * &lt;strong&gt;&lt;a href=&#x27;../classes/Toast.html&#x27;&gt;Toast 飘字&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
- * &lt;strong&gt;&lt;a href=&#x27;../classes/Popup.html&#x27;&gt;Popup 弹层&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
- * &lt;strong&gt;&lt;a href=&#x27;../classes/Slider.html&#x27;&gt;Slider 滑动输入条&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
- * &lt;strong&gt;&lt;a href=&#x27;../classes/Swipe.html&#x27;&gt;Swipe 左滑动&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
- * &lt;strong&gt;&lt;a href=&#x27;../classes/Menu.html&#x27;&gt;Menu 菜单&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
- * &lt;strong&gt;&lt;a href=&#x27;../classes/LoadingList.html&#x27;&gt;LoadingList 加载更多&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
- * &lt;h6&gt;点击以上链接或者左侧导航栏的组件名称链接进行查看&lt;/h6&gt;
- * @module 操作类组件
- * @main 操作类组件
- * @static
- */
-/**
- * 手风琴组件&lt;br/&gt;
- * - 通过visible设置初始展开或收起的状态, 可选true/false。
- * - 可通过clickCallback设置展开收起时额外的回调函数。
- * - 可通过hideIcon设置隐藏向下的箭头。
- *
+ * 多选面板&lt;br/&gt;
+ * - 可通过selected设置选中的项目，格式如&#x60;{key:&#x27;ljz&#x27;,value:&#x27;陆家嘴&#x27;}&#x60;。
+ * - 可通过default设置没有选项时的默认显示文字。
+ * - 可通过readOnly设置当前面板是否为只读模式。
+ * - 可通过buttons设置底部按钮组的样式、文字、回调等，格式如&#x60;[{text:&#x27;取消&#x27;, phStyle:&#x27;info&#x27;, onHandle:this.cancelChoose.bind(this), close:true, otherProps: {hollow:true}}]&#x60;。
+ * - 可通过clickCallBack设置点击显隐panel的回调。
+ * - 可通过checkAll设置是否显示全选，默认显示。
+ * - 可通过type来判断当前的模式是否简单。
+ * 
  * 主要属性和接口：
- * - visible:初始展开或收起的状态, 默认false收起。
- * = hideIcon:设置隐藏向下的箭头, 默认false可见。&lt;br/&gt;
+ * - selected: 默认打开的面板。
+ * - default: 是否显示筛选头部。
+ * - readOnly: 是否只读。
+ * - buttons: 按钮组。
+ * - clickCallBack: 点击panel显隐的回调。
+ * - checkAll: 是否显示全选。
+ * - type: 简单模式。
+ * 
  * 如：
  * &#x60;&#x60;&#x60;code
- *     &lt;Accordion visible={true} hideIcon&gt;
- *         &lt;Accordion.Header&gt;
- *             标题一
- *         &lt;/Accordion.Header&gt;
- *         &lt;Accordion.Body&gt;
- *             ...
- *         &lt;/Accordion.Body&gt;
- *     &lt;/Accordion&gt;
- * &#x60;&#x60;&#x60;
- * - clickCallback:点击收起展开的额外的回调执行函数。&lt;br/&gt;
- * 如：
- * &#x60;&#x60;&#x60;code
- *     &lt;Accordion clickCallback={(visible)=&gt;{console.log(visible);}}&gt;
- *         &lt;Accordion.Header&gt;
- *             标题一
- *         &lt;/Accordion.Header&gt;
- *         &lt;Accordion.Body&gt;
- *             ...
- *         &lt;/Accordion.Body&gt;
- *     &lt;/Accordion&gt;
+ *  const buttons = [
+ *      {onHandle: this.onSubmit.bind(this)}
+ *  ]
+ * ...
+ *  &lt;FilterContainer&gt;
+ *      &lt;PanelCheckbox readOnly selected={{key:&#x27;s_flower,f_bbc&#x27;,value:&#x27;花店,本帮江浙菜&#x27;}} buttons={buttons} checkAll={false} clickCallBack={(show)=&gt;{console.log(show)}}&gt;
+ *          &lt;ItemGroup mainKey=&#x27;ms&#x27; label={&lt;span style={{color:&#x27;red&#x27;}}&gt;美食&lt;/span&gt;}&gt;
+ *              &lt;Item itemKey=&#x27;f_bbc&#x27;&gt;本帮江浙菜&lt;/Item&gt;
+ *              ...
+ *          &lt;/ItemGroup&gt;
+ *          &lt;ItemGroup mainKey=&#x27;dy&#x27; label=&#x27;电影&#x27;&gt;
+ *              &lt;Item itemKey=&#x27;m_p&#x27;&gt;私人影院&lt;/Item&gt;
+ *              ...
+ *          &lt;/ItemGroup&gt;
+ *          ...
+ *      &lt;/PanelCheckbox&gt;
+ *  &lt;/FilterContainer&gt;
+ * 或
+ * &lt;FilterContainer&gt;
+ *      &lt;PanelCheckbox readOnly selected={{key:&#x27;s_flower,f_bbc&#x27;,value:&#x27;花店,本帮江浙菜&#x27;}} buttons={buttons} type=&#x27;simple&#x27;&gt;
+ *          &lt;Item itemKey=&#x27;f_bbc&#x27;&gt;本帮江浙菜&lt;/Item&gt;
+ *          ...
+ *      &lt;/PanelCheckbox&gt;
+ *  &lt;/FilterContainer&gt;
  * &#x60;&#x60;&#x60;
  *
- * @class Accordion
- * @module 操作类组件
+ * @class FilterPanelCheckbox
+ * @module 筛选控件
  * @extends Component
  * @constructor
- * @since 0.4.0
- * @demo accordion|accordion.js {展示}
+ * @since 2.2.0
+ * @demo ph-filter|ph-filter.js {展示}
  * @show true
  * */
+export default class FilterPanelCheckbox extends Component{
+    constructor(props,context){
+        super(props,context);
 
-class Accordion extends Component{
+        this.choose = this.dealWithSelected(props)
+        this.nameList = {}
 
-    static propTypes = {
+        this.state={
+            activeGroupIndex: props.index,
+            allChecked: {},
+            itemChecked: {},
+            itemDisabled: {},
+            selected: this.dealWithSelected(props),
+            selectedName: this.dealWithSelected(props, &#x27;value&#x27;)
+        };
+    }
+
+    static propTypes= {
         /**
-         * 样式前缀
-         * @property classPrefix
+         * panel下选中的item的key、value组成的对象，用于设置该panel初始状态下选中的item项
+         * @property selected
+         * @type Object 如{key:&#x27;ljz,xjh&#x27;,value:&#x27;陆家嘴,徐家汇&#x27;}
+         * */
+        selected: PropTypes.shape({
+            key: PropTypes.string,
+            value: PropTypes.oneOfType([PropTypes.string,PropTypes.element])
+        }),
+        /**
+         * 当不设置panel的选中项时（不选择任何item），可以设置一个默认字符展示在filter上
+         * @property default
          * @type String
-         * @default &#x27;accordion&#x27;
          * */
-        classPrefix: PropTypes.string,
+        default: PropTypes.string,
         /**
-         * 标签tagName
-         * @property componentTag
-         * @type String
-         * */
-        componentTag:PropTypes.string,
-        /**
-         * 是否可见标识
-         * @property visible
+         * panel是否为只读模式
+         * @property readOnly
          * @type Boolean
-         * @default false
          * */
-        visible: PropTypes.bool,
-        /**
-         * 点击收起展开的回调函数
-         * @method clickCallback
-         * @param {boolean} visible 当前收起展开的状态
-         * @type Function
+        readOnly: PropTypes.bool,
+         /**
+         * 按钮数组
+         * @property buttons
+         * @type Array
          * */
-        clickCallback: PropTypes.func,
-        /**
-         * 向下的箭头是否可见， 默认可见
-         * @property hideIcon
+        buttons: PropTypes.array,
+         /**
+         * 是否可以全选
+         * @property checkAll
          * @type Boolean
-         * @default false
+         * @default true
          * */
-        hideIcon: PropTypes.bool
-    };
+        checkAll: PropTypes.bool
+    }
 
     static defaultProps = {
-        visible: false,
-        hideIcon: false,
-        classPrefix:&#x27;accordion&#x27;,
-        componentTag:&#x27;div&#x27;,
-        classMapping : {
-            &#x27;visible&#x27;: &#x27;visible&#x27;
-        }
-    };
-
-    constructor(props, context) {
-        super(props, context);
-
-        new Logger(&#x27;Accordion&#x27;);
-        
-        this.state = {
-            visible: props.visible
-        }
+        selected: {},
+        checkAll: true
     }
 
     componentWillReceiveProps(nextProps){
-         if(this.state.visible != nextProps.visible) this.setState({visible: nextProps.visible});
+        if(this.state.selected !== this.dealWithSelected(nextProps)){
+            this.setState({
+                selected: this.dealWithSelected(nextProps),
+                selectedName: this.dealWithSelected(nextProps, &#x27;value&#x27;)
+            })
+        }
     }
 
-    changeVisible(){
+    dealWithSelected(props, param){
+        let key = param || &#x27;key&#x27;
+        if(props.selected &amp;&amp; props.selected[key]) return transToArray(props.selected[key])
+        else return []
+    }
+
+    deleteFromArray(val){
+        let {selected, selectedName} = this.state,
+            _index = selected.indexOf(val)
+
+        if(_index&gt;-1){
+            selected.splice(_index, 1)
+            selectedName.splice(_index, 1)
+        }
+    }
+ 
+    mainKeyChange(key){
         this.setState({
-            visible: !this.state.visible
-        }, ()=&gt;{
-            if(this.props.clickCallback) this.props.clickCallback(this.state.visible);
+            activeGroupIndex: key
         });
     }
 
-    renderChildren(){
-        let _this = this;
-        let newChildren = [];
-        let {hideIcon} = this.props;
+    onAllItemChange(mainKey, itemKey, name, e){
+        let {selected, selectedName, allChecked, itemChecked} = this.state
+        
+        allChecked[mainKey] = e.target.checked
+        // 全选或全不选
+        for(let i in itemChecked[mainKey]){
+            itemChecked[mainKey][i] = e.target.checked
 
-        React.Children.forEach(this.props.children, function(child, index){
-            newChildren.push(React.cloneElement(child,{
-                key: index,
-                hideIcon: hideIcon,
-                visible: _this.state.visible,
-                changeVisible: _this.changeVisible.bind(_this)
+            if(e.target.checked){ // 全选
+                if(selected.indexOf(i)==-1 &amp;&amp; !this.state.itemDisabled[mainKey][i]){
+                    selected.push(i.toString())
+                    selectedName.push(this.nameList[mainKey][i])
+                }
+            }else{ // 全不选
+                this.deleteFromArray(i)
+            }
+        }
+        
+        this.setState({
+            allChecked: allChecked,
+            itemChecked: itemChecked
+        });
+
+        // if(this.props.getChooseData) this.props.getChooseData(choose.join());
+    }
+
+    onItemChange(mainKey, itemKey, name, e){
+        let {selected, selectedName, allChecked, itemChecked, itemDisabled} = this.state
+
+        itemChecked[mainKey][itemKey] = e.target.checked
+        
+        if(!e.target.checked){ // 其中一个不选时去掉全选
+            allChecked[mainKey] = false;
+            this.deleteFromArray(itemKey.toString())
+        }
+
+        if(e.target.checked){
+            let count = true;
+            if(selected.indexOf(itemKey)==-1){
+                selected.push(itemKey.toString())
+                selectedName.push(name)
+            }
+            for(let i in itemChecked[mainKey]){
+                if(!itemChecked[mainKey][i] &amp;&amp; !itemDisabled[mainKey][i]){
+                    count = false;
+                    break;
+                }
+            }
+            if(count) allChecked[mainKey] = true;
+        }
+        
+        this.setState({
+            allChecked: allChecked,
+            itemChecked: itemChecked
+        });
+
+        // if(this.props.getChooseData) this.props.getChooseData(selected.join());
+    }
+
+    renderMainMenuList(){
+        let self = this;
+        
+        return React.Children.map(this.props.children,function(menu,index){
+            return (
+                React.cloneElement(menu,{
+                    active:self.state.activeGroupIndex==index,
+                    groupIndex:index,
+                    readOnly:self.props.readOnly,
+                    mainKeyChange:self.mainKeyChange.bind(self)
+                })
+            );
+        })
+    }
+
+    renderSubMenuList(mainMenuList){
+        let {selected} = this.state,
+            {itemChecked, itemDisabled} = this.state;
+        var mainMenu, self=this, {checkAll} = this.props;
+
+        mainMenu = React.Children.map(mainMenuList,function(menu){
+            let mainKey = menu.props.mainKey || 0;
+            
+            if(menu.props.groupIndex==self.state.activeGroupIndex){
+                return self.renderSubMenuCore(menu.props.children, selected, mainKey);
+            }
+        });
+
+        return mainMenu;
+    }
+
+    renderButtons(){
+        let {buttons, panelIndex} = this.props,
+            {selected, selectedName} = this.state,
+            self = this
+        
+        return buttons? (
+            &lt;ButtonGroup phType=&#x27;footer&#x27;&gt;
+                {
+                    buttons.map((button, index)=&gt;{
+                        return (
+                            &lt;Button key={index} {...button.otherProps} phSize=&#x27;lg&#x27; phStyle={button.phStyle || &#x27;primary&#x27;}
+                                onClick={()=&gt;{
+                                    if(button.onHandle){
+                                        button.onHandle(selected.join(), selectedName.join())
+                                        if(button.close) self.props.categoryChange(panelIndex, {key:selected.join(), value: selectedName.join()})
+                                    }
+                                }
+                            }&gt;
+                                {button.text || &#x27;确定&#x27;}
+                            &lt;/Button&gt;
+                        )
+                    })
+                }
+            &lt;/ButtonGroup&gt;
+        ): null
+    }
+
+    renderMenuList(){
+        let {selected} = this.state,
+            menuList = this.renderSubMenuCore(this.props.children, selected, 0)
+        return menuList
+    }
+
+    renderSubMenuCore(children, selected, mainKey){
+        let {itemChecked, itemDisabled, allChecked} = this.state,
+            {checkAll} = this.props
+        let subMenu = [], checkedCount = 0, disabledCount = 0, sum = 0, self = this
+
+        React.Children.map(children,function(item){
+            let key = item.props.itemKey, disabled = item.props.disabled
+            
+            itemChecked[mainKey] = itemChecked[mainKey] || {}
+            itemDisabled[mainKey] = itemDisabled[mainKey] || {}
+            self.nameList[mainKey] = self.nameList[mainKey] || {}
+
+            if(itemChecked[mainKey][key]==undefined || self.choose != selected){ // 兼容通过请求获取choose的情况
+                itemChecked[mainKey][key] = selected.indexOf(key.toString())!=-1
+            } 
+            if(itemDisabled[mainKey][key]==undefined || self.choose != selected){
+                itemDisabled[mainKey][key] = disabled
+            }
+            if(self.nameList[mainKey][key]==undefined || self.choose != selected){
+                self.nameList[mainKey][key] = item.props.children
+            }
+            
+            if(itemChecked[mainKey][key]) checkedCount++
+            if(disabled){
+                self.deleteFromArray(key.toString())
+                disabledCount++
+            } 
+            sum ++
+            
+            subMenu.push(React.cloneElement(item,{
+                active:false,
+                readOnly:self.props.readOnly,
+                categoryChange:self.props.categoryChange,
+                panelIndex:self.props.panelIndex,
+                // new props
+                checked: itemChecked[mainKey][key],
+                // selected:self.props.selected,
+                filterType: &#x27;checkbox&#x27;,
+                mainKey: mainKey,
+                onItemChange:self.onItemChange.bind(self)
             }));
         });
+        
+        // new一个全部的elemecontext
+        if(allChecked[mainKey]==undefined || self.choose != selected){
+            if(checkedCount+disabledCount==sum) allChecked[mainKey] = true
+            else allChecked[mainKey] = false
+        }
+        
+        if(checkAll) subMenu.unshift(&lt;Item active={false} key={mainKey} itemKey={mainKey} mainKey={mainKey} disabled={disabledCount==sum}
+            filterType=&#x27;checkbox&#x27; checked={allChecked[mainKey]} 
+            onItemChange={self.onAllItemChange.bind(self)}&gt;全部&lt;/Item&gt;)
 
-        return newChildren;
+        return subMenu
     }
 
-    renderAccordion(){
-        let {componentTag:Component, className} = this.props;
+    isSimple(){
+        let {type} = this.props
+        return type==&#x27;simple&#x27;
+    }
+
+    renderSimpleMenu(className){
+        let menuList = this.renderMenuList()
 
         return (
-            &lt;Component {...this.otherProps} className={classnames(
-                this.getProperty(true),
-                className
-            )}&gt;
-                {this.renderChildren()}
-            &lt;/Component&gt;
+            &lt;div className={classnames(&#x27;ph-row ph-tabs ph-tabs-vertical&#x27;, className)} &gt;
+                &lt;div className=&#x27;ph-col ph-tab-bd&#x27;&gt;{menuList}&lt;/div&gt;
+            &lt;/div&gt;
         )
     }
 
-    render(){
-        return this.renderAccordion()
-    }
-}
-
-class AccordionHeader extends Component {
-    constructor(props, context){
-        super(props, context);
-    }
-
-    static defaultProps = {
-        classPrefix:&#x27;accordion-header&#x27;,
-        classMapping : {}
-    };
-
-    clickHandle(){
-        let {changeVisible, onClick} = this.props
-        this.props.changeVisible()
-        if(onClick) onClick()
-    }
-
-    renderIcon(){
-        let {visible, hideIcon} = this.props;
-
-        if(!hideIcon){
-            return &lt;Icon phIcon=&#x27;expand-more&#x27; className={visible? &#x27;active&#x27;:&#x27;&#x27;} /&gt;;
-        }else{
-            return &#x27;&#x27;;
-        }        
-    }
-
-    renderAccordionHeader(){
-        let {className} = this.props;
+    renderMenu(className){
+        let mainMenuList = this.renderMainMenuList(),
+            subMenuList = this.renderSubMenuList(mainMenuList)
 
         return (
-            &lt;div {...this.otherProps} className={classnames(
-                    this.getProperty(true),
-                    className
-                )}
-                onClick={this.clickHandle.bind(this)}
-            &gt;
-                {this.props.children}
-                {this.renderIcon()}
+            &lt;div className={classnames(&#x27;ph-row ph-tabs ph-tabs-vertical&#x27;, className)} &gt;
+                &lt;div className=&#x27;ph-col ph-col-33 ph-tab-navs&#x27;&gt;{mainMenuList}&lt;/div&gt;
+                &lt;div className=&#x27;ph-col ph-tab-bd&#x27;&gt;{subMenuList}&lt;/div&gt;
             &lt;/div&gt;
         )
     }
 
     render(){
-        return this.renderAccordionHeader()
-    }
-};
-
-class AccordionBody extends Component{
-
-    constructor(props, context) {
-        super(props, context);
-
-        this.height = 0;
-    }
-
-    static defaultProps = {
-        classPrefix:&#x27;accordion-body&#x27;,
-        classMapping : {}
-    };
-
-    componentDidMount(){
-        setTimeout(()=&gt;{
-            this.height =  this.accordionBody.offsetHeight+&#x27;px&#x27;
-            this.setHeight()
-        },0)
-    }
-
-    componentDidUpdate(){
-        this.setHeight();
-    }
-
-    setHeight(){
-        this.accordionBodyParent.style.height = this.props.visible ? this.height : 0
-    }
-
-    renderAccordionBody(){
-        let {children,className} = this.props;
-
-        return (
-            &lt;div {...this.otherProps} className={classnames(
-                    this.getProperty(true),
-                    &#x27;animated&#x27;,
-                    className
-                )} ref={(accordionBodyParent)=&gt;{this.accordionBodyParent = accordionBodyParent}}&gt;
-                &lt;div ref={(accordionBody)=&gt;{this.accordionBody = accordionBody}}&gt;
-                    {children}
-                &lt;/div&gt;
+        let {className, buttons, show, type, children} = this.props
+        
+        return show? (
+            &lt;div className={classnames(&#x27;ph-filter-selector&#x27;, buttons? &#x27;ph-filter-selector-buttons&#x27;:&#x27;&#x27;)}&gt;
+                {this.isSimple()? this.renderSimpleMenu(className) : this.renderMenu(className)}
+                {this.renderButtons()}
             &lt;/div&gt;
-        )
-    }
-
-    render(){
-        return this.renderAccordionBody()
+        ): null
     }
 }
-
-Accordion.Header = AccordionHeader;
-Accordion.Body = AccordionBody;
-
-export default Accordion;
     </pre>
 </div>
 
