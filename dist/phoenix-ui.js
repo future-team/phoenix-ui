@@ -14062,8 +14062,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        this.touchBottom = false;
 	        this.distanceY = 0;
-
-	        this.scrollHandle = this.scrollHandler.bind(this);
 	    }
 
 	    PullUp.prototype.scrollHandler = function scrollHandler(e) {
@@ -14110,6 +14108,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        var pullUpElem = _reactDom.findDOMNode(this.pullUp);
 
+	        this.scrollHandle = this.scrollHandler.bind(this);
 	        this.scrollElem = window;
 
 	        this.dragElem = pullUpElem.parentNode;

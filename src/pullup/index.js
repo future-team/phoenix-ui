@@ -129,8 +129,6 @@ export default class PullUp extends Component{
 
         this.touchBottom = false
         this.distanceY = 0
-
-        this.scrollHandle = this.scrollHandler.bind(this)
     }
 
     scrollHandler(e){
@@ -175,6 +173,7 @@ export default class PullUp extends Component{
     componentDidMount(){
         let pullUpElem = findDOMNode(this.pullUp)
 
+        this.scrollHandle = this.scrollHandler.bind(this)
         this.scrollElem = window
 
         this.dragElem = pullUpElem.parentNode
