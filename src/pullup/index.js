@@ -130,11 +130,10 @@ export default class PullUp extends Component{
         this.touchBottom = false
         this.distanceY = 0
 
-        this.scrollHandle = this.scrollHandle.bind(this)
-        this.scrollElem = window
+        this.scrollHandle = this.scrollHandler.bind(this)
     }
 
-    scrollHandle(e){
+    scrollHandler(e){
         let {status} = this.state,
             {getTarget} = this.props,
             target = e.target
@@ -175,6 +174,8 @@ export default class PullUp extends Component{
 
     componentDidMount(){
         let pullUpElem = findDOMNode(this.pullUp)
+
+        this.scrollElem = window
 
         this.dragElem = pullUpElem.parentNode
         this.prevElem = pullUpElem.previousElementSibling

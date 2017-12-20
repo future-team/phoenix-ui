@@ -14063,11 +14063,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.touchBottom = false;
 	        this.distanceY = 0;
 
-	        this.scrollHandle = this.scrollHandle.bind(this);
-	        this.scrollElem = window;
+	        this.scrollHandle = this.scrollHandler.bind(this);
 	    }
 
-	    PullUp.prototype.scrollHandle = function scrollHandle(e) {
+	    PullUp.prototype.scrollHandler = function scrollHandler(e) {
 	        var status = this.state.status;
 	        var getTarget = this.props.getTarget;
 	        var target = e.target;
@@ -14110,6 +14109,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var _this = this;
 
 	        var pullUpElem = _reactDom.findDOMNode(this.pullUp);
+
+	        this.scrollElem = window;
 
 	        this.dragElem = pullUpElem.parentNode;
 	        this.prevElem = pullUpElem.previousElementSibling;
