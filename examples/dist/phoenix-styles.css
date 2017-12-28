@@ -1117,31 +1117,15 @@ h6 {
 .ph-tabs .ph-tab-navs {
   overflow-y: auto;
   margin: 0;
-  position: relative;
   border-bottom: 1PX solid #e1e1e1;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
   .ph-tabs .ph-tab-navs {
+    background-image: -webkit-linear-gradient(bottom, #e1e1e1 50%, transparent 50%);
+    background-size: 100% 1PX;
+    background-repeat: no-repeat;
+    background-position: bottom;
     border: none;
-  }
-  .ph-tabs .ph-tab-navs:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    border-bottom: 1PX solid #e1e1e1;
-    -webkit-transform: scale(0.5);
-    -ms-transform: scale(0.5);
-    transform: scale(0.5);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transform-origin: left top;
-    -ms-transform-origin: left top;
-    transform-origin: left top;
-    pointer-events: none;
   }
 }
 .ph-tabs .ph-tab-navs::-webkit-scrollbar {
@@ -1159,7 +1143,7 @@ h6 {
   padding: 12px 16px;
   border-bottom-width: 2px;
   border-bottom-style: solid;
-  border-bottom-color: #fff;
+  border-bottom-color: transparent;
   line-height: 20px;
   font-size: 14px;
 }
@@ -1187,6 +1171,7 @@ h6 {
 }
 .ph-tabs-vertical .ph-tab-navs {
   background-color: #f0f0f0;
+  background-image: none;
   border-bottom: none;
 }
 .ph-tabs-vertical .ph-tab-nav {
