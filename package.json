@@ -1,6 +1,6 @@
 {
   "name": "phoenix-ui",
-  "version": "3.3.4",
+  "version": "3.3.5",
   "description": "future team ui for app with react",
   "main": "lib/",
   "scripts": {
@@ -43,7 +43,7 @@
     "css-loader": "0.17.0",
     "extract-text-webpack-plugin": "^0.8.2",
     "file-loader": "^0.8.5",
-    "gfs-doc": "^0.1.44",
+    "gfs-doc": "^0.1.35",
     "glob": "^5.0.14",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.3.0",
@@ -77,7 +77,7 @@
   "dependencies": {
     "extend": "^3.0.0",
     "fastclick": "^1.0.6",
-    "phoenix-styles": "^3.1.2",
+    "phoenix-styles": "^3.1.3",
     "pmlogger": "^1.0.7",
     "react-transition-group": "^1.2.1"
   },

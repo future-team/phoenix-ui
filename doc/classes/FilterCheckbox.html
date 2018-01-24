@@ -41,8 +41,7 @@
             </div>
         </div>
     </nav>
-    <div class="gfs-wrapper clearfix">
-        <div id="sidebar">
+    <div id="sidebar">
     <h3>模块/类</h3>
         <div id="api-tabview-filter">
             <input id='txtSearch' type="search" class="form-control" placeholder="Type to filter Modules/Classes">
@@ -559,20 +558,14 @@
     <div class="icon-sidebar-btn icon-sidebar-btn-open"><span class="glyphicon glyphicon-chevron-left"></span>收起</div>
 </div>
    
-        <div class="stdoc-content">
-            <div class="apidocs">
-                <div id="docs-main">
-                    <div class="content">
-                        <div class="page-header">
+    <div class="stdoc-content">
+        <div class="apidocs">
+            <div id="docs-main">
+                <div class="content">
+                    <div class="page-header">
     <h1>FilterCheckbox</h1>
 </div>
-
-
-    <p>Available since 2.0.0</p>
-
-
-
- <div class="gfs-description">
+ <div class="well well-small sign-left3">
       <div class="stdoc-code"><p>多条件筛选组件<br/></p>
 <ul>
 <li>可通过groupIndex设置主菜单索引值，默认0，即第一个。</li>
@@ -604,99 +597,412 @@
 </div>
  </div>
 
+    <div class="well well-small sign-left2 container-fluid" id="classesItems">
+        <div class="row">
+
+            <div class="index-section methods col-sm-4">
+                <h3>方法</h3>
+                
+            </div>
+
+            <div class="index-section properties col-sm-4">
+                <h3>属性</h3>
+                
+                    <ul class="index-list properties extends">
+                        
+                            <li class="index-item property">
+                                <a href="#" data-tabid="#property" data-anchor="#property_buttons" data-tablink="buttons">buttons</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#" data-tabid="#property" data-anchor="#property_choose" data-tablink="choose">choose</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#" data-tabid="#property" data-anchor="#property_index" data-tablink="index">index</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                
+            </div>
+
+            <div class="index-section events col-sm-4">
+                <h3>事件</h3>
+                
+            </div>
+        </div>
+    </div>
+
 <div class="">
     
+        <ul id="itemTab" class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#class">详情</a></li>
+            
+            
+                <li class=""><a data-toggle="tab" href="#property">属性</a></li>
+            
+            
+        </ul>
+    
     <div class="tab-content">
+        <div id="class" class="tab-pane active">
+            <div class="well well-small classDetail sign-left1">
+            
+
+            
+                <div class="extends">
+                    Extends Component
+                </div>
+            
+
+            
+                <div class="foundat">
+                    Defined in: <a href="../files/src_ph-filter_components_FilterCheckbox.js.html#l11"><code>src&#x2F;ph-filter&#x2F;components&#x2F;FilterCheckbox.js:11</code></a>
+                </div>
+            
+
+            
+                
+                    Module: <a href="../modules/筛选控件.html">筛选控件</a>
+                
+            
+
+            
+                <p>Available since 2.0.0</p>
+            
+        </div>
+
+        
+            
+                <div class="constructor">
+                    <h2>Constructor</h2>
+                    <div id="method_FilterCheckbox" class="method item">
+    <h3 class="name">FilterCheckbox</h3>
+    <code>
+    FilterCheckbox
+    
+        <span class="paren">()</span>
+    
+    </code>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_ph-filter_components_FilterCheckbox.js.html#l11"><code>src&#x2F;ph-filter&#x2F;components&#x2F;FilterCheckbox.js:11</code></a>
+        
+        </p>
+
+
         
 
         
-        <div id="property">
-            <h2 class="off-left">属性</h2>
-
-            <table class="table table-bordered params-pc-table">
-                <tr class='active'><th>属性名</th><th>类型</th><th>说明</th><th>默认值</th></tr>
-                
-                    <tr class="param">
-     <td> 
-        <code class="param-name">buttons</code>
-    </td>
-    <td><span class="type">Array</span> </td>
-    <td>
-        <div class="param-description">
-            
-            <div class="stdoc-code"><p>按钮数组</p>
-</div>
-        </div>
-    </td>
-    <td>
+            <p>Available since 2.0.0</p>
         
-    </td>
+    </div>
+
+    <div class="description well well-small sign-left3">
+        
+    </div>
+
     
-</tr>
+
+    
+
+    
+        <div class="example app-example">
+            <h4>Example:</h4>
+            <ul class="nav nav-tabs example-list">
                 
-                    <tr class="param">
-     <td> 
-        <code class="param-name">choose</code>
-    </td>
-    <td><span class="type">String</span> </td>
-    <td>
-        <div class="param-description">
-            
-            <div class="stdoc-code"><p>选中的id字符串，逗号隔开</p>
+                <li role="presentation"  class="active"  data-demo="https://future-team.github.io/phoenix-ui/examples/index.html#/ph-filter-checkbox"  _no='0'> <a>展示</a></li>
+                
+            </ul>
+            <div class="example-content  showdemo ">
+                <div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from "react"
+import {ajax} from "./utils/tool.js"
+
+import PhFilter from "phoenix-ui/lib/ph-filter"
+import List from "phoenix-ui/lib/list"
+// import Code from "./code/code";
+
+const CheckboxContainer = PhFilter.CheckboxContainer,
+      Item = PhFilter.Item,
+      ItemGroup = PhFilter.ItemGroup
+
+export default class phFilterCheckbox extends Component {
+
+    constructor(props,context){
+        super(props,context)
+
+        this.state = {
+            filterData: [],
+            choose: &#39;&#39;
+        }
+
+        this.getData("./data/shop-list.json", &#39;filterData&#39;);
+        this.getData("./data/choose.json", &#39;choose&#39;);
+    }
+
+    getData(fileName, key){ // 获取数据方法，ajax方法在下面定义了
+        ajax(fileName).then((json)=&gt;{
+            let o = {}
+            o[key] = json
+
+            this.setState(o)
+
+        }, (error)=&gt;{// 加载失败
+            console.error("出错了", error)
+        });
+    }
+
+    itemClickCallback(key, disabled){
+        console.log(key)
+        console.log(disabled)
+    }
+
+    onSubmit(choose){
+        console.log(choose)
+    }
+
+    render(){
+        let self = this;
+        const buttons = [
+            {onHandle: this.onSubmit.bind(this)}
+        ]
+
+        return(
+            &lt;div&gt;
+                &lt;CheckboxContainer choose={this.state.choose} index={2} buttons={buttons}&gt;
+                    {
+                        this.state.filterData.map((cityShopList,index)=&gt;{
+                            return (
+                                &lt;ItemGroup key={cityShopList.cityId} mainKey={cityShopList.cityId} label={cityShopList.cityName}&gt;
+                                    {
+                                        cityShopList.shopInfoDTOList.map((shopInfo)=&gt;{
+                                            return (
+                                                &lt;Item disabled={shopInfo.status==1} key={shopInfo.shopId} itemKey={shopInfo.shopId} clickCallback={self.itemClickCallback.bind(self)}&gt;
+                                                    {shopInfo.shopName}
+                                                &lt;/Item&gt;
+                                            );
+                                        })
+                                    }
+                                &lt;/ItemGroup&gt;
+                            );
+                        })
+                    }
+
+                &lt;/CheckboxContainer&gt;
+
+                &lt;a href="#/ph-filter-code" className="ph-filter-code"&gt;查看代码&lt;/a&gt;
+            &lt;/div&gt;
+        )
+    }
+}</code></pre>
 </div>
+            </div>
+            <div class="btn-method-box">
+                <button class="btn btn-info btn-viewDemo" type="button">查看示例</button>
+                <button class="btn btn-info btn-editDemo" type="button">编辑代码</button>
+            </div>
+
+            <div class="device"></div>
         </div>
-    </td>
-    <td>
-        -1
-    </td>
     
-</tr>
-                
-                    <tr class="param">
-     <td> 
-        <code class="param-name">index</code>
-    </td>
-    <td><span class="type">Number</span> </td>
-    <td>
-        <div class="param-description">
-            
-            <div class="stdoc-code"><p>默认选中的侧边栏的索引值</p>
 </div>
-        </div>
-    </td>
-    <td>
-        0
-    </td>
-    
-</tr>
-                
-            </table>
+
+                </div>
             
         </div>
+
+        
+
+        
+            <div id="property" class="tab-pane">
+                <h2 class="off-left">属性</h2>
+
+                
+                    <div id="property_buttons" class="property item">
+    <h3 class="name"><code>buttons</code></h3>
+    <span class="type">Array</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_ph-filter_components_FilterCheckbox.js.html#l72"><code>src&#x2F;ph-filter&#x2F;components&#x2F;FilterCheckbox.js:72</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>按钮数组</p>
+</div>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_choose" class="property item">
+    <h3 class="name"><code>choose</code></h3>
+    <span class="type">String</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_ph-filter_components_FilterCheckbox.js.html#l65"><code>src&#x2F;ph-filter&#x2F;components&#x2F;FilterCheckbox.js:65</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>选中的id字符串，逗号隔开</p>
+</div>
+    </div>
+
+    
+        <p><strong>Default:</strong></p>
+         <code> -1</code>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_index" class="property item">
+    <h3 class="name"><code>index</code></h3>
+    <span class="type">Number</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_ph-filter_components_FilterCheckbox.js.html#l58"><code>src&#x2F;ph-filter&#x2F;components&#x2F;FilterCheckbox.js:58</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>默认选中的侧边栏的索引值</p>
+</div>
+    </div>
+
+    
+        <p><strong>Default:</strong></p>
+         <code> 0</code>
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
         
 
         
     </div>
 </div>
 
-<div>
-
-    
-        <div class="example">
-            <h4>示例展示:</h4>
-            <div class="example-content  showdemo " data-demo="https://future-team.github.io/phoenix-ui/examples/index.html#/ph-filter-checkbox"> 
-            </div>
-            
-        </div>
-    
-</div>
-
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-    
 <a id="gotoTop" class='well well-small' href='#'>
 </a>
 <script src="../assets/vendor/jquery/jquery-1.8.2.js"></script>

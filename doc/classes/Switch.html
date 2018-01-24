@@ -41,8 +41,7 @@
             </div>
         </div>
     </nav>
-    <div class="gfs-wrapper clearfix">
-        <div id="sidebar">
+    <div id="sidebar">
     <h3>模块/类</h3>
         <div id="api-tabview-filter">
             <input id='txtSearch' type="search" class="form-control" placeholder="Type to filter Modules/Classes">
@@ -559,20 +558,14 @@
     <div class="icon-sidebar-btn icon-sidebar-btn-open"><span class="glyphicon glyphicon-chevron-left"></span>收起</div>
 </div>
    
-        <div class="stdoc-content">
-            <div class="apidocs">
-                <div id="docs-main">
-                    <div class="content">
-                        <div class="page-header">
+    <div class="stdoc-content">
+        <div class="apidocs">
+            <div id="docs-main">
+                <div class="content">
+                    <div class="page-header">
     <h1>Switch</h1>
 </div>
-
-
-    <p>Available since 0.1.0</p>
-
-
-
- <div class="gfs-description">
+ <div class="well well-small sign-left3">
       <div class="stdoc-code"><p>开关切换组件，仿真ios的开关控件<br/></p>
 <ul>
 <li>可通过defaultChecked设置默认值。</li>
@@ -589,125 +582,433 @@
 </div>
  </div>
 
+    <div class="well well-small sign-left2 container-fluid" id="classesItems">
+        <div class="row">
+
+            <div class="index-section methods col-sm-4">
+                <h3>方法</h3>
+                
+            </div>
+
+            <div class="index-section properties col-sm-4">
+                <h3>属性</h3>
+                
+                    <ul class="index-list properties extends">
+                        
+                            <li class="index-item property">
+                                <a href="#" data-tabid="#property" data-anchor="#property_checked" data-tablink="checked">checked</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#" data-tabid="#property" data-anchor="#property_classPrefix" data-tablink="classPrefix">classPrefix</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#" data-tabid="#property" data-anchor="#property_defaultChecked" data-tablink="defaultChecked">defaultChecked</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                
+            </div>
+
+            <div class="index-section events col-sm-4">
+                <h3>事件</h3>
+                
+                    <ul class="index-list events extends">
+                        
+                            <li class="index-item event">
+                                <a href="#" data-tabid="#event" data-anchor="#event_onChange" data-tablink="onChange">onChange</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                
+            </div>
+        </div>
+    </div>
+
 <div class="">
     
+        <ul id="itemTab" class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#class">详情</a></li>
+            
+            
+                <li class=""><a data-toggle="tab" href="#property">属性</a></li>
+            
+            
+                <li class=""><a data-toggle="tab" href="#event">事件</a></li>
+            
+        </ul>
+    
     <div class="tab-content">
+        <div id="class" class="tab-pane active">
+            <div class="well well-small classDetail sign-left1">
+            
+
+            
+                <div class="extends">
+                    Extends Component
+                </div>
+            
+
+            
+                <div class="foundat">
+                    Defined in: <a href="../files/src_switch_index.js.html#l10"><code>src&#x2F;switch&#x2F;index.js:10</code></a>
+                </div>
+            
+
+            
+                
+                    Module: <a href="../modules/表单组件.html">表单组件</a>
+                
+            
+
+            
+                <p>Available since 0.1.0</p>
+            
+        </div>
+
+        
+            
+                <div class="constructor">
+                    <h2>Constructor</h2>
+                    <div id="method_Switch" class="method item">
+    <h3 class="name">Switch</h3>
+    <code>
+    Switch
+    
+        <span class="paren">()</span>
+    
+    </code>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_switch_index.js.html#l10"><code>src&#x2F;switch&#x2F;index.js:10</code></a>
+        
+        </p>
+
+
         
 
         
-        <div id="property">
-            <h2 class="off-left">属性</h2>
+            <p>Available since 0.1.0</p>
+        
+    </div>
 
-            <table class="table table-bordered params-pc-table">
-                <tr class='active'><th>属性名</th><th>类型</th><th>说明</th><th>默认值</th></tr>
-                
-                    <tr class="param">
-     <td> 
-        <code class="param-name">checked</code>
-    </td>
-    <td><span class="type">Boolean</span> </td>
-    <td>
-        <div class="param-description">
-            
-            <div class="stdoc-code"><p>开关值</p>
-</div>
-        </div>
-    </td>
-    <td>
+    <div class="description well well-small sign-left3">
         
-    </td>
+    </div>
+
     
-</tr>
+
+    
+
+    
+        <div class="example app-example">
+            <h4>Example:</h4>
+            <ul class="nav nav-tabs example-list">
                 
-                    <tr class="param">
-     <td> 
-        <code class="param-name">classPrefix</code>
-    </td>
-    <td><span class="type">String</span> </td>
-    <td>
-        <div class="param-description">
-            
-            <div class="stdoc-code"><p>样式前缀</p>
+                <li role="presentation"  class="active"  data-demo="https://future-team.github.io/phoenix-ui/examples/index.html#/switch"  _no='0'> <a>展示</a></li>
+                
+            </ul>
+            <div class="example-content  showdemo ">
+                <div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from &#39;react&#39;
+
+import Switch from &#39;phoenix-ui/lib/switch&#39;
+import Code from "./code/code"
+
+export default class switchs extends Component{
+
+    constructor(props,context){
+
+        super(props,context);
+
+        this.state = {
+            checked: true
+        };
+    }
+
+    onChange(){
+        this.setState({
+            checked: !this.state.checked
+        });
+    }
+
+    render(){
+        return(
+            &lt;div&gt;
+                &lt;h2 className="comp-title"&gt;Switch&lt;/h2&gt;
+                &lt;h3 className="comp-type"&gt;开关&lt;/h3&gt;
+                &lt;div className="content"&gt;
+                    &lt;h3 className="comp-tip"&gt;默认&lt;/h3&gt;
+                    &lt;Switch /&gt;
+                    &lt;h3 className="comp-tip"&gt;defaultChecked 初始传值&lt;/h3&gt;
+                    &lt;Switch defaultChecked={true} /&gt;
+                    &lt;h3 className="comp-tip"&gt;checked和onChange配合使用&lt;/h3&gt;
+                    &lt;Switch checked={this.state.checked} onChange={this.onChange.bind(this)} /&gt;
+                    &lt;h3 className="comp-tip"&gt;disabled 不可选&lt;/h3&gt;
+                    &lt;Switch disabled /&gt;
+                &lt;/div&gt;
+                &lt;Code target="switch" /&gt;
+            &lt;/div&gt;
+        );
+    }
+}</code></pre>
 </div>
+            </div>
+            <div class="btn-method-box">
+                <button class="btn btn-info btn-viewDemo" type="button">查看示例</button>
+                <button class="btn btn-info btn-editDemo" type="button">编辑代码</button>
+            </div>
+
+            <div class="device"></div>
         </div>
-    </td>
-    <td>
-        &#x27;switch&#x27;
-    </td>
     
-</tr>
-                
-                    <tr class="param">
-     <td> 
-        <code class="param-name">defaultChecked</code>
-    </td>
-    <td><span class="type">Boolean</span> </td>
-    <td>
-        <div class="param-description">
-            
-            <div class="stdoc-code"><p>默认开关值</p>
 </div>
-        </div>
-    </td>
-    <td>
-        
-    </td>
-    
-</tr>
-                
-            </table>
+
+                </div>
             
         </div>
+
         
 
         
-        <div id="event" class="">
-            <h2 class="off-left">事件</h2>
-            <table class="table table-bordered params-pc-table">
-                <tr class='active'><th>方法名</th><th>说明</th><th>回调参数</th></tr>
+            <div id="property" class="tab-pane">
+                <h2 class="off-left">属性</h2>
+
                 
-                    <tr class="param">
-     <td> 
-        <code class="param-name">onChange</code>
-    </td>
-    <td>
-        <div class="param-description">
-            
-            <div class="stdoc-code"><p>更改值时触发的回调</p>
-</div>
-            
-        </div>
-    </td>
-    <td>
-        
-    </td>
+                    <div id="property_checked" class="property item">
+    <h3 class="name"><code>checked</code></h3>
+    <span class="type">Boolean</span>
+
     
-</tr>
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
                 
-            </table>
-        </div>
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_switch_index.js.html#l47"><code>src&#x2F;switch&#x2F;index.js:47</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>开关值</p>
+</div>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_classPrefix" class="property item">
+    <h3 class="name"><code>classPrefix</code></h3>
+    <span class="type">String</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_switch_index.js.html#l34"><code>src&#x2F;switch&#x2F;index.js:34</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>样式前缀</p>
+</div>
+    </div>
+
+    
+        <p><strong>Default:</strong></p>
+         <code> &#x27;switch&#x27;</code>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_defaultChecked" class="property item">
+    <h3 class="name"><code>defaultChecked</code></h3>
+    <span class="type">Boolean</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_switch_index.js.html#l41"><code>src&#x2F;switch&#x2F;index.js:41</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>默认开关值</p>
+</div>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
+        
+
+        
+            <div id="event" class="tab-pane">
+                <h2 class="off-left">事件</h2>
+
+                
+                    <div id="event_onChange" class="events item">
+    <h3 class="name"><code>onChange</code></h3>
+    <span class="type">Function</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_switch_index.js.html#l53"><code>src&#x2F;switch&#x2F;index.js:53</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+     <div class="description well well-small sign-left3">
+        <div class="stdoc-code"><p>更改值时触发的回调</p>
+</div>
+    </div>
+
+    
+
+
+    
+</div>
+
+                
+            </div>
         
     </div>
 </div>
 
-<div>
-
-    
-        <div class="example">
-            <h4>示例展示:</h4>
-            <div class="example-content  showdemo " data-demo="https://future-team.github.io/phoenix-ui/examples/index.html#/switch"> 
-            </div>
-            
-        </div>
-    
-</div>
-
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-    
 <a id="gotoTop" class='well well-small' href='#'>
 </a>
 <script src="../assets/vendor/jquery/jquery-1.8.2.js"></script>

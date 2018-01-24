@@ -41,8 +41,7 @@
             </div>
         </div>
     </nav>
-    <div class="gfs-wrapper clearfix">
-        <div id="sidebar">
+    <div id="sidebar">
     <h3>模块/类</h3>
         <div id="api-tabview-filter">
             <input id='txtSearch' type="search" class="form-control" placeholder="Type to filter Modules/Classes">
@@ -559,20 +558,14 @@
     <div class="icon-sidebar-btn icon-sidebar-btn-open"><span class="glyphicon glyphicon-chevron-left"></span>收起</div>
 </div>
    
-        <div class="stdoc-content">
-            <div class="apidocs">
-                <div id="docs-main">
-                    <div class="content">
-                        <div class="page-header">
+    <div class="stdoc-content">
+        <div class="apidocs">
+            <div id="docs-main">
+                <div class="content">
+                    <div class="page-header">
     <h1>Toast</h1>
 </div>
-
-
-    <p>Available since 0.3.0</p>
-
-
-
- <div class="gfs-description">
+ <div class="well well-small sign-left3">
       <div class="stdoc-code"><p>飘字组件<br/></p>
 <ul>
 <li>由于飘字的使用范围可预估, 为方便使用在原组件的基础上更进一步改为函数式的使用方式。</li>
@@ -599,9 +592,233 @@
 </div>
  </div>
 
+    <div class="well well-small sign-left2 container-fluid" id="classesItems">
+        <div class="row">
+
+            <div class="index-section methods col-sm-4">
+                <h3>方法</h3>
+                
+            </div>
+
+            <div class="index-section properties col-sm-4">
+                <h3>属性</h3>
+                
+            </div>
+
+            <div class="index-section events col-sm-4">
+                <h3>事件</h3>
+                
+            </div>
+        </div>
+    </div>
+
 <div class="">
     
+        <ul id="itemTab" class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#class">详情</a></li>
+            
+            
+            
+        </ul>
+    
     <div class="tab-content">
+        <div id="class" class="tab-pane active">
+            <div class="well well-small classDetail sign-left1">
+            
+
+            
+                <div class="extends">
+                    Extends Component
+                </div>
+            
+
+            
+                <div class="foundat">
+                    Defined in: <a href="../files/src_toast_index.js.html#l13"><code>src&#x2F;toast&#x2F;index.js:13</code></a>
+                </div>
+            
+
+            
+                
+                    Module: <a href="../modules/操作类组件.html">操作类组件</a>
+                
+            
+
+            
+                <p>Available since 0.3.0</p>
+            
+        </div>
+
+        
+            
+                <div class="constructor">
+                    <h2>Constructor</h2>
+                    <div id="method_Toast" class="method item">
+    <h3 class="name">Toast</h3>
+    <code>
+    Toast
+    
+        <span class="paren">()</span>
+    
+    </code>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_toast_index.js.html#l13"><code>src&#x2F;toast&#x2F;index.js:13</code></a>
+        
+        </p>
+
+
+        
+
+        
+            <p>Available since 0.3.0</p>
+        
+    </div>
+
+    <div class="description well well-small sign-left3">
+        
+    </div>
+
+    
+
+    
+
+    
+        <div class="example app-example">
+            <h4>Example:</h4>
+            <ul class="nav nav-tabs example-list">
+                
+                <li role="presentation"  class="active"  data-demo="https://future-team.github.io/phoenix-ui/examples/index.html#/toast"  _no='0'> <a>toast</a></li>
+                
+            </ul>
+            <div class="example-content  showdemo ">
+                <div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from "react"
+
+import Button from "phoenix-ui/lib/button"
+import Toast from "phoenix-ui/lib/toast"
+import Code from "./code/code"
+
+export default class toast extends Component{
+
+    constructor(props,context){
+        super(props,context);
+    }
+
+    showToastInfo(){
+        Toast.info("只显示信息的toast！只显示信息的toast！只显示信息的toast！", 2000, ()=&gt;{
+            console.log("额外的执行内容");
+        });
+    }
+
+    showToastSuccess(){
+        Toast.success("操作成功操作成功操作成功操作成功操作成功操作成功操作成功操作成功", 2000, ()=&gt;{
+            console.log("额外的执行内容");
+        });
+    }
+
+    showToastFail(){
+        Toast.fail("操作失败", 2000, ()=&gt;{
+            console.log("额外的执行内容");
+        });
+    }
+
+    showToastTip(){
+        Toast.tip("操作提示", 2000, ()=&gt;{
+            console.log("额外的执行内容");
+        });
+    }
+
+    showToastLoading(){
+        Toast.loading("", 2000);
+    }
+
+    removeToastLoading(){
+        Toast.remove();
+    }
+
+    render(){
+        return(
+            &lt;div&gt;
+                &lt;h2 className="comp-title"&gt;Toast&lt;/h2&gt;
+                &lt;h3 className="comp-type"&gt;Toast.info(message, duration, callback)&lt;/h3&gt;
+                &lt;div className="content"&gt;
+                    &lt;Button phSize="lg" onClick={::this.showToastInfo}&gt;info&lt;/Button&gt;
+                &lt;/div&gt;
+                &lt;Code target="toast-info" /&gt;
+
+                &lt;h3 className="comp-type"&gt;Toast.success(message, duration, callback)&lt;/h3&gt;
+                &lt;div className="content"&gt;
+                    &lt;Button phSize="lg" onClick={::this.showToastSuccess}&gt;success&lt;/Button&gt;
+                &lt;/div&gt;
+                &lt;Code target="toast-success" /&gt;
+
+                &lt;h3 className="comp-type"&gt;Toast.fail(message, duration, callback)&lt;/h3&gt;
+                &lt;div className="content"&gt;
+                    &lt;Button phSize="lg" onClick={::this.showToastFail}&gt;fail&lt;/Button&gt;
+                &lt;/div&gt;
+                &lt;Code target="toast-fail" /&gt;
+
+                &lt;h3 className="comp-type"&gt;Toast.tip(message, duration, callback)&lt;/h3&gt;
+                &lt;div className="content"&gt;
+                    &lt;Button phSize="lg" onClick={::this.showToastTip}&gt;tip&lt;/Button&gt;
+                &lt;/div&gt;
+                &lt;Code target="toast-tip" /&gt;
+
+                &lt;h3 className="comp-type"&gt;Toast.loading(message, duration, callback)&lt;/h3&gt;
+                &lt;div className="content"&gt;
+                    &lt;Button phSize="lg" onClick={::this.showToastLoading}&gt;loading&lt;/Button&gt;
+                &lt;/div&gt;
+                &lt;Code target="toast-loading" /&gt;
+
+                &lt;h3 className="comp-type"&gt;Toast.remove()&lt;br/&gt;自定义消失的情况：Toast出现函数设置duration为false&lt;/h3&gt;
+                &lt;div className="content"&gt;
+                    &lt;Button phSize="lg" onClick={::this.removeToastLoading}&gt;remove&lt;/Button&gt;
+                &lt;/div&gt;
+                &lt;Code target="toast-remove" /&gt;     
+            &lt;/div&gt;
+        );
+    }
+}</code></pre>
+</div>
+            </div>
+            <div class="btn-method-box">
+                <button class="btn btn-info btn-viewDemo" type="button">查看示例</button>
+                <button class="btn btn-info btn-editDemo" type="button">编辑代码</button>
+            </div>
+
+            <div class="device"></div>
+        </div>
+    
+</div>
+
+                </div>
+            
+        </div>
+
         
 
         
@@ -610,24 +827,10 @@
     </div>
 </div>
 
-<div>
-
-    
-        <div class="example">
-            <h4>示例展示:</h4>
-            <div class="example-content  showdemo " data-demo="https://future-team.github.io/phoenix-ui/examples/index.html#/toast"> 
-            </div>
-            
-        </div>
-    
-</div>
-
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-    
 <a id="gotoTop" class='well well-small' href='#'>
 </a>
 <script src="../assets/vendor/jquery/jquery-1.8.2.js"></script>
