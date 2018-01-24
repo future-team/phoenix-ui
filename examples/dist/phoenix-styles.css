@@ -6080,6 +6080,11 @@ input + .ph-input-placeholder-hide {
   background-color: #f8f8f8;
   border-color: #e1e1e1;
 }
+.ph-checkbox input:disabled + i:before {
+  border-color: #e1e1e1;
+  border-right-color: transparent;
+  border-top-color: transparent;
+}
 .ph-radio {
   position: relative;
   width: 21px;
@@ -6136,6 +6141,11 @@ input + .ph-input-placeholder-hide {
 .ph-radio input:disabled + i {
   background-color: #f8f8f8;
   border-color: #e1e1e1;
+}
+.ph-radio input:disabled + i:before {
+  border-color: #e1e1e1;
+  border-right-color: transparent;
+  border-top-color: transparent;
 }
 .ph-radio i {
   -webkit-border-radius: 50%;
