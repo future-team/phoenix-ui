@@ -43,10 +43,16 @@ export default class button extends Component{
                 </div>
                 <Code target="button-block" />
 
-                <h3 className="comp-type">disabled属性</h3>
+                <h3 className="comp-type">disabled</h3>
                 <div className="content">
                     <Button hollow disabled>按钮</Button>
                     <Button disabled>按钮</Button>
+                </div>
+                <Code target="button-disabled" />
+
+                <h3 className="comp-type">await</h3>
+                <div className="content">
+                    <Button await>按钮</Button>
                 </div>
                 <Code target="button-disabled" />
 

@@ -27,7 +27,7 @@ export default class input extends Component{
                 <h2 className="comp-title">Checkbox</h2>
                 <h3 className="comp-type">defaultChecked 初始传值</h3>
                 <div className="content">
-                    <Checkbox label="香蕉" defaultChecked={true} />
+                    <Checkbox label="香蕉" defaultChecked={true} id='banana'/>
                 </div>
                 <Code target="checkbox-default" />
 
@@ -42,6 +42,11 @@ export default class input extends Component{
                     <Checkbox label="西瓜" disabled/>
                 </div>
                 <Code target="checkbox-disabled" />
+
+                <h3 className="comp-type">phSize</h3>
+                <div className="content">
+                    <Checkbox label="请查看协议之后再决定" phSize='sm'/>
+                </div>
             </div>
         );
     }

@@ -433,6 +433,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * */
 	            disabled: _propTypes2['default'].bool,
 	            /**
+	             * 待唤起状态
+	             * @property await
+	             * @type Boolean
+	             * @default false
+	             * */
+	            await: _propTypes2['default'].bool,
+	            /**
 	             * 激活状态
 	             * @property active
 	             * @type Boolean
@@ -3365,6 +3372,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        tail: true,
 	        required: true,
 	        stable: true,
+	        await: true,
 	        // error: true,
 	        // clear:true,
 	        // visible:true,
@@ -5018,6 +5026,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * */
 	            phType: _propTypes2['default'].string,
 	            /**
+	             * 更多内容，传递的类型是react element
+	             * @property extra
+	             * @type Object
+	             * @default null
+	             * */
+	            extra: _propTypes2['default'].element,
+	            /**
 	             * 按钮被按下后的回调
 	             * @method clickCallback
 	             * @param {number} index 选中的索引值
@@ -5034,6 +5049,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            phType: 'default',
 	            classPrefix: 'button-group',
 	            componentTag: 'div',
+	            extra: null,
 	            classMapping: {
 	                'default': 'default',
 	                'justify': 'justify',
@@ -5097,16 +5113,30 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }, this);
 	    };
 
+	    ButtonGroup.prototype.renderExtra = function renderExtra(extra) {
+	        return _react2['default'].createElement(
+	            'div',
+	            { className: this.setPhPrefix('extra') },
+	            extra
+	        );
+	    };
+
 	    ButtonGroup.prototype.renderButtonGroup = function renderButtonGroup() {
 	        var _props3 = this.props;
 	        var Component = _props3.componentTag;
 	        var children = _props3.children;
 	        var className = _props3.className;
+	        var extra = _props3.extra;
 
 	        return _react2['default'].createElement(
-	            Component,
-	            _extends({}, this.otherProps, { className: _classnames2['default'](this.getProperty(true), className, 'clearfix') }),
-	            this.renderChildren()
+	            'div',
+	            null,
+	            extra && this.renderExtra(extra),
+	            _react2['default'].createElement(
+	                Component,
+	                _extends({}, this.otherProps, { className: _classnames2['default'](this.getProperty(true), className, 'clearfix') }),
+	                this.renderChildren()
+	            )
 	        );
 	    };
 
@@ -5155,7 +5185,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n/**\n * 方案一 background-image: linear-gradient(...)\n * 调用: .border-top(#000);\n * 缺点: 无法设置圆角; 占用背景色的属性; 代码量大\n **/\n/**\n * 方案二 伪类和transform\n * 调用: .onepx(border-top, 1px solid #000);\n * 缺点: 占用after伪类; 仅适用于有after伪元素的元素\n **/\n.ph-button-group {\n  position: relative;\n  display: inline-block;\n  vertical-align: middle;\n}\n.ph-button-group-default,\n.ph-button-group-footer,\n.ph-button-group-justify {\n  width: 100%;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -moz-box;\n  display: -moz-flex;\n  display: -ms-flexbox;\n  display: flex;\n}\n.ph-button-group-default .ph-button,\n.ph-button-group-footer .ph-button,\n.ph-button-group-justify .ph-button {\n  -moz-flex: 1;\n  -ms-flex: 1;\n  -webkit-flex: 1;\n  flex: 1;\n  -webkit-box-flex: 1;\n  -webkit-flex: 1  ;\n  -moz-box-flex: 1;\n  -moz-flex: 1  ;\n  -ms-flex: 1  ;\n  flex: 1  ;\n  min-width: 0;\n}\n.ph-button-group-default .ph-button,\n.ph-button-group-footer .ph-button {\n  position: relative;\n  margin-right: 12px;\n}\n.ph-button-group-default .ph-button:last-child,\n.ph-button-group-footer .ph-button:last-child {\n  margin-right: 0;\n}\n.ph-button-group-justify .ph-button,\n.ph-button-group-segmente .ph-button {\n  min-width: 0;\n  position: relative;\n  border-width: 1PX;\n}\n@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {\n  .ph-button-group-justify .ph-button,\n  .ph-button-group-segmente .ph-button {\n    border: none;\n  }\n  .ph-button-group-justify .ph-button:after,\n  .ph-button-group-segmente .ph-button:after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 200%;\n    height: 200%;\n    border-width: 1PX;\n    -webkit-transform: scale(0.5);\n    -ms-transform: scale(0.5);\n    transform: scale(0.5);\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n    -webkit-transform-origin: left top;\n    -ms-transform-origin: left top;\n    transform-origin: left top;\n    pointer-events: none;\n  }\n}\n.ph-button-group-justify .ph-button:not(:last-child),\n.ph-button-group-segmente .ph-button:not(:last-child),\n.ph-button-group-justify .ph-button:not(:last-child):after,\n.ph-button-group-segmente .ph-button:not(:last-child):after {\n  border-right: none;\n}\n.ph-button-group-justify .ph-button:not(:first-child):not(:last-child),\n.ph-button-group-segmente .ph-button:not(:first-child):not(:last-child),\n.ph-button-group-justify .ph-button:not(:first-child):not(:last-child):after,\n.ph-button-group-segmente .ph-button:not(:first-child):not(:last-child):after {\n  border-radius: 0;\n}\n.ph-button-group-justify .ph-button:first-child:not(:last-child),\n.ph-button-group-segmente .ph-button:first-child:not(:last-child),\n.ph-button-group-justify .ph-button:first-child:not(:last-child):after,\n.ph-button-group-segmente .ph-button:first-child:not(:last-child):after {\n  border-bottom-right-radius: 0;\n  border-top-right-radius: 0;\n}\n.ph-button-group-justify .ph-button:last-child:not(:first-child),\n.ph-button-group-segmente .ph-button:last-child:not(:first-child),\n.ph-button-group-justify .ph-button:last-child:not(:first-child):after,\n.ph-button-group-segmente .ph-button:last-child:not(:first-child):after {\n  border-bottom-left-radius: 0;\n  border-top-left-radius: 0;\n}\n.ph-button-group-justify .ph-button:not(:first-child) {\n  margin-left: -1px;\n}\n.ph-button-group-tacked {\n  width: 100%;\n}\n.ph-button-group-tacked .ph-button {\n  float: none;\n  display: block;\n  margin-left: 0;\n  position: relative;\n  border-width: 1PX;\n}\n@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {\n  .ph-button-group-tacked .ph-button {\n    border: none;\n  }\n  .ph-button-group-tacked .ph-button:after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 200%;\n    height: 200%;\n    border-width: 1PX;\n    -webkit-transform: scale(0.5);\n    -ms-transform: scale(0.5);\n    transform: scale(0.5);\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n    -webkit-transform-origin: left top;\n    -ms-transform-origin: left top;\n    transform-origin: left top;\n    pointer-events: none;\n  }\n}\n.ph-button-group-tacked .ph-button:not(:first-child),\n.ph-button-group-tacked .ph-button:not(:first-child):after {\n  border-top: none;\n}\n.ph-button-group-tacked .ph-button:not(:first-child):not(:last-child),\n.ph-button-group-tacked .ph-button:not(:first-child):not(:last-child):after {\n  border-radius: 0;\n}\n.ph-button-group-tacked .ph-button:first-child:not(:last-child),\n.ph-button-group-tacked .ph-button:first-child:not(:last-child):after {\n  border-bottom-right-radius: 0;\n  border-bottom-left-radius: 0;\n}\n.ph-button-group-tacked .ph-button:last-child:not(:first-child),\n.ph-button-group-tacked .ph-button:last-child:not(:first-child):after {\n  border-top-right-radius: 0;\n  border-top-left-radius: 0;\n}\n.ph-button-group-footer {\n  width: 100%;\n  padding: 10px 16px;\n  position: relative;\n  border-top: 1PX solid #e1e1e1;\n  background-color: #fff;\n}\n@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {\n  .ph-button-group-footer {\n    border: none;\n  }\n  .ph-button-group-footer:after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 200%;\n    height: 200%;\n    border-top: 1PX solid #e1e1e1;\n    -webkit-transform: scale(0.5);\n    -ms-transform: scale(0.5);\n    transform: scale(0.5);\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n    -webkit-transform-origin: left top;\n    -ms-transform-origin: left top;\n    transform-origin: left top;\n    pointer-events: none;\n  }\n}\n.ph-button-group-segmente .ph-button {\n  width: 76px;\n  height: 28px;\n  -webkit-border-radius: 4px;\n  -moz-border-radius: 4px;\n  border-radius: 4px;\n  background-clip: padding-box;\n  line-height: 28px;\n}\n.ph-button-group-segmente .ph-button:after {\n  -webkit-border-radius: 4px;\n  -moz-border-radius: 4px;\n  border-radius: 4px;\n  background-clip: padding-box;\n}\n", ""]);
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n/**\n * 方案一 background-image: linear-gradient(...)\n * 调用: .border-top(#000);\n * 缺点: 无法设置圆角; 占用背景色的属性; 代码量大\n **/\n/**\n * 方案二 伪类和transform\n * 调用: .onepx(border-top, 1px solid #000);\n * 缺点: 占用after伪类; 仅适用于有after伪元素的元素\n **/\n.ph-button-group {\n  position: relative;\n  display: inline-block;\n  vertical-align: middle;\n}\n.ph-button-group-default,\n.ph-button-group-footer,\n.ph-button-group-justify {\n  width: 100%;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -moz-box;\n  display: -moz-flex;\n  display: -ms-flexbox;\n  display: flex;\n}\n.ph-button-group-default .ph-button,\n.ph-button-group-footer .ph-button,\n.ph-button-group-justify .ph-button {\n  -moz-flex: 1;\n  -ms-flex: 1;\n  -webkit-flex: 1;\n  flex: 1;\n  -webkit-box-flex: 1;\n  -webkit-flex: 1  ;\n  -moz-box-flex: 1;\n  -moz-flex: 1  ;\n  -ms-flex: 1  ;\n  flex: 1  ;\n  min-width: 0;\n}\n.ph-button-group-default .ph-button,\n.ph-button-group-footer .ph-button {\n  position: relative;\n  margin-right: 12px;\n}\n.ph-button-group-default .ph-button:last-child,\n.ph-button-group-footer .ph-button:last-child {\n  margin-right: 0;\n}\n.ph-button-group-justify .ph-button,\n.ph-button-group-segmente .ph-button {\n  min-width: 0;\n  position: relative;\n  border-width: 1PX;\n}\n@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {\n  .ph-button-group-justify .ph-button,\n  .ph-button-group-segmente .ph-button {\n    border: none;\n  }\n  .ph-button-group-justify .ph-button:after,\n  .ph-button-group-segmente .ph-button:after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 200%;\n    height: 200%;\n    border-width: 1PX;\n    -webkit-transform: scale(0.5);\n    -ms-transform: scale(0.5);\n    transform: scale(0.5);\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n    -webkit-transform-origin: left top;\n    -ms-transform-origin: left top;\n    transform-origin: left top;\n    pointer-events: none;\n  }\n}\n.ph-button-group-justify .ph-button:not(:last-child),\n.ph-button-group-segmente .ph-button:not(:last-child),\n.ph-button-group-justify .ph-button:not(:last-child):after,\n.ph-button-group-segmente .ph-button:not(:last-child):after {\n  border-right: none;\n}\n.ph-button-group-justify .ph-button:not(:first-child):not(:last-child),\n.ph-button-group-segmente .ph-button:not(:first-child):not(:last-child),\n.ph-button-group-justify .ph-button:not(:first-child):not(:last-child):after,\n.ph-button-group-segmente .ph-button:not(:first-child):not(:last-child):after {\n  border-radius: 0;\n}\n.ph-button-group-justify .ph-button:first-child:not(:last-child),\n.ph-button-group-segmente .ph-button:first-child:not(:last-child),\n.ph-button-group-justify .ph-button:first-child:not(:last-child):after,\n.ph-button-group-segmente .ph-button:first-child:not(:last-child):after {\n  border-bottom-right-radius: 0;\n  border-top-right-radius: 0;\n}\n.ph-button-group-justify .ph-button:last-child:not(:first-child),\n.ph-button-group-segmente .ph-button:last-child:not(:first-child),\n.ph-button-group-justify .ph-button:last-child:not(:first-child):after,\n.ph-button-group-segmente .ph-button:last-child:not(:first-child):after {\n  border-bottom-left-radius: 0;\n  border-top-left-radius: 0;\n}\n.ph-button-group-justify .ph-button:not(:first-child) {\n  margin-left: -1px;\n}\n.ph-button-group-tacked {\n  width: 100%;\n}\n.ph-button-group-tacked .ph-button {\n  float: none;\n  display: block;\n  margin-left: 0;\n  position: relative;\n  border-width: 1PX;\n}\n@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {\n  .ph-button-group-tacked .ph-button {\n    border: none;\n  }\n  .ph-button-group-tacked .ph-button:after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 200%;\n    height: 200%;\n    border-width: 1PX;\n    -webkit-transform: scale(0.5);\n    -ms-transform: scale(0.5);\n    transform: scale(0.5);\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n    -webkit-transform-origin: left top;\n    -ms-transform-origin: left top;\n    transform-origin: left top;\n    pointer-events: none;\n  }\n}\n.ph-button-group-tacked .ph-button:not(:first-child),\n.ph-button-group-tacked .ph-button:not(:first-child):after {\n  border-top: none;\n}\n.ph-button-group-tacked .ph-button:not(:first-child):not(:last-child),\n.ph-button-group-tacked .ph-button:not(:first-child):not(:last-child):after {\n  border-radius: 0;\n}\n.ph-button-group-tacked .ph-button:first-child:not(:last-child),\n.ph-button-group-tacked .ph-button:first-child:not(:last-child):after {\n  border-bottom-right-radius: 0;\n  border-bottom-left-radius: 0;\n}\n.ph-button-group-tacked .ph-button:last-child:not(:first-child),\n.ph-button-group-tacked .ph-button:last-child:not(:first-child):after {\n  border-top-right-radius: 0;\n  border-top-left-radius: 0;\n}\n.ph-button-group-footer {\n  width: 100%;\n  padding: 10px 16px;\n  position: relative;\n  border-top: 1PX solid #e1e1e1;\n  background-color: #fff;\n}\n@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {\n  .ph-button-group-footer {\n    border: none;\n  }\n  .ph-button-group-footer:after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 200%;\n    height: 200%;\n    border-top: 1PX solid #e1e1e1;\n    -webkit-transform: scale(0.5);\n    -ms-transform: scale(0.5);\n    transform: scale(0.5);\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n    -webkit-transform-origin: left top;\n    -ms-transform-origin: left top;\n    transform-origin: left top;\n    pointer-events: none;\n  }\n}\n.ph-button-group-segmente .ph-button {\n  width: 76px;\n  height: 28px;\n  -webkit-border-radius: 4px;\n  -moz-border-radius: 4px;\n  border-radius: 4px;\n  background-clip: padding-box;\n  line-height: 28px;\n}\n.ph-button-group-segmente .ph-button:after {\n  -webkit-border-radius: 4px;\n  -moz-border-radius: 4px;\n  border-radius: 4px;\n  background-clip: padding-box;\n}\n.ph-button-group-extra {\n  padding: 8px 16px;\n  background-color: #fff;\n  text-align: center;\n  font-size: 12px;\n}\n.ph-button-group-extra a {\n  color: #518cce;\n}\n.ph-button-group-extra i {\n  font-style: normal;\n  color: #ff6633;\n}\n", ""]);
 
 	// exports
 
@@ -5656,7 +5686,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * @type String
 	             * @default ''
 	             * */
-	            label: _propTypes2['default'].string
+	            label: _propTypes2['default'].string,
+	            /**
+	             * 大小，可选sm
+	             * @property phSize
+	             * @type String
+	             * @default ''
+	             * */
+	            phSize: _propTypes2['default'].string
 	        },
 	        enumerable: true
 	    }, {
@@ -5686,9 +5723,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var disabled = _props.disabled;
 	        var className = _props.className;
 	        var style = _props.style;
+	        var id = _props.id;
 
 	        return _react2['default'].createElement(
-	            'label',
+	            'span',
 	            { className: _classnames2['default'](this.setPhPrefix('multi-group', true), className), style: this.getStyles(style) },
 	            _react2['default'].createElement(
 	                'div',
@@ -5697,8 +5735,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	                _react2['default'].createElement('i', null)
 	            ),
 	            _react2['default'].createElement(
-	                'span',
-	                null,
+	                'label',
+	                { htmlFor: id },
 	                label
 	            )
 	        );
@@ -5749,7 +5787,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n/**\n * 方案一 background-image: linear-gradient(...)\n * 调用: .border-top(#000);\n * 缺点: 无法设置圆角; 占用背景色的属性; 代码量大\n **/\n/**\n * 方案二 伪类和transform\n * 调用: .onepx(border-top, 1px solid #000);\n * 缺点: 占用after伪类; 仅适用于有after伪元素的元素\n **/\n.ph-multi-group {\n  display: inline-block;\n  vertical-align: top;\n  height: 20px;\n  margin-right: 16px;\n}\n.ph-multi-group span {\n  float: right;\n  margin-left: 8px;\n  font-size: 14px;\n}\n.ph-multi-group .ph-radio,\n.ph-multi-group .ph-checkbox {\n  display: inline-block;\n  vertical-align: top;\n}\n.ph-multi-group:last-child {\n  margin-right: 0;\n}\n.ph-checkbox {\n  position: relative;\n  width: 20px;\n  height: 20px;\n}\n.ph-checkbox i {\n  -webkit-border-radius: 2px;\n  -moz-border-radius: 2px;\n  border-radius: 2px;\n  background-clip: padding-box;\n  position: relative;\n  display: block;\n  width: 20px;\n  height: 20px;\n  border: 1PX solid #bbb;\n  background-color: #fff;\n  -webkit-transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;\n  -moz-transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;\n  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;\n}\n.ph-checkbox input {\n  position: absolute;\n  z-index: 2;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  opacity: 0;\n  cursor: pointer;\n  pointer-events: all;\n}\n.ph-checkbox input:checked + i {\n  position: relative;\n  background-color: #fff1ed;\n  border: 1PX solid #ff6633;\n}\n.ph-checkbox input:checked + i:before {\n  content: \"\";\n  position: absolute;\n  top: 3px;\n  left: 3px;\n  width: 10px;\n  height: 6px;\n  border: none;\n  border: 1PX solid #ff6633;\n  border-right-color: transparent;\n  border-top-color: transparent;\n  -webkit-transform: rotate(-45deg);\n  -ms-transform: rotate(-45deg);\n  transform: rotate(-45deg);\n  -webkit-transform-origin: center center;\n  -ms-transform-origin: center center;\n  transform-origin: center center;\n}\n.ph-checkbox input:disabled + i {\n  background-color: #f8f8f8;\n  border-color: #e1e1e1;\n}\n.ph-checkbox input:disabled + i:before {\n  border-color: #e1e1e1;\n  border-right-color: transparent;\n  border-top-color: transparent;\n}\n.ph-radio {\n  position: relative;\n  width: 21px;\n  height: 21px;\n}\n.ph-radio i {\n  -webkit-border-radius: 2px;\n  -moz-border-radius: 2px;\n  border-radius: 2px;\n  background-clip: padding-box;\n  position: relative;\n  display: block;\n  width: 21px;\n  height: 21px;\n  border: 1PX solid #bbb;\n  background-color: #fff;\n  -webkit-transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;\n  -moz-transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;\n  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;\n}\n.ph-radio input {\n  position: absolute;\n  z-index: 2;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  opacity: 0;\n  cursor: pointer;\n  pointer-events: all;\n}\n.ph-radio input:checked + i {\n  position: relative;\n  background-color: #fff1ed;\n  border: 1PX solid #ff6633;\n}\n.ph-radio input:checked + i:before {\n  content: \"\";\n  position: absolute;\n  top: 3px;\n  left: 3px;\n  width: 10px;\n  height: 6px;\n  border: none;\n  border: 1PX solid #ff6633;\n  border-right-color: transparent;\n  border-top-color: transparent;\n  -webkit-transform: rotate(-45deg);\n  -ms-transform: rotate(-45deg);\n  transform: rotate(-45deg);\n  -webkit-transform-origin: center center;\n  -ms-transform-origin: center center;\n  transform-origin: center center;\n}\n.ph-radio input:disabled + i {\n  background-color: #f8f8f8;\n  border-color: #e1e1e1;\n}\n.ph-radio input:disabled + i:before {\n  border-color: #e1e1e1;\n  border-right-color: transparent;\n  border-top-color: transparent;\n}\n.ph-radio i {\n  -webkit-border-radius: 50%;\n  -moz-border-radius: 50%;\n  border-radius: 50%;\n  background-clip: padding-box;\n}\n", ""]);
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n/**\n * 方案一 background-image: linear-gradient(...)\n * 调用: .border-top(#000);\n * 缺点: 无法设置圆角; 占用背景色的属性; 代码量大\n **/\n/**\n * 方案二 伪类和transform\n * 调用: .onepx(border-top, 1px solid #000);\n * 缺点: 占用after伪类; 仅适用于有after伪元素的元素\n **/\n.ph-multi-group {\n  display: inline-block;\n  vertical-align: top;\n  height: 20px;\n  margin-right: 16px;\n}\n.ph-multi-group .ph-radio,\n.ph-multi-group .ph-checkbox {\n  display: inline-block;\n  vertical-align: top;\n}\n.ph-multi-group:last-child {\n  margin-right: 0;\n}\n.ph-multi-group span,\n.ph-multi-group label {\n  float: right;\n  margin-left: 8px;\n  font-size: 14px;\n}\n.ph-multi-group .ph-checkbox-sm + label,\n.ph-multi-group .ph-radio-sm + label {\n  line-height: 14px;\n  font-size: 12px;\n}\n.ph-checkbox {\n  position: relative;\n  width: 20px;\n  height: 20px;\n}\n.ph-checkbox i {\n  -webkit-border-radius: 2px;\n  -moz-border-radius: 2px;\n  border-radius: 2px;\n  background-clip: padding-box;\n  position: relative;\n  display: block;\n  width: 20px;\n  height: 20px;\n  border: 1PX solid #bbb;\n  background-color: #fff;\n  -webkit-transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;\n  -moz-transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;\n  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;\n}\n.ph-checkbox input {\n  position: absolute;\n  z-index: 2;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  opacity: 0;\n  cursor: pointer;\n  pointer-events: all;\n}\n.ph-checkbox input:checked + i {\n  position: relative;\n  background-color: #fff1ed;\n  border: 1PX solid #ff6633;\n}\n.ph-checkbox input:checked + i:before {\n  content: \"\";\n  position: absolute;\n  top: 3.33333333px;\n  left: 2.5px;\n  width: 10px;\n  height: 5px;\n  border: none;\n  border: 1PX solid #ff6633;\n  border-right-color: transparent;\n  border-top-color: transparent;\n  -webkit-transform: rotate(-45deg);\n  -ms-transform: rotate(-45deg);\n  transform: rotate(-45deg);\n  -webkit-transform-origin: center center;\n  -ms-transform-origin: center center;\n  transform-origin: center center;\n}\n.ph-checkbox input:disabled + i {\n  background-color: #f8f8f8;\n  border-color: #e1e1e1;\n}\n.ph-checkbox input:disabled + i:before {\n  border-color: #e1e1e1;\n  border-right-color: transparent;\n  border-top-color: transparent;\n}\n.ph-checkbox-sm {\n  position: relative;\n  width: 14px;\n  height: 14px;\n}\n.ph-checkbox-sm i {\n  -webkit-border-radius: 2px;\n  -moz-border-radius: 2px;\n  border-radius: 2px;\n  background-clip: padding-box;\n  position: relative;\n  display: block;\n  width: 14px;\n  height: 14px;\n  border: 1PX solid #bbb;\n  background-color: #fff;\n  -webkit-transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;\n  -moz-transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;\n  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;\n}\n.ph-checkbox-sm input {\n  position: absolute;\n  z-index: 2;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  opacity: 0;\n  cursor: pointer;\n  pointer-events: all;\n}\n.ph-checkbox-sm input:checked + i {\n  position: relative;\n  background-color: #fff1ed;\n  border: 1PX solid #ff6633;\n}\n.ph-checkbox-sm input:checked + i:before {\n  content: \"\";\n  position: absolute;\n  top: 2.33333333px;\n  left: 1.75px;\n  width: 7px;\n  height: 3.5px;\n  border: none;\n  border: 1PX solid #ff6633;\n  border-right-color: transparent;\n  border-top-color: transparent;\n  -webkit-transform: rotate(-45deg);\n  -ms-transform: rotate(-45deg);\n  transform: rotate(-45deg);\n  -webkit-transform-origin: center center;\n  -ms-transform-origin: center center;\n  transform-origin: center center;\n}\n.ph-checkbox-sm input:disabled + i {\n  background-color: #f8f8f8;\n  border-color: #e1e1e1;\n}\n.ph-checkbox-sm input:disabled + i:before {\n  border-color: #e1e1e1;\n  border-right-color: transparent;\n  border-top-color: transparent;\n}\n.ph-radio {\n  position: relative;\n  width: 21px;\n  height: 21px;\n}\n.ph-radio i {\n  -webkit-border-radius: 2px;\n  -moz-border-radius: 2px;\n  border-radius: 2px;\n  background-clip: padding-box;\n  position: relative;\n  display: block;\n  width: 21px;\n  height: 21px;\n  border: 1PX solid #bbb;\n  background-color: #fff;\n  -webkit-transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;\n  -moz-transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;\n  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;\n}\n.ph-radio input {\n  position: absolute;\n  z-index: 2;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  opacity: 0;\n  cursor: pointer;\n  pointer-events: all;\n}\n.ph-radio input:checked + i {\n  position: relative;\n  background-color: #fff1ed;\n  border: 1PX solid #ff6633;\n}\n.ph-radio input:checked + i:before {\n  content: \"\";\n  position: absolute;\n  top: 3.5px;\n  left: 2.625px;\n  width: 10.5px;\n  height: 5.25px;\n  border: none;\n  border: 1PX solid #ff6633;\n  border-right-color: transparent;\n  border-top-color: transparent;\n  -webkit-transform: rotate(-45deg);\n  -ms-transform: rotate(-45deg);\n  transform: rotate(-45deg);\n  -webkit-transform-origin: center center;\n  -ms-transform-origin: center center;\n  transform-origin: center center;\n}\n.ph-radio input:disabled + i {\n  background-color: #f8f8f8;\n  border-color: #e1e1e1;\n}\n.ph-radio input:disabled + i:before {\n  border-color: #e1e1e1;\n  border-right-color: transparent;\n  border-top-color: transparent;\n}\n.ph-radio i {\n  -webkit-border-radius: 50%;\n  -moz-border-radius: 50%;\n  border-radius: 50%;\n  background-clip: padding-box;\n}\n", ""]);
 
 	// exports
 
@@ -15531,11 +15569,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var checked = _props3.checked;
 	        var disabled = _props3.disabled;
 	        var children = _props3.children;
+	        var itemKey = _props3.itemKey;
 
 	        return _react2['default'].createElement(
 	            _list2['default'].Col,
 	            null,
-	            filterType ? _react2['default'].createElement(_checkbox2['default'], { label: children, disabled: disabled, checked: checked && !disabled, onChange: this.onChange.bind(this) }) : children
+	            filterType ? _react2['default'].createElement(_checkbox2['default'], { id: itemKey, label: children, disabled: disabled, checked: checked && !disabled, onChange: this.onChange.bind(this) }) : children
 	        );
 	    };
 

@@ -72,6 +72,12 @@ export default class buttongroup extends Component{
                     </ButtonGroup>
                 </div>
                 <Code target="button-group-callback" />
+
+                <h3 className="comp-type">extra 更多内容</h3>
+                <ButtonGroup phType="footer" extra={<span>更多内容<a>连接</a><i>重要</i></span>}>
+                    <Button phSize="lg">确定</Button>
+                    <Button phSize="lg" phStyle="gray" hollow >取消</Button>
+                </ButtonGroup>
             </div>
         );
     }

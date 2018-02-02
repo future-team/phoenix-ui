@@ -49,6 +49,7 @@ export default obj=>{
         tail: true,
         required: true,
         stable:true,
+        await:true,
         // error: true,
         // clear:true,
         // visible:true,

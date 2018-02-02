@@ -53,7 +53,14 @@ export default class Checkbox extends Component{
          * @type String
          * @default ''
          * */
-        label: PropTypes.string
+        label: PropTypes.string,
+        /**
+         * 大小，可选sm
+         * @property phSize
+         * @type String
+         * @default ''
+         * */
+        phSize: PropTypes.string,
     };
 
     static defaultProps = {
@@ -71,16 +78,16 @@ export default class Checkbox extends Component{
     }
 
     renderCheckbox(){
-        let {label, type, disabled, className, style} = this.props
+        let {label, type, disabled, className, style, id} = this.props
 
         return (
-            <label className={classnames(this.setPhPrefix('multi-group',true), className)} style={this.getStyles(style)}>
+            <span className={classnames(this.setPhPrefix('multi-group',true), className)} style={this.getStyles(style)}>
                 <div className={this.getProperty(true)}>
                     <input {...this.otherProps} className='' style={null} disabled={disabled}/>
                     <i></i>
                 </div>
-                <span>{label}</span>
-            </label>
+                <label htmlFor={id}>{label}</label>
+            </span>
         );
     }
 

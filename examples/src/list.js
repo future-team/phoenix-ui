@@ -107,6 +107,14 @@ export default class star extends Component{
                             <Input type="text" placeholder="男/女" disabled />
                         </List.Col>
                     </List.Item>
+                    <List.Item navigate>
+                        <List.Col heading>
+                            <label>性别</label>
+                        </List.Col>
+                        <List.Col tail>
+                            <Input type="text" placeholder="男/女" disabled value='男'/>
+                        </List.Col>
+                    </List.Item>
                 </List>
                 <Code target="list-navigate" />
 
