@@ -661,12 +661,12 @@ export default class FilterItem extends Component{
     }
 
     renderChildren(){
-        let {filterType, checked, disabled, children} = this.props;
+        let {filterType, checked, disabled, children, itemKey} = this.props;
 
         return (
             &lt;List.Col&gt;
                 {
-                    filterType? &lt;Checkbox label={children} disabled={disabled} checked={checked &amp;&amp; !disabled} onChange={this.onChange.bind(this)} /&gt;: children
+                    filterType? &lt;Checkbox id={itemKey} label={children} disabled={disabled} checked={checked &amp;&amp; !disabled} onChange={this.onChange.bind(this)} /&gt;: children
                 }
             &lt;/List.Col&gt;
         )

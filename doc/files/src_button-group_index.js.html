@@ -641,6 +641,13 @@ export default class ButtonGroup extends Component{
          * */
         phType:PropTypes.string,
         /**
+         * 更多内容，传递的类型是react element
+         * @property extra
+         * @type Object
+         * @default null
+         * */
+        extra: PropTypes.element,
+        /**
          * 按钮被按下后的回调
          * @method clickCallback
          * @param {number} index 选中的索引值
@@ -655,6 +662,7 @@ export default class ButtonGroup extends Component{
         phType:&#x27;default&#x27;,
         classPrefix:&#x27;button-group&#x27;,
         componentTag:&#x27;div&#x27;,
+        extra: null,
         classMapping : {
             &#x27;default&#x27;:&#x27;default&#x27;,
             &#x27;justify&#x27;:&#x27;justify&#x27;,
@@ -709,18 +717,25 @@ export default class ButtonGroup extends Component{
         }, this);
     }
 
+    renderExtra(extra){
+        return &lt;div className={this.setPhPrefix(&#x27;extra&#x27;)}&gt;{extra}&lt;/div&gt;
+    }
+
     renderButtonGroup(){
-        const {componentTag:Component, children, className} = this.props;
+        const {componentTag:Component, children, className, extra} = this.props;
 
         return (
-            &lt;Component {...this.otherProps} className={
-                classnames(
-                    this.getProperty(true),
-                    className,
-                    &#x27;clearfix&#x27;
-                )}&gt;
-                {this.renderChildren()}
-            &lt;/Component&gt;
+            &lt;div&gt;
+                {extra &amp;&amp; this.renderExtra(extra)}
+                &lt;Component {...this.otherProps} className={
+                    classnames(
+                        this.getProperty(true),
+                        className,
+                        &#x27;clearfix&#x27;
+                    )}&gt;
+                    {this.renderChildren()}
+                &lt;/Component&gt;
+            &lt;/div&gt;
         );
     }
 
