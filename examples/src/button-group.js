@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 
 import ButtonGroup from "phoenix-ui/lib/button-group"
+import Checkbox from "phoenix-ui/lib/checkbox"
 import Button from "phoenix-ui/lib/button"
 import Code from "./code/code"
 
@@ -74,9 +75,8 @@ export default class buttongroup extends Component{
                 <Code target="button-group-callback" />
 
                 <h3 className="comp-type">extra 更多内容</h3>
-                <ButtonGroup phType="footer" extra={<span>更多内容<a>连接</a><i>重要</i></span>}>
+                <ButtonGroup phType="footer" extra={<Checkbox phSize='sm' label={<span>更多内容<a href='#'>连接</a><i>重要</i></span>} />}>
                     <Button phSize="lg">确定</Button>
-                    <Button phSize="lg" phStyle="gray" hollow >取消</Button>
                 </ButtonGroup>
             </div>
         );

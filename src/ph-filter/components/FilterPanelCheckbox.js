@@ -242,13 +242,25 @@ export default class FilterPanelCheckbox extends Component{
         return mainMenu;
     }
 
+    renderExtra(showExtra, selected){
+        let newExtra = showExtra,
+            numElem = ` <i>${selected.length}</i> `
+        
+        if(showExtra){
+            if(showExtra.indexOf('#')!=-1){
+                newExtra = <span dangerouslySetInnerHTML={{__html: showExtra.replace('#', numElem)}}></span>
+            }
+        }
+        return newExtra
+    }
+
     renderButtons(){
-        let {buttons, panelIndex} = this.props,
+        let {buttons, panelIndex, showExtra} = this.props,
             {selected, selectedName} = this.state,
             self = this
-        
+        console.log('>>selected' ,selected)
         return buttons? (
-            <ButtonGroup phType='footer'>
+            <ButtonGroup phType='footer' extra={this.renderExtra(showExtra, selected)}>
                 {
                     buttons.map((button, index)=>{
                         return (

@@ -5776,15 +5776,24 @@ h6 {
   background-clip: padding-box;
 }
 .ph-button-group-extra {
+  padding-top: 32px;
+}
+.ph-button-group-extra .ph-button-group-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   padding: 8px 16px;
-  background-color: #fff;
-  text-align: center;
+  line-height: 16px;
   font-size: 12px;
 }
-.ph-button-group-extra a {
+.ph-button-group-extra .ph-button-group-text .ph-multi-group label {
+  font-size: 12px;
+}
+.ph-button-group-extra .ph-button-group-text a {
   color: #518cce;
 }
-.ph-button-group-extra i {
+.ph-button-group-extra .ph-button-group-text i {
   font-style: normal;
   color: #ff6633;
 }
@@ -6031,7 +6040,6 @@ input + .ph-input-placeholder-hide {
 .ph-multi-group:last-child {
   margin-right: 0;
 }
-.ph-multi-group span,
 .ph-multi-group label {
   float: right;
   margin-left: 8px;
@@ -6080,10 +6088,10 @@ input + .ph-input-placeholder-hide {
 .ph-checkbox input:checked + i:before {
   content: "";
   position: absolute;
-  top: 3.33333333px;
-  left: 2.5px;
+  top: 3px;
+  left: 3px;
   width: 10px;
-  height: 5px;
+  height: 6px;
   border: none;
   border: 1PX solid #ff6633;
   border-right-color: transparent;
@@ -6142,10 +6150,10 @@ input + .ph-input-placeholder-hide {
 .ph-checkbox-sm input:checked + i:before {
   content: "";
   position: absolute;
-  top: 2.33333333px;
-  left: 1.75px;
-  width: 7px;
-  height: 3.5px;
+  top: 2px;
+  left: 2px;
+  width: 6px;
+  height: 3px;
   border: none;
   border: 1PX solid #ff6633;
   border-right-color: transparent;
@@ -6204,10 +6212,10 @@ input + .ph-input-placeholder-hide {
 .ph-radio input:checked + i:before {
   content: "";
   position: absolute;
-  top: 3.5px;
-  left: 2.625px;
-  width: 10.5px;
-  height: 5.25px;
+  top: 3px;
+  left: 3px;
+  width: 10px;
+  height: 6px;
   border: none;
   border: 1PX solid #ff6633;
   border-right-color: transparent;
@@ -8292,4 +8300,15 @@ dl.ph-image-item dd p:last-child {
 }
 .ph-checkbox-filter .ph-filter-selector .ph-button-group {
   margin-top: -64px;
+}
+.ph-checkbox-filter-extra .ph-filter-selector .ph-list,
+.ph-checkbox-filter-extra .ph-filter-selector .ph-tab-navs,
+.ph-checkbox-filter-extra .ph-filter-selector .ph-tab-bd {
+  padding-bottom: 88px;
+}
+.ph-checkbox-filter-extra .ph-filter-selector .ph-button-group {
+  margin-top: -88px;
+}
+.ph-checkbox-filter-extra .ph-filter-selector .ph-button-group .ph-button-group-text {
+  text-align: center;
 }

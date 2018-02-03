@@ -631,6 +631,13 @@
                                 
                             </li>
                         
+                            <li class="index-item property">
+                                <a href="#" data-tabid="#property" data-anchor="#property_showExtra" data-tablink="showExtra">showExtra</a>
+
+                                
+                                
+                            </li>
+                        
                     </ul>
                 
             </div>
@@ -802,7 +809,7 @@ export default class phFilterCheckbox extends Component {
 
         return(
             &lt;div&gt;
-                &lt;CheckboxContainer choose={this.state.choose} index={2} buttons={buttons}&gt;
+                &lt;CheckboxContainer choose={this.state.choose} index={2} buttons={buttons} showExtra=&#39;已选择#家门店&#39;&gt;
                     {
                         this.state.filterData.map((cityShopList,index)=&gt;{
                             return (
@@ -984,6 +991,54 @@ export default class phFilterCheckbox extends Component {
     
         <p><strong>Default:</strong></p>
          <code> 0</code>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_showExtra" class="property item">
+    <h3 class="name"><code>showExtra</code></h3>
+    <span class="type">Array</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_ph-filter_components_FilterCheckbox.js.html#l78"><code>src&#x2F;ph-filter&#x2F;components&#x2F;FilterCheckbox.js:78</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>显示按钮额外文字的格式，目前仅支持文字</p>
+</div>
+    </div>
+
+    
+        <p><strong>Default:</strong></p>
+         <code> null</code>
     
 
     

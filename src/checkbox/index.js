@@ -50,12 +50,12 @@ export default class Checkbox extends Component{
         /**
          * 展示的文字信息
          * @property label
-         * @type String
+         * @type String | Element
          * @default ''
          * */
-        label: PropTypes.string,
+        label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
         /**
-         * 大小，可选sm
+         * 大小，可选sm-14
          * @property phSize
          * @type String
          * @default ''

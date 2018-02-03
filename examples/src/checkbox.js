@@ -45,7 +45,7 @@ export default class input extends Component{
 
                 <h3 className="comp-type">phSize</h3>
                 <div className="content">
-                    <Checkbox label="请查看协议之后再决定" phSize='sm'/>
+                    <Checkbox label="请查看协议之后再决定" phSize='sm' defaultChecked={true}/>
                 </div>
             </div>
         );

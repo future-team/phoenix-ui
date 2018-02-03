@@ -74,21 +74,35 @@ export default class FilterCheckbox extends Component{
          * @property buttons
          * @type Array
          * */
-        buttons: PropTypes.array
+        buttons: PropTypes.array,
+        /**
+         *  显示按钮额外文字的格式，目前仅支持文字
+         * @property showExtra
+         * @type Array
+         * @default null
+         * */
+        showExtra: PropTypes.string,
     }
 
     static defaultProps = {
         index: 0,
-        choose: []
+        choose: [],
+        showExtra: null
     }
     
     render(){
-        let {choose, index, buttons, children, className, style} = this.props
+        let {choose, index, buttons, children, className, style, showExtra} = this.props
         
         return (
-            <div className={classnames('ph-checkbox-filter', className)}>
+            <div className={classnames('ph-checkbox-filter', className, showExtra?'ph-checkbox-filter-extra':'')}>
                 <FilterContainer index={0} hideCat>
-                    <CheckboxPanel index={index} buttons={buttons} selected={{key:choose, value:''}} choose={choose}>
+                    <CheckboxPanel 
+                        index={index} 
+                        buttons={buttons} 
+                        selected={{key:choose, value:''}} 
+                        choose={choose} 
+                        showExtra={showExtra}
+                    >
                         {children}
                     </CheckboxPanel>
                 </FilterContainer>

@@ -52,7 +52,7 @@ export default class phFilterCheckbox extends Component {
         
         return(
             <div>
-                <CheckboxContainer choose={this.state.choose} index={2} buttons={buttons}>
+                <CheckboxContainer choose={this.state.choose} index={2} buttons={buttons} showExtra='已选择#家门店'>
                     {
                         this.state.filterData.map((cityShopList,index)=>{
                             return (

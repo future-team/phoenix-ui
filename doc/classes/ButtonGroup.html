@@ -768,6 +768,7 @@ index:默认的选中索引值, 默认0 <br/>
                 <div class="stdoc-code"><pre class="code prettyprint"><code>import React, { Component } from "react"
 
 import ButtonGroup from "phoenix-ui/lib/button-group"
+import Checkbox from "phoenix-ui/lib/checkbox"
 import Button from "phoenix-ui/lib/button"
 import Code from "./code/code"
 
@@ -841,9 +842,8 @@ export default class buttongroup extends Component{
                 &lt;Code target="button-group-callback" /&gt;
 
                 &lt;h3 className="comp-type"&gt;extra 更多内容&lt;/h3&gt;
-                &lt;ButtonGroup phType="footer" extra={&lt;span&gt;更多内容&lt;a&gt;连接&lt;/a&gt;&lt;i&gt;重要&lt;/i&gt;&lt;/span&gt;}&gt;
+                &lt;ButtonGroup phType="footer" extra={&lt;Checkbox phSize=&#39;sm&#39; label={&lt;span&gt;更多内容&lt;a href=&#39;#&#39;&gt;连接&lt;/a&gt;&lt;i&gt;重要&lt;/i&gt;&lt;/span&gt;} /&gt;}&gt;
                     &lt;Button phSize="lg"&gt;确定&lt;/Button&gt;
-                    &lt;Button phSize="lg" phStyle="gray" hollow &gt;取消&lt;/Button&gt;
                 &lt;/ButtonGroup&gt;
             &lt;/div&gt;
         );

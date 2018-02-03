@@ -718,24 +718,23 @@ export default class ButtonGroup extends Component{
     }
 
     renderExtra(extra){
-        return &lt;div className={this.setPhPrefix(&#x27;extra&#x27;)}&gt;{extra}&lt;/div&gt;
+        return &lt;div className={this.setPhPrefix(&#x27;text&#x27;)}&gt;{extra}&lt;/div&gt;
     }
 
     renderButtonGroup(){
         const {componentTag:Component, children, className, extra} = this.props;
 
         return (
-            &lt;div&gt;
+            &lt;Component {...this.otherProps} className={
+                classnames(
+                    this.getProperty(true),
+                    className,
+                    extra? this.setPhPrefix(&#x27;extra&#x27;):&#x27;&#x27;,
+                    &#x27;clearfix&#x27;
+                )}&gt;
                 {extra &amp;&amp; this.renderExtra(extra)}
-                &lt;Component {...this.otherProps} className={
-                    classnames(
-                        this.getProperty(true),
-                        className,
-                        &#x27;clearfix&#x27;
-                    )}&gt;
-                    {this.renderChildren()}
-                &lt;/Component&gt;
-            &lt;/div&gt;
+                {this.renderChildren()}
+            &lt;/Component&gt;
         );
     }
 
