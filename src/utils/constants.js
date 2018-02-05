@@ -141,6 +141,7 @@ export const propsConstants = {
     dropCallback: 'dropCallback',
     loadCallback: 'loadCallback',
     queryCallback: 'queryCallback',
+    clearCallback: 'clearCallback',
 
     // menu
     ceiling: 'ceiling',

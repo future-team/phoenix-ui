@@ -3305,6 +3305,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    dropCallback: 'dropCallback',
 	    loadCallback: 'loadCallback',
 	    queryCallback: 'queryCallback',
+	    clearCallback: 'clearCallback',
 
 	    // menu
 	    ceiling: 'ceiling',
