@@ -13836,6 +13836,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var _this2 = this;
 
 	        var _props4 = this.props;
+	        var clearCallback = _props4.clearCallback;
 	        var className = _props4.className;
 	        var placeholder = _props4.placeholder;
 	        var style = _props4.style;
@@ -13854,7 +13855,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    },
 	                    onFocus: this.onFocus.bind(this),
 	                    onBlur: this.onBlur.bind(this),
-	                    onKeyDown: this.onKeyDown.bind(this)
+	                    onKeyDown: this.onKeyDown.bind(this),
+	                    clearCallback: clearCallback
 	                })),
 	                this.renderButton()
 	            )
