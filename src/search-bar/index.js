@@ -192,7 +192,7 @@ export default class SearchBar extends Component{
     }
 
     renderSearchBar(){
-        let {className, placeholder, style} = this.props
+        let {clearCallback, className, placeholder, style} = this.props
         
         return(
             <form action="javascript:;">
@@ -205,6 +205,7 @@ export default class SearchBar extends Component{
                             onFocus={this.onFocus.bind(this)}
                             onBlur={this.onBlur.bind(this)}
                             onKeyDown={this.onKeyDown.bind(this)}
+                            clearCallback={clearCallback}
                     />
                     {this.renderButton()}
                 </div>

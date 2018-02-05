@@ -77,6 +77,10 @@ export default class searchBar extends Component{
                 <h3 className="comp-type">blurCallback 失焦的回调</h3>
                 <SearchBar blurCallback={()=>{console.log("blur")}} />
                 <Code target="search-blurcallback" />
+
+                <h3 className="comp-type">clearCallback 失焦的回调</h3>
+                <SearchBar clearCallback={()=>{console.log("clear")}} />
+                
             </div>
         );
     }
