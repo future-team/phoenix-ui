@@ -9,8 +9,13 @@ import {propsConstants} from './constants'
 import Logger from './logger'
 
 new Logger('phoenix-ui')
+var deviceIsIOS11_3 = false
+if(navigator && navigator.userAgent) {
+    var _ua = navigator.userAgent
+    deviceIsIOS11_3 = /iP(ad|hone|od)/.test(_ua) && !_ua.indexOf("Windows Phone") >= 0 && (/OS 11_3(_\d)?/).test(_ua);
+}
 
-document.addEventListener('DOMContentLoaded', function() {
+!deviceIsIOS11_3 && document.addEventListener('DOMContentLoaded', function() {
     FastClick.attach(document.body)
 }, false)
 
