@@ -74,6 +74,7 @@ Phoenix UI is tested with the following browsers and mobile OS.
 
 ## Repair
 
+`version 3.5.0` FastClick兼容ios11。<br/>
 `version 3.4.0` ButtonGroup新增extra属性，Checkbox新增小的checkbox，PhFilterCheckbox支持showExtra。<br/>
 `version 3.0.1` styles采用px布局，摒除viewport引入。<br/>
 `version 3.0.0` 升级到react16。<br/>
