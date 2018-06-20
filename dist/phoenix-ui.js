@@ -1781,8 +1781,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _logger2 = _interopRequireDefault(_logger);
 
 	new _logger2['default']('phoenix-ui');
+	var deviceIsIOS11_3 = false;
+	if (navigator && navigator.userAgent) {
+	    var _ua = navigator.userAgent;
+	    deviceIsIOS11_3 = /iP(ad|hone|od)/.test(_ua) && !_ua.indexOf("Windows Phone") >= 0 && /OS 11_3(_\d)?/.test(_ua);
+	}
 
-	document.addEventListener('DOMContentLoaded', function () {
+	!deviceIsIOS11_3 && document.addEventListener('DOMContentLoaded', function () {
 	    _fastclick2['default'].attach(document.body);
 	}, false);
 
@@ -10642,6 +10647,30 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.removeClass(this.popover, SHOW_CLASS);
 	    };
 
+	    Popover.prototype.getElementLeft = function getElementLeft(element) {
+	        var actualLeft = element.offsetLeft;
+	        var current = element.offsetParent;
+
+	        while (current !== null) {
+	            actualLeft += current.offsetLeft;
+	            current = current.offsetParent;
+	        }
+
+	        return actualLeft;
+	    };
+
+	    Popover.prototype.getElementTop = function getElementTop(element) {
+	        var actualTop = element.offsetTop;
+	        var current = element.offsetParent;
+
+	        while (current !== null) {
+	            actualTop += current.offsetTop;
+	            current = current.offsetParent;
+	        }
+
+	        return actualTop;
+	    };
+
 	    Popover.prototype.getTargetPosition = function getTargetPosition() {
 	        document.body.style.position = 'relative';
 
@@ -10653,8 +10682,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.win.width = parseInt(document.documentElement.clientWidth);
 	        this.win.height = parseInt(_utilsTool2['default'].getClientHeight());
 
-	        this.position.x = parseInt(this.target.offsetLeft);
-	        this.position.y = parseInt(this.target.offsetTop);
+	        this.position.x = parseInt(this.getElementLeft(this.target));
+	        this.position.y = parseInt(this.getElementTop(this.target));
 
 	        this.size.width = parseInt(this.target.offsetWidth);
 	        this.size.height = parseInt(this.target.offsetHeight);
