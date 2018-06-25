@@ -97,7 +97,7 @@ export default class phFilter extends Component {
         for(let i in this.state[panelName]){
             let itemGroup = this.state[panelName][i]
             newPanel.push(
-                <ItemGroup key={i} label={i} mainKey={i}>
+                <ItemGroup key={i} label={i} mainKey={i} clickCallback={this.itemGroupClickCallback.bind(this)}>
                     {
                         itemGroup.map((item)=>{
                             return (
@@ -112,6 +112,10 @@ export default class phFilter extends Component {
         }
 
         return newPanel
+    }
+
+    itemGroupClickCallback(index){
+        console.log('>>>>>mainKey', index)
     }
 
     clickCallback(key, index){

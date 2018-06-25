@@ -15725,10 +15725,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	    FilterItemGroup.prototype.itemClickHandle = function itemClickHandle() {
 	        var _props = this.props;
 	        var readOnly = _props.readOnly;
+	        var mainKey = _props.mainKey;
 	        var mainKeyChange = _props.mainKeyChange;
 	        var groupIndex = _props.groupIndex;
+	        var clickCallback = _props.clickCallback;
 
 	        if (readOnly) return;
+	        if (clickCallback && typeof clickCallback === 'function') {
+	            clickCallback(mainKey);
+	        }
 	        mainKeyChange(groupIndex);
 	    };
 
@@ -15760,7 +15765,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * @property mainKey
 	             * @type String | Number
 	             * */
-	            mainKey: _propTypes2['default'].oneOfType([_propTypes2['default'].string, _propTypes2['default'].number])
+	            mainKey: _propTypes2['default'].oneOfType([_propTypes2['default'].string, _propTypes2['default'].number]),
+	            /**
+	             * 点击的回调
+	             * @property clickCallback
+	             * @type Function
+	             * */
+	            clickCallback: _propTypes2['default'].func
 	        },
 	        enumerable: true
 	    }, {

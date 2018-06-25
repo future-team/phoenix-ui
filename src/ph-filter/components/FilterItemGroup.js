@@ -77,7 +77,13 @@ export default class FilterItemGroup extends Component{
          * @property mainKey
          * @type String | Number
          * */
-        mainKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+        mainKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        /**
+         * 点击的回调
+         * @property clickCallback
+         * @type Function
+         * */
+        clickCallback: PropTypes.func
     }
 
     static defaultProps = {
@@ -85,9 +91,12 @@ export default class FilterItemGroup extends Component{
     }
 
     itemClickHandle(){
-        let {readOnly, mainKeyChange, groupIndex} = this.props
+        let {readOnly, mainKey, mainKeyChange, groupIndex, clickCallback} = this.props
 
-        if(readOnly) return;
+        if(readOnly) return
+        if(clickCallback && typeof clickCallback === 'function'){
+            clickCallback(mainKey)
+        }
         mainKeyChange(groupIndex)
     }
 
