@@ -128,28 +128,39 @@ export default class Popover extends Component{
         this.placement = this.adaptePlacement[props.placement]
         this.placementCount = 0
 
-        this.el = document.createElement('div')
+        this.state = {
+            mounted: false
+        }
+    }
+
+    getElement() {
+        if (!this.el) {
+            this.el = document.createElement('div')
+            document.body.appendChild(this.el)
+        }
+        return this.el
     }
 
     componentDidMount(){
-        
-        // 获取点击的对象target，并绑定点击事件
-        let target = this.props.getTarget()
-        if(!target) Tool.warning('Popover 必须传递 getTarget[func]!')
+        this.setState({ mounted: true }, ()=>{
+            // 获取点击的对象target，并绑定点击事件
+            let target = this.props.getTarget()
+            if(!target) Tool.warning('Popover 必须传递 getTarget[func]!')
 
-        this.target = findDOMNode(target)
-        this.target.addEventListener('click', this.targetClickHandle, false)
-        
-        // 将popover动态插入body
-        // this.renderPortal();
-        document.body.appendChild(this.el)
-        
-        this.bubble = findDOMNode(this.popoverMain)
-        
-        setTimeout(()=>{
-            document.addEventListener('click', this.documentClickHandle, false)
-            this.getTargetPosition()
-        }, 300)
+            this.target = findDOMNode(target)
+            this.target.addEventListener('click', this.targetClickHandle, false)
+            
+            // 将popover动态插入body
+            // this.renderPortal();
+            // document.body.appendChild(this.el)
+            
+            this.bubble = findDOMNode(this.popoverMain)
+            
+            setTimeout(()=>{
+                document.addEventListener('click', this.documentClickHandle, false)
+                this.getTargetPosition()
+            }, 300)
+        })
     }
 
     renderPortal() {
@@ -198,7 +209,6 @@ export default class Popover extends Component{
     documentClickHandle(event){
         event.stopPropagation()
         let el = event.target
-        // alert(event)
         if(el==this.target || Tool.contains(this.target,el) || Tool.contains(this.bubble,el)) return 
         
         this.removeClass(this.popover, SHOW_CLASS)
@@ -247,7 +257,7 @@ export default class Popover extends Component{
 
         this.bubbleSize.width = parseInt(this.bubble.offsetWidth)
         this.bubbleSize.height = parseInt(this.bubble.offsetHeight)
-        console.log(this.bubble.offsetWidth)
+        
         this.calcTooltipPosition(this.props.placement)
     }
 
@@ -357,12 +367,19 @@ export default class Popover extends Component{
 
     componentWillUnmount(){
         this.target.removeEventListener('click', this.targetClickHandle, false)
-        document.removeEventListener('click', this.documentClickHandle, false);
-        document.body.removeChild(this.el)
+        document.removeEventListener('click', this.documentClickHandle, false)
+        // document.body.removeChild(this.el)
+        if (this.el) {
+            this.el.remove()
+        }
     }
 
     renderPopover(props) {
-        let {className, style, children} = props
+        if (!this.state.mounted) {
+            return null
+        }
+
+        const {className, style, children} = props
 
         return ReactDOM.createPortal(
             (
@@ -372,12 +389,12 @@ export default class Popover extends Component{
                     <div className={Tool.setPhPrefix('popover-arrow')} ref={(popover)=>{this.popoverArrow=popover}}></div>
                     <div className={Tool.setPhPrefix('popover-main')} ref={(popover)=>{this.popoverMain=popover}}>
                         <div className={Tool.setPhPrefix('popover-content')}>
-                            {this.props.children}
+                            {children}
                         </div>
                     </div>
                 </div>
             ),
-            this.el
+            this.getElement()
         )
     }
 

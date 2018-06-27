@@ -1,15 +1,17 @@
 {
   "name": "phoenix-ui",
-  "version": "3.5.2",
+  "version": "3.5.4",
   "description": "future team ui for app with react",
   "main": "lib/",
   "scripts": {
     "build": "node_modules/.bin/gulp",
     "demo": "node_modules/.bin/gulp dev",
+    "dev": "node_modules/.bin/gulp dev",
     "test": "karma start",
     "babel": "babel --watch src --out-dir lib",
     "doc": "gfsdoc ||node_modules/.bin/gfsdoc",
-    "docBuild": "node_modules/.bin/gulp  && gfsdoc ||node_modules/.bin/gfsdoc && node docTheme/addFile.js"
+    "docBuild": "node_modules/.bin/gulp  && gfsdoc ||node_modules/.bin/gfsdoc && node docTheme/addFile.js",
+    "prepublish": " npm run build"
   },
   "repository": {
     "type": "git",

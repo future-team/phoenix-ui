@@ -47,7 +47,7 @@
     生成文件：
     build：npm run build || gulp build
     开发调试：
-    demo：npm run demo || gulp demo
+    demo：npm run dev || gulp dev
     测试：
     npm run test
     生成文档：
@@ -66,7 +66,7 @@ Phoenix UI is tested with the following browsers and mobile OS.
 ## Command
 
 ```
-    $ npm run demo
+    $ npm run dev
     $ npm run build
     $ npm run doc
     $ npm run test

@@ -120,6 +120,10 @@ let Tool = {
                 event.preventDefault();
             }
         }
+    },
+    // 服务端渲染的判断
+    canUseDOM() {
+        return !!(typeof window !== 'undefined' && window.document && window.document.createElement);
     }
 }
 

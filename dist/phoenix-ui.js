@@ -3582,6 +3582,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	                event.preventDefault();
 	            }
 	        }
+	    },
+	    // 服务端渲染的判断
+	    canUseDOM: function canUseDOM() {
+	        return !!(typeof window !== 'undefined' && window.document && window.document.createElement);
 	    }
 	};
 
@@ -10556,29 +10560,43 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.placement = this.adaptePlacement[props.placement];
 	        this.placementCount = 0;
 
-	        this.el = document.createElement('div');
+	        this.state = {
+	            mounted: false
+	        };
+
+	        // this.el = document.createElement('div')
 	    }
+
+	    Popover.prototype.getElement = function getElement() {
+	        if (!this.el) {
+	            this.el = document.createElement('div');
+	            document.body.appendChild(this.el);
+	        }
+	        return this.el;
+	    };
 
 	    Popover.prototype.componentDidMount = function componentDidMount() {
 	        var _this = this;
 
-	        // 获取点击的对象target，并绑定点击事件
-	        var target = this.props.getTarget();
-	        if (!target) _utilsTool2['default'].warning('Popover 必须传递 getTarget[func]!');
+	        this.setState({ mounted: true }, function () {
+	            // 获取点击的对象target，并绑定点击事件
+	            var target = _this.props.getTarget();
+	            if (!target) _utilsTool2['default'].warning('Popover 必须传递 getTarget[func]!');
 
-	        this.target = _reactDom.findDOMNode(target);
-	        this.target.addEventListener('click', this.targetClickHandle, false);
+	            _this.target = _reactDom.findDOMNode(target);
+	            _this.target.addEventListener('click', _this.targetClickHandle, false);
 
-	        // 将popover动态插入body
-	        // this.renderPortal();
-	        document.body.appendChild(this.el);
+	            // 将popover动态插入body
+	            // this.renderPortal();
+	            // document.body.appendChild(this.el)
 
-	        this.bubble = _reactDom.findDOMNode(this.popoverMain);
+	            _this.bubble = _reactDom.findDOMNode(_this.popoverMain);
 
-	        setTimeout(function () {
-	            document.addEventListener('click', _this.documentClickHandle, false);
-	            _this.getTargetPosition();
-	        }, 300);
+	            setTimeout(function () {
+	                document.addEventListener('click', _this.documentClickHandle, false);
+	                _this.getTargetPosition();
+	            }, 300);
+	        });
 	    };
 
 	    Popover.prototype.renderPortal = function renderPortal() {
@@ -10641,7 +10659,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Popover.prototype.documentClickHandle = function documentClickHandle(event) {
 	        event.stopPropagation();
 	        var el = event.target;
-	        // alert(event)
 	        if (el == this.target || _utilsTool2['default'].contains(this.target, el) || _utilsTool2['default'].contains(this.bubble, el)) return;
 
 	        this.removeClass(this.popover, SHOW_CLASS);
@@ -10690,7 +10707,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        this.bubbleSize.width = parseInt(this.bubble.offsetWidth);
 	        this.bubbleSize.height = parseInt(this.bubble.offsetHeight);
-	        console.log(this.bubble.offsetWidth);
+
 	        this.calcTooltipPosition(this.props.placement);
 	    };
 
@@ -10801,11 +10818,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Popover.prototype.componentWillUnmount = function componentWillUnmount() {
 	        this.target.removeEventListener('click', this.targetClickHandle, false);
 	        document.removeEventListener('click', this.documentClickHandle, false);
-	        document.body.removeChild(this.el);
+	        // document.body.removeChild(this.el)
+	        if (this.el) {
+	            this.el.remove();
+	        }
 	    };
 
 	    Popover.prototype.renderPopover = function renderPopover(props) {
 	        var _this5 = this;
+
+	        if (!this.state.mounted) {
+	            return null;
+	        }
 
 	        var className = props.className;
 	        var style = props.style;
@@ -10829,10 +10853,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	                _react2['default'].createElement(
 	                    'div',
 	                    { className: _utilsTool2['default'].setPhPrefix('popover-content') },
-	                    this.props.children
+	                    children
 	                )
 	            )
-	        ), this.el);
+	        ), this.getElement());
 	    };
 
 	    Popover.prototype.render = function render() {
