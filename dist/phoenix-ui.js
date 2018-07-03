@@ -10563,8 +10563,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.state = {
 	            mounted: false
 	        };
-
-	        // this.el = document.createElement('div')
 	    }
 
 	    Popover.prototype.getElement = function getElement() {
@@ -13793,6 +13791,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        new _utilsLogger2['default']('Searchbar');
 
 	        this.focus = false;
+	        this.blur = true;
 
 	        // this.state = {
 	        //     value: props.value || ''
@@ -13838,6 +13837,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        this.focus = showButton || false;
 	        this.dealClass(this.focus);
+	        this.blur = false;
 
 	        if (clickCallback) clickCallback(this.searchElem.getValueCallback());
 	    };
@@ -13855,6 +13855,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    SearchBar.prototype.onBlur = function onBlur() {
+	        var _this2 = this;
+
 	        var _props3 = this.props;
 	        var showButton = _props3.showButton;
 	        var blurCallback = _props3.blurCallback;
@@ -13863,10 +13865,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        if (blurCallback) blurCallback(this.searchElem.getValueCallback());
 
-	        // this.timer = setTimeout(()=>{
-	        //     this.dealClass(this.focus)
-	        // },0)
-	        this.dealClass(this.focus);
+	        this.timer = setTimeout(function () {
+	            if (_this2.blur) {
+	                _this2.dealClass(_this2.focus);
+	            }
+	            _this2.blur = true;
+	        }, 0);
+	        // this.dealClass(this.focus)
 	    };
 
 	    SearchBar.prototype.onKeyDown = function onKeyDown(e) {
@@ -13886,7 +13891,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    SearchBar.prototype.renderSearchBar = function renderSearchBar() {
-	        var _this2 = this;
+	        var _this3 = this;
 
 	        var _props4 = this.props;
 	        var clearCallback = _props4.clearCallback;
@@ -13900,11 +13905,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	            _react2['default'].createElement(
 	                'div',
 	                { className: _classnames2['default'](this.getProperty(true), className), style: this.getStyles(style), ref: function (searchBar) {
-	                        _this2.searchBar = searchBar;
+	                        _this3.searchBar = searchBar;
 	                    } },
 	                _react2['default'].createElement(_input2['default'], _extends({}, this.otherProps, { type: 'search', phIcon: 'search', placeholder: placeholder, clear: true,
 	                    ref: function (searchElem) {
-	                        _this2.searchElem = searchElem;
+	                        _this3.searchElem = searchElem;
 	                    },
 	                    onFocus: this.onFocus.bind(this),
 	                    onBlur: this.onBlur.bind(this),
