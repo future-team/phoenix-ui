@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import ReactDOM, {findDOMNode} from 'react-dom'
 import Component from '../utils/Component'
 import classnames from 'classnames'
 import Logger from '../utils/logger'
@@ -122,6 +123,28 @@ class Dialog extends Component{
         super(props, context)
 
         new Logger('Dialog')
+
+        this.state = {
+            mounted: false
+        }
+    }
+
+    getElement() {
+        if (!this.el) {
+            this.el = document.createElement('div')
+            document.body.appendChild(this.el)
+        }
+        return this.el
+    }
+
+    componentDidMount(){
+        this.setState({ mounted: true })
+    }
+
+    componentWillUnmount(){
+        if (this.el) {
+            this.el.remove()
+        }
     }
 
     onShadowClose(){
@@ -183,20 +206,27 @@ class Dialog extends Component{
     }
 
     renderDialog(){
-        let {componentTag:Component, className} = this.props;
+        if (!this.state.mounted) {
+            return null
+        }
 
-        return (
-            <Component {...this.otherProps} className={classnames(
-                this.getProperty(true),
-                className
-            )}>
-                <Animate>
-                    {this.renderShadow()}
-                </Animate>
-                <Animate>
-                    {this.renderContent()}
-                </Animate>
-            </Component>
+        let {componentTag:Component, className} = this.props
+
+        return ReactDOM.createPortal(
+            (
+                <Component {...this.otherProps} className={classnames(
+                    this.getProperty(true),
+                    className
+                )}>
+                    <Animate>
+                        {this.renderShadow()}
+                    </Animate>
+                    <Animate>
+                        {this.renderContent()}
+                    </Animate>
+                </Component>
+            ),
+            this.getElement()
         )
     }
 
