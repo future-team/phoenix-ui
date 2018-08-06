@@ -31,6 +31,10 @@ export default class buttongroup extends Component{
                         <Button>justify1</Button>
                         <Button>justify2</Button>
                     </ButtonGroup>
+                    <ButtonGroup phType="justify">
+                        <Button phStyle='gray'>是</Button>
+                        <Button phStyle='gray'>否</Button>
+                    </ButtonGroup>
                 </div>
                 <Code target="button-group-phtype-justify" />
 

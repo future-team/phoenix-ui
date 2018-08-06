@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("react"), require("CSSTransitionGroup"), require("react-dom"));
+		module.exports = factory(require("react"), require("react-dom"), require("CSSTransitionGroup"));
 	else if(typeof define === 'function' && define.amd)
-		define(["react", "CSSTransitionGroup", "react-dom"], factory);
+		define(["react", "react-dom", "CSSTransitionGroup"], factory);
 	else if(typeof exports === 'object')
-		exports["Phoenix"] = factory(require("react"), require("CSSTransitionGroup"), require("react-dom"));
+		exports["Phoenix"] = factory(require("react"), require("react-dom"), require("CSSTransitionGroup"));
 	else
-		root["Phoenix"] = factory(root["React"], root["CSSTransitionGroup"], root["ReactDOM"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_26__, __WEBPACK_EXTERNAL_MODULE_110__, __WEBPACK_EXTERNAL_MODULE_118__) {
+		root["Phoenix"] = factory(root["React"], root["ReactDOM"], root["CSSTransitionGroup"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_26__, __WEBPACK_EXTERNAL_MODULE_109__, __WEBPACK_EXTERNAL_MODULE_111__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -198,19 +198,19 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.Dialog = _modalDialog2['default'];
 
-	var _modalAlert = __webpack_require__(115);
+	var _modalAlert = __webpack_require__(116);
 
 	var _modalAlert2 = _interopRequireDefault(_modalAlert);
 
 	exports.Alert = _modalAlert2['default'];
 
-	var _modalPrompt = __webpack_require__(116);
+	var _modalPrompt = __webpack_require__(117);
 
 	var _modalPrompt2 = _interopRequireDefault(_modalPrompt);
 
 	exports.Prompt = _modalPrompt2['default'];
 
-	var _toast = __webpack_require__(117);
+	var _toast = __webpack_require__(118);
 
 	var _toast2 = _interopRequireDefault(_toast);
 
@@ -240,7 +240,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.Slider = _slider2['default'];
 
-	var _animate = __webpack_require__(109);
+	var _animate = __webpack_require__(110);
 
 	var _animate2 = _interopRequireDefault(_animate);
 
@@ -3299,6 +3299,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    buttonText: 'buttonText',
 	    showButton: 'showButton',
 	    nowrap: 'nowrap',
+	    hardware: 'hardware',
 
 	    // fn
 	    closeCallback: 'closeCallback',
@@ -5115,7 +5116,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var options = {};
 
 	            options.clickCallback = _this.clickHandler.bind(_this, index);
-	            if (_this.clickable) options.hollow = _this.state.activeIndex != index;
+	            if (_this.clickable) {
+	                options.hollow = _this.state.activeIndex !== index;
+	            }
 
 	            var newChildren = _react2['default'].cloneElement(child, options);
 
@@ -5191,7 +5194,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n/**\n * 方案一 background-image: linear-gradient(...)\n * 调用: .border-top(#000);\n * 缺点: 无法设置圆角; 占用背景色的属性; 代码量大\n **/\n/**\n * 方案二 伪类和transform\n * 调用: .onepx(border-top, 1px solid #000);\n * 缺点: 占用after伪类; 仅适用于有after伪元素的元素\n **/\n.ph-button-group {\n  position: relative;\n  display: inline-block;\n  vertical-align: middle;\n}\n.ph-button-group-default,\n.ph-button-group-footer,\n.ph-button-group-justify {\n  width: 100%;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -moz-box;\n  display: -moz-flex;\n  display: -ms-flexbox;\n  display: flex;\n}\n.ph-button-group-default .ph-button,\n.ph-button-group-footer .ph-button,\n.ph-button-group-justify .ph-button {\n  -moz-flex: 1;\n  -ms-flex: 1;\n  -webkit-flex: 1;\n  flex: 1;\n  -webkit-box-flex: 1;\n  -webkit-flex: 1  ;\n  -moz-box-flex: 1;\n  -moz-flex: 1  ;\n  -ms-flex: 1  ;\n  flex: 1  ;\n  min-width: 0;\n}\n.ph-button-group-default .ph-button,\n.ph-button-group-footer .ph-button {\n  position: relative;\n  margin-right: 12px;\n}\n.ph-button-group-default .ph-button:last-child,\n.ph-button-group-footer .ph-button:last-child {\n  margin-right: 0;\n}\n.ph-button-group-justify .ph-button,\n.ph-button-group-segmente .ph-button {\n  min-width: 0;\n  position: relative;\n  border-width: 1PX;\n}\n@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {\n  .ph-button-group-justify .ph-button,\n  .ph-button-group-segmente .ph-button {\n    border: none;\n  }\n  .ph-button-group-justify .ph-button:after,\n  .ph-button-group-segmente .ph-button:after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 200%;\n    height: 200%;\n    border-width: 1PX;\n    -webkit-transform: scale(0.5);\n    -ms-transform: scale(0.5);\n    transform: scale(0.5);\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n    -webkit-transform-origin: left top;\n    -ms-transform-origin: left top;\n    transform-origin: left top;\n    pointer-events: none;\n  }\n}\n.ph-button-group-justify .ph-button:not(:last-child),\n.ph-button-group-segmente .ph-button:not(:last-child),\n.ph-button-group-justify .ph-button:not(:last-child):after,\n.ph-button-group-segmente .ph-button:not(:last-child):after {\n  border-right: none;\n}\n.ph-button-group-justify .ph-button:not(:first-child):not(:last-child),\n.ph-button-group-segmente .ph-button:not(:first-child):not(:last-child),\n.ph-button-group-justify .ph-button:not(:first-child):not(:last-child):after,\n.ph-button-group-segmente .ph-button:not(:first-child):not(:last-child):after {\n  border-radius: 0;\n}\n.ph-button-group-justify .ph-button:first-child:not(:last-child),\n.ph-button-group-segmente .ph-button:first-child:not(:last-child),\n.ph-button-group-justify .ph-button:first-child:not(:last-child):after,\n.ph-button-group-segmente .ph-button:first-child:not(:last-child):after {\n  border-bottom-right-radius: 0;\n  border-top-right-radius: 0;\n}\n.ph-button-group-justify .ph-button:last-child:not(:first-child),\n.ph-button-group-segmente .ph-button:last-child:not(:first-child),\n.ph-button-group-justify .ph-button:last-child:not(:first-child):after,\n.ph-button-group-segmente .ph-button:last-child:not(:first-child):after {\n  border-bottom-left-radius: 0;\n  border-top-left-radius: 0;\n}\n.ph-button-group-justify .ph-button:not(:first-child) {\n  margin-left: -1px;\n}\n.ph-button-group-tacked {\n  width: 100%;\n}\n.ph-button-group-tacked .ph-button {\n  float: none;\n  display: block;\n  margin-left: 0;\n  position: relative;\n  border-width: 1PX;\n}\n@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {\n  .ph-button-group-tacked .ph-button {\n    border: none;\n  }\n  .ph-button-group-tacked .ph-button:after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 200%;\n    height: 200%;\n    border-width: 1PX;\n    -webkit-transform: scale(0.5);\n    -ms-transform: scale(0.5);\n    transform: scale(0.5);\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n    -webkit-transform-origin: left top;\n    -ms-transform-origin: left top;\n    transform-origin: left top;\n    pointer-events: none;\n  }\n}\n.ph-button-group-tacked .ph-button:not(:first-child),\n.ph-button-group-tacked .ph-button:not(:first-child):after {\n  border-top: none;\n}\n.ph-button-group-tacked .ph-button:not(:first-child):not(:last-child),\n.ph-button-group-tacked .ph-button:not(:first-child):not(:last-child):after {\n  border-radius: 0;\n}\n.ph-button-group-tacked .ph-button:first-child:not(:last-child),\n.ph-button-group-tacked .ph-button:first-child:not(:last-child):after {\n  border-bottom-right-radius: 0;\n  border-bottom-left-radius: 0;\n}\n.ph-button-group-tacked .ph-button:last-child:not(:first-child),\n.ph-button-group-tacked .ph-button:last-child:not(:first-child):after {\n  border-top-right-radius: 0;\n  border-top-left-radius: 0;\n}\n.ph-button-group-footer {\n  width: 100%;\n  padding: 10px 16px;\n  position: relative;\n  border-top: 1PX solid #e1e1e1;\n  background-color: #fff;\n}\n@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {\n  .ph-button-group-footer {\n    border: none;\n  }\n  .ph-button-group-footer:after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 200%;\n    height: 200%;\n    border-top: 1PX solid #e1e1e1;\n    -webkit-transform: scale(0.5);\n    -ms-transform: scale(0.5);\n    transform: scale(0.5);\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n    -webkit-transform-origin: left top;\n    -ms-transform-origin: left top;\n    transform-origin: left top;\n    pointer-events: none;\n  }\n}\n.ph-button-group-segmente .ph-button {\n  width: 76px;\n  height: 28px;\n  -webkit-border-radius: 4px;\n  -moz-border-radius: 4px;\n  border-radius: 4px;\n  background-clip: padding-box;\n  line-height: 28px;\n}\n.ph-button-group-segmente .ph-button:after {\n  -webkit-border-radius: 4px;\n  -moz-border-radius: 4px;\n  border-radius: 4px;\n  background-clip: padding-box;\n}\n.ph-button-group-extra {\n  padding-top: 32px;\n}\n.ph-button-group-extra .ph-button-group-text {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  padding: 8px 16px;\n  line-height: 16px;\n  font-size: 12px;\n}\n.ph-button-group-extra .ph-button-group-text .ph-multi-group label {\n  font-size: 12px;\n}\n.ph-button-group-extra .ph-button-group-text a {\n  color: #518cce;\n}\n.ph-button-group-extra .ph-button-group-text i {\n  font-style: normal;\n  color: #ff6633;\n}\n", ""]);
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n/**\n * 方案一 background-image: linear-gradient(...)\n * 调用: .border-top(#000);\n * 缺点: 无法设置圆角; 占用背景色的属性; 代码量大\n **/\n/**\n * 方案二 伪类和transform\n * 调用: .onepx(border-top, 1px solid #000);\n * 缺点: 占用after伪类; 仅适用于有after伪元素的元素\n **/\n.ph-button-group {\n  position: relative;\n  display: inline-block;\n  vertical-align: middle;\n}\n.ph-button-group-default,\n.ph-button-group-footer,\n.ph-button-group-justify {\n  width: 100%;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -moz-box;\n  display: -moz-flex;\n  display: -ms-flexbox;\n  display: flex;\n}\n.ph-button-group-default .ph-button,\n.ph-button-group-footer .ph-button,\n.ph-button-group-justify .ph-button {\n  -moz-flex: 1;\n  -ms-flex: 1;\n  -webkit-flex: 1;\n  flex: 1;\n  -webkit-box-flex: 1;\n  -webkit-flex: 1  ;\n  -moz-box-flex: 1;\n  -moz-flex: 1  ;\n  -ms-flex: 1  ;\n  flex: 1  ;\n  min-width: 0;\n}\n.ph-button-group-default .ph-button,\n.ph-button-group-footer .ph-button {\n  position: relative;\n  margin-right: 12px;\n}\n.ph-button-group-default .ph-button:last-child,\n.ph-button-group-footer .ph-button:last-child {\n  margin-right: 0;\n}\n.ph-button-group-justify .ph-button,\n.ph-button-group-segmente .ph-button {\n  min-width: 0;\n  position: relative;\n  border-width: 1PX;\n}\n@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {\n  .ph-button-group-justify .ph-button,\n  .ph-button-group-segmente .ph-button {\n    border: none;\n  }\n  .ph-button-group-justify .ph-button:after,\n  .ph-button-group-segmente .ph-button:after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 200%;\n    height: 200%;\n    border-width: 1PX;\n    -webkit-transform: scale(0.5);\n    -ms-transform: scale(0.5);\n    transform: scale(0.5);\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n    -webkit-transform-origin: left top;\n    -ms-transform-origin: left top;\n    transform-origin: left top;\n    pointer-events: none;\n  }\n}\n.ph-button-group-justify .ph-button:not(:last-child),\n.ph-button-group-segmente .ph-button:not(:last-child),\n.ph-button-group-justify .ph-button:not(:last-child):after,\n.ph-button-group-segmente .ph-button:not(:last-child):after {\n  border-right: none;\n}\n.ph-button-group-justify .ph-button:not(:first-child):not(:last-child),\n.ph-button-group-segmente .ph-button:not(:first-child):not(:last-child),\n.ph-button-group-justify .ph-button:not(:first-child):not(:last-child):after,\n.ph-button-group-segmente .ph-button:not(:first-child):not(:last-child):after {\n  border-radius: 0;\n}\n.ph-button-group-justify .ph-button:first-child:not(:last-child),\n.ph-button-group-segmente .ph-button:first-child:not(:last-child),\n.ph-button-group-justify .ph-button:first-child:not(:last-child):after,\n.ph-button-group-segmente .ph-button:first-child:not(:last-child):after {\n  border-bottom-right-radius: 0;\n  border-top-right-radius: 0;\n}\n.ph-button-group-justify .ph-button:last-child:not(:first-child),\n.ph-button-group-segmente .ph-button:last-child:not(:first-child),\n.ph-button-group-justify .ph-button:last-child:not(:first-child):after,\n.ph-button-group-segmente .ph-button:last-child:not(:first-child):after {\n  border-bottom-left-radius: 0;\n  border-top-left-radius: 0;\n}\n.ph-button-group-justify .ph-button:not(.ph-button-hollow),\n.ph-button-group-segmente .ph-button:not(.ph-button-hollow) {\n  background-color: #ff6633;\n}\n.ph-button-group-justify .ph-button:not(.ph-button-hollow):after,\n.ph-button-group-segmente .ph-button:not(.ph-button-hollow):after {\n  border-color: #ff6633;\n}\n.ph-button-group-justify .ph-button:not(:first-child) {\n  margin-left: -1px;\n}\n.ph-button-group-tacked {\n  width: 100%;\n}\n.ph-button-group-tacked .ph-button {\n  float: none;\n  display: block;\n  margin-left: 0;\n  position: relative;\n  border-width: 1PX;\n}\n@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {\n  .ph-button-group-tacked .ph-button {\n    border: none;\n  }\n  .ph-button-group-tacked .ph-button:after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 200%;\n    height: 200%;\n    border-width: 1PX;\n    -webkit-transform: scale(0.5);\n    -ms-transform: scale(0.5);\n    transform: scale(0.5);\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n    -webkit-transform-origin: left top;\n    -ms-transform-origin: left top;\n    transform-origin: left top;\n    pointer-events: none;\n  }\n}\n.ph-button-group-tacked .ph-button:not(:first-child),\n.ph-button-group-tacked .ph-button:not(:first-child):after {\n  border-top: none;\n}\n.ph-button-group-tacked .ph-button:not(:first-child):not(:last-child),\n.ph-button-group-tacked .ph-button:not(:first-child):not(:last-child):after {\n  border-radius: 0;\n}\n.ph-button-group-tacked .ph-button:first-child:not(:last-child),\n.ph-button-group-tacked .ph-button:first-child:not(:last-child):after {\n  border-bottom-right-radius: 0;\n  border-bottom-left-radius: 0;\n}\n.ph-button-group-tacked .ph-button:last-child:not(:first-child),\n.ph-button-group-tacked .ph-button:last-child:not(:first-child):after {\n  border-top-right-radius: 0;\n  border-top-left-radius: 0;\n}\n.ph-button-group-footer {\n  width: 100%;\n  padding: 10px 16px;\n  position: relative;\n  border-top: 1PX solid #e1e1e1;\n  background-color: #fff;\n}\n@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {\n  .ph-button-group-footer {\n    border: none;\n  }\n  .ph-button-group-footer:after {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 200%;\n    height: 200%;\n    border-top: 1PX solid #e1e1e1;\n    -webkit-transform: scale(0.5);\n    -ms-transform: scale(0.5);\n    transform: scale(0.5);\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n    -webkit-transform-origin: left top;\n    -ms-transform-origin: left top;\n    transform-origin: left top;\n    pointer-events: none;\n  }\n}\n.ph-button-group-segmente .ph-button {\n  width: 76px;\n  height: 28px;\n  -webkit-border-radius: 4px;\n  -moz-border-radius: 4px;\n  border-radius: 4px;\n  background-clip: padding-box;\n  line-height: 28px;\n}\n.ph-button-group-segmente .ph-button:after {\n  -webkit-border-radius: 4px;\n  -moz-border-radius: 4px;\n  border-radius: 4px;\n  background-clip: padding-box;\n}\n.ph-button-group-extra {\n  padding-top: 32px;\n}\n.ph-button-group-extra .ph-button-group-text {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  padding: 8px 16px;\n  line-height: 16px;\n  font-size: 12px;\n}\n.ph-button-group-extra .ph-button-group-text .ph-multi-group label {\n  font-size: 12px;\n}\n.ph-button-group-extra .ph-button-group-text a {\n  color: #518cce;\n}\n.ph-button-group-extra .ph-button-group-text i {\n  font-style: normal;\n  color: #ff6633;\n}\n", ""]);
 
 	// exports
 
@@ -8372,6 +8375,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 
+	var _reactDom = __webpack_require__(109);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
 	var _utilsComponent = __webpack_require__(37);
 
 	var _utilsComponent2 = _interopRequireDefault(_utilsComponent);
@@ -8384,7 +8391,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _utilsLogger2 = _interopRequireDefault(_utilsLogger);
 
-	var _animate = __webpack_require__(109);
+	var _animate = __webpack_require__(110);
 
 	var _animate2 = _interopRequireDefault(_animate);
 
@@ -8394,7 +8401,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	__webpack_require__(51);
 
-	__webpack_require__(113);
+	__webpack_require__(114);
 
 	/**
 	 * <h5>弹出框组件，主要包括组件:</h5>
@@ -8517,7 +8524,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _Component.call(this, props, context);
 
 	        new _utilsLogger2['default']('Dialog');
+
+	        this.state = {
+	            mounted: false
+	        };
 	    }
+
+	    Dialog.prototype.getElement = function getElement() {
+	        if (!this.el) {
+	            this.el = document.createElement('div');
+	            document.body.appendChild(this.el);
+	        }
+	        return this.el;
+	    };
+
+	    Dialog.prototype.componentDidMount = function componentDidMount() {
+	        this.setState({ mounted: true });
+	    };
+
+	    Dialog.prototype.componentWillUnmount = function componentWillUnmount() {
+	        if (this.el) {
+	            this.el.remove();
+	        }
+	    };
 
 	    Dialog.prototype.onShadowClose = function onShadowClose() {
 	        var _props = this.props;
@@ -8586,11 +8615,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    Dialog.prototype.renderDialog = function renderDialog() {
+	        if (!this.state.mounted) {
+	            return null;
+	        }
+
 	        var _props4 = this.props;
 	        var Component = _props4.componentTag;
 	        var className = _props4.className;
 
-	        return _react2['default'].createElement(
+	        return _reactDom2['default'].createPortal(_react2['default'].createElement(
 	            Component,
 	            _extends({}, this.otherProps, { className: _classnames2['default'](this.getProperty(true), className) }),
 	            _react2['default'].createElement(
@@ -8603,7 +8636,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                null,
 	                this.renderContent()
 	            )
-	        );
+	        ), this.getElement());
 	    };
 
 	    Dialog.prototype.render = function render() {
@@ -8721,6 +8754,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ }),
 /* 109 */
+/***/ (function(module, exports) {
+
+	module.exports = __WEBPACK_EXTERNAL_MODULE_109__;
+
+/***/ }),
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8749,7 +8788,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _reactTransitionGroup = __webpack_require__(110);
+	var _reactTransitionGroup = __webpack_require__(111);
 
 	var _utilsLogger = __webpack_require__(46);
 
@@ -8757,7 +8796,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	__webpack_require__(51);
 
-	__webpack_require__(111);
+	__webpack_require__(112);
 
 	/**
 	 * 动画外层组件<br/>
@@ -8865,19 +8904,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_110__;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_111__;
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(112);
+	var content = __webpack_require__(113);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(55)(content, {});
@@ -8897,7 +8936,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(54)();
@@ -8911,13 +8950,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(114);
+	var content = __webpack_require__(115);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(55)(content, {});
@@ -8937,7 +8976,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(54)();
@@ -8951,7 +8990,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9172,7 +9211,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9474,7 +9513,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ }),
-/* 117 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9499,7 +9538,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 
-	var _reactDom = __webpack_require__(118);
+	var _reactDom = __webpack_require__(109);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -9697,12 +9736,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ }),
-/* 118 */
-/***/ (function(module, exports) {
-
-	module.exports = __WEBPACK_EXTERNAL_MODULE_118__;
-
-/***/ }),
 /* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9776,7 +9809,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _animate = __webpack_require__(109);
+	var _animate = __webpack_require__(110);
 
 	var _animate2 = _interopRequireDefault(_animate);
 
@@ -10408,7 +10441,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 
-	var _reactDom = __webpack_require__(118);
+	var _reactDom = __webpack_require__(109);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -10728,6 +10761,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    this.calcTooltipPosition(place);
 	                    return;
 	                }
+	                if (topBottomLeft + this.bubbleSize.width >= this.win.width) {
+	                    this.style.left = this.win.width - this.bubbleSize.width;
+	                }
 	                if (this.style.left < 0) this.style.left = 0;
 	                break;
 	            case 'bottom':
@@ -10737,6 +10773,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	                if (this.style.top > this.win.height - this.bubbleSize.height) {
 	                    this.calcTooltipPosition(place);
 	                    return;
+	                }
+	                if (topBottomLeft + this.bubbleSize.width >= this.win.width) {
+	                    this.style.left = this.win.width - this.bubbleSize.width;
 	                }
 	                if (this.style.left < 0) this.style.left = 0;
 	                break;
@@ -11748,7 +11787,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 
-	var _reactDom = __webpack_require__(118);
+	var _reactDom = __webpack_require__(109);
 
 	var _utilsComponent = __webpack_require__(37);
 
@@ -11762,7 +11801,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _utilsTool2 = _interopRequireDefault(_utilsTool);
 
-	var _animate = __webpack_require__(109);
+	var _animate = __webpack_require__(110);
 
 	var _animate2 = _interopRequireDefault(_animate);
 
@@ -14001,7 +14040,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 
-	var _reactDom = __webpack_require__(118);
+	var _reactDom = __webpack_require__(109);
 
 	var _utilsComponent = __webpack_require__(37);
 
@@ -14137,6 +14176,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            phStyle: 'primary',
 	            tips: ['加载更多', '', '加载成功', '加载失败', '没有更多'],
 	            classPrefix: 'pullup',
+	            hardware: true,
 	            classMapping: {}
 	        },
 	        enumerable: true
@@ -14209,7 +14249,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.dragElem = pullUpElem.parentNode;
 	        this.prevElem = pullUpElem.previousElementSibling;
 	        this.addClass(this.dragElem, 'animated');
-	        this.addClass(this.prevElem, 'hardware');
+	        this.props.hardware && this.addClass(this.prevElem, 'hardware');
 
 	        this.dragEventHandle(this.dragElem);
 
@@ -14403,7 +14443,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n/**\n * 方案一 background-image: linear-gradient(...)\n * 调用: .border-top(#000);\n * 缺点: 无法设置圆角; 占用背景色的属性; 代码量大\n **/\n/**\n * 方案二 伪类和transform\n * 调用: .onepx(border-top, 1px solid #000);\n * 缺点: 占用after伪类; 仅适用于有after伪元素的元素\n **/\n.ph-pullup,\n.ph-pulldown {\n  text-align: center;\n}\n.ph-pulldown {\n  position: relative;\n  width: 100%;\n  margin-top: -44px;\n  z-index: -1;\n  background-color: transparent;\n  pointer-events: none;\n}\n.ph-pullup-tip,\n.ph-pulldown-tip {\n  padding: 12px 0;\n  font-size: 14px;\n  color: #999;\n}\n.ph-pullup-tip .gfs-icon-loading,\n.ph-pulldown-tip .gfs-icon-loading {\n  width: 18px;\n  height: 18px;\n  font-size: 18px;\n}\n", ""]);
+	exports.push([module.id, "/*30pt*/\n/*18pt*/\n/*17pt*/\n/*16pt*/\n/*15pt*/\n/*14pt*/\n/*12pt*/\n/**\n * 方案一 background-image: linear-gradient(...)\n * 调用: .border-top(#000);\n * 缺点: 无法设置圆角; 占用背景色的属性; 代码量大\n **/\n/**\n * 方案二 伪类和transform\n * 调用: .onepx(border-top, 1px solid #000);\n * 缺点: 占用after伪类; 仅适用于有after伪元素的元素\n **/\n.ph-pullup,\n.ph-pulldown {\n  text-align: center;\n}\n.ph-pulldown {\n  position: relative;\n  width: 100%;\n  margin-top: 0;\n  z-index: -1;\n  background-color: transparent;\n  pointer-events: none;\n  height: 0;\n}\n.ph-pulldown .ph-pulldown-tip {\n  position: absolute;\n  bottom: 100%;\n  width: 100%;\n}\n.ph-pullup-tip,\n.ph-pulldown-tip {\n  padding: 12px 0;\n  font-size: 14px;\n  color: #999;\n}\n.ph-pullup-tip .gfs-icon-loading,\n.ph-pulldown-tip .gfs-icon-loading {\n  width: 18px;\n  height: 18px;\n  font-size: 18px;\n}\n", ""]);
 
 	// exports
 

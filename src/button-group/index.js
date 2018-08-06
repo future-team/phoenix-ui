@@ -124,7 +124,7 @@ export default class ButtonGroup extends Component{
 
         if(!this.clickable) return;
 
-        clickCallback && clickCallback(index);
+        clickCallback && clickCallback(index)
 
         this.setState({
             activeIndex: index
@@ -132,19 +132,21 @@ export default class ButtonGroup extends Component{
     }
 
     renderChildren(){
-        let {phType, children} = this.props;
+        let {phType, children} = this.props
 
         return React.Children.map(children,(child,index)=>{
-            let options = {};
+            let options = {}
 
-            options.clickCallback = this.clickHandler.bind(this,index);
-            if(this.clickable) options.hollow = this.state.activeIndex != index;
+            options.clickCallback = this.clickHandler.bind(this,index)
+            if(this.clickable){
+                options.hollow = this.state.activeIndex !== index
+            }
 
-            let newChildren = React.cloneElement(child, options);
+            let newChildren = React.cloneElement(child, options)
 
-            return newChildren;
+            return newChildren
 
-        }, this);
+        }, this)
     }
 
     renderExtra(extra){

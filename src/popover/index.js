@@ -280,21 +280,27 @@ export default class Popover extends Component{
                     this.calcTooltipPosition(place)
                     return
                 }
+                if(topBottomLeft + this.bubbleSize.width >= this.win.width){
+                    this.style.left = this.win.width - this.bubbleSize.width
+                }
                 if(this.style.left<0) this.style.left=0
                 break;
             case 'bottom':
-                this.style.top = this.position.y + this.size.height + distance;
+                this.style.top = this.position.y + this.size.height + distance
                 this.style.left = topBottomLeft;
 
                 if(this.style.top>this.win.height-this.bubbleSize.height){
                     this.calcTooltipPosition(place)
                     return
                 }
+                if(topBottomLeft + this.bubbleSize.width >= this.win.width){
+                    this.style.left = this.win.width - this.bubbleSize.width
+                }
                 if(this.style.left<0) this.style.left=0
                 break;
             case 'left':
-                this.style.left = this.position.x - this.bubbleSize.width - distance;
-                this.style.top = leftRightTop;
+                this.style.left = this.position.x - this.bubbleSize.width - distance
+                this.style.top = leftRightTop
 
                 if(this.style.left<0){
                     this.calcTooltipPosition(place)

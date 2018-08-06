@@ -112,7 +112,7 @@ export default class PullDown extends Component{
         this.dragElem = pullDownElem.parentNode
         this.nextElem = pullDownElem.nextElementSibling
         this.addClass(this.dragElem, 'animated')
-        this.addClass(this.nextElem, 'hardware')
+        // this.addClass(this.nextElem, 'hardware')
 
         this.dragEventHandle(this.dragElem)
 

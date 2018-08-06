@@ -130,6 +130,7 @@ export const propsConstants = {
     buttonText: 'buttonText',
     showButton: 'showButton',
     nowrap: 'nowrap',
+    hardware: 'hardware',
 
     // fn
     closeCallback: 'closeCallback',
