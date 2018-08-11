@@ -14790,7 +14790,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        });
 	    };
 
-	    FilterContainer.prototype.categoryChange = function categoryChange(index, category, hasButtons) {
+	    FilterContainer.prototype.categoryChange = function categoryChange(index, category, hasButtons, options) {
 	        var _this2 = this;
 
 	        var catList = this.state.catList.slice();
@@ -14806,8 +14806,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }, function () {
 	            _this2.fixScroll(-1);
 	        });
-
-	        clickCallback && clickCallback(category.key, this.state.activeCat);
+	        console.log('>>>>hasButtons', hasButtons);
+	        clickCallback && clickCallback(category.key, this.state.activeCat, options);
 	    };
 
 	    FilterContainer.prototype.activeCat = function activeCat(index) {
@@ -15326,10 +15326,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var panelIndex = _props2.panelIndex;
 	        var buttons = _props2.buttons;
 
-	        return _react2['default'].Children.map(itemList, function (item) {
+	        return _react2['default'].Children.map(itemList, function (item, index) {
 	            var key = item.props.itemKey;
 
 	            return _react2['default'].cloneElement(item, {
+	                index: index,
 	                active: _this.state.selectedKey == key,
 	                readOnly: readOnly,
 	                categoryChange: _this.categoryChange.bind(_this),
@@ -15339,15 +15340,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	        });
 	    };
 
-	    FilterPanelBase.prototype.categoryChange = function categoryChange(index, category) {
+	    FilterPanelBase.prototype.categoryChange = function categoryChange(index, category, options) {
 	        var _props3 = this.props;
 	        var buttons = _props3.buttons;
 	        var categoryChange = _props3.categoryChange;
+	        var activeGroupIndex = this.state.activeGroupIndex;
 
 	        this.index = index;
 	        this.category = category;
-	        // console.log(this.category)
-	        categoryChange(index, category, !!buttons);
+
+	        if (activeGroupIndex || activeGroupIndex == 0) options.groupIndex = activeGroupIndex;
+
+	        categoryChange(index, category, !!buttons, options);
 	    };
 
 	    FilterPanelBase.prototype.onItemChange = function onItemChange(key) {
@@ -15635,6 +15639,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var filterType = _props.filterType;
 	        var onItemChange = _props.onItemChange;
 	        var categoryChange = _props.categoryChange;
+	        var index = _props.index;
 	        var panelIndex = _props.panelIndex;
 	        var itemKey = _props.itemKey;
 	        var children = _props.children;
@@ -15647,7 +15652,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        onItemChange(itemKey);
 
-	        categoryChange && categoryChange(panelIndex, { key: itemKey, value: children });
+	        categoryChange && categoryChange(panelIndex, { key: itemKey, value: children }, { itemIndex: index });
 	    };
 
 	    FilterItem.prototype.onChange = function onChange(e) {

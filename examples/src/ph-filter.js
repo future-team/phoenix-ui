@@ -118,8 +118,8 @@ export default class phFilter extends Component {
         console.log('>>>>>mainKey', index)
     }
 
-    clickCallback(key, index){
-        console.log(key, index);
+    clickCallback(key, catIndex, options){
+        console.log(key, catIndex, options);
     }
 
     resetFilter(key){

@@ -72,11 +72,12 @@ export default class FilterPanelBase extends Component{
         let _this = this,
             {selected, readOnly, categoryChange, panelIndex, buttons} = this.props
         
-        return React.Children.map(itemList,function(item){
+        return React.Children.map(itemList,function(item,index){
             let key = item.props.itemKey
             
             return (
                 React.cloneElement(item,{
+                    index: index,
                     active: _this.state.selectedKey==key,
                     readOnly: readOnly,
                     categoryChange: _this.categoryChange.bind(_this),
@@ -87,13 +88,16 @@ export default class FilterPanelBase extends Component{
         })
     }
 
-    categoryChange(index, category){
-        let {buttons, categoryChange} = this.props
-
+    categoryChange(index, category, options){
+        let {buttons, categoryChange} = this.props,
+            {activeGroupIndex} = this.state
+        
         this.index = index
         this.category = category
-        // console.log(this.category)
-        categoryChange(index, category, !!buttons)
+
+        if(activeGroupIndex || activeGroupIndex==0) options.groupIndex = activeGroupIndex
+        
+        categoryChange(index, category, !!buttons, options)
     }
 
     onItemChange(key){

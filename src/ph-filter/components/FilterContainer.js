@@ -234,7 +234,7 @@ export default class FilterContainer extends Component{
         })
     }
 
-    categoryChange(index,category,hasButtons){
+    categoryChange(index,category,hasButtons,options){
         let catList = this.state.catList.slice(),
             {clickCallback} = this.props
         
@@ -248,8 +248,8 @@ export default class FilterContainer extends Component{
         }, ()=>{
             this.fixScroll(-1)
         })
-
-        clickCallback && clickCallback(category.key, this.state.activeCat)
+        console.log('>>>>hasButtons', hasButtons)
+        clickCallback && clickCallback(category.key, this.state.activeCat, options)
     }
 
     activeCat(index){

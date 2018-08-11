@@ -73,7 +73,7 @@ export default class FilterItem extends Component{
     }
 
     clickCallback(){
-        let {readOnly, filterType, onItemChange, categoryChange, panelIndex, itemKey, children, clickCallback, disabled} = this.props
+        let {readOnly, filterType, onItemChange, categoryChange, index, panelIndex, itemKey, children, clickCallback, disabled} = this.props
 
         if(clickCallback) clickCallback(itemKey, disabled)
 
@@ -81,7 +81,7 @@ export default class FilterItem extends Component{
 
         onItemChange(itemKey)
 
-        categoryChange && categoryChange(panelIndex, {key: itemKey, value: children})
+        categoryChange && categoryChange(panelIndex, {key: itemKey, value: children}, {itemIndex: index})
     }
 
     onChange(e){
