@@ -10762,7 +10762,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    return;
 	                }
 	                if (topBottomLeft + this.bubbleSize.width >= this.win.width) {
-	                    this.style.left = this.win.width - this.bubbleSize.width;
+	                    this.style.left = this.win.width - this.bubbleSize.width - 2;
 	                }
 	                if (this.style.left < 0) this.style.left = 0;
 	                break;
@@ -10775,7 +10775,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    return;
 	                }
 	                if (topBottomLeft + this.bubbleSize.width >= this.win.width) {
-	                    this.style.left = this.win.width - this.bubbleSize.width;
+	                    this.style.left = this.win.width - this.bubbleSize.width - 2;
 	                }
 	                if (this.style.left < 0) this.style.left = 0;
 	                break;
