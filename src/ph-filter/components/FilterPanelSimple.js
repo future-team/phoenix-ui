@@ -55,7 +55,7 @@ export default class FilterPanelSimple extends PanelBase{
          * @type Object 如{key:'ljz',value:'陆家嘴'}
          * */
         selected: PropTypes.shape({
-            key: PropTypes.string,
+            key: PropTypes.oneOfType(PropTypes.number, PropTypes.string),
             value: PropTypes.oneOfType([PropTypes.string,PropTypes.element])
         }),
         /**

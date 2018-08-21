@@ -7,7 +7,7 @@ import Button from '../../button'
 export default class FilterPanelBase extends Component{
     static propTypes= {
         selected: PropTypes.shape({
-            key: PropTypes.string,
+            key: PropTypes.oneOfType(PropTypes.number, PropTypes.string),
             value: PropTypes.oneOfType([PropTypes.string,PropTypes.element])
         }),
         default: PropTypes.string,

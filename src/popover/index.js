@@ -359,13 +359,17 @@ export default class Popover extends Component{
     }
 
     setPopoverStyle(placement){
-        this.popoverArrow.style.top = this.arrowStyle.top+'px'
-        this.popoverArrow.style.left = this.arrowStyle.left+'px'
+        if(this.popoverArrow){
+            this.popoverArrow.style.top = this.arrowStyle.top+'px'
+            this.popoverArrow.style.left = this.arrowStyle.left+'px'
+        }
 
-        this.popoverMain.style.top = this.style.top+'px'
-        this.popoverMain.style.left = this.style.left+'px'
-
-        if(this.props.placement !== placement){
+        if(this.popoverMain){
+            this.popoverMain.style.top = this.style.top+'px'
+            this.popoverMain.style.left = this.style.left+'px'
+        }
+        
+        if(this.popover && this.props.placement !== placement){
             this.addClass(this.popover, Tool.setPhPrefix('popover-'+placement))
             this.removeClass(this.popover, Tool.setPhPrefix('popover-'+this.props.placement))
         }

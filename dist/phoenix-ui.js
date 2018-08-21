@@ -3132,7 +3132,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @return {Boolean}
 	     * */
 	    obj.prototype.hasClass = function (obj, cls) {
-	        return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+	        return obj && obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
 	    };
 
 	    /*
@@ -3142,7 +3142,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @param cls {String} 样式名
 	     * */
 	    obj.prototype.addClass = function (obj, cls) {
-	        if (!this.hasClass(obj, cls)) obj.className += " " + cls;
+	        if (obj && !this.hasClass(obj, cls)) obj.className += " " + cls;
 	    };
 	    /*
 	     * 给元素删除一个样式名
@@ -3151,7 +3151,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @param cls {String} 样式名
 	     * */
 	    obj.prototype.removeClass = function (obj, cls) {
-	        if (this.hasClass(obj, cls)) {
+	        if (obj && this.hasClass(obj, cls)) {
 	            var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
 	            obj.className = obj.className.replace(reg, ' ');
 	        }
@@ -10840,13 +10840,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    Popover.prototype.setPopoverStyle = function setPopoverStyle(placement) {
-	        this.popoverArrow.style.top = this.arrowStyle.top + 'px';
-	        this.popoverArrow.style.left = this.arrowStyle.left + 'px';
+	        if (this.popoverArrow) {
+	            this.popoverArrow.style.top = this.arrowStyle.top + 'px';
+	            this.popoverArrow.style.left = this.arrowStyle.left + 'px';
+	        }
 
-	        this.popoverMain.style.top = this.style.top + 'px';
-	        this.popoverMain.style.left = this.style.left + 'px';
+	        if (this.popoverMain) {
+	            this.popoverMain.style.top = this.style.top + 'px';
+	            this.popoverMain.style.left = this.style.left + 'px';
+	        }
 
-	        if (this.props.placement !== placement) {
+	        if (this.popover && this.props.placement !== placement) {
 	            this.addClass(this.popover, _utilsTool2['default'].setPhPrefix('popover-' + placement));
 	            this.removeClass(this.popover, _utilsTool2['default'].setPhPrefix('popover-' + this.props.placement));
 	        }
@@ -15059,7 +15063,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * @type Object 如{key:'ljz',value:'陆家嘴'}
 	             * */
 	            selected: _propTypes2['default'].shape({
-	                key: _propTypes2['default'].string,
+	                key: _propTypes2['default'].oneOfType(_propTypes2['default'].number, _propTypes2['default'].string),
 	                value: _propTypes2['default'].oneOfType([_propTypes2['default'].string, _propTypes2['default'].element])
 	            }),
 	            /**
@@ -15247,7 +15251,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: 'propTypes',
 	        value: {
 	            selected: _propTypes2['default'].shape({
-	                key: _propTypes2['default'].string,
+	                key: _propTypes2['default'].oneOfType(_propTypes2['default'].number, _propTypes2['default'].string),
 	                value: _propTypes2['default'].oneOfType([_propTypes2['default'].string, _propTypes2['default'].element])
 	            }),
 	            'default': _propTypes2['default'].string,
@@ -15454,7 +15458,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * @type Object 如{key:'ljz',value:'陆家嘴'}
 	             * */
 	            selected: _propTypes2['default'].shape({
-	                key: _propTypes2['default'].string,
+	                key: _propTypes2['default'].oneOfType(_propTypes2['default'].number, _propTypes2['default'].string),
 	                value: _propTypes2['default'].oneOfType([_propTypes2['default'].string, _propTypes2['default'].element])
 	            }),
 	            /**
@@ -16470,7 +16474,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * @type Object 如{key:'ljz,xjh',value:'陆家嘴,徐家汇'}
 	             * */
 	            selected: _propTypes2['default'].shape({
-	                key: _propTypes2['default'].string,
+	                key: _propTypes2['default'].oneOfType(_propTypes2['default'].number, _propTypes2['default'].string),
 	                value: _propTypes2['default'].oneOfType([_propTypes2['default'].string, _propTypes2['default'].element])
 	            }),
 	            /**
