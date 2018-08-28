@@ -656,7 +656,7 @@ export default class FilterPanelCheckbox extends Component{
          * @type Object 如{key:&#x27;ljz,xjh&#x27;,value:&#x27;陆家嘴,徐家汇&#x27;}
          * */
         selected: PropTypes.shape({
-            key: PropTypes.string,
+            key: PropTypes.oneOfType(PropTypes.number, PropTypes.string),
             value: PropTypes.oneOfType([PropTypes.string,PropTypes.element])
         }),
         /**

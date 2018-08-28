@@ -683,6 +683,7 @@ export default class SearchBar extends Component{
         new Logger(&#x27;Searchbar&#x27;)
 
         this.focus = false
+        this.blur = true
 
         // this.state = {
         //     value: props.value || &#x27;&#x27;
@@ -718,6 +719,7 @@ export default class SearchBar extends Component{
 
         this.focus = showButton || false
         this.dealClass(this.focus)
+        this.blur = false
         
         if(clickCallback) clickCallback(this.searchElem.getValueCallback())
     }
@@ -739,10 +741,13 @@ export default class SearchBar extends Component{
 
         if(blurCallback) blurCallback(this.searchElem.getValueCallback())
         
-        // this.timer = setTimeout(()=&gt;{
-        //     this.dealClass(this.focus) 
-        // },0)
-        this.dealClass(this.focus)
+        this.timer = setTimeout(()=&gt;{
+            if(this.blur){
+                this.dealClass(this.focus) 
+            }
+            this.blur = true
+        },0)
+        // this.dealClass(this.focus)
     }
 
     onKeyDown(e){
@@ -762,7 +767,7 @@ export default class SearchBar extends Component{
     }
 
     renderSearchBar(){
-        let {className, placeholder, style} = this.props
+        let {clearCallback, className, placeholder, style} = this.props
         
         return(
             &lt;form action=&quot;javascript:;&quot;&gt;
@@ -775,6 +780,7 @@ export default class SearchBar extends Component{
                             onFocus={this.onFocus.bind(this)}
                             onBlur={this.onBlur.bind(this)}
                             onKeyDown={this.onKeyDown.bind(this)}
+                            clearCallback={clearCallback}
                     /&gt;
                     {this.renderButton()}
                 &lt;/div&gt;

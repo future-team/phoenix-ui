@@ -698,28 +698,39 @@ export default class Popover extends Component{
         this.placement = this.adaptePlacement[props.placement]
         this.placementCount = 0
 
-        this.el = document.createElement(&#x27;div&#x27;)
+        this.state = {
+            mounted: false
+        }
+    }
+
+    getElement() {
+        if (!this.el) {
+            this.el = document.createElement(&#x27;div&#x27;)
+            document.body.appendChild(this.el)
+        }
+        return this.el
     }
 
     componentDidMount(){
-        
-        // 获取点击的对象target，并绑定点击事件
-        let target = this.props.getTarget()
-        if(!target) Tool.warning(&#x27;Popover 必须传递 getTarget[func]!&#x27;)
+        this.setState({ mounted: true }, ()=&gt;{
+            // 获取点击的对象target，并绑定点击事件
+            let target = this.props.getTarget()
+            if(!target) Tool.warning(&#x27;Popover 必须传递 getTarget[func]!&#x27;)
 
-        this.target = findDOMNode(target)
-        this.target.addEventListener(&#x27;click&#x27;, this.targetClickHandle, false)
-        
-        // 将popover动态插入body
-        // this.renderPortal();
-        document.body.appendChild(this.el)
-        
-        this.bubble = findDOMNode(this.popoverMain)
-        
-        setTimeout(()=&gt;{
-            document.addEventListener(&#x27;click&#x27;, this.documentClickHandle, false)
-            this.getTargetPosition()
-        }, 300)
+            this.target = findDOMNode(target)
+            this.target.addEventListener(&#x27;click&#x27;, this.targetClickHandle, false)
+            
+            // 将popover动态插入body
+            // this.renderPortal();
+            // document.body.appendChild(this.el)
+            
+            this.bubble = findDOMNode(this.popoverMain)
+            
+            setTimeout(()=&gt;{
+                document.addEventListener(&#x27;click&#x27;, this.documentClickHandle, false)
+                this.getTargetPosition()
+            }, 300)
+        })
     }
 
     renderPortal() {
@@ -768,11 +779,34 @@ export default class Popover extends Component{
     documentClickHandle(event){
         event.stopPropagation()
         let el = event.target
-        // alert(event)
         if(el==this.target || Tool.contains(this.target,el) || Tool.contains(this.bubble,el)) return 
         
         this.removeClass(this.popover, SHOW_CLASS)
     }
+
+    getElementLeft(element){
+　　　　var actualLeft = element.offsetLeft
+　　　　var current = element.offsetParent
+
+　　　　while (current !== null){
+　　　　　　actualLeft += current.offsetLeft
+　　　　　　current = current.offsetParent
+　　　　}
+
+　　　　return actualLeft
+　　}
+
+    getElementTop(element){
+　　　　var actualTop = element.offsetTop
+　　　　var current = element.offsetParent
+
+　　　　while (current !== null){
+　　　　　　actualTop += current.offsetTop
+　　　　　　current = current.offsetParent
+　　　　}
+
+　　　　return actualTop
+　　}
 
     getTargetPosition(){
         document.body.style.position = &#x27;relative&#x27;
@@ -785,15 +819,15 @@ export default class Popover extends Component{
         this.win.width = parseInt(document.documentElement.clientWidth)
         this.win.height = parseInt(Tool.getClientHeight())
 
-        this.position.x = parseInt(this.target.offsetLeft)
-        this.position.y = parseInt(this.target.offsetTop)
+        this.position.x = parseInt(this.getElementLeft(this.target))
+        this.position.y = parseInt(this.getElementTop(this.target))
         
         this.size.width = parseInt(this.target.offsetWidth)
         this.size.height = parseInt(this.target.offsetHeight)
 
         this.bubbleSize.width = parseInt(this.bubble.offsetWidth)
         this.bubbleSize.height = parseInt(this.bubble.offsetHeight)
-        console.log(this.bubble.offsetWidth)
+        
         this.calcTooltipPosition(this.props.placement)
     }
 
@@ -816,21 +850,27 @@ export default class Popover extends Component{
                     this.calcTooltipPosition(place)
                     return
                 }
+                if(topBottomLeft + this.bubbleSize.width &gt;= this.win.width){
+                    this.style.left = this.win.width - this.bubbleSize.width - 2
+                }
                 if(this.style.left&lt;0) this.style.left=0
                 break;
             case &#x27;bottom&#x27;:
-                this.style.top = this.position.y + this.size.height + distance;
+                this.style.top = this.position.y + this.size.height + distance
                 this.style.left = topBottomLeft;
 
                 if(this.style.top&gt;this.win.height-this.bubbleSize.height){
                     this.calcTooltipPosition(place)
                     return
                 }
+                if(topBottomLeft + this.bubbleSize.width &gt;= this.win.width){
+                    this.style.left = this.win.width - this.bubbleSize.width - 2
+                }
                 if(this.style.left&lt;0) this.style.left=0
                 break;
             case &#x27;left&#x27;:
-                this.style.left = this.position.x - this.bubbleSize.width - distance;
-                this.style.top = leftRightTop;
+                this.style.left = this.position.x - this.bubbleSize.width - distance
+                this.style.top = leftRightTop
 
                 if(this.style.left&lt;0){
                     this.calcTooltipPosition(place)
@@ -889,13 +929,17 @@ export default class Popover extends Component{
     }
 
     setPopoverStyle(placement){
-        this.popoverArrow.style.top = this.arrowStyle.top+&#x27;px&#x27;
-        this.popoverArrow.style.left = this.arrowStyle.left+&#x27;px&#x27;
+        if(this.popoverArrow){
+            this.popoverArrow.style.top = this.arrowStyle.top+&#x27;px&#x27;
+            this.popoverArrow.style.left = this.arrowStyle.left+&#x27;px&#x27;
+        }
 
-        this.popoverMain.style.top = this.style.top+&#x27;px&#x27;
-        this.popoverMain.style.left = this.style.left+&#x27;px&#x27;
-
-        if(this.props.placement !== placement){
+        if(this.popoverMain){
+            this.popoverMain.style.top = this.style.top+&#x27;px&#x27;
+            this.popoverMain.style.left = this.style.left+&#x27;px&#x27;
+        }
+        
+        if(this.popover &amp;&amp; this.props.placement !== placement){
             this.addClass(this.popover, Tool.setPhPrefix(&#x27;popover-&#x27;+placement))
             this.removeClass(this.popover, Tool.setPhPrefix(&#x27;popover-&#x27;+this.props.placement))
         }
@@ -903,12 +947,19 @@ export default class Popover extends Component{
 
     componentWillUnmount(){
         this.target.removeEventListener(&#x27;click&#x27;, this.targetClickHandle, false)
-        document.removeEventListener(&#x27;click&#x27;, this.documentClickHandle, false);
-        document.body.removeChild(this.el)
+        document.removeEventListener(&#x27;click&#x27;, this.documentClickHandle, false)
+        // document.body.removeChild(this.el)
+        if (this.el) {
+            this.el.remove()
+        }
     }
 
     renderPopover(props) {
-        let {className, style, children} = props
+        if (!this.state.mounted) {
+            return null
+        }
+
+        const {className, style, children} = props
 
         return ReactDOM.createPortal(
             (
@@ -918,12 +969,12 @@ export default class Popover extends Component{
                     &lt;div className={Tool.setPhPrefix(&#x27;popover-arrow&#x27;)} ref={(popover)=&gt;{this.popoverArrow=popover}}&gt;&lt;/div&gt;
                     &lt;div className={Tool.setPhPrefix(&#x27;popover-main&#x27;)} ref={(popover)=&gt;{this.popoverMain=popover}}&gt;
                         &lt;div className={Tool.setPhPrefix(&#x27;popover-content&#x27;)}&gt;
-                            {this.props.children}
+                            {children}
                         &lt;/div&gt;
                     &lt;/div&gt;
                 &lt;/div&gt;
             ),
-            this.el
+            this.getElement()
         )
     }
 

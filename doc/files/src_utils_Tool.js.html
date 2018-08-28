@@ -690,6 +690,10 @@ let Tool = {
                 event.preventDefault();
             }
         }
+    },
+    // 服务端渲染的判断
+    canUseDOM() {
+        return !!(typeof window !== &#x27;undefined&#x27; &amp;&amp; window.document &amp;&amp; window.document.createElement);
     }
 }
 

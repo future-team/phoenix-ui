@@ -28,6 +28,7 @@ import Icon from '../../icon'
  * - 可通过clickCallback设置有效选择的回调，当没有按钮时选中即触发，有按钮时点击按钮时触发。
  * - 可通过noShadow设置是否显示阴影，默认显示。
  * - 可通过hideCallback手动调用隐藏panel。
+ * - 可通过closeCallback获取点击阴影关闭的回调。
  *
  * 主要属性和接口：
  * - index: 默认打开的面板。
@@ -152,7 +153,13 @@ export default class FilterContainer extends Component{
          * @method hideCallback
          * @type Function
          * */
-        hideCallback: PropTypes.func
+        hideCallback: PropTypes.func,
+        /**
+         * 点击阴影关闭的回调
+         * @method closeCallback
+         * @type Function
+         * */
+        closeCallback: PropTypes.func
     }
 
     static defaultProps = {
@@ -344,6 +351,11 @@ export default class FilterContainer extends Component{
         }
     }
 
+    closeCallback(){
+        this.hidePanel()
+        this.props.closeCallback && this.props.closeCallback()
+    }
+
     hidePanel(){
         this.setState({
             activeCat: -1
@@ -372,7 +384,7 @@ export default class FilterContainer extends Component{
                     ref={(filterContainer)=>{this.filterContainer = filterContainer}}
                     style={{top: stable && !fixed && activeCat>-1? this.containerOffsetTop+'px':'', ...style}}
                 >
-                    <div className='ph-filter-shadow' onClick={this.hidePanel.bind(this)}></div>
+                    <div className='ph-filter-shadow' onClick={this.closeCallback.bind(this)}></div>
                     <ul className='cat ph-row ph-filter-header'>
                         {this.renderCatList()}
                     </ul>

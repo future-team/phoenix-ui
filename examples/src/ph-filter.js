@@ -154,6 +154,10 @@ export default class phFilter extends Component {
         }, 2000)
     }
 
+    closeCallback(){
+        console.log('>>>>>closed!')
+    }
+
     render(){
         const buttons2 = [
             {text:'重置', phStyle:'gray', onHandle: this.resetFilter.bind(this), otherProps: {hollow:true}},
@@ -166,7 +170,13 @@ export default class phFilter extends Component {
         return (
             <div>
                 <h2 className="comp-title">PhFilter</h2>
-                <Container index={-1} hidecat={false} clickCallback={this.clickCallback.bind(this)} noShadow={this.state.noShadow} ref={(filterContainer)=>{this.filterContainer=filterContainer}}>
+                <Container index={-1} 
+                    hidecat={false} 
+                    closeCallback={this.closeCallback.bind(this)}　
+                    clickCallback={this.clickCallback.bind(this)} 
+                    noShadow={this.state.noShadow} 
+                    ref={(filterContainer)=>{this.filterContainer=filterContainer}}
+                >
                     <PanelSimple default='筛选'>
                         {
                             this.state.panel3.map(function(item){

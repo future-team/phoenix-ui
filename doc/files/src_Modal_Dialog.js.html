@@ -570,6 +570,7 @@
     <pre class="prettyprint linenums" id='src_code'>
 import React from &#x27;react&#x27;
 import PropTypes from &#x27;prop-types&#x27;
+import ReactDOM, {findDOMNode} from &#x27;react-dom&#x27;
 import Component from &#x27;../utils/Component&#x27;
 import classnames from &#x27;classnames&#x27;
 import Logger from &#x27;../utils/logger&#x27;
@@ -692,6 +693,28 @@ class Dialog extends Component{
         super(props, context)
 
         new Logger(&#x27;Dialog&#x27;)
+
+        this.state = {
+            mounted: false
+        }
+    }
+
+    getElement() {
+        if (!this.el) {
+            this.el = document.createElement(&#x27;div&#x27;)
+            document.body.appendChild(this.el)
+        }
+        return this.el
+    }
+
+    componentDidMount(){
+        this.setState({ mounted: true })
+    }
+
+    componentWillUnmount(){
+        if (this.el) {
+            this.el.remove()
+        }
     }
 
     onShadowClose(){
@@ -753,20 +776,27 @@ class Dialog extends Component{
     }
 
     renderDialog(){
-        let {componentTag:Component, className} = this.props;
+        if (!this.state.mounted) {
+            return null
+        }
 
-        return (
-            &lt;Component {...this.otherProps} className={classnames(
-                this.getProperty(true),
-                className
-            )}&gt;
-                &lt;Animate&gt;
-                    {this.renderShadow()}
-                &lt;/Animate&gt;
-                &lt;Animate&gt;
-                    {this.renderContent()}
-                &lt;/Animate&gt;
-            &lt;/Component&gt;
+        let {componentTag:Component, className} = this.props
+
+        return ReactDOM.createPortal(
+            (
+                &lt;Component {...this.otherProps} className={classnames(
+                    this.getProperty(true),
+                    className
+                )}&gt;
+                    &lt;Animate&gt;
+                        {this.renderShadow()}
+                    &lt;/Animate&gt;
+                    &lt;Animate&gt;
+                        {this.renderContent()}
+                    &lt;/Animate&gt;
+                &lt;/Component&gt;
+            ),
+            this.getElement()
         )
     }
 

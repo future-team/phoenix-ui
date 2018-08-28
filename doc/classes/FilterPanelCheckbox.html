@@ -878,7 +878,7 @@ export default class phFilter extends Component {
         for(let i in this.state[panelName]){
             let itemGroup = this.state[panelName][i]
             newPanel.push(
-                &lt;ItemGroup key={i} label={i} mainKey={i}&gt;
+                &lt;ItemGroup key={i} label={i} mainKey={i} clickCallback={this.itemGroupClickCallback.bind(this)}&gt;
                     {
                         itemGroup.map((item)=&gt;{
                             return (
@@ -895,8 +895,12 @@ export default class phFilter extends Component {
         return newPanel
     }
 
-    clickCallback(key, index){
-        console.log(key, index);
+    itemGroupClickCallback(index){
+        console.log(&#39;&gt;&gt;&gt;&gt;&gt;mainKey&#39;, index)
+    }
+
+    clickCallback(key, catIndex, options){
+        console.log(key, catIndex, options);
     }
 
     resetFilter(key){
@@ -931,6 +935,10 @@ export default class phFilter extends Component {
         }, 2000)
     }
 
+    closeCallback(){
+        console.log(&#39;&gt;&gt;&gt;&gt;&gt;closed!&#39;)
+    }
+
     render(){
         const buttons2 = [
             {text:&#39;重置&#39;, phStyle:&#39;gray&#39;, onHandle: this.resetFilter.bind(this), otherProps: {hollow:true}},
@@ -943,7 +951,13 @@ export default class phFilter extends Component {
         return (
             &lt;div&gt;
                 &lt;h2 className="comp-title"&gt;PhFilter&lt;/h2&gt;
-                &lt;Container index={-1} hidecat={false} clickCallback={this.clickCallback.bind(this)} noShadow={this.state.noShadow} ref={(filterContainer)=&gt;{this.filterContainer=filterContainer}}&gt;
+                &lt;Container index={-1} 
+                    hidecat={false} 
+                    closeCallback={this.closeCallback.bind(this)}　
+                    clickCallback={this.clickCallback.bind(this)} 
+                    noShadow={this.state.noShadow} 
+                    ref={(filterContainer)=&gt;{this.filterContainer=filterContainer}}
+                &gt;
                     &lt;PanelSimple default=&#39;筛选&#39;&gt;
                         {
                             this.state.panel3.map(function(item){

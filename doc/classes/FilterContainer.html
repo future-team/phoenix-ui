@@ -573,6 +573,7 @@
 <li>可通过clickCallback设置有效选择的回调，当没有按钮时选中即触发，有按钮时点击按钮时触发。</li>
 <li>可通过noShadow设置是否显示阴影，默认显示。</li>
 <li>可通过hideCallback手动调用隐藏panel。</li>
+<li>可通过closeCallback获取点击阴影关闭的回调。</li>
 </ul>
 <p>主要属性和接口：</p>
 <ul>
@@ -658,6 +659,13 @@ this.container.hideCallback();</code></pre>
                         
                             <li class="index-item method">
                                 <a href="#" data-tabid="#method" data-anchor="#method_clickCallback" data-tablink="clickCallback">clickCallback</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#" data-tabid="#method" data-anchor="#method_closeCallback" data-tablink="closeCallback">closeCallback</a>
 
                                 
                                 
@@ -918,7 +926,7 @@ export default class phFilter extends Component {
         for(let i in this.state[panelName]){
             let itemGroup = this.state[panelName][i]
             newPanel.push(
-                &lt;ItemGroup key={i} label={i} mainKey={i}&gt;
+                &lt;ItemGroup key={i} label={i} mainKey={i} clickCallback={this.itemGroupClickCallback.bind(this)}&gt;
                     {
                         itemGroup.map((item)=&gt;{
                             return (
@@ -935,8 +943,12 @@ export default class phFilter extends Component {
         return newPanel
     }
 
-    clickCallback(key, index){
-        console.log(key, index);
+    itemGroupClickCallback(index){
+        console.log(&#39;&gt;&gt;&gt;&gt;&gt;mainKey&#39;, index)
+    }
+
+    clickCallback(key, catIndex, options){
+        console.log(key, catIndex, options);
     }
 
     resetFilter(key){
@@ -971,6 +983,10 @@ export default class phFilter extends Component {
         }, 2000)
     }
 
+    closeCallback(){
+        console.log(&#39;&gt;&gt;&gt;&gt;&gt;closed!&#39;)
+    }
+
     render(){
         const buttons2 = [
             {text:&#39;重置&#39;, phStyle:&#39;gray&#39;, onHandle: this.resetFilter.bind(this), otherProps: {hollow:true}},
@@ -983,7 +999,13 @@ export default class phFilter extends Component {
         return (
             &lt;div&gt;
                 &lt;h2 className="comp-title"&gt;PhFilter&lt;/h2&gt;
-                &lt;Container index={-1} hidecat={false} clickCallback={this.clickCallback.bind(this)} noShadow={this.state.noShadow} ref={(filterContainer)=&gt;{this.filterContainer=filterContainer}}&gt;
+                &lt;Container index={-1} 
+                    hidecat={false} 
+                    closeCallback={this.closeCallback.bind(this)}　
+                    clickCallback={this.clickCallback.bind(this)} 
+                    noShadow={this.state.noShadow} 
+                    ref={(filterContainer)=&gt;{this.filterContainer=filterContainer}}
+                &gt;
                     &lt;PanelSimple default=&#39;筛选&#39;&gt;
                         {
                             this.state.panel3.map(function(item){
@@ -1123,7 +1145,7 @@ export default class phFilter extends Component {
             
         
         
-        <a href="../files/src_ph-filter_components_FilterContainer.js.html#l143"><code>src&#x2F;ph-filter&#x2F;components&#x2F;FilterContainer.js:143</code></a>
+        <a href="../files/src_ph-filter_components_FilterContainer.js.html#l144"><code>src&#x2F;ph-filter&#x2F;components&#x2F;FilterContainer.js:144</code></a>
         
         </p>
 
@@ -1191,6 +1213,63 @@ export default class phFilter extends Component {
 </div>
 
                 
+                    <div id="method_closeCallback" class="method item">
+    <h3 class="name">closeCallback</h3>
+    <code>
+    closeCallback
+    
+        <span class="paren">()</span>
+    
+    </code>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_ph-filter_components_FilterContainer.js.html#l157"><code>src&#x2F;ph-filter&#x2F;components&#x2F;FilterContainer.js:157</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description well well-small sign-left3">
+        <div class="stdoc-code"><p>点击阴影关闭的回调</p>
+</div>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
                     <div id="method_hideCallback" class="method item">
     <h3 class="name">hideCallback</h3>
     <code>
@@ -1225,7 +1304,7 @@ export default class phFilter extends Component {
             
         
         
-        <a href="../files/src_ph-filter_components_FilterContainer.js.html#l150"><code>src&#x2F;ph-filter&#x2F;components&#x2F;FilterContainer.js:150</code></a>
+        <a href="../files/src_ph-filter_components_FilterContainer.js.html#l151"><code>src&#x2F;ph-filter&#x2F;components&#x2F;FilterContainer.js:151</code></a>
         
         </p>
 
@@ -1279,7 +1358,7 @@ export default class phFilter extends Component {
             
         
         
-        <a href="../files/src_ph-filter_components_FilterContainer.js.html#l129"><code>src&#x2F;ph-filter&#x2F;components&#x2F;FilterContainer.js:129</code></a>
+        <a href="../files/src_ph-filter_components_FilterContainer.js.html#l130"><code>src&#x2F;ph-filter&#x2F;components&#x2F;FilterContainer.js:130</code></a>
         
         </p>
 
@@ -1327,7 +1406,7 @@ export default class phFilter extends Component {
             
         
         
-        <a href="../files/src_ph-filter_components_FilterContainer.js.html#l122"><code>src&#x2F;ph-filter&#x2F;components&#x2F;FilterContainer.js:122</code></a>
+        <a href="../files/src_ph-filter_components_FilterContainer.js.html#l123"><code>src&#x2F;ph-filter&#x2F;components&#x2F;FilterContainer.js:123</code></a>
         
         </p>
 
@@ -1375,7 +1454,7 @@ export default class phFilter extends Component {
             
         
         
-        <a href="../files/src_ph-filter_components_FilterContainer.js.html#l136"><code>src&#x2F;ph-filter&#x2F;components&#x2F;FilterContainer.js:136</code></a>
+        <a href="../files/src_ph-filter_components_FilterContainer.js.html#l137"><code>src&#x2F;ph-filter&#x2F;components&#x2F;FilterContainer.js:137</code></a>
         
         </p>
 

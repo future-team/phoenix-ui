@@ -14576,6 +14576,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * - 可通过clickCallback设置有效选择的回调，当没有按钮时选中即触发，有按钮时点击按钮时触发。
 	 * - 可通过noShadow设置是否显示阴影，默认显示。
 	 * - 可通过hideCallback手动调用隐藏panel。
+	 * - 可通过closeCallback获取点击阴影关闭的回调。
 	 *
 	 * 主要属性和接口：
 	 * - index: 默认打开的面板。
@@ -14704,7 +14705,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * @method hideCallback
 	             * @type Function
 	             * */
-	            hideCallback: _propTypes2['default'].func
+	            hideCallback: _propTypes2['default'].func,
+	            /**
+	             * 点击阴影关闭的回调
+	             * @method closeCallback
+	             * @type Function
+	             * */
+	            closeCallback: _propTypes2['default'].func
 	        },
 	        enumerable: true
 	    }, {
@@ -14923,6 +14930,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    };
 
+	    FilterContainer.prototype.closeCallback = function closeCallback() {
+	        this.hidePanel();
+	        this.props.closeCallback && this.props.closeCallback();
+	    };
+
 	    FilterContainer.prototype.hidePanel = function hidePanel() {
 	        var _this4 = this;
 
@@ -14960,7 +14972,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    },
 	                    style: _extends({ top: stable && !fixed && activeCat > -1 ? this.containerOffsetTop + 'px' : '' }, style)
 	                },
-	                _react2['default'].createElement('div', { className: 'ph-filter-shadow', onClick: this.hidePanel.bind(this) }),
+	                _react2['default'].createElement('div', { className: 'ph-filter-shadow', onClick: this.closeCallback.bind(this) }),
 	                _react2['default'].createElement(
 	                    'ul',
 	                    { className: 'cat ph-row ph-filter-header' },

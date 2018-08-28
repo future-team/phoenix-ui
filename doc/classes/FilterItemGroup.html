@@ -628,6 +628,13 @@
                     <ul class="index-list properties extends">
                         
                             <li class="index-item property">
+                                <a href="#" data-tabid="#property" data-anchor="#property_clickCallback" data-tablink="clickCallback">clickCallback</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
                                 <a href="#" data-tabid="#property" data-anchor="#property_label" data-tablink="label">label</a>
 
                                 
@@ -857,7 +864,7 @@ export default class phFilter extends Component {
         for(let i in this.state[panelName]){
             let itemGroup = this.state[panelName][i]
             newPanel.push(
-                &lt;ItemGroup key={i} label={i} mainKey={i}&gt;
+                &lt;ItemGroup key={i} label={i} mainKey={i} clickCallback={this.itemGroupClickCallback.bind(this)}&gt;
                     {
                         itemGroup.map((item)=&gt;{
                             return (
@@ -874,8 +881,12 @@ export default class phFilter extends Component {
         return newPanel
     }
 
-    clickCallback(key, index){
-        console.log(key, index);
+    itemGroupClickCallback(index){
+        console.log(&#39;&gt;&gt;&gt;&gt;&gt;mainKey&#39;, index)
+    }
+
+    clickCallback(key, catIndex, options){
+        console.log(key, catIndex, options);
     }
 
     resetFilter(key){
@@ -910,6 +921,10 @@ export default class phFilter extends Component {
         }, 2000)
     }
 
+    closeCallback(){
+        console.log(&#39;&gt;&gt;&gt;&gt;&gt;closed!&#39;)
+    }
+
     render(){
         const buttons2 = [
             {text:&#39;重置&#39;, phStyle:&#39;gray&#39;, onHandle: this.resetFilter.bind(this), otherProps: {hollow:true}},
@@ -922,7 +937,13 @@ export default class phFilter extends Component {
         return (
             &lt;div&gt;
                 &lt;h2 className="comp-title"&gt;PhFilter&lt;/h2&gt;
-                &lt;Container index={-1} hidecat={false} clickCallback={this.clickCallback.bind(this)} noShadow={this.state.noShadow} ref={(filterContainer)=&gt;{this.filterContainer=filterContainer}}&gt;
+                &lt;Container index={-1} 
+                    hidecat={false} 
+                    closeCallback={this.closeCallback.bind(this)}　
+                    clickCallback={this.clickCallback.bind(this)} 
+                    noShadow={this.state.noShadow} 
+                    ref={(filterContainer)=&gt;{this.filterContainer=filterContainer}}
+                &gt;
                     &lt;PanelSimple default=&#39;筛选&#39;&gt;
                         {
                             this.state.panel3.map(function(item){
@@ -1018,6 +1039,51 @@ export default class phFilter extends Component {
         
             <div id="property" class="tab-pane">
                 <h2 class="off-left">属性</h2>
+
+                
+                    <div id="property_clickCallback" class="property item">
+    <h3 class="name"><code>clickCallback</code></h3>
+    <span class="type">Function</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p class="foundat">
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_ph-filter_components_FilterItemGroup.js.html#l81"><code>src&#x2F;ph-filter&#x2F;components&#x2F;FilterItemGroup.js:81</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <div class="stdoc-code"><p>点击的回调</p>
+</div>
+    </div>
+
+    
+
+    
+
+    
+</div>
 
                 
                     <div id="property_label" class="property item">

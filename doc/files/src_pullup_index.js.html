@@ -684,6 +684,7 @@ export default class PullUp extends Component{
         phStyle: &#x27;primary&#x27;,
         tips: [&#x27;加载更多&#x27;,&#x27;&#x27;,&#x27;加载成功&#x27;,&#x27;加载失败&#x27;,&#x27;没有更多&#x27;],
         classPrefix:&#x27;pullup&#x27;,
+        hardware: true,
         classMapping : {}
     }
 
@@ -749,7 +750,7 @@ export default class PullUp extends Component{
         this.dragElem = pullUpElem.parentNode
         this.prevElem = pullUpElem.previousElementSibling
         this.addClass(this.dragElem, &#x27;animated&#x27;)
-        this.addClass(this.prevElem, &#x27;hardware&#x27;)
+        this.props.hardware &amp;&amp; this.addClass(this.prevElem, &#x27;hardware&#x27;)
 
         this.dragEventHandle(this.dragElem)
 

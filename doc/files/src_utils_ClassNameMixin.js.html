@@ -664,7 +664,7 @@ export default obj=&gt;{
      * @return {Boolean}
      * */
     obj.prototype.hasClass = function(obj,cls){
-        return obj.className.match(new RegExp(&#x27;(\\s|^)&#x27; + cls + &#x27;(\\s|$)&#x27;));
+        return obj &amp;&amp; obj.className.match(new RegExp(&#x27;(\\s|^)&#x27; + cls + &#x27;(\\s|$)&#x27;));
     };
 
     /*
@@ -674,7 +674,7 @@ export default obj=&gt;{
      * @param cls {String} 样式名
      * */
     obj.prototype.addClass = function(obj,cls){
-        if (!this.hasClass(obj, cls)) obj.className += &quot; &quot; + cls;
+        if (obj &amp;&amp; !this.hasClass(obj, cls)) obj.className += &quot; &quot; + cls;
     };
     /*
      * 给元素删除一个样式名
@@ -683,7 +683,7 @@ export default obj=&gt;{
      * @param cls {String} 样式名
      * */
     obj.prototype.removeClass = function(obj,cls){
-        if (this.hasClass(obj, cls)) {
+        if (obj &amp;&amp; this.hasClass(obj, cls)) {
             var reg = new RegExp(&#x27;(\\s|^)&#x27; + cls + &#x27;(\\s|$)&#x27;);
             obj.className = obj.className.replace(reg, &#x27; &#x27;);
         }

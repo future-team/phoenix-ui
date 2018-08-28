@@ -598,6 +598,7 @@ import Icon from &#x27;../../icon&#x27;
  * - 可通过clickCallback设置有效选择的回调，当没有按钮时选中即触发，有按钮时点击按钮时触发。
  * - 可通过noShadow设置是否显示阴影，默认显示。
  * - 可通过hideCallback手动调用隐藏panel。
+ * - 可通过closeCallback获取点击阴影关闭的回调。
  *
  * 主要属性和接口：
  * - index: 默认打开的面板。
@@ -722,7 +723,13 @@ export default class FilterContainer extends Component{
          * @method hideCallback
          * @type Function
          * */
-        hideCallback: PropTypes.func
+        hideCallback: PropTypes.func,
+        /**
+         * 点击阴影关闭的回调
+         * @method closeCallback
+         * @type Function
+         * */
+        closeCallback: PropTypes.func
     }
 
     static defaultProps = {
@@ -804,7 +811,7 @@ export default class FilterContainer extends Component{
         })
     }
 
-    categoryChange(index,category,hasButtons){
+    categoryChange(index,category,hasButtons,options){
         let catList = this.state.catList.slice(),
             {clickCallback} = this.props
         
@@ -818,8 +825,8 @@ export default class FilterContainer extends Component{
         }, ()=&gt;{
             this.fixScroll(-1)
         })
-
-        clickCallback &amp;&amp; clickCallback(category.key, this.state.activeCat)
+        console.log(&#x27;&gt;&gt;&gt;&gt;hasButtons&#x27;, hasButtons)
+        clickCallback &amp;&amp; clickCallback(category.key, this.state.activeCat, options)
     }
 
     activeCat(index){
@@ -914,6 +921,11 @@ export default class FilterContainer extends Component{
         }
     }
 
+    closeCallback(){
+        this.hidePanel()
+        this.props.closeCallback &amp;&amp; this.props.closeCallback()
+    }
+
     hidePanel(){
         this.setState({
             activeCat: -1
@@ -942,7 +954,7 @@ export default class FilterContainer extends Component{
                     ref={(filterContainer)=&gt;{this.filterContainer = filterContainer}}
                     style={{top: stable &amp;&amp; !fixed &amp;&amp; activeCat&gt;-1? this.containerOffsetTop+&#x27;px&#x27;:&#x27;&#x27;, ...style}}
                 &gt;
-                    &lt;div className=&#x27;ph-filter-shadow&#x27; onClick={this.hidePanel.bind(this)}&gt;&lt;/div&gt;
+                    &lt;div className=&#x27;ph-filter-shadow&#x27; onClick={this.closeCallback.bind(this)}&gt;&lt;/div&gt;
                     &lt;ul className=&#x27;cat ph-row ph-filter-header&#x27;&gt;
                         {this.renderCatList()}
                     &lt;/ul&gt;
