@@ -10617,52 +10617,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	            _this.target = _reactDom.findDOMNode(target);
 	            _this.target.addEventListener('click', _this.targetClickHandle, false);
 
-	            // 将popover动态插入body
-	            // this.renderPortal();
-	            // document.body.appendChild(this.el)
-
 	            _this.bubble = _reactDom.findDOMNode(_this.popoverMain);
 
 	            setTimeout(function () {
 	                document.addEventListener('click', _this.documentClickHandle, false);
-	                _this.getTargetPosition();
 	            }, 300);
 	        });
 	    };
 
-	    Popover.prototype.renderPortal = function renderPortal() {
+	    Popover.prototype.popoverArrow = function popoverArrow() {
 	        var _this2 = this;
 
-	        this.node = document.createElement('div');
-	        document.body.appendChild(this.node);
-
-	        var popoverProps = this.otherProps;
-	        popoverProps.className = _classnames2['default'](this.getProperty(true), this.props.className);
-	        popoverProps.style = this.getStyles(this.props.style);
-	        popoverProps.ref = function (popover) {
-	            _this2.popover = popover;
-	        };
-
-	        var element = _react2['default'].createElement('div', popoverProps, this.popoverArrow(), this.popoverMain());
-
-	        _reactDom2['default'].render(element, this.node);
-	    };
-
-	    Popover.prototype.popoverArrow = function popoverArrow() {
-	        var _this3 = this;
-
 	        return _react2['default'].createElement('div', { className: _utilsTool2['default'].setPhPrefix('popover-arrow'), ref: function (popover) {
-	                _this3.popoverArrow = popover;
+	                _this2.popoverArrow = popover;
 	            } });
 	    };
 
 	    Popover.prototype.popoverMain = function popoverMain() {
-	        var _this4 = this;
+	        var _this3 = this;
 
 	        return _react2['default'].createElement(
 	            'div',
 	            { className: _utilsTool2['default'].setPhPrefix('popover-main'), ref: function (popover) {
-	                    _this4.popoverMain = popover;
+	                    _this3.popoverMain = popover;
 	                } },
 	            _react2['default'].createElement(
 	                'div',
@@ -10678,6 +10655,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    Popover.prototype.targetClickHandle = function targetClickHandle() {
 	        var clickCallback = this.props.clickCallback;
+
+	        this.placementCount = 0;
+
+	        this.getTargetPosition();
 
 	        if (this.hasClass(this.popover, SHOW_CLASS)) {
 	            this.removeClass(this.popover, SHOW_CLASS);
@@ -10728,7 +10709,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.bubbleSize = {};
 
 	        this.win.width = parseInt(document.documentElement.clientWidth);
-	        this.win.height = parseInt(_utilsTool2['default'].getClientHeight());
+	        this.win.height = parseInt(document.body.clientHeight);
 
 	        this.position.x = parseInt(this.getElementLeft(this.target));
 	        this.position.y = parseInt(this.getElementTop(this.target));
@@ -10866,7 +10847,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    Popover.prototype.renderPopover = function renderPopover(props) {
-	        var _this5 = this;
+	        var _this4 = this;
 
 	        if (!this.state.mounted) {
 	            return null;
@@ -10881,15 +10862,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	            { className: _classnames2['default'](this.getProperty(true), className),
 	                style: this.getStyles(style),
 	                ref: function (popover) {
-	                    _this5.popover = popover;
+	                    _this4.popover = popover;
 	                } },
 	            _react2['default'].createElement('div', { className: _utilsTool2['default'].setPhPrefix('popover-arrow'), ref: function (popover) {
-	                    _this5.popoverArrow = popover;
+	                    _this4.popoverArrow = popover;
 	                } }),
 	            _react2['default'].createElement(
 	                'div',
 	                { className: _utilsTool2['default'].setPhPrefix('popover-main'), ref: function (popover) {
-	                        _this5.popoverMain = popover;
+	                        _this4.popoverMain = popover;
 	                    } },
 	                _react2['default'].createElement(
 	                    'div',

@@ -150,31 +150,12 @@ export default class Popover extends Component{
             this.target = findDOMNode(target)
             this.target.addEventListener('click', this.targetClickHandle, false)
             
-            // 将popover动态插入body
-            // this.renderPortal();
-            // document.body.appendChild(this.el)
-            
             this.bubble = findDOMNode(this.popoverMain)
             
             setTimeout(()=>{
                 document.addEventListener('click', this.documentClickHandle, false)
-                this.getTargetPosition()
             }, 300)
         })
-    }
-
-    renderPortal() {
-        this.node = document.createElement('div');
-        document.body.appendChild(this.node);
-
-        let popoverProps = this.otherProps
-        popoverProps.className = classnames(this.getProperty(true), this.props.className)
-        popoverProps.style = this.getStyles(this.props.style)
-        popoverProps.ref = (popover)=>{this.popover = popover}
-
-        let element = React.createElement('div', popoverProps , this.popoverArrow(), this.popoverMain())
-
-        ReactDOM.render(element, this.node);
     }
 
     popoverArrow(){
@@ -197,6 +178,10 @@ export default class Popover extends Component{
 
     targetClickHandle(){
         let {clickCallback} = this.props
+
+        this.placementCount = 0
+
+        this.getTargetPosition()
         
         if(this.hasClass(this.popover, SHOW_CLASS)){
             this.removeClass(this.popover, SHOW_CLASS)
@@ -247,7 +232,7 @@ export default class Popover extends Component{
         this.bubbleSize = {}
 
         this.win.width = parseInt(document.documentElement.clientWidth)
-        this.win.height = parseInt(Tool.getClientHeight())
+        this.win.height = parseInt(document.body.clientHeight)
 
         this.position.x = parseInt(this.getElementLeft(this.target))
         this.position.y = parseInt(this.getElementTop(this.target))
@@ -270,7 +255,7 @@ export default class Popover extends Component{
 
         this.placementCount ++
         let place = this.placement[this.placementCount]
-
+        
         switch(placement){
             case 'top':
                 this.style.top = this.position.y - this.bubbleSize.height - distance
