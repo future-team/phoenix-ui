@@ -108,9 +108,9 @@ export default class Whisper extends Component{
     }
 
     componentDidMount(){
-        setTimeout(()=>{
-            this.getWhisperPosition();
-        },0);
+        // setTimeout(()=>{
+        //     this.getWhisperPosition();
+        // },0);
     }
 
     getWhisperPosition(){
@@ -177,6 +177,7 @@ export default class Whisper extends Component{
         this.visible = !this.visible;
 
         if(this.visible){
+            this.getWhisperPosition();
             this.renderTarget();
         }else{
             this.removeTarget();

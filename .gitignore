@@ -42,3 +42,4 @@ thumbs.db
 .vscode
 node_modules/
 examples/lib/
+package-lock.json
