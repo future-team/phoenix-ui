@@ -311,7 +311,7 @@ export default class FilterPanelCheckbox extends Component{
             
             if(itemChecked[mainKey][key] && !disabled) checkedCount++
             if(disabled){
-                self.deleteFromArray(key.toString())
+                // self.deleteFromArray(key.toString()) // 当选中项中存在disabled时，不从已选中的数组中移除
                 disabledCount++
             } 
             sum ++
