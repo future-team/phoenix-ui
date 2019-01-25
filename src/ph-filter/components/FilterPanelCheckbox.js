@@ -309,7 +309,7 @@ export default class FilterPanelCheckbox extends Component{
                 self.nameList[mainKey][key] = item.props.children
             }
             
-            if(itemChecked[mainKey][key]) checkedCount++
+            if(itemChecked[mainKey][key] && !disabled) checkedCount++
             if(disabled){
                 self.deleteFromArray(key.toString())
                 disabledCount++
