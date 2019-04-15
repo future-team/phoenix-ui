@@ -19,7 +19,7 @@ export default class phFilter extends Component {
             panel1:[],
             panel2:{},
             selected2: {key:'ljz',value:'陆家嘴'},
-            selected3: {key:'f_hg,m_sryy',value:'火锅,私人影院'},
+            selected3: {key:'f_hg,m_sryy,m_fyt',value:'火锅,私人影院,1'},
             panel3:[],
             panel4:{},
             noShadow: false
@@ -101,7 +101,7 @@ export default class phFilter extends Component {
                     {
                         itemGroup.map((item)=>{
                             return (
-                                <Item key={item.key} itemKey={item.key}>
+                                <Item key={item.key} itemKey={item.key} disabled>
                                     {item.value}
                                 </Item>
                             )
