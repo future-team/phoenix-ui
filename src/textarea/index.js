@@ -135,7 +135,8 @@ export default class Textarea extends Component{
 
         return (
             <div className={classnames(this.setPhPrefix('field'), className)} style={this.getStyles(style)}>
-                <textarea {...this.otherProps} className={this.getProperty(true)} 
+                <textarea {...this.otherProps} className={this.getProperty(true)}
+                    ref={(textElem)=>{this.textElem=textElem}} 
                     value={this.state.value} 
                     onChange={(event)=>{this.onTextareaChange(event)}} 
                     disabled={disabled} style={null}></textarea>
