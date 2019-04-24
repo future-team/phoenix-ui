@@ -1,6 +1,6 @@
 {
   "name": "phoenix-ui",
-  "version": "3.5.23",
+  "version": "3.5.24",
   "description": "future team ui for app with react",
   "main": "lib/",
   "scripts": {
@@ -78,7 +78,7 @@
   "dependencies": {
     "extend": "^3.0.0",
     "fastclick": "^1.0.6",
-    "phoenix-styles": "^3.2.3",
+    "phoenix-styles": "^3.2.4",
     "pmlogger": "^1.0.7",
     "react-transition-group": "^1.2.1"
   },
