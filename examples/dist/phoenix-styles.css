@@ -22,7 +22,6 @@ html {
   -webkit-text-size-adjust: 100%;
   /* 2 */
   font-size: 16px;
-  touch-action: manipulation;
 }
 body {
   margin: 0;

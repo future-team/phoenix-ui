@@ -184,7 +184,11 @@ export default class SearchBar extends Component{
         let {queryCallback} = this.props
 
         if(e.keyCode == '13'){
-            if(queryCallback) queryCallback(this.searchElem.getValueCallback())
+            e.preventDefault()
+
+            if(queryCallback && typeof queryCallback == 'function') {
+                queryCallback(this.searchElem.getValueCallback())
+            }
         }
     }
 
